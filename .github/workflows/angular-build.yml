@@ -1,4 +1,4 @@
-name: Angular Build CI
+name: Build Angular App
 
 on:
   push:
@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: my-angular-app/epma
+        working-directory: epma
 
     steps:
-      - name: Checkout source code
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Set up Node.js
