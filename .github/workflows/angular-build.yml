@@ -19,6 +19,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Show and save folder structure
+        run: |
+          ls -R ../ > ../repo-structure.txt
+          cat ../repo-structure.txt
+
+      - name: Upload folder structure artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: folder-structure
+          path: ../repo-structure.txt
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -29,3 +40,9 @@ jobs:
 
       - name: Build Angular app
         run: npm run build -- --configuration=production
+
+      - name: Upload build output (optional)
+        uses: actions/upload-artifact@v3
+        with:
+          name: angular-build-output
+          path: dist/
