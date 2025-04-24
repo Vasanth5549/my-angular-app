@@ -1,0 +1,10 @@
+.LinkDisable {
+    color: gray !important;
+    cursor: not-allowed;
+    text-decoration: underline;
+    pointer-events: none;
+}
+
+.iHyperlinkButton {
+    color: #0000C8;
+}

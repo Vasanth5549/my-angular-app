@@ -1,0 +1,83 @@
+::ng-deep kendo-combobox .k-clear-value {
+    display: none !important;
+}
+
+:host::ng-deep .k-combobox {
+    height: 21px;
+}
+
+/* :host::ng-deep .k-i-arrow-s::before {
+    margin-top: -5px
+} */
+
+.empcombo {
+    width: 360px;
+    height: 21px;
+    margin: 5px 2px 0px 2px;
+    vertical-align: center;
+}
+
+
+.comboChild {
+    margin-left: 10px;
+}
+
+::ng-deep .spClass {
+    opacity: 1 !important;
+}
+
+::ng-deep .k-searchbar {
+    border-right-color: #87a7ae;
+    border-right-style: solid;
+    border-right-width: 1px;
+}
+
+::ng-deep .combo-custom-styles .k-input-button {
+    width: calc(1.4285714286em + 0px);
+    margin-right: 0px !important;
+    margin-top: 1px;
+}
+
+.wordwrap-class {
+    text-overflow: ellipsis;
+    width: 250px !important;
+}
+
+::ng-deep .Wordwrap-tooltip-bottom * {
+    text-wrap: wrap;
+    white-space: normal;
+    font-size: 12px;
+    width: 350px;
+}
+
+::ng-deep .Wordwrap-tooltip-bottom .k-callout {
+    background: transparent;
+    color: transparent;
+}
+
+::ng-deep .noWrapCSSClassForComboDropdownWithBorder {
+    border-color: red !important;
+    white-space: nowrap;
+}
+
+::ng-deep .k-list-item:has(.comboParent) {
+    opacity: revert !important;
+    font-weight: bold;
+}
+
+::ng-deep .DRC-dose-type-tooltip {
+    text-wrap: wrap;
+    white-space: normal;
+    font-size: 12px;
+    max-width: 350px;
+}
+::ng-deep .period-tooltip{
+    pointer-events: none;
+    padding-top: 25px;
+}
+@media screen and (max-device-width: 1400px) {
+    ::ng-deep .k-list-content  {
+        /* max-height: 175px !important; */
+        max-height: 300px !important;
+    }
+  }

@@ -1,0 +1,33 @@
+:host ::ng-deep .k-grid .k-grid-content td {
+    white-space: nowrap !important;
+    padding: 6px 5px;
+}
+
+:host ::ng-deep .review-grid-label .ng-star-inserted {
+    display: flex !important;
+}
+
+:host ::ng-deep .k-grid .k-grid-header {
+    background-color: #74b9c3 !important;
+}
+.scrollheight{
+    overflow-wrap: anywhere;
+    display: inline-flex;
+    padding-top: 5px;
+}
+
+:host ::ng-deep .k-grid-content {
+  overflow-y: auto !important;
+} 
+
+::ng-deep .medhisreviewclss .k-grid-aria-root .k-grid-header{
+padding: 0px !important;
+}
+.ArrowAlign ::ng-deep {
+    margin-left: 11px;
+}
+@media screen and (max-device-width: 1400px) {
+    .reviewhstydetl{
+      height: 320px;
+    }
+  }

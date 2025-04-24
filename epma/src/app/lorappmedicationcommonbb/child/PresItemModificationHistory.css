@@ -1,0 +1,13 @@
+:host ::ng-deep .k-grid .k-grid-content td {
+	overflow-wrap: break-word ;
+    white-space: normal;
+}
+
+::ng-deep .span1{
+    white-space: normal !important;
+    word-break: break-word !important;
+    vertical-align: middle;
+    display: inline-block !important;
+    padding-right: 20px !important; 
+    padding-left: 0px;
+}

@@ -1,0 +1,34 @@
+.grid-layout-container {
+    /* Revisit Required */
+    height: auto;
+}
+.div-bg-whiteborder {
+    border-top: 2px solid white;
+    background-color: #c2e2e3;
+}
+.div-bg {
+    background-color: #c2e2e3;
+}
+.div-whiteborder {
+    border-top: 2px solid white;
+}
+
+.gridCell{
+    white-space: normal;
+    word-break: break-all;
+}
+
+::ng-deep .k-grid .k-grid-content td.prodSacn {
+    position: relative;
+  
+  }
+
+  ::ng-deep .k-grid .k-grid-content td.productcode {
+      position: relative;
+  }
+
+  .gridScan{
+    white-space: normal;
+    word-break: break-word;
+    display: contents !important;
+  }

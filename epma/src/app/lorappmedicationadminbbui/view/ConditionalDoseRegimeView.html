@@ -1,0 +1,183 @@
+<div class="div-dialog-content" name="LayoutRoot">
+    <kendo-gridlayout [rows]="[{ height: '2fr'}, { height: '2fr'}]">
+            <kendo-gridlayout-item [colSpan]='2' >
+                <div containerStyle>
+                    <iLabel #lblConditionalRegimeTempRef Margin="0,0,0,5" FontWeight="Bold" class="labelSize"
+                        Name="lblConditionalRegime" VerticalAlignment="Center"
+                        [Text]="CondRes.lblConditionalRegime_Text">
+                    </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='2'>
+            <div containerStyle class="div-whiteborder">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="5,0,0,5" class="stackSize">
+                    <iLabel #lblObsOrResultValueTempRef HorizontalAlignment="Stretch" FontWeight="Bold" Margin="0,0,0,5"
+                        Foreground="CadetBlue" Name="lblObsOrResultValue" VerticalAlignment="Center"
+                        [Text]="DataContext.LatestObservationResult" [Tooltip]="DataContext.LatestObservationResult">
+                    </iLabel>
+                    <iLabel #lblObsOrResultDetailsTempRef HorizontalAlignment="Stretch" Margin="5,0,5,0"
+                        Name="lblObsOrResultDetails" VerticalAlignment="Center"
+                        [Text]="DataContext.LatestObservationResultDetails" IsWordwrap="True"
+                        [Tooltip]="DataContext.LatestObservationResultDetails"></iLabel>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='3' [col]='1'>    
+             <kendo-grid #grdConditionalDoseTempRef row='3' colSpan='3' [style.margin.px]="7" [sortable]="false" [height]="180"
+                [resizable]="false" [reorderable]="false" [data]="grdConditionalDose.ItemsSource.array"
+                [GridProperties]="grdConditionalDose" [selectable]="isRowSelectable" [IsEnabled]="isGridEnable"
+                (selectionChange)="grdConditionalDose_SelectionChanged($event)"
+                (cellClick)="grdConditionalDose.cellClick($event)" kendoGridSelectBy [(selectedKeys)]="grdConditionalDose.selectedRowsIndex" >
+                <ng-template kendoGridNoRecordsTemplate>There are no records to show</ng-template>
+                <kendo-grid-column UniqueName="ValueRange" field="ValueRange" [filterable]="false" [width]="10">
+                    <ng-template kendoGridHeaderTemplate>
+                        <ControlTemplate>
+                            <iLabel #lblObservationResultTempRef Name="lblObservationResult" Margin="5,2"
+                                [Text]="DataContext.ObservationResult" [Tooltip]="DataContext.ObservationResult"
+                                HorizontalAlignment="Stretch" IsWordwrap="True"></iLabel>
+                        </ControlTemplate>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <span kendoTooltip [title]="dataItem.ValueRange"> 
+                            {{dataItem.ValueRange}}
+                        </span>
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdConditionalDose" (RowLoaded)="rowLoaded($event)">
+                        </DataTemplate>
+                        <CellStyle #CellTemplateStyle Property="fontWeight" Value="normal">
+                        </CellStyle>
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column UniqueName="DoseInstruction" field="DoseInstruction"
+                    [title]="CondRes.grdConditionalDose_DoseInstruction_Text" [filterable]="false" [width]="20">
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip [title]="CondRes.grdConditionalDose_DoseInstruction_Text"> 
+                            {{CondRes.grdConditionalDose_DoseInstruction_Text}}
+                        </span>
+                      </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <span kendoTooltip [title]="dataItem.DoseInstruction" FontWeight="bold" tooltipClass="doseInstruction-tooltip" class="gridClass">
+                            {{dataItem.DoseInstruction}}
+                        </span>
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdConditionalDose">
+                            <CellStyle #CellTemplateStyle Property="fontWeight" Value="bold">
+                            </CellStyle>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+            </kendo-grid>
+        </kendo-gridlayout-item>
+
+
+        <kendo-gridlayout-item [row]="4" [col]="1">
+            <div containerStyle [ngClass]="DataContext.IsVisibleOtherDose ? 'visibleOff' : 'visibleOn' ">
+                <kendo-gridlayout name="OtherDose" row="1" col='1' VerticalAlignment="Stretch" CommonGridLayout
+                    [Visibility]="DataContext.IsVisibleOtherDose">
+                    <kendo-gridlayout-item [row]="1" [col]="1">
+                        <div containerStyle>
+                            <iLabel #lblOtherDoseTempRef HorizontalAlignment="Stretch" Margin="5,0,0,5"
+                                Name="lblOtherDose" VerticalAlignment="Center" [Text]="CondRes.lblOtherDose_Text">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="1" [col]="2">
+                        <div containerStyle class="div-bg">
+                            <StackPanel Orientation="Horizontal" Height="auto">
+                                <iCheckBox #chkOtherDoseTempRef HorizontalAlignment="Left" Margin="5" Height="21"
+                                    Name="chkOtherDose" VerticalAlignment="Center"
+                                    [(IsChecked)]="DataContext.IsOtherDose" [Tooltip]="CondRes.chkOtherDose_ToolTip"
+                                    [Checked]="chkOtherDose_Checked_Func"
+                                    [Unchecked]="chkOtherDose_Unchecked_Func">
+                                </iCheckBox>
+                            </StackPanel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="2" [col]="1">
+                        <div containerStyle>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="3" [col]="1">
+                        <div containerStyle class="div-whiteborder">
+                            <iLabel #lblOtherDoseValueTempRef HorizontalAlignment="Stretch" Margin="5,0,0,5"
+                                Name="lblOtherDoseValue" VerticalAlignment="Center" [Mandatory]="DataContext.IsOtherDose"
+                                [Text]="CondRes.lblOtherDoseValue_Text" 
+                                [(IsEnabled)]="DataContext.IsOtherDose"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="3" [col]="2">
+                        <div containerStyle class="div-bg-whiteborder">
+                            <StackPanel Orientation="Horizontal" Height="auto">
+                                <iTextBox #txtOtherDoseValueTempRef Height="21" Margin="5" Name="txtOtherDoseValue"
+                                    VerticalAlignment="Center" Type="Numeric" [(Text)]="DataContext.OtherDoseValue"
+                                    Scale="7" MaxLength="11" Precision="3" [IsEnabled]="DataContext.IsOtherDose"
+                                    [Tooltip]="CondRes.txtOtherDoseValue_ToolTip" [KeyDown]="txtOtherDoseValue_KeyDown" AccessKey="V">
+                                </iTextBox>
+                                &nbsp;
+                                <iLabel #lblOtherDoseUoMTempRef HorizontalAlignment="Stretch" Margin="5,5,5,5"
+                                    Name="lblOtherDoseUoM" VerticalAlignment="Center" [Text]="DataContext.OtherDoseUoM"
+                                    [(IsEnabled)]="DataContext.IsOtherDose">
+                                </iLabel>
+                            </StackPanel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="4" [col]="1">
+                        <div containerStyle class="div-whiteborder">
+                            <iLabel #lblDiscrepancyReasonTempRef HorizontalAlignment="Stretch" Margin="5,5,5,5"
+                                Name="lblDiscrepancyReason" VerticalAlignment="Center"
+                                [Text]="CondRes.lblDiscrepancyReason_Text" [Mandatory]="DataContext.IsOtherDose"
+                                [(IsEnabled)]="DataContext.IsOtherDose" AccessKey="R"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="4" [col]="2">
+                        <div containerStyle class="div-bg-whiteborder">
+                            <iComboBox #cboDiscrepancyReasonTempRef Height="21" HorizontalAlignment="Left" Margin="5"
+                                Name="cboDiscrepancyReason" VerticalAlignment="Center"
+                                [ItemsSource]="DataContext.DoseDiscrepancyReasons"
+                                [(SelectedValue)]="DataContext.SelectedDoseDiscrepancy" IsTypeAHead="True"
+                                [IsEnabled]="DataContext.IsOtherDose" [Tooltip]="CondRes.cboDiscrepancyReason_ToolTip"
+                                AccessKey="R">
+                            </iComboBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="5" [col]="1">
+                        <div containerStyle class="div-whiteborder">
+                            <iLabel #lblClinicalIncidentTempRef  HorizontalAlignment="Stretch"
+                            Margin="5,5,5,5" Name="lblClinicalIncident" VerticalAlignment="Center"
+                            [Text]="CondRes.lblClinicalIncident_Text"
+                            [(IsEnabled)]="DataContext.IsOtherDose"
+                            [Visibility]="DataContext.IsClinicalIncidentVisible"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="5" [col]="2">
+                        <div containerStyle  [ngClass]="DataContext.IsClinicalIncidentVisible ? 'div-whiteborder' : 'div-bg-whiteborder'">
+                            <iLabel #lblClinicalIncidentValueTempRef Name="lblClinicalIncidentValue"
+                            TextDecorations="Underline" Cursor="Hand" Foreground="#0000C8" Margin="5,5,5,5"
+                            [MouseLeftButtonUp]="lblClinicalIncidentValue_MouseLeftButtonUp_Func" IsFocusable="True"
+                            [Text]="DataContext.ClinicalIncidentLinkText" HorizontalAlignment="Stretch"
+                            IsWordwrap="True" VerticalAlignment="Center" [(IsEnabled)]="DataContext.IsOtherDose"
+                            [Visibility]="DataContext.IsClinicalIncidentVisible"
+                            [Tooltip]="CondRes.lblClinicalIncidentValue_ToolTip"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+        <br />
+        <kendo-gridlayout-item [row]="6" [col]="1">
+            <div containerStyle>
+                <br />
+                <iButton #cmdObservationsResultsTempRef Name="cmdObservationsResults" HorizontalAlignment="Left" Margin="5,-15,0,0"
+                TextDecorations="Underline" Cursor="Hand" Foreground="Blue" [Text]="CondRes.lblObservationsResults_Text"
+                [Tooltip]="CondRes.lblObservationsResults_ToolTip" Height="23" DisabledImageSource="../assets/Images/iarrowdis5x10.png"
+                ActiveImageSource="./assets/Images/iarrowshot5x10.png" ImageSource="./assets/Images/iarrownor5x10.png"
+                ImageHeight="12" ImageWidth="5" (Click_Func)="cmdObservationsResults_Click($event)"
+                AccessKey="B" IsEnabled="True">
+            </iButton>
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

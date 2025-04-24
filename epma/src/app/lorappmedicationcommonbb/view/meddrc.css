@@ -1,0 +1,35 @@
+::ng-deep .k-expander {
+  border-color: #424242;
+  color: #424242;
+  background-color: #74b9c3;
+  border-radius: 5px;
+  border-top: 2px solid;
+  position: relative;
+}
+  
+  ::ng-deep image{
+    vertical-align: middle;
+   } 
+.acknowldgereason{
+  padding:5px 0px;
+}
+.container{
+  display: flex;
+  }
+  .grdconflictgrid{
+   border:1px solid #205860;
+  }
+  .drcConflictsItems ::ng-deep .k-grid td{
+    white-space: normal !important;
+  }
+  .drcConflictsItems::ng-deep .k-expander-header{
+
+    padding: 3px;
+
+  }
+  .parentdiv{
+    overflow-y: hidden !important;
+    width:auto;
+  }
+
+  

@@ -1,0 +1,51 @@
+<div name="LayoutRoot" >    
+    <kendo-gridlayout     
+        [rows]="[{ height: 'auto'}]"
+        >
+        <kendo-gridlayout-item [row]="1">        
+        <kendo-grid 
+          #grdDetailsTempRef
+          [style.width.px] = "545"          
+          [style.margin-top.px] = "-5" 
+          [style.margin-bottom.px]="10"
+          [style.margin-left.px]="10"
+          [style.margin-right.px]="10" [navigable]="true"
+          [height]="gridHeight"           
+          [reorderable] = "true"
+          [resizeable]="true"
+          [data]="grdDetails.ItemsSource.array"
+          class="Grid_Border" 
+          [selectable]="{ mode: 'single' }"
+          kendoGridSelectBy
+          [(selectedKeys)]="grdDetails.selectedRowsIndex"  
+          style="cursor: default;"        
+           >
+        <ng-template kendoGridNoRecordsTemplate>
+            There are no records to show 
+        </ng-template>
+
+        <kendo-grid-column
+          [title]="sMCItemName"
+          [filterable]="false"
+          [editable]="false"
+          [resizable]="false"
+          [hidden]="false"
+          [width]="480"
+        >
+        <ng-template kendoGridHeaderTemplate let-column>  
+          <span [title]="sMCItemName">{{ column.title }}</span>
+        </ng-template>
+          <ng-template
+            kendoGridCellTemplate
+            let-dataItem                                  
+          >
+          <div style="height: auto;  white-space: pre-line; margin-left: 5px">
+            {{dataItem}}
+          </div>
+          </ng-template>
+        </kendo-grid-column>
+            
+        </kendo-grid>
+    </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

@@ -1,0 +1,24 @@
+
+.vertical-class-stretch{
+  height: 100%;
+}
+
+.horizontal-class-stretch{
+  display: grid;
+}
+
+.dropdown-button ::ng-deep .k-grid{
+  line-height: 1.2 !important;
+  background-color: #e0eff1; 
+}
+
+.dropdown-button ::ng-deep .k-grid thead, .k-grid tbody, .k-grid tfoot {
+  border-color: white;
+}
+
+.dropdown-button ::ng-deep .k-grid td {
+  padding: 4px 4px !important; 
+}
+.kendo-scroll ::ng-deep div kendo-grid-list div {
+  overflow-x: hidden !important;
+}

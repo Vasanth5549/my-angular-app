@@ -1,0 +1,22 @@
+::ng-deep .newLineClass * {
+    white-space: pre-line !important;
+    float: left;
+    /* text-wrap: wrap; */
+}
+
+.canvas-container {
+    position: relative;    
+    display:flex;
+}
+.line-separator{
+    position: absolute;
+    flex-grow: 1;
+    border-bottom: 0px !important;
+    border-left:0px !important;
+    border-right:0px !important;
+    z-index: 0;
+}
+.canvas-img{
+    position:absolute;
+    z-index: 9;
+}

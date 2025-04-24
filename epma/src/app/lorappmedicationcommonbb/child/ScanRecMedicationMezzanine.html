@@ -1,0 +1,191 @@
+﻿<div name="LayoutRoot" Height="Auto" Margin="5">
+    <kendo-gridlayout
+        [rows]="[{ height: '5'}, { height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: 'auto'}]"
+        class="grid-layout-container" GridLayout [cols]="[ { width: '95fr'}]">
+        <kendo-gridlayout-item [row]="1" [col]="1" HorizontalAlignment="Stretch" Height="85">
+            <div containerStyle>
+                <ScrollViewer #brdHeaderTempRef Name="brdHeader" VerticalScrollBarVisibility="Auto" Margin="5"
+                    BorderBrush="#77b3b4" Margin="0" BorderThickness="2" Width="auto" Height="80" Background="white"
+                    class="scanRecord">
+                    <kendo-gridlayout class="grid-layout-container" GridLayout
+                        [cols]="[{ width: '15fr'}, { width: '85fr'}]" [rows]="[{ height: '50fr'}, { height: '50fr'}]"
+                        Margin="5">
+                        <kendo-gridlayout-item [row]="1" [col]="1">
+                            <iLabel #lblProductScannedhdrTempRef Name="lblProductScannedhdr"
+                                HorizontalAlignment="Stretch" IsWordwrap="True"
+                                [Text]="GetResourceString('ProductScannedhdr_Text')" Margin="5,5" FontWeight="Bold">
+                            </iLabel>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="1" [col]="2">
+                            <iLabel #lblProductScannedhdrValueTempRef Name="lblProductScannedhdrValue" IsWordwrap="True"
+                                HorizontalAlignment="Stretch" Margin="0,5" [(Text)]="DataContext.ProductScannedhdrValue"
+                                FontWeight="Bold" Foreground="#006dec" Height="21"
+                                [Tooltip]="GetResourceString('ProductScannedhdrValue')">
+                            </iLabel>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="2" [col]="1">
+                            <iLabel #lblMedicationprescribedTempRef Name="lblMedicationprescribed"
+                                HorizontalAlignment="Stretch" IsWordwrap="True"
+                                [Text]="GetResourceString('Medicationprescribed_text')" Margin="5,5" FontWeight="Bold">
+                            </iLabel>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="2" [col]="2">
+                            <ContentPresenter [Content]="DataContext | MedScanProdDisplay:'':'200'" Margin="0,5">
+                            </ContentPresenter>
+                        </kendo-gridlayout-item>
+                    </kendo-gridlayout>
+                </ScrollViewer>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]="2" [col]="1">
+            <div containerStyle class="gridClass">
+                <kendo-grid #grdProductDetailListTempRef Name="grdProductDetailList" [selectable]="true" [colSpan]="2"
+                    [data]="grdProductDetailList.ItemsSource.array" [style.background]="'#E0EFF1'" IsReadOnly="True"
+                    Margin="5,5,5,5" [reorderable]="true" [sortable]="true" [height]="210"
+                    (selectionChange)="grdProductDetailList_SelectionChanged($event)" kendoGridSelectBy
+                    [(selectedKeys)]="grdProductDetailList.selectedRowsIndex">
+                    <ng-template kendoGridNoRecordsTemplate>
+                        No records to show
+                    </ng-template>
+                    <kendo-grid-column *ngIf="grdProductDetailList.RowIndicatorVisibility == 0 ? true : false"
+                        class="HorizontalTextAlignCenter" title="" field="rowindicator" [width]="40">
+                        <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+                            <Image
+                                *ngIf="grdProductDetailList.selectedRowsIndex.length > 0 ? grdProductDetailList.selectedRowsIndex == rowIndex : false"
+                                Source="./assets/images/iarrownor5x10.png">
+                            </Image>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <kendo-grid-column field="Productscanned" [title]="GetResourceString('ProductsScanned_Header')"
+                        class="prodSacn">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip
+                                [title]="GetResourceString('ProductsScanned_Header')">{{GetResourceString('ProductsScanned_Header')}}</span>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex">
+                                <GridCellTemplate [dataItem]="dataItem">
+                                    <iLabel Margin="4,2" class="gridScan" [(Text)]="dataItem.Productscanned"
+                                        HorizontalAlignment="Left" VerticalAlignment="Center"
+                                        Width="147" Height="25" [Background]="ProdScanBackColor">
+                                    </iLabel>
+                                </GridCellTemplate>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <kendo-grid-column field="ProductCode" [title]="GetResourceString('ProductCode_Header')">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip
+                                [title]="GetResourceString('ProductCode_Header')">{{GetResourceString('ProductCode_Header')}}</span>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex">
+                                <GridCellTemplate [columnNumber]="2" [dataItem]="dataItem">
+                                    <iLabel Margin="5,2" [(Text)]="dataItem.ProductCode" class="gridCell"
+                                        HorizontalAlignment="Left" VerticalAlignment="Center" IsWordwrap="True">
+                                    </iLabel>
+                                </GridCellTemplate>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <kendo-grid-column field="ExpiryDate" [title]="GetResourceString('ExpiryDate_Header')">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip
+                                [title]="GetResourceString('ExpiryDate_Header')">{{GetResourceString('ExpiryDate_Header')}}</span>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <span kendoTooltip [title]="dataItem.Expirydate">
+                            </span>
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex">
+                                <GridCellTemplate [columnNumber]="3" [cell]="'cell3'" [dataItem]="dataItem">
+                                    <iDateTimePicker HorizontalAlignment="Left" Width="100" [DataContext]="dataItem"
+                                        DatePickerMode="DATEPICKER" Name="dtproExpiryDate" Height="21" Margin="0,0,0,0"
+                                        DateTimeFormat="Custom" CustomFormat="dd-MMM-yyyy" EnableCultureSupport="False"
+                                        IsTabStop="True" TabIndex="4" [(SelectedDateTime)]="dataItem.Expirydate"
+                                        [ToolTip]="GetResourceString('ExpiryDate_Tooltip')" IsEnabled="false"
+                                        AccessKey="t">
+                                    </iDateTimePicker>
+                                </GridCellTemplate>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <kendo-grid-column field="BatchNumber" [title]="GetResourceString('BatchNumber_Header')">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip
+                                [title]="GetResourceString('BatchNumber_Header')">{{GetResourceString('BatchNumber_Header')}}</span>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex">
+                                <GridCellTemplate [columnNumber]="4" [cell]="'cell4'" [dataItem]="dataItem">
+                                    <iLabel Margin="5,2" [(Text)]="dataItem.Batchnumber" class="gridCell"
+                                        HorizontalAlignment="Left" VerticalAlignment="Center" IsWordwrap="True">
+                                    </iLabel>
+                                </GridCellTemplate>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <kendo-grid-column field="SerialNumber" [title]="GetResourceString('SerialNumber_Header')">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip
+                                [title]="GetResourceString('SerialNumber_Header')">{{GetResourceString('SerialNumber_Header')}}</span>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex">
+                                <GridCellTemplate [columnNumber]="5" [cell]="'cell5'" [dataItem]="dataItem">
+                                    <iLabel Margin="5,2" [(Text)]="dataItem.Serialnumber" class="gridCell"
+                                        HorizontalAlignment="Left" VerticalAlignment="Center" IsWordwrap="True">
+                                    </iLabel>
+                                </GridCellTemplate>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <kendo-grid-column field="Comments" [title]="GetResourceString('Comments_Header')">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip
+                                [title]="GetResourceString('Comments_Header')">{{GetResourceString('Comments_Header')}}</span>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex">
+                                <GridCellTemplate [columnNumber]="6" [cell]="'cell6'" [dataItem]="dataItem">
+                                    <iLabel Margin="5,2" [(Text)]="dataItem.Comments" class="gridCell"
+                                        HorizontalAlignment="Left" VerticalAlignment="Center" IsWordwrap="True">
+                                    </iLabel>
+                                </GridCellTemplate>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                </kendo-grid>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]="3" [col]="1" HorizontalAlignment="Stretch" Margin="5,0,5,0" Height="90">
+            <kendo-gridlayout class="grid-layout-container" GridLayout [cols]="[ { width: 'auto'}, { width: '88fr'} ]"
+            style="margin-top: 10px;">
+                <kendo-gridlayout-item [row]='1' [col]="1" Height="100">
+                    <div containerStyle>
+                        <iLabel #lblTotalDoseAdministeredTempRef Name="lblTotalDoseAdministered"
+                            HorizontalAlignment="Stretch" IsWordwrap="True" VerticalAlignment="Center"
+                            [Text]="GetResourceString('TotalDoseAdministered_Text')" FontWeight="Bold"
+                            [Visibility]="DataContext.IsVisibleTotalDoseValueAdmin">
+                        </iLabel>
+                    </div>
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [row]='1' [col]='2'>
+                    <div containerStyle>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                        </StackPanel>
+                        <iLabel #lblTotalDoseValueAdminTempRef Name="lblTotalDoseValueAdmin" IsTabStop="True"
+                            Margin="5,12,5,5" [(Text)]="DataContext.TotalDoseValueAdmin"
+                            [(Tooltip)]="DataContext.TotalDoseValueAdmin"
+                            [Visibility]="DataContext.IsVisibleTotalDoseValueAdmin"></iLabel>
+                    </div>
+                </kendo-gridlayout-item>
+            </kendo-gridlayout>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

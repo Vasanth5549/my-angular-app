@@ -1,0 +1,203 @@
+
+<!-- <Grid x:Name="LayoutRoot" Background="#FFE0EFF1" >
+    <Grid.RowDefinitions>
+        <RowDefinition Height="0"/>
+        <RowDefinition></RowDefinition>
+    </Grid.RowDefinitions> -->
+
+<kendo-gridlayout Name="LayoutRoot" Background="#E0EFF1FF" [rows]="[{ height: 0},{ height:'1fr'}]" [cols]="[{ width: '1fr'}]">
+    <kendo-gridlayout-item  [row]='2' [col]="1">
+        <div containerStyle>
+            <!-- <StackPanel Grid.Row="1" > -->
+                <kendo-gridlayout-item [row]='1'   >
+                    <div containerStyle>
+                      <StackPanel>
+                            <!-- <my:iGrid Name="grdAdminHistoryList" - Name property is not required instead #grdResolveTempRef -->
+                            <!-- EnableColumnVirtualization="False" - Not required(no support in kendo) -->
+                            <!-- CanUserFreezeColumns="False" - Not required(no support in kendo) -->
+                            <!-- SelectionMode="Single"-->
+                            <!-- Height="360" --> 
+                            <!-- IsReadOnly="True" - Not required(by default not editable) --> 
+                            <!-- VerticalContentAlignment="Stretch" ????-->
+                            <!-- RowIndicatorVisibility="Visible" -- ???? - Refer the pdf document shared-->
+                            <!-- IsSynchronizedWithCurrentItem="True" - Not Required - sSynchronizedWithCurrentItem is interlinked with RowIndicatorVisibility-->
+                            <!-- IsFilteringAllowed="False" ????-->
+                            <!-- TabIndex="1" ????-->
+                            <!-- TabNavigation="Once" - [navigable]="false"-->
+                            <!-- CanUserSortColumns="False" [sortable]="false"-->
+                            <!-- CanUserResizeColumns="False" ????-->
+                            <!-- CanUserReorderColumns="False" [reorderable]="false"-->
+                            <!-- NoRecordsText="No records to show"-->
+                            <!-- ItemsSource="{Binding ModificationHistory, Mode=OneWay}"-->
+                            <!-- Margin="10 10 10 0" Error-->
+            
+                            <kendo-grid #grdAdminHistoryListTempRef
+                                [selectable]="{checkboxOnly: true, mode: 'single'}" 
+                                kendoGridSelectBy 
+                                [(selectedKeys)]="grdAdminHistoryList.selectedRowsIndex" 
+                                [height]="360" 
+                                tabIndex="1"
+                                [navigable]="false"                             
+                                [sortable]="false" 
+                                [reorderable]="false"
+                                [data]="grdAdminHistoryList.ItemsSource.array" 
+                                [GridProperties]="grdAdminHistoryList"
+                                 >
+                                
+                                <ng-template kendoGridNoRecordsTemplate> No records to show
+                                </ng-template>
+                                <!-- <my:iGrid.Columns>-->
+                                <!--<my:iGridViewDataColumn UniqueName="Attribute" Header="Attributes" 
+                                        DataMemberBinding="{Binding Path=Attribute}" IsReadOnly="True" Width="125" 
+                                        IsHeaderWordWrap="true"  - ????
+                                        TextWrapping="Wrap" 
+                                        IsWordWrap="True"   - ????
+                                        EnableToolTip="True" - Not required
+                                        IsResizable="False - ????"></my:iGridViewDataColumn>-->
+                                <kendo-grid-column UniqueName="column" title=" " field="" [filterable]="false" [width]="30" [editable]="false">
+                                  <ng-template kendoGridCellTemplate let-dataItem  let-rowIndex="rowIndex">
+                                    <Image  *ngIf="grdAdminHistoryList.selectedRowsIndex[0]==rowIndex"
+                                      Source="assets/Images/iarrownor5x10.png"
+                                      Width="5"
+                                      Height="5">
+                                  </Image>
+                                  </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column UniqueName="Attribute" title="Attributes" 
+                                        field="Attribute" [editable]=false [width]="135"
+                                        TextWrapping="Wrap"
+                                    > <ng-template kendoGridHeaderTemplate>
+                  <span kendoTooltip title="Attributes"> Attributes </span>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+                  <span kendoTooltip [title]="dataItem.Attribute">
+                    {{dataItem.Attribute}}
+                  </span>
+                </ng-template></kendo-grid-column>
+                                 <!-- <my:iGridViewDataColumn UniqueName="FromValue" Header="From" 
+                                        DataMemberBinding="{Binding Path=FromValue}" IsReadOnly="True" Width="125" 
+                                        IsHeaderWordWrap="true" - ????
+                                        TextWrapping="Wrap" 
+                                        IsWordWrap="True" - ????
+                                        EnableToolTip="True" - Not required
+                                        IsResizable="False" - ????></my:iGridViewDataColumn> -->   
+                                <kendo-grid-column UniqueName="FromValue" title="From" 
+                                        field="FromValue" [editable]=false [width]="125"
+                                        TextWrapping="Wrap">
+										 <ng-template kendoGridHeaderTemplate>
+                  <span kendoTooltip title="From"> From </span>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+                  <div kendoTooltip [tooltipWidth]="dataItem.FromValue.length > 7 ? dataItem.FromValue.length > 15 ?  dataItem.FromValue.length > 29 ? dataItem.FromValue.length > 36 ? 220 :(dataItem.FromValue.length * 6.2) : (dataItem.FromValue.length * 7): (dataItem.FromValue.length * 9) : (dataItem.FromValue.length * 11)"  containerStyle>
+                    <!--7, 9 is set pixel for signle character-->
+                  <span  [title]="dataItem.FromValue">
+                    <!-- kendoTooltip [title]="dataItem.FromValue" -->
+                    {{dataItem.FromValue}}
+                  </span>
+                </div>
+                </ng-template>
+										</kendo-grid-column>
+                                <!-- <my:iGridViewDataColumn UniqueName="ToValue" Header="To" 
+                                        DataMemberBinding="{Binding Path=ToValue}" IsReadOnly="True" Width="125" 
+                                        IsHeaderWordWrap="true" - ????
+                                        TextWrapping="Wrap" 
+                                        IsWordWrap="True" -????
+                                         EnableToolTip="True" - Not required
+                                         IsResizable="False" - ????></my:iGridViewDataColumn>-->    
+                                <kendo-grid-column UniqueName="ToValue" title="To" 
+                                        field="ToValue" [editable]=false [width]="125"
+                                        TextWrapping="Wrap">
+										<ng-template kendoGridHeaderTemplate>
+                  <span kendoTooltip title="To"> To </span>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+                  <div kendoTooltip [tooltipWidth]="dataItem.ToValue.length > 7 ? dataItem.ToValue.length > 15 ?  dataItem.ToValue.length > 29 ? dataItem.ToValue.length > 36 ? 220 :(dataItem.ToValue.length * 6.2) : (dataItem.ToValue.length * 7): (dataItem.ToValue.length * 9) : (dataItem.ToValue.length * 11)"  containerStyle>
+                    <!--7, 9 is set pixel for signle character-->
+                  <span  [title]="dataItem.ToValue">
+                    {{dataItem.ToValue}}
+                  </span>
+                  </div>
+                </ng-template>
+										</kendo-grid-column>
+                                <!--<my:iGridViewDataColumn UniqueName="ModifiedAt" Header="Updated date/time" 
+                                        DataMemberBinding="{Binding Path=ModifiedAt,Converter={StaticResource ModifyDTTMDisplay},ConverterParameter=dd-MMM-yyyy HH:mm,ConverterCulture=en-GB}"
+                                        IsReadOnly="True" Width="125" 
+                                        IsHeaderWordWrap="true"  - ????
+                                        TextWrapping="Wrap"  
+                                        IsWordWrap="True" - ????
+                                        EnableToolTip="True" - Not required
+                                        IsResizable="False" - ????></my:iGridViewDataColumn>
+                                        filed="{{ ModifiedAt | DTTMDisplay : 0 : 'dd-MMM-yyyy'}} - Error"                                    
+                                    -->
+                                <kendo-grid-column UniqueName="ModifiedAt" title="Updated date/time" 
+                                        filed="ModifiedAt | DischargeLeaveDTTMConvertor : 0 : 'dd-MMM-yyyy'"
+                                        [editable]=false [Width]="125"
+                                        TextWrapping="Wrap">
+										<ng-template kendoGridHeaderTemplate>
+                  <span kendoTooltip title="Updated date/time">
+                    Updated date/time
+                  </span>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+                  <span
+                    kendoTooltip
+                    [title]="dataItem.ModifiedAt | DischargeLeaveDTTMConvertor : 0 : 'dd-MMM-yyyy HH:mm'"
+                  >
+                    {{dataItem.ModifiedAt | DischargeLeaveDTTMConvertor : 0 :
+                    'dd-MMM-yyyy HH:mm'}}
+                  </span>
+                </ng-template>
+										</kendo-grid-column>
+                                <!-- <my:iGridViewDataColumn UniqueName="ModifiedBy" Header="Updated by" 
+                                        DataMemberBinding="{Binding Path=ModifiedBy}" IsReadOnly="True" Width="125" 
+                                        IsHeaderWordWrap="true" -???? 
+                                        TextWrapping="Wrap" 
+                                        IsWordWrap="True" - ????
+                                        EnableToolTip="True" - Not required 
+                                        IsResizable="False" - ????></my:iGridViewDataColumn>-->    
+                                <kendo-grid-column UniqueName="ModifiedBy" title="Updated by" 
+                                        field="ModifiedBy" [editable]="false" [width]="125"
+                                        TextWrapping="Wrap">
+										<ng-template kendoGridHeaderTemplate>
+                  <span kendoTooltip title="Updated by"> Updated by </span>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+                  <div kendoTooltip [tooltipWidth]="dataItem.ModifiedBy.length > 7 ? dataItem.ModifiedBy.length > 15 ?  dataItem.ModifiedBy.length > 29 ? dataItem.ModifiedBy.length > 36 ? 220 :(dataItem.ModifiedBy.length * 6.2) : (dataItem.ModifiedBy.length * 7): (dataItem.ModifiedBy.length * 9) : (dataItem.ModifiedBy.length * 11)"  containerStyle>
+                    <!--7, 9 is set pixel for signle character-->
+                  <span  [title]="dataItem.ModifiedBy">
+                    {{dataItem.ModifiedBy}}
+                  </span>
+                  </div>
+                </ng-template>
+										</kendo-grid-column>
+                                <!-- <my:iGridViewDataColumn UniqueName="ReasonForModification" Header="Reason for modification" 
+                                        DataMemberBinding="{Binding Path=ReasonForModification}" IsReadOnly="True" Width="125" 
+                                        IsHeaderWordWrap="true" -????
+                                        TextWrapping="Wrap" 
+                                        IsWordWrap="True" - ????  
+                                        EnableToolTip="True"  - Not required
+                                        IsResizable="False" - ????></my:iGridViewDataColumn>-->    
+                                <kendo-grid-column UniqueName="ReasonForModification" title="Reason for modification"
+                                    field="ReasonForModification" [editable]="false" [width]="125"
+                                    TextWrapping="Wrap">
+									<ng-template kendoGridHeaderTemplate>
+                  <span kendoTooltip title="Reason for modification">
+                    Reason for modification
+                  </span>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+                  <div kendoTooltip [tooltipWidth]="dataItem.ReasonForModification.length > 7 ? dataItem.ReasonForModification.length > 15 ?  dataItem.ReasonForModification.length > 29 ? dataItem.ReasonForModification.length > 36 ? 232 :(dataItem.ReasonForModification.length * 6.2) : (dataItem.ReasonForModification.length * 7): (dataItem.ReasonForModification.length * 9) : (dataItem.ReasonForModification.length * 11)"  containerStyle>
+                    <!--7, 9 is set pixel for signle character-->
+                  <span class="span1"  [title]="dataItem.ReasonForModification">
+                    {{dataItem.ReasonForModification}}
+                  </span>
+                  </div>
+                </ng-template>
+									</kendo-grid-column>
+                            </kendo-grid> 
+                        </StackPanel>
+                    </div>
+                  </kendo-gridlayout-item>
+        </div>
+    </kendo-gridlayout-item>
+</kendo-gridlayout> 

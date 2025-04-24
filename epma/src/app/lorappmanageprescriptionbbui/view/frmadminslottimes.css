@@ -1,0 +1,6 @@
+.daysofweek{
+    font-weight: normal;
+}
+::ng-deep .Text-style .k-grid-table-wrap{
+  font-weight: normal;
+}

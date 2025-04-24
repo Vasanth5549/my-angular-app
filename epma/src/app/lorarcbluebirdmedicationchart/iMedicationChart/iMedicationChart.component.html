@@ -1,0 +1,1674 @@
+<kendo-grid  class="iMedicationChart" [ngClass]="isChildWizard ? 'changeGridHeight' : 'defaultGridHeight'" #GridControlTempRef id="medication" [data]="GridControl?.ItemsSource?.array" [GridProperties]="GridControl"
+    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" [selectable]="{checkboxOnly: true, mode: 'multiple'}"
+    kendoGridSelectBy [(selectedKeys)]="GridControl.selectedRowsIndex" [rowClass]="rowCallback" (selectionChange)="GridControl_SelectionChanged({}, $event)" >
+    <kendo-grid-checkbox-column *ngIf="CheckBoxColumn" class="iMedicationChartCheckBox" [width]='40'
+        [showSelectAll]="false">
+        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex">        
+                <!-- <iCheckBox #SelectCheckboxTempRef Tooltip="Select the row" [kendoGridSelectionCheckbox]="rowIndex" [IsEnabled]="dataItem.DrugItem?.PrescriptionStatus=='Completed' || dataItem.DrugItem?.PrescriptionStatus == 'Discontinued'?'False':'True'">
+                </iCheckBox> -->
+                <iCheckBox #SelectCheckboxTempRef Tooltip="Select the row" [kendoGridSelectionCheckbox]="rowIndex" [IsEnabled]="checkDiscontinuedCompleted(dataItem)">
+                </iCheckBox>
+            </DataTemplate>
+        </ng-template>
+    </kendo-grid-checkbox-column>
+    <kendo-grid-column *ngFor="let grid of GridControl.dColumns.array" [width]="grid.Width" [headerStyle]="{'background-color': TodayBorderColor.color.color}" [class]="grid['kendoColumn'].class" [headerClass]="grid['kendoColumn'].headerClass">
+        <ng-template kendoGridHeaderTemplate let-dataItem="dataItem" let-idx="rowIndex" let-columnIndex="columnIndex">
+            <span kendoTooltip 
+            [ngClass]="CheckBoxColumn?'colAlignPrescriptionChart':'colAlignMedicationChart'" [title]="grid.Header">
+                {{grid.Header}}
+            </span>
+        </ng-template>
+        <ng-template kendoGridCellTemplate let-dataItem="dataItem" let-rowIndex="rowIndex"
+            let-columnIndex="columnIndex">
+            <DataTemplate *ngIf="grid.UniqueName != 'Prescription item'" #temp [dataItem]="dataItem" Name="slotitem"
+                [index]="rowIndex" [colindex]="columnIndex">
+            </DataTemplate>
+            <DataTemplate #temp *ngIf="grid.UniqueName == 'Prescription item' && dataItem?.DrugItem?.IsInfusion"
+                [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex">
+                <Border [iStyle]="Styles.whiteBorder" Name="drugDetailsBorder">
+                    <kendo-gridlayout class="grid-layout-container" GridLayout VerticalAlignment="Top" Margin="0,0,0,1"
+                        [rows]="[ { height: 'auto'},{ height: 'auto'},{ height: 'auto'}]">
+                        <kendo-gridlayout-item [row]="1">
+                            <div containerStyle>
+                                <RichTextBox Name="Richtxtbx2"
+                                    [Visibility]="dataItem.DrugItem.ParentGroupVisibility != undefined? dataItem.DrugItem.ParentGroupVisibility: false"
+                                    IsReadOnly="True" Padding="0,1,0,1" BorderThickness="0"
+                                    Background="#74b9c3">
+                                    <p paragraph class="margin-0 text-wrap">
+                                        <Run [Text]="dataItem?.DrugItem?.ParentGroupName !== undefined? dataItem?.DrugItem?.ParentGroupName:''"
+                                            [Foreground]="dataItem.DrugItem?.GroupForecolor" FontWeight="Bold"
+                                            FontSize="13">
+                                        </Run>
+                                    </p>
+                                </RichTextBox>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="2">
+                            <div containerStyle>
+                                <RichTextBox Name="Richtxtbx1"
+                                    [Visibility]="dataItem.DrugItem.GroupVisibility != undefined? dataItem.DrugItem.GroupVisibility: false"
+                                    IsReadOnly="True" Padding="0,1,0,1" BorderThickness="0"
+                                    Background="#74b9c3"
+                                    >
+                                    <p paragraph class="margin-0 text-wrap">
+                                        <Run [Text]="dataItem?.DrugItem?.GroupName !== undefined? dataItem?.DrugItem?.GroupName:''"
+                                            [Foreground]="dataItem.DrugItem?.GroupForecolor" FontWeight="Bold"
+                                            FontSize="13">
+                                        </Run>
+                                    </p>
+                                </RichTextBox>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]='3'>
+                            <kendo-gridlayout class="grid-layout-container sub-grid" Name="SubGrid" GridLayout
+                                VerticalAlignment="Top" Margin="0,0,0,0"
+                                [rows]="[ { height: 'auto'}, 
+                                                        { height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: 'auto'}]"
+                                [cols]="[{ width: '60fr'},{ width: '1fr'},{ width: '1fr'}]"
+                                [ngClass]="isOverviewChart || CheckBoxColumn ? 'subGrid': 'medgrid'"
+                                >
+                                <kendo-gridlayout-item [row]='1' [col]="1">
+                                    <div containerStyle class="set-width">
+                                        <RichTextBox Name="Richtxtbx" IsReadOnly="True" Padding="1,0,1,0" BorderThickness="0" Background="Transparent">
+                                            <p paragraph class="padding-0 text-wrap">
+                                                <span>
+                                                    <Run [Text]="dataItem?.DrugItem?.Drugname !== undefined? dataItem?.DrugItem?.Drugname:''" FontWeight="Bold"
+                                                        FontSize="13" IsWordwrap="True"></Run>
+                                                    <ng-container
+                                                        *ngIf="dataItem.DrugItem?.CriticalIcon || dataItem.DrugItem?.MultiComponentIcon || dataItem.DrugItem?.DrugPropertyIcon">
+                                                        <InlineUIContainer class="inlineuicontainer">
+                                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" [style]="{'display':'flex','align-items':'baseline'}">
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.CriticalIcon" [DataContext]="dataItem"></Border>
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.MultiComponentIcon" [DataContext]="dataItem"></Border>
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.DrugPropertyIcon" [DataContext]="dataItem"></Border>
+                                                            </StackPanel>
+                                                        </InlineUIContainer>
+                                                    </ng-container>
+                                                    <ng-container
+                                                        *ngIf="dataItem?.DrugItem?.Fluidname == undefined && dataItem?.DrugItem?.Componentname1 == undefined 
+                                                                                                                                            && dataItem?.DrugItem?.Componentname2 == undefined && dataItem?.DrugItem?.Componentname3 == undefined && dataItem?.DrugItem?.Componentname4 == undefined">
+                                                        <Run [Text]="dataItem?.DrugItem?.Dosageform !== undefined?dataItem?.DrugItem?.Dosageform:''" FontWeight="Bold" FontSize="13">
+                                                        </Run>
+                                                        <Run [Text]="dataItem?.DrugItem?.Infusiontype !== undefined?dataItem?.DrugItem?.Infusiontype:''"
+                                                            FontWeight="Normal" FontSize="13">
+                                                        </Run>
+                                                        <Run [Text]="dataItem?.DrugItem?.Concentration !== undefined?dataItem?.DrugItem?.Concentration:''"
+                                                            FontWeight="Normal" FontSize="13">
+                                                        </Run>
+                                                    </ng-container>
+                                                </span>
+                                                <span *ngIf="dataItem?.DrugItem?.Fluidname !==undefined">
+                                                    <Run name="fluidName" [Text]="dataItem?.DrugItem?.Fluidname !==undefined ? dataItem?.DrugItem?.Fluidname:''"
+                                                        FontWeight="Bold" FontSize="13"></Run>
+                                                    <ng-container *ngIf="dataItem.DrugItem?.FluidDrugPropertyIcon">
+                                                        <InlineUIContainer class="inlineuicontainer">
+                                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.FluidDrugPropertyIcon" [DataContext]="dataItem"></Border>
+                                                            </StackPanel>
+                                                        </InlineUIContainer>
+                                                    </ng-container>
+                                                    <ng-container
+                                                    *ngIf="dataItem.DrugItem?.Componentname1 == undefined 
+                                                    && dataItem.DrugItem?.Componentname2 == undefined && dataItem.DrugItem?.Componentname3 == undefined && dataItem.DrugItem?.Componentname4 == undefined">
+                                                        <Run [Text]="dataItem?.DrugItem?.Dosageform !== undefined?dataItem?.DrugItem?.Dosageform:''" FontWeight="Bold" FontSize="13">
+                                                        </Run>
+                                                        <Run [Text]="dataItem?.DrugItem?.Infusiontype !== undefined?dataItem?.DrugItem?.Infusiontype:''"
+                                                            FontWeight="Normal" FontSize="13">
+                                                        </Run>
+                                                        <Run [Text]="dataItem?.DrugItem?.Concentration !== undefined?dataItem?.DrugItem?.Concentration:''"
+                                                            FontWeight="Normal" FontSize="13">
+                                                        </Run>
+                                                    </ng-container>
+                                                </span>
+                                                <span *ngIf="dataItem?.DrugItem?.Componentname1 !== undefined" class="display-alignment">
+                                                    <Run name="componentname1"
+                                                        [Text]="dataItem?.DrugItem?.Componentname1 !== undefined?dataItem?.DrugItem?.Componentname1:''"
+                                                        FontWeight="Bold" FontSize="13"></Run>
+                                                    <ng-container *ngIf="dataItem.DrugItem?.ComponenetPropertyIcon1 || dataItem.DrugItem?.MultiComponentIcon1">
+                                                        <InlineUIContainer class="inlineuicontainer">
+                                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.ComponenetPropertyIcon1" [DataContext]="dataItem">
+                                                                </Border>
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.MultiComponentIcon1" [DataContext]="dataItem"></Border>
+                                                            </StackPanel>
+                                                        </InlineUIContainer>
+                                                    </ng-container>
+                                                    <ng-container
+                                                    *ngIf="dataItem.DrugItem?.Componentname2 == undefined &&  dataItem.DrugItem?.Componentname3 == undefined && dataItem.DrugItem?.Componentname4 == undefined">
+                                                        <Run [Text]="dataItem?.DrugItem?.Dosageform !== undefined?dataItem?.DrugItem?.Dosageform:''" FontWeight="Bold" FontSize="13">
+                                                        </Run>
+                                                        <Run [Text]="dataItem?.DrugItem?.Infusiontype !== undefined?dataItem?.DrugItem?.Infusiontype:''"
+                                                            FontWeight="Normal" FontSize="13">
+                                                        </Run>
+                                                        <Run [Text]="dataItem?.DrugItem?.Concentration !== undefined?dataItem?.DrugItem?.Concentration:''"
+                                                            FontWeight="Normal" FontSize="13">
+                                                        </Run>
+                                                    </ng-container>
+                                                </span>
+                                                <span *ngIf="dataItem?.DrugItem?.Componentname2 !== undefined" class="display-alignment">
+                                                    <Run name="componentname2"
+                                                        [Text]="dataItem?.DrugItem?.Componentname2 !== undefined ? dataItem?.DrugItem?.Componentname2:''"
+                                                        FontWeight="Bold" FontSize="13"></Run>
+                                                    <ng-container *ngIf="dataItem.DrugItem?.ComponenetPropertyIcon2 || dataItem.DrugItem?.MultiComponentIcon2">
+                                                        <InlineUIContainer class="inlineuicontainer">
+                                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.ComponenetPropertyIcon2" [DataContext]="dataItem">
+                                                                </Border>
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.MultiComponentIcon2" [DataContext]="dataItem"></Border>
+                                                            </StackPanel>
+                                                        </InlineUIContainer>
+                                                    </ng-container>
+                                                    <ng-container
+                                                    *ngIf="dataItem.DrugItem?.Componentname3 == undefined && dataItem.DrugItem?.Componentname4 == undefined">
+                                                        <Run [Text]="dataItem?.DrugItem?.Dosageform !== undefined?dataItem?.DrugItem?.Dosageform:''" FontWeight="Bold" FontSize="13">
+                                                        </Run>
+                                                        <Run [Text]="dataItem?.DrugItem?.Infusiontype !== undefined?dataItem?.DrugItem?.Infusiontype:''"
+                                                            FontWeight="Normal" FontSize="13">
+                                                        </Run>
+                                                        <Run [Text]="dataItem?.DrugItem?.Concentration !== undefined?dataItem?.DrugItem?.Concentration:''"
+                                                            FontWeight="Normal" FontSize="13">
+                                                        </Run>
+                                                    </ng-container>
+                                                </span>
+                                                <span *ngIf="dataItem?.DrugItem?.Componentname3 !== undefined" class="display-alignment">
+                                                    <Run name="componentname3"
+                                                        [Text]="dataItem?.DrugItem?.Componentname3 !== undefined?dataItem?.DrugItem?.Componentname3:''"
+                                                        FontWeight="Bold" FontSize="13"></Run>
+                                                    <ng-container *ngIf="dataItem.DrugItem?.ComponenetPropertyIcon3 || dataItem.DrugItem?.MultiComponentIcon3">
+                                                        <InlineUIContainer class="inlineuicontainer">
+                                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.ComponenetPropertyIcon3" [DataContext]="dataItem">
+                                                                </Border>
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.MultiComponentIcon3" [DataContext]="dataItem"></Border>
+                                                            </StackPanel>
+                                                        </InlineUIContainer>
+                                                    </ng-container>
+                                                    <ng-container
+                                                    *ngIf="dataItem.DrugItem?.Componentname4 == undefined">
+                                                        <Run [Text]="dataItem?.DrugItem?.Dosageform !== undefined?dataItem?.DrugItem?.Dosageform:''" FontWeight="Bold" FontSize="13">
+                                                        </Run>
+                                                        <Run [Text]="dataItem?.DrugItem?.Infusiontype !== undefined?dataItem?.DrugItem?.Infusiontype:''"
+                                                            FontWeight="Normal" FontSize="13">
+                                                        </Run>
+                                                        <Run [Text]="dataItem?.DrugItem?.Concentration !== undefined?dataItem?.DrugItem?.Concentration:''"
+                                                            FontWeight="Normal" FontSize="13">
+                                                        </Run>
+                                                    </ng-container>
+                                                </span>
+                                                <span *ngIf="dataItem.DrugItem?.Componentname4 !== undefined" && class="display-alignment">
+                                                    <Run name="componentname4"
+                                                        [Text]="dataItem.DrugItem?.Componentname4 !== undefined?dataItem.DrugItem?.Componentname4:''"
+                                                        FontWeight="Bold" FontSize="13"></Run>
+                                                    <ng-container *ngIf="dataItem.DrugItem?.ComponenetPropertyIcon4 || dataItem.DrugItem?.MultiComponentIcon4">
+                                                        <InlineUIContainer class="inlineuicontainer">
+                                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.ComponenetPropertyIcon4" [DataContext]="dataItem">
+                                                                </Border>
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.MultiComponentIcon4" [DataContext]="dataItem"></Border>
+                                                            </StackPanel>
+                                                        </InlineUIContainer>
+                                                    </ng-container>
+                                                    <ng-container>
+                                                        <Run [Text]="dataItem?.DrugItem?.Dosageform !== undefined?dataItem?.DrugItem?.Dosageform:''" FontWeight="Bold" FontSize="13">
+                                                        </Run>
+                                                        <Run [Text]="dataItem?.DrugItem?.Infusiontype !== undefined?dataItem?.DrugItem?.Infusiontype:''"
+                                                            FontWeight="Normal" FontSize="13">
+                                                        </Run>
+                                                        <Run [Text]="dataItem?.DrugItem?.Concentration !== undefined?dataItem?.DrugItem?.Concentration:''"
+                                                            FontWeight="Normal" FontSize="13">
+                                                        </Run>
+                                                    </ng-container>
+                                                </span>
+                                            </p>
+                                        </RichTextBox>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='1' [col]='2'>
+                                    <div containerStyle class="right-align-icon">
+                                        <!-- [Tooltip]="dataItem.DrugItem?.DrugnameIcon1.Tooltip" -->
+                                        <Border Width="Auto" Background="Transparent" BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='1' [col]='2'>
+                                                                                    <div containerStyle>-->
+                                            <Image #imgConflictsIconTempRef Name="imgConflictsIcon" Cursor="Hand"
+                                                Width="16" Height="16" [MouseLeftButtonDown]="Drug_MouseEvent"
+                                                [DataContext]="dataItem"
+                                                [IsHitTestVisible]="dataItem.DrugItem?.DrugnameIcon1?.EnableOnHotSpotClick"
+                                                [Tooltip]="dataItem.DrugItem?.DrugnameIcon1?.Tooltip"
+                                                [Tag]="dataItem.DrugItem?.DrugnameIcon1" VerticalAlignment="Top"
+                                                HorizontalAlignment="Center"
+                                                [Source]="dataItem.DrugItem?.DrugnameIcon1?.UriString |ImageURIBitMap ">
+                                            </Image>
+
+                                            <!-- </div>
+                                                                                </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='1' [col]='3'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Margin="1,0,0,0" Width="Auto" Background="Transparent"
+                                            BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='1' [col]='3'>
+                                                                                    <div containerStyle> -->
+                                            <Image #imgDrugIconTempRef Name="imgDrugIcon" Cursor="Hand" Width="16"
+                                                Height="16" HorizontalAlignment="Center"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                [IsHitTestVisible]="dataItem.DrugItem?.DrugnameIcon2?.EnableOnHotSpotClick "
+                                                [Tooltip]="dataItem.DrugItem?.DrugnameIcon2?.Tooltip"
+                                                [Tag]="dataItem.DrugItem?.DrugnameIcon2" VerticalAlignment="Top"
+                                                [Source]="dataItem.DrugItem?.DrugnameIcon2?.UriString | ImageURIBitMap ">
+                                            </Image>
+                                            <!-- </div>
+                                                                                </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="2" [col]="1">
+                                    <!-- <div> -->
+                                    <!-- <kendo-gridlayout name="spDose"> -->
+                                    <!-- <kendo-gridlayout-item [row]="1" > -->
+                                    <div containerStyle class="text-wrap">
+                                        <ContentPresenter HorizontalAlignment="Left"
+                                            [Content]="dataItem.DrugItem | InfusionDoseWrap">
+                                        </ContentPresenter>
+                                    </div>
+                                    <!-- </kendo-gridlayout-item>
+                                                                            </kendo-gridlayout> -->
+                                    <!-- </div> -->
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='2' [col]='2'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Width="Auto" Background="Transparent" BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='2' [col]='2'>
+                                                                                    <div containerStyle> -->
+                                            <Image #imgDoseTypeIconTempRef Name="imgDoseTypeIcon" Cursor="Hand"
+                                                [IsHitTestVisible]="dataItem.DrugItem?.DoseIcon1?.EnableOnHotSpotClick "
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                [Tooltip]="dataItem.DrugItem?.DoseIcon1?.Tooltip"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.DoseIcon1"
+                                                VerticalAlignment="Top"
+                                                [Source]="dataItem.DrugItem?.DoseIcon1?.UriString | ImageURIBitMap">
+                                            </Image>
+                                            <!-- </div>
+                                                                                </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='2' [col]='3'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Margin="1,0,0,0" Width="Auto" Background="Transparent"
+                                            BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='2' [col]='3'>
+                                                                                    <div containerStyle> -->
+                                            <Image #imgAmendIconTempRef Name="imgAmendIcon"  
+                                                [IsHitTestVisible]="dataItem.DrugItem?.AmendIcon?.EnableOnHotSpotClick"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                [Tooltip]="dataItem.DrugItem?.AmendIcon?.Tooltip"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.AmendIcon"
+                                                VerticalAlignment="Top"
+                                                [Source]="dataItem.DrugItem?.AmendIcon?.UriString | ImageURIBitMap">
+                                            </Image>
+                                            <!-- </div>
+                                                                                </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]="3" [col]="1">
+                                    <div>
+                                        <kendo-gridlayout name="spRoute" [rows]="[ {height: 'auto'},{height:'auto'}]">
+                                            <kendo-gridlayout-item [row]='1'>
+                                                <div containerStyle class="text-wrap">
+                                                    <ContentPresenter HorizontalAlignment="Left"
+                                                        [Content]="dataItem.DrugItem | InfusionRouteWrap">
+                                                    </ContentPresenter>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='2' [col]="1">
+                                                <div containerStyle>
+                                                    <WrapPanel Orientation="Horizontal">
+                                                        <div [ngClass]="dataItem.DrugItem?.TargetSaturationlbl?'display-alignment':'grid-visibility'">
+                                                            <TextBlock #tbtargetSaturationlblTempRef Name="tbtargetSaturationlbl" HorizontalAlignment="Left"
+                                                                Margin="0,0,3,0" [Text]="dataItem.DrugItem?.TargetSaturationlbl" FontWeight="Bold" FontSize="10"
+                                                                [Foreground]="dataItem.DrugItem?.DRSForecolor" IsWordWrap="False"></TextBlock>
+                                                            <TextBlock #tbtargetSaturationTempRef Name="tbtargetSaturation" HorizontalAlignment="Left"
+                                                                [Text]="dataItem.DrugItem?.TargetSaturation" TextWrapping="Wrap"></TextBlock>
+                                                        </div>
+                                                    </WrapPanel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                        </kendo-gridlayout>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='3' [col]='2'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Margin="0,0,0,1" Width="Auto" Background="Transparent"
+                                            BorderThickness="0">
+                                            <Image #imgOrderSetIconTempRef Name="imgOrderSetIcon" 
+                                                [IsHitTestVisible]="dataItem.DrugItem?.OrderSetIcon?.EnableOnHotSpotClick != undefined?false:
+                                                dataItem.DrugItem?.OrderSetIcon?.EnableOnHotSpotClick"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                [Tooltip]="dataItem.DrugItem?.OrderSetIcon?.Tooltip"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.OrderSetIcon"
+                                                VerticalAlignment="Top"
+                                                [Source]="dataItem.DrugItem?.OrderSetIcon?.UriString |ImageURIBitMap">
+                                            </Image>
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='3' [col]='3'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Margin="1" Width="Auto" Background="Transparent" BorderThickness="0">
+                                            <Image #imgImgRouteIconTempRef Name="ImgRouteIcon"  
+                                                [IsHitTestVisible]="dataItem.DrugItem?.RouteIcon?.EnableOnHotSpotClick"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                [Tooltip]="dataItem.DrugItem?.RouteIcon?.Tooltip"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.RouteIcon"
+                                                VerticalAlignment="Top"
+                                                [Source]="dataItem.DrugItem?.RouteIcon?.UriString|ImageURIBitMap ">
+                                            </Image>
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="4" [col]="1">
+                                    <div>
+                                        <kendo-gridlayout name="spAdminPRNInstruction" 
+                                            [rows]="[ {height: 'auto'},{height:'auto'},{height: 'auto'},{height:'auto'}]">
+                                            <kendo-gridlayout-item [row]='1' [col]="1">
+                                                <div containerStyle>
+                                                    <WrapPanel Orientation="Horizontal">
+                                                        <div [ngClass]="dataItem.DrugItem?.Humidificationlbl?'display-alignment':'grid-visibility'">
+                                                            <TextBlock #tbHumidificationlblTempRef Name="tbHumidificationlbl" HorizontalAlignment="Left"
+                                                                [Text]="dataItem.DrugItem?.Humidificationlbl" FontWeight="Bold" FontSize="10"
+                                                                [Foreground]="dataItem.DrugItem?.DRSForecolor" TextWrapping="Wrap">
+                                                            </TextBlock>
+                                                            <TextBlock #tbHumidificationTempRef Name="tbHumidification" HorizontalAlignment="Left"
+                                                                [Text]="dataItem.DrugItem?.Humidification" TextWrapping="Wrap"></TextBlock>
+                                                        </div>
+                                                    </WrapPanel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='2' [col]="1" class="presItemWidth">
+                                                <div containerStyle>
+                                                    <WrapPanel Orientation="Horizontal">
+                                                        <TextBlock #tbAdminInstructionTempRef Name="tbAdminInstruction" [style]="{'white-space':'pre-line'}"
+                                                            HorizontalAlignment="Left"
+                                                            [Text]="dataItem.DrugItem?.AdministrationInst != undefined ? dataItem.DrugItem?.AdministrationInst : ''"
+                                                            TextWrapping="Wrap">
+                                                        </TextBlock>
+                                                        <!-- <kendo-gridlayout-item [row]="1" [col]='2'> -->
+                                                        <!-- <div containerStyle> -->
+                                                        <TextBlock #tbAdditionalInstructionTempRef
+                                                            Name="tbAdditionalInstruction" HorizontalAlignment="Left" [style]="{'white-space':'pre-line'}"
+                                                            [Text]="dataItem.DrugItem?.AdditionalInst != undefined ? dataItem.DrugItem?.AdditionalInst : ''"
+                                                            TextWrapping="Wrap"></TextBlock>
+                                                        <!-- </div> -->
+                                                        <!-- </kendo-gridlayout-item> -->
+                                                    </WrapPanel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='3' [col]="1">
+                                                <div containerStyle>
+                                                    <TextBlock #tbAdminWarningMessageTempRef
+                                                        Name="tbAdminWarningMessage" TextWrapping="Wrap"
+                                                        class="adminWarning"
+                                                        HorizontalAlignment="Left"
+                                                        [Text]="dataItem.DrugItem?.AdminWarningMessage"></TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='4' [col]="1">
+                                                <div containerStyle>
+                                                    <TextBlock #tbTargetrangeTempRef Name="tbTargetrange"
+                                                        TextWrapping="Wrap" HorizontalAlignment="Left"
+                                                        [Text]="dataItem.DrugItem?.Targetrange"></TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                        </kendo-gridlayout>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='4' [col]='2'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Width="Auto" Background="Transparent" BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='4' [col]='2'>
+                                                                                    <div containerStyle> -->
+                                            <Image #imgSupplyInstIconTempRef Name="imgSupplyInstIcon" Margin="1,1,1,1"
+                                                Cursor="Hand"
+                                                [IsHitTestVisible]="dataItem.DrugItem?.SupplyInstIcon?.EnableOnHotSpotClick"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.SupplyInstIcon"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                VerticalAlignment="Top" [ToolTip]="dataItem.DrugItem?.SupplyInstIcon?.Tooltip"
+                                                [Source]="dataItem.DrugItem?.SupplyInstIcon?.UriString | ImageURIBitMap">
+                                                <!-- <Border MaxWidth="400">
+                                                    <TextBlock [Text]="dataItem.DrugItem?.SupplyInstIcon?.Tooltip"
+                                                        TextWrapping="Wrap">
+                                                    </TextBlock>
+                                                </Border> -->
+                                            </Image>
+                                            <!-- </div>
+                                                                                </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='4' [col]='3'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Width="Auto" Background="Transparent" BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='4' [col]='3'>
+                                                                                    <div containerStyle> -->
+                                            <Image #imgSelfAdminIconTempRef Name="imgSelfAdminIcon"  
+                                                [Tooltip]="dataItem.DrugItem?.AdminPRNIcon2?.Tooltip"
+                                                [IsHitTestVisible]="dataItem.DrugItem?.AdminPRNIcon2?.EnableOnHotSpotClick"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.AdminPRNIcon2"
+                                                VerticalAlignment="Top"
+                                                [Source]="dataItem.DrugItem?.AdminPRNIcon2 !=undefined ?dataItem.DrugItem?.AdminPRNIcon2?.UriString:'' | ImageURIBitMap">
+                                            </Image>
+                                            <!-- </div>
+                                                                                </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='5' [col]='1'>
+                                    <div>
+                                        <kendo-gridlayout Name="spPrescriptionStatus"
+                                            [rows]="[ {height: 'auto'},{height:'auto'}]">
+                                            <kendo-gridlayout-item [row]='1' [col]="1">
+                                                <div containerStyle>
+                                                    <TextBlock #tbPrescriptionStatusTempRef Name="tbPrescriptionStatus"
+                                                        TextWrapping="Wrap" HorizontalAlignment="Left"
+                                                        [Text]="dataItem.DrugItem?.PrescriptionStatus">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='2' [col]="1">
+                                                <div containerStyle>
+                                                    <TextBlock #tbthenTempRef Name="tbthen" TextWrapping="Wrap"
+                                                        FontWeight="Bold" HorizontalAlignment="Left" Text="AND THEN"
+                                                        FontSize="10" [Foreground]="dataItem.DrugItem?.DRSForecolor"
+                                                        [Visibility]="dataItem.DrugItem.IsSequentail != undefined? dataItem.DrugItem.IsSequentail: false">
+                                                    </TextBlock>
+                                                    <!-- | visibility?.IsSequentail -->
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                        </kendo-gridlayout>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='5' [col]='2'>
+                                    <div>
+                                        <kendo-gridlayout name="Icons">
+                                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal"
+                                                HorizontalAlignment="Stretch">
+                                                <Border Width="Auto" Background="Transparent" BorderThickness="0"
+                                                    Margin="0" VerticalAlignment="Bottom">
+                                                    <Image #imgStatusIconTempRef Name="imgStatusIcon" Cursor={{cursorImage(dataItem.DrugItem?.PStatusIcon?.UriString)}}
+                                                        [Tooltip]="dataItem.DrugItem?.PStatusIcon?.Tooltip"
+                                                        [IsHitTestVisible]="dataItem.DrugItem?.PStatusIcon?.EnableOnHotSpotClick"
+                                                        [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                        [Tag]="dataItem.DrugItem?.PStatusIcon" VerticalAlignment="Top"
+                                                        [Source]="dataItem.DrugItem?.PStatusIcon?.UriString | ImageURIBitMap">
+                                                    </Image>
+                                                </Border>
+                                                <Border Width="Auto" Background="Transparent" BorderThickness="0"
+                                                    Margin="0" VerticalAlignment="Bottom">
+                                                    <Image #imgRequestIconTempRef Name="imgRequestIcon"    
+                                                        [Tooltip]="dataItem.DrugItem?.MRequestIcon?.Tooltip"
+                                                        [IsHitTestVisible]="dataItem.DrugItem?.MRequestIcon?.EnableOnHotSpotClick"
+                                                        [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                        [Tag]="dataItem.DrugItem?.MRequestIcon" VerticalAlignment="Top"
+                                                        [Source]="dataItem.DrugItem?.MRequestIcon?.UriString | ImageURIBitMap">
+                                                    </Image>
+                                                </Border>
+                                            </StackPanel>
+                                        </kendo-gridlayout>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='6' [col]='1'>
+                                    <div containerStyle>
+                                        <kendo-gridlayout name="spOmit" VerticalAlignment="Top" HorizontalAlignment="left">
+                                            <TextBlock [Text]="dataItem.DrugItem?.OmitLabel"
+                                                [Visibility]="dataItem.DrugItem | OmitWrap">
+                                            </TextBlock>
+                                        </kendo-gridlayout>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='6' [col]='2'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Margin="1,0,0,0" Width="Auto" Background="Transparent"
+                                            BorderThickness="0">
+                                            <Image #imgOmitIconTempRef Name="imgOmitIcon" 
+                                                [IsHitTestVisible]="dataItem.DrugItem?.OmitIcon?.EnableOnHotSpotClick"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.OmitIcon"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                VerticalAlignment="Top"
+                                                [Tooltip]="dataItem.DrugItem?.OmitIcon?.Tooltip"
+                                                [Source]="dataItem.DrugItem?.OmitIcon?.UriString | ImageURIBitMap">
+                                            </Image>
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='6' [col]='3'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Margin="1,0,0,0" Width="Auto" Background="Transparent"
+                                            BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='6' [col]='2'>
+                                                                                    <div containerStyle> -->
+                                            <Image #imgDoseCalcIconTempRef Name="imgDoseCalcIcon" Cursor="Hand"
+                                                [IsHitTestVisible]="dataItem.DrugItem?.DoseCalcIcon?.EnableOnHotSpotClick"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.DoseCalcIcon"
+                                                VerticalAlignment="Top"
+                                                [Tooltip]="dataItem.DrugItem?.DoseCalcIcon?.Tooltip"
+                                                [Source]="dataItem.DrugItem?.DoseCalcIcon?.UriString | ImageURIBitMap">
+                                                <!-- <Border MaxWidth="400">
+                                                    <TextBlock [Text]="dataItem.DrugItem?.DoseCalcIcon?.Tooltip"
+                                                        TextWrapping="Wrap">
+                                                    </TextBlock>
+                                                </Border> -->
+                                            </Image>
+                                            <!-- </div>
+                                                                                </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='7' [col]='1'>
+                                    <div containerStyle>
+                                        <kendo-gridlayout Name="spAdministationDetails"
+                                            [rows]="[ {height: 'auto'},{height:'auto'},{height: 'auto'},{height:'auto'},{height: 'auto'}]"
+                                            [cols]="[{width: '2.1fr'},{width: '0.5fr'},{width: '18fr'}]">
+                                            <kendo-gridlayout-item [row]='1' class="padding">
+                                                <!-- [col]='1' -->
+                                                <div containerStyle>
+                                                    <TextBlock Text=" "
+                                                        [Visibility]="dataItem.DrugItem | LineBreakWrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='2' [col]='1'>
+                                                <div containerStyle>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.StartDTLbl"
+                                                        [Visibility]="dataItem.DrugItem | StartDTWrap"></TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='2' [col]='2'>
+                                                <div containerStyle>
+                                                    <TextBlock Text=" : "
+                                                        [Visibility]="dataItem.DrugItem | StartDTWrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='2' [col]='3'>
+                                                <div>
+                                                    <kendo-gridlayout [rows]="[ {height: 'auto'}]"
+                                                        [cols]="[{width: '1fr'},{width: '2.7fr'},{width: '0.5fr'},{width: '18fr'}]">
+                                                        <kendo-gridlayout-item [row]='1' [col]='1'>
+                                                            <div containerStyle class="margin-10">
+                                                                <TextBlock Margin="0,0,0,0"
+                                                                    [Text]="dataItem.DrugItem?.StartDTVal"
+                                                                    [Visibility]="dataItem.DrugItem | StartDTWrap"
+                                                                    TextWrapping="Wrap">
+                                                                </TextBlock>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+                                                        <kendo-gridlayout-item [row]='1' [col]='2'>
+                                                            <div containerStyle>
+                                                                <TextBlock [Text]="dataItem.DrugItem?.StopDTLbl"
+                                                                    [Visibility]="dataItem.DrugItem | StopDTWrap"
+                                                                    TextWrapping="Wrap">
+                                                                </TextBlock>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+                                                        <kendo-gridlayout-item [row]='1' [col]='3'>
+                                                            <div containerStyle>
+                                                                <TextBlock Text=" : "
+                                                                    [Visibility]="dataItem.DrugItem | StopDTWrap">
+                                                                </TextBlock>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+                                                        <kendo-gridlayout-item [row]='1' [col]='4'>
+                                                            <div containerStyle>
+                                                                <TextBlock [Text]="dataItem.DrugItem?.StopDTVal"
+                                                                    [Visibility]="dataItem.DrugItem | StopDTWrap"
+                                                                    TextWrapping="Wrap">
+                                                                </TextBlock>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+
+                                                    </kendo-gridlayout>
+                                                </div>
+                                            </kendo-gridlayout-item>
+
+                                            <kendo-gridlayout-item [row]='3' [col]='1'>
+                                                <div containerStyle>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.PrescribedByLbl"
+                                                        [Visibility]="dataItem.DrugItem | PrescribedByWrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='3' [col]='2'>
+                                                <div containerStyle>
+                                                    <TextBlock Text=" : "
+                                                        [Visibility]="dataItem.DrugItem | PrescribedByWrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='3' [col]='3'>
+                                                <div>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.PrescribedByVal"
+                                                        [Visibility]="dataItem.DrugItem | PrescribedByWrap"
+                                                        TextWrapping="Wrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+
+                                            <kendo-gridlayout-item [row]='4' [col]='1'>
+                                                <div containerStyle>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.ActionByLbl"
+                                                        [Visibility]="dataItem.DrugItem | ActionByWrap"></TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='4' [col]='2'>
+                                                <div containerStyle>
+                                                    <TextBlock Text=" : "
+                                                        [Visibility]="dataItem.DrugItem | ActionByWrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='4' [col]='3'>
+                                                <div>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.ActionByVal"
+                                                        [Visibility]="dataItem.DrugItem | ActionByWrap"
+                                                        TextWrapping="Wrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+
+                                            <kendo-gridlayout-item [row]='5' [col]='1'>
+                                                <div containerStyle>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.ReasonLbl"
+                                                        [Visibility]="dataItem.DrugItem?.ReasonWrapConverter">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='5' [col]='2'>
+                                                <div containerStyle>
+                                                    <TextBlock Text=" : " [Visibility]="dataItem.DrugItem | ReasonWrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='5' [col]='3'>
+                                                <div>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.ReasonVal"
+                                                        [Visibility]="dataItem.DrugItem | ReasonWrap"
+                                                        TextWrapping="Wrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='6' [col]='1'>
+                                                <div containerStyle>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.CommentsLbl"
+                                                        [Visibility]="dataItem.DrugItem | CommentsWrap"></TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='6' [col]='2'>
+                                                <div containerStyle>
+                                                    <TextBlock Text=" : "
+                                                        [Visibility]="dataItem.DrugItem | CommentsWrap"></TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='6' [col]='3'>
+                                                <div containerStyle>
+                                                    <!-- <TextBlock [Text]="dataItem.DrugItem?.CommentsVal"
+                                                        [Visibility]="dataItem.DrugItem | CommentsWrap"
+                                                        TextWrapping="NoWrap" TextTrimming="WordEllipsis">
+                                                        <Border MaxWidth="400">
+                                                            <TextBlock [Text]="dataItem.DrugItem?.CommentsVal"
+                                                                TextWrapping="Wrap">
+                                                            </TextBlock>
+                                                        </Border>
+                                                    </TextBlock> -->
+                                                    <div *ngIf="dataItem.DrugItem?.CommentsVal?true:false" kendoTooltip [title]="dataItem.DrugItem?.CommentsVal" style=" text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">
+                                                        {{dataItem.DrugItem?.CommentsVal}}
+                                                    </div>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                        </kendo-gridlayout>
+                                    </div>
+
+                                </kendo-gridlayout-item>
+
+                                <!-- //////////////// -->
+                                <kendo-gridlayout-item [row]='7' [col]='2'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto"
+                                            Background="Transparent" BorderThickness="0">
+                                            <Image #imgOnAdmissionTempRef Name="imgOnAdmission" Margin="0,0,0,0"
+                                                [Tooltip]="dataItem.DrugItem?.OnAdmissionIcon?.Tooltip"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                [IsHitTestVisible]="dataItem.DrugItem?.OnAdmissionIcon?.EnableOnHotSpotClick"
+                                                [Tag]="dataItem.DrugItem?.OnAdmissionIcon"
+                                                [Source]="dataItem.DrugItem?.OnAdmissionIcon?.UriString | ImageURIBitMap">
+                                            </Image>
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='7' [col]='3'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Width="Auto" Background="Transparent" BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='7' [col]='3'>
+                                                                                    <div containerStyle> -->
+                                            <Image #imgClinicallyVerifiedIconTempRef Name="imgClinicallyVerifiedIcon"
+                                                Margin="0,10,0,0"
+                                                [IsHitTestVisible]="dataItem.DrugItem?.DoseIcon2?.EnableOnHotSpotClick"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                [Tooltip]="dataItem.DrugItem?.DoseIcon2?.Tooltip"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.DoseIcon2"
+                                                VerticalAlignment="Top"
+                                                [Source]="dataItem.DrugItem?.DoseIcon2?.UriString | ImageURIBitMap">
+                                            </Image>
+                                            <!-- </div>
+                                                                                </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='8' [col]='1'>
+                                    <div>
+                                        <!-- VerticalAlignment="Top" HorizontalAlignment="Left"[{width:'30'},{width:'10'},{width:'1fr'}]" -->
+                                        <kendo-gridlayout Name="spReview" [rows]="[ {height: 'auto'}]"
+                                            [cols]="[{width: '2.1fr'},{width: '0.5fr'},{width: '18fr'}]">
+                                            <kendo-gridlayout-item [row]='1' [col]='1'>
+                                                <div containerStyle>                                                   
+                                                    <TextBlock [Text]="dataItem.DrugItem?.ReviewLabel"
+                                                        [Visibility]="dataItem.DrugItem?.ReviewLabel && dataItem.DrugItem?.ReviewVal ? 'True':'False'"></TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='1' [col]='2'>
+                                                <div containerStyle>
+                                                    <TextBlock Text=" : " [Visibility]="dataItem.DrugItem?.ReviewLabel && dataItem.DrugItem?.ReviewVal ? 'True':'False'">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='1' [col]='3'>
+                                                <div containerStyle>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.ReviewVal"
+                                                        [Visibility]="dataItem.DrugItem?.ReviewVal && dataItem.DrugItem?.ReviewVal ?'True':'False'"
+                                                        TextWrapping="NoWrap" TextTrimming="WordEllipsis">
+                                                        <!-- <ToolTipService.ToolTip> -->
+                                                        <Border MaxWidth="auto">
+                                                            <TextBlock [Text]="dataItem.DrugItem?.ReviewVal"
+                                                                TextWrapping="Wrap">
+                                                            </TextBlock>
+                                                        </Border>
+                                                        <!-- </ToolTipService.ToolTip> -->
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                        </kendo-gridlayout>
+                                    </div>
+
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='8' [col]='2'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Margin="1,1,1,1" Width="Auto" Background="Transparent"
+                                            BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='8' [col]='2'>
+                                                                                    <div containerStyle> -->
+                                            <Image #imgReviewIconTempRef Name="imgReviewIcon" 
+                                                [IsHitTestVisible]="dataItem.DrugItem?.ReviewIcon?.EnableOnHotSpotClick"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.ReviewIcon"
+                                                VerticalAlignment="Top"
+                                                [Tooltip]="dataItem.DrugItem?.ReviewIcon?.Tooltip"
+                                                [Source]="dataItem.DrugItem?.ReviewIcon?.UriString | ImageURIBitMap">
+                                                <!-- need to revisit, pipe should be implemented <Border MaxWidth="400">
+                                                                                                <TextBlock [Text]="dataItem.DrugItem?.ReviewIcon?.Tooltip | "
+                                                                                                    TextWrapping="Wrap"></TextBlock>
+                                                                                            </Border> -->
+                                            </Image>
+                                            <!-- </div>
+                                                                                </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='8' [col]='3'>
+                                    <div containerStyle>
+                                        <Border Width="Auto" Background="Transparent" BorderThickness="0">
+                                            <iImage #imgNotesIconTempRef Name="imgNotesIcon"  Width="16" Height="16" Margin="1,1,1,1"
+                                                [DataContext]="dataItem" [IsHitTestVisible]="dataItem.DrugItem?.NotesIcon?.EnableOnHotSpotClick"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.NotesIcon" VerticalAlignment="Top"
+                                                [Source]="dataItem.DrugItem?.NotesIcon" isToolTip="True" [ToolTip]="dataItem.DrugItem?.NotesToolTip">
+                                            </iImage>
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+                            </kendo-gridlayout>
+                        </kendo-gridlayout-item>
+                    </kendo-gridlayout>
+                </Border>
+            </DataTemplate>
+
+            <DataTemplate #temp *ngIf="grid.UniqueName == 'Prescription item' && !dataItem?.DrugItem?.IsInfusion"
+                [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex">
+                <Border [iStyle]="Styles.whiteBorder" Name="drugDetailsBorder">
+                    <kendo-gridlayout class="grid-layout-container" GridLayout VerticalAlignment="Top" Margin="0,0,0,1"
+                        [rows]="[ { height: 'auto'},{ height: 'auto'},{ height: 'auto'}]">
+                        <kendo-gridlayout-item [row]="1">
+                            <div containerStyle>
+                                <RichTextBox Name="Richtxtbx2"
+                                    [Visibility]="dataItem.DrugItem.ParentGroupVisibility != undefined? dataItem.DrugItem.ParentGroupVisibility: false"
+                                    IsReadOnly="True" Padding="0,1,0,1" BorderThickness="0"
+                                    Background="#74b9c3">
+                                    <p paragraph class="margin-0 text-wrap">
+                                        <Run [Text]="dataItem?.DrugItem?.ParentGroupName !== undefined? dataItem?.DrugItem?.ParentGroupName:''"
+                                            [Foreground]="dataItem.DrugItem?.GroupForecolor" FontWeight="Bold"
+                                            FontSize="13">
+                                        </Run>
+                                    </p>
+                                </RichTextBox>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="2">
+                            <div containerStyle>
+                                <RichTextBox Name="Richtxtbx1"
+                                    [Visibility]="dataItem.DrugItem.GroupVisibility != undefined? dataItem.DrugItem.GroupVisibility: false"
+                                    IsReadOnly="True" Padding="0,1,0,1" BorderThickness="0"
+                                    Background="#74b9c3"
+                                    >
+                                    <p paragraph class="margin-0 text-wrap">
+                                        <Run [Text]="dataItem?.DrugItem?.GroupName !== undefined? dataItem?.DrugItem?.GroupName:''"
+                                            [Foreground]="dataItem.DrugItem?.GroupForecolor" FontWeight="Bold"
+                                            FontSize="13">
+                                        </Run>
+                                    </p>
+                                </RichTextBox>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="3">
+                            <kendo-gridlayout class="grid-layout-container sub-grid" GridLayout VerticalAlignment="Top"
+                                Margin="0,0,0,1"
+                                [rows]="[ { height: 'auto'}, 
+                                                    { height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: 'auto'}]"
+                                [cols]="[{ width: '60fr'},{ width: '1fr'},{ width: '1fr'}]"
+                                [ngClass]="isOverviewChart || CheckBoxColumn ? 'subGrid': 'medgrid'"
+                                Width="Auto"
+                                >
+                                <kendo-gridlayout-item [row]='1' [col]="1">
+                                    <div containerStyle class="set-width">
+                                        <RichTextBox Name="Richtxtbx" IsReadOnly="True" Padding="1,0,1,0"
+                                            BorderThickness="0" Background="Transparent">
+                                            <p paragraph class="padding-0 text-wrap">
+                                                <span>
+                                                    <Run [Text]="dataItem?.DrugItem?.Drugname !== undefined? dataItem?.DrugItem?.Drugname:''" FontWeight="Bold"
+                                                        FontSize="13" IsWordwrap="True"></Run>
+                                                    <ng-container
+                                                        *ngIf="dataItem.DrugItem?.CriticalIcon || dataItem.DrugItem?.MultiComponentIcon || dataItem.DrugItem?.DrugPropertyIcon">
+                                                        <InlineUIContainer class="inlineuicontainer">
+                                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" [style]="{'display':'flex','align-items':'baseline'}">
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.CriticalIcon" [DataContext]="dataItem"></Border>
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.MultiComponentIcon" [DataContext]="dataItem"></Border>
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.DrugPropertyIcon" [DataContext]="dataItem"></Border>
+                                                            </StackPanel>
+                                                        </InlineUIContainer>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="dataItem.DrugItem?.Componentname1 == undefined 
+                                                    && dataItem.DrugItem?.Componentname2 == undefined && dataItem.DrugItem?.Componentname3 == undefined && dataItem.DrugItem?.Componentname4 == undefined"> 
+                                                        <Run Name="n1" [Text]="dataItem?.DrugItem?.Dosageform !== undefined?dataItem?.DrugItem?.Dosageform:''"
+                                                            FontWeight="Bold" FontSize="13">
+                                                        </Run>
+                                                    </ng-container>
+                                                </span>
+                                                <span *ngIf="dataItem?.DrugItem?.Componentname1 !== undefined" class="display-alignment">
+                                                    <Run Name="run1"
+                                                        [Text]="dataItem?.DrugItem?.Componentname1 !== undefined?dataItem?.DrugItem?.Componentname1:''"
+                                                        FontWeight="Bold" FontSize="13"></Run>
+                                                    <ng-container *ngIf="dataItem.DrugItem?.ComponenetPropertyIcon1 || dataItem.DrugItem?.MultiComponentIcon1">
+                                                        <InlineUIContainer class="inlineuicontainer">
+                                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.ComponenetPropertyIcon1" [DataContext]="dataItem">
+                                                                </Border>
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.MultiComponentIcon1" [DataContext]="dataItem"></Border>
+                                                            </StackPanel>
+                                                        </InlineUIContainer>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="dataItem.DrugItem?.Componentname2 == undefined &&  dataItem.DrugItem?.Componentname3 == undefined && dataItem.DrugItem?.Componentname4 == undefined"> 
+                                                        <Run Name="n1" [Text]="dataItem?.DrugItem?.Dosageform !== undefined?dataItem?.DrugItem?.Dosageform:''"
+                                                            FontWeight="Bold" FontSize="13">
+                                                        </Run>
+                                                    </ng-container>
+                                                </span>
+                                                <span *ngIf="dataItem?.DrugItem?.Componentname2 !== undefined" class="display-alignment">
+                                                    <Run Name="run2"
+                                                        [Text]="dataItem?.DrugItem?.Componentname2 !== undefined ? dataItem?.DrugItem?.Componentname2:''"
+                                                        FontWeight="Bold" FontSize="13"></Run>
+                                                    <ng-container *ngIf="dataItem.DrugItem?.ComponenetPropertyIcon2 || dataItem.DrugItem?.MultiComponentIcon2">
+                                                        <InlineUIContainer class="inlineuicontainer">
+                                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.ComponenetPropertyIcon2" [DataContext]="dataItem">
+                                                                </Border>
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.MultiComponentIcon2" [DataContext]="dataItem"></Border>
+                                                            </StackPanel>
+                                                        </InlineUIContainer>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="dataItem.DrugItem?.Componentname3 == undefined && dataItem.DrugItem?.Componentname4 == undefined"> 
+                                                        <Run Name="n1" [Text]="dataItem?.DrugItem?.Dosageform !== undefined?dataItem?.DrugItem?.Dosageform:''"
+                                                            FontWeight="Bold" FontSize="13">
+                                                        </Run>
+                                                    </ng-container>
+                                                </span>
+                                                <span *ngIf="dataItem?.DrugItem?.Componentname3 !== undefined" class="display-alignment">
+                                                    <Run Name="run3"
+                                                        [Text]="dataItem?.DrugItem?.Componentname3 !== undefined?dataItem?.DrugItem?.Componentname3:''"
+                                                        FontWeight="Bold" FontSize="13"></Run>
+                                                    <ng-container *ngIf="dataItem.DrugItem?.ComponenetPropertyIcon3 || dataItem.DrugItem?.MultiComponentIcon3">
+                                                        <InlineUIContainer class="inlineuicontainer">
+                                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.ComponenetPropertyIcon3" [DataContext]="dataItem">
+                                                                </Border>
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.MultiComponentIcon3" [DataContext]="dataItem"></Border>
+                                                            </StackPanel>
+                                                        </InlineUIContainer>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="dataItem.DrugItem?.Componentname4 == undefined"> 
+                                                        <Run Name="n1" [Text]="dataItem?.DrugItem?.Dosageform !== undefined?dataItem?.DrugItem?.Dosageform:''"
+                                                            FontWeight="Bold" FontSize="13">
+                                                        </Run>
+                                                    </ng-container>
+                                                </span>
+                                                <span *ngIf="dataItem?.DrugItem?.Componentname4 !== undefined" class="display-alignment">
+                                                    <Run Name="run4"
+                                                        [Text]="dataItem.DrugItem?.Componentname4 !== undefined?dataItem.DrugItem?.Componentname4:''"
+                                                        FontWeight="Bold" FontSize="13"></Run>
+                                                    <ng-container *ngIf="dataItem.DrugItem?.ComponenetPropertyIcon4 || dataItem.DrugItem?.MultiComponentIcon4">
+                                                        <InlineUIContainer class="inlineuicontainer">
+                                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.ComponenetPropertyIcon4" [DataContext]="dataItem">
+                                                                </Border>
+                                                                <Border HorizontalAlignment="Left" Width="Auto" Background="Transparent" BorderThickness="0"
+                                                                    [Child]="dataItem.DrugItem?.MultiComponentIcon4" [DataContext]="dataItem"></Border>
+                                                            </StackPanel>
+                                                        </InlineUIContainer>
+                                                    </ng-container>
+                                                    <ng-container>
+                                                    <Run Name="n1" [Text]="dataItem?.DrugItem?.Dosageform !== undefined?dataItem?.DrugItem?.Dosageform:''"
+                                                    FontWeight="Bold" FontSize="13">
+                                                   </Run>
+                                                </ng-container>
+                                            </span> 
+                                            </p>
+                                        </RichTextBox>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='1' [col]='2'>
+                                    <div containerStyle class="right-align-icon">
+                                        <!-- [Tooltip]="dataItem.DrugItem?.DrugnameIcon1.Tooltip" -->
+                                        <Border Width="Auto" Background="Transparent" BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='1' [col]='2'>
+                                                                                <div containerStyle>-->
+                                            <Image #imgConflictsIconTempRef Name="imgConflictsIcon" Cursor="Hand"
+                                                Width="16" Height="16" [MouseLeftButtonDown]="Drug_MouseEvent"
+                                                [DataContext]="dataItem"
+                                                [IsHitTestVisible]="dataItem.DrugItem?.DrugnameIcon1?.EnableOnHotSpotClick"
+                                                [Tooltip]="dataItem.DrugItem?.DrugnameIcon1?.Tooltip"
+                                                [Tag]="dataItem.DrugItem?.DrugnameIcon1" VerticalAlignment="Top"
+                                                HorizontalAlignment="Center"
+                                                [Source]="dataItem.DrugItem?.DrugnameIcon1?.UriString |ImageURIBitMap ">
+                                            </Image>
+
+                                            <!-- </div>
+                                                                            </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='1' [col]='3'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Margin="1,0,0,0" Width="Auto" Background="Transparent"
+                                            BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='1' [col]='3'>
+                                                                                <div containerStyle> -->
+                                            <Image #imgDrugIconTempRef Name="imgDrugIcon" Cursor="Hand" Width="16"
+                                                Height="16" HorizontalAlignment="Center"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                [IsHitTestVisible]="dataItem.DrugItem?.DrugnameIcon2?.EnableOnHotSpotClick "
+                                                [Tooltip]="dataItem.DrugItem?.DrugnameIcon2?.Tooltip"
+                                                [Tag]="dataItem.DrugItem?.DrugnameIcon2" VerticalAlignment="Top"
+                                                [Source]="dataItem.DrugItem?.DrugnameIcon2?.UriString | ImageURIBitMap ">
+                                            </Image>
+                                            <!-- </div>
+                                                                            </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="2" [col]="1">
+                                    <!-- <div> -->
+                                    <!-- <kendo-gridlayout name="spDose"> -->
+                                    <!-- <kendo-gridlayout-item [row]="1" > -->
+                                    <div containerStyle class="text-wrap">
+                                        <ContentPresenter HorizontalAlignment="Left"
+                                            [Content]="dataItem.DrugItem | DoseWrapConverter">
+                                        </ContentPresenter>
+                                    </div>
+                                    <!-- </kendo-gridlayout-item>
+                                                                        </kendo-gridlayout> -->
+                                    <!-- </div> -->
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='2' [col]='2'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Width="Auto" Background="Transparent" BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='2' [col]='2'>
+                                                                                <div containerStyle> -->
+                                            <Image #imgDoseTypeIconTempRef Name="imgDoseTypeIcon" Cursor="Hand"
+                                                [IsHitTestVisible]="dataItem.DrugItem?.DoseIcon1?.EnableOnHotSpotClick "
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                [Tooltip]="dataItem.DrugItem?.DoseIcon1?.Tooltip"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.DoseIcon1"
+                                                VerticalAlignment="Top"
+                                                [Source]="dataItem.DrugItem?.DoseIcon1?.UriString | ImageURIBitMap">
+                                            </Image>
+                                            <!-- </div>
+                                                                            </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='2' [col]='3'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Margin="1,0,0,0" Width="Auto" Background="Transparent"
+                                            BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='2' [col]='3'>
+                                                                                <div containerStyle> -->
+                                            <Image #imgAmendIconTempRef Name="imgAmendIcon"  
+                                                [IsHitTestVisible]="dataItem.DrugItem?.AmendIcon?.EnableOnHotSpotClick"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                [Tooltip]="dataItem.DrugItem?.AmendIcon?.Tooltip"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.AmendIcon"
+                                                VerticalAlignment="Top"
+                                                [Source]="dataItem.DrugItem?.AmendIcon?.UriString | ImageURIBitMap">
+                                            </Image>
+                                            <!-- </div>
+                                                                            </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]="3" [col]="1">
+                                    <div>
+                                        <kendo-gridlayout name="spRoute" [rows]="[ {height: 'auto'},{height:'auto'}]">
+                                            <kendo-gridlayout-item [row]='1'>
+                                                <div containerStyle class="text-wrap">
+                                                    <ContentPresenter HorizontalAlignment="Left"
+                                                        [Content]="dataItem.DrugItem | RouteWrapConvert">
+                                                    </ContentPresenter>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='2' [col]="1">
+                                                <div containerStyle>
+                                                    <WrapPanel Orientation="Horizontal">
+                                                        <div [ngClass]="dataItem.DrugItem?.TargetSaturationlbl?'display-alignment':'grid-visibility'">
+                                                            <TextBlock #tbtargetSaturationlblTempRef Name="tbtargetSaturationlbl" HorizontalAlignment="Left"
+                                                                Margin="0,0,3,0" [Text]="dataItem.DrugItem?.TargetSaturationlbl" FontWeight="Bold" FontSize="10"
+                                                                [Foreground]="dataItem.DrugItem?.DRSForecolor" IsWordWrap="False"></TextBlock>
+                                                            <TextBlock #tbtargetSaturationTempRef Name="tbtargetSaturation" HorizontalAlignment="Left"
+                                                                [Text]="dataItem.DrugItem?.TargetSaturation" TextWrapping="Wrap"></TextBlock>
+                                                        </div>
+                                                    </WrapPanel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                        </kendo-gridlayout>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='3' [col]='2'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Margin="0,0,0,1" Width="Auto" Background="Transparent"
+                                            BorderThickness="0">
+                                            <Image #imgOrderSetIconTempRef Name="imgOrderSetIcon"
+                                                [IsHitTestVisible]="dataItem.DrugItem?.OrderSetIcon?.EnableOnHotSpotClick != undefined?false:
+                                                dataItem.DrugItem?.OrderSetIcon?.EnableOnHotSpotClick"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                [Tooltip]="dataItem.DrugItem?.OrderSetIcon?.Tooltip"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.OrderSetIcon"
+                                                VerticalAlignment="Top"
+                                                [Source]="dataItem.DrugItem?.OrderSetIcon?.UriString |ImageURIBitMap">
+                                            </Image>
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='3' [col]='3'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Margin="1" Width="Auto" Background="Transparent" BorderThickness="0">
+                                            <Image #imgImgRouteIconTempRef Name="ImgRouteIcon" 
+                                                [IsHitTestVisible]="dataItem.DrugItem?.RouteIcon?.EnableOnHotSpotClick"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                [Tooltip]="dataItem.DrugItem?.RouteIcon?.Tooltip"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.RouteIcon"
+                                                VerticalAlignment="Top"
+                                                [Source]="dataItem.DrugItem?.RouteIcon?.UriString|ImageURIBitMap ">
+                                            </Image>
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="4" [col]="1">
+                                    <div>
+                                        <kendo-gridlayout name="spAdminPRNInstruction"
+                                            [rows]="[ {height: 'auto'},{height:'auto'},{height: 'auto'}]">
+                                            <kendo-gridlayout-item [row]='1' [col]="1">
+                                                <div containerStyle>
+                                                    <WrapPanel Orientation="Horizontal">
+                                                        <TextBlock #tbAdminInstructionTempRef Name="tbAdminInstruction" class="txtBlockWrap"
+                                                            HorizontalAlignment="Left" [style]="{'white-space':'pre-line'}"
+                                                            [Text]="dataItem.DrugItem?.AdministrationInst != undefined ? dataItem.DrugItem?.AdministrationInst : ''"
+                                                            TextWrapping="Wrap">
+                                                        </TextBlock>
+                                                        <!-- <kendo-gridlayout-item [row]="1" [col]='2'> -->
+                                                        <!-- <div containerStyle> -->
+                                                        <TextBlock #tbPRNInstructionTempRef Name="tbPRNInstruction" class="txtBlockWrap"
+                                                            HorizontalAlignment="Left" [style]="{'white-space':'pre-line'}"
+                                                            [Text]="dataItem.DrugItem?.PRNInst" TextWrapping="Wrap">
+                                                        </TextBlock>
+                                                        <!-- </div> -->
+                                                        <!-- </kendo-gridlayout-item> -->
+                                                    </WrapPanel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='2' [col]="1">
+                                                <div containerStyle>
+                                                    <TextBlock #tbAdminWarningMessageTempRef
+                                                        Name="tbAdminWarningMessage" TextWrapping="Wrap"
+                                                        class="adminWarning"
+                                                        HorizontalAlignment="Left"
+                                                        [Text]="dataItem.DrugItem?.AdminWarningMessage">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='3' [col]="1">
+                                                <div containerStyle>
+                                                    <TextBlock #tbTargetrangeTempRef Name="tbTargetrange"
+                                                        TextWrapping="Wrap" HorizontalAlignment="Left"
+                                                        [Text]="dataItem.DrugItem?.Targetrange">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                        </kendo-gridlayout>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='4' [col]='2'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Width="Auto" Background="Transparent" BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='4' [col]='2'>
+                                                                                <div containerStyle> -->
+                                            <Image #imgSupplyInstIconTempRef Name="imgSupplyInstIcon" Margin="1,1,1,1"
+                                                Cursor="Hand"
+                                                [IsHitTestVisible]="dataItem.DrugItem?.SupplyInstIcon?.EnableOnHotSpotClick"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.SupplyInstIcon"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                VerticalAlignment="Top" [ToolTip]="dataItem.DrugItem?.SupplyInstIcon?.Tooltip"
+                                                [Source]="dataItem.DrugItem?.SupplyInstIcon?.UriString | ImageURIBitMap">
+                                                <!-- <Border MaxWidth="400">
+                                                    <TextBlock [Text]="dataItem.DrugItem?.SupplyInstIcon?.Tooltip"
+                                                        TextWrapping="Wrap">
+                                                    </TextBlock>
+                                                </Border> -->
+                                            </Image>
+                                            <!-- </div>
+                                                                            </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='4' [col]='3'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Width="Auto" Background="Transparent" BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='4' [col]='3'>
+                                                                                <div containerStyle> -->
+                                            <Image #imgSelfAdminIconTempRef Name="imgSelfAdminIcon" 
+                                                [Tooltip]="dataItem.DrugItem?.AdminPRNIcon2?.Tooltip"
+                                                [IsHitTestVisible]="dataItem.DrugItem?.AdminPRNIcon2?.EnableOnHotSpotClick"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.AdminPRNIcon2"
+                                                VerticalAlignment="Top"
+                                                [Source]="dataItem.DrugItem?.AdminPRNIcon2 !=undefined ?dataItem.DrugItem?.AdminPRNIcon2?.UriString:'' | ImageURIBitMap">
+                                            </Image>
+                                            <!-- </div>
+                                                                            </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='5' [col]='1'>
+                                    <div>
+                                        <kendo-gridlayout Name="spPrescriptionStatus"
+                                            [rows]="[ {height: 'auto'},{height:'auto'}]">
+                                            <kendo-gridlayout-item [row]='1' [col]="1">
+                                                <div containerStyle>
+                                                    <TextBlock #tbPrescriptionStatusTempRef Name="tbPrescriptionStatus"
+                                                        TextWrapping="Wrap" HorizontalAlignment="Left"
+                                                        [Text]="dataItem.DrugItem?.PrescriptionStatus">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='2' [col]="1">
+                                                <div containerStyle>
+                                                    <TextBlock #tbthenTempRef Name="tbthen" TextWrapping="Wrap"
+                                                        FontWeight="Bold" HorizontalAlignment="Left" Text="AND THEN"
+                                                        FontSize="10" [Foreground]="dataItem.DrugItem?.DRSForecolor"
+                                                        [Visibility]="dataItem.DrugItem.IsSequentail != undefined? dataItem.DrugItem.IsSequentail: false">
+                                                    </TextBlock>
+                                                    <!-- | visibility?.IsSequentail -->
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                        </kendo-gridlayout>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='5' [col]='2'>
+                                    <div>
+                                        <kendo-gridlayout name="Icons">
+                                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal"
+                                                HorizontalAlignment="Stretch">
+                                                <Border Width="Auto" Background="Transparent" BorderThickness="0"
+                                                    Margin="0" VerticalAlignment="Bottom">
+                                                    <Image #imgStatusIconTempRef Name="imgStatusIcon" Cursor={{cursorImage(dataItem.DrugItem?.PStatusIcon?.UriString)}}
+                                                        [Tooltip]="dataItem.DrugItem?.PStatusIcon?.Tooltip"
+                                                        [IsHitTestVisible]="dataItem.DrugItem?.PStatusIcon?.EnableOnHotSpotClick"
+                                                        [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                        [Tag]="dataItem.DrugItem?.PStatusIcon" VerticalAlignment="Top"
+                                                        [Source]="dataItem.DrugItem?.PStatusIcon?.UriString | ImageURIBitMap">
+                                                    </Image>
+                                                </Border>
+                                                <Border Width="Auto" Background="Transparent" BorderThickness="0"
+                                                    Margin="0" VerticalAlignment="Bottom">
+                                                    <Image #imgRequestIconTempRef Name="imgRequestIcon"  
+                                                        [Tooltip]="dataItem.DrugItem?.MRequestIcon?.Tooltip"
+                                                        [IsHitTestVisible]="dataItem.DrugItem?.MRequestIcon?.EnableOnHotSpotClick"
+                                                        [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                        [Tag]="dataItem.DrugItem?.MRequestIcon" VerticalAlignment="Top"
+                                                        [Source]="dataItem.DrugItem?.MRequestIcon?.UriString | ImageURIBitMap">
+                                                    </Image>
+                                                </Border>
+                                            </StackPanel>
+                                        </kendo-gridlayout>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='6' [col]='1'>
+                                    <div containerStyle>
+                                        <kendo-gridlayout name="spOmit" VerticalAlignment="Top" HorizontalAlignment="left">
+                                            <TextBlock [Text]="dataItem.DrugItem?.OmitLabel"
+                                                [Visibility]="dataItem.DrugItem | OmitWrap">
+                                            </TextBlock>
+                                        </kendo-gridlayout>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='6' [col]='2'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Margin="1,1,1,1" Width="Auto" Background="Transparent"
+                                            BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='6' [col]='2'>
+                                                                                <div containerStyle> -->
+                                            <Image #imgOmitIconTempRef Name="imgOmitIcon" 
+                                                [IsHitTestVisible]="dataItem.DrugItem?.OmitIcon?.EnableOnHotSpotClick"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.OmitIcon"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                VerticalAlignment="Top"
+                                                [Tooltip]="dataItem.DrugItem?.OmitIcon?.Tooltip"
+                                                [Source]="dataItem.DrugItem?.OmitIcon?.UriString | ImageURIBitMap">
+                                                <!-- <Border MaxWidth="400">
+                                                    <TextBlock [Text]="dataItem.DrugItem?.OmitIcon?.Tooltip"
+                                                        TextWrapping="Wrap">
+                                                    </TextBlock>
+                                                </Border> -->
+                                            </Image>
+                                            <!-- </div>
+                                                                            </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='6' [col]='3'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Margin="1,0,0,0" Width="Auto" Background="Transparent"
+                                            BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='6' [col]='2'>
+                                                                                <div containerStyle> -->
+                                            <Image #imgDoseCalcIconTempRef Name="imgDoseCalcIcon" Cursor="Hand"
+                                                [IsHitTestVisible]="dataItem.DrugItem?.DoseCalcIcon?.EnableOnHotSpotClick"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.DoseCalcIcon"
+                                                VerticalAlignment="Top"
+                                                [Tooltip]="dataItem.DrugItem?.DoseCalcIcon?.Tooltip"
+                                                [Source]="dataItem.DrugItem?.DoseCalcIcon?.UriString | ImageURIBitMap">
+                                                <!-- <Border MaxWidth="400">
+                                                    <TextBlock [Text]="dataItem.DrugItem?.DoseCalcIcon?.Tooltip"
+                                                        TextWrapping="Wrap">
+                                                    </TextBlock>
+                                                </Border> -->
+                                            </Image>
+                                            <!-- </div>
+                                                                            </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='7' [col]='1'>
+                                    <div containerStyle>
+                                        <kendo-gridlayout Name="spAdministationDetails"
+                                            [rows]="[ {height: 'auto'},{height:'auto'},{height: 'auto'},{height:'auto'},{height: 'auto'}]"
+                                            [cols]="[{width: '2.1fr'},{width: '0.5fr'},{width: '18fr'}]">
+                                            <kendo-gridlayout-item [row]='1' class="padding">
+                                                <!-- [col]='1' -->
+                                                <div containerStyle>
+                                                    <TextBlock Text=" "
+                                                        [Visibility]="dataItem.DrugItem | LineBreakWrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='2' [col]='1'>
+                                                <div containerStyle>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.StartDTLbl"
+                                                        [Visibility]="dataItem.DrugItem | StartDTWrap"></TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='2' [col]='2'>
+                                                <div containerStyle>
+                                                    <TextBlock Text=" : "
+                                                        [Visibility]="dataItem.DrugItem | StartDTWrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='2' [col]='3'>
+                                                <div>
+                                                    <kendo-gridlayout [rows]="[ {height: 'auto'}]"
+                                                        [cols]="[{width: '1fr'},{width: '2.7fr'},{width: '0.5fr'},{width: '18fr'}]">
+                                                        <kendo-gridlayout-item [row]='1' [col]='1'>
+                                                            <div containerStyle class="margin-10">
+                                                                <TextBlock Margin="0,0,0,0"
+                                                                    [Text]="dataItem.DrugItem?.StartDTVal"
+                                                                    [Visibility]="dataItem.DrugItem | StartDTWrap"
+                                                                    TextWrapping="Wrap">
+                                                                </TextBlock>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+                                                        <kendo-gridlayout-item [row]='1' [col]='2'>
+                                                            <div containerStyle>
+                                                                <TextBlock [Text]="dataItem.DrugItem?.StopDTLbl"
+                                                                    [Visibility]="dataItem.DrugItem | StopDTWrap"
+                                                                    TextWrapping="Wrap">
+                                                                </TextBlock>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+                                                        <kendo-gridlayout-item [row]='1' [col]='3'>
+                                                            <div containerStyle>
+                                                                <TextBlock Text=" : "
+                                                                    [Visibility]="dataItem.DrugItem | StopDTWrap">
+                                                                </TextBlock>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+                                                        <kendo-gridlayout-item [row]='1' [col]='4'>
+                                                            <div containerStyle>
+                                                                <TextBlock [Text]="dataItem.DrugItem?.StopDTVal"
+                                                                    [Visibility]="dataItem.DrugItem | StopDTWrap"
+                                                                    TextWrapping="Wrap">
+                                                                </TextBlock>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+
+                                                    </kendo-gridlayout>
+                                                </div>
+                                            </kendo-gridlayout-item>
+
+                                            <kendo-gridlayout-item [row]='3' [col]='1'>
+                                                <div containerStyle>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.PrescribedByLbl"
+                                                        [Visibility]="dataItem.DrugItem | PrescribedByWrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='3' [col]='2'>
+                                                <div containerStyle>
+                                                    <TextBlock Text=" : "
+                                                        [Visibility]="dataItem.DrugItem | PrescribedByWrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='3' [col]='3'>
+                                                <div>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.PrescribedByVal"
+                                                        [Visibility]="dataItem.DrugItem | PrescribedByWrap"
+                                                        TextWrapping="Wrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+
+                                            <kendo-gridlayout-item [row]='4' [col]='1'>
+                                                <div containerStyle>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.ActionByLbl"
+                                                        [Visibility]="dataItem.DrugItem | ActionByWrap"></TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='4' [col]='2'>
+                                                <div containerStyle>
+                                                    <TextBlock Text=" : "
+                                                        [Visibility]="dataItem.DrugItem | ActionByWrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='4' [col]='3'>
+                                                <div>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.ActionByVal"
+                                                        [Visibility]="dataItem.DrugItem | ActionByWrap"
+                                                        TextWrapping="Wrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+
+                                            <kendo-gridlayout-item [row]='5' [col]='1'>
+                                                <div containerStyle>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.ReasonLbl"
+                                                        [Visibility]="dataItem.DrugItem?.ReasonWrapConverter">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='5' [col]='2'>
+                                                <div containerStyle>
+                                                    <TextBlock Text=" : " [Visibility]="dataItem.DrugItem | ReasonWrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='5' [col]='3'>
+                                                <div>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.ReasonVal"
+                                                        [Visibility]="dataItem.DrugItem | ReasonWrap"
+                                                        TextWrapping="Wrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='6' [col]='1'>
+                                                <div containerStyle>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.CommentsLbl"
+                                                        [Visibility]="dataItem.DrugItem | CommentsWrap"></TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='6' [col]='2'>
+                                                <div containerStyle>
+                                                    <TextBlock Text=" : "
+                                                        [Visibility]="dataItem.DrugItem | CommentsWrap">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='6' [col]='3'>
+                                                <div containerStyle>
+                                                    <!-- <TextBlock [Text]="dataItem.DrugItem?.CommentsVal"
+                                                        [Visibility]="dataItem.DrugItem | CommentsWrap"
+                                                        TextWrapping="NoWrap" TextTrimming="WordEllipsis">
+                                                        <Border MaxWidth="400">
+                                                            <TextBlock [Text]="dataItem.DrugItem?.CommentsVal"
+                                                                TextWrapping="Wrap">
+                                                            </TextBlock>
+                                                        </Border>
+                                                    </TextBlock> -->
+                                                    <div *ngIf="dataItem.DrugItem?.CommentsVal?true:false" kendoTooltip [title]="dataItem.DrugItem?.CommentsVal" style=" text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">
+                                                        {{dataItem.DrugItem?.CommentsVal}}
+                                                    </div>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                        </kendo-gridlayout>
+                                    </div>
+
+                                </kendo-gridlayout-item>
+
+                                <!-- //////////////// -->
+                                <kendo-gridlayout-item [row]='7' [col]='2'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto"
+                                            Background="Transparent" BorderThickness="0">
+                                            <Image #imgOnAdmissionTempRef Name="imgOnAdmission" Margin="0,0,0,0"
+                                                [Tooltip]="dataItem.DrugItem?.OnAdmissionIcon?.Tooltip"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                [IsHitTestVisible]="dataItem.DrugItem?.OnAdmissionIcon?.EnableOnHotSpotClick"
+                                                [Tag]="dataItem.DrugItem?.OnAdmissionIcon"
+                                                [Source]="dataItem.DrugItem?.OnAdmissionIcon?.UriString | ImageURIBitMap">
+                                            </Image>
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='7' [col]='3'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Width="Auto" Background="Transparent" BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='7' [col]='3'>
+                                                                                <div containerStyle> -->
+                                            <Image #imgClinicallyVerifiedIconTempRef Name="imgClinicallyVerifiedIcon"
+                                                Margin="0,10,0,0" 
+                                                [IsHitTestVisible]="dataItem.DrugItem?.DoseIcon2?.EnableOnHotSpotClick"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                [Tooltip]="dataItem.DrugItem?.DoseIcon2?.Tooltip"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.DoseIcon2"
+                                                VerticalAlignment="Top"
+                                                [Source]="dataItem.DrugItem?.DoseIcon2?.UriString | ImageURIBitMap">
+                                            </Image>
+                                            <!-- </div>
+                                                                            </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='8' [col]='1'>
+                                    <div>
+                                        <!-- VerticalAlignment="Top" HorizontalAlignment="Left"[{width:'30'},{width:'10'},{width:'1fr'}]" -->
+                                        <kendo-gridlayout Name="spReview" [rows]="[ {height: 'auto'}]"
+                                            [cols]="[{width: '2.1fr'},{width: '0.5fr'},{width: '18fr'}]">
+                                            <kendo-gridlayout-item [row]='1' [col]='1'>
+                                                <div containerStyle>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.ReviewLabel"
+                                                        [Visibility]="dataItem.DrugItem?.ReviewLabel && dataItem.DrugItem?.ReviewVal ? 'True':'False'"></TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='1' [col]='2'>
+                                                <div containerStyle>
+                                                    <TextBlock Text=" : " [Visibility]="dataItem.DrugItem?.ReviewLabel && dataItem.DrugItem?.ReviewVal ? 'True':'False'">
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='1' [col]='3'>
+                                                <div containerStyle>
+                                                    <TextBlock [Text]="dataItem.DrugItem?.ReviewVal"
+                                                        [Visibility]="dataItem.DrugItem?.ReviewVal && dataItem.DrugItem?.ReviewVal ? 'True':'False'"
+                                                        TextWrapping="NoWrap" TextTrimming="WordEllipsis">
+                                                        <!-- <ToolTipService.ToolTip> -->
+                                                        <Border MaxWidth="auto">
+                                                            <TextBlock [Text]="dataItem.DrugItem?.ReviewVal"
+                                                                TextWrapping="Wrap">
+                                                            </TextBlock>
+                                                        </Border>
+                                                        <!-- </ToolTipService.ToolTip> -->
+                                                    </TextBlock>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                        </kendo-gridlayout>
+                                    </div>
+
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='8' [col]='2'>
+                                    <div containerStyle class="right-align-icon">
+                                        <Border Margin="1,1,1,1" Width="Auto" Background="Transparent"
+                                            BorderThickness="0">
+                                            <!-- <kendo-gridlayout-item [row]='8' [col]='2'>
+                                                                                <div containerStyle> -->
+                                            <Image #imgReviewIconTempRef Name="imgReviewIcon" 
+                                                [IsHitTestVisible]="dataItem.DrugItem?.ReviewIcon?.EnableOnHotSpotClick"
+                                                [MouseLeftButtonDown]="Drug_MouseEvent" [DataContext]="dataItem"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.ReviewIcon"
+                                                VerticalAlignment="Top"
+                                                [Tooltip]="dataItem.DrugItem?.ReviewIcon?.Tooltip"
+                                                [Source]="dataItem.DrugItem?.ReviewIcon?.UriString | ImageURIBitMap">
+                                                <!-- need to revisit, pipe should be implemented <Border MaxWidth="400">
+                                                                                            <TextBlock [Text]="dataItem.DrugItem?.ReviewIcon?.Tooltip | "
+                                                                                                TextWrapping="Wrap"></TextBlock>
+                                                                                        </Border> -->
+                                            </Image>
+                                            <!-- </div>
+                                                                            </kendo-gridlayout-item> -->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='8' [col]='3'>
+                                    <div containerStyle>
+                                        <Border Width="Auto" Background="Transparent" BorderThickness="0">
+                                            <iImage #imgNotesIconTempRef Name="imgNotesIcon"  Width="16" Height="16" Margin="1,1,1,1"
+                                                [DataContext]="dataItem" [IsHitTestVisible]="dataItem.DrugItem?.NotesIcon?.EnableOnHotSpotClick"
+                                                HorizontalAlignment="Center" [Tag]="dataItem.DrugItem?.NotesIcon" VerticalAlignment="Top"
+                                                [Source]="dataItem.DrugItem?.NotesIcon" isToolTip="True" [ToolTip]="dataItem.DrugItem?.NotesToolTip">
+                                            </iImage>
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+                            </kendo-gridlayout>
+                        </kendo-gridlayout-item>
+                    </kendo-gridlayout>
+                </Border>
+            </DataTemplate>
+
+
+        </ng-template>
+    </kendo-grid-column>
+    <ng-template kendoGridNoRecordsTemplate>
+        {{ NoRecordsDisplayText }}
+    </ng-template>
+</kendo-grid>

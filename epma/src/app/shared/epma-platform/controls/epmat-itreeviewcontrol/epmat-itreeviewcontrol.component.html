@@ -1,0 +1,54 @@
+<!-- <iSOFT1:iTreeView IsHyperLink="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Cursor="Hand" Grid.Row="6"
+    Background="White" HorizontalAlignment="Stretch" Margin="0,5,0,0" Name="tvwMedFavourites"
+    Expanded="tvwMedFavourites_Expanded" IsExpandOnSingleClickEnabled="True" VerticalAlignment="Stretch"
+    OnHyperLinkClick="tvwMedFavourites_OnHyperLinkClick" MouseLeftButtonUp="tvwMedFavourites_MouseLeftButtonUp"
+    Grid.ColumnSpan="4">
+</iSOFT1:iTreeView> -->
+
+
+<kendo-treeview [nodes]="TreeViewDataContext?.array" valueField="Value" textField="Value"
+    [ngClass]="{'setContentCollapse': !_visible, 'setContentVisible' : _visible}" [(expandedKeys)]="expandedKeys"
+    (expand)="onExpand('single-expand',$event)" (mouseup)="MouseLeftButtonUpEvent($event)" kendoTreeViewExpandable
+    [kendoTreeViewSelectable]="selectableSettings" kendoTreeViewFlatDataBinding idField="Key" parentIdField="ParentKey"
+    (focus)="onFocus()" [(selectedKeys)]="selectedKeys" (selectionChange)="onSelectionChange($event)"
+    (nodeDblClick)="onNodeDblClick($event)" (nodeClick)="onNodeClick($event)">
+    <ng-template kendoTreeViewNodeTemplate let-dataItem>
+        <!-- {{dataItem.Value}} -->
+        <span class="data-items" (click)="onClick(dataItem)">
+            <span *ngIf="dataItem.NormalImagePath" class="test-img-span">
+                <img kendoTooltip [title]="ToolTip" style="width: 18px;height: 18px;margin-right:0.5rem"
+                    src="{{dataItem.NormalImagePath}}" />
+            </span>
+            <span *ngIf="dataItem.ImageCollection">
+                <span *ngFor="let img of dataItem.ImageCollection.array">
+                    <img kendoTooltip [title]="ToolTip" style="width: 18px;height: 18px;margin-right:0.5rem"
+                        src="{{img.ImageSource}}">
+                </span>
+            </span>
+            <span *ngIf="!dataItem.IsInEditMode">
+                <span *ngIf="!IsHyperLink" [title]="dataItem.Value">{{ dataItem.Value }}</span>
+                <span *ngIf="IsHyperLink"><a>{{ dataItem.Value }}</a></span>
+            </span>
+            <span *ngIf="dataItem.IsInEditMode">
+                <input [(ngModel)]="dataItem.Value" (blur)="changingDataItem($event)" />
+            </span>
+            <span *ngIf="dataItem.IconCollection">
+                <span *ngFor="let img of dataItem.IconCollection.array">
+                    <ng-template #tooltipTemplate>
+                        <span *ngIf="img.NotesToolTip">
+                            {{img.NotesToolTip}}
+                        </span>
+                    </ng-template>
+                    <img kendoTooltip [title]="img.IconToolTip" *ngIf="img.IconSource"
+                        style="width: 18px;height: 18px;margin-left:0.5rem" src="{{img.IconSource}}">
+                    <img *ngIf="img.NotesIcon && !normalNotesToolTip" kendoTooltip title="" [tooltipTemplate]="tooltipTemplate"
+                        tooltipClass="newItreeLineClass"
+                        [showOn]="img.NotesToolTip == null || img.NotesToolTip == '' ? 'none': 'hover'"
+                        style="width: 18px;height: 18px;margin-left:0.5rem" src="{{img.NotesIcon}}">
+                    <img *ngIf="img.NotesIcon && normalNotesToolTip" [title]="img.NotesToolTip"
+                        style="width: 18px;height: 18px;margin-left:0.5rem" src="{{img.NotesIcon}}">
+                </span>
+            </span>
+        </span>
+    </ng-template>
+</kendo-treeview>

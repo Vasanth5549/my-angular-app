@@ -1,0 +1,76 @@
+/* body {
+    background-color: lightblue;
+  } */
+  /* .setWidthHeight{
+    width:160px !important;
+    height: 130px !important;
+  } */
+  .bottom-link{
+   /* position:absolute;*/
+    display: grid;
+    align-items: center;
+    bottom: 0px;
+    /* height: 50px !important; */
+    cursor: pointer;
+  }
+  .bottom-link-1{
+   /* position: absolute;*/
+    display: grid;
+    align-items: center;
+    bottom: 0px;
+    /* height: 50px !important; */
+    cursor: pointer;
+  }
+  .bottom-link-1 ibutton {
+    border: 1px solid transparent;
+}
+.bottom-link ibutton {
+  border: 1px solid transparent;
+}
+  .ipDisableClick{
+    border:1px dotted #000000 !important;
+  }
+
+  .clockWithPrevMsg{
+    position: relative;left: 5px;bottom: 2px;
+  }
+  .clockWithoutPrevMsg{
+    position: relative;left: 480px;bottom: 2px;
+  }
+  @media screen and (max-device-width: 1400px) {
+    .iMedicationChart-presc-chat{
+      height: 376px;
+    }
+    .bottom-link{
+      height: 25px !important;
+    }
+  }
+
+  @media screen and (min-device-width : 1400px) and (max-device-width: 1550px) {
+   ::ng-deep .iMedicationChart-presc-chat #medication{
+      height: 460px !important;
+    }
+    .iMedicationChart-presc-chat{
+      height: 460px;
+    }
+    .bottom-link{
+      height: 35px !important;
+    }
+  }
+  @media screen and (max-device-width: 1400px) {
+    ::ng-deep.iMedicationChart-presc-chat #medication{
+      height: 365px !important;
+    }
+  }
+  
+  @media screen and (min-device-width: 1600px) {
+    ::ng-deep.iMedicationChart-presc-chat #medication{
+      height: 650px !important;
+    }
+    .iMedicationChart-presc-chat{
+      height: 640px;
+    }
+    .bottom-link{
+      height: 68px !important;
+    }
+  }

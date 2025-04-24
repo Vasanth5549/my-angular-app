@@ -1,0 +1,16 @@
+<ng-container *ngIf="DatePickerMode=='DATEPICKER'">
+    <kendo-datepicker #datepicker [ngStyle]="style" [title]="ToolTip" [disabled]="!IsEnabled" [min]="_StartDate"
+        [max]="_EndDate" [value]="ValueDate" calendarType="classic" [navigation]="true"
+        [format]="format" placeholder="" [size]="size" [rounded]="rounded" (valueChange)="OnDateChangeEvent($event)"
+        (blur)="onBlur($event)" (focusin)="GotFocusEvent($event)">
+        <kendo-datepicker-messages  [toggle]="ToolTip"></kendo-datepicker-messages>
+    </kendo-datepicker>
+</ng-container>
+<!-- <ng-container *ngIf="DatePickerMode=='DATETIMEPICKER'">
+    <div class="example-wrapper">
+        <kendo-datetimepicker [ngStyle]="style" [disabled]="!IsEnabled" [format]="format" calendarType="classic"
+            [min]="RangeStartDate" [max]="RangeEndDate" [(value)]="SelectedDateTime" [disabledDates]="disabledDates"
+            placeholder="Match start..." (valueChange)="OnDateChangeEvent($event)">
+        </kendo-datetimepicker>
+    </div>
+</ng-container> -->

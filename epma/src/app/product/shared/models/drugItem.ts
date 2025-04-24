@@ -1,0 +1,164 @@
+import { Visibility } from "src/app/shared/epma-platform/controls-model/Visibility";
+//import { Brush } from "./brush";
+import { ImageSource } from "epma-platform/controls";
+import { FontWeight } from "src/app/shared/epma-platform/controls/Control";
+
+export interface DrugItem {
+    OnAdmissionIcon: ChartIcon;
+    StartDTLbl: string;
+    StartDTVal: string;
+    StopDTLbl: string;
+    StopDTVal: string;
+    PrescribedByLbl: string;
+    PrescribedByVal: string;
+    ActionByLbl: string;
+    ActionByVal: string;
+    ReasonLbl: string;
+    ReasonVal: string;
+    CommentsLbl: string;
+    CommentsVal: string;
+    Key: string;
+    AllowSelect: boolean;
+    IsInfusion: boolean;
+    Drugname: string;
+    GroupVisibility: Visibility;
+    ParentGroupVisibility: Visibility;
+    ParentGroupName: string;
+    GroupName: string;
+    Dosageform: string;
+    Componentname1: string;
+    Componentname2: string;
+    Componentname3: string;
+    Componentname4: string;
+    Fluidname: string;
+    Infusiontype: string;
+    Concentration: string;
+    MultiComponentIcon3: ChartIcon;
+    CriticalIcon: ChartIcon;
+    DrugPropertyIcon: ChartIcon;
+    FluidDrugPropertyIcon: ChartIcon;
+    ComponenetPropertyIcon1: ChartIcon;
+    ComponenetPropertyIcon2: ChartIcon;
+    ComponenetPropertyIcon4: ChartIcon;
+    DrugnameIcon1: ChartIcon;
+    RouteIcon: ChartIcon;
+    DrugnameIcon2: ChartIcon;
+    DoseLabel: string;
+    BoosterDoseLabel: string;
+    VolumeLabel: string;
+    ConcentrationLabel: string;
+    RateLabel: string;
+    BolusLabel: string;
+    LockoutLabel: string;
+    MaxdoseLabel: string;
+    Humidificationlbl: string;
+    TargetSaturationlbl: string;
+    Dose: string;
+    BoosterDose: string;
+    Volume: string;
+    InfusionPeriod: string;
+    Rate: string;
+    Bolus: string;
+    DrugConcentration: string;
+    Lockout: string;
+    Maxdose: string;
+    Duration: string;
+    FrequencyText: string;
+    AsRequiredText: string;
+    FrequencyWeeklyLabel: string;
+    FrequencyWeeklyValue: string;
+    DoseIcon1: ChartIcon;
+    AmendIcon: ChartIcon;
+    DoseIcon2: ChartIcon;
+    RouteLabel: string;
+    Route: string;
+    SiteLabel: string;
+    Site: string;
+    StrengthLabel: string;
+    Strength: string;
+    Lumen: string;
+    Deliverydevice: string;
+    AdministrationInst: string;
+    Humidification: string;
+    TargetSaturation: string;
+    PRNInst: string;
+    AdditionalInst: string;
+    Targetrange: string;
+    SupplyInstIcon: ChartIcon;
+    AdminPRNIcon2: ChartIcon;
+    PrescriptionStatus: string;
+    PStatusIcon: ChartIcon;
+    MRequestIcon: ChartIcon;
+    DRSForecolor: string;
+    Tag: any;
+    AdminWarningMessage: string;
+    IVAlertMessage: string;
+    IsSequentail: boolean;
+    Ongoing: boolean;
+    IVAlertForeColor: string;
+    OrderSetIcon: ChartIcon;
+    GroupBackground: string;
+    GroupForecolor: string;
+    GroupFontSize: number;
+    OmitIcon: ChartIcon;
+    DoseCalcIcon: ChartIcon;
+    OmitLabel: string;
+    ReviewIcon: ChartIcon;
+    ReviewLabel: string;
+    ReviewVal: string;
+    NotesIcon: ImageSource;
+    NotesData: string;
+    NotesColor: string;
+    NotesToolTip: string;
+}
+export interface ChartIcon {
+    Key: string;
+    UriString: string;
+    Tooltip: object;
+    EnableOnHotSpotClick: boolean;
+    Tag: object;
+    ImageVisiblity: boolean;
+}
+export interface DisplayItemStyle {
+    Color?: string;
+    Cursor?: string;
+    Display?: string;
+    FontFamily?: string;
+    FontStyle?: string;
+    FontSize?: number;
+    FontWeight?: FontWeight;
+    Margin?: string;
+    MaxHeight?: string;
+    MaxWidth?: string;
+    ObjectFit?: string;
+    VerticalAlign?: string;
+    WordBreak?: boolean;
+    Text?: string;
+    ForeGround?: string;
+  }
+  
+  export interface DisplayItem {
+    ControlType: string;
+    Id?: string;
+    IsTooltip?: boolean;
+    Name?: string;
+    Src?: string;
+    Tag?: any;
+    TextContent?: string;
+    Tooltip?: string;
+    Styles?: DisplayItemStyle;
+  }
+  
+  // export interface TextBlock {
+  //   ChildItems: DisplayItem[]
+  //   IsParagraph?: boolean;
+  //   IsStrike?: boolean;
+  //   IsWordWrap?: boolean;
+  //   Margin?: string;
+  //   HorizontalAlignment: string;
+  //   VerticalAlignment: string;
+  //   TextWrapping:string;
+  //   FontSize: number;
+  //   FontWeight: string;
+  // }
+  

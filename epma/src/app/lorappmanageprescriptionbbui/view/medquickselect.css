@@ -1,0 +1,127 @@
+.lable1 {
+  width: 59%;
+  margin: 7px 2px 2px 4px;
+  vertical-align: center;
+  /* height: 22px; */
+}
+
+.txtbox {
+  margin: 3px 0px 0px 5px;
+}
+
+.apply {
+  margin: 7px 2px 2px 4px;
+}
+
+.display-none {
+  display: none;
+}
+
+.cmd-search-cat ::ng-deep .k-button-md {
+  font-weight: normal !important;
+}
+
+.tree-list {
+  width: 100%;
+  /* height: 553px; */
+  background: white;
+  border: 1px solid black;
+  overflow-y: auto !important;
+  display: inline-block;
+  text-decoration: underline;
+}
+
+.power-search-list {
+  width: 100%;
+  /* height: 580px; */
+  background: white;
+  border: 1px solid black;
+  overflow-y: auto !important;
+  display: inline-block;
+}
+
+.childWizardMedquickSelect {
+  /* height: 559px !important; */
+  margin-top: -6px !important;
+}
+
+
+
+.isChildWizardAdjustMCIButton {
+  margin-top: 3px !important;
+}
+
+.empcombo {
+  width: 360px;
+  height: 21px;
+  margin: 5px 0px 2px 5px;
+  vertical-align: center;
+}
+
+/* ::ng-deep .k-input-md .k-input-inner {
+  padding: 0px !important;
+} */
+
+::ng-deep app-medquickselect icheckbox span {
+  margin: 0px !important;
+
+  & input {
+    margin: 0px !important;
+    top: 2px;
+  }
+
+  & kendo-label {
+    vertical-align: sub;
+    margin: 0px 8px 0px 2px;
+  }
+}
+
+::ng-deep app-medquickselect iradiobutton {
+  & input {
+    top: 2px;
+  }
+
+  & kendo-label {
+    vertical-align: sub;
+  }
+}
+
+.align-search {
+  display: inline-block;
+  vertical-align: sub;
+}
+
+.quickselectdisplay {
+  display: flex;
+  padding-top: 5px;
+}
+
+/* .inputText {
+    padding: 0px !important;
+} */
+
+.ipt ::ng-deep .k-input-md .k-input-inner,
+.k-picker-md .k-input-inner {
+  padding: 4px 1px;
+}
+
+.margintop {
+  margin: 7px 0px 7px 4px;
+}
+
+.borderHeight {
+  height: 100% !important;
+}
+
+@media screen and (max-width: 1400px) {
+  .childWizardMedquickSelectTreeView {
+    height: 240px ;
+  }
+
+}
+@media screen and (min-width: 1400px) {
+  .childWizardMedquickSelectTreeView {
+    height: 520px ;
+  }
+
+}

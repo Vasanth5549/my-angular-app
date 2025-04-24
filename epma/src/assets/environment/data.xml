@@ -1,0 +1,1036 @@
+<?xml version="1.0"?><Items><Item><Type>string</Type><Data>http://NHSAPPCHNE8051/appserver/Configuration.asmx$600000060009,490000000003,490000000002,490000000001,1,490000000000$en-GB$6.00.0000.001$$40cqgyg5x4f340yckp5uhwax#638009172271730852600000268538</Data></Item><Item><Type>iSOFT.BlueBird.TimeZone.SLDSTInfo, LorArcSilverlightTimeZone, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Type><Data>
+<SLDSTInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LocalAdjustmentRule>
+    <SLAdjustmentRule>
+      <DateEnd>9999-12-31T00:00:00</DateEnd>
+      <DateStart>0001-01-01T00:00:00</DateStart>
+      <DaylightDeltaTicks>36000000000</DaylightDeltaTicks>
+      <DaylightTransitionEnd>
+        <Day>1</Day>
+        <DayOfWeek>Sunday</DayOfWeek>
+        <IsFixedDateRule>false</IsFixedDateRule>
+        <Month>10</Month>
+        <TimeOfDay>0001-01-01T02:00:00</TimeOfDay>
+        <Week>5</Week>
+      </DaylightTransitionEnd>
+      <DaylightTransitionStart>
+        <Day>1</Day>
+        <DayOfWeek>Sunday</DayOfWeek>
+        <IsFixedDateRule>false</IsFixedDateRule>
+        <Month>3</Month>
+        <TimeOfDay>0001-01-01T01:00:00</TimeOfDay>
+        <Week>5</Week>
+      </DaylightTransitionStart>
+    </SLAdjustmentRule>
+  </LocalAdjustmentRule>
+  <UserUTCOffsetTicks>0</UserUTCOffsetTicks>
+  <UserUTCDSTOffsetTicks>36000000000</UserUTCDSTOffsetTicks>
+  <TimeZoneStandardName>GMT Standard Time</TimeZoneStandardName>
+  <ServerDateTime>2022-10-09T13:19:25.3724678Z</ServerDateTime>
+</SLDSTInfo></Data></Item><Item><Type>string</Type><Data><ContextInfo><Context><Key>lc_rid</Key><Value>530e17e8-1e77-47c4-9621-ced87138f669</Value></Context><Context><Key>ReAuthNLoginType</Key><Value>1</Value></Context><Context><Key>lc_rvn</Key><Value>2</Value></Context><Context><Key>lc_am</Key><Value>NATIVE</Value></Context><Context><Key>lc_tzn</Key><Value>GMT Standard Time</Value></Context><Context><Key>lc_wnm</Key><Value>DUC-4hS8JpWdliw.dedalus.lan</Value></Context><Context><Key>lc_wIP</Key><Value>192.168.29.163</Value></Context><Context><Key>lc_st</Key><Value>40cqgyg5x4f340yckp5uhwax#638009172271730852</Value></Context><Context><Key>lc_uid</Key><Value>1003000</Value></Context><Context><Key>lc_si</Key><Value>600</Value></Context><Context><Key>lc_lcid</Key><Value>0</Value></Context><Context><Key>lc_un</Key><Value>MrPENNINEUSERA,pennineusera</Value></Context><Context><Key>lc_lgn</Key><Value>pennineusera</Value></Context><Context><Key>UIDPASS</Key><Value>pennineusera&amp;lorenzo</Value></Context><Context><Key>FFN</Key><Value>pennineusera</Value></Context><Context><Key>FLN</Key><Value>pennineusera</Value></Context><Context><Key>__TITLECODE</Key><Value>CC_MR</Value></Context><Context><Key>FDBE</Key><Value>True</Value></Context><Context><Key>FCSRP</Key><Value>T</Value></Context><Context><Key>SS</Key><Value>3</Value></Context><Context><Key>lc_onm</Key><Value>UNIVERSITY HOSPITALS OF MORECAMBE BAY NHS FOUNDATION TRUST</Value></Context><Context><Key>lc_oid</Key><Value>600000060009</Value></Context><Context><Key>lc_rpnm</Key><Value>002049</Value></Context><Context><Key>lc_rpid</Key><Value>600000268538</Value></Context><Context><Key>lc_jrnm</Key><Value>administrator Role</Value></Context><Context><Key>lc_jid</Key><Value>1</Value></Context><Context><Key>lc_ocode</Key><Value>RTX</Value></Context><Context><Key>__Showtooltip</Key><Value>True:False</Value></Context><Context><Key>__FILEBASEPATH</Key><Value>Help\StartHelp.htm</Value></Context><Context><Key>CPB</Key><Value>600000002040;2022-10-09</Value></Context><Context><Key>ABMWARDS</Key><Value>AshokWard_600000002040,</Value></Context><Context><Key>SPNames</Key><Value>Wards: AshokWard</Value></Context><Context><Key>__PatName</Key><Value>BRUCE WAYNE</Value></Context><Context><Key>__PatFullName</Key><Value>BRUCE WAYNE </Value></Context><Context><Key>__PatFName</Key><Value>WAYNE</Value></Context><Context><Key>__PatSName</Key><Value>BRUCE</Value></Context><Context><Key>__PatSex</Key><Value>CC_Male</Value></Context><Context><Key>__PatRegDttm</Key><Value>09/02/2016 00:00:00</Value></Context><Context><Key>__PatDOB</Key><Value>23-Sep-1988</Value></Context><Context><Key>__PatDOD</Key><Value></Value></Context><Context><Key>__PatMainID</Key><Value>PASID-0000000200300</Value></Context><Context><Key>__PatIsTraced</Key><Value>0</Value></Context><Context><Key>__PatEncOId</Key><Value>1000000037193</Value></Context><Context><Key>_PatAge</Key><Value>34</Value></Context><Context><Key>__PatRegType</Key><Value>F</Value></Context><Context><Key>__PatMergedPatOID</Key><Value>1000000035790</Value></Context><Context><Key>__PatAllgy</Key><Value>None recorded (last checked on 05-Jan-2017)</Value></Context><Context><Key>__PatBannerAllergyDetails</Key><Value>None recorded (last checked on 05-Jan-2017)</Value></Context><Context><Key>__PatOId</Key><Value>1000000035790</Value></Context><Context><Key>SinEncOID</Key><Value>1000000035790:1000000037193</Value></Context><Context><Key>LRConfirm</Key><Value>TRUE</Value></Context><Context><Key>LRPATIENTLIST</Key><Value>iSOFT.LORENZO.Common.Framework.LRPatientCollection</Value></Context><Context><Key>InEPR</Key><Value>TRUE</Value></Context><Context><Key>LISTMETAPHOR</Key><Value>false</Value></Context><Context><Key>EPRMULTPATIENT</Key><Value>iSOFT.LORENZO.IdentityManagement.ManageIdentity.WebUI.MultiplePatientContext</Value></Context><Context><Key>LSTMRGPAT</Key><Value>System.Collections.Generic.SortedList`2[System.String,System.String]</Value></Context><Context><Key>__PatID</Key><Value>PASID-0000000200300</Value></Context><Context><Key>__PatRegHOName</Key><Value>UNIVERSITY HOSPITALS OF MORECAMBE BAY NHS FOUNDATION TRUST</Value></Context><Context><Key>__PatRegHOOId</Key><Value>600000060009</Value></Context><Context><Key>__PatIsActMg</Key><Value>0</Value></Context><Context><Key>__PatMerge</Key><Value>0</Value></Context><Context><Key>__PatDecFlg</Key><Value>0</Value></Context><Context><Key>PATIENTCONTEXT</Key><Value>iSOFT.LORENZO.Common.Framework.PatientContextInfo</Value></Context><Context><Key>DontResetPatientOIDInBasicSearch</Key><Value>True</Value></Context><Context><Key>EncOwnID</Key><Value>600000060009</Value></Context><Context><Key>AllOwnID</Key><Value>0</Value></Context><Context><Key>EncAllExists</Key><Value>False</Value></Context><Context><Key>IsConsent</Key><Value>0</Value></Context><Context><Key>PatientConsent</Key><Value>,1000000035790-C,</Value></Context><Context><Key>PatientConsentType</Key><Value>CannotOverride</Value></Context><Context><Key>LRExists</Key><Value>true</Value></Context><Context><Key>RECACCESSEDPATDET</Key><Value>System.Collections.Generic.List`1[iSOFT.LORENZO.IdentityManagement.ManageIdentity.WebUI.EPRPatient]</Value></Context><Context><Key>REFRESHQUICKSRCH</Key><Value>no</Value></Context><Context><Key>LastSrchPatOID</Key><Value>1000000035790</Value></Context><Context><Key>__PatTit</Key><Value></Value></Context><Context><Key>__PatAlias</Key><Value></Value></Context><Context><Key>__PatBlood</Key><Value></Value></Context><Context><Key>__PatNHSID</Key><Value></Value></Context><Context><Key>__PatSens</Key><Value></Value></Context><Context><Key>__PatOvrSens</Key><Value></Value></Context><Context><Key>__PatMiddleName</Key><Value></Value></Context><Context><Key>__PatIsDecCanFlg</Key><Value>0</Value></Context><Context><Key>__PatIsDecConfFlg</Key><Value></Value></Context><Context><Key>__PatEncMID</Key><Value>ENCID-003355</Value></Context><Context><Key>__PatEncDomTypCd</Key><Value>CC_INPAT</Value></Context><Context><Key>__PatEncVTypCd</Key><Value>CC_INPAT</Value></Context><Context><Key>__PatLocOId</Key><Value>600000066213</Value></Context><Context><Key>__PatLocName</Key><Value>Build oNE</Value></Context><Context><Key>__PatServOId</Key><Value>600000002040</Value></Context><Context><Key>__PatEpisodeId</Key><Value>1000000025992</Value></Context><Context><Key>__PatEncDttm</Key><Value>09/02/2016 03:16:00</Value></Context><Context><Key>__PatEncSt</Key><Value>CC_ENCOPEN</Value></Context><Context><Key>__PatLoc</Key><Value>AshokWard; Build oNE; Not specified; UNIVERSITY HOSPITALS OF MORECAMBE BAY NHS FOUNDATION TRUST</Value></Context><Context><Key>__PatClinician</Key><Value>Kavitha </Value></Context><Context><Key>__NCCDSInfoOIDs</Key><Value></Value></Context><Context><Key>__NCCDSStatus</Key><Value></Value></Context><Context><Key>__NCEncounterOID</Key><Value>1000000037193</Value></Context><Context><Key>__NCIsGetDataInvokeFrom</Key><Value></Value></Context><Context><Key>__NCIsGetNotifyHitOnFirstWizard</Key><Value>False</Value></Context><Context><Key>__NCPatientOID</Key><Value>1000000035790</Value></Context><Context><Key>__NCShowIcon</Key><Value>False</Value></Context><Context><Key>__NCShowPopup</Key><Value>False</Value></Context><Context><Key>__NCUsersOID</Key><Value>1003000</Value></Context><Context><Key>__NCanchorLink</Key><Value></Value></Context><Context><Key>__NCHasPendingCDS</Key><Value>False</Value></Context><Context><Key>PrevPatOID</Key><Value>1000000035790</Value></Context><Context><Key>sIsEPRLoaded</Key><Value>true</Value></Context><Context><Key>IsHiddenSealExist</Key><Value>0</Value></Context><Context><Key>PNo</Key><Value>1</Value></Context><Context><Key>Pat</Key><Value>1000000035790</Value></Context><Context><Key>IsHdnSl</Key><Value>0</Value></Context><Context><Key>FBDU</Key><Value>FALSE</Value></Context><Context><Key>FROMCPPWIDGET</Key><Value>FALSE</Value></Context><Context><Key>TOCMENUENABLE</Key><Value>True</Value></Context><Context><Key>wizardlaunch</Key><Value></Value></Context><Context><Key>DiscontinuedDrug</Key><Value>checked</Value></Context><Context><Key>encountervalue</Key><Value>1000000037193</Value></Context><Context><Key>IPPMADU_P2</Key><Value>False</Value></Context><Context><Key>TTOPBBDU</Key><Value>False</Value></Context><Context><Key>TTOPBBDU_P2</Key><Value>True</Value></Context><Context><Key>IsInfusionON</Key><Value>False</Value></Context><Context><Key>IsTurnONDRC</Key><Value>True</Value></Context><Context><Key>AMCV</Key><Value>27</Value></Context><Context><Key>DISSENTMCPATTERN</Key><Value>EXCLUSIVE</Value></Context><Context><Key>AlgyPrmtEncType</Key><Value>CC_INPAT</Value></Context></ContextInfo></Data></Item><Item><Type>iSOFT.BlueBird.Wizard.UIFServices.CResMsgGetTaskInfo</Type><Data>
+<CResMsgGetTaskInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <objTask>
+    <OID>490000159036</OID>
+    <Code>MN_MEDDISCHRGESL_P2</Code>
+    <Name>Discharge medication</Name>
+    <Description>Discharge medication</Description>
+    <RuleSetOID>0</RuleSetOID>
+    <Size>0</Size>
+    <IsBannerRequired>1</IsBannerRequired>
+    <Version>6.00.0000.001</Version>
+    <TaskBanner>
+      <TaskBanner>
+        <OID>490000064366</OID>
+        <TaskOID>490000159036</TaskOID>
+        <DeviceOID>20000014</DeviceOID>
+        <BannerDelagate>iSOFT.LORENZO.BlueBird.Banner.PatientBannerUtil,LorAppSLPatientBanner</BannerDelagate>
+      </TaskBanner>
+    </TaskBanner>
+    <CareActivity>
+      <CareActivity>
+        <OID>490000177417</OID>
+        <IsAuditRequired>0</IsAuditRequired>
+        <Version>6.00.0000.001</Version>
+        <Code>MN_MEDDISCHRGESL_P2</Code>
+        <Name>Discharge medication</Name>
+        <Description>Manage discharge medication</Description>
+        <WebServiceName>ManagePrescriptionWS</WebServiceName>
+        <WebMethodName>SubmitDrugs</WebMethodName>
+        <CanCommit>1</CanCommit>
+        <CanDefer>0</CanDefer>
+        <CanSuspend>0</CanSuspend>
+        <RuleSetOID>0</RuleSetOID>
+        <TaskCAOID>490000165478</TaskCAOID>
+        <Sequence>1</Sequence>
+        <IsActive>1</IsActive>
+        <TaskOID>490000159036</TaskOID>
+        <TaskCARuleSetOID>0</TaskCARuleSetOID>
+        <Rights>
+          <CareActivityRight>
+            <OID>490000174323</OID>
+            <CAOID>490000177417</CAOID>
+            <ActivityCode>MN_MEDDISCHRGESL_P2</ActivityCode>
+          </CareActivityRight>
+        </Rights>
+        <Form>
+          <Form>
+            <OID>490000233752</OID>
+            <Code>MN_MEDDISCHRGESL_P2</Code>
+            <Name>Create/Amend discharge prescription</Name>
+            <Description>Create/Amend discharge prescription</Description>
+            <Version>6.00.0000.001</Version>
+            <ClassType>iSOFT.LORENZO.ManagePrescription.BlueBird.WebUI.medprescribedrugs,LorAppManagePrescriptionBBUI_P2,Version=1.0.0.0</ClassType>
+            <IsCustom>0</IsCustom>
+            <TransactionType>A</TransactionType>
+            <IsLast>0</IsLast>
+            <RuleSetOID>0</RuleSetOID>
+            <CAFormOID>490000267251</CAFormOID>
+            <CAOID>490000177417</CAOID>
+            <DeviceOID>20000014</DeviceOID>
+            <FormSequence>1</FormSequence>
+            <IsActive>1</IsActive>
+            <LocalizedLabels />
+          </Form>
+          <Form>
+            <OID>490000233762</OID>
+            <Code>MN_MEDPATPRINTSL_P2</Code>
+            <Name>Print</Name>
+            <Description>Print</Description>
+            <Version>6.00.0000.001</Version>
+            <ClassType>iSOFT.LORENZO.ManagePrescription.BlueBird.WebUI.medreprint,LorAppManagePrescriptionBBUI_P2,Version=1.0.0.0</ClassType>
+            <IsCustom>0</IsCustom>
+            <TransactionType>A</TransactionType>
+            <IsLast>1</IsLast>
+            <RuleSetOID>0</RuleSetOID>
+            <CAFormOID>490000267252</CAFormOID>
+            <CAOID>490000177417</CAOID>
+            <DeviceOID>20000014</DeviceOID>
+            <FormSequence>2</FormSequence>
+            <IsActive>1</IsActive>
+            <LocalizedLabels />
+          </Form>
+        </Form>
+        <LocalizedLabels />
+        <SuggestedCAS />
+        <WebLinks />
+        <CMFunctionalDomainName>Medication</CMFunctionalDomainName>
+      </CareActivity>
+    </CareActivity>
+    <LocalizedLabels />
+  </objTask>
+  <oContextInformation>
+    <BPCode>ConfigurationWS.GetTaskInfo</BPCode>
+    <ReqIID>530e17e8-1e77-47c4-9621-ced87138f669</ReqIID>
+    <UserID>1003000</UserID>
+    <ActiveUserID>0</ActiveUserID>
+    <RemoteHostID>DUC-4hS8JpWdliw.dedalus.lan</RemoteHostID>
+    <OrganizationID>600000060009</OrganizationID>
+    <SecurityToken>40cqgyg5x4f340yckp5uhwax#638009172271730852</SecurityToken>
+    <ResToken />
+    <LoginName>pennineusera</LoginName>
+    <RemoteHostIP>192.168.29.163</RemoteHostIP>
+    <WorkingAreaOID>0</WorkingAreaOID>
+    <Errors />
+    <CareActivityCode>Configuration.GetTaskInfo</CareActivityCode>
+    <MultiCampusPattern>NONE</MultiCampusPattern>
+    <ReleaseVersion>2</ReleaseVersion>
+    <CultureCode>en-GB</CultureCode>
+  </oContextInformation>
+</CResMsgGetTaskInfo> </Data></Item><Item><Type>string</Type><Data>6.00.0000.001^../../MedicationMgmt/ClientBin/LorAppManagePrescriptionBBUI_P2.xap^iSOFT.LORENZO.ManagePrescription.BlueBird.WebUI.MedicationPrescriptionCA^LorAppManagePrescriptionBBUI_P2^LorAppManagePrescriptionBBUI_P2.Web^MedInpatientAdministrationLW$490000159036$SLWIZARD</Data></Item><Item><Type>iSOFT.BlueBird.TimeZone.SLCultureInfo, LorArcSilverlightTimeZone, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Type><Data>
+<SLCultureInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LongDatePattern>dd MMMM yyyy</LongDatePattern>
+  <ShortDatePattern>dd/MM/yyyy</ShortDatePattern>
+  <LongTimePattern>HH:mm:ss</LongTimePattern>
+  <ShortTimePattern>HH:mm</ShortTimePattern>
+  <CurrentCultureName>en-GB</CurrentCultureName>
+  <DecimalSeperator>.</DecimalSeperator>
+  <AMDesignator>AM</AMDesignator>
+  <PMDesignator>PM</PMDesignator>
+  <YearMonthPattern>MMM yyyy</YearMonthPattern>
+</SLCultureInfo></Data></Item></Items>~s.l.w.f~<?xml version="1.0"?><Items>~<?xml version="1.0"?><Items>~s.l.w.f~<?xml version="1.0"?><Items><Item><Type>string</Type><Data>VW_MEDICONFIG^MEDLINEDISPLAY^User^iSOFT.LORENZO.BlueBird.Profiles.TTO.CMedicationLineDisplayData</Data></Item><Item><Type>string</Type><Data>VW_MEDICONFIG^MEDVIEWCONFIG^User^iSOFT.LORENZO.BlueBird.Profiles.TTO.MedicationViewConfigData</Data></Item><Item><Type>string</Type><Data>VW_MEDRESCONFIG^MEDRESOGRID^User^iSOFT.LORENZO.BlueBird.Profiles.GridConfig</Data></Item><Item><Type>string</Type><Data>VW_MEDILISTCONFIG^MEDLISTVIEW^User^iSOFT.LORENZO.BlueBird.Profiles.GridConfig</Data></Item><Item><Type>string</Type><Data>VW_MEDICONFIG^CLINVERICFG^User^iSOFT.LORENZO.BlueBird.Profiles.TTO.ClinicalVerificationConfiguration</Data></Item><Item><Type>string</Type><Data>VW_MEDICONFIG^PRESMETHODCONFIG^User^iSOFT.LORENZO.BlueBird.Profiles.TTO.PrescribingMethodConfigData</Data></Item><Item><Type>string</Type><Data>MA_ADMINSETTING^MASLOTCHARCONFIG^Organisation^iSOFT.LORENZO.BlueBird.Profiles.TTO.CSlotCharacteristicsConfig</Data></Item><Item><Type>string</Type><Data>MA_ADMINSETTING^MACHARTDISPLAYCONFIG^Organisation^iSOFT.LORENZO.BlueBird.Profiles.TTO.CChartDisplayConfig</Data></Item><Item><Type>string</Type><Data>VW_MEDICONFIG^PRINTCFG^User^iSOFT.LORENZO.BlueBird.Profiles.TTO.PrintConfigurationData</Data></Item><Item><Type>string</Type><Data>VW_GPCONNECTMED^GPCONNECTMEDCA^Organisation^iSOFT.LORENZO.CustomProfile.WebProfileUI.IPPMA.GPConnectConfig</Data></Item><Item><Type>string</Type><Data>VW_MEDICONFIG^MEDSEARCHCONFIG^User^iSOFT.LORENZO.BlueBird.Profiles.TTO.MedicationSearchConfigData</Data></Item><Item><Type>string</Type><Data>VW_MEDICONFIG^PRESCONFIG^Organisation^iSOFT.LORENZO.BlueBird.Profiles.TTO.PrescribingConfigData</Data></Item><Item><Type>string</Type><Data>VW_MEDICONFIG^DRUGDISPCONFIG^User^iSOFT.LORENZO.BlueBird.Profiles.TTO.MedDrugDisplayConfigData</Data></Item></Items>~<?xml version="1.0"?><Items><Item><Type>iSOFT.LORENZO.BlueBird.Profiles.TTO.CMedicationLineDisplayData</Type><Data>
+<CMedicationLineDisplayData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <objLineDisConfig>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_ADNALCMNT</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier />
+      <CaseCode>CC_MLDUPPER</CaseCode>
+      <FontStyleCode>CC_MLDBOLD</FontStyleCode>
+      <IsSelected>0</IsSelected>
+      <Order>1</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_ADMININSTR</FieldCode>
+      <ColCode>CC_MLDOTHINFO</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier> - Admin ins</Qualifier>
+      <CaseCode>CC_MLDUPPER</CaseCode>
+      <FontStyleCode>CC_MLDBOLD</FontStyleCode>
+      <IsSelected>0</IsSelected>
+      <Order>1</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_DRUGNAME</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier />
+      <CaseCode>CC_MLDTITLE</CaseCode>
+      <FontStyleCode>CC_MLDBOLD</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>2</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_FORM</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>-</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>3</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_FLUID</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>- in</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDBOLD</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>4</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_INFUSNTYP</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>-</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>5</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_DOSE</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>- DOSE</Qualifier>
+      <CaseCode>CC_MLDUPPER</CaseCode>
+      <FontStyleCode>CC_MLDBOLD</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>6</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_BOOSTERDOSE</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>- BOOSTER</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>7</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_BOLUS</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>- BOLUS</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDBOLD</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>8</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_LOCKOUTPERIOD</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier> - lockout</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>9</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_VOLUME</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier> -</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>10</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_CONCENTRATION</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier> - Concentration</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>11</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_INFUSNPERIOD</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier> - over</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>12</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_INFUSIONRATE</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier> - RATE</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>13</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>ROUTE</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier> -</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>14</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_FREQUENCY</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>-</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>15</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_DIRECTION</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>-</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>16</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>DURON</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>- for</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>17</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_TRTMNT</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>-</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>18</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_QUANTITY</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>-</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>19</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_TRGTSATURATIONRNG</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>- target saturation range</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>20</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_HUMDIFCTIN</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>-</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>21</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_DOSE_ICO</FieldCode>
+      <ColCode>CC_MLDOTHINFO</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier />
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>2</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_SUPINS_ICO</FieldCode>
+      <ColCode>CC_MLDOTHINFO</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier />
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>3</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_ADDCOM_ICO</FieldCode>
+      <ColCode>CC_MLDOTHINFO</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier />
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>4</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_DOSETYPE</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier />
+      <CaseCode>CC_MLDTITLE</CaseCode>
+      <FontStyleCode>CC_MLDBOLD</FontStyleCode>
+      <IsSelected>0</IsSelected>
+      <Order>22</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_ADMN_METHOD</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>-</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>0</IsSelected>
+      <Order>23</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_STARTDTTM</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier />
+      <CaseCode>CC_MLDUPPER</CaseCode>
+      <FontStyleCode>CC_MLDBOLD</FontStyleCode>
+      <IsSelected>0</IsSelected>
+      <Order>24</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_LUMEN</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>- Lumen</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>0</IsSelected>
+      <Order>25</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_STRENGTH</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>- Strength</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>0</IsSelected>
+      <Order>26</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_STOPDTTM</FieldCode>
+      <ColCode>CC_MLDOTHINFO</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier> - Stop date</Qualifier>
+      <CaseCode>CC_MLDTITLE</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>5</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_DELVRYDEVICE</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>- Delivery device</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>0</IsSelected>
+      <Order>27</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_MAXDOSE</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>- max dose</Qualifier>
+      <CaseCode>CC_MLDLOWER</CaseCode>
+      <FontStyleCode>CC_MLDNORMAL</FontStyleCode>
+      <IsSelected>0</IsSelected>
+      <Order>28</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_MED_GRP_STATYP</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier />
+      <CaseCode>CC_MLDUPPER</CaseCode>
+      <FontStyleCode>CC_MLDBOLD</FontStyleCode>
+      <IsSelected>0</IsSelected>
+      <Order>29</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_SITE</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier> - Site</Qualifier>
+      <CaseCode>CC_MLDUPPER</CaseCode>
+      <FontStyleCode>CC_MLDBOLD</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>30</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_PRESBY</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>Recorded by/Prescribed by:</Qualifier>
+      <CaseCode>CC_MLDUPPER</CaseCode>
+      <FontStyleCode>CC_MLDBOLD</FontStyleCode>
+      <IsSelected>0</IsSelected>
+      <Order>31</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_STATUS</FieldCode>
+      <ColCode>CC_MLDOTHINFO</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier>- Status</Qualifier>
+      <CaseCode>CC_MLDUPPER</CaseCode>
+      <FontStyleCode>CC_MLDBOLD</FontStyleCode>
+      <IsSelected>1</IsSelected>
+      <Order>6</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_MONITORINGPERIOD</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier> - Monitoring period</Qualifier>
+      <CaseCode>CC_MLDUPPER</CaseCode>
+      <FontStyleCode>CC_MLDBOLD</FontStyleCode>
+      <IsSelected>0</IsSelected>
+      <Order>32</Order>
+    </LineDisplayConfigurations>
+    <LineDisplayConfigurations>
+      <FieldCode>CC_REVIEWAFTER</FieldCode>
+      <ColCode>CC_MLDPRESITEM</ColCode>
+      <DisPosCode>CC_MLDROWONE</DisPosCode>
+      <Qualifier> - Review after</Qualifier>
+      <CaseCode>CC_MLDUPPER</CaseCode>
+      <FontStyleCode>CC_MLDBOLD</FontStyleCode>
+      <IsSelected>0</IsSelected>
+      <Order>33</Order>
+    </LineDisplayConfigurations>
+  </objLineDisConfig>
+  <sColorCode>#000099</sColorCode>
+  <MultipleComponent>10</MultipleComponent>
+</CMedicationLineDisplayData></Data></Item><Item><Type>iSOFT.LORENZO.BlueBird.Profiles.TTO.MedicationViewConfigData</Type><Data>
+<MedicationViewConfigData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DefaultGroupBy>CC_MED_GRP_STTS~Status</DefaultGroupBy>
+  <DefaultFilterBy>CC_MEDCURNT~Current medication</DefaultFilterBy>
+  <GroupByCols>CC_MED_GRP_CP~CC_MED_GRP_CS~CC_MED_GRP_CURPAST~CC_MED_GRP_PRCTYP~CC_MED_GRP_SP~CC_MED_GRP_SPLT~CC_MED_GRP_STTS</GroupByCols>
+  <CurMedExpiryDuration>1~CC_MEDRSN3</CurMedExpiryDuration>
+  <DrugsExpiryDuration>1~CC_MEDDRSN1</DrugsExpiryDuration>
+  <Favourites>true</Favourites>
+  <DrugCatalogue>true</DrugCatalogue>
+  <Formulary>true</Formulary>
+  <CancelledDrug>false</CancelledDrug>
+  <DiscontinuedDrug>true</DiscontinuedDrug>
+  <PatMedCols />
+  <OtherLinks>Test:Test:0~nhs.uk:nhs:0~health.uk:health.uk:0~Test Link:Test Link:0</OtherLinks>
+</MedicationViewConfigData></Data></Item><Item><Type>iSOFT.LORENZO.BlueBird.Profiles.GridConfig</Type><Data>
+<GridConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Columns>
+    <Column>
+      <Name>PrescriptionItem</Name>
+      <Description>Prescription item</Description>
+      <SortIndex>0</SortIndex>
+      <Width>320</Width>
+      <FixedColumns>false</FixedColumns>
+      <DisplayOrder>1</DisplayOrder>
+      <SortOrder>0</SortOrder>
+      <Visible>true</Visible>
+      <Mandatory>true</Mandatory>
+      <CellWrap>true</CellWrap>
+      <CanResize>true</CanResize>
+      <ColumnOverride>false</ColumnOverride>
+    </Column>
+    <Column>
+      <Name>Otherinformation</Name>
+      <Description>Other information</Description>
+      <SortIndex>-1</SortIndex>
+      <Width>120</Width>
+      <FixedColumns>false</FixedColumns>
+      <DisplayOrder>2</DisplayOrder>
+      <SortOrder>-1</SortOrder>
+      <Visible>true</Visible>
+      <Mandatory>false</Mandatory>
+      <CellWrap>true</CellWrap>
+      <CanResize>true</CanResize>
+      <ColumnOverride>false</ColumnOverride>
+    </Column>
+    <Column>
+      <Name>StartDTTMVWR</Name>
+      <Description>Start date</Description>
+      <SortIndex>-1</SortIndex>
+      <Width>95</Width>
+      <FixedColumns>false</FixedColumns>
+      <DisplayOrder>3</DisplayOrder>
+      <SortOrder>-1</SortOrder>
+      <Visible>true</Visible>
+      <Mandatory>false</Mandatory>
+      <CellWrap>false</CellWrap>
+      <CanResize>true</CanResize>
+      <ColumnOverride>false</ColumnOverride>
+    </Column>
+  </Columns>
+  <SubViews />
+  <FixedCol>0</FixedCol>
+  <RowCount>20</RowCount>
+</GridConfig></Data></Item><Item><Type>iSOFT.LORENZO.BlueBird.Profiles.GridConfig</Type><Data>
+<GridConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Columns>
+    <Column>
+      <Name>PrescriptionItem</Name>
+      <Description>Prescription item name</Description>
+      <SortIndex>-1</SortIndex>
+      <Width>384</Width>
+      <FixedColumns>false</FixedColumns>
+      <DisplayOrder>1</DisplayOrder>
+      <SortOrder>-1</SortOrder>
+      <Visible>true</Visible>
+      <Mandatory>true</Mandatory>
+      <CellWrap>true</CellWrap>
+      <CanResize>false</CanResize>
+      <ColumnOverride>false</ColumnOverride>
+    </Column>
+    <Column>
+      <Name>OtherInformation</Name>
+      <Description>Other information</Description>
+      <SortIndex>-1</SortIndex>
+      <Width>120</Width>
+      <FixedColumns>false</FixedColumns>
+      <DisplayOrder>2</DisplayOrder>
+      <SortOrder>-1</SortOrder>
+      <Visible>true</Visible>
+      <Mandatory>false</Mandatory>
+      <CellWrap>true</CellWrap>
+      <CanResize>false</CanResize>
+      <ColumnOverride>false</ColumnOverride>
+    </Column>
+    <Column>
+      <Name>StartDateIco</Name>
+      <Description>Start date time</Description>
+      <SortIndex>-1</SortIndex>
+      <Width>95</Width>
+      <FixedColumns>false</FixedColumns>
+      <DisplayOrder>3</DisplayOrder>
+      <SortOrder>-1</SortOrder>
+      <Visible>true</Visible>
+      <Mandatory>false</Mandatory>
+      <CellWrap>true</CellWrap>
+      <CanResize>false</CanResize>
+      <ColumnOverride>false</ColumnOverride>
+    </Column>
+  </Columns>
+  <SubViews />
+  <FixedCol>0</FixedCol>
+  <RowCount>20</RowCount>
+</GridConfig></Data></Item><Item><Type>iSOFT.LORENZO.BlueBird.Profiles.TTO.ClinicalVerificationConfiguration</Type><Data>
+<ClinicalVerificationConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <StationaryTypes>600000004000~600000005308~600000005313~600000001432~600000005371~600000003556~600000004341~600000001430~600000005748~600000004671~600000004756~600000005207~700000000049~600000003403~600000001427~600000002895~600000004697~600000004713</StationaryTypes>
+  <StationaryName>pri_sasi~FP10SS-NEW UHMB~LeaveConsolidated devi~VTE Sample~Harsha Clerking~Discharge Prescription Trust~Discharge Prescription HEY~Prescription_VTE~test~HRA Disp Instruction~SWFT OP Prescription Vn2~Ippma Test~FP10 Inpatient V1~rmp outpatient updated~Sample VTE~RMP Outpatient Discharge Prescription~HRA Disp Prescription~RMP Discharge Prescription</StationaryName>
+  <IsSupplyReqInTechVal>false</IsSupplyReqInTechVal>
+  <StationaryTypeCode>RTX/DTM002684~RTX/DTM003561~RTX/DTM003563~RTX/DTM001066~RTX/DTM003608~RTX/DTM001887~RTX/DTM002919~RTX/DTM001065~RTX/DTM003835~RTX/DTM003123~RTX/DTM003162~RTX/DTM003496~FP10 Inpatient V1/DTM~RTX/DTM002288~RTX/DTM001063~RY1/DTM002009~RTX/DTM003144~RTX/DTM002257</StationaryTypeCode>
+</ClinicalVerificationConfiguration></Data></Item><Item><Type>iSOFT.LORENZO.BlueBird.Profiles.TTO.PrescribingMethodConfigData</Type><Data>
+<PrescribingMethodConfigData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <PowerSearchCategories />
+  <EncounPresConfig>
+    <EncounterPresConfigurations>
+      <EncounterCode>CC_ACCEM</EncounterCode>
+      <PrescriptionCodes>Medication clerking</PrescriptionCodes>
+      <DefaultPresCode />
+      <StatinaryCodes>Hospital Medication Clerking</StatinaryCodes>
+      <DefaultStationaryCode>500000000016</DefaultStationaryCode>
+      <DefaultStationery>Hospital Medication Clerking</DefaultStationery>
+      <IsDefault>false</IsDefault>
+      <CopyAcrossPresCodes />
+    </EncounterPresConfigurations>
+    <EncounterPresConfigurations>
+      <EncounterCode>CC_ACCEM</EncounterCode>
+      <PrescriptionCodes>For administration</PrescriptionCodes>
+      <StatinaryCodes>RMP Outpatient Discharge Prescription</StatinaryCodes>
+      <DefaultStationaryTypeCode>RY1/DTM002009</DefaultStationaryTypeCode>
+      <DefaultStationaryCode>600000002895</DefaultStationaryCode>
+      <DefaultStationery>RMP Outpatient Discharge Prescription</DefaultStationery>
+      <IsDefault>false</IsDefault>
+      <CopyAcrossPresCodes />
+    </EncounterPresConfigurations>
+    <EncounterPresConfigurations>
+      <EncounterCode>CC_CONT</EncounterCode>
+      <PrescriptionCodes>Outpatient</PrescriptionCodes>
+      <DefaultPresCode />
+      <StatinaryCodes>FP10SS,FP10PCDSS,FP10MDA-SS</StatinaryCodes>
+      <DefaultStationaryCode>600000004713</DefaultStationaryCode>
+      <DefaultStationery />
+      <IsDefault>false</IsDefault>
+      <CopyAcrossPresCodes />
+    </EncounterPresConfigurations>
+    <EncounterPresConfigurations>
+      <EncounterCode>CC_INPAT</EncounterCode>
+      <PrescriptionCodes>Medication clerking</PrescriptionCodes>
+      <StatinaryCodes>HRA Disp Prescription,FP10 Inpatient V1,Prescription_VTE,Sample VTE,RMP Outpatient Discharge Prescription,pri_sasi,Discharge Prescription HEY,VTE Sample,Harsha Clerking,FP10SS,FP10PCDSS,FP10MDA-SS</StatinaryCodes>
+      <StatinaryTypesCodeOIDs>600000004697~700000000049~600000001430~600000001427~600000002895~600000004000~600000004341~600000001432~600000005371~600000003718~600000003719~600000003720</StatinaryTypesCodeOIDs>
+      <StatinaryTypeCode>RTX/DTM003144~FP10 Inpatient V1/DTM~RTX/DTM001065~RTX/DTM001063~RY1/DTM002009~RTX/DTM002684~RTX/DTM002919~RTX/DTM001066~RTX/DTM003608~NHS/DTM002491~NHS/DTM002492~NHS/DTM002493</StatinaryTypeCode>
+      <DefaultStationaryTypeCode>FP10 Inpatient V1/DTM</DefaultStationaryTypeCode>
+      <DefaultStationaryCode>700000000049</DefaultStationaryCode>
+      <DefaultStationery>FP10 Inpatient V1</DefaultStationery>
+      <IsDefault>false</IsDefault>
+      <CopyAcrossPresCodes />
+    </EncounterPresConfigurations>
+    <EncounterPresConfigurations>
+      <EncounterCode>CC_OUTPAT</EncounterCode>
+      <PrescriptionCodes>Medication clerking</PrescriptionCodes>
+      <StatinaryCodes>FP10SS,FP10PCDSS,FP10MDA-SS</StatinaryCodes>
+      <DefaultStationaryTypeCode>RTX/DTM003123</DefaultStationaryTypeCode>
+      <DefaultStationaryCode>600000004671</DefaultStationaryCode>
+      <DefaultStationery>HRA Disp Instruction</DefaultStationery>
+      <IsDefault>false</IsDefault>
+      <CopyAcrossPresCodes />
+    </EncounterPresConfigurations>
+    <EncounterPresConfigurations>
+      <EncounterCode>CC_OUTPAT</EncounterCode>
+      <PrescriptionCodes>Outpatient</PrescriptionCodes>
+      <DefaultPresCode />
+      <StatinaryCodes>Discharge Prescription Trust,Prescription_VTE,FP10SS,FP10PCDSS,FP10MDA-SS,SWFT OP Prescription Vn2,HRA Disp Instruction,Discharge Prescription,VTE Sample,pri_sasi,FP10SS-NEW UHMB,Sample VTE,Ippma Test,Discharge Prescription HEY,RMP Outpatient Discharge Prescription,HRA Disp Prescription,RMP Discharge Prescription,rmp outpatient updated</StatinaryCodes>
+      <DefaultStationaryCode>0</DefaultStationaryCode>
+      <DefaultStationery />
+      <IsDefault>false</IsDefault>
+      <CopyAcrossPresCodes />
+    </EncounterPresConfigurations>
+    <EncounterPresConfigurations>
+      <EncounterCode>CC_INPAT</EncounterCode>
+      <PrescriptionCodes>For administration</PrescriptionCodes>
+      <StatinaryCodes>FP10 Generic v1,FP10 Inpatient V1</StatinaryCodes>
+      <DefaultStationaryTypeCode>FP10 Inpatient V1/DTM</DefaultStationaryTypeCode>
+      <DefaultStationaryCode>700000000049</DefaultStationaryCode>
+      <DefaultStationery>FP10 Inpatient V1</DefaultStationery>
+      <IsDefault>false</IsDefault>
+      <CopyAcrossPresCodes />
+    </EncounterPresConfigurations>
+    <EncounterPresConfigurations>
+      <EncounterCode>CC_INPAT</EncounterCode>
+      <PrescriptionCodes>Patient leave</PrescriptionCodes>
+      <StatinaryCodes>FP10 Generic v1,FP10 Inpatient V1</StatinaryCodes>
+      <DefaultStationaryTypeCode>FP10 Inpatient V1/DTM</DefaultStationaryTypeCode>
+      <DefaultStationaryCode>700000000049</DefaultStationaryCode>
+      <DefaultStationery>FP10 Inpatient V1</DefaultStationery>
+      <IsDefault>false</IsDefault>
+      <CopyAcrossPresCodes />
+    </EncounterPresConfigurations>
+    <EncounterPresConfigurations>
+      <EncounterCode>CC_INPAT</EncounterCode>
+      <PrescriptionCodes>Discharge</PrescriptionCodes>
+      <StatinaryCodes>FP10 Generic v1,FP10 Inpatient V1</StatinaryCodes>
+      <DefaultStationaryTypeCode>FP10 Inpatient V1/DTM</DefaultStationaryTypeCode>
+      <DefaultStationaryCode>700000000049</DefaultStationaryCode>
+      <DefaultStationery>FP10 Inpatient V1</DefaultStationery>
+      <IsDefault>false</IsDefault>
+      <CopyAcrossPresCodes />
+    </EncounterPresConfigurations>
+    <EncounterPresConfigurations>
+      <EncounterCode>CC_ACCEM</EncounterCode>
+      <PrescriptionCodes>Discharge</PrescriptionCodes>
+      <StatinaryCodes>Discharge Prescription Trust</StatinaryCodes>
+      <DefaultStationaryTypeCode>RTX/DTM002919</DefaultStationaryTypeCode>
+      <DefaultStationaryCode>600000004341</DefaultStationaryCode>
+      <DefaultStationery>Discharge Prescription HEY</DefaultStationery>
+      <IsDefault>false</IsDefault>
+      <CopyAcrossPresCodes />
+    </EncounterPresConfigurations>
+    <EncounterPresConfigurations>
+      <EncounterCode>CC_ACCEM</EncounterCode>
+      <PrescriptionCodes>Outpatient</PrescriptionCodes>
+      <StatinaryCodes>FP10SS</StatinaryCodes>
+      <DefaultStationaryTypeCode>NHS/DTM002491</DefaultStationaryTypeCode>
+      <DefaultStationaryCode>600000003718</DefaultStationaryCode>
+      <DefaultStationery>FP10SS</DefaultStationery>
+      <IsDefault>false</IsDefault>
+      <CopyAcrossPresCodes />
+    </EncounterPresConfigurations>
+    <EncounterPresConfigurations>
+      <EncounterCode>CC_ACCEM</EncounterCode>
+      <PrescriptionCodes>Patient leave</PrescriptionCodes>
+      <StatinaryCodes>FP10SS,FP10PCDSS</StatinaryCodes>
+      <DefaultStationaryTypeCode>NHS/DTM002491</DefaultStationaryTypeCode>
+      <DefaultStationaryCode>600000003718</DefaultStationaryCode>
+      <DefaultStationery>FP10SS</DefaultStationery>
+      <IsDefault>false</IsDefault>
+      <CopyAcrossPresCodes />
+    </EncounterPresConfigurations>
+  </EncounPresConfig>
+</PrescribingMethodConfigData></Data></Item><Item><Type>iSOFT.LORENZO.BlueBird.Profiles.TTO.CSlotCharacteristicsConfig</Type><Data>
+<CSlotCharacteristicsConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DuenessThreshold>1</DuenessThreshold>
+  <AdvDurationForRecording>12</AdvDurationForRecording>
+  <SlotModificationTime>28</SlotModificationTime>
+</CSlotCharacteristicsConfig></Data></Item><Item><Type>iSOFT.LORENZO.BlueBird.Profiles.TTO.CChartDisplayConfig</Type><Data>
+<CChartDisplayConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OverDueSlotsColor>#ffcc99</OverDueSlotsColor>
+  <DueSlotsColor>#ffcccc</DueSlotsColor>
+  <OmittedSlotsColor>#9ddcfb</OmittedSlotsColor>
+  <AsRequiredSlotsColor>#ffffcc</AsRequiredSlotsColor>
+  <TodayOutlineColor>#faa856</TodayOutlineColor>
+  <IsStrengthToBeDisplayed>false</IsStrengthToBeDisplayed>
+</CChartDisplayConfig></Data></Item><Item><Type>iSOFT.LORENZO.BlueBird.Profiles.TTO.PrintConfigurationData</Type><Data>
+<PrintConfigurationData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ActivityConfigData>
+    <ActivityConfigurationData>
+      <ActivityToPrintAfter>Technically validate</ActivityToPrintAfter>
+      <ActToPrintAfterValue>Technically validate</ActToPrintAfterValue>
+      <PolicyToBeUsed>Main printer policy, Alternate printer policy</PolicyToBeUsed>
+      <PolicyToBeUsedValue>Main printer policy,Alternate printer policy</PolicyToBeUsedValue>
+      <Prescriptiontype>Clerked</Prescriptiontype>
+      <PrescriptiontypeValue>CC_MEDCLERK1</PrescriptiontypeValue>
+      <SummaryStationeryForConsolidatedPrint />
+      <SummaryStationeryForConsolidatedPrintValue />
+    </ActivityConfigurationData>
+    <ActivityConfigurationData>
+      <ActivityToPrintAfter>Submit</ActivityToPrintAfter>
+      <ActToPrintAfterValue>Submit</ActToPrintAfterValue>
+      <PolicyToBeUsed>Main printer policy, Alternate printer policy</PolicyToBeUsed>
+      <PolicyToBeUsedValue>Main printer policy,Alternate printer policy</PolicyToBeUsedValue>
+      <Prescriptiontype>For administration</Prescriptiontype>
+      <PrescriptiontypeValue>CC_FOR_ADMIN</PrescriptiontypeValue>
+      <SummaryStationeryForConsolidatedPrint />
+      <SummaryStationeryForConsolidatedPrintValue />
+    </ActivityConfigurationData>
+    <ActivityConfigurationData>
+      <ActivityToPrintAfter>Clinically Verify</ActivityToPrintAfter>
+      <ActToPrintAfterValue>Clinically Verify</ActToPrintAfterValue>
+      <PolicyToBeUsed>Main printer policy, Alternate printer policy</PolicyToBeUsed>
+      <PolicyToBeUsedValue>Main printer policy,Alternate printer policy</PolicyToBeUsedValue>
+      <Prescriptiontype>For administration</Prescriptiontype>
+      <PrescriptiontypeValue>CC_FOR_ADMIN</PrescriptiontypeValue>
+      <SummaryStationeryForConsolidatedPrint />
+      <SummaryStationeryForConsolidatedPrintValue />
+    </ActivityConfigurationData>
+    <ActivityConfigurationData>
+      <ActivityToPrintAfter>Technically validate</ActivityToPrintAfter>
+      <ActToPrintAfterValue>Technically validate</ActToPrintAfterValue>
+      <PolicyToBeUsed>Main printer policy, Alternate printer policy</PolicyToBeUsed>
+      <PolicyToBeUsedValue>Main printer policy,Alternate printer policy</PolicyToBeUsedValue>
+      <Prescriptiontype>For administration</Prescriptiontype>
+      <PrescriptiontypeValue>CC_FOR_ADMIN</PrescriptiontypeValue>
+      <SummaryStationeryForConsolidatedPrint />
+      <SummaryStationeryForConsolidatedPrintValue />
+    </ActivityConfigurationData>
+    <ActivityConfigurationData>
+      <ActivityToPrintAfter>Discontinue/Cancel</ActivityToPrintAfter>
+      <ActToPrintAfterValue>Discontinue/Cancel</ActToPrintAfterValue>
+      <PolicyToBeUsed>Main printer policy, Alternate printer policy</PolicyToBeUsed>
+      <PolicyToBeUsedValue>Main printer policy,Alternate printer policy</PolicyToBeUsedValue>
+      <Prescriptiontype>For administration</Prescriptiontype>
+      <PrescriptiontypeValue>CC_FOR_ADMIN</PrescriptiontypeValue>
+      <SummaryStationeryForConsolidatedPrint />
+      <SummaryStationeryForConsolidatedPrintValue />
+    </ActivityConfigurationData>
+    <ActivityConfigurationData>
+      <ActivityToPrintAfter>Discontinue/Cancel</ActivityToPrintAfter>
+      <ActToPrintAfterValue>Discontinue/Cancel</ActToPrintAfterValue>
+      <PolicyToBeUsed>Main printer policy, Alternate printer policy</PolicyToBeUsed>
+      <PolicyToBeUsedValue>Main printer policy,Alternate printer policy</PolicyToBeUsedValue>
+      <Prescriptiontype>Discharge</Prescriptiontype>
+      <PrescriptiontypeValue>CC_DSCHRG</PrescriptiontypeValue>
+      <SummaryStationeryForConsolidatedPrint />
+      <SummaryStationeryForConsolidatedPrintValue />
+    </ActivityConfigurationData>
+    <ActivityConfigurationData>
+      <ActivityToPrintAfter>Technically validate</ActivityToPrintAfter>
+      <ActToPrintAfterValue>Technically validate</ActToPrintAfterValue>
+      <PolicyToBeUsed>Main printer policy, Alternate printer policy</PolicyToBeUsed>
+      <PolicyToBeUsedValue>Main printer policy,Alternate printer policy</PolicyToBeUsedValue>
+      <Prescriptiontype>Discharge</Prescriptiontype>
+      <PrescriptiontypeValue>CC_DSCHRG</PrescriptiontypeValue>
+      <SummaryStationeryForConsolidatedPrint />
+      <SummaryStationeryForConsolidatedPrintValue />
+    </ActivityConfigurationData>
+    <ActivityConfigurationData>
+      <ActivityToPrintAfter>Submit</ActivityToPrintAfter>
+      <ActToPrintAfterValue>Submit</ActToPrintAfterValue>
+      <PolicyToBeUsed>Main printer policy, Alternate printer policy</PolicyToBeUsed>
+      <PolicyToBeUsedValue>Main printer policy,Alternate printer policy</PolicyToBeUsedValue>
+      <Prescriptiontype>Leave</Prescriptiontype>
+      <PrescriptiontypeValue>CC_Patientleave</PrescriptiontypeValue>
+      <SummaryStationeryForConsolidatedPrint />
+      <SummaryStationeryForConsolidatedPrintValue />
+    </ActivityConfigurationData>
+    <ActivityConfigurationData>
+      <ActivityToPrintAfter>Clinically Verify</ActivityToPrintAfter>
+      <ActToPrintAfterValue>Clinically Verify</ActToPrintAfterValue>
+      <PolicyToBeUsed>Main printer policy, Alternate printer policy</PolicyToBeUsed>
+      <PolicyToBeUsedValue>Main printer policy,Alternate printer policy</PolicyToBeUsedValue>
+      <Prescriptiontype>Leave</Prescriptiontype>
+      <PrescriptiontypeValue>CC_Patientleave</PrescriptiontypeValue>
+      <SummaryStationeryForConsolidatedPrint />
+      <SummaryStationeryForConsolidatedPrintValue />
+    </ActivityConfigurationData>
+    <ActivityConfigurationData>
+      <ActivityToPrintAfter>Discontinue/Cancel</ActivityToPrintAfter>
+      <ActToPrintAfterValue>Discontinue/Cancel</ActToPrintAfterValue>
+      <PolicyToBeUsed>Main printer policy, Alternate printer policy</PolicyToBeUsed>
+      <PolicyToBeUsedValue>Main printer policy,Alternate printer policy</PolicyToBeUsedValue>
+      <Prescriptiontype>Leave</Prescriptiontype>
+      <PrescriptiontypeValue>CC_Patientleave</PrescriptiontypeValue>
+      <SummaryStationeryForConsolidatedPrint />
+      <SummaryStationeryForConsolidatedPrintValue />
+    </ActivityConfigurationData>
+    <ActivityConfigurationData>
+      <ActivityToPrintAfter>Technically validate</ActivityToPrintAfter>
+      <ActToPrintAfterValue>Technically validate</ActToPrintAfterValue>
+      <PolicyToBeUsed>Main printer policy, Alternate printer policy</PolicyToBeUsed>
+      <PolicyToBeUsedValue>Main printer policy,Alternate printer policy</PolicyToBeUsedValue>
+      <Prescriptiontype>Leave</Prescriptiontype>
+      <PrescriptiontypeValue>CC_Patientleave</PrescriptiontypeValue>
+      <SummaryStationeryForConsolidatedPrint />
+      <SummaryStationeryForConsolidatedPrintValue />
+    </ActivityConfigurationData>
+    <ActivityConfigurationData>
+      <ActivityToPrintAfter>Discontinue/Cancel</ActivityToPrintAfter>
+      <ActToPrintAfterValue>Discontinue/Cancel</ActToPrintAfterValue>
+      <PolicyToBeUsed>Main printer policy, Alternate printer policy</PolicyToBeUsed>
+      <PolicyToBeUsedValue>Main printer policy,Alternate printer policy</PolicyToBeUsedValue>
+      <Prescriptiontype>Clerked</Prescriptiontype>
+      <PrescriptiontypeValue>CC_MEDCLERK1</PrescriptiontypeValue>
+      <SummaryStationeryForConsolidatedPrint />
+      <SummaryStationeryForConsolidatedPrintValue />
+    </ActivityConfigurationData>
+  </ActivityConfigData>
+  <ReplacementDuration>30</ReplacementDuration>
+  <IsLocalPrinterOverride>false</IsLocalPrinterOverride>
+  <SupplySheetConfig>Multiple patient</SupplySheetConfig>
+  <ContactNumber />
+</PrintConfigurationData></Data></Item><Item><Type>iSOFT.LORENZO.CustomProfile.WebProfileUI.IPPMA.GPConnectConfig</Type><Data>
+<GPConnectConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <PrescriptionCodes>CC_MEDCLERK1~CC_FOR_ADMIN</PrescriptionCodes>
+</GPConnectConfiguration></Data></Item><Item><Type>iSOFT.LORENZO.BlueBird.Profiles.TTO.MedicationSearchConfigData</Type><Data>
+<MedicationSearchConfigData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DefaultPowerSearch>CC_DRUGNAME</DefaultPowerSearch>
+  <PowerSearchConfig>
+    <PowerSearchConfigurationData>
+      <SearchOption>Drug name</SearchOption>
+      <SearchOptionValue>CC_DRUGNAME</SearchOptionValue>
+      <ItemType>Drug</ItemType>
+      <ItemTypeValue>CC_Drug</ItemTypeValue>
+      <PrimaryResultList>Virtual moiety, Actual moiety, Virtual product, Actual product</PrimaryResultList>
+      <PrimaryResultListValue>CC_VRTLMTY,CC_ACTMTY,CC_VRTLPROD,CC_AP</PrimaryResultListValue>
+      <SecondaryResultList>Virtual moiety, Actual moiety, Virtual product, Actual product</SecondaryResultList>
+      <SecondaryResultListValue>CC_VRTLMTY,CC_ACTMTY,CC_VRTLPROD,CC_AP</SecondaryResultListValue>
+      <ShowPrescribebybrandoptions>No</ShowPrescribebybrandoptions>
+      <Showfluidforinfusions>No</Showfluidforinfusions>
+      <AlwaysDisplayInPrimaryList>Yes</AlwaysDisplayInPrimaryList>
+    </PowerSearchConfigurationData>
+    <PowerSearchConfigurationData>
+      <SearchOption>Drug name</SearchOption>
+      <SearchOptionValue>CC_DRUGNAME</SearchOptionValue>
+      <ItemType>Appliance</ItemType>
+      <ItemTypeValue>CC_APPLIANCE</ItemTypeValue>
+      <PrimaryResultList>Virtual moiety, Actual moiety, Virtual product, Actual product</PrimaryResultList>
+      <PrimaryResultListValue>CC_VRTLMTY,CC_ACTMTY,CC_VRTLPROD,CC_AP</PrimaryResultListValue>
+      <SecondaryResultList>Virtual moiety, Actual moiety, Virtual product, Actual product</SecondaryResultList>
+      <SecondaryResultListValue>CC_VRTLMTY,CC_ACTMTY,CC_VRTLPROD,CC_AP</SecondaryResultListValue>
+      <ShowPrescribebybrandoptions>No</ShowPrescribebybrandoptions>
+      <Showfluidforinfusions>No</Showfluidforinfusions>
+      <AlwaysDisplayInPrimaryList>Yes</AlwaysDisplayInPrimaryList>
+    </PowerSearchConfigurationData>
+  </PowerSearchConfig>
+  <DisplayAMBrandOption>No</DisplayAMBrandOption>
+</MedicationSearchConfigData></Data></Item><Item><Type>iSOFT.LORENZO.BlueBird.Profiles.TTO.PrescribingConfigData</Type><Data>
+<PrescribingConfigData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <PromptFreqMoreOption>false</PromptFreqMoreOption>
+  <ReasonMandatory>true</ReasonMandatory>
+  <AllowUserFavorites>false</AllowUserFavorites>
+  <AlertPartentRow>false</AlertPartentRow>
+  <AutoLaunch>false</AutoLaunch>
+  <IncludeEventDates>false</IncludeEventDates>
+  <PromptAllergyReview>true</PromptAllergyReview>
+  <PaediatricsAgeRange>0</PaediatricsAgeRange>
+  <PaediatricsAgeRangeTop>16</PaediatricsAgeRangeTop>
+  <NoOfResultDisp>10</NoOfResultDisp>
+  <BNFURL>http://bnf.org/bnf/</BNFURL>
+  <HghtWghtPrompt>
+    <string>2-16~6-CC_MEDRSN3</string>
+    <string>16-100~1-CC_MEDRSN4</string>
+  </HghtWghtPrompt>
+  <AllergyPrompt>
+    <string>CC_UNKNOWN~~</string>
+    <string>CC_REFERRAL~~</string>
+    <string>CC_Waitinglis~~</string>
+    <string>CC_CEADMINISTRATIVE~~</string>
+    <string>CC_ALL~~</string>
+    <string>CC_MENTALHEALTH~~</string>
+    <string>24COL~~</string>
+    <string>CC_PREADMWLACT~~</string>
+    <string>CC_WARDATT~~</string>
+    <string>CC_INPAT~CC_MED_OPE~1</string>
+    <string>CC_OUTPAT~CC_MED_OPE~1</string>
+    <string>CC_CONT~CC_MED_OPE~1</string>
+    <string>CC_ACCEM~CC_MED_OPE~1</string>
+  </AllergyPrompt>
+  <SlotTime>
+    <string>16/07/2010 06:00:00</string>
+    <string>16/07/2010 08:00:00</string>
+    <string>16/07/2010 10:00:00</string>
+    <string>16/07/2010 12:00:00</string>
+    <string>16/07/2010 14:00:00</string>
+    <string>16/07/2010 16:00:00</string>
+    <string>16/07/2010 18:00:00</string>
+    <string>16/07/2010 20:00:00</string>
+    <string>16/07/2010 21:00:00</string>
+    <string>16/07/2010 22:00:00</string>
+  </SlotTime>
+  <MultipleComponent>0</MultipleComponent>
+  <CrossMatch>false</CrossMatch>
+  <ConfigDateDuration>0</ConfigDateDuration>
+  <ConfigDateDurationType />
+  <FavouriteFolder />
+  <FavouriteOID>0</FavouriteOID>
+  <CommonFavoFolder>ggg</CommonFavoFolder>
+  <CommonFavoOID>4000001841</CommonFavoOID>
+  <CommonFavoLorenzoID>MF000600</CommonFavoLorenzoID>
+  <CommonCDCFavFolder />
+  <CommonCDCFavOID>0</CommonCDCFavOID>
+  <CommonCDCFavLzoID />
+  <EnableDoseCalc>false</EnableDoseCalc>
+  <IdealBodyWeightPercentageExceeds>1</IdealBodyWeightPercentageExceeds>
+  <AdjfactorAdjBWcalc>0.2</AdjfactorAdjBWcalc>
+  <HeightWeightCDCFormCode />
+  <HeightWeightCDCFormName />
+  <HeightWeightChangeAlert>false</HeightWeightChangeAlert>
+  <HghtWghtPromptCriteria />
+  <LaunchInpatientPres>false</LaunchInpatientPres>
+  <ClerkFormViewDefautCode>CC_DNTLCHFRMVWR</ClerkFormViewDefautCode>
+</PrescribingConfigData></Data></Item><Item><Type>iSOFT.LORENZO.BlueBird.Profiles.TTO.MedDrugDisplayConfigData</Type><Data>
+<MedDrugDisplayConfigData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Formulary>,false,#0000cc</Formulary>
+  <NonFormulary>Regular,false,#666666</NonFormulary>
+</MedDrugDisplayConfigData></Data></Item></Items>~s.l.w.f~MEDDRSN#$~$|Hour(s)~$|$#CC_HOURS|$#$~Day(s)~$|$#CC_MEDDRSN1|$#$~Week(s)~$|$#CC_MEDDRSN2|$#$~Dose(s)~$|$#CC_DOSES|$#$~Minute(s)~$|$#CC_MINUTES|$#$~Month(s)~$|$#CC_MEDRSN3|$#$~Year(s)~$|$#CC_MEDRSN4#$~$|^MEDSUPPLYIN#$~$|Do not dispense~$|$#CC_MEDDISPINST1|$#$~One stop dispensed~$|$#CC_ONESTOP|$#$~Patient’s own drug (POD) and more at home~$|$#TC_PODs|$#$~Patient’s own medicines~$|$#CC_MEDPATOWNMED|$#$~Patient’s own supply~$|$#CC_PATIENTOWN|$#$~Patients own home~$|$#CC_Patownhom|$#$~Supplied from ward/clinic stock~$|$#CC_SUPLYFRMWRD|$#$~Patient’s own Choice~$|$#TC_Patient’s own|$#$~Patient’s own drug (POD)~$|$#TC_POD|$#$~Sample pack provided~$|$#CC_MEDDISPINST2#$~$|^MEDTRTCONTINUE#$~$|Continue by GP/Community Prescriber~$|$#CC_MEDCONGPCOMMPRES|$#$~Complete course/Not to be continued~$|$#CC_MEDCOMPCRSENTBCON|$#$~GP to review~$|$#CC_GPREVIEW|$#$~Continue by Hospital/Hospital Supply Only~$|$#CC_MEDCONBYHOSPITAL#$~$|^DISPINS#$~$| Investigation delays~$|$#CC_INVESTIGDELYS|$#$~% (Hb)~$|$#CC_UM_%_(HB)|$#$~% (NaCl)~$|$#CC_UM_%_(NACL)|$#$~Non childproof container required~$|$#CC_NCHCOREQ|$#$~Compliance aid required~$|$#CC_CAREQ|$#$~Compliance sheet required~$|$#CC_CSREQ|$#$~Large print labels required~$|$#CC_LARPRINLAB|$#$~Monitored dosage system (discussed with pharmacy)~$|$#CC_MONDOSSYS|$#$~Other~$|$#CC_OTHER#$~$|^DRCACKWRSN#$~$|Clinically appropriate~$|$#CC_Clinicalapp|$#$~Currently taking with no problems~$|$#CC_MED_CUR_PRBM|$#$~Intended combination~$|$#CC_Intendcomb|$#$~Required for patient~$|$#CC_MED_REQ_PAT|$#$~Patient monitored for effect~$|$#CC_DRCPAMOEFF|$#$~Inappropriate warning~$|$#CC_DRCINAPPWAR#$~$|^MEDPITSTC#$~$|Amended~$|$#MEDStatus1|$#$~Auto Verified~$|$#MEDStatus9|$#$~Awaiting authorisation~$|$#MEDStatus7|$#$~Cancelled~$|$#MEDStatus2|$#$~Clinically verified~$|$#MEDStatus10|$#$~Discontinued~$|$#MEDStatus3|$#$~Dispensed~$|$#MEDStatus5|$#$~Not authorised~$|$#MEDStatus12|$#$~On Hold~$|$#MEDStatus13|$#$~Submitted~$|$#MEDStatus6|$#$~Techinically validated~$|$#MEDStatus11|$#$~Completed~$|$#MEDStatus14#$~$|^IPPMAPRCTYP#$~$|Discharge~$|$#CC_DSCHRG|$#$~For administration~$|$#CC_FOR_ADMIN|$#$~Medication clerking~$|$#CC_MEDCLERK1|$#$~Outpatient~$|$#CC_MED_TYP_OP|$#$~Patient leave~$|$#CC_Patientleave#$~$|^MEDICATIONSITE#$~$|Not applicable~$|$#CC_SNOTAPP|$#$~Under the gum~$|$#CC_UNDERGUM|$#$~Nose~$|$#CC_SITENOSE|$#$~In to the left ear~$|$#CC_INTOLEFTEAR|$#$~In to the right ear~$|$#CC_INTORIGHTEAR|$#$~In to both ears~$|$#CC_INTOBOTHEARS|$#$~To the cervix~$|$#CC_STO THE CERVIX|$#$~In to the uterus~$|$#CC_SINUTERUS|$#$~On to affected nail(s)~$|$#CC_SONAFFECNAIL|$#$~In to the left nostril~$|$#CC_SINLEFTNOSTRIL|$#$~In to the right nostril~$|$#CC_SIN RIGHTNOSTR|$#$~In to both nostrils~$|$#CC_SINBOTHNOST|$#$~Using a nebuliser~$|$#CC_SUSINEBUL|$#$~In to the left eye~$|$#CC_SINLEFTEYE|$#$~In to the right eye~$|$#CC_SINRIGHTEYE|$#$~In to both eyes~$|$#CC_SINBOTHEYES|$#$~To the scalp~$|$#CC_STOSCALP|$#$~On the tongue~$|$#CC_SONTONGUE|$#$~To the rectum~$|$#CC_STORECTUM|$#$~To the hair~$|$#CC_STOHAIR|$#$~In to the bladder~$|$#CC_SINBLADDER|$#$~Under the tongue~$|$#CC_SUNDERTONGUE|$#$~To the affected tooth~$|$#CC_STOAFFECTOOTH|$#$~To the affected teeth~$|$#CC_STOTEETH|$#$~In to the rectum~$|$#CC_SINRECTUM|$#$~In to the urethra~$|$#CC_SINURETHRA|$#$~In to the vagina~$|$#CC_SINVAGINA|$#$~In the mouth~$|$#CC_SINMOUTH|$#$~As directed~$|$#CC_SASDIRECTED|$#$~To the bath~$|$#CC_STOBATH|$#$~Between the gum and upper lip~$|$#CC_SBETGUMUPPERLIP|$#$~On the skin~$|$#CC_SONSKIN|$#$~The hair~$|$#CC_STHEHAIR|$#$~To the vagina~$|$#CC_STTHEVAGINA|$#$~To be smoked~$|$#CC_STOBSMOKED#$~$|^MEDADMHD#$~$|add~$|$#CC_add|$#$~administer~$|$#CC_administer|$#$~Apply~$|$#CC_Apply|$#$~chew~$|$#CC_chew|$#$~dissolve~$|$#CC_dissolve|$#$~dust~$|$#CC_dust|$#$~Gargle~$|$#CC_Gargle|$#$~Infuse~$|$#CC_Infuse|$#$~inhale~$|$#CC_inhale|$#$~Inject~$|$#CC_Inject|$#$~Insert~$|$#MINSR|$#$~instil~$|$#CC_instil|$#$~irrigate~$|$#CC_irrigate|$#$~paint~$|$#CC_paint|$#$~place~$|$#CC_place1|$#$~Rinse~$|$#CC_Rinse|$#$~spray~$|$#CC_spray|$#$~suck~$|$#CC_suck|$#$~take~$|$#CC_take|$#$~take(dispersed in water)~$|$#CC_takedisper|$#$~take(dissolved in water)~$|$#CC_takedisol|$#$~use~$|$#CC_use|$#$~use to wash~$|$#CC_use to wash|$#$~wash~$|$#CC_wash#$~$|^MEDCLERKING#$~$|Medicine Dose/Frequency/Form/Strength/Route Changed~$|$#CC_MEDMEDFSROUTCHANG|$#$~Inadequate/undesirable clinical effect~$|$#CC_MEDINADECLINICRES|$#$~Allergy/Adverse Reaction/Intolerance~$|$#CC_MEDALLADVRECTINTO|$#$~Additional information available to complete prescription~$|$#CC_MEDADDINFORMAVBLE|$#$~Patient Choice~$|$#CC_MEDPATCHOICE#$~$|^MEDDOSEFRM#$~$|Dosage range~$|$#MEDDOSE17|$#$~Normal~$|$#CC_MEDDOSE4|$#$~Stepped~$|$#MEDDOSE2|$#$~Variable~$|$#MEDDOSE1|$#$~Titrated~$|$#CC_TITRATED#$~$|^ENTYP#$~$|24hrs Collection~$|$#24COL|$#$~Administrative~$|$#CC_CEADMINISTRATIVE|$#$~All~$|$#CC_ALL|$#$~Contact~$|$#CC_CONT|$#$~Day Care~$|$#CC_DAYCARE|$#$~Emergency~$|$#CC_ACCEM|$#$~Inpatient~$|$#CC_INPAT|$#$~Mental Health~$|$#CC_MENTALHEALTH|$#$~Outpatient~$|$#CC_OUTPAT|$#$~Preadmission and Waiting list activity~$|$#CC_PREADMWLACT|$#$~Referral~$|$#CC_REFERRAL|$#$~Unknown~$|$#CC_UNKNOWN|$#$~Waiting list~$|$#CC_Waitinglis|$#$~Ward attendance~$|$#CC_WARDATT|$#$~Assessment~$|$#CC_CEAssessment#$~$|^ENSTATUS#$~$|(Any)~$|$#CC_ANY|$#$~Cancelled~$|$#CC_ENCCANCELLED|$#$~Closed~$|$#CC_ENCCLOSED|$#$~Open~$|$#CC_ENCOPEN#$~$|^MEDDOSE#$~$|Normal~$|$#CC_MEDDOSE4|$#$~Dosage range~$|$#MEDDOSE17|$#$~Titrated~$|$#CC_TITRATED|$#$~Conditional~$|$#CC_CONDNLDSNG|$#$~Stepped/Variable~$|$#CC_STEPPEDVARIABLE#$~$|CC_MEDDOSE4^MEDDBSAFR#$~$|The Boyd Formula~$|$#CC_BOYD|$#$~The Boyd Formula – Weight Only~$|$#CC_BOYDWGT|$#$~The DuBois and DuBois Formula~$|$#CC_DUBOIS|$#$~The Gehan and George Formula~$|$#CC_GEHAN|$#$~The Haycock Formula~$|$#CC_HAYCOCK|$#$~The Mosteller Formula~$|$#CC_MOSTELLER#$~$|^MEDCLRSOR#$~$|Patient~$|$#CC_MEDPATIENT|$#$~Patient’s own medicines~$|$#CC_MEDPATOWNMED|$#$~Summary Care Record~$|$#CC_MEDNHSCARERECSER|$#$~Patient relative~$|$#CC_PATIENT_RELATIVE|$#$~Outpatient letter~$|$#CC_MEDOUTPATLETTER|$#$~GP records – electronic~$|$#CC_MEDGPRECORDSELEC|$#$~GP records – paper copy of repeat prescription with date~$|$#CC_MEDGPRECPCRPRESDT|$#$~GP letter~$|$#CC_MEDGPLETTER|$#$~GP records - verbal communication~$|$#CC_MEDGPRECVERCOM|$#$~Care home record~$|$#CC_MEDCAREHOMEREC|$#$~Carer~$|$#CC_MEDCARER|$#$~Community pharmacy~$|$#CC_MEDCOMPHARMACIST|$#$~Compliance aid~$|$#CC_MEDCOMPLIANCEAID|$#$~Discharge medicines list~$|$#CC_MEDDISCMEDLIST|$#$~MAR (Medicines Administration Record) sheet~$|$#CC_MEDMARSHEET|$#$~Patient Medication Passport/NPSA alert booklet~$|$#CC_MEDPSPRTALRTBK|$#$~External hospital transfer information~$|$#CC_EXHOSPTRANSFER|$#$~External Hospital discharge Summary~$|$#CC_EXTNHOSPDISSUM|$#$~Pharmacy dispensing system~$|$#CC_PHARMDISPSYSTEM|$#$~Medical / prescription records (Lorenzo)~$|$#CC_MEDPRESCRIPREC|$#$~Other~$|$#CC_OTHER_FREETEXT#$~$|^RANGEOPERATOR#$~$|<~$|$#CC_LS|$#$~<=~$|$#CC_LSEQLTO|$#$~>~$|$#CC_GRT|$#$~>=~$|$#CC_GRTEQLTO#$~$|^BHVTY#$~$|Type 1~$|$#CC_BEHTYPE_1|$#$~Type 2~$|$#CC_BEHTYPE_2|$#$~Type 3~$|$#CC_BEHTYPE_3|$#$~Type 4~$|$#CC_BEHTYPE_4|$#$~Type 5~$|$#CC_BEHTYPE_5#$~$|^CNFTY#$~$|Contraindication check~$|$#CC_DRUG_CONTRA|$#$~Drug allergy~$|$#CC_DRUG_ALLERGY|$#$~Drug duplication~$|$#CC_DRUG_DUPLICATION|$#$~Drug interaction~$|$#CC_DRUG_INTRACT|$#$~Precaution~$|$#CC_DRUG_PRECAUTION|$#$~Warning~$|$#CC_DRUG_WARNING#$~$|^SUBAG#$~$|Cross reactor group~$|$#CC_SUBAG_CRSTTY|$#$~Ingredient~$|$#CC_SUBAG_ING|$#$~Ingredient class group~$|$#CC_SUBAG_HRCY|$#$~(Any)~$|$#CC_ANY|$#$~Allergen(s) not included in check~$|$#CC_SUBAG_NTINLCHK#$~$|^SUBCI#$~$|Always show~$|$#CC_SUBCI_ALWAYS|$#$~Related~$|$#CC_SUBCI_RELATED|$#$~Specific~$|$#CC_SUBCI_SPECIFIC#$~$|^SUBDP#$~$|Doubling~$|$#CC_SUBDP_DUB|$#$~Hierarchy~$|$#CC_SUBDP_HRCY|$#$~Ingredient~$|$#CC_SUBDP_ING#$~$|^MEDSVRTY#$~$|High~$|$#HIGHH|$#$~Low~$|$#LOWWW|$#$~Moderate~$|$#CC_Moderate|$#$~Significant~$|$#CC_SIGNIFICANT#$~$|^SUBINT#$~$|High~$|$#CC_SUBINT_HIGH|$#$~Low~$|$#CC_SUBINT_LOW|$#$~Moderate~$|$#CC_SUBINT_MODE|$#$~Significant~$|$#CC_SUBINT_SIGN#$~$|^INFUSIONTYPE#$~$|Continuous~$|$#CC_IPPINFTYPCON|$#$~Single dose/volume~$|$#CC_IPPINFTYPSNGDOSE|$#$~Fluid~$|$#CC_FLUID|$#$~Intermittent~$|$#CC_IPPINFTYPINTE|$#$~PCA~$|$#CC_IPPINFTYPPCA#$~$|^NFREASON#$~$|Patient taking at home~$|$#CC_ATHOME|$#$~Formulary item clinically inappropriate/not acceptable~$|$#CC_FMCLINAPR|$#$~Other treatments failed~$|$#CC_OTRFAILED|$#$~Approved use~$|$#CC_APPUSE|$#$~Patient own drug not available~$|$#CC_PTOWNDRUGNOTAVAIL|$#$~Manufacturing problem with Formulary item~$|$#CC_MEDMANPRBFRMITM|$#$~Available formulary alternatives not acceptable~$|$#CC_AVLFRMALTNTACC|$#$~Other~$|$#CC_OTHER#$~$|^MRSN#$~$|Medicine Dose/Frequency/Form/Strength/Route Changed~$|$#CC_MEDMEDFSROUTCHANG|$#$~Inadequate/undesirable clinical effect~$|$#CC_MEDINADECLINICRES|$#$~Allergy/Adverse Reaction/Intolerance~$|$#CC_MEDALLADVRECTINTO|$#$~Additional information available to complete prescription~$|$#CC_MEDADDINFORMAVBLE|$#$~Correcting start date~$|$#CC_CORRECTSTRTDAT|$#$~Indication added~$|$#CC_MEDSINDIADD|$#$~Patient Choice~$|$#CC_MEDPATCHOICE|$#$~Duration /course length added/amended~$|$#CC_MEDSDURCOURAMEND|$#$~Review date added/amended~$|$#CC_MEDREWDTADDORND|$#$~Prescribed In Error~$|$#CC_PRESINERR|$#$~Entered In Error~$|$#CC_MEDENTEREDINERROR|$#$~Temporarily Suspended~$|$#CC_MEDTEMPLYSUSPEND|$#$~Change to stationery type~$|$#CC_CHNGTOSTATTYP|$#$~Conflicts with another medication~$|$#CC_MEDSCONFLMEDS|$#$~Administration time change~$|$#CC_ADMINTIMECNG|$#$~Rate change~$|$#CC_RATECNG#$~$|^EXPMONTHS#$~$|January~$|$#CC_EXPJAN|$#$~February~$|$#CC_EXPFEB|$#$~March~$|$#CC_EXPMAR|$#$~April~$|$#CC_EXPAPR|$#$~May~$|$#CC_EXPMAY|$#$~June~$|$#CC_EXPJUNE|$#$~July~$|$#CC_EXPJULY|$#$~August~$|$#CC_EXPAUG|$#$~September~$|$#CC_EXPSEP|$#$~October~$|$#CC_EXPOCT|$#$~November~$|$#CC_EXPNOV|$#$~December~$|$#CC_EXPDEC#$~$|^MEDENPRP#$~$|ACBS~$|$#CC_ABCS|$#$~Contraceptive use~$|$#CC_CONTRACEPTIVE|$#$~SLS~$|$#CC_SLS|$#$~FS~$|$#CC_FS#$~$|^INSTALINS#$~$|Advance instalments~$|$#CC_ADVINS|$#$~Supervised consumption~$|$#CC_SUPCONS#$~$|^WARSN#$~$|Clinically appropriate~$|$#CC_Clinicalapp|$#$~Currently taking with no problems~$|$#CC_MED_CUR_PRBM|$#$~Intended combination~$|$#CC_Intendcomb|$#$~Required for patient~$|$#CC_MED_REQ_PAT#$~$|^MEDINSTLINTVDUR#$~$|Hour(s)~$|$#CC_MEDHour|$#$~Day(s)~$|$#CC_MEDDRSN1|$#$~Week(s)~$|$#CC_MEDDRSN2|$#$~Month(s)~$|$#CC_MEDRSN3|$#$~Year(s)~$|$#CC_MEDRSN4#$~$|^INFROUNDTO#$~$|None~$|$#CC_NONE1|$#$~Nearest half unit~$|$#CC_HALFUNIT|$#$~Nearest full unit~$|$#CC_FULLUNIT#$~$|^MedSupplystatus#$~$|Supply~$|$#CC_Supply|$#$~Do not supply~$|$#CC_MedDontSupply|$#$~Cancel request~$|$#CC_CanMedreq#$~$|^MASLOTSTATUSCODE#$~$|Deferred~$|$#CC_DEFERADMIN|$#$~Deferred~$|$#CC_DEFERDUE|$#$~Deferred~$|$#CC_DEFEROVERDUE|$#$~Due now~$|$#CC_DUE|$#$~Deleted~$|$#CC_DELETED|$#$~Given~$|$#CC_ADMINISTERED|$#$~Home leave~$|$#CC_HOMELEAVE|$#$~Not given~$|$#CC_NOTADMINISTERED|$#$~Not known~$|$#CC_NOTKNOWN|$#$~Patient self administering~$|$#CC_PATIENTSELFADMIN|$#$~Planned~$|$#CC_PLANNED|$#$~Self administered~$|$#CC_SELFADMINISTERED|$#$~Omitted~$|$#CC_OMITTED|$#$~Overdue~$|$#CC_OVERDUE|$#$~Not yet recorded~$|$#CC_NOTYETRECORDED|$#$~In progress~$|$#CC_INPROGRESS|$#$~Stopped~$|$#CC_RSSTOPPED|$#$~Completed~$|$#CC_COMPLETED|$#$~Paused~$|$#CC_PAUSED#$~$|^MedCLMSDispenseStat#$~$|Request sent~$|$#CC_MEDCLMSREQSENT|$#$~Cancelled (EPR)~$|$#CC_MEDCLMSCANCEPR|$#$~Cancelled~$|$#CC_MEDCLMSCANC|$#$~Issued~$|$#CC_MEDCLMSISSUED|$#$~Preparation~$|$#CC_MEDCLMSPrep|$#$~In progress~$|$#CC_MEDCLMSInProgress|$#$~On hold~$|$#CC_MEDCLMSOnHold|$#$~Entered in error~$|$#CC_MEDCLMSEntrdErr|$#$~Stopped~$|$#CC_MEDCLMSStopped|$#$~Declined by dispensing system~$|$#CC_MEDCLMSDeclined|$#$~Unknown~$|$#CC_MEDCLMSUnknown#$~$|^MEDURGENCY#$~$|High~$|$#CC_High|$#$~Medium~$|$#CC_Medium|$#$~Low~$|$#CC_RFLOW|$#$~No urgency~$|$#CC_NOURGENCY|$#$~(Any)~$|$#CC_Any#$~$|^PRODUCTTYPE#$~$|Named Patient Drug~$|$#CC_NAMEDRUG|$#$~Combination product~$|$#CC_COMBPROD|$#$~Controlled drug~$|$#CC_CNTRLDDRUG|$#$~Formulary based~$|$#CC_FRMBASED|$#$~High risk~$|$#CC_HIGHRISK|$#$~Manufacturer generic~$|$#CC_MANFCTGN|$#$~Newly Marketed Drug~$|$#CC_NEWLY|$#$~OTC drug~$|$#CC_OTC|$#$~Parallel import~$|$#CC_PIMPORT|$#$~Unlicensed~$|$#CC_UNLICENSED#$~$|^MEDOCINPRD#$~$|All child items~$|$#CC_OCCRALLCHILD|$#$~None~$|$#CC_OCCRNONE|$#$~Some child items~$|$#CC_OCCRSOMECHILD#$~$|~s.l.w.f~WebServiceServer=http://NHSAPPCHNE8051/appserver&GpConnectEnabled=0&ApplicationPath=/WebClient&SUPPLYINSTRUCTIONFROMEPR=FALSE&PatientID=1000000035790&Sex=CC_Male&DOB=23-Sep-1988&Age=34&NHSNumber=&IsPDSTraced=0&EncounterOID=1000000037193&EncounterType=CC_INPAT&OrganisationName=UNIVERSITY HOSPITALS OF MORECAMBE BAY NHS FOUNDATION TRUST&OrganisationOID=600000060009&JobRoleOID=1&JobRoleName=administrator Role&RoleProfileName=002049&RoleprofileOID=600000268538&UserOID=1003000&UserName=MrPENNINEUSERA,pennineusera&SpecialtyOID=0&MergedPatientOID=1000000035790&EncounterStatusCode=CC_ENCOPEN&IsMergedPatient=0&AMCV=27&MenuCode=&SecurityToken=40cqgyg5x4f340yckp5uhwax#638009172271730852&ReleaseVersion=2&Culture=en-GB&IPPMADU_P2=False&TTOPBBDU=False&TTOPBBDU_P2=True&IsInfusionON=False&IsTurnONDRC=True&FBDU=FALSE&ServiceOID=600000002040&LocationOID=600000066213&FRQ-88-CHILD=FRQ-88,FRQ-88,FRQ-88,FRQ-88,FRQ-88,FRQ-88,FRQ-88,FRQ-88,FRQ-88,FRQ-88,FRQ-88&FRC-001-CHILD=FRC-001,FRC-001,FRC-001,FRC-001,FRC-001,FRC-001,FRC-001,FRC-001,FRC-001,FRC-001,FRC-001&FRC-003-CHILD=FRC-003,FRC-003,FRC-003,FRC-003,FRC-003,FRC-003,FRC-003,FRC-003,FRC-003,FRC-003,FRC-003&FRC-002-CHILD=FRC-002,FRC-002,FRC-002,FRC-002,FRC-002,FRC-002,FRC-002,FRC-002,FRC-002,FRC-002,FRC-002&Sgestationreq=-1&RequestLockOID=1000000037193&SupplyInstruction=&SupplyComments=&NextSupplyDTTM=&IdentifyingType=&LorenzoId=&PermissionDetails=1,1,1,1,1,1,0,0,1,1,0,1,1,0,1,1&IsPatientTranferAct=0&bDateOfBirthEstimated=false&IsEnableWSCProfile=False&IncludeMedicationDispenseBehaviour=true&GPCConsentStatus=0~s.l.w.f~VW_MEDICONFIG^MEDLINEDISPLAY^User^iSOFT.LORENZO.BlueBird.Profiles.TTO.CMedicationLineDisplayData$VW_MEDICONFIG^MEDVIEWCONFIG^User^iSOFT.LORENZO.BlueBird.Profiles.TTO.MedicationViewConfigData$VW_MEDRESCONFIG^MEDRESOGRID^User^iSOFT.LORENZO.BlueBird.Profiles.GridConfig$VW_MEDILISTCONFIG^MEDLISTVIEW^User^iSOFT.LORENZO.BlueBird.Profiles.GridConfig$VW_MEDICONFIG^CLINVERICFG^User^iSOFT.LORENZO.BlueBird.Profiles.TTO.ClinicalVerificationConfiguration$VW_MEDICONFIG^PRESMETHODCONFIG^User^iSOFT.LORENZO.BlueBird.Profiles.TTO.PrescribingMethodConfigData$MA_ADMINSETTING^MASLOTCHARCONFIG^Organisation^iSOFT.LORENZO.BlueBird.Profiles.TTO.CSlotCharacteristicsConfig$MA_ADMINSETTING^MACHARTDISPLAYCONFIG^Organisation^iSOFT.LORENZO.BlueBird.Profiles.TTO.CChartDisplayConfig$VW_MEDICONFIG^PRINTCFG^User^iSOFT.LORENZO.BlueBird.Profiles.TTO.PrintConfigurationData$VW_GPCONNECTMED^GPCONNECTMEDCA^Organisation^iSOFT.LORENZO.CustomProfile.WebProfileUI.IPPMA.GPConnectConfig$VW_MEDICONFIG^MEDSEARCHCONFIG^User^iSOFT.LORENZO.BlueBird.Profiles.TTO.MedicationSearchConfigData$VW_MEDICONFIG^PRESCONFIG^Organisation^iSOFT.LORENZO.BlueBird.Profiles.TTO.PrescribingConfigData$VW_MEDICONFIG^DRUGDISPCONFIG^User^iSOFT.LORENZO.BlueBird.Profiles.TTO.MedDrugDisplayConfigData$#MEDPITSTC,IPPMAPRCTYP,MEDICATIONSITE,MedAdMhd,MEDDRSN,MEDCLERKING,MEDSUPPLYIN,MEDDOSEFRM,MEDTRTCONTINUE,ENTYP,ENSTATUS,MEDDOSE,MEDDBSAFR,MEDCLRSOR,RANGEOPERATOR,BHVTY,CNFTY,SUBAG,SUBCI,SUBDP,MEDSVRTY,SUBINT,INFUSIONTYPE,NFREASON,MRSN,EXPMONTHS,MEDENPRP,INSTALINS,DISPINS,WARSN,MEDINSTLINTVDUR,INFROUNDTO,DRCACKWRSN,MEDSUPPLYSTATUS,MASLOTSTATUSCODE,MedCLMSDispenseStat,MEDURGENCY,PRODUCTTYPE,MedOcInPrd~s.l.w.f~../MedicationMgmt/IPP_P2/uiscripts/MedInpatientAdministration.js^../scripts/appsfs.js^../scripts/appscripts.js^../scripts/appactivity.js^../scripts/ext.idateconverter.js^../CDCSilverLight/script/GlobalFunctions.js^../MedicationMgmt/IPP_P2/uiscripts/prescriptionsl.js^../MedicationMgmt/IPP_P2/uiscripts/MedAppScripts.js^../scripts/ajaxhelper.js^../MedicationMgmt/MedicationAdmin_P2/uiscripts/medsadmin.js^../CDCSilverLight/Script/Silverlight.js^../CDCSilverLight/Script/iCitation.js^../CDCSilverLight/Script/iCustomFunction.js^../CDCSilverLight/Script/iForm.js^~s.l.w.f~MEDPITSTC#$~$|Amended~$|$#MEDStatus1|$#$~Auto Verified~$|$#MEDStatus9|$#$~Awaiting authorisation~$|$#MEDStatus7|$#$~Cancelled~$|$#MEDStatus2|$#$~Clinically verified~$|$#MEDStatus10|$#$~Discontinued~$|$#MEDStatus3|$#$~Dispensed~$|$#MEDStatus5|$#$~Not authorised~$|$#MEDStatus12|$#$~On Hold~$|$#MEDStatus13|$#$~Submitted~$|$#MEDStatus6|$#$~Techinically validated~$|$#MEDStatus11|$#$~Completed~$|$#MEDStatus14#$~$|^IPPMAPRCTYP#$~$|Discharge~$|$#CC_DSCHRG|$#$~For administration~$|$#CC_FOR_ADMIN|$#$~Medication clerking~$|$#CC_MEDCLERK1|$#$~Outpatient~$|$#CC_MED_TYP_OP|$#$~Patient leave~$|$#CC_Patientleave#$~$|^MEDICATIONSITE#$~$|Not applicable~$|$#CC_SNOTAPP|$#$~Under the gum~$|$#CC_UNDERGUM|$#$~Nose~$|$#CC_SITENOSE|$#$~In to the left ear~$|$#CC_INTOLEFTEAR|$#$~In to the right ear~$|$#CC_INTORIGHTEAR|$#$~In to both ears~$|$#CC_INTOBOTHEARS|$#$~To the cervix~$|$#CC_STO THE CERVIX|$#$~In to the uterus~$|$#CC_SINUTERUS|$#$~On to affected nail(s)~$|$#CC_SONAFFECNAIL|$#$~In to the left nostril~$|$#CC_SINLEFTNOSTRIL|$#$~In to the right nostril~$|$#CC_SIN RIGHTNOSTR|$#$~In to both nostrils~$|$#CC_SINBOTHNOST|$#$~Using a nebuliser~$|$#CC_SUSINEBUL|$#$~In to the left eye~$|$#CC_SINLEFTEYE|$#$~In to the right eye~$|$#CC_SINRIGHTEYE|$#$~In to both eyes~$|$#CC_SINBOTHEYES|$#$~To the scalp~$|$#CC_STOSCALP|$#$~On the tongue~$|$#CC_SONTONGUE|$#$~To the rectum~$|$#CC_STORECTUM|$#$~To the hair~$|$#CC_STOHAIR|$#$~In to the bladder~$|$#CC_SINBLADDER|$#$~Under the tongue~$|$#CC_SUNDERTONGUE|$#$~To the affected tooth~$|$#CC_STOAFFECTOOTH|$#$~To the affected teeth~$|$#CC_STOTEETH|$#$~In to the rectum~$|$#CC_SINRECTUM|$#$~In to the urethra~$|$#CC_SINURETHRA|$#$~In to the vagina~$|$#CC_SINVAGINA|$#$~In the mouth~$|$#CC_SINMOUTH|$#$~As directed~$|$#CC_SASDIRECTED|$#$~To the bath~$|$#CC_STOBATH|$#$~Between the gum and upper lip~$|$#CC_SBETGUMUPPERLIP|$#$~On the skin~$|$#CC_SONSKIN|$#$~The hair~$|$#CC_STHEHAIR|$#$~To the vagina~$|$#CC_STTHEVAGINA|$#$~To be smoked~$|$#CC_STOBSMOKED#$~$|^MEDADMHD#$~$|add~$|$#CC_add|$#$~administer~$|$#CC_administer|$#$~Apply~$|$#CC_Apply|$#$~chew~$|$#CC_chew|$#$~dissolve~$|$#CC_dissolve|$#$~dust~$|$#CC_dust|$#$~Gargle~$|$#CC_Gargle|$#$~Infuse~$|$#CC_Infuse|$#$~inhale~$|$#CC_inhale|$#$~Inject~$|$#CC_Inject|$#$~Insert~$|$#MINSR|$#$~instil~$|$#CC_instil|$#$~irrigate~$|$#CC_irrigate|$#$~paint~$|$#CC_paint|$#$~place~$|$#CC_place1|$#$~Rinse~$|$#CC_Rinse|$#$~spray~$|$#CC_spray|$#$~suck~$|$#CC_suck|$#$~take~$|$#CC_take|$#$~take(dispersed in water)~$|$#CC_takedisper|$#$~take(dissolved in water)~$|$#CC_takedisol|$#$~use~$|$#CC_use|$#$~use to wash~$|$#CC_use to wash|$#$~wash~$|$#CC_wash#$~$|^MEDDRSN#$~$|Minute(s)~$|$#CC_MINUTES~$|$#BUSINESS_ACTIONS|#|BA_DCSLOTMINS|$#$~Hour(s)~$|$#CC_HOURS~$|$#BUSINESS_ACTIONS|#|BA_DCSLOTHOURS|$#$~Day(s)~$|$#CC_MEDDRSN1~$|$#BUSINESS_ACTIONS|#|BA_ PIDURDay|$#$~Week(s)~$|$#CC_MEDDRSN2~$|$#BUSINESS_ACTIONS|#|BA_ PIDURweek|$#$~Month(s)~$|$#CC_MEDRSN3~$|$#BUSINESS_ACTIONS|#|BA_ PIDURMonth|$#$~Year(s)~$|$#CC_MEDRSN4~$|$#BUSINESS_ACTIONS|#|BA_ PIDURYear|$#$~Dose(s)~$|$#CC_DOSES#$~$|^MEDCLERKING#$~$|Medicine Dose/Frequency/Form/Strength/Route Changed~$|$#CC_MEDMEDFSROUTCHANG|$#$~Inadequate/undesirable clinical effect~$|$#CC_MEDINADECLINICRES|$#$~Allergy/Adverse Reaction/Intolerance~$|$#CC_MEDALLADVRECTINTO|$#$~Additional information available to complete prescription~$|$#CC_MEDADDINFORMAVBLE|$#$~Patient Choice~$|$#CC_MEDPATCHOICE#$~$|^MEDSUPPLYIN#$~$|Do not dispense~$|$#CC_MEDDISPINST1~$|$#DONOTDSPMED|#|asdfaf|$#$~One stop dispensed~$|$#CC_ONESTOP~$|$#DONOTDSPMED|#|asdfa|$#$~Patient’s own supply~$|$#CC_PATIENTOWN|$#$~Sample pack provided~$|$#CC_MEDDISPINST2|$#$~Supplied from ward/clinic stock~$|$#CC_SUPLYFRMWRD#$~$|^MEDDOSEFRM#$~$|Dosage range~$|$#MEDDOSE17|$#$~Normal~$|$#CC_MEDDOSE4|$#$~Stepped~$|$#MEDDOSE2|$#$~Variable~$|$#MEDDOSE1|$#$~Titrated~$|$#CC_TITRATED#$~$|^MEDTRTCONTINUE#$~$|Continue by GP/Community Prescriber~$|$#CC_MEDCONGPCOMMPRES|$#$~Complete course/Not to be continued~$|$#CC_MEDCOMPCRSENTBCON|$#$~GP to review~$|$#CC_GPREVIEW|$#$~Continue by Hospital/Hospital Supply Only~$|$#CC_MEDCONBYHOSPITAL#$~$|^ENTYP#$~$|24hrs Collection~$|$#24COL|$#$~Administrative~$|$#CC_CEADMINISTRATIVE|$#$~All~$|$#CC_ALL|$#$~Contact~$|$#CC_CONT|$#$~Day Care~$|$#CC_DAYCARE|$#$~Emergency~$|$#CC_ACCEM~$|$#Timelimit|#|1440|$#$~Inpatient~$|$#CC_INPAT|$#$~Mental Health~$|$#CC_MENTALHEALTH|$#$~Outpatient~$|$#CC_OUTPAT|$#$~Preadmission and Waiting list activity~$|$#CC_PREADMWLACT|$#$~Referral~$|$#CC_REFERRAL|$#$~Unknown~$|$#CC_UNKNOWN|$#$~Waiting list~$|$#CC_Waitinglis|$#$~Ward attendance~$|$#CC_WARDATT|$#$~Assessment~$|$#CC_CEAssessment#$~$|^ENSTATUS#$~$|(Any)~$|$#CC_ANY~$|$#BUSINESS_ACTIONS|#|BA_ANY|*|MessagingPrimary|#|0|$#$~Cancelled~$|$#CC_ENCCANCELLED|$#$~Closed~$|$#CC_ENCCLOSED|$#$~Open~$|$#CC_ENCOPEN#$~$|^MEDDOSE#$~$|Normal~$|$#CC_MEDDOSE4|$#$~Dosage range~$|$#MEDDOSE17|$#$~Titrated~$|$#CC_TITRATED|$#$~Conditional~$|$#CC_CONDNLDSNG|$#$~Stepped/Variable~$|$#CC_STEPPEDVARIABLE#$~$|CC_MEDDOSE4^MEDDBSAFR#$~$|The Boyd Formula~$|$#CC_BOYD|$#$~The Boyd Formula – Weight Only~$|$#CC_BOYDWGT|$#$~The DuBois and DuBois Formula~$|$#CC_DUBOIS|$#$~The Gehan and George Formula~$|$#CC_GEHAN|$#$~The Haycock Formula~$|$#CC_HAYCOCK|$#$~The Mosteller Formula~$|$#CC_MOSTELLER#$~$|^MEDCLRSOR#$~$|Patient~$|$#CC_MEDPATIENT|$#$~Patient’s own medicines~$|$#CC_MEDPATOWNMED|$#$~Summary Care Record~$|$#CC_MEDNHSCARERECSER|$#$~Patient relative~$|$#CC_PATIENT_RELATIVE|$#$~Outpatient letter~$|$#CC_MEDOUTPATLETTER|$#$~GP records – electronic~$|$#CC_MEDGPRECORDSELEC|$#$~GP records – paper copy of repeat prescription with date~$|$#CC_MEDGPRECPCRPRESDT|$#$~GP letter~$|$#CC_MEDGPLETTER|$#$~GP records - verbal communication~$|$#CC_MEDGPRECVERCOM|$#$~Care home record~$|$#CC_MEDCAREHOMEREC|$#$~Carer~$|$#CC_MEDCARER|$#$~Community pharmacy~$|$#CC_MEDCOMPHARMACIST|$#$~Compliance aid~$|$#CC_MEDCOMPLIANCEAID|$#$~Discharge medicines list~$|$#CC_MEDDISCMEDLIST|$#$~MAR (Medicines Administration Record) sheet~$|$#CC_MEDMARSHEET|$#$~Patient Medication Passport/NPSA alert booklet~$|$#CC_MEDPSPRTALRTBK|$#$~External hospital transfer information~$|$#CC_EXHOSPTRANSFER|$#$~External Hospital discharge Summary~$|$#CC_EXTNHOSPDISSUM|$#$~Pharmacy dispensing system~$|$#CC_PHARMDISPSYSTEM|$#$~Medical / prescription records (Lorenzo)~$|$#CC_MEDPRESCRIPREC|$#$~Other~$|$#CC_OTHER_FREETEXT#$~$|^RANGEOPERATOR#$~$|<~$|$#CC_LS|$#$~<=~$|$#CC_LSEQLTO|$#$~>~$|$#CC_GRT|$#$~>=~$|$#CC_GRTEQLTO#$~$|^BHVTY#$~$|Type 1~$|$#CC_BEHTYPE_1|$#$~Type 2~$|$#CC_BEHTYPE_2|$#$~Type 3~$|$#CC_BEHTYPE_3|$#$~Type 4~$|$#CC_BEHTYPE_4|$#$~Type 5~$|$#CC_BEHTYPE_5#$~$|^CNFTY#$~$|Contraindication check~$|$#CC_DRUG_CONTRA|$#$~Drug allergy~$|$#CC_DRUG_ALLERGY|$#$~Drug duplication~$|$#CC_DRUG_DUPLICATION|$#$~Drug interaction~$|$#CC_DRUG_INTRACT|$#$~Precaution~$|$#CC_DRUG_PRECAUTION|$#$~Warning~$|$#CC_DRUG_WARNING#$~$|^SUBAG#$~$|Cross reactor group~$|$#CC_SUBAG_CRSTTY|$#$~Ingredient~$|$#CC_SUBAG_ING|$#$~Ingredient class group~$|$#CC_SUBAG_HRCY|$#$~(Any)~$|$#CC_ANY~$|$#BUSINESS_ACTIONS|#|BA_ANY|*|MessagingPrimary|#|0|$#$~Allergen(s) not included in check~$|$#CC_SUBAG_NTINLCHK#$~$|^SUBCI#$~$|Always show~$|$#CC_SUBCI_ALWAYS|$#$~Related~$|$#CC_SUBCI_RELATED|$#$~Specific~$|$#CC_SUBCI_SPECIFIC#$~$|^SUBDP#$~$|Doubling~$|$#CC_SUBDP_DUB|$#$~Hierarchy~$|$#CC_SUBDP_HRCY|$#$~Ingredient~$|$#CC_SUBDP_ING#$~$|^MEDSVRTY#$~$|High~$|$#HIGHH|$#$~Low~$|$#LOWWW|$#$~Moderate~$|$#CC_Moderate|$#$~Significant~$|$#CC_SIGNIFICANT#$~$|^SUBINT#$~$|High~$|$#CC_SUBINT_HIGH|$#$~Low~$|$#CC_SUBINT_LOW|$#$~Moderate~$|$#CC_SUBINT_MODE|$#$~Significant~$|$#CC_SUBINT_SIGN#$~$|^INFUSIONTYPE#$~$|Continuous~$|$#CC_IPPINFTYPCON|$#$~Single dose/volume~$|$#CC_IPPINFTYPSNGDOSE|$#$~Fluid~$|$#CC_FLUID|$#$~Intermittent~$|$#CC_IPPINFTYPINTE|$#$~PCA~$|$#CC_IPPINFTYPPCA#$~$|^NFREASON#$~$|Patient taking at home~$|$#CC_ATHOME|$#$~Formulary item clinically inappropriate/not acceptable~$|$#CC_FMCLINAPR|$#$~Other treatments failed~$|$#CC_OTRFAILED|$#$~Approved use~$|$#CC_APPUSE|$#$~Patient own drug not available~$|$#CC_PTOWNDRUGNOTAVAIL|$#$~Manufacturing problem with Formulary item~$|$#CC_MEDMANPRBFRMITM|$#$~Available formulary alternatives not acceptable~$|$#CC_AVLFRMALTNTACC|$#$~Other~$|$#CC_OTHER~$|$#BUSINESS_ACTIONS|#|BA_RF_SRCGRP4#$~$|^MRSN#$~$|Medicine Dose/Frequency/Form/Strength/Route Changed~$|$#CC_MEDMEDFSROUTCHANG|$#$~Inadequate/undesirable clinical effect~$|$#CC_MEDINADECLINICRES|$#$~Allergy/Adverse Reaction/Intolerance~$|$#CC_MEDALLADVRECTINTO|$#$~Additional information available to complete prescription~$|$#CC_MEDADDINFORMAVBLE|$#$~Correcting start date~$|$#CC_CORRECTSTRTDAT|$#$~Indication added~$|$#CC_MEDSINDIADD|$#$~Patient Choice~$|$#CC_MEDPATCHOICE|$#$~Duration /course length added/amended~$|$#CC_MEDSDURCOURAMEND|$#$~Review date added/amended~$|$#CC_MEDREWDTADDORND|$#$~Prescribed In Error~$|$#CC_PRESINERR~$|$#BUSINESS_ACTIONS|#|BA_CANCELACTION|$#$~Entered In Error~$|$#CC_MEDENTEREDINERROR|$#$~Temporarily Suspended~$|$#CC_MEDTEMPLYSUSPEND|$#$~Change to stationery type~$|$#CC_CHNGTOSTATTYP|$#$~Conflicts with another medication~$|$#CC_MEDSCONFLMEDS|$#$~Administration time change~$|$#CC_ADMINTIMECNG|$#$~Rate change~$|$#CC_RATECNG#$~$|^EXPMONTHS#$~$|January~$|$#CC_EXPJAN|$#$~February~$|$#CC_EXPFEB|$#$~March~$|$#CC_EXPMAR|$#$~April~$|$#CC_EXPAPR|$#$~May~$|$#CC_EXPMAY|$#$~June~$|$#CC_EXPJUNE|$#$~July~$|$#CC_EXPJULY|$#$~August~$|$#CC_EXPAUG|$#$~September~$|$#CC_EXPSEP|$#$~October~$|$#CC_EXPOCT|$#$~November~$|$#CC_EXPNOV|$#$~December~$|$#CC_EXPDEC#$~$|^MEDENPRP#$~$|ACBS~$|$#CC_ABCS|$#$~Contraceptive use~$|$#CC_CONTRACEPTIVE|$#$~SLS~$|$#CC_SLS|$#$~FS~$|$#CC_FS#$~$|^INSTALINS#$~$|Advance instalments~$|$#CC_ADVINS|$#$~Supervised consumption~$|$#CC_SUPCONS#$~$|^WARSN#$~$|Clinically appropriate~$|$#CC_Clinicalapp|$#$~Currently taking with no problems~$|$#CC_MED_CUR_PRBM|$#$~Intended combination~$|$#CC_Intendcomb|$#$~Required for patient~$|$#CC_MED_REQ_PAT#$~$|^MEDINSTLINTVDUR#$~$|Hour(s)~$|$#CC_MEDHour|$#$~Day(s)~$|$#CC_MEDDRSN1~$|$#BUSINESS_ACTIONS|#|BA_ PIDURDay|$#$~Week(s)~$|$#CC_MEDDRSN2~$|$#BUSINESS_ACTIONS|#|BA_ PIDURweek|$#$~Month(s)~$|$#CC_MEDRSN3~$|$#BUSINESS_ACTIONS|#|BA_ PIDURMonth|$#$~Year(s)~$|$#CC_MEDRSN4~$|$#BUSINESS_ACTIONS|#|BA_ PIDURYear#$~$|^INFROUNDTO#$~$|None~$|$#CC_NONE1|$#$~Nearest half unit~$|$#CC_HALFUNIT|$#$~Nearest full unit~$|$#CC_FULLUNIT#$~$|^DRCACKWRSN#$~$|Clinically appropriate~$|$#CC_Clinicalapp|$#$~Currently taking with no problems~$|$#CC_MED_CUR_PRBM|$#$~Intended combination~$|$#CC_Intendcomb|$#$~Required for patient~$|$#CC_MED_REQ_PAT|$#$~Patient monitored for effect~$|$#CC_DRCPAMOEFF|$#$~Inappropriate warning~$|$#CC_DRCINAPPWAR#$~$|^MedSupplystatus#$~$|Supply~$|$#CC_Supply~$|$#BUSINESS_ACTIONS|#|BA_DISCONTINUEACTION|$#$~Do not supply~$|$#CC_MedDontSupply|$#$~Cancel request~$|$#CC_CanMedreq#$~$|^MASLOTSTATUSCODE#$~$|Deferred~$|$#CC_DEFERADMIN|$#$~Deferred~$|$#CC_DEFERDUE|$#$~Deferred~$|$#CC_DEFEROVERDUE|$#$~Due now~$|$#CC_DUE|$#$~Deleted~$|$#CC_DELETED|$#$~Given~$|$#CC_ADMINISTERED|$#$~Home leave~$|$#CC_HOMELEAVE|$#$~Not given~$|$#CC_NOTADMINISTERED|$#$~Not known~$|$#CC_NOTKNOWN|$#$~Patient self administering~$|$#CC_PATIENTSELFADMIN|$#$~Planned~$|$#CC_PLANNED|$#$~Self administered~$|$#CC_SELFADMINISTERED|$#$~Omitted~$|$#CC_OMITTED|$#$~Overdue~$|$#CC_OVERDUE|$#$~Not yet recorded~$|$#CC_NOTYETRECORDED|$#$~In progress~$|$#CC_INPROGRESS|$#$~Stopped~$|$#CC_RSSTOPPED|$#$~Completed~$|$#CC_COMPLETED|$#$~Paused~$|$#CC_PAUSED#$~$|^MedCLMSDispenseStat#$~$|Request sent~$|$#CC_MEDCLMSREQSENT|$#$~Cancelled (EPR)~$|$#CC_MEDCLMSCANCEPR|$#$~Cancelled~$|$#CC_MEDCLMSCANC~$|$#BUSINESS_ACTIONS|#|cancelled|$#$~Issued~$|$#CC_MEDCLMSISSUED~$|$#BUSINESS_ACTIONS|#|completed|$#$~Preparation~$|$#CC_MEDCLMSPrep~$|$#BUSINESS_ACTIONS|#|preparation|$#$~In progress~$|$#CC_MEDCLMSInProgress~$|$#BUSINESS_ACTIONS|#|in-progress|$#$~On hold~$|$#CC_MEDCLMSOnHold~$|$#BUSINESS_ACTIONS|#|on-hold|$#$~Entered in error~$|$#CC_MEDCLMSEntrdErr~$|$#BUSINESS_ACTIONS|#|entered-in-error|$#$~Stopped~$|$#CC_MEDCLMSStopped~$|$#BUSINESS_ACTIONS|#|stopped|$#$~Declined by dispensing system~$|$#CC_MEDCLMSDeclined~$|$#BUSINESS_ACTIONS|#|declined|$#$~Unknown~$|$#CC_MEDCLMSUnknown~$|$#BUSINESS_ACTIONS|#|unknown#$~$|^MEDURGENCY#$~$|High~$|$#CC_High|$#$~Medium~$|$#CC_Medium|$#$~Low~$|$#CC_RFLOW|$#$~No urgency~$|$#CC_NOURGENCY|$#$~(Any)~$|$#CC_Any~$|$#BUSINESS_ACTIONS|#|BA_ANY|*|MessagingPrimary|#|0#$~$|^PRODUCTTYPE#$~$|Named Patient Drug~$|$#CC_NAMEDRUG|$#$~Combination product~$|$#CC_COMBPROD|$#$~Controlled drug~$|$#CC_CNTRLDDRUG|$#$~Formulary based~$|$#CC_FRMBASED|$#$~High risk~$|$#CC_HIGHRISK|$#$~Manufacturer generic~$|$#CC_MANFCTGN|$#$~Newly Marketed Drug~$|$#CC_NEWLY|$#$~OTC drug~$|$#CC_OTC|$#$~Parallel import~$|$#CC_PIMPORT|$#$~Unlicensed~$|$#CC_UNLICENSED#$~$|^MEDOCINPRD#$~$|All child items~$|$#CC_OCCRALLCHILD|$#$~None~$|$#CC_OCCRNONE|$#$~Some child items~$|$#CC_OCCRSOMECHILD#$~$|^DISPINS#$~$|Non childproof container required~$|$#CC_NCHCOREQ|$#$~Compliance aid required~$|$#CC_CAREQ|$#$~Compliance sheet required~$|$#CC_CSREQ|$#$~Large print labels required~$|$#CC_LARPRINLAB|$#$~Monitored dosage system (discussed with pharmacy)~$|$#CC_MONDOSSYS|$#$~Other~$|$#CC_OTHER~$|$#BUSINESS_ACTIONS|#|BA_RF_SRCGRP4#$~$|

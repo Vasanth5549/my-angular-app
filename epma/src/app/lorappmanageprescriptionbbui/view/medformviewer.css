@@ -1,0 +1,27 @@
+.medForm-label{
+    text-overflow: ellipsis; 
+    overflow: hidden; 
+    white-space: nowrap;
+    width: 700px !important;
+    padding-top: 2px;
+}
+.dropdown-button ::ng deep .k-button-md.k-icon-button{
+    margin-right: -4px;
+}
+.txt{
+    background: rgb(106, 160, 160);
+     padding:10px;
+     margin-bottom:10px; 
+     margin-left: 6px;
+     margin-right:7px
+
+}
+.gpsize ::ng-deep .k-grid-layout
+{
+padding: 10px;
+}
+@media screen and (max-width: 1400px) {
+    .medfrmviwLayout{
+      position: absolute;
+    }
+  }

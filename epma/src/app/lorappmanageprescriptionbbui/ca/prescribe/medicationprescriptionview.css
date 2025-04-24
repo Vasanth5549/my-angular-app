@@ -1,0 +1,20 @@
+@media screen and (max-width: 1318px) {
+    medtechvalidateCA ::ng-deep kendo-grid.medtechvalidateCA{
+        height: 340px !important;
+        width: 1285px !important;
+    }
+}
+
+@media screen and (min-width: 1319px) and (max-width: 1320px) {
+    medtechvalidateCA ::ng-deep kendo-grid.medtechvalidateCA{
+        height: 371px !important;
+        width: 1300px !important;
+    }
+}
+
+/* @media screen and (min-width: 1330px) and (max-width: 1400px) {
+    medtechvalidateCA ::ng-deep kendo-grid.medtechvalidateCA{
+        height: 340px !important;
+        width: 1325px !important;
+    }
+} */

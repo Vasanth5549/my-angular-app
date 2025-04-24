@@ -1,0 +1,111 @@
+<ScrollViewer Name="svwFormViewer" VerticalScrollBarVisibility="Visible" MaxWidth="425" HorizontalAlignment="Stretch"
+    MaxHeight="850" BorderThickness="0">
+    <div style="margin-top:-17px">
+        <kendo-gridlayout Name="LayoutRoot" #LayoutRootTempRef [Background]="Styles.LzoPageBG" Margin="0,0,0,5"
+            [rows]="[{height:0},{height:31},{height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'}]"
+            [cols]="[{width:'auto'},{width:'auto'}]">
+
+            <!--1 label lblInstructions -->
+            <kendo-gridlayout-item [row]="2" [col]="1" [colSpan]="2" style="position: relative;right: 10px; top:3px;">
+                <div containerStyle>
+                    <iLabel #lblInstructionsTempRef
+                      HorizontalAlignment="Left" Margin="10,5,5,5" IsWordwrap="True"
+                        Name="lblInstructions" VerticalAlignment="Center" 
+                        [Text]="DataContext.InstructionsText"
+                        [Mandatory]="DataContext.Mandatorylbl" FontWeight="Bold">
+                    </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+
+
+
+            <!--2 iCheckedListBox chkInstructions-->
+            <kendo-gridlayout-item [row]="3" [col]="1" [colSpan]="2">
+                <div containerStyle style="margin-bottom: 8px">
+                    <iCheckedListBox #chkInstructionsTempRef let i="index" Name="chkInstructions"
+                        Margin="5,0,5,0"  class="centreAlignedClass" VerticalAlignment="Stretch" [Height]="maxScrollHeight"  Width="425"
+                        [OnSelect]="chkInstructions_OnSelect" HorizontalAlignment="Stretch" 
+                        Name="chkInstructions" [OnUnSelect]="chkInstructions_OnUnSelect"
+                        [ItemsSource]="DataContext.ValueDomainCollection" Columns="1"
+                        ScrollViewer.VerticalScrollBarVisibility="Visible"
+                         [ScrollBarViewer]="{vertical:'auto'}">
+                       
+                    </iCheckedListBox>
+                </div>
+            </kendo-gridlayout-item>
+
+            <!--3 label lblComments-->
+            <kendo-gridlayout-item [row]="4" [col]="1" [colSpan]="2">
+                <div containerStyle>
+                    <iLabel #lblCommentsTempRef HorizontalAlignment="Left" Margin="0,5,5,5"  Name="lblComments"
+                        IsEnabled="True" [Mandatory]="true" VerticalAlignment="Center" Text="Comments" IsWordwrap="True"
+                        Width="425">
+                    </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+
+            <!-- 4 textbox textComments -->
+            <kendo-gridlayout-item [row]="5" [col]="1" [colSpan]="2">
+                <div containerStyle style="width: 427px;">
+                    <iTextBox Name="txtComments" 
+                    #txtCommentsTempRef Tooltip="Add medication clerking source details"
+                    HorizontalAlignment="Stretch"
+                      AcceptsReturn="True" TextWrapping="Wrap"
+                        VerticalAlignment="Bottom" Width="425"
+                         Height="45" 
+                         MaxLength="255"
+                        [(Text)]="DataContext.Comments" 
+                        VerticalScrollBarVisibility="Visible" 
+                        Margin="0,5,5,5"  IsTabStop="True"
+                         >
+                    </iTextBox>
+                   
+                </div>
+            </kendo-gridlayout-item>
+
+            <!--5 label lblDisclaimerText-->
+            <kendo-gridlayout-item [row]="6" [col]="1" [colSpan]="2" style="width: 392px;">
+                <div containerStyle>
+                    <iLabel #lblDisclaimerTextTempRef Name="lblDisclaimerText"
+                        Text="Clerking sources and comments will apply to newly added items.If amending existing items clerking sources must be updated for each item individually."
+                        HorizontalAlignment="Left" Margin="0,0,0,0" IsEnabled="True" Mandatory="False"
+                        IsWordwrap="True" Width="425" Visibility="Visible">
+                    </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+
+            <!--6 label otherInstructions -->
+            <!--   [Text]="DataContext.lblOtherInstructions_Text|mulsel" -->
+            <kendo-gridlayout-item [row]="7" [col]="1">
+                <div containerStyle>
+                    <iLabel #lblOtherInstructionsTempRef Name="lblOtherInstructions"
+                        [Text]="mulsel?.lblOtherInstructions_Text" HorizontalAlignment="Left"
+                         Margin="10,0,0,0"
+                        [IsEnabled]="DataContext.OtherInstructionsEnable" Mandatory="False" 
+                        IsWordwrap="True"
+                        Width="425" [Visibility]="DataContext.OtherInstructionsVisibility"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+
+            <!--7 textbox txtOtherInstructions-->
+            <kendo-gridlayout-item [row]="8" [col]="1" [colSpan]="2">
+                <div containerStyle>
+                    <!-- [Tooltip]="DataContext.txtOtherInstructions_Tooltip|mulsel" -->
+                    <iTextBox #txtOtherInstructionsTempRef Name="txtOtherInstructions" HorizontalAlignment="Stretch"
+                        Margin="5,5,5,5" Width="425" [Tooltip]="mulsel?.txtOtherInstructions_Tooltip"
+                        VerticalAlignment="Stretch" Height="Auto" [IsEnabled]="DataContext.OtherInstructionsEnable"
+                        [Visibility]="DataContext.OtherInstructionsVisibility" 
+                        [(Text)]="DataContext.OtherInstructions"
+                        MaxLength="250"></iTextBox>
+                </div>
+            </kendo-gridlayout-item>
+
+            <!--8 stackpanel -->
+            <kendo-gridlayout-item [row]="5" [col]="1" [colSpan]="2">
+                <div containerStyle>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"></StackPanel>
+                </div>
+            </kendo-gridlayout-item>
+        </kendo-gridlayout>
+    </div>
+</ScrollViewer>

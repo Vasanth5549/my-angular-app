@@ -1,0 +1,117 @@
+  #iCheckBox2,
+  #iCheckBox1,#iCheckBox3 {
+    .k-rounded-md {
+      border-radius: 2px;
+      border-width: 2px;
+    }
+    & span {
+      & .k-checkbox:checked {
+        background-color: green;
+        background-image: url(../../../assets/icon/icon/checkmark.png);
+      }
+      & .k-checkbox {
+        background: linear-gradient(
+          to bottom,
+          #74b9cb,
+          #a0c8de,
+          #c6d8ec,
+          #e7eaf5,
+          #ffffff
+        );
+      }
+      & .k-checkbox:disabled {
+        background-color: gray;
+        background-image: url(../../../assets/icon/icon/checkmark.png);
+      }
+    }
+  }
+
+[label1Container] .containerStyle {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+
+[label2Container] .containerStyle {
+  position: relative;
+  margin-top: 10px;
+}
+:host::ng-deep.k-grid tr:hover {
+  background-color: #ededed !important;
+}
+
+.add-brown::ng-deep kendo-label label{
+  color: brown !important;
+}
+/* added for auto verified by sak 13-10 */
+ #iCheckBox4 {
+   .k-rounded-md {
+    border-radius: 2px;
+    border-width: 2px;
+    }
+& span {
+  & .k-checkbox
+{
+  background: linear-gradient( to bottom, #74b9cb, #a0c8de, #c6d8ec, #e7eaf5, #ffffff );
+}
+& .k-checkbox:disabled {
+background-color: gray;
+background-image: none !important;
+}
+}
+}
+
+/* header and column alignment */
+:host ::ng-deep .medauthorisegrid .k-grid-header,.k-header,th.k-header,.k-grid td,.k-grid-footer {
+  border: 0px;
+}
+
+
+.align-grid{
+  position: absolute;
+  top: 14.5rem;
+}
+.align-grid-wizard{
+  position:absolute;
+  top: 14rem;
+}
+@media screen and (max-width: 1400px) {
+  /* .grid-layout-container {
+    height: 470px;
+  } */
+  .medauth-grid-height{
+    max-width: 658px;
+  }
+  .medprescribedrugsGridChildHeight {
+    /* height: 247px; */
+    max-width: 636px;
+  }
+  ::ng-deep .medauth-grid-height .k-grid-content {
+    overflow-x: auto !important;
+}
+}
+@media screen and (min-width: 1400px) {
+  /* .grid-layout-container {
+    height: 720px;
+  } */
+  /* .medauth-grid-height {
+    height: calc(720px - 144px);
+   
+  } */
+}
+:host .grid-visibility .k-grid-content {
+  visibility: hidden !important;
+  }
+  @media screen and (min-device-width: 1600px) {
+    .medauth-grid-height{
+      height: calc(720px - 183px) ;
+    }
+   
+  }
+  
+  @media screen and (min-device-width : 1400px) and (max-device-width: 1550px) {
+    .medauth-grid-height {
+      height: calc(720px - 400px);
+     
+    }
+  }

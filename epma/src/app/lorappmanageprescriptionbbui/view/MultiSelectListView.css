@@ -1,0 +1,7 @@
+.centreAlignedClass {
+  margin: -4px -7px 5px -7px !important;
+}
+
+:host ::ng-deep .k-listbox .k-list-scroller .k-list{
+  border: 1px solid #7f9db9 !important;
+}

@@ -1,0 +1,55 @@
+
+.ActivityConsiderations
+    .k-popup{
+        left: calc(100vw - 417px);/* left: 1542px;  */
+        top: 0px;
+        position: absolute;
+      }
+
+  
+
+  .secondardDialog app-dialog {
+    height: 100% !important;
+    display: block;
+  }
+  
+  .secondardDialog kendo-tabstrip {
+    height: 100% !important;
+  }
+  
+  .secondardDialog medsecondarytabchild {
+    height: 100% !important;
+    flex: 1;
+  }
+
+  .secondardDialog kendo-tabstrip[role='tabpanel'] {
+    flex:2;
+  }
+
+  .secondardDialog itab {
+    height: 100% !important;
+  }
+  
+  .secondardDialog itab > kendo-tabstrip {
+    height: 100% !important;
+  }
+
+  .secondardDialog medprescribedoption {
+    height: 100% !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .secondardDialog medaccessconstraintschild {
+    height: 100% !important;
+    flex: 1;
+  }
+
+  .secondardDialog meddrugprescriptionoptionchild {
+    height: 100% !important;
+  }
+
+  .secondardDialog .appactivity-content, .secondardDialog .appactivity-content > div , .secondardDialog app-dialog .appactivity-content > div > div 
+  {
+    height: 100% !important;
+  }

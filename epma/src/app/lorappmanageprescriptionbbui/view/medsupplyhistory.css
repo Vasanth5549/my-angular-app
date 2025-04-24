@@ -1,0 +1,14 @@
+.imgalign { 
+    align-items: end !important
+}
+@media screen and (max-width: 1400px) {
+    .medupplyhistyLayout{
+      position: absolute;
+    }
+  }
+ 
+@media screen and (min-width: 1500px) {
+    .medupplyhistyLayout{
+      position: absolute;
+    }
+  }  

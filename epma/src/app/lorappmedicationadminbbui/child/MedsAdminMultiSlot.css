@@ -1,0 +1,49 @@
+.vertical-class-stretch {
+  height: 100%;
+}
+
+.horizontal-class-stretch {
+  display: grid;
+}
+
+#statusColumn {
+  width: calc(100% - 85px);
+}
+
+/* .k-grid .k-grid-content td {
+  color: palevioletred;
+  padding: 0px;
+} */
+
+
+/* ::ng-deep .k-grid .k-grid-content td {
+  padding: 0px !important;
+} */
+/* :host ::ng-deep #scrollViewerTop .k-grid .ng-star-inserted .k-grid-layout{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
+:host ::ng-deep #scrollViewerTop .k-grid .k-grid-content td {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  padding-right: 0px !important;
+} 
+
+#scrollViewerTop .k-grid tr.k-alt {
+  background: #d1e6fd !important;
+}
+@media screen and (max-width: 1400px) {
+  .medsMultislot{
+    position: absolute;
+  }
+  .maxGridHeight{
+    height: 275px;
+  }
+}
+@media screen and (min-width: 1400px) {
+
+  .maxGridHeight{
+    height: 340px;
+  }
+}

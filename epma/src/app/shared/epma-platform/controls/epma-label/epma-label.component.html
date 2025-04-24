@@ -1,0 +1,55 @@
+<!-- <label [ngStyle]="{'opacity': !IsEnabled ? '0.5' : '1'}" [attr.name]="Name"> Sample Text</label> -->
+<ng-template #tooltip>
+  <span *ngIf="Tooltip != '' && hasTooltipString">
+    {{Tooltip}}
+  </span>
+  <ng-container *ngIf="Tooltip.constructor?.name == 'iLabel'">
+    <kendo-label [ngStyle]="Tooltip?.style">{{Tooltip.Text}}</kendo-label>
+  </ng-container>
+  <ng-container *ngIf="Tooltip.constructor?.name == 'TextBlock'">
+    <TextBlock [InlinesElements]="Tooltip.InlinesElements" [Text]="Tooltip?.['Text']" [style]="Tooltip?.style"></TextBlock>
+  </ng-container>
+</ng-template>
+<ng-container *ngIf="((iLabelInLineElements == null || iLabelInLineElements.length == 0) && Tooltip.constructor?.name != 'String')">
+  <kendo-label *ngIf="!basicTooltip" kendoTooltip #tooltipdiv ="kendoTooltip" [tooltipTemplate]="tooltip" title="" [showOn]="Tooltip == '' || Tooltip == null ? 'none': 'hover'" [ngClass]="controlclass" [ngStyle]="style" [tabIndex]="-1" [attr.name]="Name" (mouseup)="MouseLeftButtonUpEvent($event)" (mousedown)="MouseLeftButtonDownEvent($event)"
+    (focusin)="GotFocusEvent($event)">{{Text}}</kendo-label>
+    <kendo-label [title]="Tooltip" *ngIf="basicTooltip" [ngClass]="controlclass" [ngStyle]="style" [tabIndex]="-1" [attr.name]="Name" (mouseup)="MouseLeftButtonUpEvent($event)" (mousedown)="MouseLeftButtonDownEvent($event)"
+    (focusin)="GotFocusEvent($event)">{{Text}}</kendo-label>
+</ng-container>
+<ng-container *ngIf="((iLabelInLineElements == null || iLabelInLineElements.length == 0)&&Tooltip.constructor?.name=='String')">
+  <kendo-label *ngIf="!basicTooltip && !kendoTooltipEnable" [title]="Tooltip"  [ngClass]="controlclass" [ngStyle]="style" [tabIndex]="-1" [attr.name]="Name" (mouseup)="MouseLeftButtonUpEvent($event)" (mousedown)="MouseLeftButtonDownEvent($event)"
+    (focusin)="GotFocusEvent($event)">{{Text}}</kendo-label>
+    <kendo-label [title]="Tooltip" *ngIf="basicTooltip" [ngClass]="controlclass" [ngStyle]="style" [tabIndex]="-1" [attr.name]="Name" (mouseup)="MouseLeftButtonUpEvent($event)" (mousedown)="MouseLeftButtonDownEvent($event)"
+    (focusin)="GotFocusEvent($event)">{{Text}}</kendo-label>
+    <kendo-label *ngIf="!basicTooltip && kendoTooltipEnable" kendoTooltip [tooltipTemplate]="tooltip" title="" tooltipClass="wrap-tooltip"  [ngClass]="controlclass" [ngStyle]="style" [tabIndex]="-1" [attr.name]="Name" (mouseup)="MouseLeftButtonUpEvent($event)" (mousedown)="MouseLeftButtonDownEvent($event)"
+    (focusin)="GotFocusEvent($event)">{{Text}}</kendo-label>
+</ng-container>
+<div *ngIf="iLabelInLineElements && iLabelInLineElements.length > 0" [ngStyle]="style">
+  <kendo-label *ngIf="Text && Text != ''"  [ngStyle]="style" [ngClass]="controlclass" [attr.name]="Name" (mouseup)="MouseLeftButtonUpEvent($event)" (mousedown)="MouseLeftButtonDownEvent($event)"
+    (focusin)="GotFocusEvent($event)">{{Text}}</kendo-label>
+  
+  <ng-container *ngFor="let elem of iLabelInLineElements" style="display:-webkit-inline-box;">
+   
+    <ng-container *ngIf="elem.InLine?.constructor?.name == 'TextBlock'">
+      <TextBlock position="bottom" kendoTooltip #tooltipdiv = "kendoTooltip"  [tooltipTemplate]="tooltip" id="tooltipClass" title="" 
+      [showOn]="Tooltip == '' || Tooltip == null ? 'none': 'hover'"  [IsWordwrap]="elem.InLine?.IsWordwrap" [Text]="elem.InLine?.Text" [style]="elem.InLine?.style" [classObj]="elem.InLine?.classObj" [InlinesElements]="elem.InLine?.InlinesElements"></TextBlock>
+    </ng-container>
+    <ng-container *ngIf="elem.InLine?.constructor?.name == 'iLabel'">
+      <iLabel position="bottom"  kendoTooltip #tooltipdiv = "kendoTooltip"   [tooltipTemplate]="tooltip" id="tooltipClass" title="" 
+      [showOn]="Tooltip == '' || Tooltip == null ? 'none': 'hover'"  [Text]="elem.InLine?.Text" [style]="elem.InLine?.style" [iLabelInLineElements]="elem.InLine?.iLabelInLineElements"></iLabel>
+    </ng-container>
+    <ng-container *ngIf="elem.InLine?.constructor?.name == 'Image'">
+      
+      <Image alt="" [Source]="elem.InLine?.Source" [style]="elem.InLine?.style"  [TextData]="elem.InLine?.TextData" [Tooltip]="elem.InLine?.Tooltip" [Name]="elem.InLine?.Name"  [MouseLeftButtonUp]="elem.InLine?.MouseLeftButtonUp" [Tag]="elem.InLine?.Tag" [AltImageTooltip]="elem.InLine?.AltImageTooltip">
+        <!-- (mouseenter)="tooltipdiv.hide()" -->
+      </Image>
+    </ng-container>
+    <ng-container *ngIf="elem.InLine?.constructor?.name == 'iImage'">
+      <iImage alt="" [Source]="elem.InLine?.Source" [style]="elem.InLine?.style" [Tooltip]="elem.InLine?.Tooltip" [Name]="elem.InLine?.Name">
+      </iImage>
+    </ng-container>
+    <ng-container *ngIf="elem.IsLineBreak">
+      <br>
+    </ng-container>
+  </ng-container>
+  </div>

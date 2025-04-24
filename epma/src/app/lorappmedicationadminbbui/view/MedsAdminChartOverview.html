@@ -1,0 +1,215 @@
+<div class="div-dialog-content" name="LayoutRoot">
+    <kendo-gridlayout #LayoutRootTempRef [rows]="[{ height: '40'}, { height: '1fr'}, { height: 'auto'}]"
+        ScrollViewer.VerticalScrollBarVisibility="Auto" [cols]="[{width: 'auto'}]">
+
+        <kendo-gridlayout-item [row]='1' [col]='1' [colSpan]='2'
+            style="border: 1px solid #0b0b0b4d; border-top: none; margin: 0 0 5px 5px; padding: 2px 0 0 5px;">
+            <div containerStyle Margin='5,0,0,5'>
+                <ScrollViewer #svwEncounterInfoTempRef Name="svwEncounterInfo" HorizontalScrollBarVisibility="Disabled"
+                    VerticalAlignment="Top" VerticalScrollBarVisibility="Visible" Height="40">
+                    <TextBlock #lblEncounterInfoTempRef Name="lblEncounterInfo" FontWeight="Bold"
+                        Height="16"></TextBlock>
+                </ScrollViewer>
+            </div>
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item [row]='1' [col]='4' [colSpan]='2'>
+            <div containerStyle Margin="0,10,0,20">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top"
+                    class="filterStackPanel" style="align-items: center;">
+                    <iButton #lblSortFilterTempRef Name="lblSortFilter" [Text]="oMedsAdminOverview.lblSortFilter_Text"
+                        VerticalContentAlignment="Center" Cursor="Hand" Foreground="Blue"
+                        (click)="lblSortFilter_Click()" Width="125" ImageWidth="0" TabIndex="1"
+                        [Tooltip]="oMedsAdminOverview.lblSortFilter_Tooltip" IsTabStop="True" Height="20"
+                        TextDecorations="Underline" Margin="0,0,10,0"></iButton>
+                    <iCheckBox #chkIncludeDiscontinueTempRef Name="chkIncludeDiscontinue"
+                        [Text]="oMedsAdminOverview.chkIncludeDiscontinue_Text"
+                        [Tooltip]="oMedsAdminOverview.chkIncludeDiscontinue_ToolTip" Height="16" Width="auto"
+                        Margin="20,0,0,0" [(IsChecked)]="oOverViewChartData.IsDiscontinueChecked"
+                        [Checked]="chkDiscontiueCompleted_Checked" [Unchecked]="chkDiscontiueCompleted_Unchecked">
+                    </iCheckBox>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item [row]='1' [col]='7' [colSpan]='1'>
+            <div containerStyle>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <kendo-gridlayout [rows]="[{ height: '20'}, { height: '25'}]" [cols]="[{width: 'auto'}]">
+                        <kendo-gridlayout-item [row]='1' [col]='1'>
+                            <div containerStyle>
+                                <iButton #cmdTodayTempRef Name="cmdToday" class="cmdDateView" HorizontalAlignment="Center" Height="20"
+                                    ImageHeight="16" ImageWidth="16"
+                                    DisabledImageSource="assets/images/iGoToTodayDIS16.png"
+                                    ActiveImageSource="assets/images/iGoToTodayHOT16.png"
+                                    ImageSource="assets/images/iGoToTodayNOR16.png" VerticalAlignment="Center"
+                                    (Click_Func)="cmdToday_Click($event)" TabIndex="2"
+                                    [Text]="oMedsAdminOverview.cmdToday_Text"
+                                    [Tooltip]="oMedsAdminOverview.cmdToday_Tooltip"
+                                    [IsEnabled]="_IsActiveMedChartExists"
+                                    >
+                                </iButton>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]='1' [col]='2'>
+                            <div containerStyle>
+                                <iButton #cmdPrevWeekTempRef Name="cmdPrevWeek" class="cmdDateView" HorizontalAlignment="Center" Height="20"
+                                    ImageHeight="16" ImageWidth="16"
+                                    DisabledImageSource="assets/images/iPreviousWeekDIS16.png"
+                                    ActiveImageSource="assets/images/iPreviousWeekHOT16.png"
+                                    ImageSource="assets/images/iPreviousWeekNOR16.png" VerticalAlignment="Center"
+                                    (Click_Func)="cmdPrevWeek_Click($event)" TabIndex="3"
+                                    [Text]="oMedsAdminOverview.cmdPrevWeek_Text"
+                                    [Tooltip]="oMedsAdminOverview.cmdPrevWeek_Tooltip"></iButton>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]='1' [col]='3'>
+                            <div containerStyle>
+                                <iButton #cmdPrevDayTempRef Name="cmdPrevDay" class="cmdDateView" HorizontalAlignment="Center" Height="20"
+                                    ImageHeight="16" ImageWidth="16"
+                                    DisabledImageSource="assets/images/iPreviousDayDIS16.png"
+                                    ActiveImageSource="assets/images/iPreviousDayHOT16.png"
+                                    ImageSource="assets/images/iPreviousDayNOR16.png" VerticalAlignment="Center"
+                                    (Click_Func)="cmdPrevDay_Click($event)" TabIndex="4"
+                                    [Text]="oMedsAdminOverview.cmdPrevDay_Text"
+                                    [Tooltip]="oMedsAdminOverview.cmdPrevDay_Tooltip"></iButton>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]='1' [col]='4'>
+                            <div containerStyle>
+                                <iButton #cmdNextDayTempRef Name="cmdNextDay" class="cmdDateView" HorizontalAlignment="Center" Height="20"
+                                    ImageHeight="16" ImageWidth="16"
+                                    DisabledImageSource="assets/images/iNextDayDIS16.png"
+                                    ActiveImageSource="assets/images/iNextDayHOT16.png"
+                                    ImageSource="assets/images/iNextDayNOR16.png" VerticalAlignment="Center"
+                                    (Click_Func)="cmdNextDay_Click($event)" TabIndex="5"
+                                    [Text]="oMedsAdminOverview.cmdNextDay_Text"
+                                    [Tooltip]="oMedsAdminOverview.cmdNextDay_Tooltip"></iButton>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]='1' [col]='5'>
+                            <div containerStyle>
+                                <iButton #cmdNextWeekTempRef Name="cmdNextWeek" HorizontalAlignment="Center" Height="20"
+                                    ImageHeight="16" ImageWidth="16"
+                                    DisabledImageSource="assets/images/iNextWeekDIS16.png"
+                                    ActiveImageSource="assets/images/iNextWeekHOT16.png"
+                                    ImageSource="assets/images/iNextWeekNOR16.png" VerticalAlignment="Center"
+                                    (Click_Func)="cmdNextWeek_Click($event)" TabIndex="6"
+                                    [Text]="oMedsAdminOverview.cmdNextWeek_Text"
+                                    [Tooltip]="oMedsAdminOverview.cmdNextWeek_Tooltip"></iButton>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]='2' [col]='1' [colSpan]='6'>
+                            <div containerStyle>
+                                <iButton #btnHeightweightPopUpTempRef Name="btnHeightweightPopUp" class="btnHeightweightPopUp" FontWeight="Bold"
+                                    Foreground="Brown" Margin="-5,-10,0,0" [Text]="DataContext.HeightWeightIndText"
+                                    [(Visibility)]="DataContext.IsVisibleHWIndicator" Cursor="Arrow" Width="auto"
+                                    DisabledImageSource="assets/images/idissentinfonor16_A.png"
+                                    ActiveImageSource="assets/images/idissentinfonor16_A.png"
+                                    ImageSource="assets/images/idissentinfonor16_A.png"></iButton>
+                            </div>
+                        </kendo-gridlayout-item>
+                    </kendo-gridlayout>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item [row]='2' [col]='5' [colSpan]='2' Margin="0,0,10,0">
+            <div containerStyle>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-50,-15,0,5">
+                    <iLabel #lblDSTClockNotifierTempRef class="clockMsg" Name="lblDSTClockNotifier" Text="*There is a clock change on "
+                        Foreground="#B40404" VerticalAlignment="Top" Width="auto"
+                        Visibility="Collapsed"></iLabel>
+                    <iLabel #lblAuthoriseNotifierTempRef Name="lblAuthoriseNotifier"
+                        Text="Medication items pending authorisation for this patient" Foreground="#B40404" Width="auto"
+                        Visibility="Collapsed" FontWeight="Bold"></iLabel>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+
+        <!-- iMedicationChart -->
+        <kendo-gridlayout-item [row]='3' [col]='1' [colSpan]="7">
+            <div containerStyle>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top"
+                    Margin="5,0,0,0">
+                    <div style="margin: 0 0 6px 0;" [ngClass]="isChildWizard ? 'divHeightChangedOverview' : 'divDefaultHeightOverview'">
+                        <ng-container *ngFor="let child of LayoutRoot.ChildrenArr">
+                            <iMedicationChart #MedicationChartControlTempRef
+                                *ngIf="medicationControlLoaded && child.control.constructor?.name == 'iMedicationChart'"
+                                [DrugHeader]="child.control['DrugHeader']" [StartDate]="child.control['StartDate']"
+                                [EndDate]="child.control['EndDate']"
+                                [ShowSlotTiminings]="child.control['ShowSlotTiminings']"
+                                [SlotTimeWidth]="child.control['SlotTimeWidth']"
+                                [ChartRows]="child.control['ChartRows']" [Format]="child.control['Format']"
+                                [TodayDate]="child.control['TodayDate']"
+                                [TodayColWidth]="child.control['TodayColWidth']" [ColWidth]="child.control['ColWidth']"
+                                [TodayBorderColor]="child.control['TodayBorderColor']"
+                                [NoRecordsDisplayText]="child.control['NoRecordsDisplayText']"
+                                [TimeFormat]="child.control['TimeFormat']"
+                                [OnHotSpotClick]="child.control['OnHotSpotClick']"
+                                [OnDrugHotSpotClick]="child.control['OnDrugHotSpotClick']"
+                                [isOverviewChart]="true"
+                                [isMedChartView]="false"
+                                [DSTDateTime]="child.control['DSTDateTime']"
+                                ></iMedicationChart>
+                            <TextBlock *ngIf="child?.control.constructor?.name == 'TextBlock'"
+                                [Text]="child?.control.Text"></TextBlock>
+                        </ng-container>
+                    </div>
+                </StackPanel>
+            </div>
+
+        </kendo-gridlayout-item>
+
+        <!-- footer links -->
+        <kendo-gridlayout-item [row]='4' [colSpan]='3'>
+            <div containerStyle>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top"
+                    Margin="5,0,0,0" >
+                    <iButton #cmdPrintMedChartTempRef Name="cmdPrintMedChart" (Click_Func)="cmdPrintMedChart_Click($event)"
+                        Text="Print" Tooltip="Print" DisabledImageSource="assets/images/iarrowdis5x10.png"
+                        ActiveImageSource="assets/images/iarrowshot5x10.png"
+                        ImageSource="assets/images/iarrownor5x10.png" ImageHeight="12" ImageWidth="5" ImageMargin="5,0,0,0" 
+                        Visibility="Collapsed" Margin="5,0,5,0"></iButton>
+                    <!-- <iButton #cmdFluidBalanceTempRef HorizontalAlignment="Left" Name="cmdFluidBalance"
+                        (Click_Func)="cmdFluidBalance_Click($event)" [Text]="oMedsAdminOverview.cmdFluidBalance_Text"
+                        [Tooltip]="oMedsAdminOverview.cmdFluidBalance_ToolTip"
+                        DisabledImageSource="assets/images/iarrowdis5x10.png"
+                        ActiveImageSource="assets/images/iarrowshot5x10.png"
+                        ImageSource="assets/images/iarrownor5x10.png" ImageHeight="12" ImageWidth="5" ImageMargin="5,0,0,0"
+                        Visibility="Collapsed" IsEnabled="False" Margin="0,0,5,0"></iButton> -->
+                    <iButton #cmdTechValidateTempRef Name="cmdTechValidate"
+                        [Text]="oMedsAdminOverview.cmdTechValidate_Text"
+                        [Tooltip]="oMedsAdminOverview.cmdTechValidate_Tooltip"
+                        DisabledImageSource="assets/images/iArrowDIS5x10.png"
+                        ActiveImageSource="assets/images/iArrowsHOT5x10.png"
+                        ImageSource="assets/images/iArrowNOR5x10.png" ImageHeight="12" ImageWidth="5" ImageMargin="5,0,0,0"
+                        (Click_Func)="cmdTechValidate_Click($event)" Visibility="Collapsed" Margin="0,0,5,0"></iButton>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+
+        <!-- WristbandScan -->
+        <kendo-gridlayout-item [row]='4' [col]='7'>
+            <div containerStyle>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top"
+                Margin="22,5,5,5">
+                    <iButton #cmdWristbandScanTempRef [Text]="oMedsAdminOverview.cmdWristbandScan_tooltip"
+                        [Tooltip]="oMedsAdminOverview.cmdWristbandScan_tooltip" TextDecorations="Underline"
+                        Cursor="Hand" Foreground="#0000C8" Width="auto" HorizontalAlignment="Right"
+                        Name="cmdWristbandScan" VerticalAlignment="Top" ImageSource="assets/images/scanicon18.png"
+                        DisabledImageSource="assets/images/scanicon18_Dis.png" Height= 23
+                        ActiveImageSource="assets/images/scanicon18.png" (click)="cmdWristbandScan_Click($event)">
+                    </iButton>
+                    <iLabel #lblEmptyTempRef Name="lblEmpty" Text="" Width="auto" Margin="5,0,0,0"></iLabel>
+                    <!-- <iTextBox #txtBarcodeTempRef Name="txtBarcode" (GotFocus_Func)="txtBarcode_GotFocus($event)"
+                        (LostFocus_Func)="txtBarcode_LostFocus($event)" (KeyUp_Func)="txtBarcode_KeyDown($event)" MinWidth="0" IsTabStop="True">
+                    </iTextBox> -->
+                    <input #txtBarcodeTempRef [readonly]="barCodeReadOnlyFlag" [hidden]="!barCodeVisibilityFlag" Name="txtBarcode" class="defaultBarCodeStyle" [ngClass]="{'barcodeFocus': barcodeStyleFocus}" autocomplete="off"  type="text" Width="110" MinWidth="0" IsTabStop="True"
+                    (focus)="txtBarcode_GotFocus($event)" (blur)="txtBarcode_LostFocus($event)" (keydown.enter)="txtBarcode_KeyDown($event)"/>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+
+    </kendo-gridlayout>
+</div>

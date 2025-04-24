@@ -1,0 +1,439 @@
+<div Name="LayoutRoot">
+    <kendo-gridlayout Background="LzoPageBG" class="changeHeightClass" Margin="5,5,5,5"
+                      [rows]="[{height:'5'},{height:'auto'},{height:'6'},{height:'auto'},{height:'auto'},{height:'auto'},{height:'10'},{height:'auto'}]">
+        <kendo-gridlayout-item [row]="2">
+            <div>
+                <!--Common Control to be implemented-->
+                <drugheader #objDrugHeaderTempRef Name="objDrugHeader" HorizontalAlignment="Stretch" Height="Auto"
+                [DataContext]="objDrugHeader._DataContext" Margin="5,0,5,5">
+                </drugheader>
+
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]="4">
+            <div>
+                <kendo-gridlayout Margin="0,0,0,0" Height="Auto" [rows]="[{height:'auto'},{height:'auto'},{height:'auto'}]"
+                                  [cols]="[{width:'2fr'},{width:'3fr'}]">
+
+                    <!--Stackpanel to be implemented-->
+                    <kendo-gridlayout-item [row]='1' [col]='1' [colSpan]='3'>
+                        <div containerStyle>
+                            <StackPanel HorizontalAlignment="Stretch" Margin="0,10,0,10" Height="Auto">
+
+                                <!--Border implementation-->
+                                <!-- <Border #brdpreviousbagTempRef Name="brdpreviousbag" BorderBrush="Gray" BorderThickness="1"
+                                  CornerRadius="2" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"> -->
+                                <!----------------------grid implementation inside stack panel-->
+                                <kendo-gridlayout-item>
+                                    <div>
+                                        <kendo-gridlayout HorizontalAlignment="Stretch" [rows]="[{height:'15'},{height:'25'}]">
+
+                                            <!--Border implementation -->
+                                            <!-- <kendo-gridlayout-item [row]='1'>
+                                                                          <div containerStyle> -->
+                                            <fieldset>
+                                                <legend>
+                                                    <Border Background="#FFE0EFF1" Margin="0,0,0,0" VerticalAlignment="Center" Width="103"
+                                                            [row]='1' HorizontalAlignment="Left">
+                                                        <iLabel #lblBorderTempRef Name="lblBorder" HorizontalAlignment="Center"
+                                                                [Text]="objRecordAdmin.txtMediAction_text"
+                                                                [Tooltip]="objRecordAdmin.txtmediAction_tooltip" Foreground="#0000C8" Width="Auto">
+                                                        </iLabel>
+                                                    </Border>
+                                                </legend>
+                                                <!--    </div>
+                                                                        </kendo-gridlayout-item> -->
+
+                                                <kendo-gridlayout-item [row]='2'>
+                                                    <div>
+                                                        <kendo-gridlayout Background="LzoPageBG" Margin="0,20,0,0" VerticalAlignment="Top">
+
+                                                            <kendo-gridlayout-item>
+                                                                <div>
+                                                                    <kendo-gridlayout [rows]="[{height:'15'},{height:'15'},{height:'5'}]"
+                                                                                      [cols]="[{width:'800'}]">
+
+                                                                        <kendo-gridlayout-item [row]='3'>
+                                                                            <div containerStyle>
+                                                                                <StackPanel #spInfActionsTempRef Margin="0,5,0,5" Name="spInfActions"
+                                                                                            Orientation="Horizontal">
+
+
+                                                                                    <iRadioButton #iRdbBegunTempRef Name="iRdbBegun" Margin="3,0,5,0"
+                                                                                                  [Text]="objRecordAdmin.rdbbegun_text"
+                                                                                                  (change)="iRdbBegun_Checked()"
+                                                                                                  [Tooltip]="objRecordAdmin.rdbbegun_tooltip" 
+                                                                                                  Checked="iRdbBegun_Checked" GroupName="InfStartAction"
+                                                                                                  [IsEnabled]="DataContext.IsEnableBegun? true: false">
+                                                                                    </iRadioButton>
+                                                                                    <iRadioButton *ngIf="iRdbNotGivenhidden" #iRdbNotGivenTempRef Name="iRdbNotGiven" Margin="3,0,3,0"
+                                                                                                  [Text]="objRecordAdmin.rdbNotGiven_text"
+                                                                                                  [Tooltip]="objRecordAdmin.rdbNotGiven_tooltip"
+                                                                                                  (change)="iRdbNotgiven_Checked()"
+                                                                                                  Checked="iRdbNotgiven_Checked" GroupName="InfStartAction"
+                                                                                                  [IsEnabled]="DataContext.IsEnableNotGiven? true: false">
+                                                                                    </iRadioButton>
+                                                                                    <iRadioButton *ngIf="iRdbdeferedhidden" #iRdbdeferedTempRef Name="iRdbdefered" Margin="3,0,3,0"
+                                                                                                  [Text]="objRecordAdmin.rdbdefer_text" (change)="iRdbDfrAdmin_Checked()"
+                                                                                                  [Tooltip]="objRecordAdmin.rdbdefer_tooltip" 
+                                                                                                  Checked="iRdbDfrAdmin_Checked" GroupName="InfStartAction"
+                                                                                                  [IsEnabled]="DataContext.IsEnableDefered? true: false">
+                                                                                    </iRadioButton>
+                                                                                    <iRadioButton *ngIf="iRdbchgflowratehidden" #iRdbchgflowrateTempRef Name="iRdbchgflowrate" Margin="3,0,3,0"
+                                                                                                  [Text]="objRecordAdmin.rdbchangeflowrate_text"
+                                                                                                  [Tooltip]="objRecordAdmin.rdbchangeflowrate_tooltip"
+                                                                                                  (change)="iRdbChangeflowrateAdmin_Checked()"
+                                                                                                  [(IsChecked)]="DataContext.IsSelectChangeFlowrate"
+                                                                                                  Checked="iRdbChangeflowrateAdmin_Checked" GroupName="InfStartAction"
+                                                                                                  [IsEnabled]="DataContext.IsEnableChgflowrate? true: false">
+                                                                                    </iRadioButton>
+                                                                                    <iRadioButton *ngIf="iRdbchangebaghidden" #iRdbchangebagTempRef Name="iRdbchangebag" Margin="3,0,3,0"
+                                                                                                  [Text]="objRecordAdmin.rdbchangebag_text"
+                                                                                                  [Tooltip]="objRecordAdmin.rdbchangebag_tooltip"
+                                                                                                  (change)="iRdbChangebag_Checked()"
+                                                                                                  Checked="iRdbChangebag_Checked" GroupName="InfStartAction"
+                                                                                                  [IsEnabled]="DataContext.IsEnableChangebag? true: false">
+                                                                                    </iRadioButton>
+                                                                                    <iRadioButton *ngIf="iRdbpausehidden" #iRdbpauseTempRef Name="iRdbpause" Margin="3,0,3,0"
+                                                                                                  [Text]="objRecordAdmin.rdbpause_text"
+                                                                                                  (change)="iRdbpauseAdmin_Checked()"
+                                                                                                  [Tooltip]="objRecordAdmin.rdbpause_tooltip" 
+                                                                                                  Checked="iRdbpauseAdmin_Checked" GroupName="InfStartAction"
+                                                                                                  [IsEnabled]="DataContext.IsEnablePause? true: false">
+                                                                                    </iRadioButton>
+                                                                                    <iRadioButton *ngIf="iRdbresumehidden" #iRdbresumeTempRef Name="iRdbresume" Margin="3,0,3,0"
+                                                                                                  [Text]="objRecordAdmin.rdbresume_text"
+                                                                                                  [Tooltip]="objRecordAdmin.rdbresume_tooltip"
+                                                                                                  (change)="iRdbResume_Checked()"
+                                                                                                  Checked="iRdbResume_Checked" GroupName="InfStartAction"
+                                                                                                  [IsEnabled]="DataContext.IsEnableResume? true: false">
+                                                                                    </iRadioButton>
+                                                                                    <iRadioButton #iRdbstopTempRef Name="iRdbstop" Margin="3,0,3,0"
+                                                                                                  [Text]="objRecordAdmin.rdbstop_text"
+                                                                                                  (change)="iRdbstopAdmin_Checked()"
+                                                                                                  [Tooltip]="objRecordAdmin.rdbstop_tooltip" 
+                                                                                                  Checked="iRdbstopAdmin_Checked" GroupName="InfStartAction"
+                                                                                                  [IsEnabled]="DataContext.IsEnableStop? true: false">
+                                                                                    </iRadioButton>
+                                                                                    <iRadioButton #iRdbcompleteTempRef Name="iRdbcomplete" Margin="3,0,3,0"
+                                                                                                  [Text]="objRecordAdmin.rdbcomplete_text"
+                                                                                                  [Tooltip]="objRecordAdmin.rdbcomplete_tooltip"
+                                                                                                  (change)="iRdbcompleteAdmin_Checked()"
+                                                                                                  Checked="iRdbcompleteAdmin_Checked" GroupName="InfStartAction"
+                                                                                                  [IsEnabled]="DataContext.IsEnableComplete? true: false">
+                                                                                    </iRadioButton>
+                                                                                </StackPanel>
+                                                                            </div>
+                                                                        </kendo-gridlayout-item>
+                                                                    </kendo-gridlayout>
+                                                                </div>
+                                                            </kendo-gridlayout-item>
+                                                        </kendo-gridlayout>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+                                            </fieldset>
+                                        </kendo-gridlayout>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <!-- </Border> -->
+                            </StackPanel>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <!--Border is implemented and must be inside stackpanel-->
+
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='5'>
+           
+            <div containerStyle>
+                <StackPanel #CriticalMedMsgTempRef Name="CriticalMedMsg" Orientation="Vertical" Margin="5,5,5,5" Width="Auto"
+                            Height="Auto" VerticalAlignment="Stretch" Visibility="false">
+                    <!-- <Border #brdcriTempRef Name="brdcri" BorderBrush="#800000" BorderThickness="2" Margin="6" CornerRadius="2"
+                            Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"> -->
+                            <fieldset #brdcriTempRef Name="brdcri" class="filedset notgiven">
+                        <kendo-gridlayout-item>
+                            <div>
+                                <kendo-gridlayout Background="White" [rows]="[{height:'auto'},{height:'auto'}]">
+                                    <kendo-gridlayout-item [row]='1' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #criticalTempRef Name="critical" Margin="5,0,0,0" Width="750" MaxWidth="750"
+                                                    HorizontalContentAlignment="Center" HorizontalAlignment="Left" IsWordwrap="True"></iLabel>
+                                            <kendo-gridlayout-item [row]='2' [col]='1'>
+                                                <div containerStyle>
+                                                    <StackPanel #CriticalDrugSiteURLTempRef Name="CriticalDrugSiteURL" Orientation="Vertical"
+                                                                Width="Auto" Height="Auto" VerticalAlignment="Stretch">
+                                                        <kendo-gridlayout-item>
+                                                            <div>
+                                                                <kendo-gridlayout [rows]="[{height:'auto'}]" [cols]="[{width:'auto'},{width:'auto'}]">
+                                                                    <kendo-gridlayout-item [row]='1' [col]='1'>
+                                                                        <div containerStyle>
+                                                                            <iLabel #FormoreTempRef Name="Formore" Margin="5,0,0,0" Width="120" MaxWidth="120"
+                                                                                    IsWordwrap="True" Text="For more information"></iLabel>
+                                                                            <iHyperlinkButton Content="Click here" Foreground="Blue"
+                                                                                    Click="CriticalURL_Clilck" class="ihyperlink-btn"></iHyperlinkButton>
+                                                                        </div>
+                                                                        
+                                                                    </kendo-gridlayout-item>
+                                                                    <!-- <kendo-gridlayout-item [row]='1' [col]='2'>
+                                                                        <div containerStyle>
+                                                                            <iHyperlinkButton Content="Click here" Foreground="Blue"
+                                                                                              Click="CriticalURL_Clilck">
+                                                                            </iHyperlinkButton>
+                                                                        </div>
+                                                                    </kendo-gridlayout-item> -->
+                                                                </kendo-gridlayout>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+                                                    </StackPanel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                        </div>
+                                    </kendo-gridlayout-item>
+                                </kendo-gridlayout>
+                            </div>
+                        </kendo-gridlayout-item>
+                    <!-- </Border> -->
+                </fieldset>
+                </StackPanel>
+            </div>
+        
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]="6">
+            <div>
+
+
+                <kendo-gridlayout>
+                    <!-- <fieldset> -->
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden"
+                                      VerticalAlignment="Stretch" HorizontalAlignment="Stretch" [MaxHeight]="maxtabHeight" BorderThickness="0">
+
+                            <kendo-gridlayout-item [row]="6">
+                                <div>
+                                    
+                                    <kendo-gridlayout [rows]="[{height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'}]">
+                                        <kendo-gridlayout-item [row]='2'>
+                                            <div containerStyle>
+                                                <ng-container *ngIf="ContentCtrlMeddefaultview?.Content" >
+                                                    <InfRecAdmContBegun class="heightChange" #contBegun [DataContext]="recordadminVM" *ngIf="ContentCtrlMeddefaultview.Content?.constructor?.name == 'InfRecAdmContBegun'"></InfRecAdmContBegun>
+                                                    <InfRecAdmGasBegun  [ngClass]="DataContext.IsVisibleRestrostopcomplete == 0?'retro':'notRetro'"  #gasBegun [DataContext]="recordadminVM" *ngIf="ContentCtrlMeddefaultview.Content?.constructor?.name == 'InfRecAdmGasBegun'"></InfRecAdmGasBegun>
+                                                    <infrecadm-contdefer [style.height.px]="maxScrollHeight" #contdeferTempRef [DataContext]="recordadminVM" [valueUsed]="valueForDeferScreen" *ngIf="ContentCtrlMeddefaultview.Content?.constructor?.name == 'InfRecAdmContDefer'"></infrecadm-contdefer>
+                                                    <InfRecAdmContResume class="heightChangeInfRecAdmContResume" #contResumeTempRef [DataContext]="recordadminVM" *ngIf="ContentCtrlMeddefaultview.Content?.constructor?.name == 'InfRecAdmContResume'"></InfRecAdmContResume>
+                                                    <app-InfRecAdmContStop style="height: 320px;" #contStopTempRef [DataContext]="recordadminVM" [ValuesHolder]="completeValuesHolder" *ngIf="ContentCtrlMeddefaultview.Content?.constructor?.name == 'InfRecAdmContStop'"></app-InfRecAdmContStop>
+                                                    <InfRecAdmPCAChangeBag class="heightChange1"  #pcaChangeBag [DataContext]="recordadminVM" *ngIf="ContentCtrlMeddefaultview.Content?.constructor?.name == 'InfRecAdmPCAChangeBag'"></InfRecAdmPCAChangeBag>
+                                                    <app-InfRecAdmCSFChangeBag class="heightChange1" #CSFChangeBag [DataContext]="recordadminVM" *ngIf="ContentCtrlMeddefaultview.Content?.constructor?.name == 'InfRecAdmCSFChangeBag'"></app-InfRecAdmCSFChangeBag>
+                                                    <InfRecAdmCSFStopCompleted class="heightChange1" #CSFStopTempRef [DataContext]="recordadminVM" *ngIf="ContentCtrlMeddefaultview.Content?.constructor?.name == 'InfRecAdmCSFStopComplete'"></InfRecAdmCSFStopCompleted>
+                                                    <InfRecAdmContSummaryView class="heightChange1" [DataContext]="recordadminVM" *ngIf="ContentCtrlMeddefaultview.Content?.constructor?.name == 'InfRecAdmContSummaryView'"> </InfRecAdmContSummaryView>
+                                                    <InfRecAdmGasSummaryView  style="height: 320px;" [DataContext]="recordadminVM" *ngIf=" ContentCtrlMeddefaultview.Content?.constructor?.name == 'InfRecAdmGasSummaryView'"></InfRecAdmGasSummaryView>
+                                                    <InfRecAdmPCASummaryView class="heightChange1" [DataContext]="recordadminVM" *ngIf=" ContentCtrlMeddefaultview.Content?.constructor?.name == 'InfRecAdmPCASummaryView'"></InfRecAdmPCASummaryView>
+                                                    <InfRecAdmContChangeFlowRate class="heightChange1" #contChgFlowrateTempRef [DataContext]="recordadminVM" *ngIf=" ContentCtrlMeddefaultview.Content?.constructor?.name == 'InfRecAdmContChangeFlowRate'"></InfRecAdmContChangeFlowRate>
+                                                </ng-container>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                        <kendo-gridlayout-item [col]='1' [colSpan]="2" [row]='3'>
+                                            <div containerStyle *ngIf="DataContext.IsVisibleRestrostopcomplete == 0">
+                                                <kendo-gridlayout [rows]="[{height:'auto'},{height:'auto'}]">
+                                                    <kendo-gridlayout-item [row]='1' [col]='1' [colSpan]='3'>
+                                                        <div containerStyle>
+                                                            <StackPanel HorizontalAlignment="Left" class="infStoppedDtls" Height="Auto">
+                                                                <!-- <Border #brdStopcompleteTempRef Name="brdStopcomplete" BorderBrush="Gray"
+                                                                  BorderThickness="1" CornerRadius="2" Height="Auto" HorizontalAlignment="Stretch"
+                                                                  VerticalAlignment="Stretch"> -->
+                                                                <kendo-gridlayout-item>
+                                                                    <div containerStyle>
+                                                                        <kendo-gridlayout HorizontalAlignment="Stretch"
+                                                                                          [rows]="[{height:'15'},{height:'25'}]">
+                                                                            <!-- <kendo-gridlayout-item >
+                                                                                                                      <div containerStyle> -->
+                                                                            <fieldset>
+                                                                                <legend>
+                                                                                    <Border Background="#FFE0EFF1" [row]='1' Margin="0,0,0,0"
+                                                                                            VerticalAlignment="Center" Width="150" HorizontalAlignment="Left">
+                                                                                        <iLabel #lblRetrospectiveTempRef Name="lblRetrospective"
+                                                                                                HorizontalAlignment="Center"
+                                                                                                [Text]="objRecordAdmin.txtReptrostopcomplete_text"
+                                                                                                [Tooltip]="objRecordAdmin.txtReptrostopcomplete_tooltip"
+                                                                                                Foreground="#0000C8" Width="Auto"></iLabel>
+                                                                                    </Border>
+                                                                                </legend>
+                                                                                <!-- </div>
+                                                                                                                    </kendo-gridlayout-item> -->
+                                                                                <kendo-gridlayout-item [row]='2'>
+                                                                                    <div containerStyle>
+                                                                                        <kendo-gridlayout VerticalAlignment="Top" Background="LzoPageBG"
+                                                                                                          Margin="0,5,0,5">
+                                                                                            <kendo-gridlayout-item>
+                                                                                                <div containerStyle>
+                                                                                                    <kendo-gridlayout [rows]="[{height:'15'},{height:'15'},{height:'5'}]"
+                                                                                                                      [cols]="[{width:'800'}]">
+                                                                                                        <kendo-gridlayout-item [row]='2'>
+                                                                                                            <div containerStyle>
+                                                                                                                <StackPanel #RetrospectiveInfActionsTempRef Margin="0,6,0,5"
+                                                                                                                            Name="RetrospectiveInfActions" Orientation="Horizontal">
+                                                                                                                    <iRadioButton #iRdbReStopTempRef Name="iRdbReStop"
+                                                                                                                                  Margin="5,0,10,0" [Text]="objRecordAdmin.rdbstop_text"
+                                                                                                                                  [Tooltip]="objRecordAdmin.rdbstop_tooltip"
+                                                                                                                                  (change)="iRdbReStop_Checked()" GroupName="InfStopAction"
+                                                                                                                                  Checked="iRdbReStop_Checked" [(IsChecked)]="DataContext.IsChkReStop">
+                                                                                                                        <!-- [(IsChecked)]="DataContext.IsChkReStop" -->
+                                                                                                                    </iRadioButton>
+                                                                                                                    <iRadioButton #iRdbReCompleteTempRef Name="iRdbReComplete"
+                                                                                                                                  Margin="3,0,5,0" [Text]="objRecordAdmin.rdbcomplete_text"
+                                                                                                                                  [Tooltip]="objRecordAdmin.rdbcomplete_tooltip"
+                                                                                                                                  (change)="iRdbReComplete_Checked()" GroupName="InfStopAction"
+                                                                                                                                  Checked="iRdbReComplete_Checked">
+                                                                                                                    </iRadioButton>
+                                                                                                                </StackPanel>
+                                                                                                            </div>
+                                                                                                        </kendo-gridlayout-item>
+                                                                                                    </kendo-gridlayout>
+                                                                                                </div>
+                                                                                            </kendo-gridlayout-item>
+                                                                                        </kendo-gridlayout>
+                                                                                    </div>
+                                                                                </kendo-gridlayout-item>
+                                                                            </fieldset>
+                                                                        </kendo-gridlayout>
+                                                                    </div>
+                                                                </kendo-gridlayout-item>
+                                                                <!-- </Border> -->
+                                                            </StackPanel>
+                                                        </div>
+                                                    </kendo-gridlayout-item>
+                                                    <kendo-gridlayout-item [row]='2'>
+                                                        <div containerStyle>
+                                                            <!-- <ContentControl #ContentCtrlRetrospectiveTempRef Name="ContentCtrlRetrospective"
+                                                                            HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                                                                            VerticalAlignment="Stretch" Margin="5,0,0,0">
+                                                            </ContentControl> -->
+                                                            <ng-container *ngIf="ContentCtrlRetrospective?.Content" >
+                                                            <app-InfRecAdmContStop #contStopTempRef [DataContext]="recordadminVM" *ngIf="ContentCtrlRetrospective.Content?.constructor?.name == 'InfRecAdmContStop'"></app-InfRecAdmContStop>
+                                                        </ng-container>
+                                                        </div>
+                                                    </kendo-gridlayout-item>
+                                                </kendo-gridlayout>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                        <kendo-gridlayout-item [col]='1' [colSpan]="2" [row]='4'>
+                                            <div containerStyle>
+                                                <kendo-gridlayout Margin="0,25,0,-5" [rows]="[{height:'auto'},{height:'auto'}]"
+                                                                  Visibility="IsVisibleRestrospectivegas">
+                                                    <!--[(Visibility)]="DataContext.IsVisibleRestrospectivegas" -->
+                                                    <kendo-gridlayout-item [row]='1' [col]='1' [colSpan]='3'>
+                                                        <div containerStyle>
+                                                            <StackPanel HorizontalAlignment="Left" Margin="5,-60,0,20" Height="Auto">
+                                                                <!-- <Border #brdcompletegasTempRef Name="brdcompletegas" BorderBrush="Gray"
+                                                                  BorderThickness="1" CornerRadius="2" Height="Auto" HorizontalAlignment="Stretch"
+                                                                  VerticalAlignment="Stretch"> -->
+                                                                <kendo-gridlayout-item>
+                                                                    <div containerStyle>
+                                                                        <kendo-gridlayout [rows]="[{height:'15'},{height:'60'}]">
+                                                                            <!-- <kendo-gridlayout-item [row]='1'>
+                                                                              <div containerStyle> -->
+                                                                            <!-- <Border Background="#FFE0EFF1" [row]='1' Margin="15,-20,0,0"
+                                                                                    VerticalAlignment="Center" Width="120" HorizontalAlignment="Left">
+                                                                                <iLabel #lblRetrospectivegasTempRef Name="lblRetrospectivegas"
+                                                                                        HorizontalAlignment="Center" [Text]="objRecordAdmin.txtReptrocomplete_text"
+                                                                                        [Tooltip]="objRecordAdmin.txtReptrocomplete_tooltip" Foreground="#0000C8"
+                                                                                        Width="Auto"></iLabel>
+                                                                            </Border> -->
+                                                                            <!-- </div>
+                                                                                                                  </kendo-gridlayout-item> -->
+                                                                            <kendo-gridlayout-item [row]="2">
+                                                                                <div containerStyle>
+                                                                                    <kendo-gridlayout Margin="0,-10,0,0" VerticalAlignment="Top"
+                                                                                                      Background="LzoPageBG">
+                                                                                        <ContentControl #ContentCtrlRetrospectivegasTempRef
+                                                                                                        Name="ContentCtrlRetrospectivegas" HorizontalContentAlignment="Stretch"
+                                                                                                        VerticalContentAlignment="Top">
+                                                                                        </ContentControl>
+                                                                                    </kendo-gridlayout>
+                                                                                </div>
+                                                                            </kendo-gridlayout-item>
+                                                                        </kendo-gridlayout>
+                                                                    </div>
+                                                                </kendo-gridlayout-item>
+                                                                <!-- </Border> -->
+                                                            </StackPanel>
+                                                        </div>
+                                                    </kendo-gridlayout-item>
+                                                </kendo-gridlayout>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                    </kendo-gridlayout>
+                                </div>
+                            </kendo-gridlayout-item>
+
+                        </ScrollViewer>
+                    <!-- </fieldset> -->
+                </kendo-gridlayout>
+
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='7' [rowSpan]='3'>
+            <div containerStyle>
+                <StackPanel Orientation="Horizontal" Width="Auto" VerticalAlignment="Stretch" Margin="0,10,0,7">
+                    <iButton #cmdScanRecMedicationTempRef Name="cmdScanRecMedication" HorizontalAlignment="Left" Margin="5,2,0,2"
+                             TextDecorations="Underline" Cursor="Hand" Foreground="#0000C8" [Text]="CondRes.lblScanRecMedication_Text"
+                             [Tooltip]="CondRes.lblScanRecMedication_ToolTip" Height="23" 
+                             [ngClass]="DataContext.IsScanInfrecadminlinkenabled == false ? 'not-allowed' : ''"
+                             DisabledImageSource="assets/Images/iarrowdis5x10.png" ActiveImageSource="assets/Images/iarrowshot5x10.png"
+                             ImageSource="assets/Images/iarrownor5x10.png" Width="150" ImageHeight="12" ImageWidth="5"
+                             (click)="cmdScanRecMedication_Click()" [(IsEnabled)]="DataContext.IsScanInfrecadminlinkenabled"
+                             [(Visibility)]="DataContext.IsScanRecMedVisible" ImageMargin="0,0,-2,0">
+                        <!-- [(IsEnabled)]="DataContext.IsScanInfrecadminlinkenabled"
+                        [(Visibility)]="DataContext.IsScanRecMedVisible" -->
+                    </iButton>
+                    <iButton #cmdRequestTempRef Name="cmdRequest" HorizontalAlignment="Left" Margin="14,3,0,2"
+                             TextDecorations="Underline" Cursor="Hand" SLAccessKeyProperties.AccessKey="B" (click)="cmdRequest_Click()"
+                             Foreground="#0000C8" Text="Request medication" [Tooltip]="CondRes.RequestMedication_ToolTip" Height="Auto"
+                             ImageSource="assets/Images/supplyflag_nor16.png" DisabledImageSource="assets/Images/supply flag_DIS16.png" ImageMargin="0,0,-4,0"
+                             ActiveImageSource="assets/Images/supplyflag_nor16.png" ImageHeight="15" ImageWidth="15" [Visibility]="DataContext.cmdRequestvisible">
+                    </iButton>
+                    <iButton #cmdObservationsResultsTempRef Name="cmdObservationsResults" HorizontalAlignment="Left"
+                             Margin="5,3,0,2" TextDecorations="Underline" Cursor="Hand" SLAccessKeyProperties.AccessKey="B"
+                             (Click_Func)="cmdObservationsResults_Click()" Foreground="#0000C8" [Text]="CondRes.lblObservationsResults_Text"
+                             [Tooltip]="CondRes.lblObservationsResults_ToolTip" Height="Auto"
+                             DisabledImageSource="assets/Images/iarrowdis5x10.png" ActiveImageSource="assets/Images/iarrowshot5x10.png"
+                             ImageSource="assets/Images/iarrownor5x10.png" ImageHeight="12" ImageWidth="5" ImageMargin="0,0,-2,0">
+                    </iButton>
+                    <iButton #cmdWristbandScanTempRef [Text]="objRecordAdmin.cmdWristbandScan_text"
+                             [Tooltip]="objRecordAdmin.cmdWristbandScan_tooltip" Height="23" Cursor="Hand" Width="120" Margin="5,0,0,2"
+                             HorizontalAlignment="Left" (click)="cmdWristbandScan_Click()" Name="cmdWristbandScan" VerticalAlignment="Top"
+                             ImageSource="assets/Images/scanicon18.png" DisabledImageSource="assets/Images/scanicon18_Dis.png"
+                             ActiveImageSource="assets/Images/scanicon18.png" TextDecorations="Underline" Foreground="#0000C8" ImageMargin="0,0,-5,0">
+                    </iButton>
+                    <iLabel #lblEmptyTempRef Name="lblEmpty" Text="" Width="auto" Margin="5,0,0,0"></iLabel>
+                    <!-- <iTextBox #txtBarcodeInfusionTempRef Name="txtBarcodeInfusion" Width="110" MinWidth="0" IsTabStop="True"
+                               Margin="0,0,0,0"
+                              (GotFocus_Func)="txtBarcode_GotFocus($event)" (LostFocus_Func)="txtBarcode_LostFocus($event)" 
+                               (KeyDown_Func)="txtBarcode_KeyDown($event)" RenderTransformOrigin="-3.667,0.683">
+                    </iTextBox> -->
+            
+
+                    <input #txtBarcodeInfusionTempRef class="defaultBarCodeStyle" [ngClass]="{'barcodeFocus': barcodeStyleFocus}" autocomplete="off"  type="text"  Name="txtBarcodeInfusion" Width="110" MinWidth="0" IsTabStop="True"
+                    Margin="0,0,0,0"
+                   (focus)="txtBarcode_GotFocus($event)" (blur)="txtBarcode_LostFocus($event)" (keydown.enter)="txtBarcode_KeyDown($event)"/>
+                    <iButton #cmdbagdetailsTempRef Name="cmdbagdetails" HorizontalAlignment="Left" TextDecorations="Underline"
+                             Cursor="Hand" Foreground="#0000C8" Text="Bag details" Tooltip="Select to view bag details" Height="Auto"
+                             (click)="cmdbagdetails_Click()" ImageHeight="12" ImageWidth="5"     [ngClass]="DataContext.IsBagDetailsEnable == false ? 'not-allowed' : ''"
+                             Width="Auto" Margin="5,2,0,3" [(IsEnabled)]="DataContext.IsBagDetailsEnable" [Visibility]="DataContext.IsBagDetailsVisible">
+                        <!-- [(IsEnabled)]="DataContext.IsBagDetailsEnable" [Visibility]="DataContext.IsBagDetailsVisible" -->
+                    </iButton>
+                    <iButton #cmdStrikethroughadminTempRef Name="cmdStrikethroughadmin" HorizontalAlignment="Left" Height="Auto"
+                             ImageHeight="12" ImageWidth="5" TextDecorations="Underline" Cursor="Hand"
+                             Foreground="#0000C8" Text="Strikethrough administration"
+                             Tooltip="Select to strikethrough entire administration"
+                             Width="188" [Command]="DataContext.StrikeThroughAmdinCmd" [Visibility]="DataContext.IsEntireAdminStrikeThruVisible"
+                             [IsEnabled]="DataContext.IsEntireAdminStrikeThruEnable">
+                        <!-- [Command]="DataContext.StrikeThroughAmdinCmd" [Visibility]="DataContext.IsEntireAdminStrikeThruVisible"
+                        [IsEnabled]="DataContext.IsEntireAdminStrikeThruEnable" -->
+                    </iButton>
+                    <Border #brdBarcodeTempRef Name="brdBarcode" [iStyle]="Styles.whiteBorder" Margin="5,0,5,0">
+                    </Border>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

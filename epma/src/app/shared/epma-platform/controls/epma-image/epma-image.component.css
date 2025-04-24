@@ -1,0 +1,17 @@
+::ng-deep .newImageLineClass *{
+  white-space: pre-line;
+  display: grid;
+}
+
+::ng-deep .wrap-tooltip-text {
+  text-wrap: wrap;
+  width: 250px !important;
+  white-space: pre-line;
+  display: grid;
+}
+
+::ng-deep .newMedlinClass *{
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  width: max-content;
+}

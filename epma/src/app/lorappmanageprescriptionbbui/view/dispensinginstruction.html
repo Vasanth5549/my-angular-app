@@ -1,0 +1,392 @@
+<div name="LayoutRoot" style="margin-top: -9px;">
+  <kendo-gridlayout class="heightChange"
+    [rows]="[{height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'}]"
+    [cols]="[{width:'auto'},{width:341},{width:256}]"
+  >
+    <Border
+      GridLayout
+      [Style]="Styles.whiteBorder"
+      [row]="6"
+      [col]="1"
+    ></Border>
+
+    <Border
+      GridLayout
+      [Style]="Styles.whiteBorder"
+      [row]="7"
+      [col]="1"
+    ></Border>
+
+    <Border
+      GridLayout
+      [Style]="Styles.whiteBorder"
+      [row]="6"
+      [col]="2"
+    ></Border>
+
+    <Border
+      GridLayout
+      [Style]="Styles.whiteBorder"
+      [row]="7"
+      [col]="2"
+      [colSpan]="3"
+    ></Border>
+
+    <Border
+      GridLayout
+      [Style]="Styles.whiteBorder"
+      [row]="6"
+      [col]="3"
+    ></Border>
+
+    <Border
+      GridLayout
+      [Style]="Styles.whiteBorder"
+      [row]="7"
+      [col]="3"
+    ></Border>
+
+    <kendo-gridlayout-item [row]="3" [col]="1">
+
+      <div containerStyle class="labelTop" >
+        <StackPanel Width="145" HorizontalAlignment="Left" VerticalAlignment="Top">
+          <iLabel
+            #lblDispensingInstructionsTempRef
+            Name="lblDispensingInstructions"
+            [Text]="Dispensinginstruction.DispensingInstruction_Header"
+            
+            SLAccessKeyProperties.AccessKey="u"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+          ></iLabel>
+        </StackPanel>
+      </div>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]="3" [col]="2" [colSpan]="3">
+      <div containerStyle>
+        <StackPanel
+          class="stkpnlBackground"
+          Margin="0,0,0,3"
+          Width="330"
+          HorizontalAlignment="Left"
+        >
+          <iCheckedListBox
+            #chkDispensingInstructionsTempRef
+            SelectionMode="Multiple"
+            HorizontalAlignment="Left"
+            Margin="5,5,5,5"
+            Name="chkDispensingInstructions"
+            VerticalAlignment="Center"
+            [ItemsSource]="DataContext.DispensingInstructionsList"
+            Height="155"
+            Width="320"
+            IsEnabled="True"
+            [OnSelect]="chkInstructions_OnSelect_Func"
+            [OnUnSelect]="chkInstructions_OnUnSelect_Func"
+            TabIndex="1"
+            AccessKey:SLAccessKeyProperties.AccessKey="u"
+            [ToolTip]="Dispensinginstruction.ChkDispensingInstruction"
+          >
+          </iCheckedListBox>
+        </StackPanel>
+      </div>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]="4" [col]="2">
+      <div containerStyle>
+        <StackPanel
+          class="stkpnlBackground"
+          Width="330"
+          HorizontalAlignment="Left"
+          Margin="0,5,0,5"
+        >
+          <iLabel
+            #lblOtherInstructionsTempRef
+            Name="lblOtherInstructions"
+            [Mandatory]="DataContext.isOtherinstructionMandatory"
+            SLAccessKeyProperties.AccessKey="i"
+            [Text]="Dispensinginstruction.Otherinstruction_Header"
+            HorizontalAlignment="Left"
+            Margin="5,5,5,5"
+            Width="Auto"
+          ></iLabel>
+        </StackPanel>
+      </div>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]="5" [col]="2">
+      <div containerStyle>
+        <StackPanel
+          class="stkpnlBackground"
+          Margin="0,0,0,0"
+          Width="330"
+          HorizontalAlignment="Left"
+        >
+          <iTextBox
+            #txtOtherInstructionsTempRef
+            Name="txtOtherInstructions"
+            HorizontalAlignment="Stretch"
+            Margin="5,5,5,5"
+            VerticalScrollBarVisibility="Visible"
+            Width="320"
+            VerticalAlignment="Stretch"
+            Height="45"
+            [(Text)]="DataContext.sOtherInstructions"
+            MaxLength="320"
+            AcceptsReturn="True"
+            TextWrapping="Wrap"
+            SLAccessKeyProperties.AccessKey="i"
+            [IsEnabled]="DataContext.IstxtOtherInstructionsEnable"
+            TabIndex="2"
+            [Tooltip]="Dispensinginstruction.OtherIns_ToolTip"
+            RenderTransformOrigin="0.357,0.4"
+          ></iTextBox>
+        </StackPanel>
+      </div>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]="6" [col]="1">
+      <div containerStyle class="divNormal">
+        <StackPanel Width="145" HorizontalAlignment="Left" Margin="0,5,0,5">
+          <iLabel
+            #lbladditionalcommentsTempRef
+            Name="lbladditionalcomments"
+            HorizontalAlignment="Left"
+            [Text]="Dispensinginstruction.Additionalcomments_Header"
+            Margin="0,0,0,0"
+            Width="Auto"
+          >
+          </iLabel>
+        </StackPanel>
+      </div>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]="6" [col]="2" [colSpan]="3" class="margin-top">
+      <div containerStyle>
+        <StackPanel
+          class="stkpnlBackground"
+          Margin="0,0,0,0"
+          Width="330"
+          HorizontalAlignment="Left"
+        >
+          <iTextBox
+            #txtadditionalCommentsTempRef
+            Name="txtadditionalComments"
+            HorizontalAlignment="Stretch"
+            Margin="5,5,5,5"
+            VerticalScrollBarVisibility="Visible"
+            Width="320"
+            VerticalAlignment="Stretch"
+            Height="45"
+            [(Text)]="DataContext.sAdditionalcomments"
+            AcceptsReturn="True"
+            TextWrapping="Wrap"
+            MaxLength="320"
+            [Tooltip]="Dispensinginstruction.AdditionalComments_ToolTip"
+            TabIndex="3"
+            RenderTransformOrigin="0.357,0.4"
+          ></iTextBox>
+        </StackPanel>
+      </div>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]="7" [col]="1" [colSpan]="4" class="margin-top" id="grdPrescrib" >
+      <div containerStyle  style="width: 96%;height: 100%;" [style.paddingLeft.px]="1" >
+        <StackPanel>
+          <!-- #brdDispensinghistoryTempRef -->
+          <fieldset class="border" style="height: 24rem;padding-left: 13px;">
+            <div containerStyle >
+              <!-- Height="278"
+              Width="720" -->
+              <kendo-gridlayout
+                [rows]="[{height:'auto'},{height:'auto'}]"
+                [cols]="[{width:'auto'}]"
+              >
+                <kendo-gridlayout-item [colSpan]="3" [row]="1" [col]="1">
+                  <div containerStyle>
+                    <!-- Background="#FFE0EFF1" -->
+                    <!-- Margin="6,-4,6,20" -->
+                    <!-- Width="500" -->
+                    <StackPanel
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+                      Orientation="Vertical"
+                      class="stkpnlWidth"
+                    >
+                      <TextBlock
+                        #lblDispensinghistoryTempRef
+                        Name="lblDispensinghistory"
+                        VerticalAlignment="Top"
+                        [Text]="Dispensinginstruction.DispensingHistory_Header"
+                        Padding="5,5,0,0"
+                        Foreground="Black"
+                        FontWeight="Bold"
+                        Height="27"
+                      ></TextBlock>
+                    </StackPanel>
+                  </div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item
+                  kendo-gridlayout-item
+                  [colSpan]="3"
+                  [row]="2"
+                  [col]="1"
+                >
+                  <div containerStyle class="posRel">
+                    <kendo-grid
+                      #grdDispensinghistoryTempRef
+                      class="vertical-class-top"
+                      [selectable]="{ checkboxOnly: false, mode: 'single' }"
+                      Margin="15,20,15,-20"
+                      (selectionChange)="grdDispensinghistory_SelectionChanged({}, $event)"
+                     
+                      [data]="grdDispensinghistory.ItemsSource?.array"
+                      [height]="400" id="grdPrescrib"
+                    >
+                      <ng-template kendoGridNoRecordsTemplate
+                        >No records to show
+                      </ng-template>
+                      <kendo-grid-column
+                        field="Encounter"
+                        [title]="Dispensinginstruction.Encounter_Header"
+                        [resizable]="false"
+                        [filterable]="false"
+                        [editable]="false"
+                        [width]="255"
+                      >
+                        <ng-template
+                          kendoGridCellTemplate
+                          let-dataItem
+                          let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex"
+                        >
+                          <DataTemplate
+                            #tempGrdDispensinghistory
+                            [dataItem]="dataItem"
+                            [index]="rowIndex"
+                            [colindex]="columnIndex"
+                            (RowLoaded)="rowLoaded($event)"
+                            [gridHelper]="grdDispensinghistory"
+                          >
+                            <iLabel
+                              #lblEncounterTempRef
+                              Name="lblEncounter"
+                              [Text]="dataItem.EncounterDetail"
+                              IsWordwrap="True"
+                              [Tooltip]="dataItem.EncounterDetail"
+                            >
+                              <!-- pending -->
+                              <!-- <ToolTipService.ToolTip>
+                                <TextBlock
+                                  Text="{Binding Path=EncounterDetail}"
+                                  MaxWidth="250"
+                                  TextWrapping="Wrap"
+                                />
+                              </ToolTipService.ToolTip> -->
+                            </iLabel>
+                          </DataTemplate>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column
+                        field="Dispensinginstruction"
+                        [title]="Dispensinginstruction.DispensingInstruction_Header"
+                        [resizable]="false"
+                        [filterable]="false"
+                        [editable]="false"
+                        [width]="260"
+                      >
+                        <ng-template
+                          kendoGridCellTemplate
+                          let-dataItem
+                          let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex"
+                        >
+                          <DataTemplate
+                            #tempGrdDispensinghistory
+                            [dataItem]="dataItem"
+                            [index]="rowIndex"
+                            [colindex]="columnIndex"
+                            [gridHelper]="grdDispensinghistory"
+                          >
+                            <iLabel
+                              #lblDispensinginstructionTempRef
+                              Name="lblDispensinginstruction"
+                              IsWordwrap="True"
+                              [Text]="dataItem.DispensinginstructionsName"
+                              [ToolTip]="dataItem.DispensinginstructionsName"
+                            >
+                              <!-- pending -->
+                              <!-- <ToolTipService.ToolTip>
+                                <TextBlock
+                                  [Text]="dataItem.DispensinginstructionsName"
+                                  MaxWidth="260"
+                                  TextWrapping="Wrap"
+                                />
+                              </ToolTipService.ToolTip> -->
+                            </iLabel>
+                          </DataTemplate>
+                        </ng-template>
+                      </kendo-grid-column>
+                      <kendo-grid-column
+                        field="Comments"
+                        [title]="Dispensinginstruction.Comments_Header"
+                        [filterable]="false"
+                        [resizable]="false"
+                        [editable]="false"
+                        [width]="179"
+                      >
+                        <ng-template
+                          kendoGridCellTemplate
+                          let-dataItem
+                          let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex"
+                        >
+                          <DataTemplate
+                            #tempGrdDispensinghistory
+                            [dataItem]="dataItem"
+                            [index]="rowIndex"
+                            [colindex]="columnIndex"
+                            [gridHelper]="grdDispensinghistory"
+                          >
+                            <iLabel
+                              #lblCommentsTempRef
+                              Name="lblComments"
+                              IsWordwrap="True"
+                              [Text]="dataItem.Additionalcomments"
+                              [Tooltip]="dataItem.Additionalcomments"
+                            >
+                              <!-- pending -->
+                              <!-- <ToolTipService.ToolTip>
+                                <TextBlock
+                                  [Text]="dataItem.Additionalcomments"
+                                  MaxWidth="170"
+                                  TextWrapping="Wrap"
+                                />
+                              </ToolTipService.ToolTip> -->
+                            </iLabel>
+                          </DataTemplate>
+                        </ng-template>
+                      </kendo-grid-column>
+                    </kendo-grid>
+                  </div>
+                </kendo-gridlayout-item>
+              </kendo-gridlayout>
+            </div>
+          </fieldset>
+          <!-- <Border
+            Name="brdDispensinghistory"
+            [iStyle]="Styles.BorderFrame"
+            BorderThickness="1"
+            CornerRadius="2"
+            Margin="10,10,10,5"
+          > -->
+
+          <!-- </Border> -->
+        </StackPanel>
+      </div>
+    </kendo-gridlayout-item>
+  </kendo-gridlayout>
+</div>

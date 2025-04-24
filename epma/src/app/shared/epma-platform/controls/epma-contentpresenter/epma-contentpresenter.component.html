@@ -1,0 +1,48 @@
+<ng-container *ngIf="Content?.constructor?.name == 'iLabel'">
+  <iLabel
+    [Text]="Content?.Text"
+    [style]="Content?.style"
+    [iLabelInLineElements]="Content?.iLabelInLineElements"
+    [Tooltip]="Content?.Tooltip"
+  ></iLabel>
+</ng-container>
+
+<ng-container *ngIf="Content?.constructor?.name == 'TextBlock'">
+  <TextBlock
+    [Text]="Content?.Text"
+    [style]="Content?.style"
+    [InlinesElements]="Content?.InlinesElements"
+    [Tooltip]="Content?.Tooltip"
+	  [classObj]="Content.classObj"
+  ></TextBlock>
+</ng-container>
+<ng-container *ngIf="Content?.constructor?.name == 'StackPanel'">
+  <StackPanel
+    [Visibility]="Content?.Visibility"
+    [VerticalAlignment]="Content?.VerticalAlignment"
+    [HorizontalAlignment]="Content?.HorizontalAlignment"
+    [ChildrenElementArray]="Content?.ChildrenElementArray"
+    [Width]="Content?.Width"
+  >
+  </StackPanel>
+</ng-container>
+<ng-container *ngIf="Content?.constructor?.name == 'WrapPanel'">
+  <WrapPanel
+     [ChildrenElementArray]="Content?.ChildrenElementArray"
+     [baseStyle]="Content?.baseStyle"
+  >
+  </WrapPanel>
+</ng-container>
+<ng-container *ngIf="Content?.constructor?.name == 'Image'">
+  <Image [Source]="Content?.Source" [Tooltip]="Content?.Tooltip"></Image>
+</ng-container>
+<ng-container *ngIf="Content?.constructor?.name == 'Grid'">
+  <Grid [style]="Content?.style" [Tooltip]="Content?.Tooltip" [ChildrenArr]="Content?.ChildrenArr"  [RowDefinitionsArr]="Content?.RowDefinitionsArr" [ColumnDefinitionsArr]="Content?.ColumnDefinitionsArr" [ColWidth]="Content?.ColWidth" [RowHeight]="Content?.RowHeight"></Grid>
+</ng-container>
+<ng-container *ngIf="Content?.constructor?.name == 'RichTextBox'">
+  <RichTextBox [paraArr]="Content?.paraArr" [style]="Content?.style" [Tooltip]="Content?.Tooltip"></RichTextBox>
+</ng-container>
+<ng-container *ngIf="Content && hasString">
+  {{Content}}
+</ng-container>
+

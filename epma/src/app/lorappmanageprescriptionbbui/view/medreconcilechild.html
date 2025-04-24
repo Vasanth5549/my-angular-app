@@ -1,0 +1,162 @@
+<kendo-gridlayout Name="LayoutRoot" Margin="2" Background="{StaticResource LzoPageBG}" HorizontalAlignment="Stretch"
+    VerticalAlignment="Stretch" [rows]="[{ height: 240},{ height: 50}]" [cols]="[{ width: 'auto'}]">
+
+    <kendo-gridlayout-item [row]="1" [col]="1">
+        <kendo-grid #grdDataTempRef Name="grdData" class="gridheight"  [height] = "240"  [data]="grdData.ItemsSource.array"
+            [selectable]="{checkboxOnly: true, mode: 'multiple'}" (cellClick)="grdData.cellClick($event)"
+            (selectionChange)="grdData.GridSelectionChange($event)" kendoGridSelectBy
+            [(selectedKeys)]="grdData.selectedRowsIndex" Margin="10"  [filterable]="false" [sortable]="false" [rowClass]="rowCallback"
+            VerticalAlignment="Stretch" (contentScroll)="ContentScrollEvent($event)">
+            <kendo-grid-column *ngIf="grdData.RowIndicatorVisibility == 0 ? true : false" UniqueName="rowindicator"
+                field="rowindicator" title="" Width="40">
+                <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+                    <Image alt="" [style.marginLeft.px]="10" [style.marginRight.px]="10"
+                        *ngIf="grdData.selectedRowsIndex.length > 0 ? grdData.selectedRowsIndex == rowIndex : false"
+                        Source="~/../assets/Images/iarrownor5x10.png">
+                    </Image>
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-checkbox-column class="chkboxcolumn" [style]="{ 'text-align': 'center' }" field="CheckBoxColumn"
+                [width]="30" [showSelectAll]="true">
+                <ng-template kendoGridHeaderTemplate let-dataItem>
+                    <iCheckBox class="CheckBoxAlign" #chkGridHeaderSelectionRef Name="chkGridSelections" [OnChange]="GridHeaderCheckboxChange_Func"
+                    Tooltip="Select all rows"> </iCheckBox>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem let-idx="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate #temp [dataItem]="dataItem" [index]="idx" [colindex]="columnIndex"
+                        [gridHelper]="grdData" (RowLoaded)="rowLoaded($event)">
+                        <iCheckBox  *ngIf="!dataItem.IsGroupHeader"
+                        Tooltip="Select the row"
+                            [kendoGridSelectionCheckbox]="idx" #chkGridSelectionRef Name="chkGridSelection" [OnChange]="GridRowCheckboxChange_Func">
+                        </iCheckBox>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-checkbox-column>
+
+
+            <kendo-grid-column field="PrescriptionItem" UniqueName="PrescriptionItem" [filterable]="false"
+                [editable]="false" [resizable]="false" [width]="200">
+                <ng-template kendoGridHeaderTemplate>
+                    <span kendoTooltip title="{{recon.PrescriptionItem_Header }}">
+                        {{recon.PrescriptionItem_Header }}
+                    </span>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                        [gridHelper]="grdData">
+                        <div *ngIf="dataItem.IsGroupHeader">
+                            {{dataItem.GroupHeaderName}}
+                        </div>
+                        <ContentPresenter [Content]="dataItem | MedLineDisplay : '' : 200 ">
+                        </ContentPresenter>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column field="Reason" UniqueName="Reason" [filterable]="false" [editable]="false" [width]="170"
+                [resizable]="false">
+                <ng-template kendoGridHeaderTemplate>
+                    <span kendoTooltip title="{{recon.Reason_Header }}">
+                        {{recon.Reason_Header }}
+                    </span>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                        [gridHelper]="grdData">
+                        <div (click)="checkboxTrigger(rowIndex)">
+                        <GridCellTemplate [isEditable]="true" [columnNumber]="0" [cell]="'cell0'" [dataItem]="dataItem">
+                            <!--[EditableControlRef]="cboReasonTempRef" // removed - refer changeset 20381 for issueid 50576-->
+                            <StackPanel Name="ReasonMandatory" Orientation="Horizontal">
+                                <iLabel #lblReasonTempRef HorizontalAlignment="Stretch" class="ReasonWrap"
+                                    *ngIf="dataItem.FormViewerDetails.BasicDetails.ReasonforModification else noreason"
+                                    [(Mandatory)]="dataItem.FormViewerDetails.BasicDetails.ReasonMandatory"
+                                    Name="lblReason" basicTooltip="True" [Tooltip]="recon.cboReason_Tooltip" VerticalAlignment="Center"
+                                    [(Text)]="dataItem.FormViewerDetails.BasicDetails.ReasonforModification.DisplayText"
+                                    TextDecorations="Underline"
+                                    [FontSize]="dataItem.FormViewerDetails.BasicDetails.ReasonFontSize"
+                                    [FontWeight]="dataItem.FormViewerDetails.BasicDetails.ReasonFontWeight" (click)="onLastItemClicked(rowIndex)">
+                                </iLabel>
+                                <ng-template #noreason>
+                                    <iLabel #lblReasonTempRef HorizontalAlignment="Stretch"
+                                        [(Mandatory)]="dataItem.FormViewerDetails.BasicDetails.ReasonMandatory"
+                                        Name="lblReason" [Tooltip]="recon.cboReason_Tooltip"
+                                        VerticalAlignment="Center" TextDecorations="Underline"
+                                        Text = "Select Reason"
+                                        [FontSize]="dataItem.FormViewerDetails.BasicDetails.ReasonFontSize"
+                                        [FontWeight]="dataItem.FormViewerDetails.BasicDetails.ReasonFontWeight" (click)="onLastItemClicked(rowIndex)">
+                                    </iLabel>
+                                </ng-template>
+                                <!-- [Tooltip]="DataContext.cboReason_Tooltip | recon" -->
+                                <iLabel #lblReasonstarTempRef Name="lblReasonstar" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    [(Mandatory)]="dataItem.FormViewerDetails.BasicDetails.ReasonMandatory"
+                                    [Tooltip]="recon.cboReason_Tooltip" Text="*"
+                                    [FontSize]="dataItem.FormViewerDetails.BasicDetails.ReasonFontSize"
+                                    [FontWeight]="dataItem.FormViewerDetails.BasicDetails.ReasonFontWeight"
+                                    [(Visibility)]="dataItem.FormViewerDetails.BasicDetails.IsMandatoryStarVisible"
+                                    [Tooltip]="recon.cboReason_Tooltip"></iLabel>
+                                <!-- [Tooltip]="DataContext.cboReason_Tooltip | recon" -->
+                            </StackPanel>
+                        </GridCellTemplate>
+                        <GridCellEditTemplate *ngIf="dataItem['cell0']" [cell]="'cell0'" [dataItem]="dataItem">
+                            <iComboBox #cboReasonTempRef HorizontalAlignment="Stretch" Name="cboReason"
+                                VerticalAlignment="Center" [DataContext]="dataItem" [ItemsSource]="dataItem.ReconcileReason"
+                                [(SelectedValue)]="dataItem.FormViewerDetails.BasicDetails.ReasonforModification"
+                                Width="auto" IsDropDownOpen="True" IsEditable="false" ColumnCellIndex="cell0"
+                                (blur)="dataItem['cell0'] = false" [FocusToggle]="'True'" (kendoComboInstance)="getCombo($event)"></iComboBox>
+                        </GridCellEditTemplate>
+                    </div>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column UniqueName="Comments" [title]="recon.Comments_Header" [GridColumnProperties]="grdData"
+                TextWrapping="Wrap" [width]="90" [resizable]="false">
+                <ng-template kendoGridHeaderTemplate>
+                    <span kendoTooltip title="{{recon.Comments_Header }}">
+                        {{recon.Comments_Header }}
+                    </span>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                        [gridHelper]="grdData">
+                        <iLabel #ReconcileCommentsTextTempRef class="commentsStyle" Name="ReconcileCommentsText"
+                            [Text]="dataItem.ReconcileCommentsText" [Tooltip]="dataItem.ReconcileCommentsText == 'Enter Comments' ? 'Enter Comments' : ''"
+                            HorizontalAlignment="Stretch" Background="Transparent" Foreground="#73A9D8"
+                            VerticalAlignment="Stretch" IsWordwrap="True" width="auto" height="auto"></iLabel>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column Name="PrescriptionItemID" field="PrescriptionItemID" [GridColumnProperties]="grdData"
+                TextWrapping="Wrap" [hidden]="true">
+            </kendo-grid-column>
+            <kendo-grid-column Name="UniqueRowID" field="UniqueRowID" [GridColumnProperties]="grdData"
+                TextWrapping="Wrap" [hidden]="true">
+            </kendo-grid-column>
+            <kendo-grid-column [hidden]="true" Name="Mode" field="Mode" [GridColumnProperties]="grdData"
+                TextWrapping="Wrap">
+            </kendo-grid-column>
+            <kendo-grid-column Name="Reconciletype" field="Reconciletype" [GridColumnProperties]="grdData"
+                TextWrapping="Wrap" [hidden]="true">
+            </kendo-grid-column>
+            <kendo-grid-column Name="ReconcileComments" field="ReconcileComments" [GridColumnProperties]="grdData"
+                TextWrapping="Wrap" [hidden]="true">
+            </kendo-grid-column>
+        </kendo-grid>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]='2' [col]="1">
+        <kendo-gridlayout [rows]="[{ height:'auto'}]" [cols]="[{ width: 'auto'}]">
+            <kendo-gridlayout-item [row]='1' [col]="1">
+                <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Right" Margin="0,11,0,4" height="30">
+                    <iLabel Text="*" Height="25" VerticalAlignment="Center" Margin="10,5,0,0" TextAlignment="Center"
+                        FontSize="16" FontWeight="ExtraBold" FontStretch="Normal" Foreground="Blue"></iLabel>
+                    <iLabel class="Mandatoryfieldalignment" Text="Mandatory fields" Height="25"
+                        VerticalAlignment="Center" Margin="2,5,7,0" TextAlignment="Center"></iLabel>
+                </StackPanel>
+            </kendo-gridlayout-item>
+        </kendo-gridlayout>
+    </kendo-gridlayout-item>
+</kendo-gridlayout>

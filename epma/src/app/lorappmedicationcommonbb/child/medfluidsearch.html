@@ -1,0 +1,71 @@
+<div>
+  <kendo-gridlayout #LayoutRootTempRef Name="LayoutRoot" Height="auto" Width="auto" [Background]="Styles.LzoPageBG" class="MedFuildSearchLayout"
+    Margin="0,10,0,0" [rows]="[{height:'31'},{height:'5'},{height:'31'},{height:'fr'}]"
+    [cols]="[{width:'110'},{width:'2fr'},{width:'2fr'}]" style="width: 620px;">
+    
+    <Border [col]="2" [row]="1" [colSpan]="3" [Background]="Styles.InnerBG"></Border>
+    <Border [col]="1" [row]="2" [colSpan]="4" [iStyle]="Styles.whiteBorder"></Border>
+
+    <kendo-gridlayout-item [row]='1' [col]='1' style="padding-top: 10px;">
+      <iLabel #lblSearchTempRef HorizontalAlignment="Left" Name="lblSearch" SLAccessKeyProperties.AccessKey="R"
+        VerticalAlignment="Center" Width="auto" [Mandatory]="false" [Text]="objResMedearch?.lblSearch_Text"
+        Margin="5,0,0,0"></iLabel>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]='1' [col]='2'[colSpan]='2' style="padding: 5px; padding-left: 1px;">
+          <iTextBox #txtSearchTempRef HorizontalAlignment="Stretch" Margin="5,2,2,2"
+            Name="txtSearch" VerticalAlignment="Center" Width="auto" TabIndex="2" Height="22" (keyup)="KeyUpEvent($event)" [Tooltip]="objResMedearch?.txtSearch_Tooltip"></iTextBox>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]='1' [col]='4' style="padding-top: 8px;">
+      <kendo-gridlayout [rows]="[{height:'auto'}]" [cols]="[{width:'21'}]">
+        <kendo-gridlayout-item [row]='1' [col]='1'>
+            <iButton #cmdClearTempRef Name="cmdClear" Text="" HorizontalAlignment="Left"
+              [Tooltip]="objResMedearch?.cmdClear_ToolTip" IsBackgroundVisible="True" [Click]="cmdClear_Click_Func"
+              ImageSource="~/../assets/Images/iClearNOR24.png" DisabledImageSource="~/../assets/Images/iClearDIS24.png"
+              ActiveImageSource="~/../assets/Images/iClearHOT24.png" TabIndex="3" Height="21" Margin="10,0,0,0" ImageHeight="17">
+            </iButton>
+            <iButton #cmdSearchCatTempRef HorizontalAlignment="Left" 
+              VerticalAlignment="Center" Margin="28,0,0,0" Name="cmdSearchCat" Foreground="Black"
+              [Tooltip]="objResMedearch?.cmdSearchCat_Text" Width="200px"
+              [Text]="objResMedearch?.cmdSearchCat_Text" Height="21" [Click]="cmdSearchCat_Click_Func" TabIndex="4">
+                </iButton>
+            </kendo-gridlayout-item>
+      </kendo-gridlayout>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]='2' [col]='4' style="padding: 7px;">
+      <div #spSearchOptionTempRef Name="spSearchOption" Orientation="Horizontal" VerticalAlignment="Center"
+          HorizontalAlignment="Left" Margin="5,0,0,0">
+
+          <iRadioButton kendoTooltip #optBeginsWithTempRef SLAccessKeyProperties.AccessKey="B"
+            [Text]="objResMedearch?.optBeginsWith_Text"
+            [Tooltip]="objResMedearch?.optBeginsWith_Text" Height="21" HorizontalAlignment="Left"
+            Name="optBeginsWith" VerticalAlignment="Center" GroupName="SerchType" [IsChecked]="optBeginsWith?.IsChecked" MinWidth="80"
+            Width="auto" Margin="5,2,2,0" [Click]="optBeginsWith_Click_Func" TabIndex="5">
+          </iRadioButton>
+
+          <iRadioButton kendoTooltip #optAnyWordTempRef SLAccessKeyProperties.AccessKey="W"
+            [Text]="objResMedearch?.optAnyWord_Text" [Tooltip]="objResMedearch?.optAnyWord_Text"
+            Height="16" HorizontalAlignment="Right" Name="optAnyWord" VerticalAlignment="Center" GroupName="SerchType"
+            MinWidth="80" Width="auto" Margin="10,2,2,0" [Click]="optAnyWord_Click_Func" TabIndex="6">
+          </iRadioButton>
+      </div>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [col]='1' [row]='3' [colSpan]='4'>
+        <iLabel #lblQLinkNameTempRef HorizontalAlignment="Stretch" Name="lblQLinkName" VerticalAlignment="Top"
+          [Mandatory]="false" Text="" FontWeight="Bold">
+        </iLabel>
+    </kendo-gridlayout-item>
+    
+    <kendo-gridlayout-item [col]='1' [row]='3' [colSpan]='4' [rowSpan]='2'[class.power-search-list]="ladSearch1?.Visibility"
+      [class.display-none]="!ladSearch1?.Visibility">
+        <iSOFT:iPowerSearch #ladSearch1TempRef Name="ladSearch1" Caption="Search results" class="fluidsearch"
+          [LineItemCollection]="objFluidsearch?.LstFluidLineItem" Margin="10,10,10,5"
+          [StyleItemCollection]="objFluidsearch?.LstFluidStyleItem" TabIndex="7">
+        </iSOFT:iPowerSearch>
+    </kendo-gridlayout-item>
+
+  </kendo-gridlayout>
+</div>

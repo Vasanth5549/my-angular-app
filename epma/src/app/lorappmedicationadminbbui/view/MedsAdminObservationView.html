@@ -1,0 +1,315 @@
+<div name="LayoutRoot" class="div-dialog-content" style="width:99.5%">
+    <kendo-gridlayout [cols]="[{ width: layoutMarginWidth },{ width: 'auto' },{ width: layoutMarginWidth }]" [rows]="[{height: '100%'}]">
+        <kendo-gridlayout-item [row]="1" [col]="1">
+            <!-- THe empty column to maintain the layout-->
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]="1" [col]="2">
+            <kendo-gridlayout [rows]="[{ height: 'auto' }, { height: kchart_ObsChartHeight + kchart_AdmChartHeight +25 },{ height: 'auto' } ,{ height: 'auto' }]">
+                <kendo-gridlayout-item [row]="1" [col]="1">
+                    <kendo-gridlayout class="grid-layout-container" style="margin-left:1%;" [gap]="{cols: 5 }"  [cols]="[{ width: 300 },{ width: 'auto' },{ width: 'auto' },{ width: 'auto' },{ width: 'auto' },{ width: 'auto' },{ width: 'auto' },{ width: 'auto' },{ width: 'auto' },{ width: 'auto' },{ width: 'auto' },{ width: 'auto' },{ width: 300 }]">
+                        <kendo-gridlayout-item [row]="1" [col]="1">
+                            <!-- THe empty column to maintain the layout-->
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="1" [col]="2">
+                            <div containerStyle class="div-bg-whiteborder" id="divchkShowDataPoints" style="opacity: 0.5">
+                                <iCheckBox #chkShowDataPointsTempRef Name="chkShowDataPoints" HorizontalAlignment="Left" Width="auto"
+                                    Margin="3,5,5,5" IsChecked="false"
+                                    Text="Show data label"
+                                    Height="21" IsEnabled="false"
+                                    >
+                                </iCheckBox>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="1" [col]="3">
+                            <div containerStyle class="div-bg-whiteborder" id="divchkGridLines">
+                                <iCheckBox #chkGridLinesTempRef Name="chkGridLines" HorizontalAlignment="Left" Width="auto"
+                                    Margin="3,5,5,5" [(IsChecked)]="observationVM.ShowGridLine"
+                                    Text="Gridlines"
+                                    [Tooltip]="resKey.GridLines_Tooltip"
+                                    Height="21">
+                                </iCheckBox>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="1" [col]="4">
+                            <div containerStyle class="div-bg-whiteborder" id="divchkReferenceRange">
+                                <iCheckBox #chkReferenceRangeTempRef Name="chkReferenceRange" HorizontalAlignment="Left" Width="auto"
+                                    Margin="3,5,5,5" [(IsChecked)]="observationVM.ShowReferenceRange"
+                                    Text="Reference range"
+                                    [Tooltip]="resKey.ReferenceRange_Tooltip"
+                                    Height="21">
+                                </iCheckBox>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="1" [col]="5">
+                            <div containerStyle class="div-bg-whiteborder" id="divlblResNotGiven">
+                                <iLabel #lblResNotGivenTempRef Name="lblResNotGiven"
+                                    [Text]="resKey.lblPeriod_Text" >
+                                </iLabel>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="1" [col]="6">
+                            <div containerStyle class="div-bg-whiteborder" id="divchkReferenceRange" style="width:150px">
+                                <iComboBox #icboPeriodTempRef Name="icboPeriod" Width="auto"
+                                    HorizontalAlignment="Stretch" Margin="5"
+                                     Height="21"
+                                    [(ItemsSource)]="observationVM.PeriodCodes"
+                                    [(SelectedValue)]="observationVM.Period"
+                                    [Tooltip]="resKey.icboPeriod_Tooltip"
+                                    ControlTooltipClass="period-tooltip">
+                                </iComboBox>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="1" [col]="7">
+                            <div containerStyle class="div-bg-whiteborder" id="divchkReferenceRange">
+                                <iLabel #lblResNotGivenTempRef Name="lblPeriodFrom_Text"
+                                    [Text]="resKey.lblPeriodFrom_Text">
+                                </iLabel>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="1" [col]="8">
+                            <div containerStyle class="div-bg-whiteborder" id="divchkReferenceRange" [title]="resKey.idtpFromDate_Tooltip" style="width:140px" >
+                                <iDateTimePicker #idtpFromDateTempRef Width="50" Name="idtpFromDate"
+                                    EnableCultureSupport="False" DatePickerMode="DATEPICKER"
+                                    HorizontalAlignment="Stretch" Margin="5,5,5,5" Height="21"
+                                    DateTimeFormat="Custom" CustomFormat="dd-MMM-yyyy" 
+                                    [(SelectedDateTime)]="observationVM.FromDate"
+                                    [IsEnabled]="observationVM.IsRangeEnabled"
+                                    [Tooltip]="resKey.idtpFromDate_Tooltip"
+                                    >
+                                </iDateTimePicker>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="1" [col]="9">
+                            <div containerStyle class="div-bg-whiteborder" id="divchkReferenceRange">
+                                <iLabel #lblPeriodToTempRef Name="lblPeriodTo"
+                                    [Text]="resKey.lblPeriodTo_Text" >
+                                </iLabel>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="1" [col]="10">
+                            <div containerStyle class="div-bg-whiteborder" id="divchkReferenceRange" [title]="resKey.idtpToDate_Tooltip" style="width:140px">
+                                <iDateTimePicker #idtpToDateTempRef Width="auto" Name="idtpToDate"
+                                    EnableCultureSupport="False" DatePickerMode="DATEPICKER"
+                                    HorizontalAlignment="Stretch" Margin="5,5,5,5" Height="21"
+                                    [(SelectedDateTime)]="observationVM.ToDate"
+                                    DateTimeFormat="Custom" CustomFormat="dd-MMM-yyyy"
+                                    [IsEnabled]="observationVM.IsRangeEnabled"
+                                    [Tooltip]="resKey.idtpToDate_Tooltip"
+                                    >
+                                </iDateTimePicker>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="1" [col]="11">
+                            <div containerStyle class="div-bg-whiteborder" id="divchkReferenceRange">
+                                <iButton #icmdGOTempRef Name="icmdGO" HorizontalAlignment="Left" Margin="5,2,0,0"
+                                    TextDecorations="Underline" Cursor="Hand" Foreground="Blue"
+                                     Height="23"
+                                    DisabledImageSource="./assets/Images/iForwardDIS24.png" ActiveImageSource="../../../Images/iForwardHOT24.png"
+                                    ImageSource="./assets/Images/iForwardNOR24.png" ImageHeight="24" ImageWidth="24"
+                                    (Click_Func)="icmdGO_Click($event)"
+                                    [Tooltip]="resKey.icmdGO_Tooltip">
+                                </iButton>
+                                
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="1" [col]="12">
+                            <div containerStyle class="div-bg-whiteborder" id="diviMenuAction" [title]="resKey.iMenuAction_Tooltip">
+                                <kendo-menu  *ngIf="observationVM.kmenu_items && observationVM.kmenu_items.length>0" [items]="observationVM.kmenu_items">
+                                    <ng-template kendoMenuItemTemplate let-item="item">
+                                        <div style="width:100%"  (click)="iMenuItem_Click(item)"> {{item.text}}</div>
+                                        
+                                    </ng-template>
+                                </kendo-menu>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="1" [col]="13">
+                            <!-- THe empty column to maintain the layout-->
+                        </kendo-gridlayout-item>
+                    </kendo-gridlayout>
+                </kendo-gridlayout-item>
+                
+                <kendo-gridlayout-item [row]="2" [col]="1" class="kchart-table-align">
+                    <kendo-chart *ngIf="(observationVM.kchart_series_obs && observationVM.kchart_series_obs.length>0) || (observationVM.kchart_series_admin && observationVM.kchart_series_admin.data && observationVM.kchart_series_admin.data.length>0)" style="height:100%"
+                        (legendItemClick)="kchart_onLegendItemClick($event)"
+                        (seriesClick)="kchart_seriesClick($event)" 
+                        (seriesLeave)="kchart_seriesLeave($event)" 
+                        (seriesOver)="kchart_seriesOver($event)" 
+                        (plotAreaClick)="kchart_plotAreaClick($event)"
+                        (plotAreaHover)="kchart_plotAreaHover($event)"
+                        (plotAreaLeave)="kchart_plotAreaLeave($event)">
+        
+                        <kendo-chart-panes>
+                            <kendo-chart-pane *ngIf="observationVM.kchart_series_obs && observationVM.kchart_series_obs.length>0" name="top" [height]="kchart_ObsChartHeight" [clip]="false" [margin]="{bottom: 20, top: 20}" [title]="{text: 'OBSERVATIONS AND RESULTS', position: 'center', font: '16px', background: '#e0eff1'}">
+                            </kendo-chart-pane>
+                            <kendo-chart-pane *ngIf="observationVM.kchart_series_admin && observationVM.kchart_series_admin.data && observationVM.kchart_series_admin.data.length>0" name="bottom" [height]="kchart_AdmChartHeight" [clip]="false" [margin]="{top: 5, bottom: 20}" [title]="{text: 'DOSE ADMINISTERED', position: 'center', font: '16px', background: '#e0eff1'}">
+                            </kendo-chart-pane>
+                        </kendo-chart-panes>
+                        <kendo-chart-y-axis >
+                            <ng-container  *ngFor="let seriesItem of observationVM.kchart_series_obs">
+                                <kendo-chart-y-axis-item *ngIf="seriesItem.visible" [name]="seriesItem.yField" [title]="{ text: kchart_splitLongText(seriesItem.name,25), color: 'black', margin: { bottom: 5, top: 0, right: 2, left: 3}}" [minorTicks]="{visible: true}"
+                                [line]="{ width: 1 }" [color]="seriesItem.color" [minorGridLines]="{visible: observationVM.ShowGridLine}" [majorGridLines]="{visible: false}" [axisCrossingValue]="observationVM.kchart_max_axis_crossing"
+                                [min]="minValue(seriesItem, seriesItem.yField)" [max]="maxValue(seriesItem, seriesItem.yField)">
+                                </kendo-chart-y-axis-item>
+                            </ng-container>
+                            <kendo-chart-y-axis-item  *ngIf="observationVM.kchart_series_admin" name="admin" [title]="{ text: kchart_splitLongText(observationVM.kchart_series_admin.name,25), color: 'black', margin: {top: 5, right: 2, left: 3} }" [line]="{ width: 1 }"  [minorTicks]="{visible: true}"
+                            [color]="observationVM.kchart_series_admin.color" pane="bottom" [minorGridLines]="{visible: observationVM.ShowGridLine}" [majorGridLines]="{visible: false}" [axisCrossingValue]="observationVM.kchart_min_axis_crossing">
+                            </kendo-chart-y-axis-item>
+                        </kendo-chart-y-axis>
+                        <kendo-chart-x-axis>
+                            <kendo-chart-x-axis-item *ngIf="observationVM.kchart_series_obs && observationVM.kchart_series_obs.length>0"    [baseUnit]= "observationVM.kchart_xaxis.baseUnit" baseUnitStep="0.1" [minorGridLines]="{visible: observationVM.ShowGridLine}" [majorGridLines]="{visible: false}" [min]="observationVM.kchart_fromDate" [max]="observationVM.kchart_toDate"  [labels]="{dateFormats: {days: 'd-MMM', hours: 'HH:mm'}}" [majorTicks]="{visible: true}" [minorTicks]="{visible: true}" color="black">
+                            </kendo-chart-x-axis-item>
+                            <kendo-chart-x-axis-item *ngIf="observationVM.kchart_series_admin && observationVM.kchart_series_admin.data && observationVM.kchart_series_admin.data.length>0"  [baseUnit]= "observationVM.kchart_xaxis.baseUnit" baseUnitStep="0.1" pane="bottom" [minorGridLines]="{visible: observationVM.ShowGridLine}" [majorGridLines]="{visible: false}" [min]="observationVM.kchart_fromDate" [max]="observationVM.kchart_toDate" [labels]="{dateFormats: {days: 'd-MMM', hours: 'HH:mm'}}" [majorTicks]="{visible: true}" [minorTicks]="{visible: true}" color="black">
+                            </kendo-chart-x-axis-item>
+                            
+                        </kendo-chart-x-axis>
+                        <kendo-chart-series>
+                            <ng-container *ngIf="observationVM.kchart_series_obs && observationVM.kchart_series_obs.length>0">
+                                <kendo-chart-series-item *ngFor="let item of observationVM.kchart_series_obs" type="scatterLine" [name]="item.axis" [data]="item.data"
+                                    [xField]="item.xField" [yField]="item.yField"  [yAxis]="item.yField" [color]="item.color" [style]="lineStyle" [width]="3" >
+                                    <kendo-chart-series-item-tooltip background="white" [border]="{color: 'black', width: 2}" [visible]="false"> 
+                                        <ng-template let-value="value" let-category="category" let-dataItem="dataItem">
+                                            <!-- Series 1 value: {{ value }} ~~ {{ category }} -- {{ item.name }} == {{JSON.stringify(dataItem)}} -->
+                                            <ng-container *ngFor="let ttItem of dataItem.sTooltipText.split('#'); index as i">
+                                                <div *ngIf="i==0"><b>{{ttItem}}</b></div>
+                                                <div *ngIf="i!=0">{{ttItem}}</div>
+                                                
+                                            </ng-container>
+                                            <kendo-gridlayout *ngIf="dataItem.FormOID!=null">
+                                                <kendo-gridlayout-item [row]="1" [col]="1">
+                                                    <div href="#" class="hyperlinktxt" (click)="lnkModify_Click(dataItem)" *ngIf="dataItem.ModifyObserRights">Modify</div>
+                                                </kendo-gridlayout-item>
+                                                <!--  [align]="{ horizontal: 'end'}" -->
+                                                <kendo-gridlayout-item [row]="1" [col]="2" style="text-align: right;">
+                                                    <div class="hyperlinktxt" (click)="lnkCancel_Click(dataItem)" *ngIf="dataItem.CancelObserRights">Cancel</div>
+                                                </kendo-gridlayout-item>
+                                            </kendo-gridlayout>
+                                            
+                                        </ng-template>
+                                </kendo-chart-series-item-tooltip>
+                                
+                                </kendo-chart-series-item>
+                            </ng-container>
+                            <kendo-gridlayout [cols]="[{width: '100%'}]"  [rows]="[{height: kchart_ObsChartHeight}]" *ngIf="(!observationVM.kchart_series_obs || observationVM.kchart_series_obs.length<=0)">
+                                <kendo-gridlayout-item>
+                                    <div class="no-data-div">No observations and results to display</div>
+                                </kendo-gridlayout-item>
+                            </kendo-gridlayout>
+
+
+                            <kendo-chart-series-item  *ngIf="observationVM.kchart_series_admin && observationVM.kchart_series_admin.data && observationVM.kchart_series_admin.data.length>0" type="scatterLine" [name]="'Dose Administered'" [data]="observationVM.kchart_series_admin.data"
+                                [xField]="observationVM.kchart_series_admin.xField" [yField]="observationVM.kchart_series_admin.yField"  [yAxis]="observationVM.kchart_series_admin.yField" [color]="observationVM.kchart_series_admin.color" [style]="lineStyle" [width]="3" >
+                                <kendo-chart-series-item-tooltip background="white" [border]="{color: 'black', width: 2}" [visible]="false"> 
+                                    <ng-template let-value="value" let-category="category" let-dataItem="dataItem">
+                                        <!-- Series 1 value: {{ value }} ~~ {{ category }} -- {{ item.name }} == {{JSON.stringify(dataItem)}} -->
+                                        <ng-container *ngFor="let ttItem of dataItem.sTooltipText.split('#'); index as i">
+                                            <div *ngIf="i==0"><b>{{ttItem}}</b></div>
+                                            <div *ngIf="i!=0">{{ttItem}}</div>
+                                        </ng-container>
+                                    </ng-template>
+                              </kendo-chart-series-item-tooltip>
+                            </kendo-chart-series-item>
+                            <kendo-gridlayout [cols]="[{width: '100%'}]"  [rows]="[{height: kchart_AdmChartHeight}]" *ngIf=" (!observationVM.kchart_series_admin || !observationVM.kchart_series_admin.data || observationVM.kchart_series_admin.data.length<=0)">
+                                <kendo-gridlayout-item>
+                                    <div class="no-data-div">No administrations to display</div>
+                                </kendo-gridlayout-item>
+                            </kendo-gridlayout>
+                            <kendo-chart-legend position="right" [width]="75" [title]="{text: 'LEGEND', align:'left'}" ></kendo-chart-legend>
+                        </kendo-chart-series>
+                        
+                    </kendo-chart>
+                    <kendo-gridlayout [cols]="[{width: '100%'}]"  [rows]="[{height: kchart_ObsChartHeight},{height: kchart_AdmChartHeight}]" *ngIf="(!observationVM.kchart_series_obs || observationVM.kchart_series_obs.length<=0) && (!observationVM.kchart_series_admin || !observationVM.kchart_series_admin.data || observationVM.kchart_series_admin.data.length<=0)">
+                        <kendo-gridlayout-item>
+                            <div class="no-data-div">No observations and results to display</div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item>
+                            <div class="no-data-div">No administrations to display</div>
+                        </kendo-gridlayout-item>
+                    </kendo-gridlayout>
+
+                    
+                </kendo-gridlayout-item>
+               
+        
+                <kendo-gridlayout-item [row]="3" [col]="1">
+                    <kendo-gridlayout class="kchart-table-align">
+                        <kendo-gridlayout-item [col]="1">
+                            
+                            <kendo-grid #grdDataTempRef [kendoGridBinding]="observationVM.kgrid_data" style="max-height:180px;width: 100%;height:175px" (mouseover)="ObsResGrid.HoverEventHandler($event, 'ADD')"
+                            (mouseout)="ObsResGrid.HoverEventHandler($event, 'REMOVE')">
+                                <kendo-grid-column *ngFor="let column of observationVM.kgrid_columns" field="{{ column.field }}" title="{{ column.title }}" format="{{ column.format }}" [filter]="column.type" [width]="getkGridColWidth(column.field)" [locked]="iskGridColLocked(column.field)"
+                                [ngClass]="iskGridColLocked? '.k-gri-scroll' : '.k-grid-noscroll'"
+                                >
+                                    <ng-template kendoGridHeaderTemplate let-column let-columnIndex="columnIndex"> 
+                                        <ng-container *ngIf="column.field == 'StatusDetails'">
+                                            <div [title]="column.title"><img src="./assets/images/refrange.png"></div>
+                                        </ng-container>
+                                        <ng-container *ngIf="column.field != 'StatusDetails'">
+                                            <div [title]="column.title">{{ column.title }}</div>
+                                        </ng-container>
+                                    </ng-template>
+
+                                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" >
+                                        <ng-container *ngIf="dataItem[column.field] && dataItem[column.field].Value">
+                                            <div *ngIf="dataItem[column.field].sType == 'Admin'" [title]="dataItem[column.field].Value + ' '  + dataItem[column.field].sUOM">
+                                                {{ dataItem[column.field].Value + ' '  + dataItem[column.field].sUOM }} 
+                                            </div>
+                                            <ng-container  *ngIf="dataItem[column.field].sType == 'Observation'">
+                                                <div *ngIf="dataItem[column.field].sResultype == 'Numeric'" [title]="dataItem[column.field].Value">
+                                                    {{ dataItem[column.field].Value }} 
+                                                </div>
+                                                <div *ngIf="dataItem[column.field].sResultype != 'Numeric'" [title]="dataItem[column.field].Value">
+                                                    <span class="obsResLinkText" (click)="ibtnHypLinks_Click(dataItem[column.field])" [title]="resKey.ObservationTooltip">{{dataItem[column.field].sResultype}} </span>
+                                                </div>
+                                            </ng-container>
+                                            <ng-container  *ngIf="dataItem[column.field].sType == 'Result'">
+                                                <div (click)="ibtnHypLinks_Click(dataItem[column.field])" class="resLinkText">
+                                                    <kendo-gridlayout [cols]="[{width: 20}, {width: 'auto'}]" style="height:12px">
+                                                        <kendo-gridlayout-item [row]="1" [col]="1"><img src="./assets/images/comments.png" *ngIf="dataItem[column.field].sComments != null"  [title]="resKey.CommentsResultTooltip" ></kendo-gridlayout-item>
+                                                        <kendo-gridlayout-item [row]="1" [col]="2" [title]="dataItem[column.field].Value ">{{ dataItem[column.field].Value }} </kendo-gridlayout-item>
+                                                    </kendo-gridlayout>
+                                                </div>
+                                            </ng-container>
+                                            <ng-container  *ngIf="dataItem[column.field].sType == null || dataItem[column.field].sType == ''">
+                                                   <div [title]="dataItem[column.field].Value"> {{ dataItem[column.field].Value }}  </div> 
+                                            </ng-container>
+                                            
+                                            
+                                        </ng-container>
+                                      </ng-template>
+                                      
+                                </kendo-grid-column>
+                                <ng-template kendoGridNoRecordsTemplate>
+                                    <p>No records to show</p>
+                                  </ng-template>
+                            </kendo-grid>
+                        </kendo-gridlayout-item>
+            
+                    </kendo-gridlayout>
+
+                    
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [row]="4" [col]="1" class="chkDisplaycancelled">
+                    <kendo-gridlayout>
+                        <kendo-gridlayout-item [col]="1">
+                            <div containerStyle class="div-bg-whiteborder" id="divchkDisplaycancelledvalues" style="float:right;margin:2px" [title]="resKey.Canceldisplay_Tooltip">
+                            <iCheckBox #DisplaycancelledvaluesTempRef Name="chkDisplaycancelledvalues" HorizontalAlignment="Left" Width="auto" 
+                                Margin="3,5,5,5" [(IsChecked)]="observationVM.Displaycancelledvalue"
+                                Text="Display cancelled values"
+                                [Tooltip]="resKey.Canceldisplay_Tooltip"
+                                Height="21">
+                            </iCheckBox>
+                            </div>
+                        </kendo-gridlayout-item>
+            
+                    </kendo-gridlayout>
+
+                    
+                </kendo-gridlayout-item>
+        
+            </kendo-gridlayout>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]="1" [col]="3">
+            <!-- THe empty column to maintain the layout-->
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

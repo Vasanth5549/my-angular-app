@@ -1,0 +1,17 @@
+::ng-deep #discharge .k-grid .k-grid-content td {
+  white-space: normal !important;
+}
+.Otherinfotext{
+  white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.lblEncounter-style
+{
+  max-width: 50px;
+  margin-bottom: 8px;
+&  kendo-label{
+    white-space: nowrap !important;
+  
+  }
+}

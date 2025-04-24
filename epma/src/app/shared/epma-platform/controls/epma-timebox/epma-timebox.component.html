@@ -1,0 +1,11 @@
+
+<div class="timebox-container" (focusout)="IsAmbiguousTime==true?onblur():false">
+    <kendo-timepicker #btnFocus (blur)="IsAmbiguousTime?false:onblur()" (close)="IsAmbiguousTime?false:onblur()"   [ngStyle]="style" [ngClass]="controlclass" [title]="ToolTip" [format]="iTimeformat"
+        [disabled]="!IsEnabled" [readonly]="IsEditable" [value]="ValueDate" [size]="size"
+        (focusout)="FocusOutEvent($event)" (valueChange)="onChange($event)" [min]="MinTime" [max]="MaxTime"
+        placeholder="" (click)="toggleDSTCHeckboxclick()"></kendo-timepicker>
+    <ng-container *ngIf="(EnableDST == 'True' || EnableDST == 'true' || EnableDST == true) && IsAmbiguousTime">
+        <iCheckBox Name="DSTCheckBox" Text="DST" EllipsisStyle="true" value="coding" [IsChecked]="IsCheckedDST" [ngStyle]="DstStyle"
+            (Click_Func)="DstCheckBox_Click($event)"></iCheckBox>
+    </ng-container>
+</div>

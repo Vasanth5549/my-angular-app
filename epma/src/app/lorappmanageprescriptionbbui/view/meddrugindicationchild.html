@@ -1,0 +1,42 @@
+<div name="LayoutRoot" Background="{StaticResource LzoPageBG}">
+    <kendo-gridlayout [rows]="[ {height:'auto'}, {height:'auto'}, {height:'auto'}, { height:'auto'}, { height:60}]" [cols]="[{ width: '1fr' }]">
+        <Border [row]='2' [col]='1' [Background]="Styles.InnerBG" Margin="10,0,10,0"></Border>
+        <Border [row]='4' [col]='1' [Background]="Styles.InnerBG" Margin="10,0,10,0"></Border>
+        <kendo-gridlayout-item [row]='1' [col]='1'>
+            <div containerStyle style="padding-bottom:6px">
+                <iLabel #lblPatientProblemsTempRef Name="lblPatientProblems"
+                    [Text]="mldetails.lblPatientProblems_Text" Margin="0,10,0,5"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Mandatory="False" FontWeight="Bold">
+                </iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='2' [col]="1">
+            <div containerStyle>
+                <iCheckedListBox #lstPatientProblemsTempRef Name="lstPatientProblems" IsWordWrap="True" TabIndex="1"
+                    Margin="5,5,5,5" HorizontalAlignment="Left" VerticalAlignment="Top" Height="85" Width="533">
+                </iCheckedListBox>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='3' [col]='1'>
+            <div containerStyle style="padding-top:9px;padding-bottom:6px;">
+                <iLabel #lblAssocIndicationsTempRef Name="lblAssocIndications"
+                    [Text]="mldetails.lblAssocIndications_Text" Margin="0,10,0,5"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Top" Mandatory="False" FontWeight="Bold"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='4' [col]="1">
+            <div containerStyle>
+                <iCheckedListBox #lstAssocIndicationsTempRef Name="lstAssocIndications" IsWordWrap="True" TabIndex="2"
+                    Margin="5,5,5,5" HorizontalAlignment="Left" VerticalAlignment="Top" Height="125" Width="533" >
+                </iCheckedListBox>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='5' [col]="1">
+            <div containerStyle>
+                <iTerminologyBrowser #trmBrowserTempRef Name="trmBrowser" HorizontalAlignment="Left" Width="270"
+                    VerticalAlignment="Top" [ItemsSource]="ItemsSource" Height="50" Margin="0,11,5,5" (input)="KeyUpEvent($event)">
+                </iTerminologyBrowser>
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

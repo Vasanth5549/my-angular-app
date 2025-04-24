@@ -1,0 +1,62 @@
+<div Name="LayoutRoot">
+    <kendo-gridlayout #LayoutRootTempRef  GridLayout  [Background]="Styles.InnerBG" [rows]="[{ height: 'auto' },{ height: 'auto' }]" [cols]="[{ width: '0.5fr' }]">
+        <Border [Background]="Styles.InnerBG" Margin="0,0,5,0" [row]="1" [col]='2' [rowSpan]='2'></Border>
+        <Border [iStyle]="Styles.whiteBorder" Margin="0,2,2,8" [row]='1' [col]='1' [colSpan]='2'></Border>
+        <Border [iStyle]="Styles.whiteBorder" Margin="0,1,5,5" [row]='2' [col]='1' [colSpan]='2'></Border>
+        <kendo-gridlayout-item [row]='1' [col]="1">
+            <div containerStyle >
+                <iLabel [Text]="prescribedrug.lblReviewAfter_Text" HorizontalAlignment="Stretch"  VerticalAlignment="Center" 
+                    [Mandatory]="DataContext.IsReviewMandatory" IsWordwrap="True"  Width="115"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item [row]="1" [col]='2'>
+            <div containerStyle>
+                <kendo-gridlayout GridLayout  HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Width="Auto"
+                [rows]="[{height:30}]"
+                [cols]="[{width: '1.4fr'},{width: '2.3fr'},{width: '3fr'}]">
+                    <kendo-gridlayout-item [row]="1" [col]='1'>
+                        <div containerStyle>
+                            <iUpDownBox #udReviewafterTempRef Height="22" Maximum="99" Minimum="1" Increment="1"
+                            IsDecimal="False" Precision ="0" DecimalPlaces="#" Name="udReviewafter" [(Value)]="DataContext.ReviewAfter" Width="auto"
+                                Margin="5,6,6,8" [Tooltip]="prescribedrug.lblReviewAfter_ToolTip">
+                            </iUpDownBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="1" [col]='2'>
+                        <div containerStyle>
+                            <iComboBox #cboreviewAfterUOMTempRef IsEditable="True" Margin="0,6,6,8"
+                                [Tooltip]="prescribedrug.lblReviewAfterUOM_ToolTip"
+                                [(ItemsSource)]="DataContext.ReviewAfterUOMList"
+                                [(SelectedValue)]="DataContext.ReviewafterUOM" IsTypeAHead="True"
+                                HorizontalAlignment="Stretch" Name="cboreviewAfterUOM" VerticalAlignment="Center"
+                                Width="auto" Height="22"></iComboBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="1" [col]='3'>
+                        <div containerStyle style="margin-left: 10px;">
+                            <iLabel [(Text)]="DataContext.ReviewAfterDateTime" Width="auto"
+                                [(Tooltip)]="DataContext.ReviewAfterDateTime"  Height="30" Width="100"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+
+
+        <kendo-gridlayout-item [row]='2' [col]="1">
+            <div containerStyle>
+                <iLabel [Text]="prescribedrug.lblReviewRequestComments_Text"  HorizontalAlignment="Stretch"  VerticalAlignment="Center"
+                    IsWordwrap="True"  Height="30" Width="85"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='2' [col]='2'>
+            <div containerStyle>
+                <iTextBox Height="80" Width="300" MaxLength="255"  Margin="5,5,10,5" TextRows="5"
+                    [Tooltip]="prescribedrug.lblReviewRequestComments_ToolTip"
+                    [(Text)]="DataContext.Reviewcomments" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
+                    AcceptsReturn="True"></iTextBox>
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

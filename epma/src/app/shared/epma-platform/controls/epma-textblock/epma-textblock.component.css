@@ -1,0 +1,13 @@
+/* Code has been comment - Siva Suggest to Remove */
+/* span{
+   
+    cursor: pointer;
+    
+} */
+.Inline-Block{
+    display: inline-block !important;
+}
+
+::ng-deep .newTxtBlockLineClass *{
+    white-space: pre-line;
+  }

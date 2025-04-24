@@ -1,0 +1,193 @@
+
+
+    <kendo-gridlayout CommonGridLayout [Background]="LzoPageBG" Width="390"
+        [rows]="[{ height : '10'}, { height : '30'},{ height : '20'},{ height : '80'},{ height : '120'}]">
+
+        <kendo-gridlayout-item [row]='2' [col]='0'>
+            <div containerStyle [style.margin-top.px]="8">
+
+                            <kendo-gridlayout
+                                [cols]="[ { width: '100'},{ width: '200'},{ width: '10'},{ width: '130'}]">
+                                <!-- <kendo-gridlayout-item [col]='2' [colSpan]='4'> -->
+                                  
+                                        <Border [col]="2" [style.margin-right.px]="5"  [colSpan]="3" [row]='1' [Background]="InnerBG" [Height]="33" Margin="0,0,55,0"></Border>
+                                   
+                                <!-- </kendo-gridlayout-item> -->
+
+                                <kendo-gridlayout-item [col]='1' [row]='0'>
+                                    <div containerStyle>
+                                        <iLabel #lblReviewOmitFromTempRef Name="lblReviewOmitFrom"  Mandatory="true" Margin="15,0,30,0" [Text]="objOmitSlots.lblOmitFrom_Text"
+                                           Width="80"></iLabel>   
+                                    </div>
+                                    <!-- [Text]="DataContext.objOmitSlots" -->
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [col]='2'  [row]='1'>
+                                    <div containerStyle [style.margin-left.px]="2">
+                                        <iDateTimePicker #dpOmitFromTempRef Name="dpOmitFrom" 
+                                            Margin="0,0,35,0" EnableCultureSupport="False" Width="155"  
+                                            DatePickerMode="DATEPICKER" DateTimeFormat="Custom" CustomFormat="dd-MMM-yyyy" TabIndex="5"
+                                            HorizontalAlignment="Center"    [(SelectedDateTime)]="iOmitSlotsVM.OmitFromDate"></iDateTimePicker>
+                                            <!-- [Tooltip]="DataContext.objOmitSlots"
+                                            [(SelectedDateTime)]="DataContext.OmitFromDate" -->
+                                    </div>
+                               
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [col]='4'  [row]='1'>
+                                    <div containerStyle>
+                                        <iTimeBox #iOFReviewTimeTempRef EnableDST="True" Margin="0,0,8,0" Width="80" IsEditable="True"
+                                            HorizontalAlignment="Stretch" Name="iOFReviewTime" TimeFormat="HHMM" VerticalAlignment="Center" Height="21"
+                                           Tooltip="Omit From time" TabIndex="6" IsTabStop="True" [(Value)]="iOmitSlotsVM.OmittedFromDateTime">
+                                        </iTimeBox>
+                                    </div>
+                                    <!-- [(Value)]="DataContext.OmittedFromDateTime" -->
+                                </kendo-gridlayout-item>
+
+                               
+                            </kendo-gridlayout>
+
+            </div>
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item [row]='3'  [col]='0' >
+            <div containerStyle [style.margin-top.px]="30">
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='4'  [col]='0' >
+            <div containerStyle>
+                <kendo-gridlayout [rows]="[{ height : '2'}, { height : '30'},{ height : '2'},{ height : '30'},{ height : '6'}]"
+                    [cols]="[ { width: '100'},{ width: '280'}]">
+                    <Border [row]="3" [col]='1' [iStyle]="Styles.whiteBorder" > </Border> 
+                    <Border [row]="2" [col]='2' [Background]="InnerBG" Margin="0,0,7,0"   [style.margin-right.px]="5"  ></Border> 
+                    <Border [row]="4" [col]='2' [Background]="InnerBG" Margin="0,0,7,0" [style.margin-right.px]="5" ></Border> 
+                    <kendo-gridlayout-item [row]='2' [col]='1'>
+                        <div containerStyle>
+                            <iLabel #lblReviewAfterTempRef Name="lblReviewAfter" Margin="15,0,0,0" Mandatory="true" [Text]="objOmitSlots.lblReviewAfter_Text"
+                               Width="80"></iLabel>
+                               <!-- [Text]="objOmitSlots.lblReviewAfter_Text" -->
+                        </div>
+                   
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='4' [col]='1'>
+                        <div containerStyle>
+                            <iLabel #lblReviewDateTempRef Name="lblReviewDate" Margin="15,0,0,0"  [Text]="objOmitSlots.lblReviewDate_Text"
+                                Width="80"></iLabel>
+                                <!-- [Text]="objOmitSlots.lblReviewDate_Text"  -->
+                        </div>
+                  
+                    </kendo-gridlayout-item>
+                   
+
+                    <kendo-gridlayout-item [row]='2'  [col]='2'>
+                        <div containerStyle>
+                            <kendo-gridlayout
+                                [cols]="[ { width: '120'},{ width: '40'},{ width: '120'}]">
+
+                                        <Border [colSpan]='3' [row]="1" [col]='1' Margin="0,0,65,0"  [style.margin-right.px]="5"   [Background]="InnerBG" ></Border>
+                                    
+                                <kendo-gridlayout-item [col]='1' [row]="1" >
+                                    <div containerStyle>
+                                        <iUpDownBox #udReviewAfterTempRef Name="udReviewAfter" Margin="2,0,0,0" Height="23" Width="145"
+                                           
+                                            IsEnabled="True" TabIndex="7" Minimum="1" Maximum="99"  [Tooltip]="objOmitSlots.udReviewAfter_ToolTip"
+                                            [(Value)]="iOmitSlotsVM.ReviewAfterValue" ></iUpDownBox>
+                                            <!-- [(Value)]="DataContext.ReviewAfterValue"
+                                            [Tooltip]="objOmitSlots.udReviewAfter_ToolTip" -->
+                                    </div>
+                            
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [col]='2' [row]="1" >
+                                    <div containerStyle>
+                                        <iLabel #lblReviewAfterUOMTempRef Name="lblReviewAfterUOM" Margin="10,0,0,0"  [Text]="objOmitSlots.lblReviewAfterUOM_Text"
+                                            Width="30"></iLabel> 
+                                            <!-- [Text]="objOmitSlots.lblReviewAfterUOM_Text" -->
+                                           
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [col]='3' [row]="1" >
+                                    <div containerStyle>
+                                        <iComboBox #cboReviewAfterTempRef Name="cboReviewAfter" Margin="0,5,3,5" IsEditable="False" 
+                                            
+                                            IsTypeAHead="False" IsTextSearchEnabled="True" HorizontalAlignment="Right" VerticalAlignment="Center"  [(SelectedValue)]="iOmitSlotsVM.ReviewAfterUOMValue" [(ItemsSource)]="iOmitSlotsVM.IReviewAfterUOM"
+                                            Height="23" Width="80" IsEnabled="True" TabIndex="8" [Tooltip]="objOmitSlots.cboReviewAfter_ToolTip"></iComboBox>
+                                            <!-- [Tooltip]="objOmitSlots.cboReviewAfter_ToolTip" -->
+                                    </div>
+                            
+                                </kendo-gridlayout-item>
+                            </kendo-gridlayout>
+                        </div>
+                    </kendo-gridlayout-item>
+ 
+                    <kendo-gridlayout-item [row]='4' [col]='2'>
+                        <div style="min-height: 27 !important; margin: 10px 5px 5px 0px;">
+                            
+                                        <iLabel #lblReviewDatelabelTempRef Name="lblReviewDatelabel" Height="22" Margin="1,0,0,0" [(Text)]="iOmitSlotsVM.lblReviewAfterUOM_Text"
+                                          Width="Auto"></iLabel>
+                         <!--[(Text)]="DataContext.lblReviewAfterUOM_Text" -->
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+        <!-- <kendo-gridlayout-item [row]='3' [col]='2'>
+            <div containerStyle>
+                <Border [iStyle]="whiteBorder"></Border>
+            </div>
+        </kendo-gridlayout-item> -->
+        <!-- <kendo-gridlayout-item [row]='3' [col]='2'>
+            <div containerStyle>
+                <kendo-gridlayout [rows]="[{ height : '10'}]">
+                    <Border
+                    [Background]="InnerBG"
+            Margin="0,0,7,0"
+                    ></Border> 
+                    <kendo-gridlayout-item [col]='2'>
+                        <div containerStyle>
+                            <iLabel #lblReviewDatelabelTempRef Name="lblReviewDatelabel" Margin="1,0,0,0"
+                                 Width="Auto"></iLabel>
+                        </div>
+                       
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item> -->
+
+        <kendo-gridlayout-item [row]='5'  [col]='0'>
+            <div containerStyle>
+                <kendo-gridlayout                         
+                [cols]="[ { width: '100'},{ width: '280'}]">
+                <kendo-gridlayout-item [col]='1' [row]='1'  >
+                    <div containerStyle>
+                        <iLabel #lblReviewCommentsTempRef IsWordwrap="True" Name="lblReviewComments"  [Text]="objOmitSlots.lblReviewComments_Text"
+                           Margin="15,15,0,0" VerticalAlignment="Stretch"
+                            HorizontalAlignment="Left"></iLabel>
+                    </div>
+                    <!-- [Text]="DataContext.objOmitSlots.lblReviewComments_Text" -->
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [col]='3'  [row]='2'>
+                    <div containerStyle>
+                        <Border BorderBrush="#C2E2E3" BorderThickness="5" Height="100" HorizontalAlignment="Right" Margin="0,-26,7,6"
+                            Width="279">
+                           
+                                    <iTextBox #txtReviewCommentsTempRef Name="txtReviewComments" MaxLength="255"
+                                    [(Text)]="iOmitSlotsVM.ReviewComments"   TextChanged="txtReviewComments_TextChanged" TextRows="5"
+                                        Height="90" Width="279" AcceptsReturn="True" TabIndex="9" VerticalAlignment="Center" TextWrapping="Wrap"
+                                        HorizontalAlignment="Center" Margin="-1,0,0,0" [Tooltip]="objOmitSlots.txtReviewComments_ToolTip" ></iTextBox>
+                               
+                                <!-- [Tooltip]="objOmitSlots.txtReviewComments_ToolTip"
+                                TextChanged="txtReviewComments_TextChanged"
+                                [(Text)]="DataContext.ReviewComments"  -->
+                           
+                        
+                        </Border>
+                    </div>
+                </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+
+
+    </kendo-gridlayout>
+ 

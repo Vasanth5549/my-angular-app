@@ -1,0 +1,23 @@
+      <!-- <Grid x:Name="LayoutRoot" Margin="2"> -->
+
+      <div class="grid-layout-container" name="LayoutRoot"   Margin="2">
+        <kendo-gridlayout  #LayoutRoot [rows]="[{ height: '1fr' }]" [cols]="[{ width: '1fr' }]" >
+            <kendo-gridlayout-item [row]='1' [col]='1' >
+                <div containerStyle>
+                    <medddetails  #medddetails1TempRef x:Name="medddetails1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                    [PrescriptionItemOID]="MedDetailsUserControl.PrescriptionItemOID" 
+                    [MCVersion]="MedDetailsUserControl.MCVersion"
+                    [LorenzoID]="MedDetailsUserControl.LorenzoID"
+                    [ServiceOID]="MedDetailsUserControl.ServiceOID"
+                    [LocationOID]="MedDetailsUserControl.LocationOID"
+                    [DoseCalcExist]="MedDetailsUserControl.DoseCalcExist"
+                    [oLaunchFrom]="MedDetailsUserControl.oLaunchFrom"
+                    [PresType]="MedDetailsUserControl.PresType"
+                    [sDefaultTab]="MedDetailsUserControl.sDefaultTab"
+                    [TechValDef]="MedDetailsUserControl.TechValDef"
+                    > 
+                    </medddetails>
+                </div>
+            </kendo-gridlayout-item>
+        </kendo-gridlayout>
+    </div>

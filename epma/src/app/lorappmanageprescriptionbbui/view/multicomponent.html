@@ -1,0 +1,290 @@
+<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" MaxWidth="955" [MaxHeight]="maxScrollContentHeight"
+    BorderThickness="0">
+    <kendo-gridlayout #LayoutRootTempRef width="Auto" HorizontalAlignment="Stretch"
+        [rows]="[{height: maxGridLayoutHeight},{height: 60}]" [cols]="[{ width: maxcolWidth }]">
+        <kendo-gridlayout-item [row]="1" [col]="1" [rowSpan]='2' [style.width.px]="maxcolWidth">
+            <!-- <div containerStyle> -->
+            <Border [iStyle]="Styles.BorderFrame" BorderThickness="1" HorizontalAlignment="Stretch" CornerRadius="2"
+                VerticalAlignment="Top" Margin="0,10,0,0" [isContent]="true">
+                <kendo-gridlayout #LayoutRootTempRef width="Auto" HorizontalAlignment="Stretch"
+                    [rows]="[{height: 10},{height: maxGridHeight},{height: 40}]" [cols]="[{ width: 930 }]">
+
+                    <kendo-gridlayout-item [row]="1" [col]="1" [rowSpan]='2'>
+                        <div containerStyle>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Vertical"
+                                Margin="10,-20,0,0" [Height]="maxGridHeight+10">  <!-- Background="#FFE0EFF1" -->
+                                <iLabel #lblBorderTempRef Name="lblBorder" class="hedderstyle" Background="#E0EFF1"
+                                    Padding="5,0,0,5" [Text]="objMulticomponent.MCIFrame_Header" Foreground="Black"
+                                    HorizontalAlignment="Left" FontWeight="Bold" Width="165" Height="Auto"
+                                    Margin="0,-133,0,0"></iLabel>
+                                <!-- | Multicomponent Margin="2,12,2,0"  -->
+                            </StackPanel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="2" [col]="1" [style.padding-left.px]="8">
+                        <!-- <div containerStyle> -->
+                        <kendo-grid #grdmulticomponentTempRef [GridProperties]="grdmulticomponent" Name="grdmulticomponent" HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch" [data]="grdmulticomponent.ItemsSource.array"
+                            (cellClick)="grdmulticomponent.cellClick($event)"
+                            [selectable]="{checkboxOnly: false, mode: 'single'}" kendoGridSelectBy
+                            [(selectedKeys)]="grdmulticomponent.selectedRowsIndex" Width="920" Margin="5,0,5,10"
+                            (selectionChange)="grdmulticomponent.selectionChange($event)" [resizable]="false" [height]="maxGridHeight-20">
+                            <ng-template kendoGridNoRecordsTemplate>
+                                There are no records to show
+                            </ng-template>
+                            <kendo-grid-column *ngIf="grdmulticomponent.RowIndicatorVisibility == 0 ? true : false"
+                                UniqueName="rowindicator" field="rowindicator" title="" [width]="40">
+                                <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+                                    <Image alt="" [style.marginLeft.px]="10" [style.marginRight.px]="10"
+                                        *ngIf="grdmulticomponent.selectedRowsIndex.length > 0 ? grdmulticomponent.selectedRowsIndex == rowIndex : false"
+                                        Source="~/../assets/Images/iarrownor5x10.png">
+                                    </Image>
+                                </ng-template>
+                            </kendo-grid-column>
+
+                            <kendo-grid-column UniqueName="Conflictsicon" title="test"
+                                [GridColumnProperties]="grdmulticomponent" TextWrapping="Wrap" [filterbale]="false"
+                                [editable]="false" [width]="40">
+                                <ng-template kendoGridHeaderTemplate>
+                                    <ControlTemplate>
+                                        <Border Padding="0" Margin="0" BorderThickness="0,0,1,1" BorderBrush="#7BB0AF"
+                                            [isContent]="true">
+                                            <Image Source="~/../assets/Images/imandatoryindicator16.png" Stretch="None"
+                                                HorizontalAlignment="Center" Tooltip="Alert/Status details" class="Size">
+                                            </Image>
+                                        </Border>
+                                    </ControlTemplate>
+                                </ng-template>
+                                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                    let-columnIndex="columnIndex">
+                                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex"
+                                        [colindex]="columnIndex" [gridHelper]="grdmulticomponent">
+                                        <ContentPresenter class="size" style="line-height: 0px;" [Content]="dataItem.SealImage | MCconflicticon : '' : '':dataItem">
+                                        </ContentPresenter>
+                                    </DataTemplate>
+                                </ng-template>
+                            </kendo-grid-column>
+
+                            <kendo-grid-column [title]="objMulticomponent.Multicomponent_Header"
+                                class="Componentcolwidth" UniqueName="MulticomponentName"
+                                [GridColumnProperties]="grdmulticomponent" TextWrapping="Wrap" [editable]="false"
+                                [width]="410">
+                                <ng-template kendoGridHeaderTemplate let-column>
+                                    <iLabel #spnmulticompTempRef Name="spnmulticomp" HorizontalAlignment="Left"
+                                                VerticalAlignment="Center" IsWordwrap="True" Padding="0,0,0,6"
+                                                [(Text)]="column.title" [ToolTip]="column.title">
+                                                <!-- <span title="Component name">{{ column.title }}</span> --></iLabel>
+                              </ng-template>
+                                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                    let-columnIndex="columnIndex" class="Componentcolwidth">
+                                    <DataTemplate #temp class="Componentcolwidth">
+                                        <StackPanel Name="ReasonMandatory" Orientation="Horizontal"
+                                            class="Componentcolwidth" [style]="{'display':'block'}">
+                                            <iLabel #lblmulticompTempRef Name="lblmulticomp" HorizontalAlignment="Left"
+                                                VerticalAlignment="Center" IsWordwrap="True" Width="393"
+                                                [(Text)]="dataItem.ComponentName" [ToolTip]="dataItem.ComponentName">
+                                                <TextBlock [Text]="dataItem.ComponentName" MaxWidth="180"
+                                                    TextWrapping="Wrap"></TextBlock>
+                                            </iLabel>
+                                            <Image #cmdAddSfsTempRef Name="cmdAddSfs" class="SfsPadding"
+                                                Source="~/../assets/Images/isfshot16.png" Width="15"
+                                                HorizontalAlignment="Right" [Tooltip]="objMulticomponent.cmdAddSfs_Tooltip"
+                                                Height="15" Cursor="Hand"
+                                                [MouseLeftButtonDown]="images_MouseLeftButtonDown"
+                                               ></Image>
+                                            <!-- IsHitTestVisible="true" 
+                                                (MouseLeftButtonDown_Func) ="MouseLeftButtonDown_FuncNew($event,rowIndex,columnIndex)""
+                                            -->
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ng-template>
+                            </kendo-grid-column>
+
+                            <kendo-grid-column [title]="objMulticomponent.Upto_Header" [reorderable]="false"
+                                UniqueName="Upto" [width]="65" [GridColumnProperties]="grdmulticomponent"
+                                TextWrapping="Wrap" [sortable]="false" [filterable]="false" [style]="{ 'text-align': 'center' }">
+                                <ng-template kendoGridHeaderTemplate let-column>
+                                    <iLabel #spnuptoTempRef Name="spnupto" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" IsWordwrap="True" Padding="0,0,0,6"
+                                    [(Text)]="column.title" [ToolTip]="column.title">
+                                    </iLabel>
+                                    <!-- <span title="Upto">{{ column.title }}</span> -->
+                              </ng-template>
+                                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                    let-columnIndex="columnIndex">
+                                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex"
+                                    [colindex]="columnIndex" [gridHelper]="grdmulticomponent">
+                                        <CellStyle #CellTemplateStyle Property="fontWeight" Value="bold"
+                                            columnName=" objMulticomponent.Encounter_Header">
+                                            <!-- columnName="{{ Multicomponent.Encounter_Header}}"-->
+                                            <ControlTemplate>
+                                                <Border Padding="5,0,5,0" 
+                                                     [isContent]="true">
+                                                    <iCheckBox #ChkUptoTempRef Name="ChkUpto"
+                                                        HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                        [(IsEnabled)]="dataItem.IsUptoEnabled"
+                                                        [(IsChecked)]="dataItem.IsUpto" Tooltip="Select up to"
+														(OnChange_Func) ="onUptoCheckBox($event,rowIndex,columnIndex)"
+														>
+                                                    </iCheckBox>
+                                                    <!-- [Text]="dataItem.IsUpto" BorderBrush="#7EA9D4" BorderThickness="0,0,0,0"-->
+                                                </Border>
+                                            </ControlTemplate>
+                                        </CellStyle>
+                                    </DataTemplate>
+                                </ng-template>
+                            </kendo-grid-column>
+
+                            <kendo-grid-column [title]="objMulticomponent.Quantity_Header" [reorderable]="false"
+                                UniqueName="Quantity" class="Quantity" field="Quantity" [sortable]="true" [filterable]="false"
+                                [resizable]="false" [width]="125" [editable]="true" [GridColumnProperties]="grdmulticomponent">
+                                <!-- [GridColumnProperties]="grdmulticomponent" TextWrapping="Wrap"  -->
+                                <ng-template kendoGridHeaderTemplate let-column>
+                                    <iLabel #spnQuantityTempRef Name="spnquantity" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" IsWordwrap="True" Padding="0,0,0,6"
+                                    [(Text)]="column.title" [ToolTip]="column.title">
+                                    </iLabel>
+                                    <!-- <span title="Quantity">{{ column.title }}</span> -->
+                              </ng-template>
+                                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                    let-colIndex="columnIndex">
+                                  <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="colIndex"
+                                        [gridHelper]="grdmulticomponent" (RowLoaded)="rowLoaded($event)">
+                                        <GridCellTemplate [EditableControlRef]="QuantityTempRef" [columnNumber]="3"
+                                            [GridHelper]="grdmulticomponent" [RowIndex]="rowIndex" (emitEditableClick)="RowSelectionChanged($event)"
+                                            [cell]="'cell3'" [dataItem]="dataItem" [isEditable]="true" [column]="grdmulticomponent.Columns['Quantity']">
+                                            <iLabel #lblQuantityTempRef Name="lblQuantity" Margin="5,2"
+                                                [(Text)]="dataItem.Quantity" HorizontalAlignment="Left"
+                                                VerticalAlignment="Center" IsWordwrap="True" [(Tooltip)]="dataItem.Quantity"
+                                                basicTooltip="True">
+                                            </iLabel>
+                                        </GridCellTemplate>
+                                        <GridCellEditTemplate [cell]="'cell3'" [dataItem]="dataItem">
+                                            <iTextBox #QuantityTempRef Name="Quantity"
+                                                [TextChanged]="txtLowerRange_TextChanged_Func" Width="120"
+                                                ColumnCellIndex="cell3" [DataContext]="dataItem" HorizontalAlignment="Left"
+                                                VerticalAlignment="Center" [(Text)]="dataItem.Quantity"
+                                                Type="Numeric" Nonnegative="True" Scale="5" Precision="2"
+                                                 [isGlobalEnabled]="IsEnabled"  [(Tooltip)]="dataItem.Quantity">
+                                            </iTextBox>
+                                            <!-- [(Tooltip)]="dataItem.Quantity" -->
+                                        </GridCellEditTemplate>
+                                    </DataTemplate>
+                                </ng-template>
+                            </kendo-grid-column>
+                            <kendo-grid-column [title]="objMulticomponent.UOM_Header" UniqueName="UOM" [width]="175"
+                                [reorderable]="false" field="MCUomName" class="UOM" [GridColumnProperties]="grdmulticomponent"
+                                TextWrapping="Wrap" [sortable]="false" [filterable]="false">
+                                <ng-template kendoGridHeaderTemplate let-column>
+                                    <iLabel #spnUOMTempRef Name="spnuom" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" IsWordwrap="True" Padding="0,0,0,6"
+                                    [(Text)]="column.title" [ToolTip]="column.title">
+                                    </iLabel>
+                                    <!-- <span title="UOM">{{ column.title }}</span> -->
+                              </ng-template>
+                                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                    let-colIndex="columnIndex">
+                                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="colIndex"
+                                        [gridHelper]="grdmulticomponent">
+                                        <GridCellTemplate [EditableControlRef]="cboMCUOMTempRef" [columnNumber]="4" 
+                                            [GridHelper]="grdmulticomponent" [RowIndex]="rowIndex" (emitEditableClick)="RowSelectionChanged($event)"
+                                            [cell]="'cell4'" [dataItem]="dataItem" [isEditable]="true" [column]="grdmulticomponent.Columns['UOM']">
+                                            <iLabel #lblcboMCUOMTempRef Name="lblcboMCUOM" Margin="5,2"
+                                                [Text]="dataItem.MCUOMValue ? dataItem.MCUOMValue.DisplayText : ''" HorizontalAlignment="Left"
+                                                VerticalAlignment="Center" IsWordwrap="True">
+                                            </iLabel>
+                                        </GridCellTemplate>
+                                        <GridCellEditTemplate [cell]="'cell4'" [dataItem]="dataItem">
+                                            <iComboBox #cboMCUOMTempRef HorizontalAlignment="Stretch" Name="cboMCUOM"
+                                                VerticalAlignment="Center" ColumnCellIndex="cell4"
+                                                [DataContext]="dataItem" [(ItemsSource)]="dataItem.MCUOMCombo"
+                                                [(SelectedValue)]="dataItem.MCUOMValue" Width="auto" 
+                                                IsDropDownOpen="True" [isGlobalEnabled]="IsEnabled"
+                                                IsDropDownStretch="True" IsEditable="false">
+                                            </iComboBox>
+                                        </GridCellEditTemplate>
+                                        <!-- [(Tooltip)]="dataItem.MCUOMValue.DisplayText" -->
+                                    </DataTemplate>
+                                </ng-template>
+                            </kendo-grid-column>
+                            <kendo-grid-column [title]="objMulticomponent.UOM_Header" UniqueName="isEditable"
+                                Width="160" [reorderable]="false" field="isEditable"
+                                [GridColumnProperties]="grdmulticomponent" TextWrapping="Wrap" [sortable]="true"
+                                [filterable]="false">
+                                <!--  [Tooltip]="Multicomponent.isEditable"-->
+                            </kendo-grid-column>
+                            <kendo-grid-column [title]="objMulticomponent.UOM_Header" UniqueName="isFormulary"
+                                [reorderable]="false" field="isFormulary" [GridColumnProperties]="grdmulticomponent"
+                                TextWrapping="Wrap" [sortable]="true" [filterable]="false">
+                                <!-- [Tooltip]="Multicomponent.isFormulary" -->
+                            </kendo-grid-column>
+                        </kendo-grid>
+                        <!-- </div> -->
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="3" [col]="1">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <iButton #cmdAddTempRef Name="cmdAdd" [Text]="objMulticomponent.cmdAdd_Text"
+                                [Tooltip]="objMulticomponent.cmdAdd_tooltip" IsEnabled="False" Height="20"
+                                Margin="5,0,0,0" ImageSource="~/../assets/Images/iAddRowNOR16.png"
+                                DisabledImageSource="~/../assets/Images/iAddRowDIS16.png" TabIndex="2"
+                                SLAccessKeyProperties.AccessKey="A" ActiveImageSource="assets/Images/iAddRowNOR16.png"
+                                (Click_Func)="cmdAdd_Click({},{})">
+                            </iButton>
+                            <iButton #cmdRemoveTempRef Name="cmdRemove" [Text]="objMulticomponent.cmdRemove_text"
+                                IsEnabled="False" Height="20" Margin="5,0,0,0"
+                                ImageSource="~/../assets/Images/iRemoveitemNOR16.png"
+                                DisabledImageSource="~/../assets/Images/iRemoveitemDIS16.png"
+                                SLAccessKeyProperties.AccessKey="E" TabIndex="3"
+                                ActiveImageSource="~/../assets/Images/iRemoveitemNOR16.png" (Click_Func)="cmdRemove_Click({},{})"
+                                [Tooltip]="objMulticomponent.cmdRemove_tooltip"></iButton>
+                        </StackPanel>
+                        <!-- | Multicomponent -->
+                    </kendo-gridlayout-item>
+
+                </kendo-gridlayout>
+
+            </Border>
+            <!-- </div> -->
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item [row]="2" [col]="1">
+            <kendo-gridlayout [rows]="[{height: 60}]" [cols]="[{ width: 930 }]">
+                <!-- <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate [dataItem]="dataItem" [index]="rowIndex" colindex]="colIndex"
+                        [gridHelper]="grdmulticomponent">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="left" VerticalAlignment="Center"
+                            Margin="0,20,0,0" Height="Auto">
+                            <iLabel #lblDosageformTempRef Name="lblDosageform" Width="100"
+                                [Text]="dataItem.lblDosageform_text" Mandatory="true" Margin="5">
+                            </iLabel>
+                           
+                            <iComboBox #cboDosageFormMCTempRef IsEditable="true" IsTypeAHead="true"
+                                IsTextSearchEnabled="true" Margin="5,5" Tooltip="Specify dosage form"
+                                [(ItemsSource)]="dataItem.FormViewerDetails.BasicDetails.DefaultDetails.Forms"
+                                (valueChange)="cboDosageForm_SelectionChanged(null,$event)"
+                                [(SelectedValue)]="dataItem?.FormViewerDetails.BasicDetails.DosageForm"
+                                HorizontalAlignment="Stretch" Name="cboDosageFormMC" VerticalAlignment="Center"
+                                Width="300" Height="21" IsTabStop="True" TabIndex="3"></iComboBox>
+
+                        </StackPanel>
+                    </DataTemplate>
+                </ng-template> -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="left" VerticalAlignment="Center"
+                    Margin="0,20,0,0" Height="Auto">
+                    <iLabel #lblDosageformTempRef Name="lblDosageform" Width="100"
+                        [Text]="objMulticomponent.lblDosageform_text" Mandatory="True" Margin="5"></iLabel>
+                    <iComboBox #cboDosageFormMCTempRef IsEditable="True" IsTypeAHead="True" IsTextSearchEnabled="True"
+                        Margin="5,5" Tooltip="Specify dosage form"
+                        [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.DefaultDetails.Forms"
+                        [SelectionChanged]="cboDosageForm_SelectionChanged_Func"
+                        [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.DosageForm"
+                        HorizontalAlignment="Stretch" Name="cboDosageFormMC" VerticalAlignment="Center" Width="300"
+                        Height="21" IsTabStop="True" TabIndex="3"></iComboBox>
+                </StackPanel>
+            </kendo-gridlayout>
+
+        </kendo-gridlayout-item>
+
+    </kendo-gridlayout>
+
+</ScrollViewer>

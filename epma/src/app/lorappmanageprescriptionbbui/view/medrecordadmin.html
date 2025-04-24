@@ -1,0 +1,947 @@
+<kendo-gridlayout GridLayout [rows]="[{height: maxGridHeight}]" [cols]="[{width: 'auto'},{width: 'auto'}]">
+    <kendo-gridlayout-item [row]="1" [col]="1" [colSpan]='2' style="height: 100%;">
+        <div containerStyle> <!--[iStyle]="BorderFrame" -->
+            <Border #brdAdminDetailsTempRef Name="brdAdminDetails" BorderThickness="1"
+                CornerRadius="2" BorderBrush="#94b7cf" Margin="0,4,0,0" [Height]="borderHeight-10"
+                >
+
+                <!-- <kendo-gridlayout-item [row]="1" [col]="1"> -->
+                <!--,{ height: '99fr'}]" [cols]="[{width: 'auto'}] Added from basicformviewer pattern-->
+                <kendo-gridlayout GridLayout [rows]="[{height: '1fr'},{ height: 'auto'}]" [cols]="[{width: 'auto'}]">
+
+                    <kendo-gridlayout-item [row]='1' [col]="1">
+                        <div containerStyle>
+                            <StackPanel Margin="10,-10,0,0" Background="#E0EFF1FF" HorizontalAlignment="Left"
+                                Orientation="Vertical" [Width]='140'>
+                                <TextBlock #lblAdminDetailsTempRef Name="lblAdminDetails" Text="Administration details"
+                                    Padding="3,0,3,0" Foreground="Black" FontWeight="Bold"></TextBlock>
+                            </StackPanel>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <kendo-gridlayout-item [row]="2" [col]="1">
+
+                        <kendo-gridlayout GridLayout #LayoutRootTempRef Name="LayoutRoot" HorizontalAlignment="Stretch"
+                            Background="Styles.LzoPageBG" VerticalAlignment="Top" Margin="10"
+                            [rows]="[{height: 'auto'},{height:'auto'}]"
+                            [cols]="[{width: '8fr'},{width:40},{width: '8fr'}]">
+
+                            <kendo-gridlayout-item [row]="1" [col]="1">
+                        <!-- Margin="0,-9,0,0" removed -->
+                                <kendo-gridlayout GridLayout HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                                    Width="auto" Background="Styles.LzoPageBG" [rows]="[{height: 'auto'},{height:'auto'},{height: 'auto'},{height:'auto'},{height: 'auto'},{height:'auto'},
+                                         {height: 'auto'},
+                                         {height: 'auto'},
+                                         {height: 'auto'},
+                                         {height: 'auto'},
+                                         {height: 'auto'},
+                                         {height: 'auto'},
+                                         {height: 'auto'},
+                                         {height: 'auto'},
+                                         {height: 5}]" [cols]="[{width:'6fr'},{width:'19fr'}]">
+                                    <Border #bgddoseTempRef Name="bgddose" GridLayout [Background]="Styles.InnerBG"
+                                        [row]='1' [col]='2'></Border>
+                                    <Border #bgdrouteTempRef Name="bgdroute" GridLayout [Background]="Styles.InnerBG"
+                                        [row]='2' [col]='2'></Border>
+                                    <Border #bgdinfurateTempRef Name="bgdinfurate" GridLayout
+                                        [Background]="Styles.InnerBG" [row]='6' [col]='2'></Border>
+                                    <Border #bgddriprateTempRef Name="bgddriprate" GridLayout
+                                        [Background]="Styles.InnerBG" [row]='7' [col]='2'></Border>
+                                    <Border #bgdbagvolTempRef Name="bgdbagvol" GridLayout
+                                        [Background]="Styles.InnerBG" [row]='8' [col]='2'></Border>
+                                    <Border #bgdsiteTempRef Name="bgdsite" GridLayout
+                                        [Background]="Styles.InnerBG" [row]='9' [col]='2'></Border>
+                                    <Border #bgdlumenTempRef Name="bgdlumen" GridLayout
+                                        [Background]="Styles.InnerBG" [row]='10' [col]='2'></Border>
+                                    <Border #bgddeldeviceTempRef Name="bgddeldevice" GridLayout
+                                        [Background]="Styles.InnerBG" [row]='11' [col]='2'></Border>
+                                    <Border #bgdHumidificationTempRef Name="bgdHumidification" GridLayout
+                                        [Background]="Styles.InnerBG" [row]='12' [col]='2'>
+                                    </Border>
+                                    <Border #bgdbatchnoTempRef Name="bgdbatchno" GridLayout
+                                        [Background]="Styles.InnerBG" [row]='13' [col]='2'></Border>
+                                    <Border #bgdexpdateTempRef Name="bgdexpdate" GridLayout
+                                        [Background]="Styles.InnerBG" [row]='14' [col]='2'></Border>
+                                    <Border #bgdTempRef Name="bgd" GridLayout
+                                        [Background]="Styles.InnerBG" [row]='15' [col]='2'></Border>
+                                    <Border #bgdConcentrationTempRef Name="bgdConcentration" GridLayout
+                                        [Background]="Styles.InnerBG" [row]='3' [col]='2'></Border>
+                                    <Border #bgdInfPeriodTempRef Name="bgdInfPeriod" GridLayout [Visibility]="bgdInfPeriod1"
+                                        [Background]="Styles.InnerBG" [row]='4' [col]='2'></Border>
+                                    <Border #bgdInfDoseRateTempRef Name="bgdInfDoseRate" GridLayout
+                                        [Background]="Styles.InnerBG" [row]='5' [col]='2'></Border>
+                                    <Border #brdrouteTempRef Name="brdroute" GridLayout
+                                        [Background]="Styles.whiteBorder" [row]='2' [col]='1' [colSpan]='2'></Border>
+                                    <Border #brdinfurateTempRef Name="brdinfurate" GridLayout
+                                        [Background]="Styles.whiteBorder" [row]='6' [col]='1' [colSpan]='2'></Border>
+                                    <Border #brddriprateTempRef Name="brddriprate" GridLayout
+                                        [Background]="Styles.whiteBorder" [row]='7' [col]='1' [colSpan]='2'></Border>
+                                    <Border #brdbagvolTempRef Name="brdbagvol" GridLayout
+                                        [Background]="Styles.whiteBorder" [row]='8' [col]='1' [colSpan]='2'></Border>
+                                    <Border #brdsiteTempRef Name="brdsite" GridLayout [Background]="Styles.whiteBorder"
+                                        [row]='9' [col]='1' [colSpan]='2'></Border>
+                                    <Border #brdlumenTempRef Name="brdlumen" GridLayout
+                                        [Background]="Styles.whiteBorder" [row]='10' [col]='1' [colSpan]='2'></Border>
+                                    <Border #brddeldeviceTempRef Name="brddeldevice" GridLayout
+                                        [Background]="Styles.whiteBorder" [row]='11' [col]='1' [colSpan]='2'></Border>
+                                    <Border #brdHumidificationTempRef Name="brdHumidification" GridLayout Visibility="Collapsed"
+                                        [Background]="Styles.whiteBorder" [row]='12' [col]='1'
+                                        [colSpan]='2'></Border>
+                                    <Border #brdbatchnoTempRef Name="brdbatchno" GridLayout
+                                        [Background]="Styles.whiteBorder" [row]='13' [col]='1' [colSpan]='2'></Border>
+                                    <Border #brdexpdateTempRef Name="brdexpdate" GridLayout
+                                        [Background]="Styles.whiteBorder" [row]='14' [col]='1' [colSpan]='2'></Border>
+                                    <Border #brdTempRef Name="brd" GridLayout [Background]="Styles.whiteBorder"
+                                        [row]='15' [col]='1' [colSpan]='2'></Border>
+                                    <Border #brdConcentrationTempRef Name="brdConcentration" GridLayout [Visibility]="LayoutConcentrationVisible"
+                                        [Background]="Styles.whiteBorder" [row]='3' [col]='1'
+                                        [colSpan]='2'></Border>
+                                    <Border #brdInfPeriodTempRef Name="brdInfPeriod" GridLayout [Visibility]="brdInfPeriod1"
+                                        [Background]="Styles.whiteBorder" [row]='4' [col]='1' [colSpan]='2'></Border>
+                                    <Border #brdInfDoseRateTempRef Name="brdInfDoseRate" GridLayout
+                                        [Background]="Styles.whiteBorder" [row]='5' [col]='1'
+                                        [colSpan]='2'></Border>
+
+                                    <kendo-gridlayout-item [row]='1' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #lblDoseTempRef HorizontalAlignment="Stretch" Name="lblDose"
+                                                VerticalAlignment="Center"
+                                                [(Mandatory)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.DoseMandatory"
+                                                Text="Dose"></iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='1' [col]='2'>
+                                        <div containerStyle>
+                                            <StackPanel Orientation="Horizontal">
+                                                <iTextBox #txtDoseValueTempRef HorizontalAlignment="Stretch"
+                                                    TabIndex="1" [Tooltip]="resKey.Dose" Name="txtDoseValue"
+                                                    VerticalAlignment="Center"
+                                                    [(Text)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.Dose"
+                                                    MaxLength="11" Margin="5,5" Width="90" Type="Numeric"
+                                                    Nonnegative="True" Scale="7" Precision="3"
+                                                    [KeyDown]="txtLowerDose_KeyDown_Func"
+                                                    [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.IsDoseValueEnable">
+                                                </iTextBox>
+                                                <iLabel #lblDoseUoMTempRef HorizontalAlignment="Stretch"
+                                                    Visibility="Collapsed" Name="lblDoseUoM" VerticalAlignment="Center"
+                                                    Text="UOM" Margin="5,5,5,5" [style.marginTop.px]="5"
+                                                    [(Mandatory)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.DoseUOMMandatory">
+                                                </iLabel>
+                                                <iComboBox #cboDoseUoMValueTempRef [Width]='190' IsEditable="True"
+                                                    Visibility="Collapsed" TabIndex="2" IsTypeAHead="True"
+                                                    IsTextSearchEnabled="True" HorizontalAlignment="Stretch"
+                                                    Name="cboDoseUoMValue" Margin="5,5" IsDropDownStretch="True"
+                                                    [Tooltip]="resKey.DoseUOM" VerticalAlignment="Center" Height="21"
+                                                    [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.IsDoseUOMValueEnable"
+                                                    [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.DoseUoM"
+                                                    [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.SelectedDoseUoM">
+                                                </iComboBox>
+                                                <iLabel #lblDoseUOMValueTempRef HorizontalAlignment="Stretch"
+                                                    Name="lblDoseUOMValue"
+                                                    [(Text)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.DoseUOMValue"
+                                                    VerticalAlignment="Center" Margin="5,5,5,5" [style.marginTop.px]="6"></iLabel>
+                                            </StackPanel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='2' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #lblRouteTempRef HorizontalAlignment="Stretch" Name="lblRoute"
+                                                VerticalAlignment="Center" Text="Route"
+                                                [(Mandatory)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.RouteMandatory">
+                                            </iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='2' [col]='2'>
+                                        <div containerStyle>
+                                            <iComboBox #cboRouteTempRef Name="cboRoute" Width="auto" TabIndex="9"
+                                                HorizontalAlignment="Stretch" Margin="5,5,5,5" Height="21" IsEditable="False"
+                                                [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.Route"
+                                                [Tooltip]="resKey.Route"
+                                                [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.Routes">
+                                            </iComboBox>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='3' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #lblConcentrationTempRef HorizontalAlignment="Stretch"
+                                                Visibility="Collapsed" Name="lblConcentration"
+                                                VerticalAlignment="Center" Text="Concentration"></iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <!-- <kendo-gridlayout-item [row]='3' [col]='2'>
+                                        <div containerStyle>
+                                            <StackPanel #spConcentrationTempRef Name="spConcentration"
+                                                Orientation="Horizontal" Margin="5,5" Visibility="Collapsed">
+                                                <kendo-gridlayout-item [row]="1" [col]='2'>
+                                                    <div containerStyle>
+                                                        <iTextBox #txtConStrengthValueTempRef HorizontalAlignment="Left"
+                                                            Name="txtConStrengthValue" Nonnegative="True"
+                                                            VerticalAlignment="Center"
+                                                            [(Text)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.ConcentrationStrength"
+                                                            MaxLength="11" Margin="0,0,0,0" Width="50"
+                                                            [Tooltip]="resKey.txtConStrengthValue_tooltip"
+                                                            Type="Numeric" Scale="7" Precision="3"></iTextBox>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+                                                <iComboBox #cboConStrengthUoMValueTempRef Width="100" IsEditable="True"
+                                                    IsTypeAHead="True" IsTextSearchEnabled="True"
+                                                    HorizontalAlignment="Left" Name="cboConStrengthUoMValue"
+                                                    Margin="5,5" IsDropDownStretch="True"
+                                                    [Tooltip]="resKey.cboConStrengthUoMValue_tooltip"
+                                                    VerticalAlignment="Center" Height="21"
+                                                    [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.ConcentrationStrengthUOMs"
+                                                    [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.ConcentrationStrengthUOM"
+                                                    SelectAllTextEvent="None"></iComboBox>
+                                                <kendo-gridlayout-item [row]='3' [col]='2'>
+                                                    <div containerStyle>
+                                                        <iLabel #lblConPerTempRef HorizontalAlignment="Right"
+                                                            Name="lblConPer" VerticalAlignment="Center" Text="/"
+                                                            Margin="5,0,5,0"></iLabel>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+                                                <kendo-gridlayout-item [row]="1" [col]='2'>
+                                                    <div containerStyle>
+                                                        <iTextBox #txtConVolumeValueTempRef HorizontalAlignment="Right"
+                                                            Name="txtConVolumeValue" Nonnegative="True"
+                                                            VerticalAlignment="Center"
+                                                            [(Text)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.ConcentrationVolume"
+                                                            MaxLength="8" Margin="0,0,0,0" Width="50"
+                                                            [Tooltip]="resKey.txtConStrengthValue_tooltip"
+                                                            Type="Numeric" Scale="5" Precision="2"></iTextBox>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+                                                <iComboBox #cboConVolumeUoMValueTempRef Width="100" IsEditable="True"
+                                                    IsTypeAHead="True" IsTextSearchEnabled="True"
+                                                    HorizontalAlignment="Right" Name="cboConVolumeUoMValue" Margin="5,5"
+                                                    IsDropDownStretch="True"
+                                                    [Tooltip]="resKey.cboConStrengthUoMValue_tooltip"
+                                                    VerticalAlignment="Center" Height="21"
+                                                    [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.InfusionDetails.UpperConcentrationUOMlist"
+                                                    [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.ConcentrationVolumeUOM"
+                                                    SelectAllTextEvent="None"></iComboBox>
+                                            </StackPanel>
+                                        </div>
+                                    </kendo-gridlayout-item> -->
+
+                                    <kendo-gridlayout-item [row]='3' [col]='2'>
+
+                                        <kendo-gridlayout GridLayout #LayoutConcentrationTempRef Name="LayoutConcentration" Margin="5,5"
+                                            [Visibility]="LayoutConcentrationVisible" [rows]="[{height:'auto'}]"
+                                            [cols]="[{width:80},{width:70},{width:25},{width:80},{width:70}]">
+                                    
+                                            <kendo-gridlayout-item [row]="1" [col]='1'>
+                                                <div containerStyle>
+                                                    <iTextBox #txtConStrengthValueTempRef HorizontalAlignment="Left" Name="txtConStrengthValue"
+                                                        Nonnegative="True" VerticalAlignment="Center"
+                                                        [(Text)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.ConcentrationStrength"
+                                                        MaxLength="11" Margin="0,0,0,0" Width="50" [Tooltip]="resKey.txtConStrengthValue_tooltip"
+                                                        Type="Numeric" Scale="7" Precision="3"></iTextBox>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                    
+                                            <kendo-gridlayout-item [row]="1" [col]='2'>
+                                                <div containerStyle>
+                                                    <iComboBox #cboConStrengthUoMValueTempRef Width="100" IsEditable="True" IsTypeAHead="True"
+                                                        IsTextSearchEnabled="True" HorizontalAlignment="Left" Name="cboConStrengthUoMValue" Margin="5,5"
+                                                        IsDropDownStretch="True" [Tooltip]="resKey.cboConStrengthUoMValue_tooltip"
+                                                        VerticalAlignment="Center" Height="21"
+                                                        [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.ConcentrationStrengthUOMs"
+                                                        [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.ConcentrationStrengthUOM"
+                                                        SelectAllTextEvent="None"></iComboBox>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                    
+                                            <kendo-gridlayout-item [row]="1" [col]='3'>
+                                                <div containerStyle>
+                                                    <iLabel #lblConPerTempRef HorizontalAlignment="Right" Name="lblConPer" VerticalAlignment="Center"
+                                                        Text="/" Margin="5,0,5,0" [style.marginLeft.px]="5"></iLabel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                    
+                                            <kendo-gridlayout-item [row]="1" [col]='4'>
+                                                <div containerStyle>
+                                                    <iTextBox #txtConVolumeValueTempRef HorizontalAlignment="Right" Name="txtConVolumeValue"
+                                                        Nonnegative="True" VerticalAlignment="Center"
+                                                        [(Text)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.ConcentrationVolume" MaxLength="8"
+                                                        Margin="0,0,0,0" Width="50" [Tooltip]="resKey.txtConStrengthValue_tooltip" Type="Numeric" Scale="5"
+                                                        Precision="2"></iTextBox>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                    
+                                            <kendo-gridlayout-item [row]="1" [col]='5'>
+                                                <div containerStyle>
+                                                    <iComboBox #cboConVolumeUoMValueTempRef Width="100" IsEditable="True" IsTypeAHead="True"
+                                                        IsTextSearchEnabled="True" HorizontalAlignment="Right" Name="cboConVolumeUoMValue" Margin="5,5"
+                                                        IsDropDownStretch="True" [Tooltip]="resKey.cboConStrengthUoMValue_tooltip"
+                                                        VerticalAlignment="Center" Height="21"
+                                                        [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.InfusionDetails.UpperConcentrationUOMlist"
+                                                        [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.ConcentrationVolumeUOM"
+                                                        SelectAllTextEvent="None"></iComboBox>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                    
+                                        </kendo-gridlayout>
+                                    
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='4' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #lblInfusionperiodTempRef HorizontalAlignment="Stretch"
+                                                Visibility="Collapsed" Name="lblInfusionperiod"
+                                                VerticalAlignment="Center" Text="Infusion period"></iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='4' [col]='2'>
+                                        <div containerStyle>
+                                            <StackPanel #spInfPeriodTempRef Name="spInfPeriod" Orientation="Horizontal" Visibility="Collapsed">
+                                    
+                                                <kendo-gridlayout GridLayout [rows]="[{height:'auto'}]" [cols]="[{width:100},{width:42},{width:150}]">
+                                    
+                                                    <kendo-gridlayout-item [row]="1" [col]='1' [colSpan]='1'>
+                                                        <iTextBox #InfusionperiodtextTempRef HorizontalAlignment="Stretch"
+                                                            [(Text)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.InfusionPeriodMedAdmin"
+                                                            Nonnegative="True" [Tooltip]="resKey.Infusionperiodtext_tooltip" Name="Infusionperiodtext"
+                                                            VerticalAlignment="Center" MaxLength="3" Margin="5,5" Width="70" Type="Numeric"
+                                                            [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.EnableInfusionPeriodMedAdmin">
+                                                        </iTextBox>
+                                                    </kendo-gridlayout-item>
+
+                                                    <kendo-gridlayout-item [row]="1" [col]='2'><!-- [style.marginTop.px]="6"-->
+                                                        <div containerStyle>
+                                                            <iLabel #lblInfperioduomTempRef HorizontalAlignment="Stretch" Name="lblInfperioduom" VerticalAlignment="Center"
+                                                                Text="UOM" Margin="4,5,0,5"></iLabel>
+                                                        </div>
+                                                    </kendo-gridlayout-item>
+
+                                                    <kendo-gridlayout-item [row]="1" [col]='3'>
+                                                        <iComboBox #cboInfusionperiodUoMValueTempRef Width="99" IsEditable="True" IsTypeAHead="True"
+                                                            IsTextSearchEnabled="True" HorizontalAlignment="Left" Name="cboInfusionperiodUoMValue"
+                                                            Margin="5,5"
+                                                            [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.EnableInfusionPeriodMedAdmin"
+                                                            [Tooltip]="resKey.cboInfusionperiodUoMValue_tooltip" VerticalAlignment="Center" Height="21"
+                                                            [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.InfusionDetails.InfusionPeriodUOM"
+                                                            [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.InfusionPeriodMedAdminUOM">
+                                                        </iComboBox>
+                                                    </kendo-gridlayout-item>
+
+                                                </kendo-gridlayout>
+                                            </StackPanel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='5' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #lblInfusiondoseTempRef HorizontalAlignment="Stretch"
+                                                Visibility="Collapsed" Name="lblInfusiondose" VerticalAlignment="Center"
+                                                Text="Infusion dose"></iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='5' [col]='2'>
+                                        <div containerStyle>
+                                            <StackPanel #spInfDoseRateTempRef Name="spInfDoseRate" Orientation="Horizontal" Visibility="Collapsed">
+                                            
+                                                <kendo-gridlayout GridLayout [rows]="[{height:'auto'}]" [cols]="[{width:95},{width:60}]">
+                                                    <kendo-gridlayout-item [row]="1" [col]='1'>
+                                                        <iTextBox #InfusiondosetextTempRef HorizontalAlignment="Stretch"
+                                                            [(Text)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.InfusionDose" Nonnegative="True"
+                                                            [Tooltip]="resKey.Infusiondosetext_tooltip" Name="Infusiondosetext" VerticalAlignment="Center"
+                                                            MaxLength="8" Margin="5,5" Width="70" Type="Numeric" Scale="5" Precision="2"
+                                                            [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.EnableInfusionDose">
+                                                        </iTextBox>
+                                                    </kendo-gridlayout-item>
+                                                    <!--Margin="5,0,5,0" for label-->
+                                                    <kendo-gridlayout-item [row]="1" [col]='2' [style.marginTop.px]="7">
+                                                        <iLabel #lblInfusiondoseValueTempRef HorizontalAlignment="Right" Name="lblInfusiondoseValue"
+                                                            VerticalAlignment="Center"
+                                                            [(Text)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.InfusionDoseUOM" IsWordwrap="True">
+                                                        </iLabel>
+                                                    </kendo-gridlayout-item>
+                                                </kendo-gridlayout>
+                                            </StackPanel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='6' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #lblinfusiontrateTempRef HorizontalAlignment="Stretch"
+                                                Visibility="Collapsed" IsWordwrap="True" Name="lblinfusiontrate"
+                                                VerticalAlignment="Center" Text="Infusion rate"></iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='6' [col]='1'>
+                                        <div containerStyle> <!--Margin="5" for ibutton-->
+                                            <iButton #cmdinfratecalTempRef  TabIndex="3" Height="23"
+                                                Cursor="Hand" HorizontalAlignment="Right" Name="cmdinfratecal"
+                                                [Command]="DataContext.BtnDriprateClick"
+                                                [Tooltip]="resKey.btnInfRateCalculator_ToolTip"
+                                                ImageSource="assets/images/iCalculatorNOR16.png"
+                                                DisabledImageSource="assets/images/iCalculatorDIS16.png"
+                                                ActiveImageSource="assets/images/iCalculatorHOT16.png"
+                                                [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.IsInfusionrateCal"
+                                                [style.marginLeft.px]="85">
+                                            </iButton>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='6' [col]='2'>
+
+                                        <kendo-gridlayout GridLayout #InfusionRateLayoutTempRef
+                                            Name="InfusionRateLayout" Margin="5,5" [Visibility]="LayoutInfusionRate"
+                                            [rows]="[{height:'auto'}]"
+                                            [cols]="[{width:90},{width:42},{width:85},{width:15},{width:85}]">
+
+                                            <kendo-gridlayout-item [row]="1" [col]='1' [colSpan]='1'>
+                                                <div containerStyle>
+                                                    <iTextBox #txtRecinfusionrateTempRef TabIndex="4"
+                                                        Visibility="Collapsed" HorizontalAlignment="Stretch"
+                                                        Margin="0,5,5,0" [Tooltip]="resKeyInf.txtinfrate_Tooltip"
+                                                        [(Text)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.InfusionRate"
+                                                        Name="txtRecinfusionrate" VerticalAlignment="Center"
+                                                        MaxLength="11" Width="90" Type="Numeric" Nonnegative="True"
+                                                        Scale="7" Precision="3"></iTextBox>
+                                                </div>
+                                            </kendo-gridlayout-item>
+
+                                            <kendo-gridlayout-item [row]="1" [col]='2'>
+                                                <div containerStyle>
+                                                    <iLabel #lblInfusionUOMTempRef HorizontalAlignment="Right"
+                                                        Margin="5,5,5,0" Name="lblInfusionUOM"
+                                                        VerticalAlignment="Center" Text="UOM" Width="auto" MinWidth="20"
+                                                        Height="20" [style.marginTop.px]="2"></iLabel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+
+                                            <kendo-gridlayout-item [row]="1" [col]='3'>
+                                                <div containerStyle>
+                                                    <iComboBox #cboInfusionRateUOMTempRef IsEditable="True"
+                                                        [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.InfusionRateNumeratorUOMs"
+                                                        [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.InfRateNumeratorUom"
+                                                        IsTypeAHead="True" IsTextSearchEnabled="True"
+                                                        HorizontalAlignment="Stretch" Name="cboInfusionRateUOM"
+                                                        VerticalAlignment="Center" Width="85" Height="21"
+                                                        IsDropDownStretch="True" IsTabStop="True"
+                                                        [Tooltip]="resKey.cboInfusionRateUOM_tooltip" TabIndex="21"
+                                                        Margin="5,5,5,0" SelectAllTextEvent="None">
+                                                    </iComboBox>
+                                                </div>
+                                            </kendo-gridlayout-item>
+
+                                            <kendo-gridlayout-item [row]="1" [col]='4' [colSpan]='1'>
+                                                <div containerStyle>
+                                                    <iLabel #lblInfusionRateHifenTempRef HorizontalAlignment="Stretch"
+                                                        Name="lblInfusionRateHifen" VerticalAlignment="Center"
+                                                        Height="20" MinWidth="5" Width="5" Text="/" Margin="5,5,5,0">
+                                                    </iLabel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+
+                                            <kendo-gridlayout-item [row]="1" [col]='5'>
+                                                <div containerStyle>
+                                                    <iComboBox #cboInfusionRatePerUOMTempRef IsEditable="True"
+                                                        IsTypeAHead="True" IsTextSearchEnabled="True"
+                                                        HorizontalAlignment="Stretch" Name="cboInfusionRatePerUOM"
+                                                        VerticalAlignment="Center" [Width]='85' Height="21"
+                                                        Margin="5,5,5,0" IsDropDownStretch="True"
+                                                        [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.InfusionDetails.InfRateDenominatorUOM"
+                                                        [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.InfRateDinominatorUom"
+                                                        IsTabStop="True"
+                                                        [Tooltip]="resKey.cboInfusionRatePerUOM_tooltip" TabIndex="22"
+                                                        SelectAllTextEvent="None">
+                                                    </iComboBox>
+                                                </div>
+                                            </kendo-gridlayout-item>
+
+                                        </kendo-gridlayout>
+
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='6' [col]='2'>
+                                        <kendo-gridlayout GridLayout #FlowrateLayoutRootTempRef
+                                            Name="FlowrateLayoutRoot" Margin="5,5" [Visibility]="FlowrateLayout"
+                                            [rows]="[{height:'auto'}]"
+                                            [cols]="[{width:100},{width:42},{width:77},{width:17},{width:77}]">
+
+                                            <kendo-gridlayout-item [row]="1" [col]='1'>
+                                                <div containerStyle>
+                                                    <iTextBox #txtRecFlowRateTempRef HorizontalAlignment="Stretch"
+                                                        [Tooltip]="resKey.txtRecinfusionrate_gastooltip"
+                                                        Name="txtRecFlowRate" VerticalAlignment="Center" Height="21"
+                                                        MinWidth="15" Width="auto"
+                                                        [(Text)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.InfusionRate"
+                                                        Margin="0,0,5,0"
+                                                        [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.IsenableFlow"
+                                                        Type="Numeric" Nonnegative="True" Scale="7" Precision="3"
+                                                        MaxLength="11" IsTabStop="True" TabIndex="4"></iTextBox>
+                                                </div>
+                                            </kendo-gridlayout-item>
+
+                                            <kendo-gridlayout-item [row]="1" [col]='2'>
+                                                <!-- <div containerStyle> -->
+                                                    <iLabel #lblUOMFlowrateTempRef HorizontalAlignment="Stretch"
+                                                        Margin="0,5,5,0" Name="lblUOMFlowrate"
+                                                        VerticalAlignment="Center"
+                                                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsenableFlow"
+                                                        [Text]="medFrmresKey.lblUOM_Text" Width="auto" MinWidth="20"
+                                                        Height="20" Mandatory="True"></iLabel>
+                                                <!-- </div> -->
+                                            </kendo-gridlayout-item>
+
+                                            <kendo-gridlayout-item [row]="1" [col]='3'>
+                                                <div containerStyle>
+                                                    <iComboBox #cboflowratenumuomTempRef
+                                                        [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.InfusionDetails.InfRateNumeratorUOM"
+                                                        [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.FlowrateNumUom"
+                                                        IsDropDownStretch="True" IsEditable="True"
+                                                        [Tooltip]="resKey.cboFlowrateUOM_Tooltip" IsTypeAHead="True"
+                                                        IsTextSearchEnabled="True" HorizontalAlignment="Stretch"
+                                                        Name="cboflowratenumuom" VerticalAlignment="Center" Width="auto"
+                                                        Height="21"
+                                                        [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.IsenableFlow"
+                                                        IsTabStop="True" TabIndex="5" SelectAllTextEvent="None">
+                                                    </iComboBox>
+                                                </div>
+                                            </kendo-gridlayout-item>
+
+                                            <kendo-gridlayout-item [row]="1" [col]='4'>
+                                                <div containerStyle>
+                                                    <iLabel #lblUOMFlow1TempRef HorizontalAlignment="Center"
+                                                        Margin="5,5,5,0" Name="lblUOMFlow1" VerticalAlignment="Center"
+                                                        [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.IsenableFlow"
+                                                        Text="/" Width="auto" Mandatory="False"></iLabel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+
+                                            <kendo-gridlayout-item [row]="1" [col]='5'>
+                                                <div containerStyle>
+                                                    <iComboBox #cboflowratedenuomTempRef
+                                                        [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.InfusionDetails.InfRateDenominatorUOM"
+                                                        [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.FlowrateDenUom"
+                                                        IsDropDownStretch="True" IsEditable="True"
+                                                        [Tooltip]="resKey.cboFlowratePUOM_Tooltip" IsTypeAHead="True"
+                                                        IsTextSearchEnabled="True" HorizontalAlignment="Stretch"
+                                                        Name="cboflowratedenuom" VerticalAlignment="Center" Width="89"
+                                                        Height="21"
+                                                        [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.IsenableFlow"
+                                                        IsTabStop="True" TabIndex="6" SelectAllTextEvent="None">
+                                                    </iComboBox>
+                                                </div>
+                                            </kendo-gridlayout-item>
+
+                                        </kendo-gridlayout>
+                                    </kendo-gridlayout-item>
+
+                                 
+                                    <kendo-gridlayout-item  [row]="7" [col]="1" >
+                                        <div>
+                                            <kendo-gridlayout GridLayout Margin="0,5,0,5" HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Center" [cols]="[{width:75},{width:35},]">
+
+                                <kendo-gridlayout-item [row]='1' [col]='1'>
+                                    <div containerStyle>
+                                        <iLabel #lbldriprateTempRef Visibility="Collapsed"
+                                            HorizontalAlignment="Stretch" Name="lbldriprate"
+                                            VerticalAlignment="Center" Text="Drip rate"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='1' [col]='2'>
+                                    <div containerStyle>
+                                        <iButton #cmddripratecalTempRef Margin="5" TabIndex="5"
+                                            [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.IsInfDripnrateCal"
+                                            Height="23" Cursor="Hand" HorizontalAlignment="Right"
+                                            Name="cmddripratecal" [Command]="DataContext.BtnDriprateClick"
+                                            [Tooltip]="resKey.btnInfDripRateCalculator_ToolTip"
+                                            ImageSource="assets/images/iCalculatorNOR16.png"
+                                            DisabledImageSource="assets/images/iCalculatorDIS16.png"
+                                            ActiveImageSource="assets/images/iCalculatorHOT16.png">
+                                        </iButton>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                            </kendo-gridlayout>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+
+
+
+
+                                    
+
+                                    
+
+                                    <kendo-gridlayout-item [row]='7' [col]='2'>
+                                        <div containerStyle>
+                                            <iTextBox #txtdriprateTempRef HorizontalAlignment="Left" TabIndex="6"
+                                                Visibility="Collapsed"
+                                                [(Text)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.DripRate"
+                                                [Tooltip]="resKey.txtInfDripRate_ToolTip" Name="txtdriprate"
+                                                VerticalAlignment="Center" MaxLength="15" Margin="5,5" Width="90"
+                                                Type="Numeric" Nonnegative="True"></iTextBox>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='7' [col]='2'>
+                                        <div containerStyle><!--Margin="5,5,5,5"-->
+                                            <iLabel #lbldriprateValueTempRef HorizontalAlignment="Stretch"
+                                                Visibility="Collapsed" Name="lbldriprateValue"
+                                                VerticalAlignment="Center" IsWordwrap="True" Text="drops per min"
+                                                [style.marginLeft.px]="105" Width="130"></iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='8' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #lblbagvolumeTempRef HorizontalAlignment="Stretch"
+                                                Visibility="Collapsed" Name="lblbagvolume"
+                                                SLAccessKeyProperties.AccessKey="V" Mandatory="True"
+                                                VerticalAlignment="Center" Text="Bag volume"></iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='8' [col]='2'>
+                                        <div containerStyle>
+                                            <StackPanel #stackbagvolTempRef Name="stackbagvol" Visibility="Collapsed" Orientation="Horizontal">
+                                    
+                                                <kendo-gridlayout GridLayout [rows]="[{height:'auto'}]" [cols]="[{width:100},{width:42},{width:150}]">
+                                    
+                                                    <kendo-gridlayout-item [row]="1" [col]='1' [colSpan]='1'>
+                                                        <iTextBox #bagvolumetextTempRef HorizontalAlignment="Stretch" TabIndex="7"
+                                                            SLAccessKeyProperties.AccessKey="V"
+                                                            [(Text)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.BagVolume" Name="bagvolumetext"
+                                                            VerticalAlignment="Center" [Tooltip]="resKey.txtbagvolume_tooltip" MaxLength="8" Margin="5,5"
+                                                            Width="90" Type="Numeric" Nonnegative="True" Scale="5" Precision="2"></iTextBox>
+                                                    </kendo-gridlayout-item>
+                                    
+                                                    <kendo-gridlayout-item [row]="1" [col]='2' [style.marginTop.px]="6">
+                                                        <iLabel #lbluomTempRef HorizontalAlignment="Stretch" Name="lbluom" Mandatory="True"
+                                                            VerticalAlignment="Center" Text="UOM" Margin="5,5,5,5" Height="21" [style.marginTop.px]="2"></iLabel>
+                                                    </kendo-gridlayout-item>
+                                    
+                                                    <kendo-gridlayout-item [row]="1" [col]='3'>
+                                                        <iComboBox #cbobagUoMValueTempRef [Width]='185' TabIndex="8" IsEditable="True" IsTypeAHead="True"
+                                                            IsTextSearchEnabled="True" HorizontalAlignment="Left" Name="cbobagUoMValue" Margin="3,5,5,5"
+                                                            [Tooltip]="resKey.cbobagvoluom_tooltip" VerticalAlignment="Center" Height="21"
+                                                            [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.BagVolumeUOMList"
+                                                            [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.BagVolumeUOM">
+                                                        </iComboBox>
+                                                    </kendo-gridlayout-item>
+                                    
+                                                </kendo-gridlayout>
+                                            </StackPanel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='9' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #lblSiteTempRef HorizontalAlignment="Stretch" Name="lblSite"
+                                                VerticalAlignment="Center" Text="Site">
+                                            </iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='9' [col]='2'>
+                                        <div containerStyle class="combobox1">
+                                            <iComboBox  class="BackgroundColor" #cboSiteTempRef IsEditable="True" IsTypeAHead="True"
+                                                [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsRecAdmSiteEnabled"
+                                                TabIndex="10" IsTextSearchEnabled="True" HorizontalAlignment="Stretch"
+                                                Name="cboSite" Margin="4,4" [Tooltip]="resKey.Site"
+                                                VerticalAlignment="Center" Width="328" Height="21"
+                                                [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.Sites"
+                                                [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.Site">
+                                            </iComboBox>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='13' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #lblBatchNoTempRef HorizontalAlignment="Stretch" Name="lblBatchNo"
+                                                VerticalAlignment="Center"
+                                                [(Mandatory)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.BatchNoMandatory"
+                                                Text="Batch no">
+                                            </iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='13' [col]='2'>
+                                        <div containerStyle>
+                                            <iTextBox #txtRecBatchNoTempRef HorizontalAlignment="Stretch" TabIndex="13"
+                                                [Tooltip]="resKey.BatchNumber" Name="txtRecBatchNo"
+                                                VerticalAlignment="Center"
+                                                [(Text)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.BatchNo"
+                                                MaxLength="50" Margin="5,5" MinWidth="40" Width="328"></iTextBox>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='14' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #lblExpiryDateTempRef HorizontalAlignment="Stretch"
+                                                Name="lblExpiryDate" VerticalAlignment="Center"
+                                                [(Mandatory)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.ExpiryDateMandatory"
+                                                Text="Expiry date"></iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='14' [col]='2'>
+                                        <div containerStyle>
+                                            <iDateTimePicker #dtpRecExpiryDateTempRef HorizontalAlignment="Stretch"
+                                                TabIndex="14" DatePickerMode="DATEPICKER" [Tooltip]="resKey.ExpiryDate"
+                                                Name="dtpRecExpiryDate" Height="21" Margin="5,5" MinWidth="60"
+                                                Width="auto" DateTimeFormat="Custom" CustomFormat="dd-MMM-yyyy"
+                                                [(SelectedDateTime)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.ExpiryDate"
+                                                IsConstrainEntry="True" Width="328"></iDateTimePicker>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='10' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #lblLumenTempRef HorizontalAlignment="Stretch"
+                                                Visibility="Collapsed" Name="lblLumen" VerticalAlignment="Center"
+                                                Text="Lumen"></iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='10' [col]='2' [colSpan]='1'>
+                                        <div containerStyle>
+                                            <iTextBox #txtLumenTempRef TabIndex="11" Visibility="Collapsed"
+                                                HorizontalAlignment="Stretch" Margin="5,5" Name="txtLumen"
+                                                VerticalAlignment="Stretch" MinWidth="15" Width="325"
+                                                [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.IsenableInfusionLumen"
+                                                Type="AlphaNumeric" Scale="5" MaxLength="100" IsTabStop="True"
+                                                [Tooltip]="resKey.txtLumen_tooltip"
+                                                [(Text)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.Lumen"
+                                                AcceptsReturn="False" TextWrapping="NoWrap"></iTextBox>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='11' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #lblDeliveryDeviceTempRef HorizontalAlignment="Stretch"
+                                                Visibility="Collapsed" Name="lblDeliveryDevice"
+                                                VerticalAlignment="Center" Text="Delivery device"></iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='11' [col]='2'>
+                                        <div containerStyle>
+                                            <iComboBox #cboDeliveryDeviceTempRef IsEditable="True" TabIndex="12"
+                                                IsTypeAHead="True" Visibility="Collapsed" IsTextSearchEnabled="True"
+                                                HorizontalAlignment="Stretch" Name="cboDeliveryDevice" Margin="5,5"
+                                                VerticalAlignment="Center" Width="325" Height="21"
+                                                [Tooltip]="resKey.txtdeliverydevice_tooltip"
+                                                [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.IsEnabledDeliveryDevice"
+                                                IsTabStop="True"
+                                                [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.DeliveryDeviceList"
+                                                [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.DeliveryDevice"
+                                                AllowInputText="True"
+                                                [(Text)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.DeliveryDeviceText"
+                                                SelectAllTextEvent="None"></iComboBox>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='12' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #lblHumidificationTempRef HorizontalAlignment="Stretch"
+                                                Visibility="Collapsed" Name="lblHumidification"
+                                                VerticalAlignment="Center" [Text]="resKeyInf.lblHumidification_Text">
+                                            </iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='12' [col]='2'>
+                                        <div containerStyle>
+                                            <iComboBox #cboHumidificationTempRef IsEditable="True" TabIndex="12"
+                                                IsTypeAHead="True" Visibility="Collapsed" IsTextSearchEnabled="True"
+                                                HorizontalAlignment="Stretch" Name="cboHumidification" Margin="5,5"
+                                                VerticalAlignment="Center" Width="325" Height="21"
+                                                [Tooltip]="resKeyInf.cboHumidification_ToolTip"
+                                                [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.IsEnableHumidification"
+                                                IsTabStop="True"
+                                                [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.InfusionDetails.HumidificationList"
+                                                [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.Humidification"
+                                                AllowInputText="True"></iComboBox>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                </kendo-gridlayout>
+
+                            </kendo-gridlayout-item>
+
+                            <kendo-gridlayout-item [row]="1" [col]="3">
+                              <!-- Margin="0,-9,0,0" removed -->
+                                <kendo-gridlayout GridLayout HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                                    Width="auto" Background="Styles.LzoPageBG" [rows]="[{height: 'auto'},{height:'auto'},{height: 'auto'},{height:'auto'},{height: 'auto'},
+                                         {height:'auto'}]" [cols]="[{width:'7fr'},{width:'18fr'}]">
+
+                                    <Border #bgddatetimeTempRef Name="bgddatetime" GridLayout
+                                        [Background]="Styles.InnerBG" [row]='1' [col]='5'></Border>
+                                    <Border #bgdadminbyTempRef Name="bgdadminby" GridLayout
+                                        [Background]="Styles.InnerBG" [row]='2' [col]='5'></Border>
+                                    <Border #bgdchknowitTempRef Name="bgdchknowit" GridLayout
+                                        [Background]="Styles.InnerBG" [row]='3' [col]='5'></Border>
+                                    <Border #bgdchknowitTempRef Name="bgdchkwit" GridLayout
+                                        [Background]="Styles.InnerBG" [row]='4' [col]='5'></Border>
+                                    <Border #bgdclinTempRef Name="bgdclin" GridLayout
+                                        [Background]="Styles.InnerBG" [row]='5' [col]='5'></Border>
+                                    <Border #bgdcommentsTempRef Name="bgdcomments" GridLayout
+                                        [Background]="Styles.InnerBG" [row]='6' [col]='5'></Border>
+                                    <Border #bgdfiveTempRef Name="bgdfive" GridLayout [Background]="Styles.InnerBG"
+                                        [row]='7' [col]='5'></Border>
+
+                                    <Border #brdadminbyTempRef Name="brdadminby" GridLayout
+                                        [Background]="Styles.whiteBorder" [row]='2' [col]='1' [colSpan]='2'></Border>
+                                    <Border #brdchknowitTempRef Name="brdchknowit" GridLayout
+                                        [Background]="Styles.whiteBorder" [row]='3' [col]='1' [colSpan]='2'></Border>
+                                    <Border #brdCliniTempRef Name="brdClini" GridLayout Visibility="Collapsed"
+                                        [Background]="Styles.whiteBorder" [row]='5' [col]='1' [colSpan]='2'></Border>
+                                    <Border #brdcommentsTempRef Name="brdcomments" GridLayout
+                                        [Background]="Styles.whiteBorder" [row]='6' [col]='1' [colSpan]='2'></Border>
+                                    <Border GridLayout [Background]="Styles.whiteBorder" [row]='7' [col]='1'
+                                        [colSpan]='2'></Border>
+
+                                    <kendo-gridlayout-item [row]='1' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #lblAdminDateTimeTempRef HorizontalAlignment="Stretch"
+                                                IsWordwrap="True" Name="lblAdminDateTime" VerticalAlignment="Center"
+                                                AccessKey="T" Text="Date/Time given"
+                                                Mandatory="True">
+                                            </iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='1' [col]='2'>
+                                        <div containerStyle class="BackgroundColor">
+                                            <StackPanel Orientation="Horizontal">
+
+                                                <iDateTimePicker #dtpAdminDateTempRef HorizontalAlignmen t="Stretch"
+                                                    TabIndex="15" DatePickerMode="DATEPICKER"
+                                                    SLAccessKeyProperties.AccessKey="T" [Tooltip]="resKey.GivenDate"
+                                                    Name="dtpAdminDate" Height="21" Margin="5,5" Width="115"
+                                                    DateTimeFormat="Custom" CustomFormat="dd-MMM-yyyy"
+                                                    IsConstrainEntry="True"
+                                                    [(SelectedDateTime)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.AdministeredDate">
+                                                </iDateTimePicker>
+
+                                                <iTimeBox #iTimedtpAdminTimeTempRef EnableDST="True" IsEditable="True"
+                                                    TabIndex="16" HorizontalAlignment="Stretch" Name="iTimedtpAdminTime"
+                                                    TimeFormat="HHMM" VerticalAlignment="Center" Height="20"
+                                                    Width="75" [style.marginTop] = "'5px'"
+                                                    [(Value)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.AdministeredTime"
+                                                    [Tooltip]="resKey.GivenTime">
+                                                </iTimeBox>
+
+                                            </StackPanel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='2' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #lblAdminByTempRef HorizontalAlignment="Stretch" IsWordwrap="True"
+                                                Name="lblAdminBy" VerticalAlignment="Center"
+                                                AccessKey="A" Text="Administered by"
+                                                Mandatory="True" Margin="0,5,5,0"></iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='2' [col]='2'>
+                                        <div containerStyle>
+                                            <iLabel  class="BackgroundColor" #lblAdminByValueTempRef HorizontalAlignment="Stretch" Name="lblAdminByValue"
+                                                VerticalAlignment="Center" [Text]="DataContext.PrescriberDetails.Name" Margin="5,5" Width="Auto"></iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='3' [col]='2'>
+                                        <div containerStyle>
+                                            <iCheckBox  class="BackgroundColor" #chkNoWitnessTempRef Name="chkNoWitness" TabIndex="17"
+                                                HorizontalAlignment="Left" Width="auto" Margin="3,5,5,5"
+                                                [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.IsNoWitnessAvialable"
+                                                [Checked]="chkNoWitness_Checked_Func" [Unchecked]="chkNoWitness_Unchecked_Func"
+                                                [Text]="resKey.chkNoWitness_text"
+                                                [Tooltip]="resKey.chkNoWitness_tooltip" Height="21"
+                                                [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.ChkNoWitness">
+                                            </iCheckBox>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='4' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #lblWitnessedByTempRef Name="lblWitnessedBy"
+                                                AccessKey="W" [Text]="resKey.lblWitnessedby_text"
+                                                [Tooltip]="resKey.lblWitnessedby_tooltip"
+                                                [(Mandatory)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.WitnessMandatory">
+                                            </iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]="4" [col]="2">
+                                        <div containerStyle class="div-bg" id="divsfsWitnessedby">
+                                            <iSFS  class="BackgroundColor" #sfsWitnessedbyTempRef Name="sfsWitnessedby" SFSType="List" Width="auto"
+                                                HorizontalAlignment="Stretch" Margin="5" AllowDrop="True"
+                                                [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.WitnessByList"
+                                                [(SelectedText)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.WitnessBy"
+                                                [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.WitnessByOID"
+                                                [ToolTip]="resKey.sfsAdminsteredBy_tooltip"
+                                                (OnSFSOpen)="sfsWitnessedby_OnSFSOpen($event)"
+                                                MaxSize="10" Height="21">
+                                            </iSFS>
+                                        </div>
+                                    </kendo-gridlayout-item>
+                                    
+                                    <kendo-gridlayout-item [row]='5' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #lblcliniIncFrmTempRef Name="lblcliniIncFrm"
+                                                [Text]="resKey.lblcliniIncFrm_text" Margin="0,5,5,5"
+                                                Visibility="Collapsed" IsWordwrap="True"></iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='5' [col]='2'>
+                                        <div containerStyle>
+                                            <iLabel  class="BackgroundColor" #lblcliniIncFrmValueTempRef Name="lblcliniIncFrmValue"
+                                                Visibility="Collapsed" TextDecorations="Underline" Cursor="Hand"
+                                                Foreground="#0000C8" Height="25"
+                                                [(Text)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.ClinicalIncidentForm"
+                                                [Tooltip]="resKey.lblCIFValue_Tooltip"
+                                                MouseLeftButtonUp="lblCIFValue_MouseLeftButtonUp" IsFocusable="True"
+                                                Margin="5"></iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='6' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #lblCommentsTempRef HorizontalAlignment="Stretch" Name="lblComments"
+                                                VerticalAlignment="Center" Text="Comments"></iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                    <kendo-gridlayout-item [row]='6' [col]='2'>
+                                        <div containerStyle>
+                                            <iTextBox  class="BackgroundColor" #txtAdminCommentsTempRef TabIndex="19" MaxLength="255" Height="50"
+                                                [Tooltip]="resKey.Comments" HorizontalAlignment="Stretch"
+                                                AcceptsReturn="True" TextWrapping="Wrap" Name="txtAdminComments"
+                                                VerticalAlignment="Bottom" VerticalScrollBarVisibility="Visible"
+                                                Width="auto"
+                                                [(Text)]="DataContext.FormViewerDetails.BasicDetails.RecordAdmin.AdminComments"
+                                                Margin="5,5" [style.margin-top.px]="2"></iTextBox>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                </kendo-gridlayout>
+
+                            </kendo-gridlayout-item>
+
+                        </kendo-gridlayout>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+                <!-- </kendo-gridlayout-item> -->
+            </Border>
+        </div>
+    </kendo-gridlayout-item>
+</kendo-gridlayout>

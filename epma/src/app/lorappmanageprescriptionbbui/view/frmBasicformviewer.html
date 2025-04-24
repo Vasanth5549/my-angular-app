@@ -1,0 +1,149 @@
+<ScrollViewer #svwFormViewerTempRef Name="svwFormViewer" VerticalScrollBarVisibility="Auto" Margin="0,5,0,0" MaxWidth="955"
+ [MaxHeight]="maxScrollContentHeight" HorizontalAlignment="Stretch" BorderThickness="0" Width="955">
+  <kendo-gridlayout GridLayout #MainLayoutTempRef Name="MainLayout" HorizontalAlignment="Stretch" Background="#E0EFF1FF" VerticalAlignment="Top"
+    [rows]="[{height: 'auto'},{ height: 'auto'},{height: 'auto'},{ height: 'auto'}]" [cols]="[{width:'auto'}]">
+    <kendo-gridlayout-item GridLayout [col]="1" [row]="1">
+        <Grid GridLayout #BasicDetailsTempRef Name="BasicDetails" [RowHeight]="[{height: 'auto'}]" 
+          [ColWidth]="[{width: 118},{width: 331},{width: 35},{width: 118},{width: 331}]" [DynamicControlInit]="OnDynamicControlInit" [IsEnabled]="IsEnabled" [isGlobalEnabled]="IsEnabled">
+        </Grid>    
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item GridLayout [col]="1" [row]="2">
+          <iHyperlinkButton #lbtnSequencelinkforNTempRef [isGlobalEnabled]="IsEnabled"
+            Name="lbtnSequencelinkforN" TargetName="_blank" Foreground="#0000C8" HorizontalAlignment="Right" Width="Auto"
+            FontWeight="Bold" BorderThickness="0" Height="Auto" CommandParameter="NonInfustion" [Command]="DataContext.SequentialsfsLink" Margin="0,5,50,5"
+            [Visibility]="DataContext.FormViewerDetails.BasicDetails.InfusionDetails.IsSeqINonIvLinkInFVVisible"
+            [Content]="resKey.OSSMezzanineHyperLinkTxt" [Tooltip]="resKey1.lbtnSequencelink_Tooltip" IsTabStop="True" TabIndex="30">
+          </iHyperlinkButton>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item GridLayout [col]="1" [row]="3" [colSpan]="4">
+      <kendo-gridlayout GridLayout #RecordAdminLayoutRootTempRef Name="RecordAdminLayoutRoot" Background="#E0EFF1FF" Margin="5,2,5,2" [Visibility]="ShowRecordAdminLayout"
+        [rows]="[{height: 'auto'},{ height: 'auto'}]" [cols]="[{width: 118},{width: 331},{width: 35},{width: 113},{width: 331}]">
+        
+        
+        <kendo-gridlayout-item GridLayout [row]="1" [col]="1" [colSpan]="2" Margin="0,10,0,0">
+          <!-- <Border #brdAdminDetailsTempRef Name="brdAdminDetails" [iStyle]="Styles.BorderFrame" BorderThickness="1" CornerRadius="2" Margin="0,10,0,0"> -->
+            <ng-container *ngIf="DataContext.FormViewerDetails.BasicDetails.IscontentAdminTimesVisible == 0">
+              <fieldset class="prninstructions">
+                <kendo-gridlayout GridLayout [rows]="[{height: '1fr'},{ height: 'auto'}]" [gap]="3">
+
+                  <kendo-gridlayout-item GridLayout [row]='1' [col]="1" style="width: fit-content;">
+                    <StackPanel Margin="10,-12,0,0" Background="#E0EFF1FF" HorizontalAlignment="Left" Orientation="Vertical">
+                      <TextBlock #lblAdminDetailsTempRef Name="lblAdminDetails" Text="Administration details" Padding="3,0,3,0" [isGlobalEnabled]="IsEnabled" Foreground="Black" FontWeight="Bold">
+                      </TextBlock> 
+                    </StackPanel>
+                  </kendo-gridlayout-item>
+                  <kendo-gridlayout-item GridLayout [row]="2" [col]="1">
+                    <frmAdminSlotTimes TabIndex="31" #adminslotucTempRef Name="adminslotuc" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" 
+                      Height="auto" Width="auto" [DataContext]= "DataContext" [isGlobalEnabled]="IsEnabled">
+                    </frmAdminSlotTimes>
+                  </kendo-gridlayout-item>
+                  
+                </kendo-gridlayout>      
+              </fieldset>
+            </ng-container>
+          <!-- </Border> -->
+            
+          <ng-container *ngIf="DataContext.FormViewerDetails.BasicDetails.DaysOfWeekVisibility == 0">
+          <!-- <Border #brdAdminDetails1TempRef Name="brdAdminDetails1" [iStyle]="Styles.BorderFrame" BorderThickness="0" CornerRadius="2" Margin="0,10,0,0"
+             [Visibility]="DataContext.FormViewerDetails.BasicDetails.DaysOfWeekVisibility"> -->
+              <kendo-gridlayout GridLayout [rows]="[{height: '1fr'},{ height: 'auto'}]" [cols]="[{width: 'auto'}]">
+                <kendo-gridlayout-item GridLayout [row]="2" [col]="1">
+                  <frmWeekdays TabIndex="31" #WeekdaysTempRef Name="Weekdays" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" 
+                    Height="auto" Width="auto" [DataContext]= "DataContext" [isGlobalEnabled]="IsEnabled">
+                  </frmWeekdays>
+                </kendo-gridlayout-item>
+              </kendo-gridlayout>
+            <!-- </Border> -->
+          </ng-container>
+
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item GridLayout [row]="1" [col]='4' [colSpan]='2' [Visibility]="DataContext.FormViewerDetails.BasicDetails.IscontentAdditionalOptions">
+          <fieldset style="background: #77b3b4; border:1px solid #000000;margin-top:4px;" >
+            <div containerStyle>
+              <!-- <Border #brdAdditionalOptionsTempRef Name="brdAdditionalOptions" [iStyle]="Styles.BorderFrameForAdditionalOptions" BorderThickness="1" CornerRadius="2" Margin="0,10,0,0"
+                [Visibility]="DataContext.FormViewerDetails.BasicDetails.IscontentAdditionalOptions" MaxHeight="160" Background="#77b3b4"> -->
+              <kendo-gridlayout GridLayout [rows]="[{height:'4fr'},{height:'auto'}]" [cols]="[{width:'auto'}]">
+                <kendo-gridlayout-item GridLayout [row]="1" [col]="1" style="width: fit-content;">
+                  <StackPanel Margin="10,-10,0,0" Background="#E0EFF1FF" HorizontalAlignment="Left" Orientation="Vertical">
+                    <TextBlock #lblRecordAdminBorderTempRef [isGlobalEnabled]="IsEnabled" Name="lblRecordAdminBorder" Text="Additional options" Padding="3,2,1,2" Foreground="Black" FontWeight="Bold">
+                    </TextBlock> 
+                  </StackPanel>
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item GridLayout [row]="2" [col]="1">
+                  <kendo-gridlayout GridLayout [rows]="[{height:'auto'},{height:'auto'}]" [cols]="[{width:'3fr'},{width:'1fr'}]" Margin="10,7,10,10">
+                    <Border GridLayout Background="#77b3b4" Margin="0,0,5,0" [row]='1' [col]='2' [Visibility]="DataContext.FormViewerDetails.BasicDetails.IsRecordAdminMsg1Visible"></Border>
+                    <Border GridLayout Background="#77b3b4" Margin="0,0,5,5" [row]='2' [col]='2' [Visibility]="DataContext.FormViewerDetails.BasicDetails.FollowUpStatMessageVisibility"></Border>
+                    <Border GridLayout [iStyle]="Styles.whiteBorder" [row]='1' [col]='1' [colSpan]='2' [Visibility]="DataContext.FormViewerDetails.BasicDetails.IsRecordAdminMsg1Visible"></Border>
+                    <Border GridLayout [iStyle]="Styles.whiteBorder" [row]='2' [col]='1' [colSpan]='2' [Visibility]="DataContext.FormViewerDetails.BasicDetails.FollowUpStatMessageVisibility"></Border>
+                    <Border GridLayout [iStyle]="Styles.whiteBorder" [row]='3' [col]='1' [colSpan]='2'></Border>
+                    <kendo-gridlayout-item GridLayout [row]='1' [col]='1'>
+                      <div containerStyle>
+                        <iLabel #lblForAdminMessage1TempRef Name="lblForAdminMessage1" Margin="5,10" IsWordwrap="True" VerticalAlignment="Center" [isGlobalEnabled]="IsEnabled"
+                          [Text]="DataContext.FormViewerDetails.BasicDetails.RecordAdminMsg1" [Visibility]="DataContext.FormViewerDetails.BasicDetails.IsRecordAdminMsg1Visible">
+                        </iLabel>
+                      </div>
+                    </kendo-gridlayout-item> 
+                    <kendo-gridlayout-item GridLayout [row]='1' [col]='2'>
+                      <div containerStyle>
+                        <iCheckBox #chkForAdminOption1TempRef Name="chkForAdminOption1" Margin="5,10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" Text="Yes"
+                          [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.IsRecordAdminTabEnabled" [Visibility]="DataContext.FormViewerDetails.BasicDetails.IsRecordAdminMsg1Visible"
+                          [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.IsRecordAdminEnabled" [isGlobalEnabled]="IsEnabled" [Tooltip]="DataContext.FormViewerDetails.BasicDetails.RecordAdminMsg1_Tooltip">
+                        </iCheckBox>
+                      </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item GridLayout [row]='2' [col]='1'>
+                      <div containerStyle>
+                        <iLabel #lblForAdminMessage2TempRef Name="lblForAdminMessage2" Margin="5,10" IsWordwrap="True" VerticalAlignment="Center" [Foreground]="DataContext.FormViewerDetails.BasicDetails.StatForeground"
+                          [Text]="DataContext.FormViewerDetails.BasicDetails.FollowUpStatMessage" [Visibility]="DataContext.FormViewerDetails.BasicDetails.FollowUpStatMessageVisibility"
+                          [FontWeight]="DataContext.FormViewerDetails.BasicDetails.AdditionaloptinFontWeight" [isGlobalEnabled]="IsEnabled">
+                        </iLabel>
+                      </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item GridLayout [row]='2' [col]='2'  >
+                      <div containerStyle>
+                        <iCheckBox #chkForAdminOption2TempRef Name="chkForAdminOption2" Margin="5,10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" Text="Yes"
+                          [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.IsFollowUpStat" [Visibility]="DataContext.FormViewerDetails.BasicDetails.FollowUpStatMessageVisibility"
+                          [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.IsFollowUpStatEnabled" [isGlobalEnabled]="IsEnabled" [Tooltip]="DataContext.FormViewerDetails.BasicDetails.FollowUpStatMessage_Tooltip">
+                        </iCheckBox>
+                      </div>
+                    </kendo-gridlayout-item> 
+                  </kendo-gridlayout>
+                </kendo-gridlayout-item>
+              </kendo-gridlayout>
+              <!-- </Border> -->
+            </div>
+          </fieldset>
+        </kendo-gridlayout-item>
+      </kendo-gridlayout>
+      <kendo-gridlayout-item GridLayout [row]='4' [col]="1" GridLayout  [Visibility]="DataContext.FormViewerDetails.BasicDetails.IscontentForModificationVisible">
+        <div containerStyle>
+          <Border #brdSTATempRef Name="brdSTA" [iStyle]="Styles.BorderFrame" BorderThickness="1" CornerRadius="2" 
+             Margin="0,20,0,0">
+          <kendo-gridlayout [rows]="[{height:'1fr'},{height:'auto'}]" [cols]="[{width:'auto'}]">
+            <kendo-gridlayout-item GridLayout [row]='1' [col]="1" style="width: fit-content;" >
+                <StackPanel Margin="10,-10,0,0" Background="#E0EFF1FF" HorizontalAlignment="Left" Orientation="Vertical">
+                  <iLabel #lblBorderTempRef Name="lblBorder" [Text]="DataContext.FormViewerDetails.BasicDetails.SteppedVariablePanelHeader" Padding="5,0,5,0"
+                    Foreground="Black" FontWeight="Bold" Margin="2,0,2,0" [isGlobalEnabled]="IsEnabled">
+                  </iLabel> 
+                </StackPanel>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item GridLayout [row]='2' [col]="1"  >
+                <ng-container *ngIf="ContentCtrlMedResolveStepped.Content && ContentCtrlMedResolveStepped.Content.constructor.name ==  'medipresolvestepped'">
+                  <medipresolvestepped #MedIPResolveSteppedTempRef  [isGlobalEnabled]="IsEnabled" Name="MedIPResolveStepped" [DataContext]="ContentCtrlMedResolveStepped.Content.DataContext"
+                  [ParentRef] = "Ref"> </medipresolvestepped>
+                </ng-container>
+                <ng-container *ngIf="ContentCtrlMedResolveStepped.Content && ContentCtrlMedResolveStepped.Content.constructor.name ==  'medConditionalDose'">
+                  <medConditionalDose [DataContext]="ContentCtrlMedResolveStepped.Content.DataContext" [isGlobalEnabled]="IsEnabled"> </medConditionalDose>
+                </ng-container>
+                <ng-container *ngIf="ContentCtrlMedResolveStepped.Content && ContentCtrlMedResolveStepped.Content.constructor.name ==  'medresolvetitrated'">
+                  <medresolvetitrated #MedresolvetitratedTempRef [DataContext]="ContentCtrlMedResolveStepped.Content.DataContext"> </medresolvetitrated>
+                </ng-container>
+            </kendo-gridlayout-item>
+          </kendo-gridlayout>
+          </Border>
+        </div>
+      </kendo-gridlayout-item>
+    </kendo-gridlayout-item>
+</kendo-gridlayout>  
+</ScrollViewer>

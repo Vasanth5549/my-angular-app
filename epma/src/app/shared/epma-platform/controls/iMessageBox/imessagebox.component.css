@@ -1,0 +1,145 @@
+.k-dialog-titlebar {
+
+  /* background: #2c9cadbf 0% 0% no-repeat padding-box; */
+
+  /* background: linear-gradient(to top, #6fa8a4, #7bb9b4, #88c9c4, #95dbd4, #a2ece4);
+  
+    font-weight: 500;
+  
+    color: #000000; */
+  background: #79B7C0 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 6px #00000061;
+  border: 1px solid #B2B2B2;
+  opacity: 1;
+
+}
+
+.k-dialog-buttongroup {
+  background: #C2E2E3 0% 0% no-repeat padding-box;
+  /* border-radius: 0px 0px 5px 5px; */
+  opacity: 1;
+}
+
+.k-window-titlebar {
+  padding: 0px;
+  height: 33px;
+}
+
+.button {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  display: contents;
+}
+
+.button::first-letter {
+  
+  text-decoration:underline;
+}
+
+.icon {
+  height: 36px;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.icon-place-center {
+  margin-top: 0px;
+  place-self: center;
+}
+
+.buttons {
+  height: 16px;
+  margin-bottom: -3px;
+ /* padding-left: 4px;
+  margin-right: 2px;*/
+}
+
+.title {
+  padding-left: 10px;
+  text-align: left;
+  font: normal normal bold 13px/16px Verdana;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+  display: inline;
+}
+
+.messageBoxContent {
+  padding-left: 5px;
+  font-family: Verdana;
+  font-size: 10.667px;
+  padding-right: 15px;
+  letter-spacing: 0px;
+  color: #000000;
+  white-space: pre-line;
+  padding-top: 15px;
+  padding-bottom: 30px;
+}
+
+/* sai checkin Bugid-45421 */
+.messageBoxContentborder{
+border: 1px dashed black;
+padding-left: 1px;
+}
+
+
+.msgAll {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.center {
+  text-align-last: center;
+  padding-bottom:5px
+}
+.content{
+  display: flex;
+}
+
+.k-window-content,
+.k-prompt-container {
+  background: #E0EFF1 0% 0% no-repeat padding-box !important;
+}
+
+::ng-deep .titlebar-style .k-button{
+  margin-right: -13px !important;
+}
+::ng-deep .k-i-x:hover::before{
+background: red;
+width:100%;
+color:white;
+}
+::ng-deep .zero-padding-title .k-window-title{
+  padding: 0px !important;
+}
+
+.focushover:focus{
+  padding: 5px;
+  border: 1px dashed black;
+}
+
+/* .k-button ,
+.k-button ::before,
+.k-button ::after {
+    box-sizing: border-box !important;
+    background: red !important;
+} */
+
+
+
+/* .body {
+  text-align: left;
+font: normal normal normal 13px/16px Verdana;
+letter-spacing: 0px;
+color: #000000;
+opacity: 1;
+} */
+.buttonConflict {
+  height: 24px;
+  margin-bottom: -6px;
+  padding-left: 7px;
+  /* margin-right: 4px; */
+  margin-top: 0px;
+}

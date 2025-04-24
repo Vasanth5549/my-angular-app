@@ -1,0 +1,23 @@
+<kendo-gridlayout #LayoutRoot1TempRef Name="LayoutRoot1" Height="auto" Width="auto"
+    [rows]="[{height: 105}, {height: 1},{height: 5}]" [cols]="[{width:120},{width:240}]" Background="Styles.LzoPageBG" 
+    style="position:absolute;top: 9px;left: 2px;">
+
+    <Border [row]='2' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder" Margin="10,0,0,0"></Border>
+    <Border [row]='1' [col]='2' [rowSpan]='1' [Background]="Styles.InnerBG" Margin="0,10,0,0"></Border>
+    <Border [row]='3' [col]='2' [colSpan]='1' [Background]="Styles.InnerBG" Margin="0"></Border>
+
+    <kendo-gridlayout-item [row]='1' [col]='1'>
+        <div >
+            <iLabel #lblCommentsTempRef HorizontalAlignment="Left" VerticalAlignment="Top" Name="lblComments"
+                Text="Comments" Height="21" Margin="10,10,0,0"></iLabel>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='1' [col]='2'>
+        <div containerStyle>
+            <iTextBox #txtCommentsTempRef Margin="5,1,0,0" HorizontalAlignment="Left" AcceptsReturn="True"
+                TextWrapping="Wrap" Name="txtComments" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto"
+                [(Text)]="DataContext.ReconcileComments" Height="95" Width="229" MaxLength="255" class="textareahe" ></iTextBox>
+        </div>
+    </kendo-gridlayout-item>
+
+</kendo-gridlayout>

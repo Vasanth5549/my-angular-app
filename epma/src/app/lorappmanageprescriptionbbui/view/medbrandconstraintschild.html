@@ -1,0 +1,81 @@
+  <kendo-gridlayout Name="MainLayoutRoot" Margin="2" Background="{StaticResource LzoPageBG}"
+    Loaded="MedBrandConstrainsts_loaded" [rows]="[ { height: 'auto'},{ height: 21},{ height: 21},{ height: 260}]">
+    <kendo-gridlayout-item [row]='2' [col]="1" style="margin-left: -8px;">
+        <div containerStyle>
+            <iLabel #lblCaptionNameTempRef Name="lblCaptionName" [Text]="objResMedBrandConstraints.lblCaptionName_Text"
+                HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,0,0,0" Height="21"
+                Mandatory="False"></iLabel>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]="3" [col]="1">
+        <div containerStyle>
+            <kendo-gridlayout Name="grdMedicationItems" Background="#7578fdf1"
+                [cols]="[ { width: 200},{ width: 245},{ width: 200}]" [rows]="[{height:'auto'}]">
+                <kendo-gridlayout-item [row]="1" [col]="1" style="margin-left: -8px;">
+                    <div containerStyle>
+                        <iLabel #lblIndicationsTempRef Name="lblIndications"
+                            [Text]="objResMedBrandConstraints?.lblIndications_Text" HorizontalAlignment="Left"
+                            VerticalAlignment="Center" Mandatory="False" FontWeight="Bold" Margin="10,0,0,0"></iLabel>
+                    </div>
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [row]="1" [col]="2">
+                    <div containerStyle> 
+                    </div>
+                </kendo-gridlayout-item>
+                <!-- [style]="{ 'border':'1px dotted','padding':'2px' }" -->
+                <kendo-gridlayout-item [row]="1" [col]="3">
+                    <div containerStyle>
+                        <iCheckBox #chkInclNonForTempRef Name="chkInclNonFor" SLAccessKeyProperties.AccessKey="I" TabIndex="1"
+                            Text="Include non-formulary items" Width="auto" Margin="5,0,0,0"
+                            [Tooltip]="objResMedAlternateOption?.nonFormularyitem" Align="Left"
+                            [(IsChecked)]="DataContext.IsFormularyChecked"
+                            (OnChange_Func)="checkboxClicked($event)"
+                            ></iCheckBox>
+                    </div>
+                </kendo-gridlayout-item>
+            </kendo-gridlayout>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]="4" [col]="1" style="width: 100%;margin-top: 1%;">
+    <kendo-grid #grdItemsTempRef Name="grdItems" [style.margin.px]="10" [reorderable]="false" [editable]="false"
+    [style.marginTop.px]="0" [height] = "258" [style.marginLeft.px]="0" [style.marginBottom.px]="0"
+    [data] = "grdItems.ItemsSource.array" (cellClick)="grdItems.cellClick($event)" 
+        [selectable]="{checkboxOnly: false, mode: 'single'}" kendoGridSelectBy [(selectedKeys)]="grdItems.selectedRowsIndex">
+      
+        <ng-template kendoGridNoRecordsTemplate>There are no records to show
+        </ng-template> 
+      <kendo-grid-column *ngIf = "grdItems.RowIndicatorVisibility ==0 ? true:false" UniqueName = "rowindicator" field = "rowindicator"
+        title="" [width] = "25"> 
+        <ng-template kendoGridCellTemplate let-rowIndex = "rowIndex">
+            <div style="display: flex;justify-content: center;">
+            <Image *ngIf="grdItems.selectedRowsIndex.length > 0 ? grdItems.selectedRowsIndex == rowIndex : false"
+                Source="~/../assets/Images/iarrownor5x10.png"></Image>
+            </div>
+        </ng-template>
+        </kendo-grid-column> 
+        <kendo-grid-column UniqueName="IdentifyingName" [filterable]="false" [title]="objResMedBrandConstraints?.IdentifyingName_Text">
+           <ng-template kendoGridHeaderTemplate let-column>  
+              <span [title]="objResMedBrandConstraints?.IdentifyingName_Text">{{ column.title }}</span>
+            </ng-template>
+
+            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex" style="overflow: auto;">
+                <DataTemplate #temp 
+                [dataItem]="dataItem" 
+                [index]="rowIndex" 
+               [colindex]="columnIndex"
+                [gridHelper]="grdItems" 
+                (RowLoaded)="rowLoaded($event)" 
+                      style="overflow: auto;">
+                    <StackPanel Orientation = "Horizontal" #sp>
+                        <iLabel #lblDrugNameTempRef [containerParent]="sp" [index]="0" Name="lblDrugName" [Text]="dataItem.IdentifyingName"
+                        [Tooltip]="dataItem.IdentifyingName" TextDecorations="Underline"
+                        HorizontalAlignment="Stretch" Background="Transparent" VerticalAlignment="Stretch"
+                        IsWordwrap="True" width = "auto" height = "auto" class="mouse_pointer" 
+                        (MouseLeftButtonDown_Func) ="MouseLeftButtonDown_FuncNew($event,rowIndex,columnIndex)"></iLabel>
+                    </StackPanel> 
+                </DataTemplate>
+            </ng-template>
+        </kendo-grid-column>
+    </kendo-grid>
+</kendo-gridlayout-item>
+</kendo-gridlayout>  

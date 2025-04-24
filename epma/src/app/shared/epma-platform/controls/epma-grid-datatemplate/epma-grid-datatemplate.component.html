@@ -1,0 +1,5 @@
+<div kendoTooltip [title]="ToolTip">
+    <ng-container *ngIf="Content?.constructor?.name == 'StackPanel'">
+      <DC-StackPanel [ChildrenElementArray]="Content?.ChildrenElementArray" [DataContext]="DataContext"></DC-StackPanel>
+    </ng-container>
+  </div>

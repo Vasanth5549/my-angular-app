@@ -1,0 +1,15 @@
+::ng-deep .appactivity-content {
+ padding: 0px !important;
+}
+
+.iRdbMedAdminstyle {
+    padding-bottom: 8px !important;
+}
+
+.multiStyle{
+    height: 51px;
+    align-items: stretch;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}

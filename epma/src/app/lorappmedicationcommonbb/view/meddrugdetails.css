@@ -1,0 +1,37 @@
+::ng-deep.k-icon:hover {
+    color: #3939b9 !important;
+  }
+ .context ::ng-deep kendo-label{
+  white-space: nowrap;
+  width: 100% !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  }
+  
+.amendcomments{
+   margin-top:6px;
+  margin-left:4px;
+
+
+}
+::ng-deep .scroll-style kendo-label{
+   vertical-align: sub;
+}
+::ng-deep .nowrap kendo-label{
+  white-space: nowrap !important;
+}
+
+@media screen and (min-device-width: 1400px) {
+  .meddrugLayout{
+    overflow: hidden;
+  }
+}
+@media screen and (max-device-width: 1400px) {
+  .meddrugLayout{
+    overflow-x: auto;
+  }
+}
+
+ 
+

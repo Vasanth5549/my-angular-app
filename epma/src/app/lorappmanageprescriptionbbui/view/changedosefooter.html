@@ -1,0 +1,46 @@
+<kendo-gridlayout #LayoutRootTempRef Name="LayoutRoot" HorizontalAlignment="Left" [Background]="Styles.LzoPageBG" Width="auto"
+[cols]="[{width: 'auto'},{width: 'auto'},{width: 'auto'},{width: '1fr'}]" [ngClass]="ScrollN">
+<kendo-gridlayout-item GridLayout [col]="1" [row]="1">
+    <div containerStyle>
+      <iButton #cmdChangingdoseTempRef Margin="0,0,5,0" Name="cmdChangingdose" Height="23"
+        Tooltip="Select to view the changing dose regime" Cursor="Hand" HorizontalAlignment="Left"
+        VerticalAlignment="Bottom" Text="Changing dose"
+        [IsEnabled]="DataContext.IsChangingDoseEnabled"
+        ImageSource= "./assets/images/changing_Dose_NOR16.png"
+        DisabledImageSource="./assets/images/changing_Dose_NOR16_disabled.png"
+        ImageHeight="20" ImageWidth="15"
+        [(Visibility)]="DataContext.IsChangingDoseVisible"
+        ActiveImageSource="./assets/images/changing_Dose_NOR16.png"></iButton>
+    </div>
+  </kendo-gridlayout-item>
+  <kendo-gridlayout-item GridLayout [col]="2" [row]="1">
+    <div containerStyle>
+      <iButton #cmdDaywiseTempRef Margin="0,0,5,0" Name="cmdDaywise" Height="23"
+        Tooltip="Select to view the day wise changing dose regime" Cursor="Hand" HorizontalAlignment="Left"
+        VerticalAlignment="Bottom" Text="Daywise"
+        [IsEnabled]="DataContext.IsDayWiseEnabled"
+        ImageSource= "./assets/images/changing_Dose_NOR16.png"
+        DisabledImageSource="./assets/images/changing_Dose_NOR16_disabled.png"
+        ImageHeight="20" ImageWidth="15"
+        ActiveImageSource="./assets/images/changing_Dose_NOR16.png"></iButton>
+    </div>
+  </kendo-gridlayout-item>
+  <kendo-gridlayout-item GridLayout [col]="3" [row]="1">
+    <div containerStyle>
+      <iButton #cmdClearTempRef Margin="0,0,5,0" Name="cmdClear" Height="23"
+        Tooltip="Select to clear the values" Cursor="Hand" HorizontalAlignment="Left"
+        VerticalAlignment="Bottom" Text="Clear"
+        [IsEnabled]="DataContext.IsClearEnabled"
+        ImageSource= "./assets/images/iclearnor24.png"
+        DisabledImageSource="./assets/images/icleardis24.png"   
+        ImageHeight="15" ImageWidth="15"
+        [(Visibility)]="DataContext.IsClearVisible"    
+        ActiveImageSource="./assets/images/iclearhot24.png"></iButton>
+    </div>
+  </kendo-gridlayout-item>
+  <iLabel #lblDrugNameTempRef1 HorizontalAlignment="Stretch" FontWeight="Bold" Name="lblDrugName1"
+                VerticalAlignment="Center" Text="demo" Mandatory="False" Width="auto" Margin="10" class="dislablDrug">
+            </iLabel>
+
+
+</kendo-gridlayout>

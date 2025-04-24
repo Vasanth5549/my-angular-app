@@ -1,0 +1,53 @@
+.medlistview-grid {
+  /* Revisit Required */
+  height: calc(720px - 375px);
+}
+:host .k-grid table {
+  border-collapse: collapse;
+}
+.PART_RowBordeTOP{
+  border-top: 2px;
+  border-style: solid;
+}
+.PART_RowBordeTOP_Blue{
+  border-top: 2px solid rgba(63, 72, 204, 255);
+}
+.PART_RowBorderBOTTOM_Blue{
+  border-bottom: 2px solid rgba(63, 72, 204, 255);
+}
+:host ::ng-deep .Comments textblock.ng-star-inserted:nth-child(3) {
+  white-space: inherit;
+}
+
+:host ::ng-deep .Comments ilabel div {
+  width: 100% !important;
+}
+
+:host::ng-deep.k-grid tr:hover {
+  background-color: #ededed !important;
+}
+:host::ng-deep tr.GroupHeader:hover{
+  background-color: #74b9c3 !important
+
+}
+:host::ng-deep tr.GroupHeader{
+  pointer-events: none;
+  cursor: default;
+}
+
+/* header and column alignment */
+:host ::ng-deep .medlistview-grid .k-grid-header,.k-header,th.k-header,.k-grid td,.k-grid-footer {
+  border: 0px;
+}
+
+@media screen and (min-device-width: 1600px) {
+  .medListViewGridChildHeight{
+    height: calc(720px - 184px) ;
+  }
+}
+
+@media screen and (min-device-width : 1400px) and (max-device-width: 1550px) {
+  .medListViewGridChildHeight{
+    height: calc(720px - 400px) ;
+  }
+}

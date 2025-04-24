@@ -1,0 +1,14 @@
+::ng-deep .overflow1 .\!k-overflow-y-auto{
+    overflow-y: scroll !important;
+}
+
+::ng-deep .overflow1 .k-overflow-y-scroll{
+    overflow-y: hidden !important;
+}
+
+::ng-deep .overflow2 .\!k-overflow-y-auto{
+    overflow-y: hidden !important;
+}
+::ng-deep kendo-textarea textarea{
+    height: 100% !important;
+}

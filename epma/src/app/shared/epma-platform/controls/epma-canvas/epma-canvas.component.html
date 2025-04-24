@@ -1,0 +1,51 @@
+<!-- <ng-template #tooltip>
+    <span *ngIf="Tooltip != '' && hasTooltipString">
+      {{Tooltip}}
+    </span>
+    <ng-container *ngIf="Tooltip.constructor?.name == 'iLabel'">
+      <kendo-label [ngStyle]="Tooltip?.style">{{Tooltip.Text}}</kendo-label>
+    </ng-container>
+    <ng-container *ngIf="Tooltip.constructor?.name == 'TextBlock'">
+      <TextBlock [InlinesElements]="Tooltip.InlinesElements" [style]="Tooltip?.style"></TextBlock>
+    </ng-container>
+  </ng-template>
+<div>
+    <canvas id="canid" #parentCanvas  [width]="Width" [height]="Height" tooltipClass="newLineClass" kendoTooltip #tooltipdiv = "kendoTooltip" [tooltipTemplate]="tooltip" title="" showOn="none" class="canvas-layer">
+        <ng-container *ngFor="let elem of _Children;let i = index">
+            <ng-container *ngIf="elem?.constructor?.name == 'Image'">
+               
+                <ng-container *ngIf="elem.Visibility != 1"> 
+                <CanvasImage [canvas]=parentCanvas [canvasTooltip]="tooltipdiv" [Width]="elem.Width" [Height]="elem.Height" [Source]="elem.Source" [Margin]="elem.Margin" [ToolTip]="elem.ToolTip"  [canvasimages]="CanvasService.images" [canvasRef]="ref" ></CanvasImage>
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="elem?.constructor?.name == 'Line'">   
+               
+                <Line [canvas]=parentCanvas  [X1]="elem.X1" [Y1]="elem.Y1" [X2]="elem.X2" [Y2]="elem.Y2" [Stroke]="elem.Stroke" Thickness="elem.Thickness" [lType]="elem.lType" StopAtTimeLine="elem.StopAtTimeLine"></Line>             
+                
+            </ng-container>
+            <ng-container *ngIf="elem?.constructor?.name == 'TextBlock'">               
+                <TextBlock [canvas]=parentCanvas  [Margin]="elem._Margin" [Text]="elem._text" [FontFamily]="elem._FontFamily" [FontSize]="elem._FontSize" [Foreground]="elem._Foreground" ></TextBlock>
+            </ng-container>
+        </ng-container>        
+    </canvas>
+</div> -->
+
+ 
+
+<div class="canvas-container" [ngStyle]="getParentStyles()" #parentCanvas>
+  <ng-container *ngFor="let elem of _Children;let i = index">
+    <ng-container *ngIf="elem?.constructor?.name == 'Image'">
+      <ng-container *ngIf="elem.Visibility != 1">
+      <Image [TooltipPosition]="elem.TooltipPosition" [Tooltip]="elem.ToolTip" [Name]="elem.Name" class="canvas-img" [ngStyle]="elem.imageStyle"
+        [style]="elem.style" [Source]="elem.Source"></Image>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="elem?.constructor?.name == 'Line'">
+      <div class="line-separator" [ngStyle]="elem.lineStyle"></div>
+    </ng-container>
+    <ng-container *ngIf="elem?.constructor?.name == 'TextBlock'">
+      <TextBlock [ngStyle]="elem.testblockStyle" [Text]="elem._text" [FontFamily]="elem._FontFamily" [FontSize]="elem._FontSize" [Foreground]="elem._Foreground" ></TextBlock>
+      
+    </ng-container>
+  </ng-container>
+</div> 

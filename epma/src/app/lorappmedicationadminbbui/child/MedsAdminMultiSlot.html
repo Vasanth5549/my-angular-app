@@ -1,0 +1,171 @@
+<ScrollViewer
+  id="scrollViewerTop"
+  VerticalScrollBarVisibility="Auto"
+  HorizontalScrollBarVisibility="Auto"
+  Margin="0" class="medsMultislot"
+>
+  <StackPanel
+    #LayoutRootTempRef
+    Name="LayoutRoot"
+    [Background]="Styles.LzoPageBG"
+    Height="Auto"
+    Width="430"
+    VerticalAlignment="Top"
+  >
+    <!-- style="display: block" -->
+    <!-- HorizontalAlignment="Stretch" -->
+    <!-- Height="Auto" -->
+    <kendo-gridlayout
+      class="grid-layout-container"
+      GridLayout
+      [rows]="[{height: 'auto'}]"
+    >
+      <kendo-gridlayout-item [row]="1" [col]="1">
+        <div style="margin-bottom: 10px" containerStyle>
+          <drugheader
+            #drgHeaderTempRef
+            Name="drgHeader"
+            Margin="5,5,5,0"
+            [DataContext]="drgHeader._DataContext"
+          >
+          </drugheader>
+        </div>
+      </kendo-gridlayout-item>
+
+      <!-- <canvas
+            HorizontalAlignment="left"
+            VerticalAlignment="Top"
+            Margin="5,10,5,0"
+          > -->
+      <kendo-gridlayout-item [row]="2" [col]="1">
+        <StackPanel
+          Height="365"
+          Margin="0"
+          ScrollViewer.VerticalScrollBarVisibility="Auto"
+        >
+          <kendo-grid
+            id="kendoGrid"
+            #grdMultiSlotTempRef
+            [filterable]="false"
+            [selectable]="true"
+            width="420"
+            class="maxGridHeight"
+            [style.background]="'#FFE0EFF1'"
+            [sortable]="false"
+            [reorderable]="false"
+            [resizable]="true"
+            (cellClick)="grdMultiSlot.cellClick($event)"
+            [(selectedKeys)]="grdMultiSlot.selectedRowsIndex"
+            [selectable]="{checkboxOnly: true, mode: 'single'}"
+            kendoGridSelectBy
+            [data]="grdMultiSlot.ItemsSource.array"
+            [rowClass]="rowCallback"
+          >
+          <ng-template kendoGridNoRecordsTemplate>
+            There are no records to show
+        </ng-template>
+            <!-- <ng-template
+              kendoGridCellTemplate
+              let-dataItem
+              let-rowIndex="rowIndex"
+              let-columnIndex="columnIndex"
+            >
+              <DataTemplate
+                #temp
+                [dataItem]="dataItem"
+                [index]="rowIndex"
+                [colindex]="columnIndex"
+                (RowLoaded)="rowLoaded($event)"
+                [gridHelper]="grdMultiSlot"
+              >
+              </DataTemplate>
+            </ng-template> -->
+
+            <!-- RowIndicatorVisibility="Collapsed" -->
+            <!-- <kendo-grid-column [width]="30">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                  <image
+                    Source="assets/Images/iarrownor5x10.png"
+                    Width="5"
+                    Height="5"
+                  ></image>
+                </ng-template>
+              </kendo-grid-column> -->
+            <!-- RowIndicatorVisibility="Collapsed" -->
+
+            <kendo-grid-column
+              field="Slot"
+              [title]="MedChartView.GrdSlotText"
+              [filterable]="false"
+              [width]="85"
+              [style]="{ 'padding': '0px' }"
+            >
+            <ng-template kendoGridHeaderTemplate >
+              <span title="Slot">Slot</span>
+              </ng-template>
+              <ng-template
+                kendoGridCellTemplate
+                let-dataItem
+                let-rowIndex="rowIndex"
+                let-columnIndex="columnIndex"
+              >
+                <DataTemplate
+                  #temp
+                  [dataItem]="dataItem"
+                  [index]="rowIndex"
+                  [colindex]="columnIndex"
+                  [gridHelper]="grdMultiSlot"
+                >
+                  <iLabel
+                    #lblSlotTempRef
+                    EnableDST="True"
+                    Name="lblSlot"
+                    [Text]="dataItem.ScheduledDTTMDisplay"
+                    [Tooltip]="dataItem.ScheduledDTTMDisplay"
+                    [FontWeight]="dataItem.ScheduledDTTM | FontWeightConv"
+                  ></iLabel>
+                </DataTemplate>
+              </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column
+              id="statusColumn"
+              field="Status"
+              UniqueName="Status"
+              [title]="MedChartView.GrdStatusText"
+              filterbale="false"
+              [editable]="false"
+              [style]="{ 'padding': '0px' }"
+            >
+            <ng-template kendoGridHeaderTemplate >
+              <span title="Status">Status</span>
+              </ng-template>
+              <ng-template
+                kendoGridCellTemplate
+                let-dataItem
+                let-rowIndex="rowIndex"
+                let-columnIndex="columnIndex"
+              >
+                <DataTemplate
+                  #temp
+                  [dataItem]="dataItem"
+                  [index]="rowIndex"
+                  [colindex]="columnIndex"
+                  [gridHelper]="grdMultiSlot"
+                >
+                  <!-- [Content]="dataItem | MultislotDisplay : '' : 0" -->
+                  <ContentPresenter
+                    *ngIf="!dataItem.IsGroupHeader"
+                    [Content]="dataItem | MultislotDisplay : '' : 0"
+                  >
+                  </ContentPresenter>
+                </DataTemplate>
+              </ng-template>
+            </kendo-grid-column>
+          </kendo-grid>
+        </StackPanel>
+      </kendo-gridlayout-item>
+      <!-- </canvas> -->
+    </kendo-gridlayout>
+  </StackPanel>
+</ScrollViewer>

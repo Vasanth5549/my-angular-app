@@ -1,0 +1,13 @@
+<div name="LayoutRoot" Background="{StaticResource LzoPageBG}" Width="580">
+    <kendo-gridlayout #LayoutRootTempRef [rows]="[{height:'1fr'}]" [cols]="[{width:'1fr'}]">
+        <kendo-gridlayout-item [row]='1' [col]='1'>
+            <div containerStyle>
+                <iButton #cmdPrescribingOptionsTempRef HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                    Name="cmdPrescribingOptions" Width="auto" Text="Prescribing options"
+                    Tooltip="Click here to view Prescription Option of the drug" [IsEnabled]="true" Visibility="Collapsed"
+                    DisabledImageSource="assets/images/iArrowDIS5x10.png" ActiveImageSource="assets/images/iArrowsHOT5x10.png"
+                    ImageSource="assets/images/iArrowNOR5x10.png" ImageHeight="12" ImageWidth="5"></iButton>
+                </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

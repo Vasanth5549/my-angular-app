@@ -1,0 +1,4 @@
+<kendo-numerictextbox [size]="size" #iUpDownFocus CommonDirective [ngStyle]="style" [title]="ToolTip"
+  [min]="Minimum" [max]="Maximum" [format]="kDecimalPlaces"  [decimals]="Precision"[disabled]="!IsEnabled" [step]="kIncrement"
+  [ngModel]="Value" (ngModelChange)="ngModelChangeEvent($event)" (valueChange)="ValueChangedEvent($event)"
+  (keydown)="KeyDownEvent($event)" [autoCorrect]="true" (keypress)="restrictEvent($event)"></kendo-numerictextbox>

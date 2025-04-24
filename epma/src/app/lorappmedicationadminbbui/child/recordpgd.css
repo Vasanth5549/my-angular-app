@@ -1,0 +1,242 @@
+/* .grid-layout-container { */
+    /* Revisit Required */
+    /* height: auto;
+} */
+
+@media screen and (max-width: 1400px) {
+    .overallAlign{
+      height: 360px !important;
+      overflow-y: auto !important;
+      overflow-x: hidden;
+    }
+  }
+  
+  @media screen and (min-width: 1500px) {
+    .overallAlign{
+      height: auto !important;
+    }
+  }
+
+.vertical-class-stretch {
+    height: 100%;
+  }
+  .isMax .bg-color { background-color: #32CD32; }
+  .horizontal-class-stretch {
+    display: grid;
+  }
+.div-bg-whiteborder {
+    border-top: 2px solid white;
+    background-color: #c2e2e3;
+}
+.div-bg {
+    background-color: #c2e2e3;
+}
+.givenHeight{
+    height: 30px !important;
+}
+.givenHeightDose{
+    height: 32px !important;
+}
+.div-whiteborder {
+    border-top: 2px solid white;
+}
+.k-panelbar > .k-panelbar-header > .k-link.k-selected {
+    color: #424242;
+    background-color: #91c0ef;
+}
+.k-panelbar > .k-item > .k-link, .k-panelbar > .k-panelbar-header > .k-link {
+    color: #424242;
+    background-color: #91c0ef;
+    height: calc(100px - 100px);
+    padding-left: 6px;
+}
+.k-panelbar > .k-panelbar-header > .k-link.k-selected.k-hover {
+    color: #424242;
+    background-color: #91c0ef;
+}
+.k-panelbar > .k-panelbar-header > .k-link.k-hover {
+    color: #424242;
+    background-color: #91c0ef;
+}
+
+.panelbar-wrapper {
+    min-width: 680px;
+    max-width: 680px;
+    margin: 0 auto;
+    margin-right: 10px;
+    height: 515px !important;
+}
+
+.k-selected{
+    background-color: #91c0ef !important;
+}
+.k-panelbar {
+    border-color: rgb(127 128 129);
+    color: #424242;
+   background-color: #e0eff1;
+}
+
+.k-link:hover{
+    background-color: #91c0ef !important;
+}
+
+.containerStyle{
+    display: grid !important;
+    height: 100% !important;
+}
+
+.containerStyle1{
+    display: grid !important;
+    height: 384px !important;
+    overflow-y: auto;
+}
+.k-panelbar > .k-item > .k-link .k-icon, .k-panelbar > .k-panelbar-header > .k-link .k-icon{
+display: none;
+}
+#recordPGD .k-grid .k-grid-content td {
+    white-space: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #000000;
+  }
+  kendo-gridlayout-item.pgd_warning_padding {
+    margin-bottom: 8px;
+}
+kendo-gridlayout.overallAlign{
+    margin: 0px 0px -5px -3px !important;
+}
+
+.doseTextBox kendo-numerictextbox{
+    width: 90px !important;
+}
+.lblDoseUOMWrap kendo-label{
+    width: 65px !important;
+    margin: 0px !important;
+    word-break: break-all !important;    
+}
+.lblRateUOMWrap kendo-label{
+    width: 65px !important;
+    display: inline-block;
+    margin: 0px !important;
+}
+.batchTextbox kendo-textbox{
+    width: calc(100% - 26px) !important;
+}
+
+.expiryDatePicker kendo-datepicker{
+    width: calc(100% - 26px) !important;
+}
+
+.adminTime kendo-timepicker{    
+    width: 70px !important;
+    margin: 5px 20px 3px 125px !important;
+}
+.iSFSAdministeredby kendo-autocomplete{
+    width: 80%;
+}
+
+.iSFSAdministeredby button.btmMargin{
+    padding-left: 10px !important;
+}
+
+.commentsText kendo-textarea{
+    width: calc(100% - 26px) !important;
+    height: 85px !important;
+}
+
+.PGDWarning kendo-label{
+    margin-left: 10px !important;
+}
+
+.commentsText kendo-textarea textarea{
+    height: 100% !important;
+}
+
+.commentsStyle {
+    align-items: unset !important;
+    padding-top: 5px !important;
+}
+.k-panelbar .panelbarItem_warning_padding
+{
+    height: 507px !important;
+    border: 1px solid #7090a5 !important;
+    background-color: #e4f1ff;
+
+    .k-panelbar-content{
+        overflow: auto;
+        height: 459px !important;
+        background-color: #e0eff1;
+        border: 1px solid #7090a5 !important;
+        } 
+}
+.k-panelbar .panelbarItem {
+    /* height: 561px !important; */
+    border: 1px solid #7090a5 !important;
+    background-color: #e4f1ff;
+
+    .k-panelbar-content{
+        overflow: auto;
+        /* height: 509px !important; */
+        background-color: #e0eff1;
+        border: 1px solid #7090a5 !important;
+        } 
+}
+@media screen and (max-device-width: 1400px) {
+    .k-panelbar .panelbarItem {
+        height: 482px !important;
+    }
+    .k-panelbar-content{
+        height: 458px !important;
+    }
+  }
+  
+  @media screen and (min-device-width: 1400px) {
+    .k-panelbar .panelbarItem {
+        height: 561px !important;
+    }
+    .k-panelbar-content{
+        height: 509px !important;
+    }
+  }
+.recordPGDClass div.k-grid-header{
+    padding: 0px !important;
+}
+
+.recordPGDClass .k-grid-content.k-virtual-content{
+    overflow-y: hidden !important;
+}
+
+#recordPGD .drgHeaderClass{
+    height: 100px !important;
+    width: 325px !important;
+}
+
+#recordPGD kendo-gridlayout.grd-padding{
+   padding-top: 3%;
+   width: 325px !important;
+}
+#recordPGD .warning-border{
+    width: calc(100% - 10px) !important;
+}
+.k-panelbar .panelConent{
+    background-color: #e0eff1;
+    .k-panelbar-content{
+        overflow: auto;
+        background-color: #e0eff1;
+        border: unset !important;
+        } 
+}
+
+.imgCopyAcross{
+    padding-top: 3px !important;
+}
+
+.k-grid td.bg-color{
+    padding-top: 0px !important;
+    padding-bottom: 5px !important;
+}
+
+#recordPGD .bg-color contentpresenter image{
+    position: relative !important;
+    top: 4px !important;
+}

@@ -1,0 +1,47 @@
+:host {
+    display: block;
+}
+
+::ng-deep .txtTotalQuantity .k-input {
+    min-width: 60px !important;
+    width: 60px !important;
+}
+
+::ng-deep .lblPresItemName kendo-label {
+    font-weight: bold !important;
+}
+:host::ng-deep.k-grid .k-grid-content td{
+    text-wrap: wrap;
+    white-space-collapse: break-spaces;
+}
+
+.ellipses{
+    & div{
+        & ilabel{
+            & kendo-label{
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                display: inline-block !important;
+                width: 68rem !important;
+            }
+        }
+    }
+}
+
+.borders ::ng-deep kendo-label {
+    border: none !important;
+}
+
+.formularybtn{
+    /* position: absolute; */
+    top: 31px;
+   }
+
+.btnupdate{
+    margin-left: 5px;
+   }
+   .productopt{
+    margin-right: 34px;
+    margin-top: 3px;
+   }

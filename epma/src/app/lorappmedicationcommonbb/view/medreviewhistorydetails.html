@@ -1,0 +1,751 @@
+<div
+  Name="LayoutRoot"
+  Background="#FFE0EFF1"
+  HorizontalAlignment="Stretch"
+  VerticalAlignment="Stretch"
+  class="reviewhstydetl"
+>
+  <kendo-gridlayout
+    [rows]="[{height: 'auto'}, {height: 200}, {height: 'auto'}, {height: '1fr'}]"
+  >
+    <kendo-gridlayout-item [row]="2" [col]="1">
+      <!-- [style.margin.px]="0,5,0,10" Margin values are changed based on the layout-->
+      <!-- [ScrollBarViewer]="{vertical:'Auto'}"[ScrollBarViewer]="{horizontal:'Auto'}"  Not working-->
+      <div containerStyle>
+        <kendo-grid [style.width.px]="888" class="medhisreviewclss"
+          #grdReviewHistoryDetailsTempRef
+          [GridColumnProperties]="grdReviewHistoryDetails"
+          [selectable]="{ checkboxOnly: false, mode: 'single' }"
+          [style.marginTop.px]="5"
+          kendoGridSelectBy
+          [style.marginRight.px]="0"
+          [style.marginBottom.px]="10"
+          [style.marginLeft.px]="0"
+          (selectionChange)="grdReviewHistoryDetails.GridSelectionChange({}, $event)"
+          [(selectedKeys)]="grdReviewHistoryDetails.selectedRowsIndex"
+          [height]="190"
+          [navigable]="true"
+          [data]="grdReviewHistoryDetails.ItemsSource.array"
+          (keydown)="onKeyDown($event, grdReviewHistoryDetailsTempRef)"
+          (keyup)="onKeyUp($event)"
+          [reorderable]="true"
+          [resizable]="true"
+          
+           
+        >
+          <kendo-grid-column
+            *ngIf="grdReviewHistoryDetails.RowIndicatorVisibility == 0 ? true : false"
+            UniqueName="rowindicator"
+            field="rowindicator"
+            title=""
+            [width]="25"
+          >
+            <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+              <Image
+                *ngIf="grdReviewHistoryDetails.selectedRowsIndex.length > 0 ? grdReviewHistoryDetails.selectedRowsIndex == 
+                    rowIndex : false"
+                Source="~/../assets/Images/iarrownor5x10.png"  class="ArrowAlign"
+              ></Image>
+            </ng-template>
+          </kendo-grid-column>
+
+          <!-- DataMemberBinding="{Binding Path=ReviewDue,Converter={StaticResource ReviewDTTMDisplay}, ConverterParameter=dd-MMM-yyyy HH:mm,ConverterCulture=en-GB}" -->
+          <!-- DTTMDisplay : 0 : 'dd-MMM-yyyy' -->
+          <kendo-grid-column
+            UniqueName="ReviewDue"
+            [resizable]="true"
+            [title]="mdkey.Review_due"
+            [editable]="false"
+            [sortable]="false"
+            [filterable]="false"
+            [width]="125"
+            field="ReviewDue"
+            [GridColumnProperties]="grdReviewHistoryDetails"
+            TextWrapping="Wrap"
+          >
+            <ng-template kendoGridHeaderTemplate let-column>
+              <span [title]="mdkey.Review_due">{{ column.title }}</span>
+            </ng-template>
+            <ng-template
+              kendoGridCellTemplate
+              let-rowIndex="rowIndex"
+              let-dataItem="dataItem"
+            >
+              <div
+                kendoTooltip
+                title="{{dataItem.ReviewDue | DischargeLeaveDTTMConvertor : 0 :
+                  'dd-MMM-yyyy HH:mm' : 'en-GB'}}"
+              >
+                {{dataItem.ReviewDue | DischargeLeaveDTTMConvertor : 0 :
+                'dd-MMM-yyyy HH:mm' : 'en-GB'}}
+              </div>
+            </ng-template>
+          </kendo-grid-column>
+
+          <kendo-grid-column
+            UniqueName="ReviewRequestComments"
+            [resizable]="true"
+            [title]="mdkey.Review_requestcomments"
+            [editable]="true"
+            [sortable]="false"
+            [filterable]="false"
+            [width]="95"
+            [GridColumnProperties]="grdReviewHistoryDetails"
+            TextWrapping="Wrap"
+            field="ReviewRequestComments"
+          >
+            <ng-template kendoGridHeaderTemplate let-column>
+              <span [title]="mdkey.Review_requestcomments">{{ column.title }}</span>
+            </ng-template>
+            <ng-template
+              kendoGridCellTemplate
+              let-dataItem="dataItem"
+            >
+              <div [title]="dataItem.ReviewRequestComments" style="text-overflow: ellipsis;overflow: hidden;">
+                {{dataItem.ReviewRequestComments}}
+              </div>
+            </ng-template>
+          </kendo-grid-column>
+
+          <!-- DataMemberBinding="{Binding Path=ReviewedOn,Converter={StaticResource ReviewDTTMDisplay},ConverterParameter=dd-MMM-yyyy HH:mm,ConverterCulture=en-GB}" -->
+          <!-- {{ReviewedOn | DischargeLeaveDTTMConvertor : 0 : 'dd-MMM-yyyy HH:mm, ConverterCulture=en-GB'}} -->
+          <kendo-grid-column
+            UniqueName="ReviewedOn"
+            [resizable]="true"
+            [title]="mdkey.Reviewed_on"
+            [editable]="false"
+            [sortable]="false"
+            [filterable]="false"
+            [width]="88"
+            field="ReviewedOn"
+            [GridColumnProperties]="grdReviewHistoryDetails"
+            TextWrapping="Wrap"
+          >
+            <ng-template kendoGridHeaderTemplate let-column>
+              <span [title]="mdkey.Reviewed_on">{{ column.title }}</span>
+            </ng-template>
+            <ng-template
+              kendoGridCellTemplate
+              let-rowIndex="rowIndex"
+              let-dataItem="dataItem"
+            >
+            <div kendoTooltip title="{{dataItem.ReviewedOn | DischargeLeaveDTTMConvertor : 0 :
+              'dd-MMM-yyyy HH:mm' : 'en-GB'}}" style="text-overflow: ellipsis;overflow: hidden;">
+              {{dataItem.ReviewedOn | DischargeLeaveDTTMConvertor : 0 :
+                'dd-MMM-yyyy HH:mm' : 'en-GB'}}
+            </div>
+             
+            </ng-template>
+          </kendo-grid-column>
+
+          <kendo-grid-column
+            UniqueName="ReviewedBy"
+            [resizable]="true"
+            [title]="mdkey.Reviewed_by"
+            [editable]="false"
+            [sortable]="false"
+            IsFilterable="false"
+            [width]="88"
+            [GridColumnProperties]="grdReviewHistoryDetails"
+            TextWrapping="Wrap"
+            field="ReviewedBy"
+          >
+            <ng-template kendoGridHeaderTemplate let-column>
+              <span [title]="mdkey.Reviewed_by">{{ column.title }}</span>
+            </ng-template>
+            <ng-template
+              kendoGridCellTemplate
+              let-dataItem="dataItem"
+            >
+              <div kendoTooltip [title]="dataItem.ReviewedBy" style="text-overflow: ellipsis;overflow: hidden;">
+                {{dataItem.ReviewedBy}}
+              </div>
+            </ng-template>
+          </kendo-grid-column>
+
+          <kendo-grid-column
+            UniqueName="ReviewType"
+            [resizable]="true"
+            [title]="mdkey.Review_type"
+            [editable]="false"
+            [sortable]="false"
+            [filterable]="false"
+            [width]="82"
+            [GridColumnProperties]="grdReviewHistoryDetails"
+            TextWrapping="Wrap"
+            field="ReviewType"
+          >
+            <ng-template kendoGridHeaderTemplate let-column>
+              <span [title]="mdkey.Review_type">{{ column.title }}</span>
+            </ng-template>
+            <ng-template
+              kendoGridCellTemplate
+              let-dataItem="dataItem"
+            >
+              <div kendoTooltip [title]="dataItem.ReviewType" style="text-overflow: ellipsis;overflow: hidden;">
+                {{dataItem.ReviewType}}
+              </div>
+            </ng-template>
+          </kendo-grid-column>
+
+          <kendo-grid-column
+            UniqueName="ReviewOutcome"
+            [resizable]="true"
+            [title]="mdkey.Review_outcome"
+            [editable]="false"
+            [sortable]="false"
+            [filterable]="false"
+            [width]="82"
+            [GridColumnProperties]="grdReviewHistoryDetails"
+            TextWrapping="Wrap"
+            field="ReviewOutcome"
+          >
+            <ng-template kendoGridHeaderTemplate let-column>
+              <span [title]="mdkey.Review_outcome">{{ column.title }}</span>
+            </ng-template>
+            <ng-template
+              kendoGridCellTemplate
+              let-dataItem="dataItem"
+            >
+              <div kendoTooltip [title]="dataItem.ReviewOutcome" style="text-overflow: ellipsis;overflow: hidden;">
+                {{dataItem.ReviewOutcome}}
+              </div>
+            </ng-template>
+          </kendo-grid-column>
+
+          <kendo-grid-column
+            UniqueName="ReviewOutcomecomments"
+            [resizable]="true"
+            [title]="mdkey.Review_outcomecomments"
+            [editable]="false"
+            [sortable]="false"
+            [filterable]="false"
+            [width]="114"
+            [GridColumnProperties]="grdReviewHistoryDetails"
+            TextWrapping="Wrap"
+            field="ReviewOutcomecomments"
+          >
+            <ng-template kendoGridHeaderTemplate let-column>
+              <span [title]="mdkey.Review_outcomecomments">{{ column.title }}</span>
+            </ng-template>
+            <ng-template
+              kendoGridCellTemplate
+              let-dataItem="dataItem"
+            >
+              <div kendoTooltip [title]="dataItem.ReviewOutcomecomments" style="text-overflow: ellipsis;overflow: hidden;">
+                {{dataItem.ReviewOutcomecomments}}
+              </div>
+            </ng-template>
+          </kendo-grid-column>
+        </kendo-grid>
+      </div>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item HorizontalAlignment="Stretch" [row]="3" [col]="1">
+      <div>
+        <kendo-gridlayout
+          [rows]="[{height: 40}, {height: 35}, {height: 35}, {height: 35}, {height: 35}, {height: 60}, {height: 'auto'}]"
+          [cols]="[{width: 190}, {width: 245}, {width: 20}, {width: 190}, {width: 242}]"
+        >
+          <!--55 - 59-->
+
+          <Border
+            [Background]="Styles.InnerBG"
+            [row]="2"
+            [col]="2"
+            [rowSpan]="6"
+          ></Border>
+
+          <Border
+            [Background]="Styles.InnerBG"
+            [row]="3"
+            [col]="2"
+            [rowSpan]="6"
+          ></Border>
+
+          <Border
+            [Background]="Styles.InnerBG"
+            [row]="4"
+            [col]="2"
+            [rowSpan]="6"
+          ></Border>
+
+          <Border
+            [Background]="Styles.InnerBG"
+            [row]="5"
+            [col]="2"
+            [rowSpan]="6"
+          ></Border>
+
+          <Border
+            [Background]="Styles.InnerBG"
+            [row]="6"
+            [col]="2"
+            [rowSpan]="6"
+          ></Border>
+
+          <!--61 - 65-->
+
+          <Border
+            [Background]="Styles.InnerBG"
+            [row]="2"
+            [col]="5"
+            [rowSpan]="6"
+          ></Border>
+
+          <Border
+            [Background]="Styles.InnerBG"
+            [row]="3"
+            [col]="5"
+            [rowSpan]="6"
+          ></Border>
+
+          <Border
+            [Background]="Styles.InnerBG"
+            [row]="4"
+            [col]="5"
+            [rowSpan]="6"
+          ></Border>
+
+          <Border
+            [Background]="Styles.InnerBG"
+            [row]="5"
+            [col]="5"
+            [rowSpan]="6"
+          ></Border>
+
+          <Border
+            [Background]="Styles.InnerBG"
+            [row]="6"
+            [col]="5"
+            [rowSpan]="6"
+          ></Border>
+
+          <!--67 - 72-->
+
+          <Border
+            [iStyle]="Styles.whiteBorder"
+            [row]="2"
+            [col]="1"
+            [colSpan]="2"
+          ></Border>
+
+          <Border
+            [iStyle]="Styles.whiteBorder"
+            [row]="3"
+            [col]="1"
+            [colSpan]="2"
+          ></Border>
+
+          <Border
+            [iStyle]="Styles.whiteBorder"
+            [row]="4"
+            [col]="1"
+            [colSpan]="2"
+          ></Border>
+
+          <Border
+            [iStyle]="Styles.whiteBorder"
+            [row]="5"
+            [col]="1"
+            [colSpan]="2"
+          ></Border>
+
+          <Border
+            [iStyle]="Styles.whiteBorder"
+            [row]="6"
+            [col]="1"
+            [colSpan]="2"
+          ></Border>
+
+          <Border
+            [iStyle]="Styles.whiteBorder"
+            [row]="7"
+            [col]="1"
+            [colSpan]="2"
+          ></Border>
+
+          <!--74 - 79-->
+
+          <!-- Colspan value changed from 3 to 2 for line 116 to 126 -->
+
+          <Border
+            [iStyle]="Styles.whiteBorder"
+            [row]="2"
+            [col]="4"
+            [colSpan]="2"
+          ></Border>
+
+          <Border
+            [iStyle]="Styles.whiteBorder"
+            [row]="3"
+            [col]="4"
+            [colSpan]="2"
+          ></Border>
+
+          <Border
+            [iStyle]="Styles.whiteBorder"
+            [row]="4"
+            [col]="4"
+            [colSpan]="2"
+          ></Border>
+
+          <Border
+            [iStyle]="Styles.whiteBorder"
+            [row]="5"
+            [col]="4"
+            [colSpan]="2"
+          ></Border>
+
+          <Border
+            [iStyle]="Styles.whiteBorder"
+            [row]="6"
+            [col]="4"
+            [colSpan]="2"
+          ></Border>
+
+          <Border
+            [iStyle]="Styles.whiteBorder"
+            [row]="7"
+            [col]="4"
+            [colSpan]="2"
+          ></Border>
+
+          <!--80 - 89-->
+          <!-- Margin="15,5,5,10" -->
+          <!-- DataContext.mdkey.Review_historydetails -->
+          <kendo-gridlayout-item [row]="1" [col]="1" [colSpan]="6">
+            <div containerStyle>
+              <iLabel
+                #lblReviewHistoryDetailsTempRef
+                Margin="15,5,5,10"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewHistoryDetails"
+                VerticalAlignment="Bottom"
+                FontSize="13"
+                FontWeight="Bold"
+                [Text]="mdkey.Review_historydetails"
+              >
+              </iLabel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="2" [col]="1">
+            <div containerStyle>
+              <iLabel
+                #lblReviewrequestedbyTempRef
+                Margin="15,0,0,0"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewrequestedby"
+                IsWordwrap="true"
+                VerticalAlignment="Center"
+                [Text]="mdkey.Review_requestedby"
+              >
+              </iLabel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="2" [col]="2">
+            <div containerStyle>
+              <iLabel
+                #lblReviewrequestedbyselectedTempRef
+                Margin="15,0,0,0"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewrequestedbyselected"
+                IsWordwrap="true"
+                VerticalAlignment="Center"
+              >
+              </iLabel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="3" [col]="1">
+            <div containerStyle>
+              <iLabel
+                #lblReviewrequestedonTempRef
+                Margin="15,0,0,0"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewrequestedon"
+                IsWordwrap="true"
+                VerticalAlignment="Center"
+                [Text]="mdkey.Review_requestedon"
+              >
+              </iLabel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="3" [col]="2">
+            <div containerStyle>
+              <iLabel
+                #lblReviewrequestedonselectedTempRef
+                Margin="15,0,0,0"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewrequestedonselected"
+                IsWordwrap="true"
+                VerticalAlignment="Center"
+              >
+              </iLabel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="4" [col]="1">
+            <div containerStyle>
+              <iLabel
+                #lblReviewperiodTempRef
+                Margin="15,0,0,0"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewperiod"
+                IsWordwrap="true"
+                VerticalAlignment="Center"
+                [Text]="mdkey.Review_period"
+              ></iLabel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="4" [col]="2">
+            <div containerStyle>
+              <iLabel
+                #lblReviewperiodselectedTempRef
+                Margin="15,0,0,0"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewperiodselected"
+                IsWordwrap="true"
+                VerticalAlignment="Center"
+              ></iLabel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="5" [col]="1">
+            <div containerStyle>
+              <iLabel
+                #lblReviewrequestdueTempRef
+                Margin="15,0,0,0"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewrequestdue"
+                IsWordwrap="true"
+                VerticalAlignment="Center"
+                [Text]="mdkey.Review_due"
+              ></iLabel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="5" [col]="2">
+            <div containerStyle>
+              <iLabel
+                #lblReviewrequestdueselectedTempRef
+                Margin="15,0,0,0"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewrequestdueselected"
+                IsWordwrap="true"
+                VerticalAlignment="Center"
+              >
+              </iLabel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="6" [col]="1">
+            <div containerStyle>
+              <iLabel
+                #lblReviewrequestcommentsTempRef
+                Margin="15,0,0,0"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewrequestcomments"
+                IsWordwrap="true"
+                class="review-grid-label"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                VerticalAlignment="Center"
+                [Text]="mdkey.Review_requestcomments"
+              >
+              </iLabel>
+            </div>
+          </kendo-gridlayout-item>
+
+          <!--90 - 92-->
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="6" [col]="2">
+            <div containerStyle>
+              <ScrollViewer
+                BorderThickness="0"
+                HorizontalScrollBarVisibility="Disabled"
+                Width="Auto"
+                Height="55"
+                VerticalScrollBarVisibility="Auto"
+              >
+                <kendo-gridlayout-item [row]="6" [col]="2">
+                  <div containerStyle>
+                    <iLabel
+                      class="scrollheight"
+                      #lblReviewrequestcommentsselectedTempRef
+                      Margin="15,0,0,0"
+                      HorizontalAlignment="Stretch"
+                      Name="lblReviewrequestcommentsselected"
+                      IsWordwrap="true"
+                      VerticalAlignment="Center"
+                    >
+                    </iLabel>
+                  </div>
+                </kendo-gridlayout-item>
+              </ScrollViewer>
+            </div>
+          </kendo-gridlayout-item>
+
+          <!--93 - 101-->
+
+          <kendo-gridlayout-item [row]="2" [col]="4">
+            <div containerStyle>
+              <iLabel
+                #lblReviewtypeTempRef
+                Margin="15,0,0,0"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewtype"
+                IsWordwrap="true"
+                VerticalAlignment="Center"
+                [Text]="mdkey.Review_type"
+              ></iLabel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="2" [col]="5">
+            <div containerStyle>
+              <iLabel
+                #lblReviewtypeselectedTempRef
+                Margin="15,0,0,0"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewtypeselected"
+                IsWordwrap="true"
+                VerticalAlignment="Center"
+              ></iLabel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="3" [col]="4">
+            <div containerStyle>
+              <iLabel
+                #lblReviewedbyTempRef
+                Margin="15,0,0,0"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewedby"
+                IsWordwrap="true"
+                VerticalAlignment="Center"
+                [Text]="mdkey.Reviewed_by"
+              ></iLabel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="3" [col]="5">
+            <div containerStyle>
+              <iLabel
+                #lblReviewedbyselectedTempRef
+                Margin="15,0,0,0"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewedbyselected"
+                IsWordwrap="true"
+                VerticalAlignment="Center"
+              ></iLabel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="4" [col]="4">
+            <div containerStyle>
+              <iLabel
+                #lblReviewedonTempRef
+                Margin="15,0,0,0"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewedon"
+                IsWordwrap="true"
+                VerticalAlignment="Center"
+                [Text]="mdkey.Reviewed_on"
+              ></iLabel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="4" [col]="5">
+            <div containerStyle>
+              <iLabel
+                #lblReviewedonselectedTempRef
+                Margin="15,0,0,0"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewedonselected"
+                IsWordwrap="true"
+                VerticalAlignment="Center"
+              ></iLabel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="5" [col]="4">
+            <div containerStyle>
+              <iLabel
+                #lblReviewoutcomeTempRef
+                Margin="15,0,0,0"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewoutcome"
+                IsWordwrap="true"
+                VerticalAlignment="Center"
+                [Text]="mdkey.Review_outcome"
+              ></iLabel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="5" [col]="5">
+            <div containerStyle>
+              <iLabel
+                #lblReviewoutcomeselectedTempRef
+                Margin="15,0,0,0"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewoutcomeselected"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                IsWordwrap="true"
+                VerticalAlignment="Center"
+              ></iLabel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="6" [col]="4">
+            <div containerStyle>
+              <iLabel
+                #lblReviewoutcomecommentsTempRef
+                Margin="15,0,0,0"
+                HorizontalAlignment="Stretch"
+                Name="lblReviewoutcomecomments"
+                IsWordwrap="true"
+                VerticalAlignment="Center"
+                class="review-grid-label"
+                [Text]="mdkey.Review_outcomecomments"
+              >
+              </iLabel>
+            </div>
+          </kendo-gridlayout-item>
+
+          <!--102 -104-->
+          <!-- Margin="15,0,0,0" -->
+          <kendo-gridlayout-item [row]="6" [col]="5">
+            <div containerStyle>
+              <ScrollViewer
+                BorderThickness="0"
+                HorizontalScrollBarVisibility="Disabled"
+                Width="Auto"
+                Height="55"
+                VerticalScrollBarVisibility="Auto"
+              >
+                <kendo-gridlayout-item [row]="6" [col]="5">
+                  <div containerStyle>
+                    <iLabel
+                      class="scrollheight"
+                      #lblReviewoutcomecommentsselectedTempRef
+                      Margin="15,0,0,0"
+                      HorizontalAlignment="Stretch"
+                      Name="lblReviewoutcomecommentsselected"
+                      IsWordwrap="true"
+                      VerticalAlignment="Center"
+                    >
+                    </iLabel>
+                  </div>
+                </kendo-gridlayout-item>
+              </ScrollViewer>
+            </div>
+          </kendo-gridlayout-item>
+        </kendo-gridlayout>
+      </div>
+    </kendo-gridlayout-item>
+  </kendo-gridlayout>
+</div>

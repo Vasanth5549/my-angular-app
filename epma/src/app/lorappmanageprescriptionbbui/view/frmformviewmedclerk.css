@@ -1,0 +1,87 @@
+.brandContainer{
+    padding-bottom: 12px; 
+}
+.brandClearRow{
+    text-align: right;
+} 
+:host ::ng-deep .k-input-md .k-input-inner, .k-picker-md .k-input-inner  {
+    padding: 4px 3px !important;
+}
+
+ .combobox1{
+    padding-top: 3px;
+    padding-right:10px;
+    padding-left: 2px;
+
+} 
+/* .a{
+    padding-left:5px;
+     padding-top: 6px;
+     padding-bottom: 3px;
+}
+.b{
+    padding-top: 6px;padding-bottom:3px;
+} */
+.label1{
+    padding-top:4px;
+}
+.label2{
+    padding-left:5px;
+     padding-top:6px;
+     padding-bottom:4px;
+}
+.label3{
+    padding-top: 6px;
+    padding-bottom:4px;
+}
+.label4{
+    padding-top:6px; 
+    padding-right:5px;
+    padding-bottom:4px;
+}
+.label5{
+    padding-top:3px;
+}
+.label6{
+    padding-left:7px;
+}
+.label7{
+    padding-right:10px;
+    padding-top:3px;
+}
+.label8{
+    padding-left:4px;
+    padding-top:6px;
+    padding-bottom:4px;
+}
+.label9{
+    
+    padding-right:5px; 
+    padding-top:6px;
+    padding-bottom:4px;
+}
+.label10{
+    padding-left:4px; 
+    padding-top:7px; 
+    padding-bottom:3px;
+}
+.label11{
+    padding-right:5px; 
+    padding-top:6px;
+    padding-left:2px ;
+    padding-bottom:3px;
+}
+.label12{
+    padding-left:3px;
+    padding-top:7px;
+    padding-bottom:4px;
+}
+.label13{
+    padding-right:5px;
+    padding-top:7px; 
+    padding-bottom:4px;
+}
+.label14{
+    
+    padding-top:7px; 
+}

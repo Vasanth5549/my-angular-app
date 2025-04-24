@@ -1,0 +1,36 @@
+::ng-deep li.k-treeview-item {
+    display: block !important;
+}
+
+.setContentCollapse {
+    display: none;
+}
+
+.setContentVisible {
+    display: block;
+}
+
+.data-items {
+    display: flex;
+    justify-content: center;
+    /* text-decoration: underline; */
+}
+
+::ng-deep .newItreeLineClass * {
+    white-space: pre-line;
+    display: grid;
+}
+::ng-deep .k-treeview-leaf.k-selected {
+    background-color: #0e6ce1;
+    background-image: none;
+}
+::ng-deep .k-treeview-leaf.k-selected span{
+    color:white ;
+}
+::ng-deep .quickLinksTreeView .k-treeview-leaf.k-selected{
+    background-color: white;
+    background-image: none;
+}
+::ng-deep .quickLinksTreeView .k-treeview-leaf.k-selected span{
+    color:black ;
+}

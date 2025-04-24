@@ -1,0 +1,11 @@
+<div [ngStyle]="style">
+    <ng-content></ng-content>
+    <ng-container *ngIf="ChildrenElementArray && ChildrenElementArray.length > 0">
+        <ng-container *ngFor="let elem of ChildrenElementArray">
+            <ng-container *ngIf="elem?.constructor?.name  == 'iLabel'">
+                <iLabel [Text]="elem?.Text" [DataContext]="DataContext" [BindingObjects]="elem?.BindingObjects" [isAfterViewInitRequired]="elem?.isAfterViewInitRequired">
+                </iLabel>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+</div>

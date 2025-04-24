@@ -1,0 +1,51 @@
+<kendo-gridlayout Name="LayoutRoot" [Background]="Styles.LzoPageBG" style="width: 900px;" Margin="10,0,0,0">
+    {{getOutput()}}
+    <kendo-gridlayout-item>
+        <kendo-gridlayout [rows]="[{height: 'auto'}]" [cols]="[{width: 'auto'}, {width: '1fr'}]">
+            <kendo-gridlayout-item style="margin: auto;">
+                <iButton #cmdLinksTempRef HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="cmdLinks"
+                    Width="auto" Text="Links" Tooltip="Select to view links"
+                    DisabledImageSource="~/../assets/Images/iArrowDIS5x10.png"
+                    ActiveImageSource="~/../assets/Images/iArrowsHOT5x10.png"
+                    ImageSource="~/../assets/Images/iArrowNOR5x10.png" ImageHeight="12" ImageWidth="5"
+                    Margin="35,0,0,0">
+                </iButton>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [col]='2'>
+                <div containerStyle>
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                        <iButton #cmdSetSequenceTempRef Margin="10" Width="Auto" Cursor="Hand" Height="23"
+                            HorizontalAlignment="Left" Name="cmdSetSequence" VerticalAlignment="Center"
+                            [Text]="resKey.cmdSetSequence_Text" ImageSource="~/../assets/Images/iSetSequence_Nor22.png"
+                            ActiveImageSource="~/../assets/Images/iSetSequence_Hot22.png"
+                            DisabledImageSource="~/../assets/Images/iSetSequence_Dis22.png" Visibility="Collapsed">
+                        </iButton>
+                        <iButton #cmdClearSequenceTempRef Margin="10" Width="Auto" Cursor="Hand" Height="23"
+                            [Text]="resKey.cmdClearSequence_Text" HorizontalAlignment="Left" Name="cmdClearSequence"
+                            VerticalAlignment="Center" ImageSource="~/../assets/Images/iclearnor24.png"
+                            ActiveImageSource="~/../assets/Images/iclearhot24.png"
+                            DisabledImageSource="~/../assets/Images/iclearnor24.png"
+                            [IsEnabled]="DataContext.IsClearSequenceEnabled" [Visibility]="DataContext.IsClearSequenceVisible"></iButton>
+                        <iButton #cmdSequenceLinkTempRef Margin="10" Width="Auto" Cursor="Hand" Height="23"
+                            HorizontalAlignment="Left" Name="cmdSequenceLink" VerticalAlignment="Center"
+                            [Text]="resKey.cmdSequenceLink_Text" ImageSource="~/../assets/Images/icon_LinkNor.png"
+                            ActiveImageSource="~/../assets/Images/icon_LinkHot.png"
+                            DisabledImageSource="~/../assets/Images/icon_LinkDis.png"  [IsEnabled]="DataContext.IsDoLinkEnabled" [Visibility]="DataContext.IsDoLinkVisible"></iButton>
+
+                        <iButton #cmdMoveDownTempRef Margin="10" Width="Auto" Cursor="Hand" Height="23"
+                            HorizontalAlignment="Left" Name="cmdMoveDown" VerticalAlignment="Center"
+                            [Text]="resKey.cmdMoveDown_Text" ImageSource="~/../assets/Images/mpad_next_nor.png"
+                            ActiveImageSource="~/../assets/Images/mpad_next_act.png"
+                            DisabledImageSource="~/../assets/Images/mpad_next_dis.png" [IsEnabled]="DataContext.IsMoveDownEnabled" [Visibility]="DataContext.IsMoveDownVisible"></iButton>
+
+                        <iButton #cmdMoveUpTempRef Margin="10" Width="Auto" Height="23" Cursor="Hand"
+                            HorizontalAlignment="Left" Name="cmdMoveUp" VerticalAlignment="Center"
+                            [Text]="resKey.cmdMoveUp_Text" ImageSource="~/../assets/Images/mpad_prev_nor.png"
+                            ActiveImageSource="~/../assets/Images/mpad_prev_act.png"
+                            DisabledImageSource="~/../assets/Images/mpad_prev_dis.png"  [IsEnabled]="DataContext.IsMoveUpEnabled" [Visibility]="DataContext.IsMoveUpVisible"></iButton>
+                    </StackPanel>
+                </div>
+            </kendo-gridlayout-item>
+        </kendo-gridlayout>
+    </kendo-gridlayout-item>
+</kendo-gridlayout>

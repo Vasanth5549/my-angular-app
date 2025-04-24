@@ -1,0 +1,57 @@
+<div>
+  <kendo-gridlayout Name="LayoutRoot" Background="Styles.LzoPageBG"
+    [rows]="[{ height: 2},{ height: 'auto'},{ height: 2},{ height: 352},{ height: 30}]" class="meddrugChildGrpLayout"
+    [cols]="[{ width: 100},{ width: 330},{ width: 100}]">
+    <Border #SelectedItemBorderTempRef [row]="2" [col]="2" [Background]="Styles.InnerBG">
+    </Border>
+    <kendo-gridlayout-item [row]='2' [col]="1">
+      <div containerStyle class="lblpadding">
+        <iLabel #lblSelectItemTempRef Name="lblSelectItem" Text="Select item" HorizontalAlignment="left" Width="88"
+          Margin="0,0,0,0" VerticalAlignment="Center">
+        </iLabel>
+      </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='2' [col]='2'>
+      <div containerStyle class="cbmboxpadding">
+        <!-- [Tooltip]="DataContext.ComponentCombo_Tooltip | objResMedDrugMonograph" -->
+        <iComboBox #cboComponentTempRef TabIndex="1" HorizontalAlignment="Stretch" Name="cboComponent"
+          [ItemsSource]="DataContext.MonographParams" Width="320" VerticalAlignment="Center"
+          [SelectionChanged]="cboComponent_SelectionChanged_Func" [Tooltip]="monographchild.ComponentCombo_Tooltip"
+          [(SelectedValue)]="DataContext.SelectedValue">
+        </iComboBox>
+      </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='4' [colSpan]='4'>
+        <!--removed top 12px and added only 2px-->
+      <kendo-grid #grdDetailsTempRef  [GridProperties]="grdDetails" [pageable]="true"  [pageSize]="pageSize" [skip]="skip"  (pageChange)="pageChange($event)" class="grpChildGrid"
+       HorizontalAlignment="left" 
+        VerticalAlignment="Top" tabindex="2" (cellClick)="grdDetails.cellClick($event)" [reorderable]="false"
+        [resizable]="false" [width]="570" [style.marginLeft.px]="0" [style.marginTop.px]="2"  [style.marginRight.px]="0"
+        [style.marginBottom.px]="0" [data]="gridView" [selectable]="{ checkboxOnly: false, mode: 'single' }" kendoGridSelectBy
+        [(selectedKeys)]="grdDetails.selectedRowsIndex">
+        <ng-template kendoGridNoRecordsTemplate>
+          There are no records to show
+        </ng-template>
+        <kendo-grid-column UniqueName="TypeDisplay" [title]="monographchild.source" [filterable]="false"
+          [resizable]="false" [sortable]="false" [hidden]="false" field="TypeDisplay" [width]="150">
+        </kendo-grid-column>
+
+        <kendo-grid-column UniqueName="Section" TextWrapping="Wrap" [title]="monographchild.description" [filterable]="false"
+          [resizable]="false" [sortable]="false" [hidden]="false" [width]="250" field="Section">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <span class="underline-text">{{ dataItem.Section }}</span>
+          </ng-template>
+        </kendo-grid-column>
+        <ng-template
+        kendoPagerTemplate>
+        <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
+        <kendo-pager-numeric-buttons
+        [buttonCount]="4"
+      ></kendo-pager-numeric-buttons>
+      <kendo-pager-next-buttons></kendo-pager-next-buttons>
+      <kendo-pager-input class="kendopageinfo"></kendo-pager-input>
+      </ng-template>
+      </kendo-grid>
+    </kendo-gridlayout-item> 
+  </kendo-gridlayout>
+</div>

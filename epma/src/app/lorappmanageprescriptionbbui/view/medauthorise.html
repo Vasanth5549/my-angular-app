@@ -1,0 +1,504 @@
+<kendo-gridlayout GridLayout Name="LayoutRoot"  [Background]="Styles.LzoPageBG"
+    [rows]="[{height:'1fr'},{height:'auto'}]" [cols]="[{width:'50fr'},{width:'50fr'}]"  [style.height.px]="maxLayoutHeight">
+    <kendo-gridlayout-item [row]="1" [col]="1">
+        <div containerStyle>
+            <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="auto" Height="auto"
+                BorderThickness="1" BorderBrush="Black" Margin="2">
+                <iTab #iTab1TempRef HorizontalAlignment="Stretch" Name="iTab1" VerticalAlignment="Stretch" [defaultOnTabselect]=  "true"
+                    Background="#FFE0EFF1" Margin="2" [Loaded]="iTab1_Loaded" [SelectionChanged]="iTab1_SelectionChanged_Func" [KeepTabContent]="true">
+                </iTab>
+            </Border>
+        </div>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]="1" [col]="2">
+        <div containerStyle [style.Width.px]="divwidth">
+            <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="auto" Height="auto"
+                BorderThickness="1" BorderBrush="Black" Margin="2">
+                <kendo-gridlayout GridLayout Name="InnerGrid"
+                    [rows]="[{height:'auto'}, {height:'30'},{height:'25'},{height:'25'},{height:'50'},{height:'1fr'},{height:'1fr'}]"
+                    [cols]="[{width:'auto'},{width:'2fr'}]">
+                    <kendo-gridlayout-item [row]="1" [col]="1" [colSpan]="2">
+                        <div containerStyle>
+                            <iCheckBox #chaupdteTempRef [Text]="DataContext.HeightWeightIndText" Name="chaupdte"
+                                Width="Auto" Height="Auto" [Visibility]="DataContext.IsVisibleHWIndicator"
+                                [(IsChecked)]="DataContext.IsPatientHeightWTUpdatedChecked" FontWeight="Bold"
+                                Foreground="Brown" [Tooltip]="resKey.ChkboxHWUpdate_Tooltip" class="add-brown"></iCheckBox>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <kendo-gridlayout-item [row]="2" [col]="1">
+                        <div containerStyle>
+                            <iLabel #lblDisplayTxtTempRef Name="lblDisplayTxt" HorizontalAlignment="Left"
+                                VerticalAlignment="Stretch" Mandatory="False"
+                                [Text]="DataContext.DischargeLeaveDateDisplayText" Margin="0,5,0,5"
+                                [Visibility]="DataContext.DischargeLeaveDateVisiblity"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <kendo-gridlayout-item [row]="2" [col]="2">
+                        <div containerStyle>
+                            <iLabel #lblDisplayValueTempRef Name="lblDisplayValue" Mandatory="False"
+                                HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="20,5,0,5"
+                                Text="{{ DataContext.DischargeLeaveDTTM | DischargeLeaveDTTMConvertor : 0 : 'dd-MMM-yyyy'}}"
+                                [Visibility]="DataContext.DischargeLeaveDateVisiblity">
+                            
+                                <!-- [Text]="DataContext.DischargeLeaveDTTMConvertor" -->
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <kendo-gridlayout-item [row]="2" [col]="1">
+                        <div containerStyle>
+                            <iButton #cmdMedClkSrcTempRef Name="cmdMedClkSrc" HorizontalAlignment="Left"
+                                TextDecorations="Underline"
+                                Tooltip="Select to enter/Select medication clerking source(s)"
+                                Text="Medication clerking source" Height="23"
+                                [Visibility]="DataContext.MedicationClerkingSourceVisibility" ImageHeight="12"
+                                ImageWidth="5" DisabledImageSource="./assets/Images/iArrowDIS5x10.png"
+                                ActiveImageSource="./assets/Images/iarrowshot5x10.png"
+                                ImageSource="./assets/Images/iArrowNOR5x10.png" [Click]="cmdMedClkSrc_ClickFunc"
+                                VerticalAlignment="Center" TabIndex="18"></iButton>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <kendo-gridlayout-item [row]="2" [col]="2">
+               <div containerStyle   *ngIf="DataContext && DataContext.MedicationClerkingSource" >
+                            <iLabel #lblMedClkSrcTempRef  class="showEllipsesClass"  Name="lblMedClkSrc" Mandatory="False" 
+                                HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,5,0,5"
+                                IsWordwrap="False" [Visibility]="DataContext.MedicationClerkingSourceVisibility"
+                                [Text]="DataContext.MedicationClerkingSource | MedClrkSrc : 0 : ';P'"
+                [Tooltip]="DataContext.MedicationClerkingSource | MedClrkSrc : 0 :';P'"></iLabel>
+                        </div> 
+                    </kendo-gridlayout-item>
+
+                    <kendo-gridlayout-item [row]="3" [col]="1" [colSpan]="2" name="label1Container">
+                        <div containerStyle style="font-weight: bold; padding: 8px 0px 0px 0px;" >
+                            <iLabel #lblDisplayTextTempRef Name="lblDisplayText" Margin="2,3,0,0" [Text]="authorise.lblDisplayText_Text"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Top" Mandatory="False" FontWeight="Bold">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <kendo-gridlayout-item [row]="4" [col]="1" [colSpan]="2" name="label2Container">
+                        <div containerStyle style="margin: 10px 0px 0px 0px;">
+                            <iLabel #lblPrescriptionStatusDisplayTextTempRef Name="lblPrescriptionStatusDisplayText"
+                                [(Text)]="DataContext.PrescriptionStatusDisplayText"
+                                [(Visibility)]="DataContext.PrescriptionStatusDisplayTextVisibility"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Top" Mandatory="False"
+                                FontWeight="Bold" FontSize="14" Margin="2,3,0,0"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <kendo-gridlayout-item [row]="5"  [col]="1" [colSpan]="2">
+                        <div containerStyle>
+                            <!-- Background="Gray" -->
+                            <kendo-gridlayout GridLayout Name="checkgrid" Margin="0,0,0,0"
+                                [rows]="[{height:'20'},{height:'20'}]" [cols]="[{width:'50fr'},{width:'50fr'}]">
+                                <kendo-gridlayout-item [row]="1" [col]="2" style="justify-self: right;">
+                                    <div containerStyle>
+                                        <iCheckBox id="iCheckBox1" #iCheckBox1TempRef [Text]="DataContext.ViewDiscontinuedDrugText"
+                                            [Tooltip]="DataContext.ViewDiscontinuedDrugText" Height="Auto" Width="Auto"
+                                            Name="iCheckBox1" VerticalAlignment="Top"
+                                            [IsChecked]="DataContext.IsDisCanChecked" (IsCheckedChange)="iCheckBox1_Checked($event)" HorizontalAlignment="Right"
+                                            FontStretch="Normal" [KeyUp]="iCheckBox1_KeyDown_Func"
+                                            Margin="0,0,5,0" IsWordWrap="True"></iCheckBox>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]="2" [col]="2" style="justify-self: right;">
+                                    <!-- Background="Gray" -->
+                                    <div containerStyle>
+                                        <iCheckBox #iCheckBox2TempRef [Text]="DataContext.ViewCompletedDrugText"
+                                            [Tooltip]="DataContext.ViewCompletedDrugtooltip" Height="Auto" Width="Auto"
+                                            Name="iCheckBox2" VerticalAlignment="Top" id="iCheckBox2"
+                                            [IsChecked]="DataContext.IsDisCompletedChecked" (IsCheckedChange)="iCheckBox2_Checked($event)"
+                                            HorizontalAlignment="Right" FontStretch="Normal" 
+                                            [KeyUp]="iCheckBox2_KeyDown_Func" Margin="0,0,5,5" IsWordWrap="True">
+                                        </iCheckBox>
+                                    </div>
+                                </kendo-gridlayout-item>
+                            </kendo-gridlayout>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <kendo-gridlayout-item [row]="6" [col]="1" [colSpan]="2" >
+                        <div containerStyle>
+                            <kendo-gridlayout GridLayout Name="checkgrid1" [rows]="[{height:'50px'}]"
+                                [cols]="[{width:'50fr'}]">
+                                <kendo-gridlayout-item [row]="1">
+                                    <div containerStyle>
+                                        <iLabel #lblDisCompTempRef Name="lblDisComp" HorizontalAlignment="Right"
+                                            [Text]="DataContext.ViewDisComp72HRs"
+                                            [Tooltip]="DataContext.ViewDisComp72HRs" Mandatory="False" Margin="2,5,0,1"
+                                            Width="auto" VerticalAlignment="Stretch" FontWeight="Bold"
+                                            IsWordwrap="True"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+                            </kendo-gridlayout>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="7" [colSpan]="2" [col]="1">
+                        
+                        <div class="align-grid">
+                            <kendo-grid #grdResolveTempRef  width="auto" class="medauth-grid-height medauthorisegrid"   
+                                [ngClass]="{'grid-visibility':!isLoaded}"  
+                                VerticalAlignment="Stretch" HorizontalAlignment="Stretch" [data]="grdResolve.ItemsSource.array"
+                                (selectionChange)="grdResolve.selectionChange($event)"  [style.width]="'auto'"   [rowClass]="rowCallback"
+                                [selectable]="{checkboxOnly: true, mode: 'multiple'}" kendoGridSelectBy
+                                [(selectedKeys)]="grdResolve.selectedRowsIndex" 
+                                [sortable]="false" [resizable]="true" [reorderable]="false" Margin="2" (cellClick)="grdResolve.cellClick($event)"
+                                [style]="{'margin':'10px 9px 0px 4px'}"
+                                [style.height.px]="maxGridHeight"
+                                [class.medprescribedrugsGridChildHeight]="isChildWizard">
+                                <ng-template kendoGridNoRecordsTemplate>{{ DataContext.ResolveGridNoRecordsText }}
+                                </ng-template>
+                        
+                                <kendo-grid-checkbox-column 
+                                [style]="{ 'text-align': 'center' }"
+                                field="CheckBoxColumn"
+                                [width]="25"
+                              >
+                                <ng-template
+                                  kendoGridCellTemplate
+                                  let-dataItem
+                                  let-idx="rowIndex"
+                                  let-columnIndex="columnIndex"
+                                >
+                                  <DataTemplate
+                                    #temp
+                                    [dataItem]="dataItem"
+                                    [index]="idx"
+                                    [colindex] = "columnIndex"
+                                    [gridHelper]="grdResolve"
+                                  >
+                                    <iCheckBox
+                                      #SelectCheckboxTempRef
+                                      *ngIf="!dataItem.IsGroupHeader"
+                                      [kendoGridSelectionCheckbox]="idx"
+                                      [GridRowIndex]="idx"
+                                    >
+                                    </iCheckBox>
+                                  </DataTemplate>
+                                  </ng-template>
+                                </kendo-grid-checkbox-column>
+
+                                <kendo-grid-column UniqueName="ConflictIcon"  [width]="25" [filterable]="false"
+                                    [editable]="false" [GridColumnProperties]="grdResolve" TextWrapping="Wrap">
+                                    <ng-template kendoGridHeaderTemplate>
+                                        <ControlTemplate>
+                                            <GridBorder Padding="0" Margin="0" BorderThickness="0,0,1,1"
+                                                BorderBrush="#7BB0AF">
+                                                <Image Source="./assets/Images/istatusdetailsnor16.png" Stretch="None"
+                                                    HorizontalAlignment="Center" Tooltip="Alert/Status details"></Image>
+                                            </GridBorder>
+                                        </ControlTemplate>
+                                    </ng-template>
+
+                                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                        let-columnIndex="columnIndex">
+                                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                            [gridHelper]="grdResolve">
+                                            <ContentPresenter *ngIf="!dataItem.IsGroupHeader && dataItem.mode == 'new'" [Content]="dataItem | InfoIconKey:'':'ClinicalVrfy'"
+                                                Tooltip="Alert/Status details"></ContentPresenter>
+
+                                            <ContentPresenter *ngIf="!dataItem.IsGroupHeader && dataItem.mode != 'new'" [Content]="dataItem.InfoIconKey"
+                                                Tooltip="Alert/Status details"></ContentPresenter>
+                                        </DataTemplate>
+                                    </ng-template>
+                                </kendo-grid-column>
+
+                                <kendo-grid-column  Width="Auto" [filterable]="false" [width]="25"
+                                    [editable]="false" [GridColumnProperties]="grdResolve" [resizable]="false">
+                                    <ng-template kendoGridHeaderTemplate>
+                                        <ControlTemplate>
+                                            <GridBorder Padding="0" Margin="0" BorderThickness="0,0,1,1"
+                                                BorderBrush="#7BB0AF">
+                                                <Image Source="./assets/Images/ipatientmedicationhot16.png" Stretch="None"
+                                                    HorizontalAlignment="Center" Tooltip="Select to view details">
+                                                </Image>
+                                            </GridBorder>
+                                        </ControlTemplate>
+                                    </ng-template>
+
+                                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                        let-columnIndex="columnIndex">
+                                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                            [gridHelper]="grdResolve">
+                                            <kendo-gridlayout [cols]="[{width:'auto'}]" [rows]="[{height:'auto'}]">
+                                                <kendo-gridlayout-item [row]="1" [col]="1">
+                                                    <div containerStyle>
+                                                        <Image 
+                                                            [DataContext]="dataItem"
+                                                            Source="./assets/Images/ipatientmedicationhot16.png"
+                                                            Cursor="Hand" Stretch="None"
+                                                            Tooltip="Select to view details"
+                                                            [(Visibility)]="dataItem.IsFormViewerIconVisible"
+                                                            [MouseLeftButtonUp]="Rx_MouseLeftButtonUp_Func" [id]="'icnRXIMG_'+ rowIndex"></Image>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+                                            </kendo-gridlayout>
+                                        </DataTemplate>
+                                    </ng-template>
+                                </kendo-grid-column>
+
+                                <kendo-grid-column UniqueName="FormViewerIcon"  field="FormViewerIcon" [width]="25"  HeaderTextAlignment="Center"
+                                   [editable]="false" [filterable]="false" [resizable]="false">  
+                                    <ng-template kendoGridHeaderTemplate>
+                                        <ControlTemplate>
+                                            <GridBorder #ControlTemplateBordrerStyle Padding="0" Margin="0"
+                                                BorderThickness="0,0,1,1" BorderBrush="#7BB0AF">
+                                                <Image Source="./assets/Images/gridimage.png" Stretch="None" Margin="0"
+                                                    Tooltip="Select to view/Amend medication item details"></Image>
+                                            </GridBorder>
+                                        </ControlTemplate>
+                                    </ng-template>
+
+                                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                        let-columnIndex="columnIndex">
+                                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                            [gridHelper]="grdResolve">
+                                            <kendo-gridlayout [cols]="[{width:'auto'}]"
+                                                [rows]="[{height:'auto'},{height:'auto'},{height:'auto'}]">
+
+
+                                                <kendo-gridlayout-item [row]='1' [col]="1">
+                                                    <!-- (MouseLeftButtonUp_Func)="FormviewerIcon_MouseLeftButtonUp(dataItem,$event)" -->
+                                                    <div containerStyle>
+                                                        <Image Source="./assets/Images/gridimage.png" Cursor="Hand"
+                                                            Tooltip="Select to view/Amend medication item details"
+                                                            Margin="0,7,0,0"
+                                                            [(Visibility)]="dataItem.IsFormViewerIconVisible"
+                                                            (MouseLeftButtonUp_Func)="FormviewerIcon_MouseLeftButtonUp(dataItem,$event)"
+                                                            >
+                                                        </Image>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+                                                <kendo-gridlayout-item [row]='2' [col]="1">
+                                                    <div containerStyle>
+                                                        <Image #SequentialIconlinkTempRef Name="SequentialIconlink"
+                                                            Source="./assets/Images/sequentialLink.png" Cursor="Hand"
+                                                            [Tooltip]="dataItem.SequentialIconlink_Tooltip"
+                                                            Margin="0,7,0,7"
+                                                            [(Visibility)]="dataItem.FormViewerDetails.BasicDetails.IsSequentiallinkvisi">
+                                                        </Image>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+
+                                                <kendo-gridlayout-item [row]='3' [col]="1" *ngIf="dataItem.FormViewerDetails.BasicDetails.IsOrderSetIconVisible==0?true:false">
+                                                    <div containerStyle>
+                                                        <Image #OrderSetIconTempRef Name="OrderSetIcon"
+                                                            Source="./assets/Images/group_medicines_NOR16.png" Cursor="Hand"
+                                                            Margin="0,7,0,7"
+                                                            [Tooltip]="dataItem.FormViewerDetails.BasicDetails.Ordersets.ToolTip"
+                                                            [(Visibility)]="dataItem.FormViewerDetails.BasicDetails.IsOrderSetIconVisible">
+                                                        </Image>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+                                                <!-- [TextData]="dataItem.FormViewerDetails.BasicDetails.PrescribingNote" -->
+                                                <kendo-gridlayout-item [row]='4' [col]="1">
+                                                    <div containerStyle>
+                                                        <iImage #R_NameTempRef Name="R_Name" Margin="0,7,0,7"
+                                                            [Source]="dataItem.FormViewerDetails.BasicDetails.NoteIconSource" 
+                                                            isToolTip="True"
+                                                            [(Visibility)]="dataItem.FormViewerDetails.BasicDetails.IsPrescribingNoteIconVisible"
+                                                            Width="16" MaxWidth="16" Height="16"
+                                                            [ToolTip]="dataItem.FormViewerDetails.BasicDetails.PrescribingNote_ToolTip">
+                                                        </iImage>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+
+                                            </kendo-gridlayout>
+                                        </DataTemplate>
+                                    </ng-template>
+                                </kendo-grid-column>
+                                
+
+                                <kendo-grid-column [width]="70" [GridColumnProperties]="grdResolve"
+                                    [title]="authorise.PrescriptionItem_Header" UniqueName="PrescriptionItem" [filterable]="false" [editable]="false"
+                                    TextWrapping="Wrap">
+                                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                        let-columnIndex="columnIndex">
+                                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                            [gridHelper]="grdResolve" (RowLoaded)="rowLoaded($event)">
+                                            <div *ngIf="dataItem.IsGroupHeader">
+                                                {{dataItem.GroupHeaderName}}
+                                              </div>
+                                             <!-- <ContentPresenter *ngIf="!dataItem.IsGroupHeader" [Content]="dataItem | MedLineDisplay :'':0"></ContentPresenter>  -->
+                                             <ContentPresenter *ngIf="!dataItem.IsGroupHeader && dataItem.mode == 'new'"
+                                            [Content]="dataItem | MedLineDisplay1 : '' : 0 : ''"></ContentPresenter>
+        
+                                            <ContentPresenter *ngIf="!dataItem.IsGroupHeader && dataItem.mode != 'new'"
+                                            [Content]="dataItem.MedLineDisplay"></ContentPresenter> 
+                                        </DataTemplate>
+                                    </ng-template>
+
+                                    
+                                </kendo-grid-column>
+
+                                <kendo-grid-column  [width]="130"  [GridColumnProperties]="grdResolve" 
+                                    [title]="authorise.Otherinformation_Header" UniqueName="Otherinformation" [filterable]="false" [editable]="false">
+                                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                        let-columnIndex="columnIndex">
+                                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                            [gridHelper]="grdResolve">
+                                            <!-- <ContentPresenter *ngIf="!dataItem.IsGroupHeader" [Content]="dataItem| MedOtherDisplay :'':0">
+                                            </ContentPresenter> -->
+                                            <ContentPresenter *ngIf="!dataItem.IsGroupHeader  && dataItem.mode == 'new'"
+                                            [Content]="dataItem | MedOtherDisplay1 : '' : 0 : ''"></ContentPresenter>
+      
+                                          <ContentPresenter *ngIf="!dataItem.IsGroupHeader && dataItem.mode != 'new'"
+                                            [Content]="dataItem.MedOtherDisplay1"></ContentPresenter> 
+                                        </DataTemplate>
+                                    </ng-template>
+                                </kendo-grid-column>
+
+                                <kendo-grid-column   [GridColumnProperties]="grdResolve" [width]="25" UniqueName="StartDTTMVWR"
+                                    [title]="authorise.StartDTTM_Header" [filterable]="false" [editable]="false">
+                                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                        let-columnIndex="columnIndex" field="">
+                                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                            [gridHelper]="grdResolve">
+                                            <kendo-gridlayout [cols]="[{width:80},{width:5},{width:15}]"
+                                                [rows]="[{height:'auto'}]">
+                                                <kendo-gridlayout-item [row]="1" [col]='1'>
+                                                    <div containerStyle>
+                                                        <iLabel *ngIf="!dataItem.IsGroupHeader" #lbStartDTTMTempRef Name="lbStartDTTM" Mandatory="False"
+                                                            HorizontalAlignment="Stretch" Margin="0" IsWordwrap="True"
+                                                            VerticalAlignment="Center"
+                                                            [Text]="dataItem.FormViewerDetails.BasicDetails.StartDTTMText"
+                                                            [Tooltip]="dataItem.FormViewerDetails.BasicDetails.StartDTTMText">
+                                                        </iLabel>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+                                                <kendo-gridlayout-item [row]="1" [col]='3'>
+                                                    <div containerStyle>
+                                                        <Image #OnAdmissionTempRef Name="OnAdmission"
+                                                            Source="./assets/Images/iOnadmissionNOR16.png"
+                                                            Tooltip="On admission - (This medication dose was being taken at home)"
+                                                            [(Visibility)]="dataItem.FormViewerDetails.BasicDetails.IsDispalyOnadmission">
+                                                        </Image>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+
+
+                                            </kendo-gridlayout>
+                                        </DataTemplate>
+                                    </ng-template>
+                                </kendo-grid-column>
+
+                                  <kendo-grid-column UniqueName="ClinicalVerify" [editable]="true" [width]="25">
+                                    <ng-template kendoGridHeaderTemplate>
+                                        <ControlTemplate>
+                                            <GridBorder #ControlTemplateBordrerStyle Padding="0" Margin="0"
+                                                BorderThickness="0,0,1,1" BorderBrush="#7BB0AF">
+                                                <Image Source="./assets/Images/iNewYes.png" Stretch="None"></Image>
+                                            </GridBorder>
+                                        </ControlTemplate>
+                                    </ng-template>
+
+                                    <ng-template   kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                    let-columnIndex="columnIndex" field="" >
+                                        <ControlTemplate>
+                                            <GridBorder *ngIf="!dataItem.IsGroupHeader" #ControlTemplateBordrerStyle Padding="5,0,5,0"
+                                                BorderThickness="0,0,1,1" BorderBrush="#7EA9D4"> 
+                                                 <iCheckBox 
+                                                 [id]="!dataItem.FormViewerDetails.BasicDetails.IsClinicallyVerified && !dataItem.IsClinicallyVerifyEnable?'iCheckBox4':'iCheckBox3'"
+                                                 #chckClinicalVerifyTempRef Name="chckClinicalVerify"
+                                                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                    [(IsChecked)]="dataItem.FormViewerDetails.BasicDetails.IsClinicallyVerified"
+                                                    [(IsEnabled)]="dataItem.IsClinicallyVerifyEnable"
+                                                    Tooltip="Select to clinically verify item"
+                                                    [(Tag)]="dataItem.FormViewerDetails.BasicDetails"
+                                                    [KeyDown]="chckClinicalVerify_KeyDown_Func"
+                                                    (Click_Func)="ClinicallyVerifychk_Click(dataItem, $event)"></iCheckBox>
+                                             </GridBorder>
+                                        </ControlTemplate>
+                                    </ng-template>
+                                </kendo-grid-column>  
+
+                            </kendo-grid>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </Border>
+        </div>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]="2" [col]="1" [colSpan]="4">
+        <div containerStyle>
+                <WrapPanel Orientation="Horizontal" VerticalAlignment="Top">
+                        <iButton #cmdOtherLinksTempRef Name="cmdOtherLinks" Width="75"
+                            [Text]="authorise.cmdOtherLinks_Text" [Tooltip]="authorise.cmdOtherLinks_Tooltip"
+                            Height="25" (click)="(this.cmdOtherLinks.IsEnabled == true)?cmdOtherLinks_Click_Fun({},$event):false" DisabledImageSource="./assets/Images/iarrowdis5x10.png"
+                            ActiveImageSource="./assets/Images/iarrowshot5x10.png" ImageSource="./assets/Images/iarrownor5x10.png"
+                            ImageHeight="12" ImageWidth="5"></iButton>
+
+                <iButton #cmdReconcileTempRef Name="cmdReconcile" Width="70" [Text]="authorise.cmdReconcile_Text"
+                    [Tooltip]="authorise.cmdReconcile_Tooltip" (click)="cmdReconcile_Click_Fun({},$event)"
+                    DisabledImageSource="./assets/Images/iArrowDIS5x10.png" ActiveImageSource="./assets/Images/iArrowsHOT5x10.png"
+                    ImageSource="./assets/Images/iArrowNOR5x10.png" ImageHeight="12" ImageWidth="5" Height="25"></iButton>
+
+                <iButton #cmdSupplyInstructionTempRef Name="cmdSupplyInstruction"
+                    [Text]="authorise.cmdSupplyInstruction_Text" [Tooltip]="authorise.cmdSupplyInstruction_ToolTip"
+                    [IsEnabled]="DataContext.IsEnableCVSupplyInstruction" [Click]="cmdSupplyInstruction_Click_Func"
+                    DisabledImageSource="./assets/Images/iArrowDIS5x10.png" ActiveImageSource="./assets/Images/iArrowsHOT5x10.png"
+                    ImageSource="./assets/Images/iArrowNOR5x10.png" ImageHeight="12" ImageWidth="5" Height="25"></iButton>
+
+                <iButton #cmdDispensingInstrTempRef Name="cmdDispensingInstr" [Text]="authorise.cmdDispensingInstr_Text"
+                    [Tooltip]="authorise.cmdDispensingInstr_Tooltip" (Click_Func)="cmdDispensingInstr_Click(this, $event)"
+                    DisabledImageSource="./assets/Images/iArrowDIS5x10.png" ActiveImageSource="./assets/Images/iArrowsHOT5x10.png"
+                    ImageSource="./assets/Images/iArrowNOR5x10.png" ImageHeight="12" ImageWidth="5" Height="25"></iButton>
+
+                <!-- <kendo-gridlayout-item [row]="1" [col]="1"> -->
+                    <!-- <div containerStyle> -->
+                        <iButton #cmdOnbehalfOfTempRef Name="cmdOnbehalfOf" Width="85"
+                            [Text]="authorise.cmdOnbehalfOf_Text" [Tooltip]="authorise.cmdOnbehalfOf_Tooltip"
+                            Height="23" (Click_Func)="cmdOnbehalfOf_Click(this, $event)" DisabledImageSource="./assets/Images/iArrowDIS5x10.png"
+                            ActiveImageSource="./assets/Images/iArrowsHOT5x10.png" ImageSource="./assets/Images/iArrowNOR5x10.png"
+                            ImageHeight="12" ImageWidth="5"></iButton>
+                    <!-- </div> -->
+                <!-- </kendo-gridlayout-item> -->
+
+                <iButton #cmdSummaryTempRef Name="cmdSummary" Margin="5" [Text]="authorise.gpConnectViewerText"
+                    [Tooltip]="authorise.gpConnectViewerToolTip" Height="23"  (click)="cmdSummary_click_Fun({},$event)"
+                    DisabledImageSource="./assets/Images/iarrowdis5x10.png" ActiveImageSource="./assets/Images/iarrowshot5x10.png"
+                    ImageSource="./assets/Images/iarrownor5x10.png" ImageHeight="12" ImageWidth="5" TabIndex="13"
+                    [(Visibility)]="DataContext.GPSummaryViewervisible"></iButton>
+            </WrapPanel>
+        </div>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]='2' [col]='2' [colSpan]='5'>
+        <div containerStyle>
+            <WrapPanel Orientation="Horizontal" VerticalAlignment="Top">
+                        <iButton #cmdLinksTempRef Name="cmdLinks" Width="45" [Text]="authorise.cmdLinks_Text "
+                            [Tooltip]="authorise.cmdLinks_Tooltip2" Height="25" (click)="(this.cmdLinks.IsEnabled == true)?cmdLink_Click_Func({},$event):false"
+                            DisabledImageSource="./assets/Images/iArrowDIS5x10.png"
+                            ActiveImageSource="./assets/Images/iArrowsHOT5x10.png" ImageSource="./assets/Images/iArrowNOR5x10.png"
+                            ImageHeight="12" ImageWidth="5"></iButton>
+                        <iButton #cmdObservationResultsTempRef Name="cmdObservationResults" Width="135"
+                            HorizontalAlignment="Left" [Text]="authorise.cmdObservationResult_Text"
+                            [Tooltip]="authorise.cmdObservationResult_Tooltip" Height="25"
+                            [Command]="DataContext.BtnObservationClick" DisabledImageSource="./assets/Images/iarrowdis5x10.png"
+                            ActiveImageSource="./assets/Images/iarrowshot5x10.png" ImageSource="./assets/Images/iarrownor5x10.png"
+                            ImageHeight="12" ImageWidth="5"></iButton>
+                <iButton #cmdDiscontinueCancelTempRef Name="cmdDiscontinueCancel" Margin="0,4" Width="136"
+                    ImageWidth="10" [Text]="authorise.cmdDiscontinueCancel_Text"
+                    [Tooltip]="authorise.cmdDiscontinueCancel_Tooltip" Height="25" [Click]="cmdDiscontinueCancel_Click_Func"
+                    ImageSource="./assets/Images/idiscontinuenor16.png" DisabledImageSource="./assets/Images/idiscontinuedis16.png"
+                    ActiveImageSource="./assets/Images/idiscontinuehot16.png"></iButton>
+
+                <iButton #cmdRemoveTempRef Name="cmdRemove" Margin="0,4" HorizontalAlignment="Left" Width="65"
+                    ImageWidth="10" [Text]="authorise.cmdRemove_Text" [Tooltip]="authorise.cmdRemove_Tooltip"
+                    Height="25" [Click]="cmdRemove_Click_Func" ImageSource="./assets/Images/ideletenor16x15.png"
+                    DisabledImageSource="./assets/Images/ideletedis16x15.png"
+                    ActiveImageSource="./assets/Images/ideletehot16x15.png"></iButton>
+                <iButton #cmdMedAdminTempRef Name="cmdMedAdmin" Margin="0,4" HorizontalAlignment="Left" Width="174"
+                    [Text]="authorise.cmdMedAdmin_Text" [Tooltip]="authorise.cmdMedAdmin_Tooltip" Height="22"
+                    (Click_Func)="cmdMedAdmin_Click(this, $event)" DisabledImageSource="./assets/Images/iArrowDIS5x10.png"
+                    ActiveImageSource="./assets/Images/iArrowsHOT5x10.png" ImageSource="./assets/Images/iArrowNOR5x10.png"
+                    ImageHeight="12" ImageWidth="5"></iButton>
+            </WrapPanel>
+        </div>
+    </kendo-gridlayout-item>
+</kendo-gridlayout>

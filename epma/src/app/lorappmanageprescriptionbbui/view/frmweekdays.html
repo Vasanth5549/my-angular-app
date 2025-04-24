@@ -1,0 +1,65 @@
+<div>
+    <kendo-gridlayout Name="LayoutRoot" Margin="0,0,0,0" [rows]="[{height:'auto'},{height:'auto'}]" [cols]="[{width:'12fr'},{width:'41fr'}]">
+        <Border [row]="1" [col]="1" [rowSpan]="2" GridLayout
+            [Visibility]="DataContext.FormViewerDetails.BasicDetails.DaysOfWeekVisibility"></Border>
+        <Border [row]="2" [col]="2" GridLayout [Visibility]="DataContext.FormViewerDetails.BasicDetails.DaysOfWeekVisibility">
+        </Border>
+        <kendo-gridlayout-item [row]='1' [col]='1'>
+            <div containerStyle>
+                <iLabel #lblDaysOfWeekTempRef Name="lblDaysOfWeek" class="lineHeightNormal" Text="Days of the week" IsWordwrap="True"
+                    [(Mandatory)]="DataContext.FormViewerDetails.BasicDetails.IsDaysOfWeekMandatory"
+                    [Visibility]="DataContext.FormViewerDetails.BasicDetails.DaysOfWeekVisibility" Height="Auto"
+                    Margin="0,15,0,9"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='1' [col]='2'>
+            <div containerStyle>
+                <StackPanel Orientation="Horizontal" Margin="0"
+                    [Visibility]="DataContext.FormViewerDetails.BasicDetails.DaysOfWeekVisibility">
+                    <iCheckBox #chkSundayTempRef Name="chkSunday" Margin="5" Text="Sun" Width="10"
+                        [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.IsSun"
+                        [isGlobalEnabled]="IsEnabled"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsSunEnable"
+                        [Tooltip]="resKey.chk_Sunday_Tooltip"></iCheckBox>
+                    <iCheckBox #chkMondayTempRef Name="chkMonday" Margin="5" Text="Mon" Width="10"
+                        [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.IsMon"
+                        [isGlobalEnabled]="IsEnabled"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsMonEnable"
+                        [Tooltip]="resKey.chk_Monday_Tooltip"></iCheckBox>
+                    <iCheckBox #chkTuesdayTempRef Name="chkTuesday" Margin="5" Text="Tue" Width="10"
+                        [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.IsTue"
+                        [isGlobalEnabled]="IsEnabled"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsTueEnable"
+                        [Tooltip]="resKey.chk_Tuesday_Tooltip"></iCheckBox>
+                    <iCheckBox #chkWednesdayTempRef Name="chkWednesday" Margin="5" Text="Wed" Width="10"
+                        [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.IsWed"
+                        [isGlobalEnabled]="IsEnabled"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsWedEnable"
+                        [Tooltip]="resKey.chk_Wednesday_Tooltip"></iCheckBox>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='2' [col]='2'>
+            <div containerStyle>
+                <StackPanel Orientation="Horizontal"
+                    [Visibility]="DataContext.FormViewerDetails.BasicDetails.DaysOfWeekVisibility">
+                    <iCheckBox #chkThursdayTempRef Name="chkThursday" Margin="5" Text="Thu" Width="10"
+                        [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.IsThu"
+                        [isGlobalEnabled]="IsEnabled"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsThuEnable"
+                        [Tooltip]="resKey.chk_Thursday_Tooltip"></iCheckBox>
+                    <iCheckBox #chkFridayTempRef Name="chkFriday" Margin="5" Text="Fri" Width="10"
+                        [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.IsFri"
+                        [isGlobalEnabled]="IsEnabled"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsFriEnable"
+                        [Tooltip]="resKey.chk_Friday_Tooltip"></iCheckBox>
+                    <iCheckBox #chkSaturdayTempRef Name="chkSaturday" Margin="5" Text="Sat" Width="10"
+                        [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.IsSat"
+                        [isGlobalEnabled]="IsEnabled"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsSatEnable"
+                        [Tooltip]="resKey.chk_Saturday_Tooltip"></iCheckBox>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

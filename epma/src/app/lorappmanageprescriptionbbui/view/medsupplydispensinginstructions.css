@@ -1,0 +1,68 @@
+:host ::ng-deep .k-grid .k-grid-content {
+    overflow-x: auto !important;
+}
+
+:host ::ng-deep .k-grid.HideHorizontalScrollBar .k-grid-content {
+    overflow-x: hidden !important;
+}
+
+::ng-deep .ColumnWhiteSpaceBreak .k-column-title {
+    white-space: break-spaces;
+}
+
+::ng-deep .ColumnWhiteSpaceBreakFull .k-column-title {
+    word-spacing: 100px;
+    white-space: break-spaces;
+    text-overflow: clip;
+}
+
+::ng-deep .SupplyHistoryLegend {
+    padding: 0 3px; 
+    color: Black;
+    font-weight: bold;
+}
+
+::ng-deep .SupplyHistoryBorder {
+    border: 1px solid #77b3b4;
+    margin: 4px;
+    border-radius: 2px;
+    font-weight: normal;
+    padding: 0 2px;
+}
+::ng-deep .textWrap ilabel{
+    white-space: break-spaces;
+}
+
+::ng-deep .k-grid .k-grid-content td{
+    white-space: normal !important;
+}
+
+.tblleft{
+    margin-left: 130px;
+}
+.textWrap::ng-deep ilabel div kendo-label{
+    display: block !important;
+}
+.break ::ng-deep div.ng-star-inserted{
+    display: block !important;
+}
+.imgalign{
+    align-items: end !important;
+}
+@media only screen and (min-device-width: 1500px) {
+    ::ng-deep .medsupplyinst{
+      position: absolute;
+      height: 315px;
+      overflow-y: auto;
+      overflow-x:hidden;
+    }
+  }
+@media screen and (max-device-width : 1400px){
+    ::ng-deep .medsupplyinst{
+        position: absolute;
+        height: 330px;
+        overflow-y: auto;
+        overflow-x:hidden;
+      }
+}
+    

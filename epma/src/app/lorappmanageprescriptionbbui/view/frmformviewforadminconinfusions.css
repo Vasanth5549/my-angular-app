@@ -1,0 +1,44 @@
+.clear-button ::ng-deep button{
+    font-size:11px !important;
+	font-weight:100;
+}
+.clear-button ::ng-deep button span img{
+    height:17px;
+    margin-bottom: -5px;
+    margin-right: 4px;
+}
+.clear-button-margin{
+    margin-top:-7px;
+}
+.clear-button-alignment{
+    text-align:right;
+}
+
+.whitespace{
+    white-space: nowrap;
+}
+
+.leftAlignment {
+    padding-left: 0.4rem;
+}
+.SupplyInscroll
+{
+  overflow: auto; line-height: 1.5;
+}
+.SupplyVis
+{
+    display:none;
+}
+
+.sequencelink-btn ::ng-deep button:hover{
+    text-decoration: underline;
+}
+.bottomspace {
+    padding-bottom: 5px;
+}
+.bottomspaceval {
+    padding-bottom: 3px;
+}
+.borderspace{
+    margin-top: -2px;
+}

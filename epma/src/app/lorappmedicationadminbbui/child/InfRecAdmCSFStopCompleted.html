@@ -1,0 +1,524 @@
+<div name="LayoutRoot" Background="LzoPageBG" Height="auto" class="margin-to">
+    <kendo-gridlayout class="grid-layout-container" GridLayout
+        [rows]="[{ height: 'auto'},{ height: 'auto'},{ height: 'auto'}]"
+        [cols]="[{ width: '5fr'},{ width: '20'},{ width: '10fr'}]">
+        <!--Grid-VolumeInfo-->
+        <kendo-gridlayout-item [row]="1" [colSpan]="4">
+            <div name="volumeinfo" Height="auto" Background="LzoPageBG">
+                <kendo-gridlayout class="grid-layout-container" GridLayout [rows]="[{ height: 'auto'}]"
+                    [cols]="[{ width: '8fr'},{ width: '0.2fr'},{ width: '8fr'}]">
+                    <!--Grid1-->
+                    <kendo-gridlayout-item>
+                        <div>
+                            <kendo-gridlayout class="grid-layout-container" GridLayout HorizontalAlignment="Stretch"
+                                VerticalAlignment="Top" Width="auto" Margin="7,5,7,5" Background="LzoPageBG"
+                                [rows]="[{ height: 'auto'},{ height: '7'}]"
+                                [cols]="[{ width: '1.1fr'},{ width: '2.1fr'}]">
+                                <kendo-gridlayout-item [row]='1' [col]='2' [rowSpan]='2'>
+                                    <div containerStyle>
+                                        <Border #bgdtotvolumeTempRef Name="bgdtotvolume" [Background]="Styles.InnerBG"
+                                            [Height]="35">
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='1' [col]='1'>
+                                    <div containerStyle>
+                                        <iLabel #lblTotVolToBeInfusedTempRef HorizontalAlignment="Stretch"
+                                            Name="lblTotVolToBeInfused" VerticalAlignment="Center"
+                                            [Text]="objRecordAdmin.lblTotVolToBeInfused_text " IsWordwrap="True">
+                                        </iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='1' [col]='2'>
+                                    <div containerStyle>
+                                        <iLabel #lblTotVolToBeInfusedValueTempRef Name="lblTotVolToBeInfusedValue"
+                                            VerticalAlignment="Center" IsWordwrap="True" Margin="5,5,0,5"
+                                            [Text]="DataContext.TotalVolumeToBeInfused">
+                                        </iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                            </kendo-gridlayout>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <!--Grid2-->
+                    <kendo-gridlayout-item [row]="1" [col]="3">
+                        <div>
+                            <kendo-gridlayout class="grid-layout-container" GridLayout HorizontalAlignment="Stretch"
+                                VerticalAlignment="Top" Width="auto" Margin="0,5,5,0" Background="LzoPageBG"
+                                [rows]="[{ height: 'auto'},{ height: '5'}]"
+                                [cols]="[{ width: '2.7fr'},{ width: '4.49fr'}]">
+                                <kendo-gridlayout-item [row]='1' [col]='2' [rowSpan]='2'>
+                                    <div containerStyle>
+                                        <Border #bgdcumvolinfusedTempRef Name="bgdcumvolinfused"
+                                            [Background]="Styles.InnerBG" [Height]="35">
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='1' [col]='1'>
+                                    <div containerStyle>
+                                        <iLabel #lblcumvolinfusedTempRef HorizontalAlignment="Stretch"
+                                            Name="lblcumvolinfused" VerticalAlignment="Center" Margin="0,6,0,0"
+                                            [Text]="objRecordAdmin.lblcumvolinfused_text" IsWordwrap="True"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='1' [col]='2'>
+                                    <div containerStyle>
+                                        <iLabel #lblcumvolinfusedvalTempRef Name="lblcumvolinfusedval"
+                                            [Text]="DataContext.CummulativeVolumeInfused" VerticalAlignment="Center"
+                                            IsWordwrap="True" Margin="5"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                            </kendo-gridlayout>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+        <!--Border-->
+        <kendo-gridlayout-item [row]='2' [colSpan]='4'>
+            <div containerStyle>
+                <Border #brdstopcompleteinfoTempRef Name="brdstopcompleteinfo" BorderBrush="Gray" BorderThickness="1"
+                    CornerRadius="2" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2">
+                    <!--Grid1-->
+                    <kendo-gridlayout-item [row]='2' [colSpan]='4'>
+                        <div name="grdstopcompdet" VerticalAlignment="Top" Margin="0,10,0,0" Background="LzoPageBG">
+                            <kendo-gridlayout class="grid-layout-container" GridLayout Margin="5"
+                                [cols]="[{ width: '8fr'},{ width: '0.18fr'},{ width: '8fr'}]">
+                                <!--GridNested1-->
+                                <kendo-gridlayout-item [row]='1' [col]='1'>
+                                    <div HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="auto"
+                                        Background="LzoPageBG">
+                                        <kendo-gridlayout class="grid-layout-container" GridLayout
+                                            [rows]="[{ height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: '5'}]"
+                                            [cols]="[{ width: '126px'}]" Margin="0">
+
+                                            <Border [row]='1' [col]='2' #bgdbagvolumeTempRef Name="bgdbagvolume"
+                                                [Background]="Styles.InnerBG" [Height]="35"></Border>
+
+
+                                            <Border [row]='2' [col]='2' [rowSpan]='2' #bgddoseadminTempRef
+                                                Name="bgddoseadmin" Visibility="Visible" [Background]="Styles.InnerBG"
+                                                [Height]="35"></Border>
+
+
+                                            <Border [row]='3' [col]='2' #bgdwastageTempRef Name="bgdwastage"
+                                                Visibility="Collapsed" [Background]="Styles.InnerBG"></Border>
+
+
+                                            <Border [row]='3' [col]='2' [rowSpan]='2' #bgdvoluminfuTempRef
+                                                Name="bgdvoluminfu" [Background]="Styles.InnerBG"></Border>
+
+
+                                            <Border [row]='5' [col]='2' [rowSpan]='2' #bgdendtimeTempRef
+                                                Name="bgdendtime" [Background]="Styles.InnerBG">
+                                            </Border>
+
+
+                                            <Border [row]='5' [col]='2' #bgdconcentrationTempRef Name="bgdconcentration"
+                                                [Background]="Styles.InnerBG" [Height]="40"></Border>
+                                            <Border [row]='6' [col]='2' #bgdfiveTempRef Name="bgdfive"
+                                                [Background]="Styles.InnerBG" [Height]="40">
+                                            </Border>
+                                            <Border [row]='2' [col]='1' [colSpan]='2' #brdbagvolumeTempRef
+                                                Name="brdbagvolume" [iStyle]="Styles.whiteBorder"></Border>
+                                            <Border [row]='3' [col]='1' [colSpan]='3' #brddoseadminTempRef
+                                                Name="brddoseadmin" [iStyle]="Styles.whiteBorder"></Border>
+
+                                            <Border [row]='3' [col]='1' [colSpan]='3' #brdwastageTempRef
+                                                Name="brdwastage" [iStyle]="Styles.whiteBorder"></Border>
+
+                                            <Border [row]='4' [col]='1' [colSpan]='2' #brdvoluminfuTempRef
+                                                Name="brdvoluminfu" [iStyle]="Styles.whiteBorder"></Border>
+                                            <Border [row]='5' [col]='1' [colSpan]='2' #brdendtimeTempRef
+                                                Name="brdendtime" [iStyle]="Styles.whiteBorder">
+                                            </Border>
+
+                                            <Border [row]='6' [col]='1' [colSpan]='2' #brdconcentrationTempRef
+                                                Name="brdconcentration" [iStyle]="Styles.whiteBorder"></Border>
+
+
+                                            <Border [row]='7' [col]='1' [colSpan]='2' #brdfiveTempRef Name="brdfive"
+                                                [iStyle]="Styles.whiteBorder">
+                                            </Border>
+
+                                            <kendo-gridlayout-item [row]='1' [col]='1'>
+                                                <div containerStyle>
+                                                    <iLabel #lblbagvolumeTempRef HorizontalAlignment="Stretch"
+                                                        Name="lblbagvolume" VerticalAlignment="Center" Margin="0,5,0,10"
+                                                        [Text]="objRecordAdmin.lblbagvolume_text">
+                                                    </iLabel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='1' [col]='2'>
+                                                <div containerStyle>
+                                                    <StackPanel #stackbagvolumeTempRef Name="stackbagvolume"
+                                                        Orientation="Horizontal" Margin="5,5,0,5">
+                                                        <kendo-gridlayout-item [row]='1' [col]='2'>
+                                                            <div containerStyle>
+                                                                <iLabel #lblBagVolumevalueTempRef
+                                                                    HorizontalAlignment="Right" Name="lblBagVolumevalue"
+                                                                    VerticalAlignment="Center"
+                                                                    [Text]="DataContext.CurrentBagValue"
+                                                                    IsWordwrap="True" Margin="5,5,0,5"></iLabel>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+                                                    </StackPanel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='2' [col]='1'>
+                                                <div containerStyle>
+                                                    <iLabel #lbldoseadminTempRef HorizontalAlignment="Stretch"
+                                                        [(Mandatory)]="DataContext.Isdoseadministered"
+                                                        Name="lbldoseadmin" VerticalAlignment="Center"
+                                                        [Text]="objRecordAdmin.txtDoseadminCSFStopComplete_txt"
+                                                        [IsEnabled]="DataContext.IsEnableStopDose"
+                                                        SLAccessKeyProperties.AccessKey="E" IsWordwrap="True"></iLabel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+
+                                            <kendo-gridlayout-item [row]='2' [col]='2'>
+                                                <div containerStyle>
+                                                    <StackPanel #stackdoseadminTempRef Name="stackdoseadmin"
+                                                        Orientation="Horizontal" class="dose-position">
+                                                       
+                                                        <kendo-gridlayout-item [row]='1' [col]='2'>
+                                                            <div containerStyle>
+                                                                <iTextBox #txtdoseadminTempRef
+                                                                    HorizontalAlignment="Left"
+                                                                    [(Text)]="DataContext.DoseAdministered"
+                                                                    [Tooltip]="objRecordAdmin.txtdoseadminCSFStopComplete_tooltip"
+                                                                    Name="txtdoseadmin" VerticalAlignment="Center"
+                                                                    MaxLength="11" Margin="5,0,5,0" Width="85"
+                                                                    Type="Numeric" Nonnegative="True" Scale="7"
+                                                                    Precision="3"
+                                                                    [IsEnabled]="DataContext.IsEnableStopDose"
+                                                                    SLAccessKeyProperties.AccessKey="E"
+                                                                    [IsReadOnly]="DataContext.IsrdlDose"></iTextBox>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+                                                        <kendo-gridlayout-item [row]='2' [col]='2'>
+                                                            <div containerStyle>
+                                                                <iLabel #lblUOMTempRef HorizontalAlignment="Stretch"
+                                                                    Name="lblUOM" VerticalAlignment="Center"
+                                                                    [Text]="objRecordAdmin.lblUOM_text" Margin="5,5,0,5"
+                                                                    [Visibility]="DataContext.IsVisibleDoseUOM">
+                                                                </iLabel>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+                                                        <iComboBox #cboDoseUOMTempRef Name="cboDoseUOM"
+                                                            [Visibility]="DataContext.IsVisibleDoseUOM" Width="87"
+                                                            VerticalAlignment="Top"
+                                                            [Tooltip]="objRecordAdmin.cboDoseUOM_tooltip"
+                                                            [(SelectedValue)]="DataContext.lstStopDoseUOM"
+                                                            [ItemsSource]="DataContext.StopDoseUOMs" Margin="5,5"
+                                                            Height="21" IsDropDownStretch="True"
+                                                            SelectAllTextEvent="None"></iComboBox>
+                                                        <kendo-gridlayout-item [row]='1' [col]='2'>
+                                                            <div containerStyle>
+                                                                <iLabel #lblDoseUOMTempRef HorizontalAlignment="Right"
+                                                                    Name="lblDoseUOM" VerticalAlignment="Center"
+                                                                    [(Text)]="DataContext.DoseUOMName" IsWordwrap="True"
+                                                                    Margin="5,5,0,5"
+                                                                    [IsEnabled]="DataContext.IsEnableStopDose"
+                                                                    [Visibility]="DataContext.DoseLblShow"
+                                                                    MaxWidth="100"></iLabel>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+                                                        <kendo-gridlayout-item [row]='1' [col]='2'>
+                                                            <div containerStyle>
+                                                                <iButton #cmdCondDoseImgTempRef Height="21"
+                                                                    IsTabStop="True" HorizontalAlignment="Right"
+                                                                    Cursor="Hand"
+                                                                    [Visibility]="DataContext.CondDoseStopComplete"
+                                                                    Margin="5,5,15,5" Name="cmdCondDoseImg"
+                                                                    [Command]="DataContext.BtnConditionalMazzClick"
+                                                                    [CommandParameter]="DataContext.InfusionPastAction"
+                                                                    ImageSource="assets/Images/idosetypenor16.PNG"
+                                                                    DisabledImageSource="assets/Images/idosetypedis16.PNG"
+                                                                    ActiveImageSource="assets/Images/idosetypehot16.PNG">
+                                                                </iButton>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+                                                
+                                                    </StackPanel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='3' [col]='1'>
+                                                <div containerStyle>
+                                                    <iLabel #lblvolumeinfused1TempRef HorizontalAlignment="Stretch"
+                                                        Name="lblvolumeinfused1"
+                                                        [Mandatory]="DataContext.IsVolumeMadatory"
+                                                        VerticalAlignment="Stretch" Margin="0,5,0,5"
+                                                        [Text]="objRecordAdmin.lblvolumeinfused_text"
+                                                        SLAccessKeyProperties.AccessKey="M"></iLabel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='3' [col]='2'>
+                                                <div containerStyle>
+                                                    <StackPanel Orientation="Horizontal" Margin="5,0,0,0">
+                                                        <iTextBox #txtvolumeinfused1TempRef
+                                                            HorizontalAlignment="Stretch"
+                                                            [(Text)]="DataContext.VolumeInfused"
+                                                            [Tooltip]="objRecordAdmin.txtVolumeinfused_tooltip"
+                                                            Name="txtvolumeinfused1" VerticalAlignment="Center"
+                                                            MaxLength="8" Margin="0,6,5,0" Width="85" Type="Numeric"
+                                                            Nonnegative="True" Scale="5" Precision="2"
+                                                            SLAccessKeyProperties.AccessKey="M"></iTextBox>
+                                                        <iLabel #lbluom2TempRef HorizontalAlignment="Stretch"
+                                                            Name="lbluom2" [Mandatory]="DataContext.IsVolumeMadatory"
+                                                            VerticalAlignment="Center"
+                                                            [Text]="objRecordAdmin.lblUOM_text" class="labelUOM">
+                                                        </iLabel>
+                                                        <iComboBox #cbovolUOMTempRef Width="106" IsEditable="True"
+                                                            IsTypeAHead="True" IsTextSearchEnabled="True"
+                                                            HorizontalAlignment="Left" Name="cbovolUOM" Margin="9,5"
+                                                            VerticalAlignment="Center" Height="21" MinWidth="106"
+                                                            [ItemsSource]="DataContext.VolumeInfusedUOMList"
+                                                            [(SelectedValue)]="DataContext.VolumeInfusedUOM"
+                                                            [Tooltip]="objRecordAdmin.VolumeinfusedUOM_tooltip"
+                                                            
+                                                            SLAccessKeyProperties.AccessKey="M"
+                                                            SelectAllTextEvent="None"></iComboBox>
+                                                        <!-- <iComboBox #cbovolUOMTempRef Width="87" IsEditable="True"
+                                                            IsTypeAHead="True" IsTextSearchEnabled="True"
+                                                            HorizontalAlignment="Left" Name="cbovolUOM" Margin="9,5"
+                                                            VerticalAlignment="Center" Height="21"
+                                                            [(ItemsSource)]="DataContext.BagVolumeUOMList"
+                                                          
+                                                            SLAccessKeyProperties.AccessKey="M"
+                                                            SelectAllTextEvent="None"></iComboBox> -->
+                                                    </StackPanel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='5' [col]='1'>
+                                                <div containerStyle>
+                                                    <iLabel #lblConcentrationTempRef HorizontalAlignment="Stretch"
+                                                        Name="lblConcentration" VerticalAlignment="Center"
+                                                        [Text]="objRecordAdmin.lblConcentration_text">
+                                                    </iLabel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='5' [col]='2'>
+                                                <div containerStyle>
+                                                    <iLabel #lblConcentrationValTempRef Name="lblConcentrationVal"
+                                                        [Text]="DataContext.PreviousConcentration" Margin="5,10,0,10"
+                                                        IsWordwrap="True">
+                                                    </iLabel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='6' [col]='1'>
+                                                <div containerStyle>
+                                                    <iLabel #lblendDateTimeTempRef HorizontalAlignment="Stretch"
+                                                        IsWordwrap="True" Name="lblendDateTime"
+                                                        VerticalAlignment="Center"
+                                                        [Text]="objRecordAdmin.lblenddatetime_text" Mandatory="True"
+                                                        SLAccessKeyProperties.AccessKey="D"></iLabel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='6' [col]='2'>
+                                                <div containerStyle>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <!-- <iDateTimePicker #dtpendDateTempRef
+                                                            HorizontalAlignment="Stretch" DatePickerMode="DATEPICKER"
+                                                          
+                                                            [Tooltip]="objRecordAdmin.EndDate_tooltip"
+                                                            Name="dtpendDate" Height="21" Margin="5,5" Width="125"
+                                                            DateTimeFormat="Custom" CustomFormat="dd-MMM-yyyy"
+                                                            IsConstrainEntry="True"
+                                                           
+                                                            SLAccessKeyProperties.AccessKey="D"></iDateTimePicker> -->
+
+                                                        <iDateTimePicker #dtpendDateTempRef
+                                                            HorizontalAlignment="Stretch" DatePickerMode="DATEPICKER"
+                                                            [RangeStartDate]="DataContext.EndRangeStartDate"
+                                                            [RangeEndDate]="DataContext.EndRangeEndDate"
+                                                            [Tooltip]="objRecordAdmin.EndDate_tooltip" Name="dtpendDate"
+                                                            Height="21" Margin="5,5" Width="136" DateTimeFormat="Custom"
+                                                            CustomFormat="dd-MMM-yyyy" IsConstrainEntry="True"
+                                                            [(SelectedDateTime)]="DataContext.AdministeredstopDate"
+                                                            SLAccessKeyProperties.AccessKey="D"></iDateTimePicker>
+                                                        <iTimeBox #iTimedendTimeTempRef EnableDST="True"
+                                                            IsEditable="True" 
+                                                            Name="iTimedendTime" TimeFormat="HHMM"
+                                                             Height="21" Width="92"
+                                                            Margin="0,5,0,0"
+                                                            [(Value)]="DataContext.AdministeredstopDateTime"
+                                                            [Tooltip]="objRecordAdmin.EndTime_tooltip"
+                                                            SLAccessKeyProperties.AccessKey="D"></iTimeBox>
+                                                        <!-- <iTimeBox #iTimedendTimeTempRef EnableDST="True"
+                                                            IsEditable="True" HorizontalAlignment="Stretch"
+                                                            Name="iTimedendTime" TimeFormat="HHMM"
+                                                            VerticalAlignment="Center" Height="21" Width="117"
+                                                            Margin="5,5,5,5" [Tooltip]="objRecordAdmin.EndTime_tooltip"
+                                                            SLAccessKeyProperties.AccessKey="D"></iTimeBox> -->
+                                                    </StackPanel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                        </kendo-gridlayout>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <!--GridNested2-->
+                                <kendo-gridlayout-item [row]="1" [col]="3">
+                                    <div HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,0,5,0"
+                                        Width="auto" Background="LzoPageBG">
+                                        <kendo-gridlayout class="grid-layout-container" GridLayout
+                                            [rows]="[{ height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: '5'}]"
+                                            [cols]="[{ width: '3fr'},{ width: '5fr'}]">
+                                            <kendo-gridlayout-item [row]='1' [col]='2'>
+                                                <div containerStyle>
+                                                    <Border #bgdcumvolinfinproTempRef Name="bgdcumvolinfinpro"
+                                                        [Background]="Styles.InnerBG" [Height]="35"></Border>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='2' [col]='2'>
+                                                <div containerStyle>
+                                                    <Border #bgdrsnstopTempRef Name="bgdrsnstop"
+                                                        [Background]="Styles.InnerBG" [Height]="35">
+                                                    </Border>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='3' [col]='2'>
+                                                <div containerStyle>
+                                                    <Border #bgdcommmetsTempRef Name="bgdcommmets"
+                                                        [Background]="Styles.InnerBG" [Height]="50"></Border>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='4' [col]='2' [rowSpan]='2'>
+                                                <div containerStyle>
+                                                    <Border #bgdinitformTempRef Name="bgdinitform"
+                                                        [Background]="Styles.InnerBG" [Height]="35"></Border>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <!-- <kendo-gridlayout-item [row]='5' [col]='2' [rowSpan]='2'>
+                                                <div containerStyle>
+                                                    <Border #bgd2TempRef Name="bgd2" [Background]="Styles.InnerBG" [Height]="35"></Border>
+                                                </div>
+                                            </kendo-gridlayout-item> -->
+
+                                            <Border [row]='2' [col]='1' [rowSpan]='2' [colSpan]='2'
+                                                #brdrestvolinfTempRef Name="brdrestvolinf"
+                                                [iStyle]="Styles.whiteBorder">
+                                            </Border>
+
+                                            <kendo-gridlayout-item [row]='2' [col]='1' [colSpan]='2'>
+                                                <div containerStyle>
+                                                    <Border #brdrsnstopTempRef Name="brdrsnstop"
+                                                        [iStyle]="Styles.whiteBorder" Margin="0,35,0,0">
+                                                    </Border>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='3' [col]='1' [colSpan]='2'>
+                                                <div containerStyle>
+                                                    <Border #brdcommmetsTempRef Name="brdcommmets"
+                                                        [iStyle]="Styles.whiteBorder" Margin="0,50,0,0"></Border>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <!-- <kendo-gridlayout-item [row]='4' [col]='1' [rowSpan]='2' [colSpan]='3'>
+                                                <div containerStyle>
+                                                    <Border #brdinitformTempRef Name="brdinitform"
+                                                        [iStyle]="Styles.whiteBorder"></Border>
+                                                </div>
+                                            </kendo-gridlayout-item> -->
+                                            <kendo-gridlayout-item [row]='5' [col]='1' [colSpan]='2'>
+                                                <div containerStyle>
+                                                    <Border #brd2TempRef Name="brd2" [iStyle]="Styles.whiteBorder">
+                                                    </Border>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='1' [col]='1'>
+                                                <div containerStyle>
+                                                    <iLabel #lblestivolinfinproTempRef HorizontalAlignment="Stretch"
+                                                        Name="lblestivolinfinpro" VerticalAlignment="Center"
+                                                        [Text]="objRecordAdmin.lblestivolinfinpro_text"
+                                                        IsWordwrap="True" Margin="0,0,5,5"></iLabel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='1' [col]='2'>
+                                                <div containerStyle>
+                                                    <iLabel #lblestvolinfinprovalTempRef Name="lblestvolinfinproval"
+                                                        VerticalAlignment="Center"
+                                                        [Text]="DataContext.EstVolumeInfusedInProgress"
+                                                        IsWordwrap="True" Margin="5"></iLabel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='2' [col]='1'>
+                                                <div containerStyle>
+                                                    <iLabel #lblResForstoppingTempRef Name="lblResForstopping"
+                                                        Mandatory="True" [Text]="objRecordAdmin.lblreasonstop_text"
+                                                        SLAccessKeyProperties.AccessKey="R"></iLabel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='2' [col]='2'>
+                                                <div containerStyle>
+                                                    <iComboBox #cboResForstoppingTempRef Name="cboResForstopping"
+                                                        IsDropDownStretch="True" Width="auto"
+                                                        HorizontalAlignment="Stretch" Margin="5"
+                                                        [Tooltip]="objRecordAdmin.txtStopReason_tooltip" Height="21"
+                                                        [(ItemsSource)]="DataContext.ReasonforStoplist"
+                                                        [(SelectedValue)]="DataContext.ReasonforStop"
+                                                        SLAccessKeyProperties.AccessKey="R"></iComboBox>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='3' [col]='1'>
+                                                <div containerStyle>
+                                                    <iLabel #lblCommentsTempRef HorizontalAlignment="Stretch"
+                                                        Name="lblComments" VerticalAlignment="Center"
+                                                        [(Mandatory)]="DataContext.IsStopClinicalRSNMand"
+                                                        [Text]="objRecordAdmin.lblComments_text"></iLabel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='3' [col]='2'>
+                                                <div containerStyle>
+                                                    <iTextBox #txtCommentsTempRef MaxLength="255" Height="40"
+                                                        Tooltip="Enter comments" HorizontalAlignment="Stretch"
+                                                        AcceptsReturn="True" TextWrapping="Wrap" Name="txtComments"
+                                                        [(Text)]="DataContext.StopComments"
+                                                        VerticalAlignment="Bottom" VerticalScrollBarVisibility="Visible"
+                                                        Width="auto" Margin="5,5">
+                                                    </iTextBox>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='4' [col]='1'>
+                                                <div containerStyle>
+                                                    <iLabel #lblcliniIncFrmTempRef HorizontalAlignment="Left"
+                                                        Name="lblcliniIncFrm"
+                                                        [Text]="objRecordAdmin.lblcliniIncFrm_text" IsTabStop="False"
+                                                        Height="21" Width="120" Margin="0,5,5,5" IsWordwrap="True"
+                                                        VerticalAlignment="Top"></iLabel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='4' [col]='2'>
+                                                <div containerStyle>
+                                                    <iLabel #lblcliniIncFrmValueTempRef HorizontalAlignment="Left"
+                                                        VerticalAlignment="Top" Margin="5" Name="lblcliniIncFrmValue"
+                                                        IsFocusable="False" Cursor="Hand" TextDecorations="Underline"
+                                                        Foreground="#0000C8" Height="20" IsTabStop="True" TabIndex="1"
+                                                        IsWordwrap="True" [Tooltip]="objRecordAdmin.lblCIFValue_Tooltip"
+                                                        [MouseLeftButtonUp]="lblCIFValue_MouseLeftButtonUp"
+                                                        [Text]="DataContext.ClinicalIncidentForm"></iLabel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                        </kendo-gridlayout>
+                                    </div>
+                                </kendo-gridlayout-item>
+                            </kendo-gridlayout>
+                        </div>
+                    </kendo-gridlayout-item>
+                </Border>
+            </div>
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item [row]='3' [col]='1' [colSpan]='4'>
+            <div containerStyle>
+                <StackPanel #spacutalTempRef Name="spacutal" Orientation="Vertical" Margin="5,10,5,5"
+                    [Visibility]="DataContext.IsEstiEndDateMsg">
+                    <iLabel #lblCalculatedenddatetimeTempRef Foreground="Brown" class="stop-text-style" HorizontalAlignment="Left" Name="lblCalculatedenddatetime"
+                        [Visibility]="DataContext.IsEstiEndDateMsg" 
+                        [Text]="DataContext.EstimatedEndTime" IsTabStop="False" IsWordwrap="True"></iLabel>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

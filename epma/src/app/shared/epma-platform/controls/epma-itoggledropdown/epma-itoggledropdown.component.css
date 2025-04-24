@@ -1,0 +1,13 @@
+.popup-content-align {
+    border: 1px solid #000;
+    background-color: #deeefc;
+  }
+  .popup-align{
+    display: flex;
+  }
+.header-align{
+  justify-content: space-between;
+  display: flex;
+}
+ 
+  

@@ -1,0 +1,11 @@
+<div name="LayoutRoot" Background="{StaticResource LzoPageBG}">
+    <kendo-gridlayout class="grid-layout-container" #gridLayoutTempRef GridLayout Margin="2"
+        [rows]="[ {height:'auto'}, {height:'1fr'} ]">
+        <ConditionalDoseRegimeView  *ngIf="conditionalDoseRegimeView1"
+            [DataContext]="CondVM" [PrescriptionItemOID]="conditionalDoseRegimeView1.PrescriptionItemOID"
+            [IdentifyingType]="conditionalDoseRegimeView1.IdentifyingType" [IdentifyingOID]="conditionalDoseRegimeView1.IdentifyingOID"
+            [MCVersionNo]="conditionalDoseRegimeView1.MCVersionNo" [sObsDrugName]="conditionalDoseRegimeView1.sObsDrugName"
+            [bIsPRN]="conditionalDoseRegimeView1.bIsPRN" [sitemsubtype]="conditionalDoseRegimeView1.sitemsubtype"
+            [slorenzoid]="conditionalDoseRegimeView1.slorenzoid" [mcitemname]="conditionalDoseRegimeView1.mcitemname" [CellClick]="conditionalDoseRegimeView1.CellClick"></ConditionalDoseRegimeView>
+    </kendo-gridlayout>
+</div>

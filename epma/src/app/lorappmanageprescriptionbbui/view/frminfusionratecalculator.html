@@ -1,0 +1,169 @@
+<kendo-gridlayout GridLayout Name="LayoutRoot"  [rows]="[{height:'auto'}]" [cols]="[{width:'auto'}]">
+    <kendo-gridlayout-item [row]='3' [col]="1" [rowSpan]="2">
+        <kendo-gridlayout GridLayout Name="LayoutRoot1" Background="#FFE0EFF1" [rows]="[{height:31},{height:31},{height:31},{height:31},
+                                {height:31},{height:31},{height:5}]" [cols]="[                
+                    {width:200},
+                    {width:350}
+                    ]">
+            <Border [row]="1" [col]='2' [rowSpan]=7 [Background]="Styles.InnerBG"></Border>
+
+            <Border [row]='2' [col]='1' [colSpan]=2 [iStyle]="Styles.whiteBorder"></Border>
+            <Border [row]='3' [col]='1' [colSpan]=2 [iStyle]="Styles.whiteBorder"></Border>
+            <Border [row]='4' [col]='1' [colSpan]=2 [iStyle]="Styles.whiteBorder"></Border>
+            <Border [row]='5' [col]='1' [colSpan]=2 [iStyle]="Styles.whiteBorder"></Border>
+            <Border [row]='6' [col]='1' [colSpan]=2 [iStyle]="Styles.whiteBorder"></Border>
+            <Border [row]='7' [col]='1' [colSpan]=2 [iStyle]="Styles.whiteBorder"></Border>
+
+            <kendo-gridlayout-item [row]='1' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblPrescribedDoseTempRef Name="lblPrescribedDose"
+                    [Text]="resInfKey.lblPrescribedDose_Text"
+                      >
+                        <!-- [Text]="DataContext.lblPrescribedDose_Text| resInfKey" -->
+                    </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='2' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblPrescribedVolumeTempRef Name="lblPrescribedVolume"
+                    [Text]="resInfKey.lblPrescribedVolume_Text"
+                        ></iLabel>
+                        <!-- [Text]="DataContext.lblPrescribedVolume_Text| resInfKey" -->
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='3' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblInfusionPeriodTempRef Name="lblInfusionPeriod"
+                    [Text]="resInfKey.lblInfusionPeriod_Text"
+                        ></iLabel>
+                        <!-- [Text]="DataContext.lblInfusionPeriod_Text| resInfKey" -->
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='4' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblInfusionrateTempRef Name="lblInfusionrate"
+                    [Text]="resInfKey.lblInfusionrate_Text"
+                        ></iLabel>
+                        <!-- [Text]="DataContext.lblInfusionrate_Text| resInfKey" -->
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='6' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblCalculatedInfusionrateTempRef Name="lblCalculatedInfusionrate"
+                    [Text]="resInfKey.lblCalculatedInfusionrate_Text"
+                        ></iLabel>
+                        <!-- [Text]="DataContext.lblCalculatedInfusionrate_Text| resInfKey" -->
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='5' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblRoundedtoTempRef Name="lblRoundedto"
+                    [Text]="resInfKey.lblRoundedto_Text"
+                        ></iLabel>
+                        <!-- [Text]="DataContext.lblRoundedto_Text| resInfKey" -->
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='1' [col]='2'>
+                <div containerStyle>
+                    <iLabel #lblPrescribedDoseValueTempRef Name="lblPrescribedDoseValue" Margin="5"
+                        HorizontalAlignment="Left" [Tooltip]="DataContext.InfusionDetails.TooltipPrescribedDoseValue"
+                        [Text]="DataContext.InfusionDetails.TooltipPrescribedDoseValue">
+                    </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='2' [col]='2'>
+                <div containerStyle>
+                    <iLabel #lblPrescribedVolumeValueTempRef Name="lblPrescribedVolumeValue" Margin="5"
+                        HorizontalAlignment="Left" [Tooltip]="DataContext.InfusionDetails.TooltipPrescribedVolumeValue"
+                        [Text]="DataContext.InfusionDetails.TooltipPrescribedVolumeValue">
+                    </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='3' [col]='2'>
+                <div containerStyle>
+                    <iLabel #lblInfusionPeriodValueTempRef Name="lblInfusionPeriodValue" Margin="5"
+                        HorizontalAlignment="Left" [Tooltip]="DataContext.InfusionDetails.TooltipInfusionPeriodValue"
+                        [Text]="DataContext.InfusionDetails.TooltipInfusionPeriodValue">
+                    </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='4' [col]='2'>
+                <div containerStyle>
+                    <StackPanel Orientation="Horizontal" Width="auto">
+                        <iRadioButton #optDoseRateTempRef [Text]="resKey.lblDose_Text" Name="optDoseRate" MinWidth="70"
+                            Width="70" Margin="5" IsWordWrap="True" GroupName="Rateoption" TabIndex="14"
+                            IsTabStop="True" [(IsChecked)]="DataContext.InfusionDetails.IsDoseChecked"
+                            HorizontalAlignment="Center" 
+                            [Tooltip]="resInfKey.InfRateBasedOn_ToolTip"
+                            >
+                            <!-- [Tooltip]="DataContext.InfRateBasedOn_ToolTip | resInfKey" -->
+                        </iRadioButton>
+                        <iRadioButton #optvolumeRateTempRef 
+                            Name="optvolumeRate" Margin="5" VerticalAlignment="Center" GroupName="Rateoption"
+                            MinWidth="98" Width="80" IsWordWrap="True" TabIndex="15" IsTabStop="True"
+                            [(IsChecked)]="DataContext.InfusionDetails.IsVolumeChecked"
+                            [Text]="resInfKey.lblInfusionvolLabel_Text"
+                            [Tooltip]="resInfKey.InfRateBasedOn_ToolTip"
+                            >
+                            <!-- [Text]="DataContext.lblInfusionvolLabel_Text| resInfKey"
+                            [Tooltip]="DataContext.InfRateBasedOn_ToolTip | resInfKey" -->
+                        </iRadioButton>
+
+                    </StackPanel>
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='6' [col]='2'>
+                <div containerStyle>
+                    <StackPanel Margin="5" Orientation="Horizontal">
+                        <kendo-gridlayout-item [row]='6' [col]='2'>
+                            <div containerStyle>
+                                <iLabel #lblCalculatedInfusionrateValueTempRef Name="lblCalculatedInfusionrateValue"
+                                    HorizontalAlignment="Left"
+                                    [Text]="DataContext.InfusionDetails.CalculatedInfusionrateValue"></iLabel>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]='6' [col]='2'>
+                            <div containerStyle>
+                                <iLabel #lblInfusionrateValueTempRef Name="lblInfusionrateValue"
+                                    [Text]="DataContext.InfusionDetails.CalculatedInfusionrateUOM" Margin="5,0,0,0">
+                                </iLabel>
+                            </div>
+                        </kendo-gridlayout-item>
+                    </StackPanel>
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='5' [col]='2'>
+                <div containerStyle>
+                    <iLabel #lblInfusionrateUOMTempRef Name="lblInfusionrateUOM" Margin="5" Visibility="Collapsed">
+                    </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='5' [col]='2'>
+                <div containerStyle>
+                    <iLabel #lblInfusionperiodUOMTempRef Name="lblInfusionperiodUOM" Margin="5" Visibility="Collapsed">
+                    </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='5' [col]='2'>
+                <div containerStyle>
+                    <iComboBox #cboRoundedtoTempRef IsEditable="True" Margin="5,5,10,5" IsTypeAHead="True"
+                        IsTextSearchEnabled="True"  HorizontalAlignment="Stretch" Name="cboRoundedto"
+                        VerticalAlignment="Center" Height="21" width="350" IsTabStop="True" TabIndex="16"
+                        
+                        [ItemsSource]="DataContext.InfusionDetails.InfusionRateRndtoList"
+                        [(SelectedValue)]="DataContext.InfusionDetails.InfusionRateRndto"
+                        [Tooltip]="resInfKey.cboRoundedto_ToolTip"
+                        ></iComboBox>
+                        <!-- [Tooltip]="DataContext.cboRoundedto_ToolTip | resInfKey" -->
+                </div>
+            </kendo-gridlayout-item>
+
+        </kendo-gridlayout>
+
+    </kendo-gridlayout-item>
+</kendo-gridlayout>

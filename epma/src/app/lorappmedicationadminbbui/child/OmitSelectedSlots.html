@@ -1,0 +1,20 @@
+<StackPanel HorizontalAlignment="Stretch" Margin="0,0,0,-9" >
+    <div class="grid-layout-container" style="height:251px;" >
+        <kendo-gridlayout #grdTempRef Name="LayoutRoot" GridLayout [rows]="[ {height: '2fr'},{height:'1fr'}]">
+            <div containerStyle >
+                <kendo-gridlayout-item [row]='2' [col]="1" >
+                    <!-- [TreeViewDataContext]="DataContext"  [TreeViewDataContext]="dOmitSlotsVM?.TreeVwCol"-->
+                    <!-- <div containerStyle > -->
+                        <StackPanel #stpTVTempRef Name="stpTV" Orientation="Horizontal"  [style]="{'border':'1px solid','background':'white','border-color':'#5694F1','margin':'10px','height':'200px','overflow-y':'auto'}"
+                            Background="Transparent" Height="Auto" Width="Auto">
+                            <iTreeView #tvwOmitSlotsTempRef HorizontalAlignment="Stretch" Margin="0" TabIndex="1" IsExpandOnSingleClickEnabled="True"
+                            Name="tvwOmitSlots" VerticalAlignment="Stretch" Height="220" MaxHeight="auto" Width="367" 
+                           [ToolTip]="objSelectedSlots.tvwOmitSlots_ToolTip">
+                        </iTreeView>
+                        </StackPanel>
+                    <!-- </div> -->
+                </kendo-gridlayout-item>
+            </div>
+        </kendo-gridlayout>
+    </div>
+</StackPanel>

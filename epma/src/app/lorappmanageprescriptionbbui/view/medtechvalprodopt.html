@@ -1,0 +1,452 @@
+<div name="LayoutRoot" HorizontalAlignment="Stretch" Background="#FFE0EFF1" Loaded="LayoutRoot_Loaded" Unloaded="LayoutRoot_UnLoaded" 
+[style.width.px]="853" [style.height.px]="maxHeight" style="overflow-y: auto;" ><!--750 630 830 -->
+  <kendo-gridlayout   id="medtechvalProdOpt"
+    [rows]="[{ height: '.10fr'},{ height: 120},{ height: '.25fr'}]" 
+    [cols]="[ { width: '3fr'},{ width: '2fr'}]"
+  >
+    <kendo-gridlayout-item [row]="1" [colSpan]="2" [col]="1">
+      <div style ="display: inline-block;">
+        <kendo-gridlayout [rows]="[{height: 'auto'}]" [cols]="[{width: 'auto'}, {width: 'auto'}]">
+          <kendo-gridlayout-item [row]="1" [col]="1">
+            <StackPanel #HeaderTempRef Orientation="Horizontal" Name="Header" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,10,0,0">
+              <iLabel 
+                  #lblPresItemNameTempRef 
+                  HorizontalAlignment="Stretch" 
+                  Name="lblPresItemName" 
+                  FontWeight="Bold"
+                  Margin="0,0,1,0" 
+                  VerticalAlignment="Stretch" 
+                  Mandatory="False" 
+                  MaxWidth="450"
+                  IsWordwrap="True" 
+                  [Text]="DataContext.PrescriptionItemName"
+                  class="lblPresItemName"
+                  TextAlignment="justify"
+                ></iLabel>
+              </StackPanel>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]="1" [col]="2" style="padding-top: 12px; padding-right: 19vw;">
+            <StackPanel #spDrugDetailsTempRef Orientation="Horizontal" Name="spDrugDetails"></StackPanel>
+          </kendo-gridlayout-item>
+        </kendo-gridlayout>
+      </div>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [colSpan]="2" [rowSpan]="3">
+      <div >
+    <!-- <Border #brdSTA1TempRef Name="brdSTA1" [iStyle]="Styles.BorderFrame" BorderBrush="SeaGreen" BorderThickness="0" Width="Auto" HorizontalAlignment="Stretch"  CornerRadius="2" [colSpan]="2" [rowSpan]="3" Margin="5,40,5,0" Visibility="Visible" VerticalAlignment="Top" Height="600"> -->
+        <kendo-gridlayout 
+          [rows]="[{height: '100'},{height: '1fr'},{height: '1fr'},{height: '1fr'}]"
+          [cols]="[{width: '61fr'},{width: '15fr'},{width: '364fr'}]"
+        >
+        <kendo-gridlayout-item [row]="1" [col]="3">
+          <div >
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right" >
+              <iCheckBox #AllProdTempRef Name="AllProd" Height="15" Text="Show all products" Width="auto" Tooltip="Show all products" 
+                [(IsChecked)]="DataContext.IsAllProdCheckedRelated" [(Visibility)]="DataContext.isShowallVisible" class="productopt">
+              </iCheckBox>
+              <iButton #cmdCatalogueOptionsTempRef Name="cmdCatalogueOptions" Tooltip="Click to view catalogue options" 
+                Text="Show catalogue options" Height="21" Margin="41,0,41,0" [Click]="cmdCatalogueOptions_Click_Func" Foreground="Blue"
+                [(Visibility)]="DataContext.IsCatalogueOptions" [(IsEnabled)]="DataContext.IsenableCatOpt" class="formularybtn" >
+              </iButton>
+              <iButton #cmdFormularyOptionsTempRef Name="cmdFormularyOptions" Tooltip="Click to view formulary options"  Margin="41,0,41,0"
+                Text="Show formulary options only" Height="21" [Click]="cmdFormularyOptions_Click_Func" Foreground="Blue" 
+                [(Visibility)]="DataContext.IsFormularyOptions" [(IsEnabled)]="DataContext.IsenableForOpt" class="formularybtn">
+              </iButton>
+            </StackPanel>
+          </div>
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item [colSpan]="3" [row]="3" [col]="1">
+          <div containerStyle>
+            <kendo-grid 
+              #grdPrescribeTempRef 
+              [data]="grdPrescribe.ItemsSource.array"
+              class="horizontal-class-stretch vertical-class-top"
+              (selectionChange)="grdPrescribe.selectionChange($event)"
+              [selectable]="{ checkboxOnly: false, mode: 'single' }" 
+              kendoGridSelectBy
+              [(selectedKeys)]="grdPrescribe.selectedRowsIndex"
+              [height]="maxGridHeight" 
+              [style.marginTop.px]="30"
+              [style.marginBottom.px]="10"
+              (keyup)="grdPrescribe.GridSelectionKeyUp($event)" 
+              (keydown)="grdPrescribe.GridSelectionKeyDown($event)"
+              [style.width.px]="830"
+            >
+              <ng-template kendoGridNoRecordsTemplate>There are no records to show</ng-template>
+
+              <kendo-grid-column *ngIf="grdPrescribe.RowIndicatorVisibility == 0 ? true : false"
+                class="HorizontalTextAlignCenter" title="" field="rowindicator" [width]="40">
+                <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+                  <Image
+                    *ngIf="grdPrescribe.selectedRowsIndex.length > 0 ? grdPrescribe.selectedRowsIndex == rowIndex : false"
+                    Source="./assets/images/iarrownor5x10.png"></Image>
+                </ng-template>
+              </kendo-grid-column>
+
+              <kendo-grid-column
+                UniqueName="ProductOptions"
+                field="ProductOptions" 
+                title="Product options" 
+                [hidden]="false" 
+                [filterable]="false" 
+                [editable]="false" 
+                [width.minWidth.px]="690" 
+                [resizable]="false"
+                [width]="690"
+              >
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                  <DataTemplate 
+                    #tempGrdPrescribe 
+                    [dataItem]="dataItem" 
+                    [index]="rowIndex"
+                    [colindex]="columnIndex" 
+                    (RowLoaded)="grdPrescribeRowLoaded($event)" 
+                    [gridHelper]="grdPrescribe"
+                  >
+                    <ContentPresenter class="ellipses"
+                      [Content]="dataItem | TechValTab : '' : 'IdentityfyingName'">
+                    </ContentPresenter>
+                  </DataTemplate>
+                </ng-template>
+              </kendo-grid-column>
+
+              <kendo-grid-column 
+                UniqueName="OID" 
+                title="OID"
+                field="IdentifyingOID" 
+                [hidden]="true" 
+                [filterable]="false" 
+              >
+                
+              </kendo-grid-column>
+
+              <kendo-grid-column 
+                UniqueName="ProductType"
+                title="ProductType"
+                field="IdentifyingType" 
+                [hidden]="true" 
+                [filterable]="false"
+              >
+              </kendo-grid-column>
+
+              <kendo-grid-column 
+                UniqueName="QtyUOMName"
+                field="TechQtyUomName" 
+                title="QtyUOMName"
+                [hidden]="true" 
+                [filterable]="false"
+              >
+            </kendo-grid-column>
+            </kendo-grid>
+          </div>
+        </kendo-gridlayout-item>
+        </kendo-gridlayout>
+
+        <kendo-gridlayout-item [row]="4" [colSpan]="3" [rowSpan]="2">
+          <div containerStyle>
+            <kendo-gridlayout
+              [rows]="[{height: 31}, {height: 'auto'}, {height: 5}, {height: 31}, {height: 'auto'}]"
+              [cols]="[{width: 120}, {width: 70}, {width: 10}, {width: 50}, {width: 110}, {width: 10}, {width: 170}, {width: 170}]"
+            >
+              <Border GridLayout [col]="5" [row]="1" [rowSpan]="2" [iStyle]="Styles.InnerBG"></Border>
+              <Border GridLayout [col]="2" [row]="1" [rowSpan]="2" [iStyle]="Styles.InnerBG"></Border>
+              <!-- <Border [col]="5" [rowSpan]="3" [iStyle]="Styles.InnerBG"></Border> -->
+              <Border GridLayout [col]="7" [row]="2" [rowSpan]="2" [iStyle]="Styles.InnerBG" Margin="-5,0,3,1" Width="340" Height="40"  [(Visibility)]="DataContext.TechQntyPerDosVisible"></Border>
+              <!-- <Border GridLayout [col]="8" [row]="2" [rowSpan]="2" [iStyle]="Styles.InnerBG" Margin="-5,0,3,1" Width="340" Height="40"  [(Visibility)]="DataContext.TechQntyPerDosVisible"></Border> -->
+              <Border GridLayout [col]="1" [row]="2" [colSpan]="2" [iStyle]="Styles.whiteBorder" ></Border>
+              <!-- <Border GridLayout [col]="2" [row]="1" [colSpan]="2" [iStyle]="Styles.whiteBorder" ></Border> -->
+              <Border GridLayout [col]="1" [row]="3" [colSpan]="2" [iStyle]="Styles.whiteBorder"  [(Visibility)]="DataContext.TechQntyPerDosVisible"></Border>
+              <Border GridLayout [col]="4" [row]="2" [colSpan]="2" [iStyle]="Styles.whiteBorder" ></Border>
+              <Border GridLayout [col]="4" [row]="3" [colSpan]="2" [iStyle]="Styles.whiteBorder" [(Visibility)]="DataContext.TechQntyPerDosVisible" ></Border>
+              <Border GridLayout [col]="7" [row]="3" [rowSpan]="2" [colSpan]="2" [iStyle]="Styles.whiteBorder" [(Visibility)]="DataContext.TechQntyPerDosVisible" ></Border>
+
+              <kendo-gridlayout-item [row]="1" [col]="1">
+                <div containerStyle>
+                  <iLabel #lblTotalQuantityTempRef Name="lblTotalQuantity" Text="Total quantity" HorizontalAlignment="Stretch" 
+                    [IsEnabled]="DataContext.IsenableTotQtyDose" VerticalAlignment="Bottom" Mandatory="False" Height="14" 
+                    Margin="4,0,16,8" Width="100">
+                  </iLabel>
+                </div>
+              </kendo-gridlayout-item>
+
+              <kendo-gridlayout-item [row]="1" [col]="2">
+                <div containerStyle>
+                  <iTextBox #txtTotalQuantityTempRef Height="21" Name="txtTotalQuantity" Precision="3" Scale="5" Type="Numeric" 
+                    Nonnegative="True" Width="60" MaxLength="9" TabIndex="2" [IsEnabled]="DataContext.IsenableTotQtyDose" Margin="5,5,5,5"
+                    [(Text)]="DataContext.TotalQuantity" Tooltip="Enter a total quantity of the product to be dispensed"
+                    class="txtTotalQuantity"
+                    HorizontalAlignment="Right" LostFocus="txtTotalQuantity_LostFocus">
+                  </iTextBox>
+                </div>
+              </kendo-gridlayout-item>
+
+              <kendo-gridlayout-item [row]="1" [col]="4">
+                <div containerStyle>
+                  <iLabel #lblTotalQuantityUOMTempRef Name="lblTotalQuantityUOM" Text="UOM" Mandatory="False" Height="14" 
+                    [IsEnabled]="DataContext.IsenableTotQtyDose" >
+                  </iLabel>
+                </div>
+              </kendo-gridlayout-item>
+
+              <kendo-gridlayout-item [row]="1" [col]="5">
+                <div containerStyle>
+                  <iComboBox #cboTotalQuantityUOMTempRef Name="cboTotalQuantityUOM" Height="21"  Tooltip="Select a quantity UOM" 
+                    IsDropDownStretch="True" [IsEnabled]="DataContext.IsenableTotQtyDose" Width="100" IsTypeAHead="True"
+                    [ItemsSource]="DataContext.TotalQuantityUOMList" [(SelectedValue)]="DataContext.TotalQuantityUOM" TabIndex="3" IsEditable="True"
+                    CanAutocompleteSelectItems="True" Margin="5,5">
+                  </iComboBox>
+                </div>
+              </kendo-gridlayout-item>
+
+              <kendo-gridlayout-item [row]="1" [col]="8">
+                <div containerStyle>
+                  <iButton #btnAddInfoTempRef Name="btnAddInfo" Visibility="Visible" [Tooltip]="resTechValidate.cmdAddInfo_Tooltip" 
+                    TextDecorations="Underline" [Text]="resTechValidate.cmdAddInfo_Caption" TabIndex="4"
+                    [IsEnabled]="DataContext.IsenableQtyDose" Cursor="Hand" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    ImageSource="./assets/images/icon_downsmallhot.png" DisabledImageSource="./assets/images/Icon_DownSmallDis.png"
+                    ActiveImageSource="./assets/images/icon_downsmallhot.png" [Click]="btnAddInfo_Click_Func">
+                  </iButton>
+                </div>
+              </kendo-gridlayout-item>
+              
+              <kendo-gridlayout-item [row]="2" [col]="1">
+                <div containerStyle>
+                  <iLabel #lblQuantityPerDoseTempRef Name="lblQuantityPerDose" Text="Quantity per dose" Mandatory="False" 
+                    [Visibility]="DataContext.TechQntyPerDosVisible"
+                    [IsEnabled]="DataContext.IsenableQtyDose" HorizontalAlignment="Left" VerticalAlignment="Center" Height="14" Margin="0,9,0,8" 
+                    Width="100" >
+                  </iLabel>
+                </div>
+              </kendo-gridlayout-item>
+              
+              <kendo-gridlayout-item [row]="2" [col]="2">
+                <div containerStyle>
+                  <iTextBox #txtQuantityTempRef Height="Auto" Name="txtQuantity" Precision="3" Scale="5" TabIndex="5" MaxLength="9" Width="60"  Height="21"
+                    [Visibility]="DataContext.TechQntyPerDosVisible" class="txtTotalQuantity"
+                    Margin="5,5,5,5"Type="Numeric" Nonnegative="True" [IsEnabled]="DataContext.IsenableQtyDose" [(Text)]="DataContext.Quantity"
+                    Tooltip="Specify drug quantity" >
+                  </iTextBox>
+                </div>
+              </kendo-gridlayout-item>
+              
+              <kendo-gridlayout-item [row]="2" [col]="4">
+                <div containerStyle>
+                  <iLabel #lblQuantityPerDoseUOMTempRef Name="lblQuantityPerDoseUOM" [IsEnabled]="DataContext.IsenableQtyDose" Text="UOM" 
+                    [Visibility]="DataContext.TechQntyPerDosVisible"
+                    Mandatory="False" Height="14" >
+                  </iLabel>
+                </div>
+              </kendo-gridlayout-item>
+              
+              <kendo-gridlayout-item [row]="2" [col]="5">
+                <div containerStyle>
+                  <iComboBox #cboQuantityPerDoseUOMTempRef Name="cboQuantityPerDoseUOM" IsEditable="True" Height="21" Tooltip="Select a quantity UOM" 
+                    IsDropDownStretch="True" [IsEnabled]="DataContext.IsenableQtyDose" Width="Auto" IsTypeAHead="True"
+                    [ItemsSource]="DataContext.QuantityUOMList" [(SelectedValue)]="DataContext.QuantityUOM" CanAutocompleteSelectItems="true" 
+                    [Visibility]="DataContext.TechQntyPerDosVisible"
+                    TabIndex="6" Margin="5" >
+                  </iComboBox>
+                </div>
+              </kendo-gridlayout-item>
+              
+              <kendo-gridlayout-item [row]="1" [col]="7">
+                <div containerStyle>
+                  <iLabel #lblSupplyInstTempRef Name="lblSupplyInst" Text="Supply instructions" TabIndex="7" [IsEnabled]="DataContext.IsenableQtyDose" class="borders"
+                    HorizontalAlignment="Left" VerticalAlignment="Bottom" [Mandatory]="DataContext.IsMandatoryTechValCASupplyInstr"
+                    TextDecorations="Underline" Cursor="Hand" Tooltip="Select to enter/Select supply instructions"
+                    [Visibility]="DataContext.TechQntyPerDosVisible"
+                    [MouseLeftButtonUp]="lblSupplyInstValue_MouseLeftButtonUp_Func" Height="14" Margin="0,0,0,8" IsWordwrap="True" IsFocusable="True" 
+                    >
+                  </iLabel>
+                </div>
+              </kendo-gridlayout-item>
+
+              <kendo-gridlayout-item [row]="2" [col]="7" [colSpan]="2">
+                <div containerStyle>
+                  <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="35" Width="340" BorderThickness="0" HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" [Visibility]="DataContext.TechQntyPerDosVisible">
+                    <!-- <kendo-gridlayout-item [col]="7" [colSpan]="3">
+                      <div containerStyle> -->
+                        <iLabel #lblSupplyInstTextTempRef Name="lblSupplyInstText" [Text]="DataContext.SupplyInsTextWithComments"
+                          [IsEnabled]="DataContext.IsenableQtyDose" Margin="5,0,0,5" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                          Mandatory="False" IsWordwrap="True" Width="310" Height="Auto" [Tooltip]="DataContext.SupplyInsTextWithComments"
+                          [Visibility]="DataContext.TechQntyPerDosVisible" class="supfloat">
+                        </iLabel>
+                      <!-- </div>
+                    </kendo-gridlayout-item> -->
+                  </ScrollViewer>
+                </div>
+              </kendo-gridlayout-item>
+
+              <kendo-gridlayout-item [row]="2" [col]="7">
+                <div containerStyle>
+                  <iLabel #lblSupplyInstValueTempRef Name="lblSupplyInstValue" [Text]="DataContext.SupplyInsVal" 
+                    [IsEnabled]="DataContext.IsenableQtyDose" Visibility="Collapsed" Mandatory="False" Height="0" Margin="0,16,0,15">
+                  </iLabel>
+                </div>
+              </kendo-gridlayout-item>
+
+              <kendo-gridlayout-item [row]="4" [col]="8" [colSpan]="3">
+                <div containerStyle>
+                  <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,5" Height="21" Width="194">
+                    <iButton #cmdAddTempRef Name="cmdAdd" Text="Add" [IsEnabled]="DataContext.IsenableAdd" TabIndex="8" [Click]="cmdAdd_Click_Func" 
+                      Height="21" Margin="-5,0,0,0" ImageSource="./assets/images/iNewAdd.png" 
+                      DisabledImageSource="./assets/images/iNewAddDis.png" ActiveImageSource="./assets/images/iNewAddHot.png" 
+                      Tooltip="Select to add" ImageMargin="0">
+                    </iButton>
+                    <iButton #cmdUpdateTempRef Name="cmdUpdate" Text="Update" class="btnupdate" [IsEnabled]="DataContext.IsenableUpdate" TabIndex="9" 
+                      [Click]="cmdUpdate_Click_Func" Height="21" Margin="5,0,0,0" ImageSource="./assets/images/iNewUpdate.png"
+                      DisabledImageSource="./assets/images/iNewUpdateDis.png" ActiveImageSource="./assets/images/iNewUpdateHot.png" 
+                      Tooltip="Select to update" ImageMargin="0">
+                    </iButton>
+                    <iButton #cmdRemoveTempRef Name="cmdRemove" Text="Remove" [IsEnabled]="DataContext.IsenableRemove" TabIndex="10" 
+                      [Click]="cmdRemove_Click_Func" Height="21" Margin="5,0,0,0" ImageSource="./assets/images/iNewDelete.png"
+                      DisabledImageSource="./assets/images/iNewDeleteDis.png" ActiveImageSource="./assets/images/iNewDeleteHot.png" 
+                      Tooltip="Select to remove" ImageMargin="0">
+                    </iButton>
+                  </StackPanel>
+                </div>
+              </kendo-gridlayout-item>
+
+            </kendo-gridlayout>
+          </div>
+        </kendo-gridlayout-item>
+
+        <!-- <Border Name="brdSTA" [iStyle]="Styles.BorderFrame" BorderBrush="SeaGreen" BorderThickness="0" Width="Auto" HorizontalAlignment="Stretch"  CornerRadius="2" [row]="4" Visibility="Visible" [colSpan]="3" VerticalAlignment="Bottom" Margin="0,60,0,-118"> -->
+        <kendo-gridlayout-item  [row]="4" [col]="1" [colSpan]="6">
+          <div containerStyle>
+          <kendo-gridlayout
+            [rows]="[{height: 2}, {height: 135}]"
+            [cols]="[{width: 65}, {width: 32}, {width: 163}]"
+           >
+          <kendo-gridlayout-item [colSpan]="3" [rowSpan]="2">
+            <div containerStyle>
+              <StackPanel Background="#e1eff0" HorizontalAlignment="Left" Orientation="Vertical" Margin="4,-39,0,80"> 
+                <iLabel #lblBorderTempRef Name="lblBorder" Text="Dose combinations" Foreground="#000000" HorizontalAlignment="Left" Margin="-2,0,2,0"
+                  FontWeight="Bold" Width="Auto" Height="Auto">
+                </iLabel>
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+
+           <kendo-gridlayout-item [row]="1" [col]="1"> 
+            <div containerStyle>
+              <kendo-grid
+                #grdDosecombinationsTempRef
+                [data]="grdDosecombinations.ItemsSource.array"
+                class="horizontal-class-stretch vertical-class-stretch"
+                [GridProperties]="grdDosecombinationsTempRef"
+                (selectionChange)="grdDosecombinations.selectionChange($event)"
+                kendoGridSelectBy 
+                [selectable]="{ checkboxOnly: false, mode: 'single' }"
+                [(selectedKeys)]="grdDosecombinations.selectedRowsIndex"
+                [style.marginTop.px]="21"
+                [height]="maxGridHeight"
+                [style.width.px]="830"
+              >
+                <ng-template kendoGridNoRecordsTemplate>There are no records to show</ng-template>
+
+                <kendo-grid-column 
+                  UniqueName="Name"
+                  field="Name" 
+                  title="Products to be supplied" 
+                  [filterable]="false" 
+                  [resizable]="false"
+                  [editable]="false" 
+                  [width]="285"
+                >
+                  <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate
+                      #tempGrdDoseCombinations 
+                      [dataItem]="dataItem" 
+                      [index]="rowIndex"
+                      [colindex]="columnIndex" 
+                      (RowLoaded)="grdDosecombinationsRowLoaded($event)" 
+                      [gridHelper]="grdDosecombinations" class="grdtxtalgn"
+                    >
+                      <GridCellTemplate [isEditable]="false" [columnNumber]="0" [cell]="'cell0'" [dataItem]="dataItem">
+                        <ContentPresenter   
+                          [Content]="dataItem | DoseComb : '' : 'IdentityfyingName'"
+                          [ToolTip]="dataItem | DoseComb : '' : 'IdentityfyingName'" >
+                          </ContentPresenter>
+                      </GridCellTemplate>
+                      <GridCellEditTemplate [cell]="'cell0'" [dataItem]="dataItem">
+                        <iLabel Name="lblTmpName" VerticalAlignment="center" HorizontalAlignment="Left" [Text]="dataItem.DrugItem.IdentifyingName"
+                          IsWordwrap="True" Width="220" [ToolTip]="dataItem.DrugItem.IdentifyingName">
+                        </iLabel>
+                      </GridCellEditTemplate>
+                    </DataTemplate>
+                  </ng-template>
+                </kendo-grid-column>
+
+                <kendo-grid-column 
+                  UniqueName="TotalQuantity"
+                  field="DoseComTotalPerQuantityUom" 
+                  [resizable]="false"
+                  [filterable]="false" 
+                  [editable]="false" 
+                  title="Total quantity"
+                  [width]="110"
+                >
+                <ng-template
+                kendoGridCellTemplate
+                let-dataItem
+                let-rowIndex="rowIndex"
+                let-columnIndex="columnIndex"
+              >
+              <iLabel Name="TotalQuantity" [Text]="dataItem.DoseComTotalPerQuantityUom" [ToolTip]="dataItem.DoseComTotalPerQuantityUom"></iLabel>
+            </ng-template>
+                </kendo-grid-column>
+                
+                <kendo-grid-column 
+                  UniqueName="Quantity"
+                  field="DoseComQuantityPerDoseUom" 
+                  [resizable]="false" 
+                  [filterable]="false"
+                  [editable]="false" 
+                  title="Quantity per dose"
+                  [width]="142"
+                >
+                <ng-template
+                kendoGridCellTemplate
+                let-dataItem
+                let-rowIndex="rowIndex"
+                let-columnIndex="columnIndex"
+              >
+              <iLabel Name="Quantity" [Text]="dataItem.DoseComQuantityPerDoseUom" [ToolTip]="dataItem.DoseComQuantityPerDoseUom"></iLabel>
+            </ng-template>
+                </kendo-grid-column>
+
+                <kendo-grid-column
+                  UniqueName="SupplyInstruction"
+                  field="ProdSupplyInsWithComments" 
+                  [filterable]="false"
+                  [resizable]="false" 
+                  [editable]="false" 
+                  [width]="240"
+                  title="Supply instructions/Comments"
+                >
+                <ng-template
+                kendoGridCellTemplate
+                let-dataItem
+                let-rowIndex="rowIndex"
+                let-columnIndex="columnIndex"
+              >
+              <iLabel Name="SupplyInstruction" [Text]="dataItem.ProdSupplyInsWithComments" [ToolTip]="dataItem.ProdSupplyInsWithComments"></iLabel>
+            </ng-template>
+              </kendo-grid-column>
+              </kendo-grid>
+            </div>
+          </kendo-gridlayout-item>
+        </kendo-gridlayout>
+      </div>
+      </kendo-gridlayout-item>
+        <!-- </Border> -->
+
+      </div>
+    </kendo-gridlayout-item>
+    <!-- </Border> -->
+  </kendo-gridlayout>
+</div>

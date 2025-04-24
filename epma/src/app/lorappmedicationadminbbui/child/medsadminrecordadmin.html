@@ -1,0 +1,665 @@
+<div name="LayoutRoot" [class]="windowresultion ? 'div-dialog-content' :'div-dialog-contents'">
+    <kendo-gridlayout class="grid-layout-container" GridLayout>
+    <kendo-gridlayout-item [row]="1" [col]="1">
+        <div containerStyle>
+            <drugheader #objDrugHeaderTempRef Name="objDrugHeader" HorizontalAlignment="Stretch" Height="Auto"
+                    Margin="5,0,5,5" [DataContext]="objDrugHeader._DataContext">
+            </drugheader>
+        </div>
+    </kendo-gridlayout-item>
+</kendo-gridlayout>
+    <ScrollViewer #brdHeaderTempRef Name="brdHeader" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" BorderBrush="#77b3b4"
+                BorderThickness="1" Margin="0" [MaxHeight]="maxScrollHeight">
+        <kendo-gridlayout class="grid-layout-container" GridLayout [cols]="[ { width: '100fr'}]" Margin="5,0,5,0">
+           
+            <kendo-gridlayout-item [row]="2" [col]="1">
+                <div containerStyle>
+                    <Br />
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]="3" [col]="1">
+                <div containerStyle class="div-top-panel" id="divTopPanel">
+                    <kendo-gridlayout class="grid-layout-container" GridLayout
+                        [cols]="[ { width: '40fr'}, { width: '60fr'}]">
+                        <kendo-gridlayout-item [row]="1" [col]="1">
+                            <div containerStyle class="div-med-action-parent" id="divMedActionParent">
+                                <kendo-gridlayout class="grid-layout-container" GridLayout
+                                    [rows]="[ { height: '30fr'}, { height: '20fr'}]">
+                                    <kendo-gridlayout-item [row]="1" [col]="1">
+                                        <div containerStyle class="div-med-action">
+                                            <Border #brdMedicationActionTempRef Name="brdMedicationAction"
+                                                BorderBrush="Gray" BorderThickness="1" CornerRadius="2" Height="Auto"
+                                                HorizontalAlignment="Stretch">
+                                                <StackPanel Margin="5,-8,55,0" Background="#E0EFF1FF"
+                                                    HorizontalAlignment="Left" Orientation="Vertical">
+                                                    <iLabel #lblBorderTempRef Name="lblBorder" HorizontalAlignment="Center"
+                                                        [Text]="GetResourceString('MedAdmin', 'txtMediAction_text')"
+                                                        [Tooltip]="GetResourceString('MedAdmin', 'txtmediAction_tooltip')"
+                                                        Foreground="#0000C8" Width="Auto" Height="15" Padding="3,0,3,0">
+                                                    </iLabel>
+                                                </StackPanel>
+                                                <StackPanel HorizontalAlignment="Stretch" Height="Auto" Margin="5">
+                                                    <div containerStyle class="div-radio-button" id="diviRdbGiven">
+                                                        <iRadioButton #iRdbGivenTempRef Name="iRdbGiven"
+                                                            [Text]="GetResourceString('MedAdmin', 'rdbGiven_text')"
+                                                            [Tooltip]="GetResourceString('MedAdmin', 'rdbGiven_tooltip')"
+                                                            (Checked_Func)="iRdbGiven_Checked($event)" Margin="5,0,0,0"
+                                                            GroupName="MedAction">
+                                                        </iRadioButton>
+                                                    </div>
+                                                    <div containerStyle class="div-radio-button" id="diviRdbNotGiven">
+                                                        <iRadioButton #iRdbNotGivenTempRef Name="iRdbNotGiven"
+                                                            [Text]="GetResourceString('MedAdmin', 'rdbNotGiven_text')"
+                                                            [Tooltip]="GetResourceString('MedAdmin', 'rdbNotGiven_tooltip')"
+                                                            (Checked_Func)="iRdbNotGiven_Checked($event)" Margin="5,0,0,0"
+                                                            GroupName="MedAction">
+                                                        </iRadioButton>
+                                                    </div>
+                                                    <div containerStyle class="div-radio-button" id="diviRdbSelfAdmin">
+                                                        <iRadioButton #iRdbSelfAdminTempRef Name="iRdbSelfAdmin"
+                                                            [Text]="GetResourceString('MedAdmin', 'rdbSelfAdminstered_text')"
+                                                            [Tooltip]="GetResourceString('MedAdmin', 'rdbSelfAdminstered_tooltip')"
+                                                            (Checked_Func)="iRdbSelfAdmin_Checked($event)" Margin="5,0,0,0"
+                                                            GroupName="MedAction">
+                                                        </iRadioButton>
+                                                    </div>
+                                                    <div containerStyle class="div-radio-button" id="diviRdbNotKnown">
+                                                        <iRadioButton #iRdbNotKnownTempRef Name="iRdbNotKnown"
+                                                            [Text]="GetResourceString('MedAdmin', 'rdbNotKnown_text')"
+                                                            [Tooltip]="GetResourceString('MedAdmin', 'rdbNotKnown_tooltip')"
+                                                            (Checked_Func)="iRdbNotKnown_Checked($event)" Margin="5,0,0,0"
+                                                            GroupName="MedAction" Visibility="Collapsed">
+                                                        </iRadioButton>
+                                                    </div>
+                                                    <div containerStyle class="div-radio-button" id="diviRdbDfrAdmin">
+                                                        <iRadioButton #iRdbDfrAdminTempRef Name="iRdbDfrAdmin"
+                                                            [Text]="GetResourceString('MedAdmin', 'rdbDeferAdmin_text')"
+                                                            [Tooltip]="GetResourceString('MedAdmin', 'rdbDeferAdmin_tooltip')"
+                                                            (Checked_Func)="iRdbDfrAdmin_Checked($event)" Margin="5,0,0,0"
+                                                            GroupName="MedAction" Visibility="Collapsed">
+                                                        </iRadioButton>
+                                                    </div>
+                                                </StackPanel>
+                                            </Border>
+                                        </div>
+                                    </kendo-gridlayout-item>
+                                </kendo-gridlayout>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="1" [col]="2">
+                            <div containerStyle class="div-dose-detail" id="divDoseDetail">
+                                <StackPanel #MedDoseinfoTempRef Name="MedDoseinfo" Orientation="Horizontal" Height="auto">
+                                    <kendo-gridlayout class="grid-layout-container" Margin="10,0,0,0" GridLayout
+                                        [cols]="[ { width: '30fr'}, { width: '70fr'}]">
+                                        <kendo-gridlayout-item [row]="1" [col]="1">
+                                            <div containerStyle>
+                                                <iLabel #lblDoseTempRef Name="lblDose" VerticalAlignment="Center"
+                                                    [Text]="GetResourceString('MedAdmin', 'lblDose_text')"
+                                                    [(Mandatory)]="objVm.AdministrationDetail.DoseMandatory"
+                                                    AccessKey="e">
+                                                </iLabel>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                        <kendo-gridlayout-item [row]="1" [col]="2">
+                                            <div containerStyle class="div-bg">
+                                                <kendo-gridlayout class="grid-layout-container" GridLayout
+                                                    [cols]="[ { width: '50fr'}, { width: '40fr'}, {width: '5fr'}]">
+                                                    <kendo-gridlayout-item [row]="1" [col]="1">
+                                                        <iTextBox #txtDoseTempRef Name="txtDose" Type="Numeric"
+                                                            IsTabStop="True" MaxLength="11" Scale="7" Precision="3"
+                                                            [(Text)]="objVm.AdministrationDetail.Dose" MinWidth="40"
+                                                            [Tooltip]="GetResourceString('MedAdmin', 'txtDose_tooltip')"
+                                                            [IsEnabled]="objVm.IsDoseEnabled" Margin="5,0,5,3"
+                                                            (KeyDown)="txtDose_KeyDown($event)"
+                                                            AccessKey="e">
+                                                        </iTextBox>
+                                                    </kendo-gridlayout-item>
+                                                    <kendo-gridlayout-item [row]="1" [col]="2">
+                                                        <div containerStyle class="div-dose-uom">
+                                                            <iComboBox #cboDoseUOMTempRef Name="cboDoseUOM"
+                                                                VerticalAlignment="Center" Margin=",5,5,5"
+                                                                [Tooltip]="GetResourceString('MedAdmin', 'cboDoseUOM_tooltip')"
+                                                                [(SelectedValue)]="objVm.AdministrationDetail.DoseUOMOID"
+                                                                [(ItemsSource)]="objVm.AdministrationDetail.DoseUOMs"
+                                                                Height="21" SelectAllTextEvent="None"
+                                                                Visibility="Collapsed">
+                                                            </iComboBox>
+                                                            <iLabel #lblDoseUoMTempRef Name="lblDoseUoM" IsWordwrap="True"
+                                                                VerticalAlignment="Center" Margin=",5,5,5"
+                                                                [Text]="objVm.AdministrationDetail.strDoseUOM | FormatText"
+                                                                [(Tooltip)]="objVm.AdministrationDetail.strDoseUOM"
+                                                                Visibility="Visible">
+                                                            </iLabel>
+                                                        </div>
+                                                    </kendo-gridlayout-item>
+                                                </kendo-gridlayout>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                        <kendo-gridlayout-item [row]="2" [col]="1">
+                                            <div containerStyle class="div-whiteborder" id="divStepped">
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                        <kendo-gridlayout-item [row]="2" [col]="2">
+                                            <div containerStyle class="div-bg-whiteborder" id="divSteppedImg">
+                                                <Border #steppedTempRef Name="stepped">
+                                                    <iButton #SteppedImgTempRef Height="21" Margin="140,5,3,5"
+                                                        IsTabStop="True" Cursor="Hand" Name="SteppedImg" [IsEnabled]="true"
+                                                        (Click_Func)="SteppedImg_Click($event)"
+                                                        ImageSource="./assets/Images/idosetypenor16.png"
+                                                        DisabledImageSource="./assets/Images/idosetypedis16.png"
+                                                        ActiveImageSource="./assets/Images/idosetypehot16.png" Width="23">
+                                                    </iButton>
+                                                </Border>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                        <kendo-gridlayout-item [row]="3" [col]="1">
+                                            <div containerStyle class="div-whiteborder">
+                                                <iLabel #lblRouteTempRef Name="lblRoute" Mandatory="True"
+                                                    [Text]="GetResourceString('MedAdmin', 'lblRoute_text')">
+                                                </iLabel>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                        <kendo-gridlayout-item [row]="3" [col]="2">
+                                            <div containerStyle class="div-bg-whiteborder">
+                                                <iComboBox #cboRouteTempRef Name="cboRoute" Width="auto"
+                                                    IsDropDownStretch="True" HorizontalAlignment="Stretch"
+                                                    [Tooltip]="GetResourceString('MedAdmin', 'drpRoute_tooltip')"
+                                                    [(SelectedValue)]="objVm.AdministrationDetail.RouteOID"
+                                                    [(ItemsSource)]="objVm.Routes" Margin="5,3,5,3" Height="21"
+                                                    [isStopSelectionChangeEvent]="true"
+                                                    (SelectionChanged_Func)="cboRoute_SelectionChanged($event)"
+                                                    SelectAllTextEvent="None" IsEditable="False">
+                                                </iComboBox>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                        <kendo-gridlayout-item [row]="4" [col]="1">
+                                            <div containerStyle class="div-whiteborder">
+                                                <iLabel #lblSiteTempRef Name="lblSite"
+                                                    [Text]="GetResourceString('MedAdmin', 'lblSite_text')">
+                                                </iLabel>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                        <kendo-gridlayout-item [row]="4" [col]="2">
+                                            <div containerStyle class="div-bg-whiteborder">
+                                                <iComboBox #cboSiteTempRef Name="cboSite" Width="auto"
+                                                    HorizontalAlignment="Stretch" IsEditable="True" IsTypeAHead="True"
+                                                    IsTextSearchEnabled="True"
+                                                    [(ItemsSource)]="objVm.AdministrationDetail.Sites"
+                                                    [(SelectedValue)]="objVm.AdministrationDetail.Site"
+                                                    [Tooltip]="GetResourceString('MedAdmin', 'drpSite_tooltip')"
+                                                    Margin="5,3,5,3" Height="21" SelectAllTextEvent="None"
+                                                    IsDropDownStretch="True" (SelectionChanged_Func)="cboSite_SelectionChanged($event)">
+                                                </iComboBox>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                        <kendo-gridlayout-item [row]="5" [col]="1">
+                                            <div containerStyle class="div-whiteborder">
+                                                <iLabel #lblBatchNoTempRef Name="lblBatchNo"
+                                                    [Text]="GetResourceString('MedAdmin', 'lblBatch_text')">
+                                                </iLabel>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                        <kendo-gridlayout-item [row]="5" [col]="2">
+                                            <div containerStyle class="div-bg-whiteborder">
+                                                <iTextBox #txtBatchNoTempRef Name="txtBatchNo" Width="auto" MaxLength="50"
+                                                    [(Text)]="objVm.AdministrationDetail.BatchNo"
+                                                    [(IsEnabled)]="objVm.AdministrationDetail.IsBatchenabled"
+                                                    HorizontalAlignment="Stretch"
+                                                    [Tooltip]="GetResourceString('MedAdmin', 'txtBatch_tooltip')"
+                                                    Margin="5,3,5,3" Height="21">
+                                                </iTextBox>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                        <kendo-gridlayout-item [row]="6" [col]="1">
+                                            <div containerStyle class="div-whiteborder" width="31">
+                                                <iLabel #lblExpiryDateTempRef Name="lblExpiryDate"
+                                                    [Text]="GetResourceString('MedAdmin', 'lblExpirydate_text')"
+                                                    IsWordwrap="True">
+                                                </iLabel>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                        <kendo-gridlayout-item [row]="6" [col]="2">
+                                            <div containerStyle class="div-bg-whiteborder">
+                                                <iDateTimePicker #cboExpiryDateTempRef Width="auto" Name="cboExpiryDate"
+                                                    EnableCultureSupport="False" DatePickerMode="DATEPICKER"
+                                                    HorizontalAlignment="Stretch" Margin="5,3,5,3" Height="21"
+                                                    [(SelectedDateTime)]="objVm.AdministrationDetail.ExpiryDate"
+                                                    [(IsEnabled)]="objVm.AdministrationDetail.IsExpiryenabled"
+                                                    [Tooltip]="GetResourceString('MedAdmin', 'dtpExpiryDate_tooltip')"
+                                                    DateTimeFormat="Custom" CustomFormat="dd-MMM-yyyy">
+                                                </iDateTimePicker>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                    </kendo-gridlayout>
+                                </StackPanel>
+                            </div>
+                        </kendo-gridlayout-item>
+                    </kendo-gridlayout>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]="4" [col]="1">
+                <div containerStyle id="divCriticalMedMsg" class="div-critical-msg">
+                    <kendo-gridlayout class="grid-layout-container" GridLayout Margin="5">
+                        <kendo-gridlayout-item [row]="1" [col]="1">
+                            <iLabel #criticalTempRef Name="critical" Margin="5,0,-28,0" Width ="395" MaxWidth ="410"  
+                                HorizontalContentAlignment="Center" HorizontalAlignment="Left"  
+                                IsWordwrap="True">
+                            </iLabel>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="2" [col]="1">
+                            <div containerStyle id="divCriticalDrugSiteURL" class="div-critical-drug-site-url">
+                                <kendo-gridlayout class="grid-layout-container" GridLayout
+                                        [cols]="[{ width: '32fr'}, { width: '68fr'}]">
+                                    <kendo-gridlayout-item [row]="1" [col]="1">
+                                        <iLabel  Name="Formore" Margin="5,0,0,0" Width ="120" MaxWidth ="120" 
+                                            IsWordwrap="True" Text="For more information" Visibility="Visible">
+                                        </iLabel>
+                                    </kendo-gridlayout-item>
+                                    <kendo-gridlayout-item [row]="1" [col]="2">
+                                        <iHyperlinkButton Content="Click here" Foreground="Blue"
+                                            (Click_Func)="CriticalURL_Clilck($event)">
+                                        </iHyperlinkButton>
+                                    </kendo-gridlayout-item>    
+                                </kendo-gridlayout> 
+                            </div>
+                        </kendo-gridlayout-item>
+                    </kendo-gridlayout>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]="5" [col]="1">
+                <div containerStyle id="divCriticalMedMsgBlankLine" class="div-critical-msg-blank-line">
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]="6" [col]="1">
+                <kendo-gridlayout class="grid-layout-container" GridLayout [cols]="[ { width: '33fr'}, { width: '67fr'}]">
+                    <kendo-gridlayout-item [row]="1" [col]="1">
+                        <div containerStyle class="div-whiteborder" id="divlblConcentration" style="padding-top: 6px;">
+                            <iLabel #lblConcentrationTempRef Name="lblConcentration" VerticalAlignment="Center" 
+                                    [Text]="GetResourceString('MedAdmin', 'lblConcentration_text')" Margin="0,5,5,5">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="1" [col]="2">
+                        <div containerStyle class="div-bg-whiteborder" id="divtxtConStrengthValue">
+                            <kendo-gridlayout class="grid-layout-container" GridLayout
+                                        [cols]="[ { width: '10fr'}, { width: '15fr'}, { width: '5fr'}, { width: '10fr'}, { width: '25fr'}]">
+                                <kendo-gridlayout-item [row]="1" [col]="1">
+                                    <kendo-numerictextbox #txtConStrengthValueTempRef Name="txtConStrengthValue" [(ngModel)]="objVm.AdministrationDetail.ConcentrationStrength"
+                                        [decimals]="3" format="n" [title]="GetResourceString('MedAdmin', 'txtConcentration_tooltip')" [style.margin.px]="5"
+                                        HorizontalAlignment="Left" VerticalAlignment="Center" [style.width.px]="60" [style.height.px]="21"
+                                        [maxlength]="11" [spinners]="false">
+                                    </kendo-numerictextbox>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]="1" [col]="2">
+                                    <iComboBox #cboConStrengthUoMValueTempRef Name="cboConStrengthUoMValue" IsEditable="True" IsTypeAHead="True" IsTextSearchEnabled="True" HorizontalAlignment="Left" Margin="3,5"
+                                        [ToolTip]="GetResourceString('MedAdmin', 'ConcentrationUOM_tooltip')" VerticalAlignment="Center" Height="21" Width="60"
+                                        [(ItemsSource)]="objVm.AdministrationDetail.ConcentrationStrengthUOMs" IsDropDownStretch="True" 
+                                        [(SelectedValue)]="objVm.AdministrationDetail.ConcentrationStrengthUOM" SelectAllTextEvent="None" ResetMore="True">
+                                    </iComboBox>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]="1" [col]="3">
+                                    <iLabel #lblConPerTempRef Name="lblConPer" HorizontalAlignment="Right" VerticalAlignment="Center" Text="/" Margin="5,5">
+                                    </iLabel>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]="1" [col]="4">
+                                    <kendo-numerictextbox #txtConVolumeValueTempRef Name="txtConVolumeValue" [(ngModel)]="objVm.AdministrationDetail.ConcentrationVolume"
+                                        [decimals]="2" format="n" [title]="GetResourceString('MedAdmin', 'txtConcentration_tooltip')" [style.margin.px]="5"
+                                        HorizontalAlignment="Right" VerticalAlignment="Center" [style.width.px]="60" [style.height.px]="21"
+                                        [maxlength]="8" [spinners]="false">
+                                    </kendo-numerictextbox>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]="1" [col]="5">
+                                    <iComboBox #cboConVolumeUoMValueTempRef Name="cboConVolumeUoMValue" IsEditable="True" IsTypeAHead="True" IsTextSearchEnabled="True" HorizontalAlignment="Right" Margin="3,5"
+                                        [ToolTip]="GetResourceString('MedAdmin', 'ConcentrationUOM_tooltip')" Width="60"
+                                        VerticalAlignment="Center"  Height="21" IsDropDownStretch="True" 
+                                        [(ItemsSource)]="objVm.AdministrationDetail.ConcentrationVolumeUOMs" 
+                                        [(SelectedValue)]="objVm.AdministrationDetail.ConcentrationVolumeUOM" SelectAllTextEvent="None">
+                                    </iComboBox>
+                                </kendo-gridlayout-item>
+                            </kendo-gridlayout>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="2" [col]="1">
+                        <div containerStyle id="divlblInfusionperiod" style="padding-top: 6px;">
+                            <iLabel #lblInfusionperiodTempRef Name="lblInfusionperiod" VerticalAlignment="Center" 
+                                [Text]="GetResourceString('MedAdmin', 'lblInfusionperiod_text')" Margin="0,5,5,5">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="2" [col]="2">
+                        <div containerStyle class="div-bg" id="divInfusionperiodtext">
+                            <kendo-gridlayout class="grid-layout-container" GridLayout
+                                        [cols]="[ { width: '30fr'}, { width: '5fr'}, { width: '40fr'}]">
+                                <kendo-gridlayout-item [row]="1" [col]="1">
+                                    <iTextBox #InfusionperiodtextTempRef Name="Infusionperiodtext" HorizontalAlignment="Stretch" 
+                                            [(Text)]="objVm.AdministrationDetail.InfusionPeriodforMedAdmin" 
+                                            Nonnegative="True" [ToolTip]="GetResourceString('MedAdmin', 'txtInfusionperiod_tooltip')" 
+                                            VerticalAlignment="Center" MaxLength="3" Margin="5,5"
+                                            Type="Numeric" Scale="3" Precision="0" Width="60">
+                                    </iTextBox>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]="1" [col]="2">
+                                    <iLabel #lblInfperioduomTempRef Name="lblInfperioduom" HorizontalAlignment="Stretch" VerticalAlignment="Center" 
+                                            [Text]="GetResourceString('MedAdmin', 'lblUOM_Text')" Margin="4,5,0,5">
+                                    </iLabel>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]="1" [col]="3">
+                                    <iComboBox #cboInfusionperiodUoMValueTempRef Name="cboInfusionperiodUoMValue" Width="60" IsEditable="True" IsTypeAHead="True" IsTextSearchEnabled="True" 
+                                            HorizontalAlignment="Left" Margin="5,5" Width="90"
+                                            IsDropDownStretch="True" ToolTip="" VerticalAlignment="Center"  
+                                            Height="21" [(ItemsSource)]="objVm.AdministrationDetail.InfusionPeriodUOMs" 
+                                            [(SelectedValue)]="objVm.AdministrationDetail.InfusionPeriodUOMforMedAdmin">
+                                    </iComboBox>
+                                </kendo-gridlayout-item>
+                            </kendo-gridlayout>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="3" [col]="1">
+                        <div containerStyle id="divlblDateTimeGivenText">
+                            <iLabel #lblDateTimeGivenTextTempRef Name="lblDateTimeGivenText" Mandatory="True"
+                                [Text]="GetResourceString('MedAdmin', 'lblDateTimegiven_text')"
+                                AccessKey="t" Margin="0,5,5,5">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="3" [col]="2">
+                        <div containerStyle class="div-bg" id="divdtpDateTimeGivenText">
+                            <StackPanel VericalAlignment="Stretch" Orientation="Horizontal" Margin="5">
+                                <iDateTimePicker #dtpDateTimeGivenTextTempRef Name="dtpDateTimeGivenText"
+                                    EnableCultureSupport="False" Width="135" IsConstrainEntry="True"
+                                    DatePickerMode="DATEPICKER" DateTimeFormat="Custom" CustomFormat="dd-MMM-yyyy"
+                                    Height="21" [Tooltip]="GetResourceString('MedAdmin', 'dtpDateTimegiven_tooltip')"
+                                    [(SelectedDateTime)]="objVm.AdministrationDetail.AdministeredDate"
+                                    [OnDateChange]="dtpDateTimeGivenText_OnDateChange_Func"
+                                    AccessKey="t">
+                                </iDateTimePicker> &nbsp;
+                                <iTimeBox #timeDateTimeGivenTextTempRef Name="timeDateTimeGivenText" EnableDST="True"
+                                    [(Value)]="objVm.AdministrationDetail.AdministeredDateTime" Width="80"  Height="21"
+                                    [Tooltip]="GetResourceString('MedAdmin', 'dtpDateTimegiven_tooltip')"
+                                    AccessKey="t">
+                                </iTimeBox>
+                            </StackPanel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="4" [col]="1">
+                        <div containerStyle class="div-whiteborder" id="divlblCareProvider">
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="4" [col]="2">
+                        <div containerStyle class="div-bg-whiteborder" id="divstpCareProvider">
+                            <StackPanel #stpCareProviderTempRef Name="stpCareProvider" HorizontalAlignment="Stretch"
+                                Height="Auto" Margin="5">
+                                <kendo-gridlayout class="grid-layout-container" GridLayout [cols]="[ { width: '40fr'}, { width: '60fr'}]">
+                                    <kendo-gridlayout-item [row]="1" [col]="1">
+                                        <iRadioButton #rdbCareProviderTempRef Name="rdbCareProvider" HorizontalAlignment="Left"
+                                            (Checked_Func)="rdbCareProvider_Checked($event)"
+                                            [Text]="GetResourceString('MedAdmin', 'rdbCareProvider_text')"
+                                            [Tooltip]="GetResourceString('MedAdmin', 'rdbcareprovider_tooltip')" Height="auto"
+                                            GroupName="AdminBy">
+                                        </iRadioButton>
+                                        <iRadioButton #rdbPatientTempRef Name="rdbPatient" HorizontalAlignment="Left"
+                                            (Checked_Func)="rdbPatient_Checked($event)"
+                                            [Text]="GetResourceString('MedAdmin', 'rdbpatient_text')"
+                                            [Tooltip]="GetResourceString('MedAdmin', 'rdbpatient_tooltip')" Height="auto"
+                                            GroupName="AdminBy" Visibility="Collapsed">
+                                        </iRadioButton>
+                                    </kendo-gridlayout-item>
+                                    <kendo-gridlayout-item [row]="1" [col]="2">                                        
+                                        <iRadioButton #rdbparentTempRef Name="rdbparent" HorizontalAlignment="Left"
+                                            (Checked_Func)="rdbparent_Checked($event)"
+                                            [Text]="GetResourceString('MedAdmin', 'rdbparent_text')"
+                                            [Tooltip]="GetResourceString('MedAdmin', 'rdbparientCare_tooltip')" Height="auto"
+                                            GroupName="AdminBy">
+                                        </iRadioButton>
+                                    </kendo-gridlayout-item>
+                                </kendo-gridlayout>
+                            </StackPanel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="5" [col]="1" id="divlblAdministeredby">
+                        <div containerStyle>
+                            <iLabel #lblAdministeredbyTempRef Name="lblAdministeredby"
+                                [Text]="GetResourceString('MedAdmin', 'lblAdministeredby_text')"
+                                [Tooltip]="GetResourceString('MedAdmin', 'lblAdministeredby_tooltip')"
+                                AccessKey="A">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="5" [col]="2" id="divsfsAdministeredby">
+                        <div containerStyle class="div-bg">
+                            <iSFS #sfsAdministeredbyTempRef Name="sfsAdministeredby" Width="auto" Margin="5"
+                                [(SelectedText)]="objVm.AdministrationDetail.AdministeredBy"
+                                [(SelectedValue)]="objVm.AdministrationDetail.AdministeredByOID"
+                                [(ItemsSource)]="objVm.AdministrationDetail.AdministeredByList" AllowDrop="True"
+                                HorizontalAlignment="Stretch"
+                                [ToolTip]="GetResourceString('MedAdmin', 'sfsAdminsteredBy_tooltip')"
+                                (OnSFSOpen)="sfsAdministeredby_OnSFSOpen($event)" MaxSize="10"
+                                AccessKey="A" (LostFocus_Func)="sfsAdministeredby_LostFocus($event)">
+                            </iSFS>
+                            <iComboBox #cboParentCarerTempRef Name="cboParentCarer" Width="auto"
+                                HorizontalAlignment="Stretch" Margin="5,3,5,3" IsEditable="False"
+                                [ToolTip]="GetResourceString('MedAdmin', 'cboParentCarer_tooltip')"
+                                [(SelectedValue)]="objVm.AdministrationDetail.AdminByPersonalCarer"
+                                [(ItemsSource)]="objVm.AdministrationDetail.ParentCarerList"
+                                (SelectionChanged_Func)="cboParentCarer_SelectionChanged($event)"
+                                AccessKey="A" Visibility="Collapsed" AllowInputText="True" Height="21">
+                            </iComboBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="6" [col]="1">
+                        <div containerStyle id="divlblNoParentCarerListed">
+                            <iLabel #lblNoParentCarerListedTempRef Name="lblNoParentCarerListed" Text="">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="6" [col]="2">
+                        <div containerStyle class="div-bg" id="divchkNoParentCarerListed">
+                            <iCheckBox #chkNoParentCarerListedTempRef Name="chkNoParentCarerListed"
+                                HorizontalAlignment="Left" Width="auto" Margin="3,3,5,3"
+                                [Text]="GetResourceString('MedAdmin', 'chkNoParentCarerListed_text')"
+                                [(IsChecked)]="objVm.AdministrationDetail.IsPersonalCarerNotListed"
+                                [Checked]="chkNoParentCarerlisted_Checked_Func"
+                                [Unchecked]="chkNoParentCarerlisted_Unchecked_Func"
+                                [Tooltip]="GetResourceString('MedAdmin', 'lblParentCarerInfo_text')">
+                            </iCheckBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="7" [col]="1">
+                        <div containerStyle class="div-whiteborder" id="divlblRelation" [style.height.px]="37" style="padding-top: 6px;">
+                            <iLabel #lblRelationTempRef Name="lblRelation"
+                                [Text]="GetResourceString('MedAdmin', 'lblRelation_text')" IsWordwrap="True"
+                                Visibility="Collapsed">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="7" [col]="2">
+                        <div containerStyle class="div-bg-whiteborder" id="divlblRelationSelected" Height="30" style="padding-top: 6px;">
+                            <iLabel #lblRelationSelectedTempRef Name="lblRelationSelected"
+                                [(Text)]="objVm.AdministrationDetail.PersonalCarerRelationship" IsWordwrap="True"
+                                Margin="5" Visibility="Collapsed">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="8" [col]="1">
+                        <div containerStyle class="div-whiteborder" id="divlblNoWitness">
+                            <iLabel #lblNoWitnessTempRef Name="lblNoWitness" Text="">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="8" [col]="2">
+                        <div containerStyle class="div-bg-whiteborder" id="divchkNoWitness" [style.height.px]="31">
+                            <iCheckBox #chkNoWitnessTempRef Name="chkNoWitness" HorizontalAlignment="Left" Width="auto"
+                                Margin="3,3,5,5" [(IsChecked)]="objVm.AdministrationDetail.IsNoWitnessAvialable"
+                                [Checked]="chkNoWitness_Checked_Func" [Unchecked]="chkNoWitness_Unchecked_Func"
+                                [Text]="GetResourceString('MedAdmin', 'chkNoWitness_text')"
+                                [Tooltip]="GetResourceString('MedAdmin', 'chkNoWitness_tooltip')" Height="21">
+                            </iCheckBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="9" [col]="1">
+                        <div containerStyle id="divlblWitnessedBy">
+                            <iLabel #lblWitnessedByTempRef Name="lblWitnessedBy" 
+                                [(Mandatory)]="objVm.AdministrationDetail.WitnessMandatory"
+                                [Text]="GetResourceString('MedAdmin', 'lblWitnessedby_text')"
+                                [Tooltip]="GetResourceString('MedAdmin', 'lblWitnessedby_tooltip')"
+                                AccessKey="W">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="9" [col]="2">
+                        <div containerStyle class="div-bg" id="divsfsWitnessedby">
+                            <iSFS #sfsWitnessedbyTempRef Name="sfsWitnessedby" SFSType="List" Width="auto"
+                                HorizontalAlignment="Stretch" Margin="5" AllowDrop="True"
+                                [(ItemsSource)]="objVm.AdministrationDetail.WitnessByList"
+                                [(SelectedText)]="objVm.AdministrationDetail.WitnessBy"
+                                [(SelectedValue)]="objVm.AdministrationDetail.WitnessByOID"
+                                [ToolTip]="GetResourceString('MedAdmin', 'sfsAdminsteredBy_tooltip')"
+                                (OnSFSOpen)="sfsWitnessedby_OnSFSOpen($event)" (KeyUp)="sfsWitnessedby_KeyUp($event)"
+                                MaxSize="10" AccessKey="W">
+                            </iSFS>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="10" [col]="1">
+                        <div containerStyle class="div-whiteborder" id="divlblResNotGiven">
+                            <iLabel #lblResNotGivenTempRef Name="lblResNotGiven"
+                                [Text]="GetResourceString('MedAdmin', 'lblResNotGiven_text')"
+                                [Tooltip]="GetResourceString('MedAdmin', 'lblResNotGiven_tooltip')" Mandatory="True"
+                                AccessKey="g">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="10" [col]="2">
+                        <div containerStyle class="div-bg-whiteborder" id="divcboResNotGiven">
+                            <iComboBox #cboResNotGivenTempRef Name="cboResNotGiven" Width="auto"
+                                HorizontalAlignment="Stretch" Margin="5"
+                                [(SelectedValue)]="objVm.AdministrationDetail.ReasonNotGiven"
+                                [(ItemsSource)]="objVm.AdministrationDetail.ReasonNotGivens"
+                                [Tooltip]="GetResourceString('MedAdmin', 'txtResMedicationNotGiven_tooltip')"
+                                (SelectionChanged_Func)="cboResNotGiven_SelectionChanged($event)" Height="23"
+                                AccessKey="g" IsEditable="False">
+                            </iComboBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="11" [col]="1">
+                        <div containerStyle class="div-whiteborder" id="divlblResFordefer">
+                            <iLabel #lblResFordeferTempRef Name="lblResFordefer" Mandatory="True"
+                                [Text]="GetResourceString('MedAdmin', 'lblResonForDefer_text')"
+                                AccessKey="r">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="11" [col]="2">
+                        <div containerStyle class="div-bg-whiteborder" id="divcboResFordefer">
+                            <iComboBox #cboResFordeferTempRef Name="cboResFordefer" Width="auto"
+                                HorizontalAlignment="Stretch" Margin="5"
+                                [Tooltip]="GetResourceString('MedAdmin', 'txtReasonFordefer_tooltip')"
+                                [(SelectedValue)]="objVm.AdministrationDetail.ReasonForNotDefer"
+                                [(ItemsSource)]="objVm.AdministrationDetail.ReasonForNotDefers"
+                                (SelectionChanged_Func)="cboResFordefer_SelectionChanged($event)" Height="21"
+                                AccessKey="r" IsEditable="False"></iComboBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="12" [col]="1">
+                        <div containerStyle class="div-whiteborder">
+                            <iLabel #lblCommentsTempRef Name="lblComments"
+                                [Text]="GetResourceString('MedAdmin', 'lblComments_text')">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="12" [col]="2">
+                        <div containerStyle class="div-bg-whiteborder">
+                            <iTextBox #txtCommentsTempRef Name="txtComments" MaxLength="255" Width="auto"
+                                HorizontalAlignment="Stretch" Margin="5"
+                                [Tooltip]="GetResourceString('MedAdmin', 'txtComments_tooltip')"
+                                [(Text)]="objVm.AdministrationDetail.AdminComments"
+                                AcceptsReturn="True" TextWrapping="Wrap" VerticalAlignment="Stretch" Height="37"></iTextBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="13" [col]="1">
+                        <div containerStyle class="div-whiteborder" id="divlblcliniIncFrm" [style.height.px]="39" style="padding-top: 6px;">
+                            <iLabel #lblcliniIncFrmTempRef Name="lblcliniIncFrm"
+                                [Text]="GetResourceString('MedAdmin', 'lblcliniIncFrm_text')" Visibility="Collapsed">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="13" [col]="2">
+                        <div containerStyle class="div-bg-whiteborder" id="divlblcliniIncFrmValue" [style.height.px]="39" style="padding-top: 6px;">
+                            <iLabel #lblcliniIncFrmValueTempRef Name="lblcliniIncFrmValue" Visibility="Collapsed"
+                                TextDecorations="Underline" Cursor="Hand" Foreground="#0000C8"
+                                [(Text)]="objVm.AdministrationDetail.ClinicalIncidentForm"
+                                [ToolTip]="GetResourceString('MedAdmin', 'lblCIFValue_Tooltip')"
+                                [MouseLeftButtonUp]="lblCIFValue_MouseLeftButtonUp_Func" IsFocusable="False" Margin="5">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="14" [col]="1" Height="5">
+                        <div containerStyle class="div-whiteborder">
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="14" [col]="2" Height="5">
+                        <div containerStyle class="div-whiteborder">
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </kendo-gridlayout-item>
+        </kendo-gridlayout>
+        <iButton #cmdScanRecMedicationTempRef Name="cmdScanRecMedication" HorizontalAlignment="Left" Margin="5,2,0,0"
+            TextDecorations="Underline" Cursor="Hand" Foreground="Blue"
+            [Text]="GetResourceString('CondRegime', 'lblScanRecMedication_Text')"
+            [Tooltip]="GetResourceString('CondRegime', 'lblScanRecMedication_ToolTip')"
+            [(IsEnabled)]="objVm.AdministrationDetail.IsScanrecadminlinkenabled" Height="23"
+            DisabledImageSource="./assets/Images/iarrowdis5x10.png" ActiveImageSource="./assets/Images/iarrowshot5x10.png"
+            ImageSource="./assets/Images/iarrownor5x10.png" ImageHeight="12" ImageWidth="5"
+            (Click_Func)="cmdScanRecMedication_Click($event)">
+        </iButton>
+        <iButton #cmdRequestTempRef Name="cmdRequest" HorizontalAlignment="Left" Margin="5,2,0,0"
+            TextDecorations="Underline" Cursor="Hand" AccessKey="B"
+            (Click_Func)="cmdRequest_Click($event)" Foreground="Blue" Text="Request medication"
+            [Tooltip]="GetResourceString('CondRegime', 'RequestMedication_ToolTip')" Height="23"
+            ImageSource="./assets/Images/Supply flag_nor16.png" DisabledImageSource="./assets/Images/supply flag_dis16.png"
+            ActiveImageSource="./assets/Images/supply flag_nor16.png" ImageHeight="15" ImageWidth="15"
+            Visibility="Collapsed">
+        </iButton>
+        <iButton #cmdRemoveTempRef [Text]="GetResourceString('MedAdmin', 'adminUndodefer_text')"
+            [Tooltip]="GetResourceString('MedAdmin', 'adminUndodefer_tooltip')" Width="auto" Height="23" Cursor="Hand"
+            HorizontalAlignment="Left" Name="cmdRemove" VerticalAlignment="Top"
+            ImageSource="./assets/Images/undo_normal.png" DisabledImageSource="./assets/Images/undo_selected.png"
+            ActiveImageSource="./assets/Images/undo_hot.png" Visibility="Collapsed" (Click_Func)="cmdRemove_Click($event)"
+            AccessKey="m" IsEnabled="True">
+        </iButton><br>
+        <iButton #cmdObservationsResultsTempRef Name="cmdObservationsResults" HorizontalAlignment="Left" Margin="5,2,0,0"
+            TextDecorations="Underline" Cursor="Hand" Foreground="Blue" [Text]="GetResourceString('CondRegime', 'lblObservationsResults_Text')"
+            [Tooltip]="GetResourceString('CondRegime', 'lblObservationsResults_ToolTip')"
+            Height="23" DisabledImageSource="../assets/Images/iarrowdis5x10.png"
+            ActiveImageSource="./assets/Images/iarrowshot5x10.png" ImageSource="./assets/Images/iarrownor5x10.png"
+            ImageHeight="12" ImageWidth="5" (Click_Func)="cmdObservationsResults_Click($event)"
+            AccessKey="b" IsEnabled="True">
+        </iButton>
+        <br />
+        <iButton #cmdWristbandScanTempRef [Text]="GetResourceString('MedAdmin', 'cmdWristbandScan_text')"
+            [Tooltip]="GetResourceString('MedAdmin', 'cmdWristbandScan_tooltip')" Height="23" Cursor="Hand" Width="auto"
+            HorizontalAlignment="Left" Name="cmdWristbandScan" VerticalAlignment="Top"
+            ImageSource="./assets/Images/scanicon18.png" DisabledImageSource="./assets/Images/scanicon18_Dis.png"
+            ActiveImageSource="./assets/Images/scanicon18.png" (Click_Func)="cmdWristbandScan_Click($event)"
+            Margin="5,2,0,0" TextDecorations="Underline" Foreground="Blue" IsEnabled="True">
+        </iButton>
+
+        <iLabel #lblEmptyTempRef Name="lblEmpty" Text="" Width="auto" Margin="5,0,0,0"></iLabel>
+
+        <!-- <iTextBox #txtBarcodeRecAdminTempRef Name="txtBarcodeRecAdmin" (GotFocus_Func)="txtBarcode_GotFocus($event)"
+            (LostFocus_Func)="txtBarcode_LostFocus($event)" MinWidth="0" Width="150" IsTabStop="True" TabIndex="0"
+            (keyup)="txtBarcode_KeyDown($event)">
+        </iTextBox> -->
+        <input #txtBarcodeRecAdminTempRef Name="txtBarcodeRecAdmin" class="defaultBarCodeStyle" [ngClass]="{'barcodeFocus': barcodeStyleFocus}" autocomplete="off"  type="text" Width="110" MinWidth="0" IsTabStop="True"
+        (focus)="txtBarcode_GotFocus($event)" (blur)="txtBarcode_LostFocus($event)" (keydown.enter)="txtBarcode_KeyDown($event)"/>
+        <br />
+        <iButton #cmdLinksTempRef Name="cmdLinks" Width="Auto" HorizontalAlignment="Left"
+            [Text]="GetResourceString('MedAdmin', 'cmdLinks_Text')"
+            [Tooltip]="GetResourceString('MedAdmin', 'cmdLinks_ToolTip')" Height="23" Margin="5,-11,0,0"
+            DisabledImageSource="./assets/Images/iarrowdis5x10.png" ActiveImageSource="./assets/images/iarrowshot5x10.png"
+            ImageSource="./assets/Images/iarrownor5x10.png" ImageHeight="12" ImageWidth="5"
+            (Click_Func)="cmdLinks_Click($event)" IsEnabled="True">
+        </iButton>
+       
+    </ScrollViewer>
+</div>

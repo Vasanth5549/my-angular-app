@@ -1,0 +1,14 @@
+.stop-text-style{
+white-space: pre-line;
+color :brown !important;
+}
+
+.margin-top{
+    margin-top: -7px;
+}
+.dose-position{
+    display: inline-flex;
+    top: 6px;
+    position: relative;
+    margin-bottom: 11px;
+}

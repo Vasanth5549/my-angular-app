@@ -1,0 +1,29 @@
+<ng-template #tooltip>
+  <span *ngIf="Tooltip != '' && hasTooltipString">
+    {{Tooltip}}
+  </span>
+  <ng-container *ngIf="Tooltip.constructor?.name == 'iLabel'">
+    <kendo-label [ngStyle]="Tooltip?.style">{{Tooltip.Text}}</kendo-label>
+  </ng-container>
+  <ng-container *ngIf="Tooltip.constructor?.name == 'Grid' ">
+    <Grid [style]="Tooltip.style" [Tooltip]="Tooltip.Tooltip" [ChildrenArr]="Tooltip.ChildrenArr"
+      [RowDefinitionsArr]="Tooltip.RowDefinitionsArr" [ColumnDefinitionsArr]="Tooltip.ColumnDefinitionsArr">
+    </Grid>
+  </ng-container>
+  <ng-container *ngIf="Tooltip.constructor?.name == 'StackPanel'">
+    <StackPanel [ChildrenElementArray]="Tooltip?.children">
+    </StackPanel>
+  </ng-container>
+</ng-template>
+
+<img kendoTooltip [position]="TooltipPosition" [tooltipTemplate]="tooltip"
+  [tooltipClass]="CustomWrapToolTip ? 'wrap-tooltip-text' : AltImageTooltip ? AltImageTooltip : 'newImageLineClass'" title=""
+  [showOn]="Tooltip == '' || Tooltip == null ? 'none': 'hover'" [src]="Source?.toString() | lowercase"
+  [alt]="Name?Name:''" [ngStyle]="style" (keydown)="KeyDownEvent($event)" (keyup)="KeyUpEvent($event)"
+  (mousedown)="MouseLeftButtonDownEvent($event)" (mouseup)="MouseLeftButtonUpEvent($event)" (mouseenter)="mouseEnter($event)" (mouseleave)="mouseLeave($event)"
+  [hidden]="IsHitTestVisible == undefined || IsHitTestVisible == null ? true : false" *ngIf="!ImgWithoutTooltip">
+<img [src]="Source?.toString() | lowercase"
+  [alt]="Name?Name:''" [ngStyle]="style" (keydown)="KeyDownEvent($event)" (keyup)="KeyUpEvent($event)"
+  (mousedown)="MouseLeftButtonDownEvent($event)" (mouseup)="MouseLeftButtonUpEvent($event)" (mouseenter)="mouseEnter($event)" (mouseleave)="mouseLeave($event)"
+  [hidden]="IsHitTestVisible == undefined || IsHitTestVisible == null ? true : false" *ngIf="ImgWithoutTooltip">
+<span *ngIf="TextData">{{TextData}}</span>

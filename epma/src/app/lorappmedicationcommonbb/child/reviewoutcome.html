@@ -1,0 +1,244 @@
+<kendo-gridlayout #LayoutRootTempRef [style.height.px]="maxScrollHeight" [Background]="Styles.LzoPageBG" class="reviewoutcmLayout"
+    VerticalAlignment="Top" HorizontalAlignment="Stretch" [rows]="[{height:'230'}, {height:'1fr'}]"
+    [cols]="[{width:193}, {width:'auto'}]" style="overflow-y: auto;">
+    <kendo-gridlayout-item [row]='1' [col]='1' [colSpan]='2'>
+        <div containerStyle>
+            <Border #brdCDCFormTempRef Name="brdCDCForm" BorderBrush="Gray" BorderThickness="1" CornerRadius="2"
+                Height="Auto" Padding="5,5,5,5"   HorizontalAlignment="Stretch" Margin="0,0,0,5"
+                VerticalAlignment="Stretch" [isContent]="true">
+                <kendo-gridlayout [height]="205" [rows]="[{height:'230'}, {height:'1fr'},]"
+                    [cols]="[{width:188}, {width:'auto'}]">
+                    <Border [row]='1' [col]='2' [rowSpan]='6' [Background]="Styles.InnerBG" Margin="0,0,10,0"></Border>
+                    <Border [row]='2' [col]='1' [colSpan]='3' style="width: 470px !important; " [iStyle]="Styles.whiteBorder" ></Border>
+                    <Border [row]='3' [col]='1' [colSpan]='3' style="width: 470px !important; " [iStyle]="Styles.whiteBorder"  ></Border>
+                    <Border [row]='4' [col]='1' [colSpan]='3' style="width: 470px !important; " [iStyle]="Styles.whiteBorder"  ></Border>
+                    <Border [row]='5' [col]='1' [colSpan]='3' style="width: 470px !important; " [iStyle]="Styles.whiteBorder"  ></Border>
+                    <kendo-gridlayout-item [row]='1' [col]='1'>
+                        <div containerStyle>
+                            <iLabel #lblReviewTypeTempRef IsWordwrap="True" HorizontalAlignment="Stretch"
+                                Margin="5,0,0,0" Mandatory="False" Name="lblReviewType" VerticalAlignment="Center"
+                                [Text]="ResKey.lblReviewType_Text"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='2' [col]='1'>
+                        <div containerStyle>
+                            <iLabel #lblReviewRequestCommentsTempRef IsWordwrap="True" HorizontalAlignment="Stretch"
+                                Margin="5,0,0,0" Mandatory="False" Name="lblReviewRequestComments"
+                                VerticalAlignment="Center" [Text]="ResKey.lblReviewRequestComments_Text">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='3' [col]='1'>
+                        <div containerStyle>
+                            <iLabel #lblReviewRequestedByTempRef IsWordwrap="True" HorizontalAlignment="Stretch"
+                                Margin="5,0,0,0" Mandatory="False" Name="lblReviewRequestedBy"
+                                VerticalAlignment="Center" [Text]="ResKey.lblReviewRequestedBy_Text"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='4' [col]='1'>
+                        <div containerStyle>
+                            <iLabel #lblReviewRequestedOnTempRef IsWordwrap="True" HorizontalAlignment="Stretch"
+                                Margin="5,0,0,0" Mandatory="False" Name="lblReviewRequestedOn"
+                                VerticalAlignment="Center" [Text]="ResKey.lblReviewRequestedOn_Text"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='5' [col]='1'>
+                        <div containerStyle>
+                            <iLabel #lblReviewdatetimeTempRef IsWordwrap="True" HorizontalAlignment="Stretch"
+                                Margin="5,0,0,0" Mandatory="False" Name="lblReviewdatetime" VerticalAlignment="Center"
+                                [Text]="ResKey.lblReviewdatetime_Text"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='1' [col]='2'>
+                        <div containerStyle>
+                            <iLabel #lblReviewTypeTextTempRef IsWordwrap="True" HorizontalAlignment="Stretch"
+                                Margin="10" Mandatory="False" Name="lblReviewTypeText" VerticalAlignment="Center"
+                                [(Text)]="DataContext.ReviewTypeText"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='2' [col]='2' style="padding: 10px 5px 10px 10px;">
+                        <div containerStyle >
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" MinHeight="80" MaxHeight="81" BorderThickness="0"
+                                HorizontalAlignment="Left" Width="270" Height="40" IsWordwrap="True">
+                                <iLabel #lblReviewRequestCommentsTextTempRef HorizontalAlignment="Stretch" class="lblReviewRequestCommentsText"
+                                    Name="lblReviewRequestCommentsText" IsWordwrap="True" VerticalAlignment="Center"
+                                    [(Text)]="DataContext.ReviewRequestComments"></iLabel>
+                            </ScrollViewer>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='3' [col]='2'>
+                        <div containerStyle>
+                            <iLabel #lblReviewRequestedByTextTempRef IsWordwrap="True" HorizontalAlignment="Stretch"
+                                Margin="10" Mandatory="False" Name="lblReviewRequestedByText" VerticalAlignment="Center"
+                                [(Text)]="DataContext.ReviewRequestedBy"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='4' [col]='2'>
+                        <div containerStyle>
+                            <iLabel #lblReviewRequestedOnTextTempRef IsWordwrap="True" HorizontalAlignment="Stretch"
+                                Margin="10" Mandatory="False" Name="lblReviewRequestedOnText" VerticalAlignment="Center"
+                                [(Text)]="DataContext.ReviewRequestedDTTMlabel"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='5' [col]='2'>
+                        <div containerStyle>
+                            <iLabel #lblReviewdatetimetextTempRef IsWordwrap="True" HorizontalAlignment="Stretch"
+                                Margin="10" Mandatory="False" Name="lblReviewdatetimetext" VerticalAlignment="Center"
+                                [(Text)]="DataContext.ReviewDTTMlabel"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                </kendo-gridlayout>
+            </Border>
+        </div>
+    </kendo-gridlayout-item>
+    <Border [row]='2' [col]='2' [Background]="Styles.InnerBG" Margin="0,0,5,0"></Border>
+    <Border [row]='3' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder" Margin="15,-2,5,0"></Border>
+    <Border [row]='3' [col]='2' [Background]="Styles.InnerBG" Margin="0,2,5,0"></Border>
+    <Border [row]='4' [col]='1' [colSpan]='2' [(Visibility)]="DataContext.ReinstateReasonFieldVisibility"
+        [iStyle]="Styles.whiteBorder" Margin="15,-2,5,0"></Border>
+    <Border [row]='4' [col]='2' [(Visibility)]="DataContext.ReinstateReasonFieldVisibility"
+        [Background]="Styles.InnerBG" Margin="0,0,5,0"></Border>
+    <Border [row]='5' [col]='1' [colSpan]='2' [(Visibility)]="DataContext.DiscontinueReasonFieldVisibility"
+        [iStyle]="Styles.whiteBorder" Margin="15,-2,5,0"></Border>
+    <Border [row]='5' [col]='2' [(Visibility)]="DataContext.DiscontinueReasonFieldVisibility"
+        [Background]="Styles.InnerBG" Margin="0,0,5,0"></Border>
+    <Border [row]='6' [col]='1' [colSpan]='2' [(Visibility)]="DataContext.ReviewAfterFieldVisibility"
+        [iStyle]="Styles.whiteBorder" Margin="15,-2,5,0"></Border>
+    <Border [row]='6' [col]='2' [(Visibility)]="DataContext.ReviewAfterFieldVisibility" [Background]="Styles.InnerBG"
+        Margin="0,0,5,0"></Border>
+    <Border [row]='7' [col]='1' [colSpan]='2' [(Visibility)]="DataContext.NewReviewRequestCommentsFieldVisibility"
+        [iStyle]="Styles.whiteBorder" Margin="15,-2,5,0"></Border>
+    <Border [row]='7' [col]='2' [(Visibility)]="DataContext.NewReviewRequestCommentsFieldVisibility"
+        [Background]="Styles.InnerBG" Margin="0,0,5,0"></Border>
+
+    <kendo-gridlayout-item [row]='2' [col]='1'>
+        <div containerStyle>
+            <iLabel #lblOutcomeCommentsTempRef IsWordwrap="True" Width="Auto" HorizontalAlignment="Stretch"
+                Margin="15,5,0,0" Height="80" Mandatory="False" Name="lblOutcomeComments" VerticalAlignment="Center"
+                [Text]="ResKey.lblOutcomeComments_Text"></iLabel>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='2' [col]='2'>
+        <div containerStyle>
+            <iTextBox #txtOutComeCommentsTempRef Name="txtOutComeComments" MaxLength="255" Width="Auto"
+                HorizontalAlignment="Stretch" Margin="5,5,10,5" [(Text)]="DataContext.ReviewOutcomeComments"
+                [Tooltip]="ResKey.lblOutcomeComments_ToolTip" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"
+                VerticalAlignment="Stretch" Height="80" AcceptsReturn="True" class="textareahe"></iTextBox>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='3' [col]='1'>
+        <div containerStyle>
+            <iLabel #lblReviewOutcomeTempRef IsWordwrap="True" Mandatory="True" Width="Auto"
+                HorizontalAlignment="Stretch" Margin="10,5,0,0" Height="20" Name="lblReviewOutcome"
+                VerticalAlignment="Center" [Text]="ResKey.lblReviewOutcome_Text"></iLabel>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='3' [col]='2'>
+        <div containerStyle>
+            <iComboBox #cboReviewOutcomeTempRef Name="cboReviewOutcome" Width="Auto" Height="25" IsTextSearchEnabled="false"
+                HorizontalAlignment="Stretch" Margin="5,5,10,6" [(ItemsSource)]="DataContext.ReviewOutcomeList"
+                [(SelectedValue)]="DataContext.ReviewOutcome" [Tooltip]="ResKey.lblReviewOutcome_Tooltip"
+                IsEditable="false" IsTypeAHead="false" [(IsEnabled)]="DataContext.ReviewOutcomeListEnabled"></iComboBox>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='4' [col]='1'>
+        <div containerStyle>
+            <iLabel #lblReinstateTempRef IsWordwrap="True" HorizontalAlignment="Stretch" Margin="10,5,0,0"
+                [(Visibility)]="DataContext.ReinstateReasonFieldVisibility"
+                [(Mandatory)]="DataContext.ReinstateReasonMandatory" Name="lblReinstate" VerticalAlignment="Center"
+                Height="20" [Text]="ResKey.lblReinstate_Text"></iLabel>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='4' [col]='2'>
+        <div containerStyle>
+            <iTextBox #txtReasonforReinstateTempRef Name="txtReasonforReinstate" HorizontalAlignment="Stretch"
+                Margin="5,5,10,5" [(Visibility)]="DataContext.ReinstateReasonFieldVisibility" TextWrapping="Wrap"
+                VerticalAlignment="Stretch" [Tooltip]="ResKey.lblReinstate_ToolTip" MaxLength="255" AcceptsReturn="True"
+                [(Text)]="DataContext.ReinstateReason" Height="40" SLAccessKeyProperties.AccessKey="R"
+                VerticalScrollBarVisibility="Auto"></iTextBox>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='5' [col]='1'>
+        <div containerStyle>
+            <iLabel #lblReasonforDiscontinueTempRef IsWordwrap="True" HorizontalAlignment="Stretch" Margin="10,5,0,0"
+                [(Visibility)]="DataContext.DiscontinueReasonFieldVisibility"
+                [(Mandatory)]="DataContext.DiscontinueReasonMandatory" Name="lblReasonforDiscontinue"
+                VerticalAlignment="Center" [Text]="ResKey.lblReasonforDiscontinue_Text" Height="20">
+            </iLabel>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='5' [col]='2'>
+        <div containerStyle>
+            <iComboBox #cboReasonforDiscontinueTempRef Name="cboReasonforDiscontinue" Height="25" Width="Auto"
+                HorizontalAlignment="Stretch" Margin="5,5,10,5" IsTextSearchEnabled="false"
+                [(Visibility)]="DataContext.DiscontinueReasonFieldVisibility" IsEditable="false"
+                [(ItemsSource)]="DataContext.DiscontinueReasonList" [(SelectedValue)]="DataContext.DiscontinueReason"
+                [Tooltip]="ResKey.lblReasonforDiscontinue_ToolTip" TabIndex="3">
+            </iComboBox>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='6' [col]='1'>
+        <div containerStyle>
+            <iLabel #lblReviewAfterTempRef IsWordwrap="True" HorizontalAlignment="Stretch" Margin="10,12,0,0"
+                [(Visibility)]="DataContext.ReviewAfterFieldVisibility" [(Mandatory)]="DataContext.ReviewAfterMandatory"
+                Name="lblReviewAfter" VerticalAlignment="Center" [Text]="ResKey.lblReviewAfter_Text" Height="30">
+            </iLabel>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='6' [col]='2'>
+        <div containerStyle>
+            <kendo-gridlayout HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Width="Auto"
+                [(Visibility)]="DataContext.ReviewAfterFieldVisibility" [rows]="[{height:30}]"
+                [cols]="[{width:70}, {width:90}, {width:'auto'}]">
+                <kendo-gridlayout-item [row]="1" [col]='1'>
+                    <div containerStyle>
+                        <iUpDownBox #udReviewAfterTempRef Height="25" Name="udReviewAfter" IsDecimal="False" Width="65"
+                            Margin="5,0,5,0" SLAccessKeyProperties.AccessKey="P" IsTabStop="True"
+                            [(Visibility)]="DataContext.ReviewAfterFieldVisibility" [(Value)]="DataContext.ReviewPeriod"
+                            Maximum="99" Minimum="1" Increment="1" [Tooltip]="ResKey.lblReviewAfter_ToolTip">
+                        </iUpDownBox>
+                    </div>
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [row]="1" [col]='2'>
+                    <div containerStyle>
+                        <iComboBox #cboReviewAfterTempRef IsEditable="True"
+                            [(Visibility)]="DataContext.ReviewAfterFieldVisibility"
+                            [ItemsSource]="DataContext.ReviewAfterUOMListCombo" IsTypeAHead="True"
+                            HorizontalAlignment="Stretch" Name="cboReviewAfter"
+                            [(SelectedValue)]="DataContext.lstReviewAfterUOMCombo" SLAccessKeyProperties.AccessKey="U"
+                            VerticalAlignment="Center" Height="25" Width="90"
+                            [Tooltip]="ResKey.lblReviewAfterUOM_ToolTip" IsTabStop="True"></iComboBox>
+                    </div>
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [row]="1" [col]='3'>
+                    <div containerStyle>
+                        <iLabel #lblReviewDueDateTempRef IsWordwrap="True" HorizontalAlignment="Stretch" Margin="5"
+                            Mandatory="False" Name="lblReviewDueDate" VerticalAlignment="Center"
+                            [(Visibility)]="DataContext.ReviewAfterFieldVisibility"
+                            [(Text)]="DataContext.ReviewPeriodDTTM"></iLabel>
+                    </div>
+                </kendo-gridlayout-item>
+            </kendo-gridlayout>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='7' [col]='1'>
+        <div containerStyle>
+            <iLabel #lblReviewRequestCommentsenterTempRef IsWordwrap="True" HorizontalAlignment="Stretch" Height="80"
+                Margin="10,5,0,0" Mandatory="False" Name="lblReviewRequestCommentsenter" VerticalAlignment="Center"
+                [Text]="ResKey.lblReviewRequestComments_Text"
+                [(Visibility)]="DataContext.NewReviewRequestCommentsFieldVisibility"></iLabel>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='7' [col]='2'>
+        <div containerStyle>
+            <iTextBox #txtReviewRequestCommentsTempRef Name="txtReviewRequestComments" MaxLength="255" Width="Auto"
+                Height="80" HorizontalAlignment="Stretch" Margin="5,5,10,5"
+                [(Visibility)]="DataContext.NewReviewRequestCommentsFieldVisibility"
+                [(Text)]="DataContext.NewReviewRequestComments" VerticalScrollBarVisibility="Auto"
+                [Tooltip]="ResKey.lblReviewRequestComments_ToolTip" SLAccessKeyProperties.AccessKey="I"
+                AcceptsReturn="True" class="textareahe"></iTextBox>
+        </div>
+    </kendo-gridlayout-item>
+
+</kendo-gridlayout>

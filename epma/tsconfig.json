@@ -1,0 +1,61 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "strictNullChecks":false,
+    "noImplicitOverride": true,
+    "noImplicitAny": false,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "allowUnreachableCode": false,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "es2020",
+    "lib": [
+      "es2020",
+      "dom",
+      "ES2021.String",
+    ],
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strictPropertyInitialization": false,
+    //"strictNullChecks":false,
+    "paths": {
+      "epma-platform/services": ["src/app/shared/epma-platform/index"],
+      "epma-platform/models": ["src/app/shared/epma-platform/index.model"],
+      "epma-platform/DateTime": ["src/app/shared/epma-platform/services/datetime.service"],
+      "epma-platform/TimeSpan": ["src/app/shared/epma-platform/services/timespan.service"],
+      "epma-platform/dictionary" : ["src/app/shared/epma-platform/models/eppma-IDictionary.types"],
+      "epma-platform/controls": ["src/app/shared/epma-platform/index.controls"],
+      "epma-platform/chart": ["src/app/shared/epma-platform/index.charts"],
+      "epma-platform/helper": ["src/app/shared/epma-platform/index.helper"],
+      "epma-platform/stringextension": ["src/app/shared/epma-platform/models/string.extensions"],   
+      "epma-platform/numberextension": ["src/app/shared/epma-platform/models/number.extensions"],         
+      "epma-platform/arrayextension": ["src/app/shared/epma-platform/models/array.extensions"],    
+      "epma-platform/objectextension": ["src/app/shared/epma-platform/models/object.extensions"],    
+      "epma-platform/soapclient": ["src/app/shared/epma-platform/index.soapclient"],
+      "epma-platform/mathextension": ["src/app/shared/epma-platform/models/math.extensions"],
+      "epma-platform/booleanextension": ["src/app/shared/epma-platform/models/boolean.extensions"],    
+      //"epma-platform/test-platform-components" : ["src/app/epma-platform-test-components/index.test"],
+      "epma-platform/convertor-pipes" : ["src/app/product/shared/index.convertorpipes"]                                           
+    },
+    "useDefineForClassFields": false
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

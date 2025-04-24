@@ -1,0 +1,9 @@
+/* ::ng-deep.\!k-overflow-y-auto{
+    overflow-y: scroll !important;
+} */
+.modcomm ::ng-deep kendo-textarea{
+    height:42px !important;
+}
+.verifycomm{
+    padding-right: 10px !important;
+}

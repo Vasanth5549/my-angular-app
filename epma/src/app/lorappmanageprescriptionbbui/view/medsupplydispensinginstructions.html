@@ -1,0 +1,329 @@
+<div name="LayoutRoot" [style.height.px]="maxscrollheight" style="overflow-y: auto; overflow-x: hidden;">
+  <kendo-gridlayout GridLayout #LayoutRootTempRef id="medsupplydispensinginstructions"
+  [rows]="[{height: 'auto'}, {height: 'auto'}, {height: 'auto'}, {height: 'auto'}, {height: 'auto'}]"   [ngClass]="isLargeScreen ? 'medsupplyinst':''"
+  [cols]="[{width: 'auto'}]">
+  <kendo-gridlayout-item [col]="1" [row]="2">
+    <div containerStyle>
+      <kendo-gridlayout GridLayout Margin="5,5,0,5" [Visibility]="DataContext.DrugVisibility"
+      [rows]="[{height: 'auto'}]" [cols]="[{width: 'max-content'}, {width: 'auto'}]">
+      <kendo-gridlayout-item [row]='1' [col]='1'>
+        <div containerStyle>
+          <StackPanel HorizontalAlignment="Right" [Visibility]="DataContext.DrugVisibility">
+            <iLabel #lblDrugNameTempRef HorizontalAlignment="Stretch" Name="lblDrugName" FontWeight="Bold"
+              MaxWidth="724" IsWordwrap="True" [(Text)]="DataContext.sDrugName">
+            </iLabel>
+          </StackPanel>
+        </div>
+      </kendo-gridlayout-item>
+      <kendo-gridlayout-item [row]='1' [col]='2'>
+        <div containerStyle class="imgalign">
+          <StackPanel #DrugIconsTempRef Orientation="Horizontal" Name="DrugIcons" HorizontalAlignment="Left"
+            [Visibility]="DataContext.DrugVisibility"></StackPanel>
+        </div>
+      </kendo-gridlayout-item>
+    </kendo-gridlayout>
+    </div>
+  </kendo-gridlayout-item>
+  <kendo-gridlayout-item [col]="1" [row]="3">
+    <div containerStyle>
+      <kendo-gridlayout GridLayout Margin="5,5,0,5" [Visibility]="DataContext.MedlineVisibility"
+      [rows]="[{height: 'auto'}]" [cols]="[{width: '830'}]" style="overflow-y: auto; max-height: 68px;">
+      <kendo-gridlayout-item [row]='1' [col]='1'>
+        <div containerStyle>
+          <StackPanel Margin="5,5,0,5" [Visibility]="DataContext.MedlineVisibility">
+            <ContentPresenter #MedLineDisplayTempRef Name="MedLineDisplay"
+              [Content]="DataContext.oPresMedline | MedLineDisplay : 0 : '220'"></ContentPresenter>
+          </StackPanel>
+        </div>
+      </kendo-gridlayout-item>
+    </kendo-gridlayout>
+    </div>
+  </kendo-gridlayout-item>
+
+  <kendo-gridlayout-item [row]='4' [col]='1'>
+    <div containerStyle>
+      <StackPanel GridLayout Margin="5,5,0,5" [Visibility]="DataContext.ProductVisibility">
+        <iLabel #lblpropductTempRef Name="lblpropduct" [Text]="DataContext.ProductName" HorizontalAlignment="Left"
+          Margin="5,5,5,5" MaxWidth="724" IsWordwrap="True"></iLabel>
+      </StackPanel>
+    </div>
+  </kendo-gridlayout-item>
+
+  <kendo-gridlayout-item [col]="1" [row]="5">
+    <kendo-gridlayout GridLayout Margin="5,5,0,5"
+      [rows]="[{height: 'auto'}, {height: 'auto'}, {height: 30}, {height: 'auto'}, {height: 55}, {height: 'auto'}, {height: 'auto'}, {height: '1fr'}]"
+      [cols]="[{width: '150'}, {width: '1fr'}]">
+      <kendo-gridlayout-item [row]='3' [col]='1'>
+        <div containerStyle>
+          <StackPanel Width="145" Margin="5,5,0,5" HorizontalAlignment="Left"
+            [Visibility]="DataContext.DisableProductVisibility">
+            <iLabel #lblSupplyStatusTempRef Name="lblSupplyStatus" Text=" Supply Status" Margin="5,5,5,5"
+              HorizontalAlignment="Left"></iLabel>
+          </StackPanel>
+        </div>
+      </kendo-gridlayout-item>
+
+      <kendo-gridlayout-item [row]='3' [col]='2'>
+        <div containerStyle class="tblleft">
+          <StackPanel>
+            <StackPanel [Background]="Styles.InnerBG['background']" Margin="5,5,5,5" Width="360" HorizontalAlignment="Left"
+              [Visibility]="DataContext.DisableProductVisibility">
+              <iComboBox #icmbSupplyReqTempRef HorizontalAlignment="Stretch" Name="icmbSupplyReq" TabIndex="1"
+                IsTypeAHead="False" VerticalAlignment="Center" [(ItemsSource)]="DataContext.iSupplyrequest"
+                [(SelectedValue)]="DataContext.SelectedSupplyrequest" IsEditable="false" Width="auto"></iComboBox>
+            </StackPanel>
+          </StackPanel>
+        </div>
+      </kendo-gridlayout-item>
+
+      <kendo-gridlayout-item [row]='4' [col]='1'>
+        <div containerStyle>
+          <StackPanel Width="145" Margin="5,5,0,5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <iLabel #lblSupplyInstructionsTempRef Name="lblSupplyInstructions" Text=" Supply instructions"
+              Margin="5,5,5,5" AccessKey="u" HorizontalAlignment="Left" [style.height.px]="115"></iLabel>
+          </StackPanel>
+        </div>
+      </kendo-gridlayout-item>
+
+      <kendo-gridlayout-item [row]='4' [col]='2'>
+        <div containerStyle class="tblleft">
+          <StackPanel>
+            <StackPanel [Background]="Styles.InnerBG['background']" Margin="5,5,5,5" Width="360" HorizontalAlignment="Left">
+              <iCheckedListBox #chkSupplyInstructionsTempRef SelectionMode="Multiple" HorizontalAlignment="Left"
+                Margin="5,5,5,5" Name="chkSupplyInstructions" VerticalAlignment="Center"
+                [ItemsSource]="DataContext.SupplyInstructionsList" Width="350" Height="122" TabIndex="2" AccessKey="u">
+              </iCheckedListBox>
+            </StackPanel>          </StackPanel>
+        </div>
+      </kendo-gridlayout-item>
+
+      <kendo-gridlayout-item [row]='5' [col]='1'>
+        <div containerStyle>
+          <StackPanel Width="145" HorizontalAlignment="Left" Margin="5,5,5,5"
+            [Visibility]="DataContext.SupplyCommentsVisibility" [style.marginBottom.px]="23">
+            <iLabel #lblSupplyCommentsTempRef Name="lblSupplyComments"
+              Text="Supply comments" HorizontalAlignment="Left" Margin="5,5,5,5"
+              Width="Auto" ></iLabel>
+          </StackPanel>
+        </div>
+      </kendo-gridlayout-item>
+
+      <kendo-gridlayout-item [row]='5' [col]='2'>
+        <div containerStyle class="tblleft">
+          <StackPanel [Visibility]="DataContext.SupplyCommentsVisibility">
+            <StackPanel [Background]="Styles.InnerBG['background']" Margin="5,5,5,5" Width="360" HorizontalAlignment="Left">
+              <iTextBox #txtSupplyCommentsTempRef Name="txtSupplyComments" HorizontalAlignment="Stretch"
+                Margin="5,5,5,5" Width="auto" VerticalScrollBarVisibility="Visible" VerticalAlignment="Stretch"
+                [(Text)]="DataContext.Supplycomments" Height="40" AcceptsReturn="True" TextWrapping="Wrap" TabIndex="3"
+                MaxLength="255" [Tooltip]="mulsel.txtSupplyComments_Tooltip" Width="350"
+                RenderTransformOrigin="0.357,0.4"></iTextBox>
+            </StackPanel>
+          </StackPanel>
+        </div>
+      </kendo-gridlayout-item>
+
+      <kendo-gridlayout-item [row]='6' [col]='1'>
+        <div containerStyle>
+          <StackPanel Width="145" HorizontalAlignment="Left" Margin="5,5,0,5"
+            [Visibility]="DataContext.DisableNextSupplyDTTM">
+            <iLabel #lblNextSupplyDTTMTempRef Name="lblNextSupplyDTTM"
+            Text="Next supply" HorizontalAlignment="Left" Margin="5,5,5,5"
+              Width="auto"></iLabel>
+          </StackPanel>
+        </div>
+      </kendo-gridlayout-item>
+
+      <kendo-gridlayout-item [row]='6' [col]='2'>
+        <div containerStyle class="tblleft">
+          <StackPanel>
+            <StackPanel [Background]="Styles.InnerBG['background']" Margin="5,5,5,5" Width="360" HorizontalAlignment="Left"
+              [Visibility]="DataContext.DisableNextSupplyDTTM">
+              <iDateTimePicker #dtpNextSupDateTempRef HorizontalAlignment="Stretch" DatePickerMode="DATEPICKER"
+                Width="auto" [Tooltip]="mulsel.lblNextSupplyDTTM_Tootip" Name="dtpNextSupDate"
+                DateTimeFormat="Custom" CustomFormat="dd-MMM-yyyy" EnableCultureSupport="False"
+                [(SelectedDateTime)]="DataContext.NextSupDTTM" IsTabStop="True" TabIndex="4" IsEnabled="True"
+                [OnBlurChange]="dtpDate_OnDateChange_Func"></iDateTimePicker>
+            </StackPanel>
+          </StackPanel>
+        </div>
+      </kendo-gridlayout-item>
+
+      <kendo-gridlayout-item [row]='7' [col]='1' [colSpan]="2">
+        <div containerStyle>
+          <StackPanel Width="730" HorizontalAlignment="Left" Margin="5,5,0,5">
+            <iLabel #lblNoteTempRef Name="lblNote"
+              Text="Note : Supply instructions will not be applied to any medications that are in awaiting authorisation status."
+              FontWeight="Bold" HorizontalAlignment="Left" Margin="5,5,5,5" Visibility="Collapsed"></iLabel>
+          </StackPanel>
+        </div>
+      </kendo-gridlayout-item>
+
+      <kendo-gridlayout-item [row]='8' [col]='1' [colSpan]="2">
+        <div containerStyle>
+          <StackPanel [Visibility]="DataContext.DisableStockhistorygrid">
+            <fieldset class="SupplyHistoryBorder" style="width: 750px;">
+            <!-- <Border GridLayout #brdWardStockTempRef Name="brdWardStock" [iStyle]="Styles.BorderFrame" BorderThickness="1"
+              Margin="4,4,4,4" CornerRadius="2"> -->
+              <legend class="SupplyHistoryLegend">Supply history</legend>
+              <kendo-gridlayout [Height]="maxGridHeight" Width="750" [rows]="[{height: 'auto'}, {height: 'auto'}]"
+                [cols]="[{width: '750'}]">
+              <kendo-gridlayout-item [row]='1' [col]="1">
+                <div containerStyle>
+                  <!-- <StackPanel Background="#E0EFF1FF" HorizontalAlignment="Left" Orientation="Vertical"
+                    Margin="10,-10,0,0">
+                    <TextBlock #lblWardStockDetailsTempRef Name="lblWardStockDetails" Text="Supply history"
+                      Padding="3,0,3,0" Foreground="Black" FontWeight="Bold"></TextBlock>
+                  </StackPanel> -->
+                </div>
+              </kendo-gridlayout-item>
+
+              <kendo-gridlayout-item [row]='2' [col]="1">
+                <div containerStyle>
+                  <StackPanel Background="#E0EFF1FF" HorizontalAlignment="Left" Orientation="Vertical" Margin="4,4,4,4">
+                    <kendo-grid
+                      id="grdSupplyHistorya"
+                      #grdSupplyHistoryaTempRef 
+                      [GridProperties]="grdSupplyHistoryaTempRef" 
+                      VerticalAlignment="Stretch" 
+                      HorizontalAlignment="Stretch"
+                      [rowClass]="rowCallback"
+                      [data]="grdSupplyHistorya.ItemsSource.array" 
+                      Width="820"
+                      [selectable]="{checkboxOnly: false, mode: 'single'}" 
+                      kendoGridSelectBy 
+                      [(selectedKeys)]="grdSupplyHistorya.selectedRowsIndex" 
+                      [sortable]="false" 
+                      [reorderable]="false"
+                      scrollable="scrollable"
+                      [height]="maxGridHeight-27" 
+                      [resizable]="false"
+                      [ngClass]="{'HideHorizontalScrollBar': HideHorizontalScrollBar}"
+                    >
+
+                      <ng-template kendoGridNoRecordsTemplate>There are no records to show</ng-template>
+
+                      <kendo-grid-column UniqueName="Medicationitem" [title]="Supplyhistory.Medicationitem_Header"
+                        [width]="165" [filterable]="false" [editable]="false">
+                        <ng-template kendoGridHeaderTemplate let-column>  
+                          <span [title]="Supplyhistory.Medicationitem_Header">{{ column.title }}</span>                
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex">
+                          <DataTemplate #grdSupplyHistoryaDT [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex" (RowLoaded)="rowLoaded($event)" [gridHelper]="grdSupplyHistorya">
+                            <ContentPresenter class="textWrap" [Content]="dataItem | SupplyHistory1 : '' : 'Medicationitem'"></ContentPresenter>
+                          </DataTemplate>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column UniqueName="SupplyStatus" [title]="Supplyhistory.SupplyStatus" [width]="100"
+                        [filterable]="false" [editable]="false" field="SupplystatusCode" headerClass="ColumnWhiteSpaceBreakFull">
+                        <ng-template kendoGridHeaderTemplate let-column>  
+                          <span [title]="Supplyhistory.SupplyStatus">{{ column.title }}</span>                
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex">
+                          <DataTemplate #grdSupplyHistoryaDT [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex" [gridHelper]="grdSupplyHistorya">
+                            <ContentPresenter class="textWrap" [Content]="dataItem | SupplyHistory1 : '' : 'SupplystatusCode'"></ContentPresenter>
+                          </DataTemplate>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column UniqueName="TechnicallyvalidatedBy"
+                        [title]="Supplyhistory.Technicallyvalidatedby_Header" [width]="110" [filterable]="false"
+                        [editable]="false" field="SupplieddBy" headerClass="ColumnWhiteSpaceBreak">
+                        <ng-template kendoGridHeaderTemplate let-column>  
+                          <span [title]="Supplyhistory.Technicallyvalidatedby_Header">{{ column.title }}</span>                
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex">
+                         <DataTemplate #grdSupplyHistoryaDT [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex" [gridHelper]="grdSupplyHistorya">
+                             <ContentPresenter class="textWrap break" [Content]="dataItem | SupplyHistory1 : '' :'SupplieddBy'"></ContentPresenter>
+                         </DataTemplate>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column UniqueName="Supply instructions/comments"
+                      [GridColumnProperties]="grdSupplyHistorya" TextWrapping="Wrap"
+                        [title]="Supplyhistory.Supplyinscomments_Header" [width]="230" [filterable]="false"
+                        [editable]="false" field="Supplyinstruction">
+                        <ng-template kendoGridHeaderTemplate let-column>  
+                          <span [title]="Supplyhistory.Supplyinscomments_Header">{{ column.title }}</span>                
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex">
+                          <DataTemplate #grdSupplyHistoryaDT [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex" [gridHelper]="grdSupplyHistorya">
+                            <ContentPresenter class="textWrap" [Content]="dataItem | SupplyHistory1 : '' : 'Supplyinstruction'" [ToolTip]="dataItem | SupplyHistory1 : '' : 'SupplyinstructionToolTip'"></ContentPresenter>
+                          </DataTemplate>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column UniqueName="Dispensingrequestdetailsdatetime" [resizable]="false"
+                        [GridColumnProperties]="grdSupplyHistorya" TextWrapping="Wrap"
+                        [title]="Supplyhistory.Dispensingdet_Header" [width]="220" [filterable]="false"
+                        [editable]="false" [sortable]="false" field="DispensingDetail">
+                        <ng-template kendoGridHeaderTemplate let-column>  
+                          <span [title]="Supplyhistory.Dispensingdet_Header">{{ column.title }}</span>                
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex">
+                          <DataTemplate #grdSupplyHistoryaDT [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex" [gridHelper]="grdSupplyHistorya">
+                            <ContentPresenter class="textWrap" [Content]="dataItem | SupplyHistory1 : '' : 'DispensingDetail'" [ToolTip]="dataItem | SupplyHistory1 : '' : 'DispensingDetailTooltip'"></ContentPresenter>
+                          </DataTemplate>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column UniqueName="NextSupplyDTTM" title="Next supply" [width]="115"
+                        [filterable]="false" [editable]="false" field="NextSupplyDTTM">
+                        <ng-template kendoGridHeaderTemplate let-column>  
+                          <span title="Next supply">{{ column.title }}</span>                
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex">
+                          <DataTemplate #grdSupplyHistoryaDT [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex" [gridHelper]="grdSupplyHistorya">
+                            <ContentPresenter class="textWrap" [Content]="dataItem | SupplyHistory1 : '' : 'NextSupplyDTTM'"></ContentPresenter>
+                          </DataTemplate>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column UniqueName="Location" [title]="Supplyhistory.Location_Header" [width]="80"
+                        [filterable]="false" [editable]="false" field="LocationName">
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex">
+                          <ng-template kendoGridHeaderTemplate let-column>  
+                            <span [title]="Supplyhistory.Location_Header">{{ column.title }}</span>                
+                          </ng-template>
+                          <DataTemplate #grdSupplyHistoryaDT [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex" [gridHelper]="grdSupplyHistorya">
+                            <ContentPresenter class="textWrap" [Content]="dataItem | SupplyHistory1 : '' : 'LocationName'"></ContentPresenter>
+                          </DataTemplate>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column UniqueName="Prescriptiontype" [title]="Supplyhistory.Prescriptiontype_Header"
+                        [width]="125" [filterable]="false" [editable]="false" field="Prescriptiontype" headerClass="ColumnWhiteSpaceBreakFull">
+                        <ng-template kendoGridHeaderTemplate let-column>  
+                          <span [title]="Supplyhistory.Prescriptiontype_Header">{{ column.title }}</span>                
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex">
+                          <DataTemplate #grdSupplyHistoryaDT [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex" [gridHelper]="grdSupplyHistorya">
+                            <ContentPresenter class="textWrap" [Content]="dataItem | SupplyHistory1 : '' : 'Prescriptiontype'"></ContentPresenter>
+                          </DataTemplate>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                    </kendo-grid>
+                  </StackPanel>
+                </div>
+              </kendo-gridlayout-item>
+            </kendo-gridlayout>
+            <!-- </Border> -->
+          </fieldset>
+          </StackPanel>
+        </div>
+      </kendo-gridlayout-item>
+
+    </kendo-gridlayout>
+  </kendo-gridlayout-item>
+</kendo-gridlayout>
+</div>
+

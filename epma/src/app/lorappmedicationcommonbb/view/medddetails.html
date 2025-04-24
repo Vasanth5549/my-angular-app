@@ -1,0 +1,55 @@
+    
+    <!-- <Grid x:Name="LayoutRoot" Background="#E0EFF1FF" Margin="0" ShowGridLines="False">
+      <Grid.RowDefinitions>
+          <RowDefinition x:Name="Row1" Height="auto"></RowDefinition>
+          <RowDefinition x:Name="Row2"></RowDefinition>
+      </Grid.RowDefinitions> -->
+    
+    <div class="grid-layout-container" name="LayoutRoot"  Background="#E0EFF1FF" Margin="0" >
+      <kendo-gridlayout  #LayoutRoot id="medddetailsRx" [rows]="[ { height: 'auto' }, { height: '1fr' } ]" [cols]="[{ width: '1fr' }]"  ShowGridLines="False" class="meddrugdetail">
+
+
+      <!-- <StackPanel Grid.Row="0" Background="#E0EFF1FF" Height="auto" Margin="10,2,10,0" Orientation="Vertical">
+          <ContentPresenter x:Name="MedLineDisplay" />
+          <ContentPresenter x:Name="OmitTextLabel"/>
+          <ContentPresenter x:Name="ScheduleTimes" VerticalAlignment="Bottom" />
+      </StackPanel> -->
+
+            <kendo-gridlayout-item [row]='1' [col]='1' >
+              <div containerStyle class="imgStyle">
+                <StackPanel
+                    Background="#E0EFF1FF"
+                    Height="auto"
+                    Margin="15,10,0,0"
+                    Orientation="Vertical"
+                  >
+                  
+                  <!-- Re-visit - ContentPresenter  -->             
+                  <ContentPresenter #MedLineDisplayTempRef Name="MedLineDisplay"></ContentPresenter>
+                  <ContentPresenter #OmitTextLabelTempRef Name="OmitTextLabel"></ContentPresenter>
+                  <ContentPresenter #ScheduleTimesTempRef Name="ScheduleTimes" VerticalAlignment="Bottom"></ContentPresenter>
+                </StackPanel>
+              </div>
+            </kendo-gridlayout-item>
+
+            <!--  <iSOFT:iTab Name="ftbMedDetailsTabs" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,10,0"> -->
+            <kendo-gridlayout-item [row]='2' [col]='1'  >
+              <div containerStyle>
+                <iTab
+                    #ftbMedDetailsTabsTempRef
+                    Name="ftbMedDetailsTabs"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Margin="0,0,0,0"
+                    [ngClass]="isWizard?'wizard-dialog-width':'view-dialog-width'"
+                    [TabselectbasedonText]="true"
+                    [SelectionChanged]="ftbMedDetailsTabs_SelectionChanged_Func"
+                    [ScrollContentEnabled]="true" [MaxScrollHeight]="formviewerHeight"
+                  ></iTab>
+              </div>
+            </kendo-gridlayout-item>
+
+
+      </kendo-gridlayout>
+    </div>
+    

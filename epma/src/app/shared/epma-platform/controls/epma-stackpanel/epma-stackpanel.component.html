@@ -1,0 +1,60 @@
+
+<div [ngStyle]="style" [ngClass]="{'isExtendedWidth': isExtendedWidth}">
+    <ng-content></ng-content>
+    <ng-container *ngIf="ChildrenElementArray && ChildrenElementArray.length > 0">
+        <ng-container *ngFor="let elem of ChildrenElementArray">
+
+            <ng-container *ngIf="elem?.constructor?.name == 'TextBlock'">
+                <TextBlock [Text]="elem?.Text" [style]="elem?.style" [InlinesElements]="elem?.InlinesElements" [TooltipPosition]="elem?.TooltipPosition"
+                    [Tooltip]="elem?.Tooltip" [classObj]="elem.classObj" [isGlobalEnabled]="elem?.isGlobalEnabled" [BindingObjects]="elem?.BindingObjects" [newLine]="elem.newLine"  ></TextBlock>
+            </ng-container>
+
+            <ng-container *ngIf="elem?.constructor?.name == 'Image'">
+                <Image [Name]="elem.Name" [style]="elem?.style" [Tooltip]="elem?.Tooltip" [Source]="elem?.Source" [TooltipPosition]="elem?.TooltipPosition"
+                    [MouseLeftButtonDown]="elem.MouseLeftButtonDown" [MouseLeftButtonUp]="elem.MouseLeftButtonUp"
+                    [Tag]="elem.Tag" [isGlobalEnabled]="elem?.isGlobalEnabled" [BindingObjects]="elem?.BindingObjects" [DataContext]="elem?.DataContext" [AltImageTooltip]="elem?.AltImageTooltip"></Image>
+            </ng-container>
+
+            <ng-container *ngIf="elem?.constructor?.name == 'HeaderImageListItem'">
+                <Image [Source]="elem?.HeaderImage" [Tooltip]="elem?.HeaderImgToolTip"
+                    [style]="elem?.HeaderImageAlignment" [isGlobalEnabled]="elem?.isGlobalEnabled"></Image>
+            </ng-container>
+
+            <ng-container *ngIf="elem?.constructor?.name == 'iLabel'">
+                <iLabel [Text]="elem?.Text" [style]="elem?.style" [BindingObjects]="elem?.BindingObjects" [iLabelInLineElements]="elem?.iLabelInLineElements"
+                    [Tooltip]="elem?.Tooltip" [isGlobalEnabled]="elem?.isGlobalEnabled"></iLabel>
+            </ng-container>
+
+            <ng-container *ngIf="elem?.constructor?.name == 'RadExpander'">
+                <RadExpander [Header]="elem.Header" [Name]="elem.Name" [IsExpanded]="elem.IsExpanded" [CanExpand]="elem.CanExpand"
+                    [Background]="elem.Background" [Content]="elem.Content" [isGlobalEnabled]="elem?.isGlobalEnabled" [Tooltip]="elem['Tooltip']" 
+                    [Collapsed_Func]="elem?.Collapsed_Func" [Expanded_Func]="elem?.Expanded_Func"  [BindingObjects]="elem?.BindingObjects"> </RadExpander>
+            </ng-container>
+
+            <ng-container *ngIf="elem?.constructor?.name == 'Border'">
+                <Border GridLayout [Child]="elem.Child" [Style]="elem.baseStyle" [ToolTip]="elem['ToolTip']"
+                    [_Height]="elem._Height" [MouseLeftButtonDown]="elem.MouseLeftButtonDown" [Tag]="elem.Tag" [isControlRendered]="elem.isControlRendered"></Border>
+            </ng-container>
+
+            <ng-container *ngIf="elem?.constructor?.name == 'Grid'">
+                <Grid [isGlobalEnabled]="elem?.isGlobalEnabled" [style]="elem?.style" [Tooltip]="elem?.Tooltip" [ChildrenArr]="elem?.ChildrenArr"
+                    [RowDefinitionsArr]="elem?.RowDefinitionsArr" [ColumnDefinitionsArr]="elem?.ColumnDefinitionsArr">
+                </Grid>
+            </ng-container>
+
+            <ng-container *ngIf="elem?.constructor?.name ==  'WrapPanel'">
+                <WrapPanel [baseStyle]="elem?.baseStyle" [ChildrenElementArray]="elem?.ChildrenElementArray">
+                </WrapPanel>
+            </ng-container>
+            <ng-container *ngIf="elem?.constructor?.name == 'iCheckBox'">                
+                <iCheckBox [isGlobalEnabled]="elem?.isGlobalEnabled" [Text]="elem?.Text" [IsChecked]="elem['IsChecked']" [Visibility]="elem?.Visibility" [IsEnabled]="elem?.IsEnabled" [Name]="elem?.Name" [Tooltip]="elem['Tooltip']" [BindingObjects]="elem?.BindingObjects" [style]="elem?.style" [Unchecked]="elem?.Unchecked"></iCheckBox>
+            </ng-container>
+
+            <ng-container *ngIf="elem?.constructor?.name == 'iRadioButton'">
+                <iRadioButton  [isGlobalEnabled]="elem?.isGlobalEnabled" [Text]="elem.Text" [Name]="elem?.Name" [style]="elem?.style" [Tooltip]="elem['Tooltip']" [Visibility]="elem?.Visibility" [IsEnabled]="elem?.IsEnabled" [DataContext]="DataContext" [IsChecked]="elem?.IsChecked" [TabIndex]="elem?.TabIndex" [GroupName]="elem?.GroupName" [BindingObjects]="elem?.BindingObjects">
+                </iRadioButton>
+            </ng-container>
+
+        </ng-container>
+    </ng-container>
+</div>

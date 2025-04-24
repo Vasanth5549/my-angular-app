@@ -1,0 +1,41 @@
+<kendo-gridlayout Name="LayoutRoot" Margin="2" [rows]="[{height: 'auto'}, {height: 'auto'}]">
+    <kendo-gridlayout-item>
+        <kendo-grid #grdLinksTempRef Name="grdLinks" [selectable]="{checkboxOnly: true, mode: 'single'}"
+            kendoGridSelectBy [(selectedKeys)]="grdLinks.selectedRowsIndex" [GridColumnProperties]="grdLinks"
+            VerticalContentAlignment="Stretch" tabindex="1" [filterable]="false" [sortable]="false" [resizable]="false"
+            Margin="10" [reorderable]="false" [data]="grdLinks.ItemsSource.array" [navigable]="false"
+            style="height: 345px;" (cellClick)="grdLinks.cellClick($event)">
+
+            <ng-template kendoGridNoRecordsTemplate>{{ resKey.NoItems_Text }}
+            </ng-template>
+
+            <kendo-grid-column *ngIf="grdLinks.RowIndicatorVisibility == 0 ? true : false" UniqueName="rowindicator"
+                field="rowindicator" title="" [width]="40">
+                <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+                    <Image
+                        *ngIf="grdLinks.selectedRowsIndex.length > 0 ? grdLinks.selectedRowsIndex == rowIndex : false"
+                        Source="~/../assets/Images/iarrownor5x10.png"></Image>
+                </ng-template>
+            </kendo-grid-column>
+
+            <!-- DataMemberBinding="{Binding}" -->
+
+            <kendo-grid-column UniqueName="Description" [title]="resKey.Description_Header" IsReadOnly="True"
+                IsWordWrap="True" Width="527">
+
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <iLabel [Text]="dataItem" Foreground="Blue" IsWordwrap="True" TextDecorations="Underline"
+                                Cursor="Hand" MinHeight="20"></iLabel>
+                        </StackPanel>
+
+                    </DataTemplate>
+                </ng-template>
+
+
+            </kendo-grid-column>
+
+        </kendo-grid>
+    </kendo-gridlayout-item>
+</kendo-gridlayout>

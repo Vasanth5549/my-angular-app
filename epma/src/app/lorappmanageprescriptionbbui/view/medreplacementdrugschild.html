@@ -1,0 +1,25 @@
+<kendo-gridlayout x:Name="LayoutRoot" Background="#E0EFF1FF" [rows]="[{height:'30fr'},{height:'150fr'}]"
+    [cols]="[{width:'auto'}]" style="margin-left: -6px;">
+    <kendo-gridlayout-item [row]='1' [col]='1' style="position: relative;bottom: 6px;">
+        <div containerStyle>
+
+            <iLabel #lblHeaderTempRef Name="lblHeader" [Text]="ReplaceDrugVal" HorizontalAlignment="Stretch"
+                VerticalAlignment="Center" IsWordwrap="True" Padding="0,0,14,0">
+            </iLabel>
+        </div>
+    </kendo-gridlayout-item>
+    <Border GridLayout [iStyle]="Styles.BorderFrame" [row]="2" [col]="1" Height="160" style="position: relative;bottom: 9px;">
+        <kendo-gridlayout-item [row]='2' [col]='1'>
+            <div containerStyle>
+
+
+
+                <iCheckedListBox #clbAlternatesTempRef Name="clbAlternates" HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch" Height="157" Width="370" [OnSelect]="clbAlternates_OnSelect"
+                    HorizontalAlignment="Stretch" [OnUnSelect]="clbAlternates_OnUnSelect" class="clbAlteroverflow">
+
+                </iCheckedListBox>
+            </div>
+        </kendo-gridlayout-item>
+    </Border>
+</kendo-gridlayout>

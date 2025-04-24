@@ -1,0 +1,15 @@
+<div [ngStyle]="style" class="isfsalign">
+  <ng-container>
+    <kendo-autocomplete #ac class="txtWidth" [title]="ToolTip" [disabled]="!IsEnabled"
+      [data]="ItemsSource?.array" (click)="ac.toggle()" [suggest]="false"
+      [(ngModel)]="searchText" valueField="DisplayText" (valueChange)="getEnteredText($event)"
+      (keyup)="KeyUpEvent($event)" spellcheck=false>
+      <ng-template kendoAutoCompleteNoDataTemplate>
+      </ng-template>
+    </kendo-autocomplete>
+    <button  [title]="ToolTip" class="btmMargin" kendoButton Name="btmSearch" [disabled]="!IsEnabled" (click)="isfs_OnSFSOpen($event)"
+      imageUrl="{{imageSrc}}" (mouseenter)="mouseEnter($event)" (mouseleave)="mouseLeave($event)">
+      
+    </button>
+  </ng-container>
+</div>

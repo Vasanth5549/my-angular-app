@@ -1,0 +1,77 @@
+<ng-template #tooltip>
+    <span *ngIf="Tooltip != '' && hasTooltipString">
+      {{Tooltip}}
+    </span>
+    <ng-container *ngIf="Tooltip.constructor?.name == 'Paragraph'">
+        <ng-container *ngFor="let elem2 of Tooltip.Inlines.InlinesArr">
+            <ng-container *ngIf="elem2.constructor?.name == 'Run'">
+                <span [style]="elem2.style">{{elem2?._text}}</span>                   
+            </ng-container>
+            <ng-container *ngIf="elem2.constructor?.name == 'InlineUIContainer'">
+                <ng-container *ngIf="elem2?.Child?.constructor?.name == 'TextBlock'">
+                   <TextBlock [Text]="elem2.Child.Text" [style]="elem2.Child.style"></TextBlock>
+                </ng-container>
+                 <ng-container *ngIf="elem2?.Child?.constructor?.name == 'StackPanel'">
+                    <StackPanel [ChildrenElementArray]="elem2?.Child?.ChildrenElementArray" [style]="elem2?.Child?.style">
+                    </StackPanel>
+                  </ng-container> 
+            </ng-container>
+            <ng-container *ngIf="hasString(elem2)">
+	                {{elem2}}
+             </ng-container>
+       </ng-container>
+    </ng-container>
+</ng-template>
+<ng-container *ngIf="paraArr && paraArr.length > 0">
+    <ng-container *ngFor="let elem1 of paraArr">
+        <ng-container *ngIf="elem1.constructor?.name == 'Paragraph'">
+            <ng-container *ngFor="let elem2 of elem1.Inlines.InlinesArr">
+                <span kendoTooltip #tooltipdiv ="kendoTooltip" [tooltipTemplate]="tooltip" title="" *ngIf="Tooltip != null && Tooltip != ''">
+                <ng-container *ngIf="elem2.constructor?.name == 'Run'">
+                    <span [style]="elem2.style">{{elem2?._text}}</span>                   
+                </ng-container>
+                <ng-container *ngIf="elem2.constructor?.name == 'InlineUIContainer'">
+                    <ng-container *ngIf="elem2?.Child?.constructor?.name == 'TextBlock'">
+                       <TextBlock [Text]="elem2.Child.Text" [style]="elem2.Child.style" [InlineBlock]="elem2.Child.InlineBlock" [MouseLeftButtonUp]="elem2?.Child?.MouseLeftButtonUp" ></TextBlock>
+                    </ng-container>
+                    <ng-container *ngIf="elem2?.Child?.constructor?.name == 'Image'">
+                        <Image [Source]="elem2?.Child?.Source" [ImgWithoutTooltip]="true"></Image>
+                     </ng-container>
+                     <ng-container *ngIf="elem2?.Child?.constructor?.name == 'StackPanel'">
+                        <StackPanel [ChildrenElementArray]="elem2?.Child?.ChildrenElementArray" [style]="elem2?.Child?.style">
+                        </StackPanel>
+                      </ng-container> 
+                </ng-container>
+                <ng-container *ngIf="hasString(elem2)">
+                    {{elem2}}
+                 </ng-container>
+                </span>
+                <span kendoTooltip #tooltipdiv ="kendoTooltip" [tooltipTemplate]="tooltip" *ngIf="Tooltip == null || Tooltip == ''">
+                    <ng-container *ngIf="elem2.constructor?.name == 'Run'">
+                        <span [style]="elem2.style">{{elem2?._text}}</span>                   
+                    </ng-container>
+                    <ng-container *ngIf="elem2.constructor?.name == 'InlineUIContainer'">
+                        <ng-container *ngIf="elem2?.Child?.constructor?.name == 'TextBlock'">
+                           <TextBlock [Text]="elem2.Child.Text" [style]="elem2.Child.style" [InlineBlock]="elem2.Child.InlineBlock" [MouseLeftButtonUp]="elem2?.Child?.MouseLeftButtonUp" ></TextBlock>
+                        </ng-container>
+                        <ng-container *ngIf="elem2?.Child?.constructor?.name == 'Image'">
+                            <Image [Source]="elem2?.Child?.Source" [ImgWithoutTooltip]="true"></Image>
+                         </ng-container>
+                         <ng-container *ngIf="elem2?.Child?.constructor?.name == 'StackPanel'">
+                            <StackPanel [ChildrenElementArray]="elem2?.Child?.ChildrenElementArray" [style]="elem2?.Child?.style">
+                            </StackPanel>
+                          </ng-container> 
+                    </ng-container>
+                    <ng-container *ngIf="hasString(elem2)">
+                        {{elem2}}
+                     </ng-container>
+                    </span>
+           </ng-container>
+        </ng-container>
+   </ng-container>
+</ng-container>
+
+
+<div [style]="style">
+    <ng-content select="[paragraph]"></ng-content>
+</div>

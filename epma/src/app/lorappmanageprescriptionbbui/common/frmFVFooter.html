@@ -1,0 +1,72 @@
+<div name="LayoutRoot" Margin="0,0,0,5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <kendo-gridlayout GridLayout [rows]="[{ height: 'auto'}]" [cols]="[{ width: 'auto'}]" HorizontalAlignment="Stretch"
+        Width="825" VerticalAlignment="Stretch" Height="30">
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+            <kendo-gridlayout-item [row]='1' [col]='1'>
+                <div containerStyle>
+                    <iButton #cmdLinkTempRef Margin="5" Width="110" [Text]="resKey.cmdLink_Text" Cursor="Hand"
+                        Height="23" HorizontalAlignment="Left" Name="cmdLink" [Tooltip]="resKey.cmdLink_Tooltip"
+                        VerticalAlignment="Center" ImageSource="assets/images/iapplicationnor16.png"
+                        ActiveImageSource="assets/images/iapplicationhot16.png"></iButton>
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='1' [col]='1'>
+                <div containerStyle>
+                    <iButton #cmdOnbehalfOfTempRef Margin="5" Width="90" [Text]="resKey.cmdOnbehalfOf_Text"
+                        Name="cmdOnbehalfOf" VerticalAlignment="Center" Height="23"
+                        [Tooltip]="resKey.cmdOnbehalfOf_Tooltip" DisabledImageSource="assets/images/iArrowDIS5x10.png"
+                        ActiveImageSource="assets/images/iArrowsHOT5x10.png"
+                        ImageSource="assets/images/iArrowNOR5x10.png" ImageHeight="12" ImageWidth="5"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsenableOnbehalfOf"></iButton>
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='1' [col]='1'>
+                <div containerStyle>
+                    <iButton #cmdObservationResultsTempRef Margin="5" Width="160"
+                        [Text]="resKey.cmdObservationResult_Text" SLAccessKeyProperties.AccessKey="U" Cursor="Hand"
+                        Height="23" HorizontalAlignment="Left" Name="cmdObservationResults" VerticalAlignment="Center"
+                        [Tooltip]="resKey.cmdObservationResult_Tooltip"
+                        ActiveImageSource="assets/images/iarrowshot5x10.png"
+                        ImageSource="assets/images/iarrownor5x10.png" ImageHeight="12" ImageWidth="5"></iButton>
+                </div>
+            </kendo-gridlayout-item>
+
+            <!-- <kendo-gridlayout-item [row]='1' [col]='1'>
+                <div containerStyle>
+                    <iButton #cmdFBChartTempRef Margin="5" Width="100" [Text]="resKey.cmdFBChart_Text"
+                        SLAccessKeyProperties.AccessKey="F" Cursor="Hand" Height="23" HorizontalAlignment="Left"
+                        Name="cmdFBChart" VerticalAlignment="Center" [Tooltip]="resKey.cmdFBChart_Tooltip"
+                        ActiveImageSource="assets/images/iarrowshot5x10.png"
+                        ImageSource="assets/images/iarrownor5x10.png" ImageHeight="12" ImageWidth="5"
+                        HorizontalContentAlignment="Left" Visibility="Collapsed"></iButton>
+                </div>
+            </kendo-gridlayout-item> -->
+
+            <kendo-gridlayout-item [row]='1' [col]='1'>
+                <div containerStyle>
+                    <iButton #cmdDoseCalTempRef Margin="5" Width="120" [Text]="resKey.cmdDoseCal_Text" Height="23"
+                        SLAccessKeyProperties.AccessKey="T" Cursor="Hand" HorizontalAlignment="Left" Name="cmdDoseCal"
+                        VerticalAlignment="Center" [Tooltip]="resKey.cmdDoseCal_Tooltip"
+                        ImageSource="assets/images/iCalculatorNOR16.png"
+                        DisabledImageSource="assets/images/iCalculatorDIS16.png"
+                        ActiveImageSource="assets/images/iCalculatorHOT16.png"
+                        [IsEnabled]="DataContext.IsDoseCalcEnabled" [Visibility]="DataContext.IsDoseCalcVisible">
+                    </iButton>
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='1' [col]='1'>
+                <div containerStyle>
+                    <iButton #cmdRemoveTempRef Margin="5" Width="170" [Text]="resKey.cmdRemove_Text" Height="23"
+                        Cursor="Hand" HorizontalAlignment="Left" Name="cmdRemove" VerticalAlignment="Center"
+                        [Tooltip]="resKey.cmdRemove_Tooltip" ImageSource="assets/images/iNewDelete.png"
+                        DisabledImageSource="assets/images/iNewDeleteDis.png" ImageHeight="15" ImageWidth="15"
+                        ActiveImageSource="assets/images/iNewDeleteHot.png"></iButton>
+                </div>
+            </kendo-gridlayout-item>
+        </StackPanel>
+
+    </kendo-gridlayout>
+</div>

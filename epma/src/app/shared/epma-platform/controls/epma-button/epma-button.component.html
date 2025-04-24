@@ -1,0 +1,14 @@
+<!-- Issue with IsEnabled property. Has to be fixed. Informed Siva.R-->
+
+<button kendoButton #btnFocus CommonDirective [focus]="isFocus" [disabled]="!IsEnabled" [ngStyle]="style"
+  (click)="onButtonClick($event)" (blur)="onblur()" (keydown)="KeyDownEvent($event)" (keyup)="KeyUpEvent($event)" (mousedown)="MouseLeftButtonDownEvent($event)"
+  [title]="TabFocus ? Tooltip : ' '" (mouseenter)="mouseenter($event)" (mouseleave)="mouseleave($event)">
+  <span>
+    <img      
+      [src]="btnimg"
+      [ngStyle]="imageStyle"
+      (mouseup)="MouseLeftButtonUpEvent($event)"
+    />
+  </span>  
+  {{ Text }}
+</button>

@@ -1,0 +1,6 @@
+.isExtendedWidth{
+    align-items: center !important;
+}
+::ng-deep .size stackpanel div{
+    margin-bottom: 0px !important;
+}

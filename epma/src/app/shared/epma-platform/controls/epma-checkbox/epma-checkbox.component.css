@@ -1,0 +1,37 @@
+.checkbox {
+  height: 16px !important;
+  min-width: 16px !important;
+  /* display: inline-block !important; */
+}
+
+:host::ng-deep .k-rounded-md {
+  border-color: #87a7ae;
+  border-radius: 0px;
+}
+
+:host::ng-deep.k-checkbox:focus {
+  box-shadow: none !important;
+}
+
+:host::ng-deep.k-checkbox:hover {
+  border-color: #656262;
+}
+
+.checkbox:required {
+  border: 2px solid blue;
+}
+
+.checkbox-required-label {
+  color: blue;
+  font-size: 14px !important;
+  padding-top: 5px;
+  vertical-align: sub;
+}
+
+.checkbox-display-flex {
+  display: flex;
+}
+
+.checkbox-padding-left-4px {
+  padding-left: 4px;
+}

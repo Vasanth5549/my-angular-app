@@ -1,0 +1,29 @@
+.brandClearRow{
+    text-align: right;
+}
+.BrandBtnAlignment{
+    margin-top: -12px;
+}
+
+.leftAlignment {
+    padding-left: 0.4rem;
+}
+
+
+.borders ::ng-deep kendo-label {
+    border: none !important;
+  }
+  :host ::ng-deep .k-input-md .k-input-inner, .k-picker-md .k-input-inner  {
+    padding: 4px 3px !important;
+}
+.SupplyInscroll
+{
+  overflow: auto; line-height: 1.5;
+}
+.SupplyVis
+{
+    display:none;
+}
+.AdminMethodAlign::ng-deep kendo-label{
+    margin-top: -7px;
+}

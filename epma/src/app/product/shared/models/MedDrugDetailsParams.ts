@@ -1,0 +1,28 @@
+export class MedDrugDetailsParams {
+  public PrescriptionItemOID = 0;
+  public MCVersion = '';
+  public WebServiceURL = '';
+  public ReleaseVersion = 0;
+  public UserOID = 0;
+  public SecurityToken = '';
+  public PatientID = '';
+  public OrganizationID = '';
+  public RoleProfileName = '';
+  public IconClick = '';
+  public DrugName = '';
+  public DoseType = '';
+  public InfusionType = '';
+  public PrescriptionTypeCode = '';
+  public LorenzoID = '';
+  public ClerkingFormviewDefaltCode = '';
+  public TechValDef = '';
+  public EncounterOID = '';
+  public ContextEncounterOID = '';
+  public ServiceOID = 0;
+  public LocationOID = 0;
+  public ContextEncounterTypeCode = '';
+  public IsDoseCalcExist = '';
+  public InfusionGroupSequenceNo = '';
+  public LatHWDTTM = '';
+  public IsPatientTranferAct = '';
+}

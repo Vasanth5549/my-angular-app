@@ -1,0 +1,121 @@
+<div *ngIf="AnchorLoad">
+  <a #anchor> <span class = "k-iconalign"><img src="./assets/images/iinfonor16.png"></span>
+    {{ActivityConsiderationCaption}} &nbsp; <span class="k-icon k-color-info k-icon-arrow" [ngClass]="iconclass"
+      (click)="onToggle()"></span></a>
+  <kendo-popup [anchor]="anchor"  *ngIf="OpenPopUp"  [margin]="margin" class="kendo-popup-marign-align">
+    <div class="kendo-popup-content">
+      <ng-container *ngFor="let section of ACSection.arr; let i=index;">
+        <div class="popup-header-Section" kendoTooltip [title]="section.SectionToolTip">{{section.HeaderTitle}}</div>
+        <ng-container *ngFor="let nodedata of section.objNodes.arr; let j=index">
+          <div class="popup-node" *ngIf="(i==0 && j<2)">
+            <kendo-gridlayout [rows]="[{ height: 'auto'}]" [cols]="[{ width: '1fr'}, { width: '6.3fr'}]">
+                <kendo-gridlayout-item [row]="1" [col]="1">
+                    <div>
+                  <!-- [width]="nodedata.NodeWidth" -->
+                  <kendo-label kendoTooltip [title]="nodedata.Text">{{nodedata.Text}}</kendo-label>
+                    </div>
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [row]="1" [col]="2" *ngIf="nodedata.IsValueClickable">
+                  <div>
+                    <kendo-label class="label-hyperlink" kendoTooltip [title]="nodedata.ValueToolTip"
+                      (click)="OnNodeItemClicked()">
+                      {{nodedata.Value}}
+                    </kendo-label>
+                  </div>
+              </kendo-gridlayout-item>
+              <kendo-gridlayout-item [row]="1" [col]="2" *ngIf="!nodedata.IsValueClickable">
+                <div>
+                  <kendo-label kendoTooltip [title]="nodedata.ValueToolTip">{{nodedata.Value}}</kendo-label>
+                </div>
+              </kendo-gridlayout-item>
+            </kendo-gridlayout>
+          </div>
+          <div class="popup-node" *ngIf="(i>0 || (i==0 && j>=2))">
+            <!-- [width]="nodedata.NodeWidth" -->
+            <kendo-label kendoTooltip [title]="nodedata.Text">{{nodedata.Text}}</kendo-label>
+            <kendo-label class="label-hyperlink" kendoTooltip [title]="nodedata.ValueToolTip"
+              *ngIf="nodedata.IsValueClickable" (click)="OnNodeItemClicked()">
+              {{nodedata.Value}}
+            </kendo-label>
+            <kendo-label *ngIf="!nodedata.IsValueClickable" kendoTooltip
+              [title]="nodedata.ValueToolTip">{{nodedata.Value}}</kendo-label>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+    <div class="rectangle" *ngIf="ACWebLink && ACWebLink.arr.length !== 0">
+      <kendo-label class="rectangle-header-Section" kendoTooltip
+        [title]="ReferenceLinks">{{ReferenceLinks}}</kendo-label>
+      <ng-container *ngFor="let lstacWebLink of ACWebLink.arr">
+        <div>
+          <a class="rectangle-label-hyperlink" kendoTooltip [name]="lstacWebLink.AltTextRefLink"
+            [title]="lstacWebLink.AltTextRefLink"
+            [href]="lstacWebLink.ReferenceLink">{{lstacWebLink.ReferenceCaption}}</a>
+        </div>
+      </ng-container>
+    </div>
+  </kendo-popup>
+</div>
+
+
+
+
+<div *ngIf="!AnchorLoad">
+
+  <kendo-popup  [margin]="margin">
+    <div class="kendo-popup-content">
+      <ng-container *ngFor="let section of ACSection?.arr; let i=index;">
+        <div class="popup-header-Section" kendoTooltip [title]="section.SectionToolTip">{{section.HeaderTitle}}</div>
+        <ng-container *ngFor="let nodedata of section.objNodes.arr; let j=index;">
+          <div class="popup-node" *ngIf="(i==0 && j<2)">
+            <kendo-gridlayout [rows]="[{ height: 'auto'}]" [cols]="[{ width: '1fr'}, { width: '6.3fr'}]">
+              <kendo-gridlayout-item [row]="1" [col]="1">
+                <div>
+                  <!-- [width]="nodedata.NodeWidth" -->
+                  <kendo-label [title]="nodedata.Text">{{nodedata.Text}}</kendo-label>
+                </div>
+              </kendo-gridlayout-item>
+              <kendo-gridlayout-item [row]="1" [col]="2" *ngIf="nodedata.IsValueClickable">
+                <div>
+                  <kendo-label class="label-hyperlink" HorizontalAlignment="Stretch" kendoTooltip
+                    [title]="nodedata.ValueToolTip" (click)="OnNodeItemClicked()">
+                    {{nodedata.Value}}
+                  </kendo-label>
+                </div>
+              </kendo-gridlayout-item>
+              <kendo-gridlayout-item [row]="1" [col]="2" *ngIf="!nodedata.IsValueClickable">
+                <div>
+                  <kendo-label HorizontalAlignment="Stretch" kendoTooltip
+                    [title]="nodedata.ValueToolTip">{{nodedata.Value}}</kendo-label>
+                </div>
+              </kendo-gridlayout-item>
+            </kendo-gridlayout>
+          </div>
+          <div class="popup-node" *ngIf="(i>0 || (i==0 && j>=2))">
+            <!-- [width]="nodedata.NodeWidth" -->
+            <kendo-label [title]="nodedata.Text">{{nodedata.Text}}</kendo-label>
+            <kendo-label class="label-hyperlink" kendoTooltip [title]="nodedata.ValueToolTip"
+              *ngIf="nodedata.IsValueClickable" (click)="OnNodeItemClicked()">
+              {{nodedata.Value}}
+            </kendo-label>
+            <kendo-label *ngIf="!nodedata.IsValueClickable" kendoTooltip
+              [title]="nodedata.ValueToolTip">{{nodedata.Value}}</kendo-label>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+    <div class="rectangle" *ngIf="ACWebLink && ACWebLink.arr.length !== 0">
+      <kendo-label class="rectangle-header-Section" kendoTooltip
+        [title]="ReferenceLinks">{{ReferenceLinks}}</kendo-label>
+      <ng-container *ngFor="let lstacWebLink of ACWebLink.arr">
+        <div>
+          <a class="rectangle-label-hyperlink" kendoTooltip [name]="lstacWebLink.AltTextRefLink"
+            [title]="lstacWebLink.AltTextRefLink"
+            [href]="lstacWebLink.ReferenceLink">{{lstacWebLink.ReferenceCaption}}</a>
+        </div>
+      </ng-container>
+    </div>
+  </kendo-popup>
+</div>
+
+

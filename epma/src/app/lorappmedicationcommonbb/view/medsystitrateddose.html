@@ -1,0 +1,52 @@
+<kendo-gridlayout x:Name="LayoutRoot" Background="#E0EFF1FF">
+
+    <kendo-gridlayout-item [row]='2' [colSpan]='3' [rowSpan]='3'>
+        <div containerStyle>
+            <Border Height="Auto" Background="#E0EFF1FF" CornerRadius="2" Width="Auto" Margin="-12,20,0,0"
+                BorderThickness="1" Padding="3" BorderBrush="#75b3b4">
+
+                <kendo-gridlayout Width="Auto" HorizontalAlignment="Left" [rows]="[{height: 2},{height: '1fr'}]"
+                    [cols]="[{ width: '1fr' }]">
+
+
+                    <Border HorizontalAlignment="Left" Background="#E0EFF1FF" Margin="5,-13,0,0" [col]='1' [row]='1'>
+
+                        <StackPanel>
+                            <iLabel #lblCancellationTempRef Name="lblCancellation" FontWeight="Bold" Padding="5,0,5,0"
+                                Text="Titrated dose" Background="#E0EFF1FF" Foreground="#000000"></iLabel>
+
+                        </StackPanel>
+                    </Border>
+
+                    <!-- ------------- -->
+                    <kendo-gridlayout-item [row]='2' [col]='1'>
+                        <div containerStyle>
+                            <kendo-gridlayout #Cancellation Height="Auto" Margin="5,2"
+                                [rows]="[{height:25},{height:'auto'}]" [cols]="[{width:95},{width:245}]" style="padding-left: 5px; padding-right: 5px;">
+                                <Border [row]='2' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder">
+                                </Border>
+                                <Border [row]='1' [col]='2' [Background]="Styles.InnerBG"></Border>
+
+                                <kendo-gridlayout-item [row]='1' [col]='1'>
+                                    <div containerStyle>
+                                        <iLabel #lblFirstDoseTempRef Name="lblFirstDose" Text="First dose"
+                                            HorizontalAlignment="Left" VerticalAlignment="Center" IsWordwrap="True">
+                                        </iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='1' [col]='2'>
+                                    <div containerStyle>
+                                        <iLabel #lblFirstDoseValTempRef Name="lblFirstDoseVal"  [Text]="FirstDoseVal"
+                                            HorizontalAlignment="Left" VerticalAlignment="Center" IsWordwrap="True" Padding="0,0,0,10">
+                                        </iLabel>
+                                      </div>
+                                </kendo-gridlayout-item>
+                            </kendo-gridlayout>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <!-- ----------------- -->
+                </kendo-gridlayout>
+            </Border>
+        </div>
+    </kendo-gridlayout-item>
+</kendo-gridlayout>

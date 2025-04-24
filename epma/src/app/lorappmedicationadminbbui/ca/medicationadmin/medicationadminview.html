@@ -1,0 +1,13 @@
+<MedsAdminMainView *ngIf="page == 'MN_MEDCHART_P2' || page == 'MN_MEDCHART_DRGV_P2'" [DataContext]="DataContext">
+</MedsAdminMainView>
+
+<MedsAdminObservationView *ngIf="page == 'MN_OBSERESULTCHAR_P2'" [DataContext]="DataContext">
+</MedsAdminObservationView>
+
+<MedRequestCA *ngIf="page == 'MN_MED_REQUEST'" [DataContext]="DataContext">
+</MedRequestCA>
+
+<medsadminprescchartview *ngIf="page=='MN_PRESCCHART_P2'" [DataContext]="DataContext"></medsadminprescchartview>
+
+<RecordPGD *ngIf="page=='MN_RECORDPGD_P2'" [DataContext]="DataContext">
+</RecordPGD>

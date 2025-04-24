@@ -1,0 +1,20 @@
+<div class="commonpage">
+<!-- Rx icon click && supplyicon -->
+<medddetailsChild *ngIf="iconclick == 'RxIcon'" [MedDetailsUserControl]="medchildDataContext"></medddetailsChild>
+
+<!--Dose calculator-->
+<MedDoseDetails *ngIf="iconclick == 'DoseCalIcon'" [DataContext]="objDoseCalcDataContext.DataContext"></MedDoseDetails>
+
+<!--SteppenFullPrescription-->
+<div *ngIf="iconclick == 'DoseIcon'  && dosetype == 'Stepped/Variable'"><MedSteppedFullPrescriptionVW [oLaunchFrom]="objStepped.oLaunchFrom" [sPrescriptionTypeCode]="objStepped.sPrescriptionTypeCode" [DataContext]="objStepped.DataContext"></MedSteppedFullPrescriptionVW></div>
+
+<!--Titratediconclick-->
+<div *ngIf="iconclick == 'DoseIcon' && dosetype == 'Titrated' && sTitaratedVM == 'MedTitratedDose'"><MedTitratedDose [DataContext]="objTitrated.DataContext"></MedTitratedDose></div>
+<div *ngIf="iconclick == 'DoseIcon' && dosetype == 'Titrated'&& sTitaratedVM == 'MedTitratedDoseView'"><MedTitratedDoseChild  [oTitratedDoseCommonVM]="oTitratedDoseCommonVM"></MedTitratedDoseChild></div>
+
+<!--Conditional-->
+<div class="conditionalpage"  *ngIf="iconclick == 'DoseIcon' && dosetype == 'Conditional'"><medconditionaldose  [DataContext]="objConditional.DataContext"></medconditionaldose></div>
+
+<!--SequenceIcon-->
+<medsequentialprescription *ngIf="iconclick == 'SequenceIcon'" [DataContext]="infustionIteminSequence.DataContext"></medsequentialprescription>
+</div>

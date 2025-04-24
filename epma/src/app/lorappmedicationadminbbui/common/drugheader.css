@@ -1,0 +1,55 @@
+TextBlock.DrugName,
+TextBlock .DrugName {
+  font-family: verdana;
+  color: black;
+  font-size: 13px;
+}
+TextBlock.DrugInfusionType,
+TextBlock .DrugInfusionType {
+  font-family: verdana;
+  color: black;
+  font-size: 13px;
+}
+TextBlock.DrugFluidName,
+TextBlock .DrugFluidName {
+  font-weight: bold;
+  font-family: verdana;
+  color: black;
+  font-size: 13px;
+}
+TextBlock.DrugNonInflbl,
+TextBlock .DrugNonInflbl {
+  font-weight: bold;
+  color: #006dec;
+  font-size: 13px;
+}
+TextBlock.DrugNonInfValue,
+TextBlock .DrugNonInfValue {
+  font-size: 13px;
+}
+TextBlock.DrugDueRecordAt,
+TextBlock .DrugDueRecordAt {
+  font-size: 13px;
+}
+.div-dialog-content {
+    border: 1px solid #77b3b4;
+    border-radius: 2px;
+}
+
+.div-margin {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.marginStyle{
+  margin-top: 2px;
+}
+
+::ng-deep .fontClass kendo-label {
+  font-size:13px!important;
+}
+ /* ::ng-deep .fontClass span{
+  font-size:13px!important;
+}  */
+ 
+

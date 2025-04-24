@@ -1,0 +1,64 @@
+/* body {
+    background-color: lightblue;
+  } */
+  .grid-layout-container {
+    /* Revisit Required */
+   background-color: white;
+}
+  .ref{
+    display: flex;
+    justify-content: flex-end;
+}
+.showdiv{
+  display: block !important ;
+}
+.hidediv{
+  display: none;
+}
+.showlegendpopup{
+  top:380px !important;
+  left: 400px !important;
+}
+.due{
+  display: block;
+  text-align: center;
+}
+.popupbtnstyle {
+  margin-top: 16px;    
+    margin-right: 15px !important;
+}
+.popuplastbtnstyle {
+  margin-top: 16px;
+  margin-bottom: 20px;
+  margin-right: 15px !important;
+}
+@media screen and (max-width: 1450px) {
+  .divDefaultHeightInfusion{
+    height: 100%;
+  }
+  .divHeightChangedInfusion{
+    height: 315px;
+    overflow-y: hidden;
+  }
+  .kendoPopupInfusionchartHeight{
+    height: 376px;
+    overflow-y: auto;
+  }
+}
+@media screen and (min-device-width : 1400px) and (max-device-width: 1550px) {
+  .divDefaultHeightInfusion{
+    height: 463px;
+  }
+  .infChartlegent{
+    height: 450px;
+    overflow-y: auto;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .divDefaultHeightInfusion{
+    height: 678px;
+  }
+  .divHeightChangedInfusion{
+    height: 640px;
+  }
+}

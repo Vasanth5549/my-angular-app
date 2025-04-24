@@ -1,0 +1,335 @@
+<kendo-gridlayout [rows]="[{ height: '1fr'}]">
+  <kendo-gridlayout-item [row]="1">
+    <div containerStyle>
+<kendo-grid
+  #grdDataTempRef
+  class="medlistview-grid" [class.medListViewGridChildHeight]="isChildWizard"
+  [style.margin.px]="0"
+  [reorderable]="false"
+  [sortable]="false"
+  [data]="grdData.ItemsSource.array"
+  [rowClass]="rowCallback"
+  [navigable]="true"
+  [selectable]="{ checkboxOnly: false, mode: 'single' }"
+  kendoGridSelectBy
+  [style.height.px]="maxGridHeight"
+  [(selectedKeys)]="grdData.selectedRowsIndex"
+>
+
+  <ng-template kendoGridNoRecordsTemplate>
+    {{oVM.NoRecordsText}}
+  </ng-template>
+  <kendo-grid-column
+    UniqueName="Reorder"
+    field="Reorder"
+    [filterable]="false"
+    [editable]="false"
+    [width]="4"
+  >
+    <ng-template kendoGridHeaderTemplate>
+      <ControlTemplate TargetType="telerikGridView:GridViewHeaderCell">
+        <GridBorder 
+          #ControlTemplateBordrerStyle 
+          Padding="0"
+          Margin="0"
+          BorderThickness="0,0,1,1"
+          BorderBrush="#7BB0AF"
+          columnName="Reorder"
+        >
+          <Image class="center-alignment"
+            Source="assets/images/icopyacrossnor24.png"
+            Width="15"
+            Height="15"
+            [Tooltip]="mldetails.Reorder_ImgTooltip"
+          >
+          </Image>
+        </GridBorder>
+      </ControlTemplate>
+    </ng-template> 
+
+          <ng-template
+            kendoGridCellTemplate
+            let-dataItem
+            let-rowIndex="rowIndex"
+            let-columnIndex="columnIndex"          
+          >
+            <DataTemplate
+              #temp
+              [dataItem]="dataItem"
+              [index]="rowIndex"
+              [colindex] = "columnIndex"
+              [gridHelper]="grdData"
+            >
+              <kendo-gridlayout
+              [rows]="[{height: 'auto'},{height: 'auto'}]"
+              [cols]="[{width: 'auto'}]"
+                *ngIf="!dataItem.IsGroupHeader"
+              >
+          <kendo-gridlayout-item [row]="1" [col]="1">
+                  <div containerStyle>
+                    <Image class="center-alignment" [DataContext]="dataItem" [Source]="dataItem.ReorderImage" Cursor="Hand" Width="15"
+                      Height="15" [Tooltip]="dataItem.ReorderToolTip"
+                      [MouseLeftButtonUp]="ReorderImage_MouseLeftButtonUp_Func">
+                    </Image>
+                  </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]="2" [col]="1">
+                  <div containerStyle>
+                    <!-- Revisit required, below line need to incorporate once iiimage isTooltip functionality given -->
+                    <!-- [TextData]="dataItem.FormViewerDetails.BasicDetails.PrescribingNote" -->
+                    <iImage
+					  class="center-alignment"
+                      Name="R_Name"
+                      [Source]="dataItem.FormViewerDetails.BasicDetails.NoteIconSource"                      
+                      [Visibility]="dataItem.FormViewerDetails.BasicDetails.IsPrescribingNoteIconVisible"
+                      [ToolTip]="dataItem.FormViewerDetails.BasicDetails.PrescribingNote_ToolTip"
+                    ></iImage>
+                  </div>
+          </kendo-gridlayout-item>
+        </kendo-gridlayout>
+      </DataTemplate>
+    </ng-template>
+  </kendo-grid-column>
+
+  <kendo-grid-column
+    UniqueName="StatusIcon"
+    field="StatusIcon"
+    [filterable]="false"
+    [editable]="false"
+    [width]="4"
+  >
+    <ng-template kendoGridHeaderTemplate>
+      <ControlTemplate TargetType="telerikGridView:GridViewHeaderCell">
+        <GridBorder
+          #ControlTemplateBordrerStyle
+          Padding="0"
+          Margin="0"
+          BorderThickness="0,0,1,1"
+          BorderBrush="#7BB0AF"
+          columnName="StatusIcon"
+        >
+          <Image
+		    class="center-alignment"
+            Source="assets/images/istatusdetailsnor16.png"
+            Stretch="None" 
+            HorizontalAlignment="Center"
+            [Tooltip]="mldetails.StatusIcon_ImgTooltip"
+          >
+          </Image>
+        </GridBorder>
+      </ControlTemplate>
+    </ng-template>
+
+          <ng-template
+            kendoGridCellTemplate
+            let-dataItem
+            let-rowIndex="rowIndex"
+            let-columnIndex="columnIndex"
+          >
+            <DataTemplate
+              #temp
+              [dataItem]="dataItem"
+              [index]="rowIndex"
+              [colindex] = "columnIndex"
+              [gridHelper]="grdData"
+            >
+        <ContentPresenter
+          *ngIf="!dataItem.IsGroupHeader"
+          [Content]="dataItem | InfoIconKey : '' : 0"
+        >
+        </ContentPresenter>
+      </DataTemplate>
+    </ng-template>
+  </kendo-grid-column>
+
+  <kendo-grid-column
+    UniqueName="ViewDetails"
+    field="ViewDetails"
+    [filterable]="false"
+    [editable]="false"
+    [width]="4"
+  >
+    <ng-template kendoGridHeaderTemplate>
+      <ControlTemplate TargetType="telerikGridView:GridViewHeaderCell">
+        <GridBorder
+          #ControlTemplateBordrerStyle
+          Padding="0"
+          Margin="0"
+          BorderThickness="0,0,1,1"
+          BorderBrush="#7BB0AF"
+          columnName="ViewDetails"
+        >
+          <Image
+		    class="center-alignment"
+            Stretch="None"
+            HorizontalAlignment="Center"
+            Source="assets/images/ipatientmedicationhot16.png"
+            [Tooltip]="mldetails.ViewDetails_ImgTooltip"
+          >
+          </Image>
+        </GridBorder>
+      </ControlTemplate> 
+    </ng-template>
+          <ng-template
+            kendoGridCellTemplate
+            let-dataItem
+            let-rowIndex="rowIndex"
+            let-columnIndex="columnIndex"
+          >
+            <DataTemplate
+              #temp
+              [dataItem]="dataItem"
+              [index]="rowIndex"
+              [colindex] = "columnIndex"
+              [gridHelper]="grdData"
+            >
+        <kendo-gridlayout 
+          *ngIf="!dataItem.IsGroupHeader && dataItem.IsPGD != '1'"
+          [rows]="[{height: 'auto'},{height: 'auto'},{height: 'auto'}]"
+          [cols]="[{width: 'auto'}]"
+          > 
+          <kendo-gridlayout-item [row]="1" [col]="1">
+                  <div containerStyle>
+            <Image
+			  class="center-alignment"
+              [DataContext]="dataItem"      
+              Source="assets/images/ipatientmedicationhot16.png"
+              Cursor="Hand"
+              Stretch="None"
+              [Tooltip]="mldetails.ViewDetails_ImgTooltip"
+              [Visibility]="dataItem.IsFormViewerIconVisible"
+              [MouseLeftButtonUp]="Rx_MouseLeftButtonUp_Func"
+            ></Image>
+                  </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]="2" [col]="1">
+                  <div containerStyle>
+                    <Image class="center-alignment" Name="SequentialIconlink" Source="assets/images/sequentiallink.png"
+                      Cursor="Hand" [Tooltip]="Infusion.SequentialIconlink_Tooltip" Margin="0,7,0,7"
+                      [DataContext]="dataItem"
+                      [Visibility]="dataItem.FormViewerDetails.BasicDetails.IsSequentiallinkvisi"
+                      [MouseLeftButtonUp]="sequence_MouseLeftButtonUp_Func"></Image>
+                  </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item 
+            [row]="3" 
+            [col]="1" 
+            *ngIf="dataItem.FormViewerDetails.BasicDetails.IsOrderSetIconVisible == 0 ? true : false"
+          >
+                  <div containerStyle>
+            <Image
+			  class="center-alignment"
+              Name="OrderSetIcon"
+              Source="assets/images/group_medicines_nor16.png"
+              Cursor="Hand"
+              Margin="0,7,0,7"
+              [Tooltip]="dataItem.FormViewerDetails.BasicDetails.Ordersets.ToolTip"
+              [Visibility]="dataItem.FormViewerDetails.BasicDetails.IsOrderSetIconVisible"
+            ></Image>
+                  </div>
+          </kendo-gridlayout-item>
+        </kendo-gridlayout>
+        <Image
+          *ngIf="!dataItem.IsGroupHeader && dataItem.IsPGD == '1'"
+          class="center-alignment"
+          [DataContext]="dataItem"      
+          Source="assets/images/pgd_prescription.png"
+          Cursor="Hand"
+          Stretch="None"
+          Tooltip="Select to view details"
+          [MouseLeftButtonUp]="Rx_MouseLeftButtonUp_Func"
+        ></Image>
+      </DataTemplate>
+    </ng-template>
+  </kendo-grid-column>
+
+        <kendo-grid-column UniqueName="PrescriptionItem" field="PrescriptionItem" [width]="50" [filterable]="false" [editable]="false">
+          <ng-template kendoGridHeaderTemplate>
+            <span kendoTooltip [title]="PrescriptionItem_Header"> {{PrescriptionItem_Header}}
+            </span>
+          </ng-template>
+          <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+              (RowLoaded)="rowLoaded($event)" [gridHelper]="grdData">
+              <div *ngIf="dataItem.IsGroupHeader">
+                {{ dataItem.GroupHeaderName }}
+              </div>
+              <ContentPresenter *ngIf="!dataItem.IsGroupHeader" [Content]="dataItem | MedLineDisplay : '' : 0">
+              </ContentPresenter>
+            </DataTemplate>
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column UniqueName="OtherInformation" field="OtherInformation" [filterable]="false" [width]="30" [editable]="false"
+          [hidden]="false">
+          <ng-template kendoGridHeaderTemplate>
+            <span kendoTooltip title="{{mldetails.OtherInformation_Header }}"> {{mldetails.OtherInformation_Header }}
+            </span>
+          </ng-template>
+          <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+              [gridHelper]="grdData">
+
+              <ContentPresenter  [ngClass]="GetClass(rowIndex)" *ngIf="!dataItem.IsGroupHeader" [Content]="dataItem | MedOtherDisplay : '' : 0">
+              </ContentPresenter>
+            </DataTemplate>
+          </ng-template>
+        </kendo-grid-column>
+
+        <kendo-grid-column UniqueName="StartDateIco" field="StartDateIco" [filterable]="false" [editable]="false" [width]="15" [hidden]="false">
+          <ng-template kendoGridHeaderTemplate>
+            <span kendoTooltip [title]="StartDateIco_Header"> {{StartDateIco_Header }}
+            </span>
+          </ng-template>
+          <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+              [gridHelper]="grdData">
+              <kendo-gridlayout *ngIf="!dataItem.IsGroupHeader" [cols]="[{width: 80}, {width: 5}, {width: 15}]">
+                <kendo-gridlayout-item>
+                  <div containerStyle>
+            <iLabel
+              Name="lbStartDTTM"
+              Mandatory="False"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Center"
+              Margin="0"
+              IsWordwrap="True"
+              [Text]="dataItem.FormViewerDetails.BasicDetails.StartDTTMText"
+              [Tooltip]="dataItem.FormViewerDetails.BasicDetails.StartDTTMText"
+            ></iLabel>
+                  </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]="1" [col]="3">
+                  <div containerStyle>
+            <Image
+			  class="center-alignment"
+              Name="OnAdmission"
+              Source="assets/images/ionadmissionnor16.png"
+              ToolTip="On admission - (This medication dose was being taken at home)"
+              [Visibility]="dataItem.FormViewerDetails.BasicDetails.IsDispalyOnadmission"
+            ></Image>
+                  </div>
+                </kendo-gridlayout-item>
+              </kendo-gridlayout>
+            </DataTemplate>
+          </ng-template>
+        </kendo-grid-column>
+
+        <kendo-grid-column UniqueName="dummy"  [title]="" field="" [filterable]="false" [editable]="false" [resizable]="false"
+          [hidden]="false" [width]="10">
+          <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+              [gridHelper]="grdData"></DataTemplate>
+          </ng-template>
+        </kendo-grid-column>
+      </kendo-grid>
+    </div>
+  </kendo-gridlayout-item>
+</kendo-gridlayout>
+
+<!-- <kendo-grid #grdData [data]="aggregateService?.pData?.array">
+  <kendo-grid-column field="GroupHeaderName"></kendo-grid-column>
+  <kendo-grid-column field="LorenzoID"></kendo-grid-column>
+  <kendo-grid-column field="PrescriptionType"></kendo-grid-column>
+  <kendo-grid-column field="PrescriptionNumber"></kendo-grid-column>
+</kendo-grid>
+<button (click)="inspectPData()"> Inspect pData</button> -->

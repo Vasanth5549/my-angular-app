@@ -1,0 +1,38 @@
+
+<!-- 
+<div class="wrapper" *ngIf="items.length!=0">
+    <kendo-expansionpanel *ngFor="let item of items; index as i" [title]="item.Name" [subtitle]="item.Name"
+        [expanded]="item.IsExpanded" (action)="onAction(i)">
+        <div class="content">
+            <ng-container *ngIf="item.Header?.constructor?.name == 'StackPanel'">
+                <StackPanel [ChildrenElementArray]="item.Header.ChildrenElementArray" Name="chkDispensingInstructions" HorizontalAlignment="Left">
+                </StackPanel>    
+            </ng-container>
+
+            <ng-container *ngIf="item.Header?.constructor?.name != 'StackPanel'">
+                <span class="content-text">{{ item.Header }}</span>
+            </ng-container>
+        </div>
+    </kendo-expansionpanel>
+</div> -->
+<div [title]="track ? 'click to view less information' : 'click to view more information'" class="wrapper dropDown_Btn" *ngIf="items.length==0">
+    <kendo-expansionpanel
+        [title]="Name"
+        [subtitle]="Name"
+        [expanded]="IsExpanded"
+        (action)="onAction($event)">
+        <ng-template kendoExpansionPanelTitleDirective *ngIf="Header?.constructor?.name == 'StackPanel'">   
+                <StackPanel [ChildrenElementArray]="Header.ChildrenElementArray"  [BindingObjects]="Header?.BindingObjects" Name="chkDispensingInstructions" HorizontalAlignment="Left" class="label_other" [heightchanged]="Header?.heightchanged">
+                </StackPanel> 
+          </ng-template>
+        <!-- <div class="content" *ngIf="Header?.constructor?.name == 'StackPanel'">
+            <StackPanel [ChildrenElementArray]="Header.ChildrenElementArray" Name="chkDispensingInstructions" HorizontalAlignment="Left">
+            </StackPanel> 
+        </div> -->
+        <div class="content" *ngIf="Content">
+            <!-- <span class="content-text">{{ Header }}</span> -->
+            <ng-container [ngTemplateOutlet]="Content"></ng-container>
+        </div>
+        
+    </kendo-expansionpanel>
+</div>

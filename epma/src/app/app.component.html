@@ -1,0 +1,64 @@
+<!-- <div kendoDialogContainer></div>
+<div class="container" style="background-color: yellowgreen;" >
+  <app-user-info></app-user-info>
+</div>
+<div class="container" style="margin-top: 10px;background-color: lightseagreen;" >
+  <input type="button" value="Controls" [routerLink]="['/controls']">
+  <input type="button" value="Common-Controls-attribute" [routerLink]="['/common-attribute']">
+  <input type="button" value="PowerSearch" [routerLink]="['/powersearch']">
+  <input type="button" value="Convertor" [routerLink]="['/convertor']">
+  <input type="button" value="Services" [routerLink]="['/services']">
+</div>
+<div class="container" style="margin-top: 20px;display: block !important;">
+<router-outlet></router-outlet>
+</div> -->
+
+<div kendoDialogContainer></div>
+<div class="container" style="background-color: yellowgreen">
+  <app-user-info></app-user-info>
+  <div
+    class="inner-container"
+    *ngIf="backMode"
+    style="
+      width: auto !important;
+      height: auto !important;
+      cursor: pointer;
+      color: lightseagreen;
+    "
+  >
+    <span [routerLink]="['/']" (click)="backMode = false"
+      >......Back........</span
+    >
+  </div>
+</div>
+<ng-template #toastTemplate>
+  <div *ngIf="Content">
+    <kendo-gridlayout class="center-alignment-toast">
+      <kendo-gridlayout-item [row]="1" [col]="1"   >
+        <div style="width: 20%;">
+          <Image [Source] = "Content.imageSource" [Visibility]="true" Padding="15"></Image>
+        </div>
+      </kendo-gridlayout-item>
+      <kendo-gridlayout-item [row]="1" [col]="2">
+        <div >
+          <ng-container *ngFor="let elem of Content.messageLines.array">
+            <span [ngStyle]="elem.style" *ngIf="elem.constructor?.name == 'Run'">
+              {{elem._text}}
+            </span>
+            <span [ngStyle]="elem.style" *ngIf="elem.constructor?.name == 'LineBreak'"><br>
+            </span>
+          </ng-container>
+        </div>
+      </kendo-gridlayout-item>
+    </kendo-gridlayout>
+  </div>
+</ng-template>
+<ng-template #activityTemplateRef>
+<iActivityConsideration  #PrescribingConsiderationTempRef class="ActivityConsiderations" Name="ActivityConsideration"
+  [ACSection]="ActivityData" ActivityConsiderationCaption="Prescribing considerations"
+  (OnNodeItemClick_Func)="nodeClick()">
+</iActivityConsideration>
+</ng-template>
+<div class="">
+  <router-outlet></router-outlet>
+</div>

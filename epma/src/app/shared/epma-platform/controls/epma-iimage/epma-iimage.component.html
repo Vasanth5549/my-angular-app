@@ -1,0 +1,13 @@
+<!-- <img  [src]="Source" [alt]="Name" [ngStyle]="style"> -->
+<ng-template #tooltip>
+    <span *ngIf="Tooltip != ''">
+        {{Tooltip}}
+    </span>
+
+</ng-template>
+
+<img *ngIf="!isbasicImgTooltip && Source?.toString()" kendoTooltip [tooltipTemplate]="tooltip" tooltipClass="newIImageLineClass" title="" [src]="Source?.toString() | lowercase" [ngStyle]="style" (keydown)="KeyDownEvent($event)" (keyup)="KeyUpEvent($event)"
+     (mousedown)="MouseLeftButtonDownEvent($event)" (mouseup)="MouseLeftButtonUpEvent($event)">
+<img *ngIf="isbasicImgTooltip" [title]="ToolTip" [src]="Source?.toString() | lowercase" [ngStyle]="style" (keydown)="KeyDownEvent($event)" (keyup)="KeyUpEvent($event)"
+     (mousedown)="MouseLeftButtonDownEvent($event)" (mouseup)="MouseLeftButtonUpEvent($event)">
+<span *ngIf="TextData">{{TextData}}</span>

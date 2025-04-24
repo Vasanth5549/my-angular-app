@@ -1,0 +1,28 @@
+<ng-template #tooltip>
+    <span *ngIf="(parentObjMouseEnterFlag && hasTooltipString)">
+        {{parentObjMouseEnterFlag=='true'?Tooltip:''}}
+    </span>
+    <ng-container *ngIf="Tooltip.constructor?.name == 'iLabel'">
+        <kendo-label [ngStyle]="Tooltip?.style">{{Tooltip.Text}}</kendo-label>
+    </ng-container>
+    <ng-container *ngIf="Tooltip.constructor?.name == 'TextBlock'">
+        <TextBlock [InlinesElements]="Tooltip.InlinesElements" [style]="Tooltip?.style"></TextBlock>
+    </ng-container>
+    <ng-container *ngIf="Tooltip.constructor?.name == 'StackPanel'">
+        <StackPanel [ChildrenElementArray]="Tooltip?.children">
+        </StackPanel>
+    </ng-container>
+</ng-template>
+
+<kendo-gridlayout position="bottom" kendoTooltip #tooltipdiv="kendoTooltip" [tooltipTemplate]="tooltip" title="" tooltipClass="newLineGClass"
+    [showOn]="Tooltip == '' || Tooltip == null ? 'none': 'hover'" [ngStyle]="style" [rows]="RowHeight" [cols]="ColWidth"
+    [align]="{ horizontal: horizontalAlign, vertical: verticalAlign }">
+    <ng-container *ngFor="let Elem of ChildrenArr;let i=index">
+        <kendo-gridlayout-item [row]="Elem.row" [col]="Elem.col" [colSpan]="Elem.colSpan" [style]="Elem?.style">
+            <div>
+			    <GridItem #DynamicControlTempRef [Control]="Elem.control" [DataContext]="DataContext" [cell]="cell" [GridHelper]="GridHelper" [GridColumn]="GridColumn"></GridItem>
+			
+            </div>
+        </kendo-gridlayout-item>
+    </ng-container>
+</kendo-gridlayout>

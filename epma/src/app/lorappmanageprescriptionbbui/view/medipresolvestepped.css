@@ -1,0 +1,61 @@
+Border.BorderFrame {
+    border-width : 1px;
+    border-style: solid;
+    border-color:#77b3b4;
+    border-radius:2px;
+}
+Border.BorderFrameForAdditionalOptions {
+    border-radius: 2px;
+    border-width : 1px;
+    border-style: solid;
+    border-color: #000000;
+}
+
+.AddOptional {
+    width: 130px !important;
+ 
+}
+
+.AddOptional div {
+    background: #77b3b4 !important;
+}
+
+
+.Addoptionaltext{    
+    background: #e1eff0;
+    width: 121px;
+}
+.strtdate::ng-deep kendo-label{
+    font-weight: bold !important;
+}
+.chkalign{
+    padding-right: 22px;
+ }
+ .adminmsg{
+    padding-left: 11px;
+ }
+
+.ChangeButton ::ng-deep button span img{ 
+    margin-top: 5px;
+  } 
+  
+::ngdeep .k-grid{
+height: 130px !important;
+ }
+
+.CheckBoxAlign{
+    padding-left: 1px;
+}
+
+:host .checkbox-nonclick {
+
+    pointer-events: none;
+
+    user-select: none;
+
+}
+.medipresolved-stackpannel{
+    margin-left: auto !important;
+    margin-top: 10px !important;
+    margin-right: -10px !important; 
+}

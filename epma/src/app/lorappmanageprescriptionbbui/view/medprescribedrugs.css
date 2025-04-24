@@ -1,0 +1,108 @@
+.highlightColour ::ng-deep *{
+  color: brown !important;
+  padding-left: 5px;
+}
+
+.medprescribedrugs-grid-height {
+  /* Revisit Required */
+  height: calc(720px - 144px);
+}
+
+#iCheckBox2,
+#iCheckBox1,#iChkCompletedByPrescriber {
+  .k-rounded-md {
+    border-radius: 2px;
+    border-width: 2px;
+  }
+  & span {
+    & .k-checkbox:checked {
+      background-color: green;
+      background-image: url(../../../assets/icon/icon/checkmark.png);
+    }
+    & .k-checkbox {
+      background: linear-gradient(
+        to bottom,
+        #74b9cb,
+        #a0c8de,
+        #c6d8ec,
+        #e7eaf5,
+        #ffffff
+      );
+    }
+  }
+}
+#printbutton{
+  float: right;
+}
+
+.cmdimg ::ng-deep button span img{ 
+  margin-top: 5px;
+}
+
+.leftSpace {
+  padding-left: 0.45rem;
+}
+::ng-deep .newLineClass * {
+  white-space: pre-line;
+  overflow: hidden;
+}
+
+:host .grid-visibility .k-grid-content {
+  visibility: hidden !important;
+}
+:host::ng-deep.k-grid tr:hover {
+  background-color: #ededed !important;
+}
+:host::ng-deep tr.GroupHeader:hover{
+  background-color: #74b9c3 !important
+}
+:host ::ng-deep .enableScrollBar .k-grid-content {
+  overflow-x: scroll !important;
+}
+:host ::ng-deep .labelsize * {
+  font-size: 14px !important;
+}
+
+/* header and column alignment */
+:host ::ng-deep .medprescribedrugsgrid .k-grid-header,.k-header,th.k-header,.k-grid td,.k-grid-footer {
+  border: 0px;
+}
+
+.align-grid{
+  position: fixed;
+  top: 3.3rem;
+}
+
+.medprescribedrugsGridChildHeight{
+  height: 526px !important;
+}
+
+
+@media screen and (max-device-width: 1400px) {
+  .grid-layout-container {
+    height: 488px;
+  }
+  .medprescribedrugsgrid {
+    height: 260px ;
+    max-width: 645px;
+  }
+  ::ng-deep .medprescribedrugsgrid .k-grid-content {
+    overflow-x: auto !important;
+}
+.medprescribedrugsGridChildHeightHW{
+  height: 222px ;
+  max-width: 628px;
+}
+}
+@media screen and (min-device-width: 1400px) {
+  .grid-layout-container {
+    height: 720px;
+  }
+  .medprescribedrugsgrid {
+    height: 576px;
+   
+  }
+  .medprescribedrugsGridChildHeightHW{
+    height: 540px;
+  }
+}

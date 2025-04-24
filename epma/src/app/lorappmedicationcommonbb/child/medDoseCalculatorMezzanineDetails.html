@@ -1,0 +1,204 @@
+    <div name="LayoutRoot" >
+        <kendo-gridlayout GridLayout
+            [rows]="[ { height: 31}, { height: 31},{ height: 31},{ height: 31},{ height: 31},{ height: 31},{ height: 31}]"
+            [cols]="[ { width: 10},{ width: '1fr'},{ width: 10},{ width: '1fr'},{ width: 10}]">
+            <kendo-gridlayout-item [row]='6' [colSpan]='3'>
+                <div containerStyle>
+                    <Border #brdcalcdoseTempRef Name="brdcalcdose"></Border>
+                </div>
+            </kendo-gridlayout-item>
+            
+            <kendo-gridlayout-item [row]='1' [col]='2'>
+                <div containerStyle>
+                    <iLabel #lblAlwsUseDoseCalTempRef Name="lblAlwsUseDoseCal"
+                    [Text]="DosecalcMazznine.lblAlwsUseDoseCal_Textr" HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='2' [col]='2'>
+                <div containerStyle>
+               
+                <iLabel #lblDoseCalfrTempRef Name="lblDoseCalfr" [Text]="DosecalcMazznine.lblDoseCalfr_textr"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Center"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='3' [col]='2'>
+                <div containerStyle>
+                <iLabel #lblfrqncTempRef Name="lblfrqnc" [Text]="DosecalcMazznine.lblfrqnc_textr"
+                        HorizontalAlignment="Stretch" VerticalAlignment="Center"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='4' [col]='2'>
+                <div containerStyle>
+                    <iLabel #lblDosecalBsedonTempRef Name="lblDosecalBsedon"
+                    [Text]="DosecalcMazznine.lblDosecalBsedon_textr" HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='5' [col]='2'>
+                <div containerStyle>
+                
+                <iLabel #lblBsaformulaTempRef Name="lblBsaformula" [Text]="DosecalcMazznine.lblBsaformula_textr">
+                </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='6' [col]='2'>
+                <div containerStyle>
+                
+                <iLabel #lblDfltwttypeTempRef Name="lblDfltwttype" [Text]="DosecalcMazznine.lblDfltwttype_textr">
+                </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='7' [col]='2'>
+                <div containerStyle>
+                <iLabel #lblReqdosTempRef Name="lblReqdos" [Text]="DosecalcMazznine.lblReqdos_textr">
+                    </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+
+        
+
+        <Border [row]='1' [col]='2' #meddosedbrdcalcdose1TempRef Name="meddosedbrdcalcdose1"></Border>
+
+
+        <Border [row]='2' [col]='2' #meddosedbrdcalcdose12TempRef Name="meddosedbrdcalcdose12"
+            [Style]="Styles.whiteBorder" Height="auto" Margin="0,0,0,0" style="border-width: 1px;"></Border>
+
+        
+
+        
+        <Border [row]='3' [col]='2' #meddosedbrdcalcdose13TempRef Name="meddosedbrdcalcdose13"
+            [Style]="Styles.whiteBorder" Height="auto" Margin="0,0,0,0" style="border-width: 1px;"></Border>
+
+       
+
+        <Border [row]='4' [col]='2' #meddosedbrdcalcdose14TempRef Name="meddosedbrdcalcdose14"
+            [Style]="Styles.whiteBorder" Height="auto" Margin="0,0,0,0" style="border-width: 1px;"></Border>
+
+        
+        <Border [row]='5' [col]='2' #meddosedbrdcalcdose15TempRef Name="meddosedbrdcalcdose15"
+            [Style]="Styles.whiteBorder" Height="auto" Margin="0,0,0,0" style="border-width: 1px;"></Border>
+
+        
+
+        <Border [row]='6' [col]='2' #meddosedbrdcalcdose16TempRef Name="meddosedbrdcalcdose16"
+            [Style]="Styles.whiteBorder" Height="auto" Margin="0,0,0,0" style="border-width: 1px;"></Border>
+
+        
+        <Border [row]='7' [col]='2' #meddosedbrdcalcdose17TempRef Name="meddosedbrdcalcdose17"
+                    [Style]="Styles.whiteBorder" Height="auto" Margin="0,0,0,2" style="border-width: 1px;border-bottom: 2px solid white;"></Border>
+
+        <Border [row]='1' [col]='3' Margin="0,1,0,0" [Style]="Styles.whiteBorder" Height="auto"
+            [Background]="Styles.InnerBG"></Border>
+
+        
+
+        <Border [row]='2' [col]='3' Margin="0,1,0,0" [Style]="Styles.whiteBorder" Height="auto"
+            [Background]="Styles.InnerBG" style="border-top: 2px solid white; border-width: 1px;"></Border>
+
+        <Border [row]='3' [col]='3' Margin="0,1,0,0" [Style]="Styles.whiteBorder" Height="auto"
+            [Background]="Styles.InnerBG" style="border-top: 2px solid white; border-width: 1px;"></Border>
+
+        
+
+        <Border [row]='4' [col]='3' Margin="0,1,0,0" [Style]="Styles.whiteBorder" Height="auto"
+            [Background]="Styles.InnerBG" style="border-top: 2px solid white; border-width: 1px;"></Border>
+
+        
+
+        <Border [row]='5' [col]='3' Margin="0,1,0,0" [Style]="Styles.whiteBorder" Height="auto"
+            [Background]="Styles.InnerBG" style="border-top: 2px solid white; border-width: 1px;"></Border>
+
+        
+
+        <Border [row]='6' [col]='3' Margin="0,1,0,0" [Style]="Styles.whiteBorder" Height="auto"
+            [Background]="Styles.InnerBG" style="border-top: 2px solid white; border-width: 1px;"></Border>
+
+        
+
+        <Border [row]='7' [col]='3' Margin="0,1,0,2" [Style]="Styles.whiteBorder" Height="auto"
+            [Background]="Styles.InnerBG" style="border-top: 2px solid white; border-width: 1px; border-bottom: 1px solid white;"></Border>
+
+        
+
+        <Border [row]='1' [col]='4' Margin="0,1,0,0" [Style]="Styles.whiteBorder" Height="auto"
+            [Background]="Styles.InnerBG"></Border>
+
+        
+
+        <Border [row]='2' [col]='4' Margin="0,1,0,0" [Style]="Styles.whiteBorder" Height="auto"
+            [Background]="Styles.InnerBG"></Border>
+
+       
+
+        <Border [row]='3' [col]='4' Margin="0,1,0,0" [Style]="Styles.whiteBorder" Height="auto"
+            [Background]="Styles.InnerBG"></Border>
+
+        
+
+        <Border [row]='4' [col]='4' Margin="0,1,0,0" [Style]="Styles.whiteBorder" Height="auto"
+            [Background]="Styles.InnerBG"></Border>
+
+        
+
+        <Border [row]='5' [col]='4' Margin="0,1,0,0" [Style]="Styles.whiteBorder" Height="auto"
+            [Background]="Styles.InnerBG"></Border>
+
+        
+
+        <Border [row]='6' [col]='4' Margin="0,1,0,0" [Style]="Styles.whiteBorder" Height="auto"
+            [Background]="Styles.InnerBG"></Border>
+
+ 
+
+        <Border [row]='7' [col]='4' Margin="0,1,0,2" [Style]="Styles.whiteBorder" Height="auto"
+            [Background]="Styles.InnerBG" style="width: 268px;">
+        </Border>
+
+
+            <kendo-gridlayout-item [row]='1' [col]='4'>
+                <div containerStyle>
+                <iCheckBox #chkAlwsUseDoseCalTempRef Name="chkAlwsUseDoseCal" IsReadOnly="True" Margin="0,2,0,2" IsEnabled="false"
+                    HorizontalAlignment="Left" Tooltip="" [(IsChecked)]="DataContext.IsDoseCalcAlwaysUse"></iCheckBox>
+                </div>
+            </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='2' [col]='4' style="grid-area: 2 / 2 / auto / auto;border-top: 2px solid white; border-width: 1px;">
+                <div containerStyle>
+                    <iLabel #lblDoseCalfrvalueTempRef Name="lblDoseCalfrvalue" HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center" [Text]="DataContext.CalculationFor"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='3' [col]='4' style="grid-area: 2 / 2 / auto / auto;border-top: 2px solid white; border-width: 1px;">
+                <div containerStyle>
+                <iLabel #lblfrqncvlTempRef Name="lblfrqncvl" HorizontalAlignment="Stretch" VerticalAlignment="Center" [Text]="DataContext.FrequencyName" >
+                </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='4' [col]='4' style="grid-area: 2 / 2 / auto / auto;border-top: 2px solid white; border-width: 1px;">
+                <div containerStyle>
+                <iLabel #lblwtvlTempRef Name="lblwtvl" HorizontalAlignment="Stretch" VerticalAlignment="Center" [Text]="DataContext.DoseCalcBasedOn">
+                    </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='5' [col]='4' style="grid-area: 2 / 2 / auto / auto;border-top: 2px solid white; border-width: 1px;">
+                <div containerStyle>
+                    <iLabel #lblbsafrmlvlTempRef Name="lblbsafrmlvl" HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center" [Text]="DataContext.BSAFormula"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='6' [col]='4' style="grid-area: 2 / 2 / auto / auto;border-top: 2px solid white; border-width: 1px;">
+                <div containerStyle>
+                    <iLabel #lbldfltwttypevlTempRef Name="lbldfltwttypevl" HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center" [Text]="DataContext.DefaultWeightType"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='7' [col]='4' style="grid-area: 2 / 2 / auto / auto;border-top: 2px solid white; border-width: 1px;border-bottom: 1px solid white;">
+                <div containerStyle>
+                <iLabel #lblreqdsvlTempRef Name="lblreqdsvl" HorizontalAlignment="Stretch" VerticalAlignment="Center" [Text]="lblreqdsvl.Text">
+                </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+
+
+        </kendo-gridlayout>
+    </div>

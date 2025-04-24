@@ -1,0 +1,1020 @@
+<div name="LayoutRoot" class="medReqAdminBorderStyle">
+
+    <kendo-gridlayout class="grid-layout-container" GridLayout Height="auto" Background="{StaticResource LzoPageBG}">
+        <kendo-gridlayout-item [row]='2' [col]='2' [colSpan]='4'>
+            <div containerStyle>
+                <kendo-gridlayout class="grid-layout-container" GridLayout Height="auto">
+                    <kendo-grid 
+                        #grdRequestMedicationTempRef 
+                        Margin="5,5,5,5"
+                        class="grdRequestMedicationCA" 
+                        [reorderable]="false"
+                        [sortable]="false"
+                        [GridProperties]="grdRequestMedication" 
+                        [rowClass]="rowCallback"
+                        VerticalAlignment="Stretch"
+                        kendoGridSelectBy 
+                        [(selectedKeys)]="grdRequestMedication.selectedRowsIndex"
+                        [selectable]="{ checkboxOnly: false, mode: 'single' }"
+                        [data]="grdRequestMedication.ItemsSource.array"
+                        (cellClick)="grdRequestMedication.cellClick($event)"
+                        (selectionChange)="grdRequestMedication.selectionChange($event)"
+                        (detailExpand)="grdRequestMedication.RowIsExpandedChanged($event)"
+                        (detailCollapse)="grdRequestMedication.RowIsExpandedChanged($event)"
+                        [kendoGridExpandDetailsBy]="grdRequestMedication.expandDetailsBy"
+                        [(expandedDetailKeys)]="grdRequestMedication.expandedDetailKeys">
+
+                        <kendo-grid-column 
+                            class="HorizontalTextAlignCenter" 
+                            field="rowindicator"  
+                            UniqueName="rowindicator" 
+                            title=""
+                            [width]="15"
+                         >
+                            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                                <Image 
+                                  *ngIf="grdRequestMedication.selectedRowsIndex.length > 0 ? grdRequestMedication.selectedRowsIndex == rowIndex : false"
+                                  Source="./assets/images/iarrownor5x10.png"
+                                ></Image>
+                            </ng-template>
+                        </kendo-grid-column>
+
+                    <kendo-grid-column 
+                        field="Status" 
+                        [filterable]="false" 
+                        [editable]=false 
+                        [width]="40" 
+                    >
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip title="{{oMedicationRequest.cmdStatus_Text}}">
+                                {{oMedicationRequest.cmdStatus_Text}}
+                            </span>
+                        </ng-template>
+                        <ng-template 
+                            kendoGridCellTemplate 
+                            let-dataItem 
+                            let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex"
+                        >
+                            <DataTemplate 
+                                #medRequestDataTemplate 
+                                [dataItem]="dataItem" 
+                                [index]="rowIndex"
+                                [colindex]="columnIndex" 
+                                [gridHelper]="grdRequestMedication"
+                            >
+                                <ContentPresenter [Content]="dataItem | StatusIconKey : '' : 40">
+                                </ContentPresenter>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+
+                        <kendo-grid-column 
+                            field="Type" 
+                            [filterable]="false" 
+                            [editable]=false 
+                            [width]="30" 
+                        >
+                            <ng-template kendoGridHeaderTemplate>
+                                <span kendoTooltip title="{{oMedicationRequest.cmdType_Text}}">
+                                    {{oMedicationRequest.cmdType_Text}}
+                                </span>
+                            </ng-template>
+                            <ng-template 
+                                kendoGridCellTemplate 
+                                let-dataItem 
+                                let-rowIndex="rowIndex"
+                                let-columnIndex="columnIndex">
+                                <DataTemplate 
+                                 #medRequestDataTemplate 
+                                 [dataItem]="dataItem" 
+                                 [index]="rowIndex"
+                                 [colindex]="columnIndex" (RowLoaded)="rowLoaded($event)"
+                                 [gridHelper]="grdRequestMedication"
+                                >
+                                <ContentPresenter [Content]="dataItem | TypeIconKey : '' : 40">
+                                </ContentPresenter>
+                                </DataTemplate>
+                            </ng-template>
+                        </kendo-grid-column>
+
+                        <kendo-grid-column 
+                         UniqueName="Prescriptionitem" 
+                         field="Prescriptionitem" 
+                         [width]="350"
+                         [filterable]="false" 
+                         [editable]="false" 
+                         [sortable]="false" 
+                         [resizable]="false"
+                         TextWrapping="Wrap"  
+                        >
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip title="{{oMedicationRequest.cmdPrescriptionitem_Text}}">
+                                {{oMedicationRequest.cmdPrescriptionitem_Text}}
+                            </span>
+                        </ng-template>
+                            <ng-template 
+                             kendoGridCellTemplate 
+                             let-dataItem 
+                             let-rowIndex="rowIndex"
+                             let-columnIndex="columnIndex"
+                            >
+                            <DataTemplate 
+                             #medRequestDataTemplate 
+                             [dataItem]="dataItem" 
+                             [index]="rowIndex"
+                             [colindex]="columnIndex" 
+                             [gridHelper]="grdRequestMedication">
+                                <!-- <kendo-gridlayout class="grid-layout-container" GridLayout Height="auto"
+                                    [cols]="[{width : '20'},{width : '1fr'},]" [rows]="[{height : 'auto'}]">
+                                    <kendo-gridlayout-item [row]='1' [col]='1'>
+                                        <div containerStyle>
+                                            <iLabel #FluidSpaceTempRef HorizontalAlignment="Stretch"
+                                                Name="FluidSpace" VerticalAlignment="Center" Text=""
+                                                IsWordwrap="True" Mandatory="False" Visibility="Collapsed"></iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+                                </kendo-gridlayout> -->
+                            <ContentPresenter [Content]="dataItem | MedAdminLineDisplay : '' : 235">
+                            </ContentPresenter>
+                            </DataTemplate>
+                            </ng-template>
+                        </kendo-grid-column>
+
+                        <kendo-grid-column 
+                         UniqueName="ReqChk" 
+                         field="ReqChk" 
+                         [width]="20" 
+                         HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                         [filterable]="false"
+                         [editable]=false 
+                         [sortable]="false" 
+                         [resizable]="false"  
+                        >
+                        <ng-template kendoGridHeaderTemplate>
+                            <ControlTemplate TargetType="telerikGridView:GridViewHeaderCell">
+                                <DataTemplate>
+                                    <GridBorder #ControlTemplateBordrerStyle Padding="0" Margin="0"
+                                        BorderThickness="0,0,1,1" BorderBrush="#7BB0AF" columnName="Reorder">
+                                        <Image Source="./assets/images/supply flag_nor16.png" Width="15" Height="15"
+                                            [Tooltip]="oMedicationRequest.cmdRequestsupply_Text">
+                                        </Image>
+                                    </GridBorder>
+                                </DataTemplate>
+                            </ControlTemplate>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <CellStyle #CellTemplateStyle Property="fontWeight" Value="bold">
+                                <ControlTemplate TargetType="telerikGridView:GridViewCell">
+                                    <DataTemplate #medRequestDataTemplate [dataItem]="dataItem" [index]="rowIndex" 
+                                        [colindex]="columnIndex" [gridHelper]="grdRequestMedication">
+                                        <!-- <Border Padding="5,0,5,0" BorderThickness="0,0,0,0" BorderBrush="#7EA9D4"> -->
+                                        <StackPanel #UrgencyLevelTempRef Name="UrgencyLevel"
+                                            Orientation="Horizontal" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                            <iCheckBox #chkUrgencyLevelParentTempRef Name="chkUrgencyLevelPa"
+                                                id="chkUrgencyLevelPa" FontSize="16" IsReadOnly="False"
+                                                FontWeight="ExtraBold" FontStretch="Normal" Foreground="Blue"
+                                                Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                [Tooltip]="oMedicationRequest.cmdChecktorequestsupply_Tooltip"
+                                                [(IsChecked)]="dataItem.IsUrgencyChecked"
+                                                [OnChange]="chkUrgencyLevelPa_OnChange_Func"
+                                                [GridRowIndex]="rowIndex"
+                                                >
+                                            </iCheckBox>
+
+                                        </StackPanel>
+                                        <!-- </Border> -->
+                                    </DataTemplate>
+                                </ControlTemplate>
+                            </CellStyle>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <kendo-grid-column 
+                     field="Urgency" 
+                     [width]="48" 
+                     filterbale="false" 
+                     [resizable]="true"
+                     [editable]="false" 
+                    >
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip title="{{oMedicationRequest.cmdUrgency_Text}}">
+                            {{oMedicationRequest.cmdUrgency_Text}}
+                        </span>
+                    </ng-template>
+                    <ng-template 
+                     kendoGridCellTemplate 
+                     let-dataItem 
+                     let-rowIndex="rowIndex"
+                     let-columnIndex="columnIndex">
+                    <DataTemplate 
+                     #medRequestDataTemplate 
+                     [dataItem]="dataItem" 
+                     [index]="rowIndex"
+                     [colindex]="columnIndex" 
+                     [gridHelper]="grdRequestMedication"
+                    >
+                    <GridCellTemplate 
+                     [EditableControlRef]="cboUrgencyTempRef" 
+                     [columnNumber]="columnIndex" 
+                     [isEditable]="true" 
+                     [cell]="'cell5'"
+                     [dataItem]="dataItem"
+                     (emitEditableClick)="RowSelectionChanged($event)"
+                     [GridHelper]="grdRequestMedication" 
+                     [RowIndex]="rowIndex"
+                    >
+                    <StackPanel #stkUrgencyTempRef Name="stkUrgency" Orientation="Horizontal">
+                        <iLabel #lblReasonTempRef HorizontalAlignment="Stretch" Name="lblReason"
+                            class="lblDisplayInline" [(Tooltip)]="dataItem.UrgencyLevelToolTip" VerticalAlignment="Center"
+                            [(Text)]="dataItem.UrgencyLevel.DisplayText"></iLabel>
+                    </StackPanel>
+                    </GridCellTemplate>
+
+                    <GridCellEditTemplate 
+                     [cell]="'cell5'" 
+                     [dataItem]="dataItem"
+                    >
+                        <iComboBox #cboUrgencyTempRef 
+                            HorizontalAlignment="Stretch" 
+                            Name="cboUrgency"
+                            VerticalAlignment="Center" 
+                            ColumnCellIndex="cell5" 
+                            [DataContext]="dataItem"
+                            [(ItemsSource)]="dataItem.UrgencyLevelcombo"
+                            [(SelectedValue)]="dataItem.UrgencyLevel" 
+                            Width="auto"
+                            IsDropDownOpen="False" 
+                            [isGlobalEnabled]="IsEnabled">
+                        </iComboBox>
+                    </GridCellEditTemplate>
+                        </DataTemplate>
+                        </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column 
+                 UniqueName="Requestcomments"
+                 field="Requestcomments" 
+                 class="Requestcomments" 
+                 [width]="48" 
+                 filterbale="false" 
+                 [editable]="true"
+                 [resizable]="false" 
+                 IsWordWrap="True"  
+                >
+                <ng-template kendoGridHeaderTemplate>
+                    <span kendoTooltip title="{{oMedicationRequest.cmdRequestComments_Text}}">
+                        {{oMedicationRequest.cmdRequestComments_Text}}
+                    </span>
+                </ng-template>
+                <ng-template 
+                 kendoGridCellTemplate 
+                 let-dataItem 
+                 let-rowIndex="rowIndex" 
+                 let-columnIndex="columnIndex"
+                >
+                    <DataTemplate 
+                     #medRequestDataTemplate 
+                     [dataItem]="dataItem" 
+                     [index]="rowIndex" 
+                     [colindex]="columnIndex"
+                     [gridHelper]="grdRequestMedication">
+                        <GridCellTemplate [EditableControlRef]="txtRequestCommentsTempRef" [columnNumber]="columnIndex" [cell]="'cell6'"
+                            [isEditable]="true" [dataItem]="dataItem" (emitEditableClick)="RowSelectionChanged($event)"
+                            [GridHelper]="grdRequestMedication" [RowIndex]="rowIndex">
+                            <iLabel #lblRequestcommentsTempRef HorizontalAlignment="Stretch" Margin="0" IsWordwrap="True" Width="Auto"
+                                VerticalAlignment="Center" Name="lblRequestcomments" [(Text)]="dataItem.RequestComments"
+                                [(Tooltip)]="dataItem.RequestCommentsToolTip"></iLabel>
+                        </GridCellTemplate>
+                        <GridCellEditTemplate [cell]="'cell6'" [dataItem]="dataItem">
+                            <iTextBox #txtRequestCommentsTempRef AcceptsReturn="True" TextWrapping="Wrap" Margin="5,5" MaxLength="256"
+                                Name="txtRequestComments" VerticalAlignment="Center" Width="auto" Height="35" ColumnCellIndex="cell6"
+                                [DataContext]="dataItem" [(Text)]="dataItem.RequestComments" [isGlobalEnabled]="IsEnabled"
+                                 Tooltip="Request Comments" IsDelayBlurForGrid="True"></iTextBox>
+                        </GridCellEditTemplate>
+                    </DataTemplate>
+                 </ng-template>
+                 </kendo-grid-column>
+
+                <kendo-grid-column 
+                 field="Lastrequestedby" 
+                 [width]="43" 
+                >
+                <ng-template kendoGridHeaderTemplate>
+                    <span kendoTooltip title="{{oMedicationRequest.cmdLastrequestedby_Text}}">
+                        {{oMedicationRequest.cmdLastrequestedby_Text}}
+                    </span>
+                </ng-template>
+                <ng-template
+                  kendoGridCellTemplate 
+                  let-dataItem 
+                  let-rowIndex="rowIndex"
+                  let-columnIndex="columnIndex">
+                    <DataTemplate 
+                     #medRequestDataTemplate 
+                     [dataItem]="dataItem" 
+                     [index]="rowIndex"
+                     [colindex]="columnIndex" 
+                     [gridHelper]="grdRequestMedication"
+                    >
+                    <iLabel #lblRequestedbyTempRef Name="lblRequestedby" Mandatory="False" Margin="0"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto" IsWordwrap="True" Width="Auto"
+                        HorizontalAlignment="Stretch" VerticalAlignment="Center" [(Text)]="dataItem.LastRequestedByText"
+                        [Tooltip]="dataItem.LastRequestedByText"></iLabel>
+                    </DataTemplate>
+                </ng-template>
+                </kendo-grid-column>
+
+                <kendo-grid-column 
+                 field="LastTechnicallyValidatedby" 
+                 [width]="45" 
+                 IsWordWrap="True"
+                 [editable]=false 
+                >
+                <ng-template kendoGridHeaderTemplate>
+                    <span kendoTooltip title="{{oMedicationRequest.cmdLasttechnicallyvalidatedby_Text}}">
+                        {{oMedicationRequest.cmdLasttechnicallyvalidatedby_Text}}
+                    </span>
+                </ng-template>
+                <ng-template 
+                 kendoGridCellTemplate 
+                 let-dataItem 
+                 let-rowIndex="rowIndex"
+                 let-columnIndex="columnIndex"
+                >
+                <DataTemplate 
+                 #medRequestDataTemplate 
+                 [dataItem]="dataItem" 
+                 [index]="rowIndex"
+                 [colindex]="columnIndex" 
+                 [gridHelper]="grdRequestMedication"
+                >
+                    <iLabel #lblLastTechnicallyValidatedbyTempRef Name="lblLastTechnicallyValidatedby"
+                        Mandatory="False" HorizontalAlignment="Stretch" Margin="0" IsWordwrap="True"
+                        Width="Auto" VerticalAlignment="Center" [(Text)]="dataItem.LastTVByText"
+                        [Tooltip]="dataItem.LastTVByText">
+                    </iLabel>
+                </DataTemplate>
+                </ng-template>
+                </kendo-grid-column>
+
+                <kendo-grid-column 
+                 field="Supplystatus" 
+                 [title]="oMedicationRequest.cmdSupplystatus_Text"
+                 [width]="40" 
+                 [editable]=false  
+                >
+                <ng-template kendoGridHeaderTemplate>
+                    <span kendoTooltip title="{{oMedicationRequest.cmdSupplystatus_Text}}">
+                        {{oMedicationRequest.cmdSupplystatus_Text}}
+                    </span>
+                </ng-template>
+                <ng-template 
+                 kendoGridCellTemplate 
+                 let-dataItem 
+                 let-rowIndex="rowIndex"
+                 let-columnIndex="columnIndex"
+                >
+                    <DataTemplate 
+                     #medRequestDataTemplate 
+                     [dataItem]="dataItem" 
+                     [index]="rowIndex"
+                     [colindex]="columnIndex" 
+                     [gridHelper]="grdRequestMedication"
+                    >
+                        <iLabel #lblSupplystatusTempRef Name="lblSupplystatus" Mandatory="False"
+                            HorizontalAlignment="Stretch" Margin="0" IsWordwrap="True" Width="Auto"
+                            VerticalAlignment="Center" [(Text)]="dataItem.SupplyStatus"
+                            [Tooltip]="dataItem.SupplyStatus"></iLabel>
+
+                    </DataTemplate>
+                </ng-template>
+                </kendo-grid-column>
+
+                <kendo-grid-column 
+                 field="SupplyInstructions"
+                 [title]="oMedicationRequest.cmdSupplyInstructionsComments_Text" 
+                 [width]="75"
+                 [editable]=false  
+                >
+                <ng-template kendoGridHeaderTemplate>
+                    <span kendoTooltip title="{{oMedicationRequest.cmdSupplyInstructionsComments_Text}}">
+                        {{oMedicationRequest.cmdSupplyInstructionsComments_Text}}
+                    </span>
+                </ng-template>
+                <ng-template 
+                 kendoGridCellTemplate 
+                 let-dataItem 
+                 let-rowIndex="rowIndex"
+                 let-columnIndex="columnIndex"
+                >
+                <DataTemplate 
+                    #medRequestDataTemplate 
+                    [dataItem]="dataItem"
+                    [index]="rowIndex"
+                    [colindex]="columnIndex" 
+                    [gridHelper]="grdRequestMedication">
+                    <iLabel #lblSupplyInstructionsTempRef Name="lblSupplyInstructions" Mandatory="False" class="lblLineBreak"
+                        HorizontalAlignment="Stretch" Margin="0" IsWordwrap="True" Width="Auto"
+                        VerticalAlignment="Center" [(Text)]="dataItem.SupplyInstructionComments"
+                        [Tooltip]="dataItem.SupplyInstructionComments">
+                    </iLabel>
+                </DataTemplate>
+            </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column 
+             field="DCLastDispensing" 
+             [width]="50" 
+             [editable]=false 
+            >
+            <ng-template kendoGridHeaderTemplate>
+                <span kendoTooltip title="{{oMedicationRequest.cmdLastDispensing_Text}}">
+                    {{oMedicationRequest.cmdLastDispensing_Text}}
+                </span>
+            </ng-template>
+                <ng-template 
+                 kendoGridCellTemplate 
+                 let-dataItem 
+                 let-rowIndex="rowIndex"
+                 let-columnIndex="columnIndex"
+                >
+                    <DataTemplate 
+                     #medRequestDataTemplate 
+                     [dataItem]="dataItem" 
+                     [index]="rowIndex"
+                     [colindex]="columnIndex" 
+                     [gridHelper]="grdRequestMedication"
+                    >
+                    <kendo-gridlayout class="grid-layout-container" GridLayout>
+                        <iLabel #lblLastDispensingLinkTempRef HorizontalAlignment="Stretch"
+                            Name="lblLastDispensingLink" VerticalAlignment="Center"
+                            Text="oMedicationRequest.cmdLastDispensing_LinkText"
+                            Tooltip="oMedicationRequest.cmdLastDispensing_LinkText"
+                            TextDecorations="underline" Cursor="Hand"
+                            [MouseLeftButtonUp]="Rx_MouseLeftButtonUp_Func" IsWordwrap="True"
+                            Foreground="#0000C8"
+                            [(Visibility)]="dataItem.IsLastDispensingLinklblVisibility">
+                        </iLabel>
+                        <iLabel #lblLastDispensingTempRef Name="lblLastDispensing" Mandatory="False"
+                            HorizontalAlignment="Stretch" Margin="0" IsWordwrap="True" Width="Auto"
+                            VerticalAlignment="Center" [(Text)]="dataItem.LastDispensingText">
+                        </iLabel>
+                    </kendo-gridlayout>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column 
+             field="CancelRequest" 
+             [width]="50" [editable]=false 
+            >
+                <ng-template kendoGridHeaderTemplate>
+                    <span kendoTooltip title="{{oMedicationRequest.cmdCancelRequest_Text}}">
+                        {{oMedicationRequest.cmdCancelRequest_Text}}
+                    </span>
+                </ng-template>
+                <ng-template 
+                kendoGridCellTemplate 
+                let-dataItem 
+                let-rowIndex="rowIndex"
+                let-columnIndex="columnIndex">
+                    <ControlTemplate TargetType="telerikGridView:GridViewCell">
+                        <DataTemplate #medRequestDataTemplate [dataItem]="dataItem" [index]="rowIndex"
+                            [colindex]="columnIndex" [gridHelper]="grdRequestMedication">
+                            <!-- <Border Padding="5,0,5,0" BorderThickness="0,0,0,0" BorderBrush="#7EA9D4"> -->
+                            <StackPanel #spCancelRequestTempRef Name="spCancelRequest"
+                                Orientation="Horizontal" HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                                <iCheckBox #chkCancelRequestTempRef Name="chkCancelRequest" FontSize="16"
+                                    IsReadOnly="False" FontWeight="ExtraBold" FontStretch="Normal"
+                                    Foreground="Blue" Width="Auto" HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    [Tooltip]="oMedicationRequest.cmdCancelRequest_Tooltip"
+                                    [(IsChecked)]="dataItem.IsCancelReqChecked">
+                                </iCheckBox>
+                            </StackPanel>
+                            <!-- </Border> -->
+                        </DataTemplate>
+                    </ControlTemplate>
+                </ng-template>
+            </kendo-grid-column>
+
+                <ng-template
+                [kendoGridDetailTemplateShowIf]="displayHierarchicalBtn"
+                kendoGridDetailTemplate
+                let-dataItemChild="dataItem"
+                let-parentRowIndex="rowIndex"
+                >
+                <kendo-grid
+                    #grdReqMedMCIChldTempRef
+                    [GridProperties]="dataItemChild.ChildGridExtension"
+                    [ChildCollectionProp]="'ReqMedPresItemsList'"
+                    [ParentRow]="dataItemChild"
+                    [data]="dataItemChild.ReqMedPresItemsList.array"
+                    class="vertical-class-stretch grdReqMedMCIChld"
+                    (cellClick)="dataItemChild.ChildGridExtension.cellClick($event)"
+                    kendoGridSelectBy
+                    [(selectedKeys)]="dataItemChild.ChildGridExtension.selectedRowsIndex"
+                    [selectable]="{ checkboxOnly: false, mode: 'single' }"
+                    (selectionChange)="dataItemChild.ChildGridExtension.selectionChange($event)"
+                >
+                        <kendo-grid-column 
+                         class="HorizontalTextAlignCenter" 
+                         title=""
+                         field="rowindicator" 
+                         UniqueName="rowindicator" 
+                         [width]="15"  
+                        >
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+                            <Image 
+                             *ngIf="dataItemChild.ChildGridExtension.selectedRowsIndex.length > 0 ? dataItemChild.ChildGridExtension.selectedRowsIndex == rowIndex : false"
+                             Source="./assets/images/iarrownor5x10.png"></Image>
+                        </ng-template>
+                        </kendo-grid-column>
+
+                        <kendo-grid-column 
+                            field="Status" 
+                            [filterable]="false" 
+                            [editable]=false 
+                            [width]="40"
+                        >
+                            <ng-template kendoGridHeaderTemplate>
+                                <span kendoTooltip title="{{oMedicationRequest.cmdStatus_Text}}">
+                                    {{oMedicationRequest.cmdStatus_Text}}
+                                </span>
+                            </ng-template>
+                            <ng-template 
+                                kendoGridCellTemplate 
+                                let-dataItem 
+                                let-rowIndex="rowIndex" 
+                                let-columnIndex="columnIndex"
+                            >
+                                <DataTemplate 
+                                #grdReqMedMCIChldDTTempRef 
+                                [dataItem]="dataItem" 
+                                [index]="rowIndex" 
+                                [colindex]="columnIndex"
+                                [gridHelper]="dataItemChild.ChildGridExtension"
+                                [ParentRowIndex]="parentRowIndex"
+                                >
+                                    <ContentPresenter [Content]="dataItem | StatusIconKey : '' : 40">
+                                    </ContentPresenter>
+                                </DataTemplate>
+                            </ng-template>
+                        </kendo-grid-column>
+
+                        <kendo-grid-column 
+                         UniqueName="ComponentName" 
+                         field="ComponentName" 
+                         [width]="350"
+                         [filterable]="false" 
+                         [editable]="false" 
+                         [sortable]="false" 
+                         [resizable]="false"
+                         TextWrapping="Wrap" 
+                        >
+                            <ng-template 
+                            kendoGridHeaderTemplate>
+                            <span kendoTooltip title="{{oMedicationRequest.cmdComponentName_Text}}">
+                                {{oMedicationRequest.cmdComponentName_Text}}
+                            </span>
+                            </ng-template>
+                            <ng-template 
+                                kendoGridCellTemplate 
+                                let-dataItem 
+                                let-rowIndex="rowIndex"
+                                let-columnIndex="columnIndex"
+                            >
+                            <DataTemplate 
+                             #grdReqMedMCIChldDTTempRef 
+                             [dataItem]="dataItem" 
+                             [index]="rowIndex"
+                             [colindex]="columnIndex" 
+                             (RowLoaded)="grdReqMedMCIChldRowLoaded($event, dataItemChild)"
+                             [gridHelper]="dataItemChild.ChildGridExtension"
+                             [ParentRowIndex]="parentRowIndex"
+                            >
+                            <ContentPresenter [Content]="dataItem | MedMCItemDisplay : '' : 220">
+                            </ContentPresenter>
+                            </DataTemplate>
+                        </ng-template>
+                        </kendo-grid-column>
+
+                        <kendo-grid-column 
+                            UniqueName="ReqChk" 
+                            field="ReqChk" 
+                            [width]="20" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            [filterable]="false"
+                            [editable]=false 
+                            [sortable]="false" 
+                            [resizable]="false"
+                        >
+                        <ng-template kendoGridHeaderTemplate>
+                            <ControlTemplate TargetType="telerikGridView:GridViewHeaderCell">
+                                <DataTemplate>
+                                    <GridBorder #ControlTemplateBordrerStyle Padding="0" Margin="0"
+                                        BorderThickness="0,0,1,1" BorderBrush="#7BB0AF" columnName="Reorder">
+                                        <Image Source="./assets/images/supply flag_nor16.png" Width="15" Height="15"
+                                            [Tooltip]="oMedicationRequest.cmdRequestsupply_Text">
+                                        </Image>
+                                    </GridBorder>
+                                </DataTemplate>
+                            </ControlTemplate>
+                        </ng-template>
+                        <ng-template 
+                         kendoGridCellTemplate 
+                         let-dataItem 
+                         let-rowIndex="rowIndex"
+                         let-columnIndex="columnIndex"
+                        >
+                            <CellStyle #CellTemplateStyle Property="fontWeight" Value="bold">
+                                <ControlTemplate TargetType="telerikGridView:GridViewCell">
+                                    <DataTemplate 
+                                       #grdReqMedMCIChldDTTempRef 
+                                        [dataItem]="dataItem" 
+                                        [index]="rowIndex"
+                                        [colindex]="columnIndex" 
+                                        [gridHelper]="dataItemChild.ChildGridExtension"
+                                        [ParentRowIndex]="parentRowIndex">
+                                        <!-- <Border Padding="5,0,5,0" BorderThickness="0,0,0,0" BorderBrush="#7EA9D4"> -->
+                                        <StackPanel #UrgencyLevelTempRef Name="UrgencyLevel"
+                                            Orientation="Horizontal" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                            <iCheckBox #chkUrgencyLevelTempRef Name="chkUrgencyLevel"
+                                                [GridRowIndex]="rowIndex"
+                                                [GridParentRowIndex]="parentRowIndex"
+                                                id="chkUrgencyLevel" FontSize="16" IsReadOnly="False"
+                                                FontWeight="ExtraBold" FontStretch="Normal" Foreground="Blue"
+                                                Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                [Tooltip]="oMedicationRequest.cmdChecktorequestsupply_Tooltip"
+                                                [(IsChecked)]="dataItem.IsUrgencyChecked"
+                                                [OnChange]="chkUrgencyLevel_OnChangeChild_Func">
+                                            </iCheckBox>
+                                        </StackPanel>
+                                        <!-- </Border> -->
+                                    </DataTemplate>
+
+                                </ControlTemplate>
+                            </CellStyle>
+                        </ng-template>
+                        </kendo-grid-column>
+
+                        <kendo-grid-column 
+                            field="Urgency" 
+                            [width]="48" 
+                            filterbale="false" 
+                            [resizable]="true"
+                            [editable]="false" 
+                        >
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip title="{{oMedicationRequest.cmdUrgency_Text}}">
+                                {{oMedicationRequest.cmdUrgency_Text}}
+                            </span>
+                        </ng-template>
+                        <ng-template 
+                            kendoGridCellTemplate 
+                            let-dataItem 
+                            let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate 
+                                #grdReqMedMCIChldDTTempRef 
+                                [dataItem]="dataItem" 
+                                [index]="rowIndex"
+                                [colindex]="columnIndex" 
+                                [gridHelper]="dataItemChild.ChildGridExtension"
+                                [ParentRowIndex]="parentRowIndex"
+                            >
+
+                                <GridCellTemplate 
+                                    [EditableControlRef]="cboUrgencyTempRef" 
+                                    [columnNumber]="columnIndex" 
+                                    [isEditable]="true" 
+                                    [cell]="'cell4'"
+                                    [dataItem]="dataItem"
+                                    [RowIndex]="rowIndex" 
+                                    [GridHelper]="dataItemChild.ChildGridExtension"
+                                    (emitEditableClick)="RowSelectionChanged($event, dataItemChild)"
+                                >
+                                    <StackPanel #stkUrgencyTempRef Name="stkUrgency" Orientation="Horizontal">
+                                        <iLabel #lblReasonTempRef HorizontalAlignment="Stretch" Name="lblReason"
+                                            [(Tooltip)]="dataItem.UrgencyLevelToolTip" VerticalAlignment="Center"
+                                            [(Text)]="dataItem.UrgencyLevel.DisplayText"></iLabel>
+                                    </StackPanel>
+                                </GridCellTemplate>
+
+                                <GridCellEditTemplate 
+                                 [cell]="'cell4'" 
+                                 [dataItem]="dataItem"
+                                >
+                                <iComboBox 
+                                  #cboUrgencyTempRef 
+                                  HorizontalAlignment="Stretch" 
+                                  Name="cboUrgency"
+                                  VerticalAlignment="Center" 
+                                  ColumnCellIndex="cell4" 
+                                  [DataContext]="dataItem"
+                                  [(ItemsSource)]="dataItem.UrgencyLevelcombo"
+                                  [(SelectedValue)]="dataItem.UrgencyLevel" 
+                                  Width="auto"
+                                  IsDropDownOpen="False" 
+                                  [isGlobalEnabled]="IsEnabled">
+                                </iComboBox>
+                                </GridCellEditTemplate>
+                            </DataTemplate>
+                        </ng-template>
+                        </kendo-grid-column>
+
+                        <kendo-grid-column 
+                            field="Requestcomments" 
+                            [width]="49" 
+                            filterbale="false" 
+                            [editable]="true"
+                            [resizable]="false" 
+                            IsWordWrap="True" 
+                            class="Requestcomments"
+                        >
+                            <ng-template kendoGridHeaderTemplate>
+                                <span kendoTooltip title="{{oMedicationRequest.cmdRequestComments_Text}}">
+                                    {{oMedicationRequest.cmdRequestComments_Text}}
+                                </span>
+                            </ng-template>
+                            <ng-template 
+                            kendoGridCellTemplate 
+                                let-dataItem 
+                                let-rowIndex="rowIndex" 
+                                let-columnIndex="columnIndex"
+                            >
+                                <DataTemplate #grdReqMedMCIChldDTTempRef 
+                                    [dataItem]="dataItem" 
+                                    [index]="rowIndex" 
+                                    [colindex]="columnIndex"
+                                    [gridHelper]="dataItemChild.ChildGridExtension"
+                                    [ParentRowIndex]="parentRowIndex"
+                                >
+                                    <GridCellTemplate 
+                                        [EditableControlRef]="txtRequestCommentsTempRef" 
+                                        [columnNumber]="columnIndex" 
+                                        [cell]="'cell5'"
+                                        [isEditable]="true"
+                                        [dataItem]="dataItem"
+                                        [RowIndex]="rowIndex" 
+                                        [GridHelper]="dataItemChild.ChildGridExtension"
+                                        (emitEditableClick)="RowSelectionChanged($event, dataItemChild)"
+                                    >
+                                        <iLabel #lblRequestcommentsTempRef 
+                                            HorizontalAlignment="Stretch"
+                                            Margin="0" 
+                                            IsWordwrap="True" 
+                                            Width="Auto"
+                                            VerticalAlignment="Center" 
+                                            Name="lblRequestcomments" 
+                                            [(Text)]="dataItem.RequestComments"
+                                            [(Tooltip)]="dataItem.RequestCommentsToolTip"
+                                        ></iLabel>
+                                    </GridCellTemplate>
+                                </DataTemplate>
+                                <GridCellEditTemplate 
+                                    [cell]="'cell5'" 
+                                    [dataItem]="dataItem">
+                                    <iTextBox #txtRequestCommentsTempRef 
+                                        AcceptsReturn="True" TextWrapping="Wrap" Margin="5,5" MaxLength="256"
+                                        Name="txtRequestComments" VerticalAlignment="Center" Width="auto" Height="35" ColumnCellIndex="cell5"
+                                        [DataContext]="dataItem" [(Text)]="dataItem.RequestComments" [isGlobalEnabled]="IsEnabled"
+                                        [Tooltip]="dataItem.RequestCommentsToolTip" IsDelayBlurForGrid="True"></iTextBox>
+                                </GridCellEditTemplate>
+                            </ng-template>
+                        </kendo-grid-column>
+
+                        <kendo-grid-column 
+                            field="Lastrequestedby" 
+                            filterbale="false" 
+                            [resizable]="true"
+                            [editable]="false" 
+                            [width]="42"
+                        >
+                            <ng-template kendoGridHeaderTemplate>
+                                <span kendoTooltip title="{{oMedicationRequest.cmdLastrequestedby_Text}}">
+                                    {{oMedicationRequest.cmdLastrequestedby_Text}}
+                                </span>
+                            </ng-template>
+                            <ng-template kendoGridCellTemplate 
+                                let-dataItem 
+                                let-rowIndex="rowIndex"
+                                let-columnIndex="columnIndex">
+                                <DataTemplate #grdReqMedMCIChldDTTempRef 
+                                    [dataItem]="dataItem" 
+                                    [index]="rowIndex"
+                                    [colindex]="columnIndex" 
+                                    [gridHelper]="dataItemChild.ChildGridExtension"
+                                    [ParentRowIndex]="parentRowIndex"
+                                >
+                                    <iLabel #lblRequestedbyTempRef Name="lblRequestedby" Mandatory="False" Margin="0"
+                                        ScrollViewer.VerticalScrollBarVisibility="Auto" IsWordwrap="True" Width="Auto"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Center" [(Text)]="dataItem.LastRequestedByText"
+                                        [Tooltip]="dataItem.LastRequestedByText"></iLabel>
+                                </DataTemplate>
+                            </ng-template>
+                        </kendo-grid-column>
+
+                        <kendo-grid-column 
+                            field="LastTechnicallyValidatedby" 
+                            [width]="45" 
+                            IsWordWrap="True"
+                            [editable]=false >
+                            <ng-template kendoGridHeaderTemplate>
+                                <span kendoTooltip title="{{oMedicationRequest.cmdLasttechnicallyvalidatedby_Text}}">
+                                    {{oMedicationRequest.cmdLasttechnicallyvalidatedby_Text}}
+                                </span>
+                            </ng-template>
+                            <ng-template kendoGridCellTemplate 
+                                let-dataItem 
+                                let-rowIndex="rowIndex"
+                                let-columnIndex="columnIndex"
+                            >
+                                <DataTemplate #grdReqMedMCIChldDTTempRef 
+                                    [dataItem]="dataItem" 
+                                    [index]="rowIndex"
+                                    [colindex]="columnIndex" 
+                                    [gridHelper]="dataItemChild.ChildGridExtension"
+                                    [ParentRowIndex]="parentRowIndex"
+                                >
+                                    <iLabel #lblLastTechnicallyValidatedbyTempRef Name="lblLastTechnicallyValidatedby"
+                                        Mandatory="False" HorizontalAlignment="Stretch" Margin="0" IsWordwrap="True"
+                                        Width="Auto" VerticalAlignment="Center" [(Text)]="dataItem.LastTVByText"
+                                        [Tooltip]="dataItem.LastTVByText">
+                                    </iLabel>
+                                </DataTemplate>
+                            </ng-template>
+                        </kendo-grid-column>
+
+                        <kendo-grid-column 
+                            field="Supplystatus" 
+                            [title]="oMedicationRequest.cmdSupplystatus_Text"
+                            [width]="40" 
+                            [editable]=false  
+                        >
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip title="{{oMedicationRequest.cmdSupplystatus_Text}}">
+                                {{oMedicationRequest.cmdSupplystatus_Text}}
+                            </span>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate 
+                            let-dataItem 
+                            let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex"
+                        >
+                            <DataTemplate #grdReqMedMCIChldDTTempRef 
+                                [dataItem]="dataItem" 
+                                [index]="rowIndex"
+                                [colindex]="columnIndex" 
+                                [gridHelper]="dataItemChild.ChildGridExtension"
+                                [ParentRowIndex]="parentRowIndex"
+                            >
+                                <iLabel #lblSupplystatusTempRef 
+                                    Name="lblSupplystatus" 
+                                    Mandatory="False"
+                                    HorizontalAlignment="Stretch" 
+                                    Margin="0" 
+                                    IsWordwrap="True" 
+                                    Width="Auto"
+                                    VerticalAlignment="Center"
+                                    [(Text)]="dataItem.SupplyStatus"
+                                    [Tooltip]="dataItem.SupplyStatus"
+                                ></iLabel>
+
+                            </DataTemplate>
+                        </ng-template>
+                        </kendo-grid-column>
+
+                        <kendo-grid-column 
+                            field="SupplyInstructions"
+                            [title]="oMedicationRequest.cmdSupplyInstructionsComments_Text" 
+                            [width]="75"
+                            [editable]=false  
+                        >
+                            <ng-template kendoGridHeaderTemplate>
+                                <span kendoTooltip title="{{oMedicationRequest.cmdSupplyInstructionsComments_Text}}">
+                                    {{oMedicationRequest.cmdSupplyInstructionsComments_Text}}
+                                </span>
+                            </ng-template>
+                            <ng-template kendoGridCellTemplate 
+                                let-dataItem 
+                                let-rowIndex="rowIndex"
+                                let-columnIndex="columnIndex"
+                            >
+                                <DataTemplate #grdReqMedMCIChldDTTempRef 
+                                    [dataItem]="dataItem" 
+                                    [index]="rowIndex"
+                                    [colindex]="columnIndex" 
+                                    [gridHelper]="dataItemChild.ChildGridExtension"
+                                    [ParentRowIndex]="parentRowIndex"
+                                >
+                                    <iLabel #lblSupplyInstructionsTempRef 
+                                        Name="lblSupplyInstructions" 
+                                        Mandatory="False" 
+                                        class="lblLineBreak"
+                                        HorizontalAlignment="Stretch" 
+                                        Margin="0" 
+                                        IsWordwrap="True" 
+                                        Width="Auto"
+                                        VerticalAlignment="Center" 
+                                        [(Text)]="dataItem.SupplyInstructionComments"
+                                        [Tooltip]="dataItem.SupplyInstructionComments">
+                                    </iLabel>
+                                </DataTemplate>
+                            </ng-template>
+                        </kendo-grid-column>
+
+                        <kendo-grid-column 
+                            field="DCLastDispensing" 
+                            [width]="50" 
+                            [editable]=false 
+                        >
+                            <ng-template kendoGridHeaderTemplate>
+                                <span kendoTooltip title="{{oMedicationRequest.cmdLastDispensing_Text}}">
+                                    {{oMedicationRequest.cmdLastDispensing_Text}}
+                                </span>
+                            </ng-template>
+                            <ng-template kendoGridCellTemplate 
+                                let-dataItem 
+                                let-rowIndex="rowIndex"
+                                let-columnIndex="columnIndex">
+                                <DataTemplate #grdReqMedMCIChldDTTempRef 
+                                [dataItem]="dataItem" 
+                                [index]="rowIndex"
+                                [colindex]="columnIndex" 
+                                [gridHelper]="dataItemChild.ChildGridExtension"
+                                [ParentRowIndex]="parentRowIndex"
+                                >
+                                    <kendo-gridlayout class="grid-layout-container" GridLayout>
+                                        <iLabel #lblLastDispensingLinkTempRef HorizontalAlignment="Stretch"
+                                            Name="lblLastDispensingLink" VerticalAlignment="Center"
+                                            Text="oMedicationRequest.cmdLastDispensing_LinkText"
+                                            Tooltip="oMedicationRequest.cmdLastDispensing_LinkText"
+                                            TextDecorations="underline" Cursor="Hand"
+                                            MouseLeftButtonUp="Rx_MouseLeftButtonUp" IsWordwrap="True"
+                                            Foreground="#0000C8"
+                                            [(Visibility)]="dataItem.IsLastDispensingLinklblVisibility">
+                                        </iLabel>
+                                        <iLabel #lblLastDispensingTempRef Name="lblLastDispensing" Mandatory="False"
+                                            HorizontalAlignment="Stretch" Margin="0" IsWordwrap="True" Width="Auto"
+                                            VerticalAlignment="Center" [(Text)]="dataItem.LastDispensingText">
+                                        </iLabel>
+                                    </kendo-gridlayout>
+                                </DataTemplate>
+                            </ng-template>
+                        </kendo-grid-column>
+
+                        <kendo-grid-column 
+                        field="CancelRequest" 
+                        [width]="50" 
+                        [editable]=false 
+                        >
+                            <ng-template kendoGridHeaderTemplate>
+                                <span kendoTooltip title="{{oMedicationRequest.cmdCancelRequest_Text}}">
+                                    {{oMedicationRequest.cmdCancelRequest_Text}}
+                                </span>
+                            </ng-template>
+                            <ng-template kendoGridCellTemplate 
+                                let-dataItem 
+                                let-rowIndex="rowIndex"
+                                let-columnIndex="columnIndex">
+                                <ControlTemplate TargetType="telerikGridView:GridViewCell">
+                                    <DataTemplate #grdReqMedMCIChldDTTempRef 
+                                        [dataItem]="dataItem" 
+                                        [index]="rowIndex"
+                                        [colindex]="columnIndex" 
+                                        [gridHelper]="dataItemChild.ChildGridExtension"
+                                        [ParentRowIndex]="parentRowIndex"
+                                        >
+                                        <!-- <Border Padding="5,0,5,0" BorderThickness="0,0,0,0" BorderBrush="#7EA9D4"> -->
+                                        <StackPanel #spCancelRequestTempRef Name="spCancelRequest"
+                                            Orientation="Horizontal" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                            <iCheckBox #chkCancelRequestTempRef 
+                                                Name="chkCancelRequest" FontSize="16"
+                                                IsReadOnly="False" FontWeight="ExtraBold" FontStretch="Normal"
+                                                Foreground="Blue" Width="Auto" HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                [Tooltip]="oMedicationRequest.cmdCancelRequest_Tooltip"
+                                                [(IsChecked)]="dataItem.IsCancelReqChecked">
+                                            </iCheckBox>
+                                        </StackPanel>
+                                        <!-- </Border> -->
+                                    </DataTemplate>
+                                </ControlTemplate>
+                            </ng-template>
+                        </kendo-grid-column>
+                        
+                </kendo-grid>
+                </ng-template>
+            </kendo-grid>
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

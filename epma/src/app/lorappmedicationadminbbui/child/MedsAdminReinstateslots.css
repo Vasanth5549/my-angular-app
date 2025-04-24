@@ -1,0 +1,22 @@
+:host ::ng-deep.textAreaHeight .k-input-inner{
+    height: 80px !important; 
+  }
+
+.borderbrdSTA{
+  margin: 15px 0px 3px 2px !important;
+  padding: 3px 3px 5px 3px !important;
+}
+
+.checkboxcontainer{
+  margin-top: 5px !important;
+  white-space: nowrap;
+}
+
+.layoutMargin{
+  margin: -5px !important;
+}
+
+.lblBorderMargin{
+  margin: 5px 5px 5px 6px !important;
+}
+

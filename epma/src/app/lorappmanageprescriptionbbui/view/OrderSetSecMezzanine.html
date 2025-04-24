@@ -1,0 +1,427 @@
+<div>
+    <kendo-gridlayout ##LayoutRootTempRef [Name]="LayoutRoot" [Background]="Styles.LzoPageBG" VerticalAlignment="Stretch" [ngClass]="ordersetLayout ?'ordersetMezzanineLayout' : 'ordersetMezzanineLayout1' "
+        HorizontalAlignment="Stretch" [rows]="[{height: 'auto', minheight: 50}, {height: '0.34fr'}, {height: 'auto'}]">
+        <kendo-gridlayout-item [row]="1" [col]="1" id="Guidancetext" class="ordersetDetails">
+
+            <kendo-gridlayout [rows]="[{height: 'auto'}, {height: '0.25fr'}]">
+
+                <Border class="BorderSytle" [Background]="Styles.InnerBG" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                    Margin="10,5" BorderBrush="Black" BorderThickness="1" [row]='1' [col]='1' [rowSpan]='3'></Border>
+
+                <kendo-gridlayout-item [row]='1' [col]='1'>
+                    <div containerStyle>
+                        <!-- <iLabel #lblGuidanceTextTempRef HorizontalAlignment="Left" Name="lblGuidanceText"
+                            VerticalAlignment="Center" Margin="10,5" Width="auto" [Text]="DataContext.DisplayGuidance"
+                            IsWordwrap="True" MinHeight="25"></iLabel> -->
+                        <pre #lblGuidanceTextTempRef Name="lblGuidanceText" class="DisplayGuidanceStyle">{{DataContext.DisplayGuidance}}</pre>
+
+                    </div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [row]='2' [col]='1'>
+                    <div containerStyle>
+                        <iLabel #lblGuidanceHyperlinkTempRef IsWordwrap="True" HorizontalAlignment="Left" Margin="10,5"
+                            Name="lblGuidanceHyperlink" VerticalAlignment="Bottom" Mandatory="False"
+                            [Text]="resKey.GuidanceLink_Text" Cursor="Hand"
+                            (MouseLeftButtonUp_Func)="lblGuidanceHyperlink_MouseLeftButtonUp({}, $event)" TextDecorations="Underline"
+                            Foreground="Blue" Visibility="Collapsed"></iLabel>
+                    </div>
+                </kendo-gridlayout-item>
+
+            </kendo-gridlayout>
+
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item [class.drcrow-extend]="!DRCCheckBox?.Visibility" [row]="2" [col]="1" id="DRCCheck">
+
+            <kendo-gridlayout Name="DRCDisableRow" [rows]="[{height: '50'}, {height: '21'}]"
+                [cols]="[{width: '20'}, {width: '1fr'}]">
+
+                <kendo-gridlayout-item [row]='1' [col]='1'>
+                    <div containerStyle>
+                        <iCheckBox #DRCCheckBoxTempRef Name="DRCCheckBox" [Tooltip]="resKey.DisableDRC_ToolTip"
+                            HorizontalAlignment="Left" Margin="5,5,0,5" (OnChange_Func)="iCheckBox_OnChange({}, $event)">
+                        </iCheckBox>
+                    </div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [row]='1' [col]='2' style="width: 170px;">
+                    <div containerStyle style="margin-left: 8px;">
+                        <StackPanel Background="#486f70" HorizontalAlignment="Left"
+                            Orientation="Vertical">
+                            <!-- <kendo-gridlayout-item [row]='1' [col]='2'> -->
+                            <div containerStyle>
+                                <iLabel #DisableDRCTempRef HorizontalAlignment="Left" Name="DisableDRC"
+                                    VerticalAlignment="Center" Margin="2,5,0,5" [Text]="resKey.DisableDRC_Text"
+                                    FontWeight="Bold" Foreground="White"></iLabel>
+                            </div>
+                            <!-- </kendo-gridlayout-item> -->
+                        </StackPanel>
+                    </div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [row]='1' [col]='2'>
+                    <div [class.drcrow-visibile]="!DRCCheckBox?.Visibility">
+                        <iLabel class="disable_drc_message" #DisableDRCWarningTempRef HorizontalAlignment="Left" Name="DisableDRCWarning"
+                            Visibility="Collapsed" VerticalAlignment="Center" Margin="185,10,0,0"
+                            [Text]="resKey.DisableDRC_Warning" IsWordwrap="True" Height="40" Foreground="Red"
+                            FontWeight="Bold"></iLabel>
+                    </div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [row]='2' [col]='1' [colSpan]='3'>
+                    <div containerStyle>
+                        <iLabel #lblSelectTextTempRef HorizontalAlignment="Left" Name="lblSelectText"
+                            VerticalAlignment="Center" Margin="10,6,0,0" [Text]="resKey.SelectText_Message" Height="16">
+                        </iLabel>
+                    </div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [row]='2' [col]='2'>
+                    <div containerStyle>
+                        <iLabel #lblSetDateTimeTempRef HorizontalAlignment="Left" Name="lblSetDateTime"
+                            Margin="654,0,0,0" VerticalAlignment="Center" [Text]="resKey.SetDateTime_Text" Height="16">
+                        </iLabel>
+                    </div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [row]='2' [col]='2'>
+                    <div containerStyle>
+                        <StackPanel [Background]="Styles.InnerBG" HorizontalAlignment="Left" Margin="761,0,0,0"
+                            VerticalAlignment="Center" Orientation="Horizontal" Width="100">
+                            <iDateTimePicker #dtpSetDateTimeTempRef Name="dtpSetDateTime" HorizontalAlignment="Center"
+                                Margin="8,0,0,0" VerticalAlignment="Center" Width="99px" DatePickerMode="DATEPICKER"
+                                [Tooltip]="resKey.SetDateTime_Text" Height="21" DateTimeFormat="Custom"
+                                CustomFormat="dd/MM/yyyy" EnableCultureSupport="False"
+                                class="datetimepickerposition"
+                                [(SelectedDateTime)]="DataContext.StartDateTime" IsConstrainEntry="True"
+                                [RangeStartDate]="DataContext.RangeStartDTTM" [RangeEndDate]="DataContext.RangeEndDTTM"
+                                [(IsEnabled)]="DataContext.IsTopControlsEnabled" TabIndex="1"></iDateTimePicker>
+                        </StackPanel>
+                    </div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [row]='2' [col]='2'>
+                    <div containerStyle>
+                        <StackPanel [Background]="Styles.InnerBG" Margin="861,0,0,0" HorizontalAlignment="Left"
+                            VerticalAlignment="Center" Orientation="Horizontal" Width="75">
+                            <iTimeBox #iTimeStartDateTimeTempRef Name="iTimeStartDateTime" EnableDST="False"
+                                TimeFormat="hhMM" IsEditable="True" HorizontalAlignment="Left" Width="Auto" Height="21"
+                                [Tooltip]="resKey.SetDateTime_Text" VerticalAlignment="Center"
+                                [(Value)]="DataContext.StartPrescriptionTime"
+                                [(IsEnabled)]="DataContext.IsTopControlsEnabled" TabIndex="2"></iTimeBox>
+                        </StackPanel>
+                    </div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [row]='2' [col]='2'>
+                    <div containerStyle>
+                        <iButton #btnApplyTempRef Name="btnApply" Margin="932,7,0,0" FontStretch="Normal" FontSize="11"
+                            Cursor="Hand" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                            Text="Apply" [Background]="Styles.InnerBG" Foreground="#0000C8" FontWeight="Normal"
+                            Visibility="Visible" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23"
+                            [Tooltip]="resKey.btnApply_Tooltip" Width="60" (Click_Func)="btnApply_Click({}, $event)"
+                            [(IsEnabled)]="DataContext.IsTopControlsEnabled" TabIndex="3" class="BackGrdColor"></iButton>
+                    </div>
+                </kendo-gridlayout-item>
+
+            </kendo-gridlayout>
+
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item [row]="3" [col]="1" style="padding-bottom: 10px;">
+
+            <!-- EnableColumnVirtualization="False" AutoGenerateColumns="False" CanUserFreezeColumns="False" CanUserDeleteRows="False"-->
+            <!-- CanUserInsertRows="False" CanUserCheckRows="True" SelectionUnit="FullRow" -->
+            <!-- RowIndicatorVisibility="Collapsed" TabIndex="4" CanUserSelect="False"-->
+            <!-- ItemsSource="{Binding PrescriptionItemList}" -->
+            <!-- (selectionChange)="grdPatientSelect.GridSelectionChange({}, $event)" -->
+            <kendo-grid #grdPatientSelectTempRef [GridColumnProperties]="grdPatientSelect" 
+                [selectable]="{checkboxOnly: true, mode: 'multiple'}" kendoGridSelectBy
+                [(selectedKeys)]="grdPatientSelect.selectedRowsIndex" VerticalContentAlignment="Stretch"
+                HorizontalContentAlignment="Stretch" [filterable]="false" [sortable]="false" [resizable]="false"
+                Margin="10" [reorderable]="false" [data]="grdPatientSelect.ItemsSource.array" [navigable]="false"
+                Width="Auto" [height]="DynamicHeight" [ScrollBarViewer]="{horizontal:'Disabled'}" [rowClass]="rowCallback" class="ordersetDetails"
+                (selectionChange)="grdPatientSelect.selectionChange($event)">
+
+                <ng-template kendoGridNoRecordsTemplate>{{ DataContext.NoDataMessage }}
+                </ng-template>
+
+                <kendo-grid-checkbox-column [style]="{ 'text-align': 'center' }" [width]="25" Name="CheckBoxColumn">
+                    <ng-template kendoGridHeaderTemplate let-dataItem let-rowIndex="rowIndex">
+                        <iCheckBox #chkGridHeaderSelectionRef Name="chkGridSelections" [IsEnabled]="IsORSEditable" [GridRowIndex]="rowIndex" (change)="GridHeaderCheckboxChange_Func($event, {})"
+                        [(IsChecked)]="isSelectAll"> 
+                        </iCheckBox>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdPatientSelect">
+                            <!-- [IsReadOnly]="IsORSEditable" -->
+                            <iCheckBox #chkGridSelectionRef Name="chkGridSelection" [kendoGridSelectionCheckbox]="rowIndex" [IsEnabled]="IsORSEditable && !dataItem.PrescrptionItem.OsInstance.OsIsGroupHeader && !dataItem.PrescrptionItem.OsInstance.IsPrescribed"
+                                [IsChecked]="grdPatientSelect.GetSelectedRowsIndex().Length > 0 && grdPatientSelect.GetSelectedRowsIndex().Contains(rowIndex)">
+                            </iCheckBox>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-checkbox-column>
+
+                <!-- Grid.Row="1" Visibility="{Binding Path=PrescrptionItem.OsInstance.OsIsLinkImgVisible, Converter={StaticResource TrueToVisibleConvert}, Mode=OneWay}"-->
+                <kendo-grid-column [GridColumnProperties]="grdPatientSelect" TextWrapping="Wrap"
+                    UniqueName="SequenceLink" [width]="25" [filterable]="false" [resizable]="false">
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdPatientSelect">
+                            <Image Name="SequentialIconlink" Source="~/../assets/Images/sequentialLink.png"
+                                Cursor="Hand" [Tooltip]="resKey.SequenceLink_Tooltip" [style.margin.px]="0"
+                                [Visibility]="dataItem.PrescrptionItem.OsInstance.OsIsLinkImgVisible">
+                            </Image>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+
+                <kendo-grid-column UniqueName="FormularyNoteIcon" [width]="25" [filterable]="false" TextWrapping="Wrap"
+                    [GridColumnProperties]="grdPatientSelect">
+                    <ng-template kendoGridHeaderTemplate>
+                        <ControlTemplate>
+                            <GridBorder #ControlTemplateBordrerStyle Padding="0" Margin="0" BorderThickness="0,0,1,1"
+                                BorderBrush="#7BB0AF">
+                                <Image Source=".~/../assets/Images/iwarninginfonor16.png" Width="16" Height="16"
+                                    Tooltip="Formulary Note" Stretch="None"
+                                    HorizontalAlignment="Center">
+                                </Image>
+                            </GridBorder>
+                        </ControlTemplate>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdPatientSelect">
+                            <Image Name="Formnoticon" Source="~/../assets/Images/iwarninginfonor16.png" Cursor="Hand"
+                                [Tooltip]="dataItem.PrescrptionItem.FormularyNote"
+                                [Visibility]="dataItem.FormularyNoteVisible">
+                            </Image>
+                        </DataTemplate>
+                    </ng-template>
+
+                </kendo-grid-column>
+
+                <kendo-grid-column TextWrapping="Wrap"
+                    UniqueName="PrescriptionItem" [filterable]="false" [resizable]="false" [width]="180">
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip title="{{resKey.PrescriptionItem_Header }}">
+                            {{resKey.PrescriptionItem_Header }}
+                        </span>
+                    </ng-template>
+
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdPatientSelect">
+                            <ContentPresenter
+                                [Content]="dataItem.PrescrptionItem | MedLineDisplay : '' : 'ORDERSETMEZZANINE'">
+                            </ContentPresenter>
+                        </DataTemplate>
+                    </ng-template>
+
+                </kendo-grid-column>
+
+                <kendo-grid-column UniqueName="Otherinformation"
+                    [filterable]="false" [resizable]="false" [width]="145">
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip title="{{resKey.Otherinformation_Header }}">
+                            {{resKey.Otherinformation_Header }}
+                        </span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdPatientSelect" (RowLoaded)="rowLoaded($event)">
+                            <ContentPresenter [Content]="dataItem.PrescrptionItem | MedOtherDisplay : '' : 75">
+                            </ContentPresenter>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+
+                <kendo-grid-column UniqueName="OrderSentenceDesc" TextWrapping="Wrap"
+                    [hidden]="false" [filterable]="false" [resizable]="false"
+                    [width]="202">
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip title="{{resKey.OrderSentenceDesc_Header }}">
+                            {{resKey.OrderSentenceDesc_Header }}
+                        </span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdPatientSelect">
+                            <div *ngIf="!dataItem.PrescrptionItem.OsInstance.OsIsGroupHeader">
+                                <iLabel #lblOrdersentenceDescTempRef Name="lblOrdersentenceDesc" MinHeight="10" MaxHeight="39"
+                                    [Text]="dataItem.PrescrptionItem.FormViewerDetails.BasicDetails.OrderSentenceDesc" IsWordwrap="True" 
+                                    [Tooltip]="dataItem.PrescrptionItem.FormViewerDetails.BasicDetails.OrderSentenceDesc | ToolTipDisplay">
+                                    <!-- <ToolTipService.ToolTip>
+                                        <TextBlock TextWrapping="Wrap"
+                                            [Text]="DataContext.PrescrptionItem.FormViewerDetails.BasicDetails.OrderSentenceDesc"
+                                            MinHeight="10" MaxHeight="172" MinWidth="10" MaxWidth="170"></TextBlock>
+                                    </ToolTipService.ToolTip> -->
+                                </iLabel>
+                            </div>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+
+                <kendo-grid-column [reorderable]="false" UniqueName="TimeAdjust"
+                    [width]="80" TextWrapping="Wrap" [filterable]="false" [hidden]="false" [resizable]="false">
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip title="{{resKey.TimeAdjust_Header}}">
+                            {{resKey.TimeAdjust_Header}}
+                        </span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdPatientSelect">
+                            <CellStyle #CellTemplateStyle Property="Template">
+                                <ControlTemplate>
+                                    <GridBorder #ControlTemplateBordrerStyle Padding="5,0,5,0" Margin="0"
+                                        BorderThickness="0,0,1,1" BorderBrush="#7EA9D4">
+                                        <div *ngIf="!dataItem.PrescrptionItem.OsInstance.OsIsGroupHeader">
+                                            <iCheckBox [(IsEnabled)]="dataItem.IsTimeAdjustEnabledRevd" Width="Auto" class="timeadjustalign"
+                                                HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                [(IsChecked)]="dataItem.IsTimeAdjust"
+                                                [Tooltip]="resKey.chkTimeAdjust_ToolTip">
+                                            </iCheckBox>
+                                        </div>       
+                                    </GridBorder>
+                                </ControlTemplate>
+                            </CellStyle>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+
+                <kendo-grid-column [reorderable]="false" UniqueName="StartDate"
+                    [width]="180" TextWrapping="Wrap" [filterable]="false" [hidden]="false" [resizable]="false">
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip title="{{resKey.StartDateTime_Header}}">
+                            {{resKey.StartDateTime_Header}}
+                        </span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdPatientSelect">
+                            <CellStyle #CellTemplateStyle Property="Template">
+                                <ControlTemplate>
+                                    <GridBorder #ControlTemplateBordrerStyle Padding="0,0,0,0" BorderThickness="0,0,1,1"
+                                        BorderBrush="#7EA9D4">
+                                        <kendo-gridlayout [cols]="[{width: '1.5fr'}, {width: '1fr'}]" *ngIf="!dataItem.PrescrptionItem.OsInstance.OsIsGroupHeader">
+                                            <kendo-gridlayout-item [col]='1' [row]="1">
+                                                <iDateTimePicker #dtpStartDateTempRef HorizontalAlignment="Center"
+                                                    Width="Auto" MinWidth="80" IsConstrainEntry="True"
+                                                    OnDateChange="dtpDate_OnDateChange" VerticalAlignment="Center"
+                                                    DatePickerMode="DATEPICKER" [Tooltip]="resKey.dtpStartDate_Tooltip"
+                                                    Name="dtpStartDate" Margin="0,0,0,0"
+                                                    DateTimeFormat="Custom" CustomFormat="dd/MM/yyyy"
+                                                    EnableCultureSupport="False"
+                                                    [(SelectedDateTime)]="dataItem.StartDTTM"
+                                                    [(RangeStartDate)]="dataItem.PrescrptionItem.FormViewerDetails.BasicDetails.RangeStartDTTM"
+                                                    [(RangeEndDate)]="dataItem.PrescrptionItem.FormViewerDetails.BasicDetails.RangeEndDTTM"
+                                                    [(IsEnabled)]="dataItem.IsTimeAdjust">
+                                                </iDateTimePicker>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [col]='2' [row]="1">
+                                                <div containerStyle>
+                                                    <iTimeBox #iTimeStartDateTimeTempRef Name="iTimeStartDateTime"
+                                                        Width="Auto" LostFocus="iTimeStartTime_LostFocus"
+                                                        Margin="5,0,0,0" TimeFormat="hhMM" EnableDST="False"
+                                                        IsEditable="True" HorizontalAlignment="Stretch"
+                                                        VerticalAlignment="Center"
+                                                        [(Value)]="dataItem.StartPrescriptionTime"
+                                                        [Tooltip]="resKey.dtpStartTime_Tooltip"
+                                                        [(IsEnabled)]="dataItem.IsTimeAdjust" class="TimePickerAlign"></iTimeBox>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                        </kendo-gridlayout>
+                                    </GridBorder>
+                                </ControlTemplate>
+                            </CellStyle>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+
+                <!-- Because this columns has hidden property as true, the rowloaded event is not getting triggered. So it's been commented out -->
+
+                <!-- <kendo-grid-column [title]="resKey.StartTime_Header" [reorderable]="false" UniqueName="StartTime"
+                    TextWrapping="Wrap" [filterable]="false" [hidden]="true" [resizable]="false" [width]="10">
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdPatientSelect">
+                            <CellStyle #CellTemplateStyle Property="Template">
+                                <ControlTemplate>
+                                    <GridBorder #ControlTemplateBordrerStyle Padding="5,3,5,3" BorderThickness="0,0,1,1"
+                                        BorderBrush="#7EA9D4">
+                                    </GridBorder>
+                                </ControlTemplate>
+                            </CellStyle>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column> -->
+
+                <kendo-grid-column UniqueName="OffSet" field="Offset" [width]="80">
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip title="{{resKey.Offset_Header}}">
+                            {{resKey.Offset_Header}}
+                        </span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdPatientSelect">
+                            {{dataItem.Offset}}
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+
+                <kendo-grid-column UniqueName="OpenFrmVewr" [width]="25" [filterable]="false" TextWrapping="Wrap"
+                    [GridColumnProperties]="grdPatientSelect">
+                    <ng-template kendoGridHeaderTemplate>
+                        <ControlTemplate>
+                            <GridBorder #ControlTemplateBordrerStyle Padding="0" Margin="0" BorderThickness="0,0,1,1"
+                                BorderBrush="#7BB0AF">
+                                <Image Source=".~/../assets/Images/pencil_normal.png" Width="20" Height="15"
+                                    [Tooltip]="resKey.Checktoopenformviewer_Tooltip" Stretch="None"
+                                    HorizontalAlignment="Center">
+                                </Image>
+                            </GridBorder>
+                        </ControlTemplate>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdPatientSelect">
+                            <CellStyle #CellTemplateStyle Property="Template">
+                                <ControlTemplate>
+                                    <GridBorder #ControlTemplateBordrerStyle Padding="0" BorderThickness="0,0,1,1"
+                                        BorderBrush="#7EA9D4">
+                                        <!--  (Click_Func)="ChkDoNotOpenFrmVewr_OnChange({}, $event)" -->
+                                        <div *ngIf="!dataItem.PrescrptionItem.OsInstance.OsIsGroupHeader">
+                                            <iCheckBox [(IsEnabled)]="dataItem.IsPresOpenFVEnabled"
+                                            [(Visibility)]="dataItem.IsPresOpenFVVisiblity" Width="Auto"
+                                            [(IsChecked)]="dataItem.IsPresOpenFVChecked" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" [Tooltip]="resKey.Checktoopenformviewer_Tooltip"
+                                            (change)="ChkDoNotOpenFrmVewr_OnChange($event, rowIndex)"></iCheckBox>
+                                        </div>
+                                    </GridBorder>
+                                </ControlTemplate>
+                            </CellStyle>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+
+            </kendo-grid>
+
+        </kendo-gridlayout-item>
+
+    </kendo-gridlayout>
+</div>

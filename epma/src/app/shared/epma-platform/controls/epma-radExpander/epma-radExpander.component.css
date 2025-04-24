@@ -1,0 +1,22 @@
+.dropDown_Btn ::ng-deep .k-expander-indicator {
+    position: absolute;
+    margin-left: 2px;
+}
+.label_other{
+    height: auto !important;
+    padding-left: 25px;
+    padding-top:15px;
+    padding-bottom: 15px;
+}
+.label_other ::ng-deep div:first-child{
+    display: flex !important;
+    align-items: center !important;
+    height: 100%;
+    margin-top:0 !important;
+}
+.label_other ::ng-deep div:first-child span{
+    margin-top:0 !important;
+}
+.label_other ::ng-deep kendo-label{
+    white-space: nowrap !important;
+}

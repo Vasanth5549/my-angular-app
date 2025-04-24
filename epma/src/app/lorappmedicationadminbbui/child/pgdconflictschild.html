@@ -1,0 +1,35 @@
+<div name="LayoutRoot">
+    <kendo-gridlayout class="grid-layout-container" GridLayout
+        [rows]="[{height : '60'}, {height : '70'}, {height : 'auto'}, {height : '32'}]">
+
+        <kendo-gridlayout-item [row]='2' [col]='2' [colSpan]='4'>
+            <kendo-gridlayout-item [row]='1'>
+                <div containerStyle>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <Image Source="../Images/ialert32.png" Stretch="None" Margin="5,0,0,0"></Image>
+                        <iLabel #lblPGDConfilictsMsgTempRef Name="lblPGDConfilictsMsg"
+                            Text="The selected item conflicts with other medications or patient conditions. It is therefore not appropriate to administer under a PGD."
+                            VerticalAlignment="Center" HorizontalAlignment="Center" Width="220" Mandatory="False" IsWordwrap="True"
+                            Margin="10,0,0,0" Height="52"></iLabel>
+                    </StackPanel>
+                </div>
+                <kendo-gridlayout-item [row]='2'>
+                    <div containerStyle>
+                        <Border BorderBrush="#77b3b4" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                            Margin="10,10,10,10">
+                            <StackPanel Orientation="Horizontal" Margin="0">
+                                <iLabel #lblPGDAlreadyAdministeredMsgTempRef Name="lblPGDAlreadyAdministeredMsg"
+                                    Text="If this medication has already been administered, the activity should be recorded. Do you wish to continue?"
+                                    VerticalAlignment="Center" HorizontalAlignment="Center" Width="210" Mandatory="False" IsWordwrap="True"
+                                    Margin="5,5,5,5"></iLabel>
+                                <iCheckBox #chkAlreadyAdministeredTempRef Name="chkAlreadyAdministered" Text="Yes" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" Margin="0,5,10,5" Width="50" IsChecked="False" IsEnabled="True" TabIndex="1"
+                                    [Tooltip]="DataContext.objRecordPGD.chkYesConflicts_Tooltip"></iCheckBox>
+                            </StackPanel>
+                        </Border>
+                    </div>
+                </kendo-gridlayout-item>
+            </kendo-gridlayout-item>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

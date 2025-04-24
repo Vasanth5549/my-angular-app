@@ -1,0 +1,34 @@
+:host ::ng-deep .k-input-md .k-input-inner, .k-picker-md .k-input-inner  {
+    padding: 4px 3px !important;
+    }
+     .lineHeightNormal{
+       line-height: Normal; 
+     }
+ .lineHeightNormalVerify{
+       line-height: Normal;
+     }
+     .quantity-numeric ::ng-deep kendo-numerictextbox{
+       min-width: 40px !important;
+     }
+     .leftAlignment {
+       padding-left: 0.4rem;
+   }
+   .SupplyInscroll
+{
+ overflow: auto; line-height: 1.5;
+}
+.SupplyVis
+{
+   display:none;
+}
+@media screen and (max-width: 1400px) {
+    .GridLayoutLineHeight {
+        line-height: 35px;
+        height: 295px;
+      }
+  }
+  @media screen and (min-width: 1400px) {
+    .GridLayoutLineHeight {
+        line-height: 35px;
+      }
+  }     

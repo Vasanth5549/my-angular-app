@@ -1,0 +1,456 @@
+<html>
+
+<head>
+    <title>
+
+        Medication administration chart - LORENZO
+
+    </title>
+   
+</head>
+
+<body onhelp="OnHelp()" leftmargin="0" topmargin="0" onload="WinLoad()" onbeforeunload="BeforeUnLoad()"
+    onunload="WinUnLoad()" onerror="ErrorTrap()">
+    <form name="AppWizardPage" method="post" action="AppWizardPage.aspx?%3f__PageName=AppWizardPage.aspx"
+        id="AppWizardPage">
+
+        <div style="border:1px solid; background-color: #d2e6ff; display: none; overflow:auto; position: absolute;"
+            id="ContainerDiv"></div>
+        <table class="mainTbl" cellspacing="0" cellpadding="0">
+            <tr id="trContext" class="MnTR1" style="display: block">
+                <td id="Banner" height="53" class="MnTD1">
+                    <div id='BannerDiv' class="MnTR1 MnTD2">
+                        <iframe id="frameContextBanner" tabindex="1" class="DisBl TDHet1" src="about:blank"
+                            frameborder="0" scrolling="no" title="Patient banner frame" style="width: 100vw;">
+                            <noframes>
+                                <a href="about:blank">ContextBanner</a>
+                            </noframes>
+                        </iframe>
+                    </div>
+                </td>
+            </tr>
+
+            <tr id="trRoadMap" class="TDHet2">
+                <td class="MnTD1" tabindex="-1">
+                    <table cellspacing="0" cellpadding="0" id="iroadmap_Control_C1" class="RM_MTb2" accesskey=""
+                        ShowTooltip="True" tabindex="220" ToolTip="" title=""
+                        Img_Unvisited="/WebclientNew/images/iroadmapunvisited.gif"
+                        Img_Current="/WebclientNew/images/iroadmapcurrent.gif"
+                        Img_Done="/WebclientNew/images/iroadmapvisited.gif"
+                        Img_Committed="/WebclientNew/images/iroadmapcommitted.gif"
+                        Img_CommitPoint="/WebclientNew/images/rm_commitpoint.gif"
+                        Img_Left="/WebclientNew/images/rm_scrollleft.gif"
+                        Img_LeftOver="/WebclientNew/images/rm_scrollleftover.gif"
+                        Img_Right="/WebclientNew/images/rm_scrollright.gif"
+                        Img_RightOver="/WebclientNew/images/rm_scrollrightover.gif" css_Normal="RoadMap_Normal"
+                        css_Current="RoadMap_Current" css_Normal_Mandatory="RoadMap_Normal_Mandatory"
+                        css_Current_Mandatory="RoadMap_Current_Mandatory">
+                        <tr>
+                            <td>
+                                <div class="RM_MnDiv" id="iroadmap_Scroll_C1">
+                                    <table class="RM_Het1 RM_Bdr1" cellspacing="0" cellpadding="0"
+                                        id="iroadmap_Table_C1">
+                                        <tr>
+                                            <td>
+                                                <table summary="" cellspacing="0" cellpadding="0" id="iroadmap_step_-1"
+                                                    icKey="" icCaption="" icState="Unvisited" icCanCommit="False"
+                                                    icMandatory="False" icSrc="" sTag="" onclick="$_('C1','Click',this)"
+                                                    onkeydown="C1.KeyDown(this)" onmouseover="C1.OnStepMouseover(this)"
+                                                    tabindex="220" class="RM_DisN RM_Bdr1">
+                                                    <tr>
+                                                        <td class="RM_Wid3">&nbsp;</td>
+                                                        <td class="RM_Wid2"><img class="RM_Wid2 RM_Het4 RM_Bdr1"
+                                                                src="/WebclientNew/images/iroadmapunvisited.gif"
+                                                                alt="Visit the non-completed step" /></td>
+                                                        <td class="RoadMap_Normal RM_NoWr" title="Unvisited"></td>
+                                                        <td class="RM_Wid4 RM_DisN"><img class="RM_Het1 RM_Wid4 RM_Bdr1"
+                                                                src="/WebclientNew/images/rm_commitpoint.gif" alt="" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <script language='javascript'>
+
+                                                    var C1 = new iRoadMap('C1', 'mapWizard');
+                                                    var mapWizard = C1;
+                                                </script>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                            <td class="RM_Wid2" id="iroadmap_Image_C1">
+                                <table summary="" class="RM_Het2 RM_Wid1 RM_Bdr1 RM_DisB" cellspacing="0"
+                                    cellpadding="0">
+                                    <tr id="leftScroll" class="TM_ValB">
+                                        <td><img class="RM_Bdr1 RM_Wid2 RM_Het3" id="iroadmap_Left_C1"
+                                                src="/WebclientNew/images/rm_scrollleft.gif" tabindex="220"
+                                                alt="Scroll the roadmaps to the left"
+                                                onmouseover="$_('C1','ScrollMouseOver',true, true)"
+                                                onmouseout="$_('C1','ScrollMouseOver',true, false)"
+                                                onclick="$_('C1','ScrollClick',true)"
+                                                onfocus="$_('C1','OnFocus',true,true)"
+                                                onblur="$_('C1','OnBlur',true,false,this)"
+                                                onkeypress="C1.OnKeyPress(true);"
+                                                onkeydown="C1.OnKeyPressDown(this);" /></td>
+                                    </tr>
+                                    <tr id="rightScroll" class="TM_ValM">
+                                        <td><img class="RM_Het3 RM_Wid2 RM_Bdr1" id="iroadmap_Right_C1"
+                                                src="/WebclientNew/images/rm_scrollright.gif" tabindex="220"
+                                                alt="Scroll the roadmaps to the right"
+                                                onmouseover="$_('C1','ScrollMouseOver',false, true)"
+                                                onmouseout="$_('C1','ScrollMouseOver',false, false)"
+                                                onclick="$_('C1','ScrollClick',false)"
+                                                onfocus="$_('C1','OnFocus',false,true)"
+                                                onblur="$_('C1','OnBlur',false,false,this)"
+                                                onkeypress="C1.OnKeyPress(false);"
+                                                onkeydown="C1.OnKeyPressDown(this);" /></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table><input type="hidden" id="RM_Alt"
+                        value="Visit the non-completed step;Current step;Visit the completed step;;Unvisited;Current;Visited;Committed" />
+                </td>
+            </tr>
+
+            <tr class="TDHet1">
+                <td>
+                    <table class="TDHet1 TDOvHid TdWid1" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td>
+                                <table class="TdWid1 TDHet1 BdyTblL" cellspacing="0" border="0">
+                                    <tr id='trTitle' class="WIZ_ActivityTitle TdSty3">
+                                        <td class="TdWid14">
+
+                                        </td>
+                                        <td id="txtTitle" tabindex="221" class="TdWid15"><label Text="" tabindex="-1"
+                                                id="il_C_C2" class="WIZ_ActivityTitle_L1" accesskey="" CVS="True"
+                                                AccessKeyVisible="False" IsDDAEnabled="True" IsMandatory="False"
+                                                IsHeader="True" ShowAsstToolTip="False" CP="" IP="MM/dd/yyyy"
+                                                DSTEnabled="False" MandIndTitle="" cTabIndex=0 DIKey="lblHTitle"
+                                                CtrlType="lbl" title="" style="width:100%;display:inline">
+                                                <H1 class="WIZ_ActivityTitle_L1 iL_H L_TF" style="display:inline"></H1>
+                                            </label><input type="hidden" name="il_V_C2"
+                                                value=";~True;~True;~False;~True;~True;~WIZ_ActivityTitle_L1;~L_M;~L_D;~True;~;~;~False;~;~" />
+                                        </td>
+                                        <td class="TdWid16" style="display:none;">
+                                            <table>
+                                                <tr id='ctrlTd'>
+                                                </tr>
+                                            </table>
+                                        </td>
+
+                                        <td class="TdWid17" id="tdPrescribingConsiderations" style="display:none;">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td><img src="../images/iinfonor16.png" id="imgPresConsid"
+                                                            alt="Activity Considerations" /> </td>
+                                                    <td><label Text="Activity Considerations" tabindex="-1" id="il_C_C3"
+                                                            class="L_N L_TF" accesskey="" CVS="True"
+                                                            AccessKeyVisible="True" IsDDAEnabled="False"
+                                                            IsMandatory="False" IsHeader="False" ShowAsstToolTip="False"
+                                                            CP="" IP="MM/dd/yyyy" DSTEnabled="False" MandIndTitle=""
+                                                            cTabIndex=0 DIKey="lblPresConsid" CtrlType="lbl"
+                                                            title="Activity Considerations" style="width:155px">Activity
+                                                            Considerations</label><input type="hidden" name="il_V_C3"
+                                                            value="Activity Considerations;~True;~True;~False;~True;~True;~L_N;~L_M;~L_D;~True;~;~Activity&#32;Considerations;~False;~;~" />
+                                                    </td>
+                                                    <td style="vertical-align:bottom">
+                                                        <button id="ic_C_C4" hidefocus="hidefocus" accessKey=""
+                                                            tabindex="222" ShowAsstTooltip="False" ControlType=""
+                                                            IsElasticlayout="False" OrginalWidth="" ToolTip="Click"
+                                                            title="Click" ViewState="True" IVS="False"
+                                                            IsDataToolTipEnabled="false" class="Cmd_BC"
+                                                            onmouseover="$_('C4','SS',1)" onmouseout="$_('C4','SS',0)"
+                                                            onclick="$_('C4','Clk')" onfocus="$_('C4','Focus')"
+                                                            onblur="$_('C4','Blr')" type="button">
+                                                            <table cellspacing="0" cellpadding="0" border="0"
+                                                                class="Cmd_SH Tool_Normal">
+                                                                <tr class="Cmd_VAM">
+                                                                    <td class="Cmd_SI"><img id="ic_I_C4"
+                                                                            src="../Images/AFW_ArrowDown.gif" alt=""
+                                                                            title="" height="16px" /></td>
+                                                                </tr>
+                                                            </table>
+                                                        </button><input type="hidden" name="ic_V_C4"
+                                                            value="True;~True;~;~../Images/AFW_ArrowDown.gif;~../Images/AFW_ArrowDown.gif;~../Images/AFW_ArrowDown.gif;~True;~Tool_Normal;~Tool_Active;~Tool_Disabled;~False;~Default;~Click;~;~Small;~CmdN_F;~CmdA_F;~PrescribingConsiderations_Click" />
+                                                        <script language='javascript'>
+                                                            var C4 = new iCommandButton('C4', 'cmdPrescribingConsiderations');
+                                                            var cmdPrescribingConsiderations = C4;
+                                                            C4.Initialize();
+                                                        </script>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td id='helpTd' align="justify" class="TdstyNew3">
+                                            <button id="ic_C_C5" hidefocus="hidefocus" accessKey="" tabindex="223"
+                                                ShowAsstTooltip="False" ControlType="" IsElasticlayout="False"
+                                                OrginalWidth="" ToolTip="Help" title="Help" ViewState="True" IVS="False"
+                                                IsDataToolTipEnabled="false" class="Cmd_BC"
+                                                onmouseover="$_('C5','SS',1)" onmouseout="$_('C5','SS',0)"
+                                                onclick="$_('C5','Clk')" onfocus="$_('C5','Focus')"
+                                                onblur="$_('C5','Blr')" type="button">
+                                                <table cellspacing="0" cellpadding="0" border="0"
+                                                    class="Cmd_MH Tool_Normal">
+                                                    <tr class="Cmd_VAM">
+                                                        <td class="Cmd_MI"><img id="ic_I_C5" alt="Help" title="Help"
+                                                                src="/WebclientNew/images/x.gif" alt="Help"
+                                                                style="border:0px;height:24px; background-image: url('../images/ihelpnor24.png'), url('../images/ihelphot24.png'), url('../images/ihelpdis24.png');background-size: 100%, 0%, 0%;background-repeat: no-repeat;" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </button><input type="hidden" name="ic_V_C5"
+                                                value="True;~True;~;~../images/ihelpnor24.png;~../images/ihelphot24.png;~../images/ihelpdis24.png;~True;~Tool_Normal;~Tool_Active;~Tool_Disabled;~True;~Default;~Help;~Help;~Medium;~CmdN_F;~CmdA_F;~OnHelp" />
+                                            <script language='javascript'>
+                                                var C5 = new iCommandButton('C5', 'cmdHelp');
+                                                var cmdHelp = C5;
+                                                C5.Initialize();
+                                            </script>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6">
+                                            <iframe tabindex="224" id="frameActivity" src="http://localhost:4200" frameborder="0"
+                                                class="TdWid1 TDHet1" scrolling="auto">
+                                               
+                                            </iframe>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="TRSty3">
+                <td>
+                    <table class="TdWid1 TDHet1 TDOvHid" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td class="TRSty4 TdWidt10">
+                                &nbsp;
+                            </td>
+                            <td class="TDAlRt">
+                                <table class="TDHet1" cellspacing="0" cellpadding="0" border="0" align="right">
+                                    <tr class="TdWid1">
+                                        <td>
+                                            <button id="ic_C_C6" hidefocus="hidefocus" accessKey="S" tabindex="224"
+                                                ShowAsstTooltip="False" ControlType="" IsElasticlayout="True"
+                                                OrginalWidth="80px" ToolTip="Suspend" title="Suspend" ViewState="True"
+                                                IVS="False" IsDataToolTipEnabled="false" class="Cmd_BC"
+                                                style="width:80px;" onmouseover="$_('C6','SS',1)"
+                                                onmouseout="$_('C6','SS',0)" onclick="$_('C6','Clk')"
+                                                onfocus="$_('C6','Focus')" onblur="$_('C6','Blr')" type="button">
+                                                <table cellspacing="0" cellpadding="0" border="0" style="width:80px;"
+                                                    class="Cmd_MH Tool_Normal Cmd_Lo Cmd_DisN">
+                                                    <tr class="Cmd_VAM">
+                                                        <td class="Cmd_MI"><img id="ic_I_C6"
+                                                                src="../images/isuspendnor32.gif" alt="Suspend"
+                                                                title="Suspend" height="24px" /></td>
+                                                        <td class="Cmd_TTE"><span><span
+                                                                    class="Cmd_AK">S</span>uspend</span></td>
+                                                    </tr>
+                                                </table>
+                                            </button><input type="hidden" name="ic_V_C6"
+                                                value="True;~False;~Suspend;~../images/isuspendnor32.gif;~../images/isuspendhot32.gif;~../images/isuspenddis32.gif;~True;~Tool_Normal;~Tool_Active;~Tool_Disabled;~False;~FullyFixed;~Suspend;~Suspend;~Medium;~CmdN_F;~CmdA_F;~Suspend_Click" />
+                                            <script language='javascript'>
+                                                var C6 = new iCommandButton('C6', 'cmdSuspend');
+                                                var cmdSuspend = C6;
+                                                C6.Initialize();
+                                            </script>
+                                        </td>
+                                        <td class="EPRT_TDWid1" id="SuspendTD">
+                                            &nbsp;
+                                        </td>
+                                        <td>
+                                            <button id="ic_C_C7" hidefocus="hidefocus" accessKey="R" tabindex="225"
+                                                ShowAsstTooltip="False" ControlType="" IsElasticlayout="True"
+                                                OrginalWidth="80px" ToolTip="Reassign" title="Reassign" ViewState="True"
+                                                IVS="False" IsDataToolTipEnabled="false" class="Cmd_BC"
+                                                style="width:80px;" onmouseover="$_('C7','SS',1)"
+                                                onmouseout="$_('C7','SS',0)" onclick="$_('C7','Clk')"
+                                                onfocus="$_('C7','Focus')" onblur="$_('C7','Blr')" type="button">
+                                                <table cellspacing="0" cellpadding="0" border="0" style="width:80px;"
+                                                    class="Cmd_MH Tool_Normal Cmd_Lo Cmd_DisN">
+                                                    <tr class="Cmd_VAM">
+                                                        <td class="Cmd_MI"><img id="ic_I_C7"
+                                                                src="../images/idefernor32.gif" alt="Reassign"
+                                                                title="Reassign" height="24px" /></td>
+                                                        <td class="Cmd_TTE"><span><span
+                                                                    class="Cmd_AK">R</span>eassign</span></td>
+                                                    </tr>
+                                                </table>
+                                            </button><input type="hidden" name="ic_V_C7"
+                                                value="True;~False;~Reassign;~../images/idefernor32.gif;~../images/ideferhot32.gif;~../images/ideferdis32.gif;~True;~Tool_Normal;~Tool_Active;~Tool_Disabled;~False;~FullyFixed;~Reassign;~Reassign;~Medium;~CmdN_F;~CmdA_F;~Defer_Click" />
+                                            <script language='javascript'>
+                                                var C7 = new iCommandButton('C7', 'cmdDefer');
+                                                var cmdDefer = C7;
+                                                C7.Initialize();
+                                            </script>
+                                        </td>
+                                        <td class="EPRT_TDWid1" id="DeferTD">
+                                            &nbsp;
+                                        </td>
+                                        <td>
+                                            <button id="ic_C_C8" hidefocus="hidefocus" accessKey="H" tabindex="226"
+                                                ShowAsstTooltip="False" ControlType="" IsElasticlayout="True"
+                                                OrginalWidth="80px" ToolTip="Finish&#32;now" title="Finish&#32;now"
+                                                ViewState="True" IVS="False" IsDataToolTipEnabled="false" class="Cmd_BC"
+                                                style="width:80px;" onmouseover="$_('C8','SS',1)"
+                                                onmouseout="$_('C8','SS',0)" onclick="$_('C8','Clk')"
+                                                onfocus="$_('C8','Focus')" onblur="$_('C8','Blr')" type="button">
+                                                <table cellspacing="0" cellpadding="0" border="0" style="width:80px;"
+                                                    class="Cmd_MH Tool_Normal Cmd_Lo Cmd_DisN">
+                                                    <tr class="Cmd_VAM">
+                                                        <td class="Cmd_MI"><img id="ic_I_C8" alt="FinishNow"
+                                                                title="Finish&#32;now" src="/WebclientNew/images/x.gif"
+                                                                alt="FinishNow"
+                                                                style="border:0px;height:24px; background-image: url('../images/ifinishnownor32.png'), url('../images/ifinishnowhot32.png'), url('../images/ifinishnowdis32.png');background-size: 100%, 0%, 0%;background-repeat: no-repeat;" />
+                                                        </td>
+                                                        <td class="Cmd_TTE"><span>Finis<span class="Cmd_AK">h</span>
+                                                                now</span></td>
+                                                    </tr>
+                                                </table>
+                                            </button><input type="hidden" name="ic_V_C8"
+                                                value="True;~False;~Finish now;~../images/ifinishnownor32.png;~../images/ifinishnowhot32.png;~../images/ifinishnowdis32.png;~True;~Tool_Normal;~Tool_Active;~Tool_Disabled;~True;~FullyFixed;~Finish now;~Finish&#32;now;~Medium;~CmdN_F;~CmdA_F;~FinishNow_Click" />
+                                            <script language='javascript'>
+                                                var C8 = new iCommandButton('C8', 'cmdFinishNow');
+                                                var cmdFinishNow = C8;
+                                                C8.Initialize();
+                                            </script>
+                                        </td>
+                                        <td class="EPRT_TDWid1" id="FinishNowTD">
+                                            &nbsp;
+                                        </td>
+                                        <td>
+                                            <button id="ic_C_C9" hidefocus="hidefocus" accessKey="P" tabindex="228"
+                                                ShowAsstTooltip="False" ControlType="" IsElasticlayout="True"
+                                                OrginalWidth="80px" ToolTip="Previous" title="Previous" ViewState="True"
+                                                IVS="False" IsDataToolTipEnabled="false" class="Cmd_BC"
+                                                style="width:80px;" onmouseover="$_('C9','SS',1)"
+                                                onmouseout="$_('C9','SS',0)" onclick="$_('C9','Clk')"
+                                                onfocus="$_('C9','Focus')" onblur="$_('C9','Blr')" type="button">
+                                                <table cellspacing="0" cellpadding="0" border="0" style="width:80px;"
+                                                    class="Cmd_MH Tool_Normal Cmd_Lo Cmd_DisN">
+                                                    <tr class="Cmd_VAM">
+                                                        <td class="Cmd_MI"><img id="ic_I_C9"
+                                                                src="../images/ipreviousstepnor24.gif" alt="Previous"
+                                                                title="Previous" height="24px" /></td>
+                                                        <td class="Cmd_TTE"><span><span
+                                                                    class="Cmd_AK">P</span>revious</span></td>
+                                                    </tr>
+                                                </table>
+                                            </button><input type="hidden" name="ic_V_C9"
+                                                value="True;~False;~Previous;~../images/ipreviousstepnor24.gif;~../images/ipreviousstephot24.gif;~../images/ipreviousstepnor24.gif;~True;~Tool_Normal;~Tool_Active;~Tool_Disabled;~False;~FullyFixed;~Previous;~Previous;~Medium;~CmdN_F;~CmdA_F;~Previous_Click" />
+                                            <script language='javascript'>
+                                                var C9 = new iCommandButton('C9', 'cmdPrevious');
+                                                var cmdPrevious = C9;
+                                                C9.Initialize();
+                                            </script>
+                                        </td>
+                                        <td class="EPRT_TDWid1" id="PreviousTD">
+                                            &nbsp;
+                                        </td>
+                                        <td>
+                                            <button id="ic_C_C10" hidefocus="hidefocus" accessKey="F" tabindex="229"
+                                                ShowAsstTooltip="False" ControlType="" IsElasticlayout="True"
+                                                OrginalWidth="80px" ToolTip="Finish" title="Finish" ViewState="True"
+                                                IVS="False" IsDataToolTipEnabled="false" class="Cmd_BC"
+                                                style="width:80px;" onmouseover="$_('C10','SS',1)"
+                                                onmouseout="$_('C10','SS',0)" onclick="$_('C10','Clk')"
+                                                onfocus="$_('C10','Focus')" onblur="$_('C10','Blr')" type="button">
+                                                <table cellspacing="0" cellpadding="0" border="0" style="width:80px;"
+                                                    class="Cmd_MH Tool_Normal Cmd_Lo Cmd_DisN">
+                                                    <tr class="Cmd_VAM">
+                                                        <td class="Cmd_MI"><img id="ic_I_C10"
+                                                                src="../images/ifinishnor24.gif" alt="Finish"
+                                                                title="Finish" height="24px" /></td>
+                                                        <td class="Cmd_TTE"><span><span
+                                                                    class="Cmd_AK">F</span>inish</span></td>
+                                                    </tr>
+                                                </table>
+                                            </button><input type="hidden" name="ic_V_C10"
+                                                value="True;~False;~Finish;~../images/ifinishnor24.gif;~../images/ifinishhot24.gif;~../images/ifinishdis24.gif;~True;~Tool_Normal;~Tool_Active;~Tool_Disabled;~False;~FullyFixed;~Finish;~Finish;~Medium;~CmdN_F;~CmdA_F;~Finish_Click" />
+                                            <script language='javascript'>
+                                                var C10 = new iCommandButton('C10', 'cmdFinish');
+                                                var cmdFinish = C10;
+                                                C10.Initialize();
+                                            </script>
+                                        </td>
+                                        <td class="EPRT_TDWid1" id="FinishTD">
+                                            &nbsp;
+                                        </td>
+                                        <td onkeydown="FocusRoadMap()">
+                                            <button id="ic_C_C11" hidefocus="hidefocus" accessKey="N" tabindex="230"
+                                                ShowAsstTooltip="False" ControlType="" IsElasticlayout="True"
+                                                OrginalWidth="60px" ToolTip="Next" title="Next" ViewState="True"
+                                                IVS="False" IsDataToolTipEnabled="false" class="Cmd_BC"
+                                                style="width:60px;" onmouseover="$_('C11','SS',1)"
+                                                onmouseout="$_('C11','SS',0)" onclick="$_('C11','Clk')"
+                                                onfocus="$_('C11','Focus')" onblur="$_('C11','Blr')" type="button">
+                                                <table cellspacing="0" cellpadding="0" border="0" style="width:60px;"
+                                                    class="Cmd_MH Tool_Normal Cmd_Lo Cmd_DisN">
+                                                    <tr class="Cmd_VAM">
+                                                        <td class="Cmd_MI"><img id="ic_I_C11"
+                                                                src="../images/inextstepnor24.gif" alt="Next"
+                                                                title="Next" height="24px" /></td>
+                                                        <td class="Cmd_TTE"><span><span
+                                                                    class="Cmd_AK">N</span>ext</span></td>
+                                                    </tr>
+                                                </table>
+                                            </button><input type="hidden" name="ic_V_C11"
+                                                value="True;~False;~Next;~../images/inextstepnor24.gif;~../images/inextstephot24.gif;~../images/inextstepdis24.gif;~True;~Tool_Normal;~Tool_Active;~Tool_Disabled;~False;~FullyFixed;~Next;~Next;~Medium;~CmdN_F;~CmdA_F;~Next_Click" />
+                                            <script language='javascript'>
+                                                var C11 = new iCommandButton('C11', 'cmdNext');
+                                                var cmdNext = C11;
+                                                C11.Initialize();
+                                            </script>
+                                        </td>
+                                        <td class="EPRT_TDWid1" id="NextTD">
+                                            &nbsp;
+                                        </td>
+                                        <td>
+                                            <button id="ic_C_C12" hidefocus="hidefocus" accessKey="C" tabindex="231"
+                                                ShowAsstTooltip="False" ControlType="" IsElasticlayout="True"
+                                                OrginalWidth="80px" ToolTip="Cancel" title="Cancel" ViewState="True"
+                                                IVS="False" IsDataToolTipEnabled="false" class="Cmd_BC"
+                                                style="width:80px;" onmouseover="$_('C12','SS',1)"
+                                                onmouseout="$_('C12','SS',0)" onclick="$_('C12','Clk')"
+                                                onfocus="$_('C12','Focus')" onblur="$_('C12','Blr')" type="button">
+                                                <table cellspacing="0" cellpadding="0" border="0" style="width:80px;"
+                                                    class="Cmd_MH Tool_Normal Cmd_Lo">
+                                                    <tr class="Cmd_VAM">
+                                                        <td class="Cmd_MI"><img id="ic_I_C12" alt="Cancel"
+                                                                title="Cancel" src="/WebclientNew/images/x.gif"
+                                                                alt="Cancel"
+                                                                style="border:0px;height:24px; background-image: url('../images/iNewCancel.png'), url('../images/iNewCancelHot.png'), url('../images/iNewCancelDis.png');background-size: 100%, 0%, 0%;background-repeat: no-repeat;" />
+                                                        </td>
+                                                        <td class="Cmd_TTE"><span><span
+                                                                    class="Cmd_AK">C</span>ancel</span></td>
+                                                    </tr>
+                                                </table>
+                                            </button><input type="hidden" name="ic_V_C12"
+                                                value="True;~True;~Cancel;~../images/iNewCancel.png;~../images/iNewCancelHot.png;~../images/iNewCancelDis.png;~True;~Tool_Normal;~Tool_Active;~Tool_Disabled;~True;~FullyFixed;~Cancel;~Cancel;~Medium;~CmdN_F;~CmdA_F;~Discard_Click" />
+                                            <script language='javascript'>
+                                                var C12 = new iCommandButton('C12', 'cmdDiscard');
+                                                var cmdDiscard = C12;
+                                                C12.Initialize();
+                                            </script>
+                                        </td>
+                                        <td class="EPRT_TDWid1" id="DiscardTD">
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        
+    </form>
+</body>
+
+</html>

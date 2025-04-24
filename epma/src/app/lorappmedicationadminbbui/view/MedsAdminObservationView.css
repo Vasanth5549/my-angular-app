@@ -1,0 +1,99 @@
+
+
+.k-grid .k-grid-content-locked + .k-grid-content{
+  overflow-x: scroll !important;
+}
+
+/* .k-grid-content {
+  overflow-x: hidden !important;
+} */ 
+
+body {
+  background-color: lightblue;
+}
+
+.k-chart text {
+  font: inherit !important;
+  color: inherit !important;
+}
+
+.hyperlinktxt{
+  font-weight: bold;
+  color: blue;
+  cursor: pointer;
+}
+
+.k-grid-noscroll{
+  overflow-x: hidden !important;
+}
+
+.k-gri-scroll{
+  overflow-x: scroll !important;
+}
+
+.k-menu-group .k-item > .k-link.k-active, .k-menu-group .k-item > .k-link:hover {
+  background-color:#fff791;
+  color: black;
+}
+
+.k-menu.k-context-menu .k-item > .k-link.k-selected {
+  background-color: yellow !important;
+}
+.k-column-menu .k-menu:not(.k-context-menu) .k-item.k-selected {
+  background-color: yellow !important;
+}
+.ePMABody{
+  padding: 0px !important;
+}
+.obsResLinkText{
+  cursor: pointer;
+  text-decoration: underline;
+}
+.resLinkText{
+  cursor: pointer;
+}
+.k-grid-content-locked{
+  /* overflow-x: scroll !important; */
+  background-color: #e0eff1 !important;
+  height: 123px !important;
+}
+
+.k-grid-header-wrap{
+  background-color: #e0eff1 !important;
+}
+
+.k-grid td{
+  white-space: nowrap;
+  border-color: rgba(0, 0, 0, 0.3);
+}
+  
+.k-grid tbody tr.k-grid-norecords {
+  height:136px !important;
+}
+
+.k-grid tbody tr{
+  min-height: 33px !important;
+  max-height: 33px !important;
+  height: 33px !important;
+}
+.no-data-div{
+  background: white;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid lightgray;
+}
+
+.kchart-table-align
+{
+  padding-top: 45px;
+  margin-left: 15px;
+}
+
+.chkDisplaycancelled
+{
+  margin-top: 737px;
+  margin-left: 87%;
+  position: fixed;
+}

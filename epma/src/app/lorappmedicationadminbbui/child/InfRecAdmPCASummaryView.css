@@ -1,0 +1,9 @@
+.remarkAlign {
+
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+}
+.givenHeight{
+    height: 30px !important;
+}

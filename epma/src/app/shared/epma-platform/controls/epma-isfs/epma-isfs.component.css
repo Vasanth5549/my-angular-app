@@ -1,0 +1,21 @@
+.txtWidth {
+  width: calc(100% - 25px);
+    height: inherit;
+}
+
+.btmMargin {
+    width: 10px;
+    height: inherit;
+  margin-left: 11px !important;
+}
+
+.k-i-x {
+    margin-right: -3px !important;
+}
+.isfsalign {
+  display: flex;
+}
+.ng:deep .btmMargin .k-button-icon img{
+  height: 18px;
+  margin-top: 5px;
+}

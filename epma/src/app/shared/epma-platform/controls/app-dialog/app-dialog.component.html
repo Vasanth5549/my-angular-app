@@ -1,0 +1,45 @@
+
+<div *ngIf="showDialogTitle" class="k-window-titlebar  appactivity-dialog-titlebar" >        
+    <span class="white" kendoTooltip [title]="diaglogTitle"> {{diaglogTitle}} </span>
+    <span *ngIf="IsHelpIconVisible" (click)="onHelp()" class="help">        
+    <img title="Help" src="./assets/images/help.png">
+    </span>
+</div>    
+
+<div class="appactivity-content"  (mousedown)="mouseDownHandler($event)">
+    <div class="content ">
+        <div #child></div>
+    </div>
+    
+    <kendo-dialog-actions class="center background-border">
+        <div class="content left">    
+            <div #extendchild></div>
+        </div>
+    
+        <div class="right">
+            <span *ngIf="displayButton['button1'] !== 'none'" (click)="showResult(displayButton['button1']); toolHide()" (mouseenter)="mouseEnterForTooltip()" kendoTooltip position="bottom" [title]="!tooltipHide ? displayButton['button1Enable'] ? displayButton['button1'] : '' : '' " class="app-pointer">                
+
+                <ng-container *ngIf="displayButton['button1Enable']" >
+                    <img  class="buttons" [src]="image1Enabled"> &nbsp; 
+                </ng-container>
+                <ng-container  *ngIf="!displayButton['button1Enable']" >
+                    <img  class="buttons" [src]="image1Disabled"> &nbsp; 
+                </ng-container>  
+                    
+                <button class="img-ok_symbol button" kendoButton kendoTooltip [disabled]="!displayButton['button1Enable']"
+                    >{{displayButton['button1']}}</button>
+            </span>
+            &nbsp; 
+            <span *ngIf="displayButton['button2'] !== 'none'" kendoTooltip position="bottom" [title]="!tooltipHide ? displayButton['button2Enable'] ? displayButton['button2'] : '' : '' "  (click)="showResult(displayButton['button2']); toolHide()" (mouseenter)="mouseEnterForTooltip()" class="app-pointer">
+                <img class="buttons" [src]="image2"> &nbsp; 
+    
+                <button class="img-ok_symbol button" kendoButton kendoTooltip [disabled]="!displayButton['button2Enable']"
+                    >{{displayButton['button2']}}</button>
+            </span>
+            &nbsp; 
+            
+        </div>
+    
+        
+    </kendo-dialog-actions>
+</div>

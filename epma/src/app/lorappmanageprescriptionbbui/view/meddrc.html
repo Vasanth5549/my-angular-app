@@ -1,0 +1,177 @@
+<div>
+
+    <kendo-gridlayout Name="LayoutRoot" Loaded="LayoutRoot_Loaded" VerticalAlignment="Stretch" [Background]="Styles.LzoPageBG"  
+        HorizontalAlignment="Stretch" [rows]="[{height:'9fr'},{height:maxGridHeight},{height:'auto'}]" [cols]="[{width:'auto'}]" class="conflicts-grid-layout">
+        <kendo-gridlayout-item [row]="1" >
+            <ng-template #DRCConflictTemp>
+                <DataTemplate>
+                    <div containerStyle>
+                        <kendo-grid #grdConflictDtlsTempRef VerticalAlignment="Stretch"
+                            [selectable]="{checkboxOnly: true, mode: 'single'}" [editable]="false" [filterable]="false"
+                            [sortable]="false" [resizable]="false" Margin="10" [reorderable]="false"
+                            [data]="DRCConflictDetail" scrollable="none">
+                            <kendo-grid-column UniqueName="ERRORText" title="Error code" field="ERRORText" [width]="150"
+                                           TextWrapping="Wrap">
+                                           <ng-template kendoGridHeaderTemplate let-column>  
+                                            <span title="Error code">{{ column.title }}</span>                
+                                          </ng-template>
+                            </kendo-grid-column>
+                            <kendo-grid-column UniqueName="ErrorMessage" [title]=errorMessage.error_message [Width]="720"
+                                field="ErrorMessage"  TextWrapping="Wrap">
+                                           <ng-template kendoGridHeaderTemplate let-column>  
+                                            <span title="Error message">{{ column.title }}</span>                
+                                          </ng-template>
+                            </kendo-grid-column>
+                        </kendo-grid>
+                    </div>
+                </DataTemplate>
+            </ng-template>
+
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='2' [col]='1' class="grid-layout" [style.height.px]="maxGridHeight-maxHeight">
+            <div containerStyle class="items-start">
+                <ScrollViewer #svwDRCConflictTempRef Name="svwDRCConflict" HorizontalScrollBarVisibility="Disabled"
+                    VerticalScrollBarVisibility="Auto" Height="Auto">
+
+                    <kendo-gridlayout-item [row]='2' [col]='1'>
+                        <div containerStyle>
+                            <StackPanel #DRCConflictItemsTempRef Name="DRCConflictItems" Width="Auto" Height="Auto" class="drcConflictsItems"  [Background]="Styles.LzoPageBG">
+                            </StackPanel>
+                        </div>
+                    </kendo-gridlayout-item>
+                </ScrollViewer>
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+        <kendo-gridlayout-item [row]='3'>
+            <div containerStyle>
+                <kendo-gridlayout [rows]="[{height:'auto'}]" [cols]="[{width:'500fr'},{width:'35fr'},{width:'270fr'}]">
+                    <kendo-gridlayout-item [row]='1' [col]="1" HorizontalAlignment="left" VerticalAlignment="Stretch"
+                    [colSpan]="1">
+                        <div containerStyle>
+                            <kendo-gridlayout [rows]="[{height:32},{height:70}]"
+                                [cols]="[{width:'auto'},{width:'auto'}]">
+                                <kendo-gridlayout-item [row]='1' [col]="1" [colSpan]="2"
+                                    HorizontalAlignment="left" VerticalAlignment="Stretch">
+                                    <div containerStyle>
+                                        <kendo-gridlayout Name="AcknowldgeRSN" [cols]="[{width:'355fr'},{width:'240fr'}]">
+                                            <Border [row]='3' [col]='1' [colSpan]="2" [iStyle]="Styles.whiteBorder"></Border>
+                                            <Border [row]='3' [col]='2' [Background]="Styles.whiteBorder"></Border>
+                                            <Border [row]='1' [col]='2' [Background]="Styles.InnerBG"></Border>
+                                            <kendo-gridlayout-item [row]='1' [col]='1'>
+                                                <div containerStyle>
+                                                    <iLabel #ilblAcknowldgeRSNTempRef HorizontalAlignment="Left"
+                                                        Name="ilblAcknowldgeRSN" VerticalAlignment="Center"
+                                                        Text="Acknowledgement reason" Tooltip="Acknowledgement reason"
+                                                        [(Mandatory)]="DataContext.FormViewerDetails.PresItemDRCVM.IsDRCReasonMandatory"
+                                                        [isGlobalEnabled]="IsEnabled"
+                                                        [(IsEnabled)]="DataContext.FormViewerDetails.PresItemDRCVM.IsDRCReasonAcknowldgeEnable">
+                                                    </iLabel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                            <kendo-gridlayout-item [row]='1' [col]='2'>
+                                                <div containerStyle>
+                                                    <iComboBox #cboMedDRCReasonTempRef IsEditable="True"
+                                                        IsTypeAHead="True" IsTextSearchEnabled="True" style="overflow-y: auto;"
+                                                        Name="cboMedDRCReason" VerticalAlignment="Center" Width="auto"
+                                                        Height="21" HorizontalAlignment="Stretch" Margin="5,5"
+                                                        [isGlobalEnabled]="IsEnabled"
+                                                        [(IsEnabled)]="DataContext.FormViewerDetails.PresItemDRCVM.IsDRCReasonAcknowldgeEnable"
+                                                        [(ItemsSource)]="DataContext.FormViewerDetails.PresItemDRCVM.MedDRCReasonList"
+                                                        [(SelectedValue)]="DataContext.FormViewerDetails.PresItemDRCVM.MedDRCReason"
+                                                        TabIndex="9" IsTabStop="True"></iComboBox>
+                                                </div>
+                                            </kendo-gridlayout-item>
+
+
+                                        </kendo-gridlayout>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item Name="Acknowldge" HorizontalAlignment="left" [row]='2' [colSpan]='2' style="height: 50px;">
+                                <div containerStyle>
+                                    <kendo-gridlayout [cols]="[{width:'355fr'},{width:'240fr'}]">
+                                        <Border [row]='1' [col]='1' [iStyle]="Styles.whiteBorder"  [(Visibility)]="DataContext.FormViewerDetails.PresItemDRCVM.DRCCommentsVisibility"></Border>
+                                        <Border [row]='1' [col]='2' [Background]="Styles.InnerBG" ></Border>
+                                        <Border [row]='1' [col]='1' [iStyle]="Styles.whiteBorder"  [(Visibility)]="DataContext.FormViewerDetails.PresItemDRCVM.DRCCommentsVisibility"></Border>
+                                        <Border [row]='1' [col]='2' [colSpan]='3' [iStyle]="Styles.whiteBorder"  [(Visibility)]="DataContext.FormViewerDetails.PresItemDRCVM.DRCCommentsVisibility"></Border>
+                                        <kendo-gridlayout-item [row]='1' [col]='1'>
+                                            <div containerStyle>
+                                                <iLabel #ilblDRCkAcknowldgeMsgTempRef HorizontalAlignment="Left"
+                                                    IsWordwrap="True" Name="ilblDRCkAcknowldgeMsg"
+                                                    VerticalAlignment="Top"
+                                                    [(Mandatory)]="DataContext.FormViewerDetails.PresItemDRCVM.IsDRCAcklgdeMandatory"
+                                                    Margin="0,5,8,5"
+                                                    [isGlobalEnabled]="IsEnabled"
+                                                    [(IsEnabled)]="DataContext.FormViewerDetails.PresItemDRCVM.IsDRCReasonAcknowldgeEnable"
+                                                    Text="I have confirmed that I have reviewed all dose range check warnings and I confirm I wish to continue with the dose that I have entered"
+                                                    Tooltip="I have confirmed that I have reviewed all dose range check warnings and I confirm I wish to continue with the dose that I have entered">
+                                                </iLabel>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                        <kendo-gridlayout-item [row]='1' [col]='2'>
+                                            <div containerStyle>
+                                                <iCheckBox #chcDRCkAcknowldgeTempRef Name="chcDRCkAcknowldge"
+                                                    HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto"
+                                                    Margin="5"
+                                                    [isGlobalEnabled]="IsEnabled" 
+                                                    [(IsEnabled)]="DataContext.FormViewerDetails.PresItemDRCVM.IsDRCReasonAcknowldgeEnable"
+                                                    [(IsChecked)]="DataContext.FormViewerDetails.PresItemDRCVM.DRCAcknowledge"
+                                   IsEnabled="false" ></iCheckBox>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                    </kendo-gridlayout>
+                                </div>
+                            </kendo-gridlayout-item>
+                            </kendo-gridlayout>
+                           
+                        </div>
+                    </kendo-gridlayout-item>
+
+
+                    <kendo-gridlayout-item HorizontalAlignment="Right" [row]='1' [col]="3" VerticalAlignment="Top"
+                        [(Visibility)]="DataContext.FormViewerDetails.PresItemDRCVM.DRCCommentsVisibility">
+                        <div containerStyle style="margin-top:-18px;">    
+                           <kendo-gridlayout [rows]="[{height:'auto'}]" [cols]="[{width:'67fr'},{width:'250fr'}]">
+                                <kendo-gridlayout-item [row]='1' [col]='1'>
+                                    <div containerStyle>
+                                        <iLabel #lblCommentsTempRef HorizontalAlignment="Left" Name="lblComments"
+                                            VerticalAlignment="Top" Text="Comments" Margin="-7,20,5,0"
+                                            [(Visibility)]="DataContext.FormViewerDetails.PresItemDRCVM.DRCCommentsVisibility"
+                                            Mandatory="true" IsWordwrap="True"
+                                            [isGlobalEnabled]="IsEnabled"
+                                            [(IsEnabled)]="DataContext.FormViewerDetails.PresItemDRCVM.IsDRCReasonAcknowldgeEnable">
+                                        </iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [col]='2'>
+                                    <div containerStyle>
+                                        <iTextBox #txtCommentsTempRef MaxLength="255" Height="60"
+                                            Tooltip="Enter comments" HorizontalAlignment="Stretch" Margin="0,5,0,0"
+                                            AcceptsReturn="True" TextWrapping="Wrap" Name="txtComments"
+                                            VerticalAlignment="Center" VerticalScrollBarVisibility="Visible"
+                                            Width="auto"
+                                            [(Text)]="DataContext.FormViewerDetails.PresItemDRCVM.DRCComments"
+                                            [isGlobalEnabled]="IsEnabled"
+                                            [(IsEnabled)]="DataContext.FormViewerDetails.PresItemDRCVM.IsDRCReasonAcknowldgeEnable"
+                                            [(Visibility)]="DataContext.FormViewerDetails.PresItemDRCVM.DRCCommentsVisibility"
+                                            TabIndex="11"></iTextBox>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                            </kendo-gridlayout>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+
+
+
+
+
+
+
+
+
+
+</div>

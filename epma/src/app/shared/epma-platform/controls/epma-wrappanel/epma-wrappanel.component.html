@@ -1,0 +1,29 @@
+<div [ngStyle]="baseStyle">
+    <ng-content></ng-content>
+    <ng-container *ngIf="ChildrenElementArray && ChildrenElementArray.length > 0">
+        
+        <span *ngFor="let elem of ChildrenElementArray">
+            <ng-container *ngIf="elem?.constructor?.name == 'Image'">
+                <Image [Name]="elem.Name" [Source]="elem.Source" [HorizontalAlignment]="elem.HorizontalAlignment" [VerticalAlignment]="elem.VerticalAlignment"></Image>
+              </ng-container>
+              <ng-container *ngIf="elem?.constructor?.name == 'StackPanel'">
+                <StackPanel
+                  [ChildrenElementArray]="elem?.ChildrenElementArray"
+                >
+                </StackPanel>
+              </ng-container>
+              <ng-container *ngIf="elem?.constructor?.name == 'TextBlock'">
+                <TextBlock [Text]="elem?.Text" [style]="elem?.style" [InlinesElements]="elem?.InlinesElements"
+                    [Tooltip]="elem?.Tooltip" [classObj]="elem.classObj">
+                </TextBlock>
+              </ng-container>
+              <ng-container *ngIf="elem?.constructor?.name ==  'Grid'">
+                <Grid [style]="elem?.style" [Tooltip]="elem?.Tooltip" [ChildrenArr]="elem?.ChildrenArr"  [RowDefinitionsArr]="elem?.RowDefinitionsArr" [ColumnDefinitionsArr]="elem?.ColumnDefinitionsArr" 
+                [ColWidth]="elem?.ColWidth" [RowHeight]="elem?.RowHeight"></Grid>
+              </ng-container>
+              <ng-container *ngIf="elem?.constructor?.name ==  'WrapPanel'">
+                <WrapPanel [baseStyle]="elem?.baseStyle"  [ChildrenElementArray]="elem?.ChildrenElementArray" ></WrapPanel>
+              </ng-container>
+       </span>
+    </ng-container>
+</div>

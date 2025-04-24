@@ -1,0 +1,12 @@
+
+    <div #anchor [ngStyle]="style" [ngClass]="controlclass" class="header-align">
+        <span>{{Caption}}</span>
+        <span class="k-icon" [ngClass]="iconclass" (click)="onToggle()"></span>
+    </div>
+
+    <kendo-popup 
+    [anchor]="anchor" *ngIf="OpenPopUp" class="popup-align">
+        <div [ngStyle]="style" class="popup-content-align">
+            <ng-content></ng-content>
+        </div>
+    </kendo-popup>

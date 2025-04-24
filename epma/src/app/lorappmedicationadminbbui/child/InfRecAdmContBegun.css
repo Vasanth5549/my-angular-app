@@ -1,0 +1,15 @@
+.lblDoseValueshow {
+    height: 21px !important; 
+    margin: 5px 5px 5px;
+}
+
+.lblcliniIncFrmshow {
+    width: 100px;
+}
+.lblDoseHide{
+    display: none;
+}
+.position-witness{
+    top: 5px;
+    position: relative;
+}

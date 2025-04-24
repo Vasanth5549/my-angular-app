@@ -1,0 +1,103 @@
+<div name="LayoutRoot">
+    <kendo-gridlayout class="grid-layout-container" GridLayout
+            [rows]="[{ height: '25fr'}, { height: '25fr'}, { height: '15fr'}, { height: '15fr'}]">
+        <kendo-gridlayout-item [row]="1" [col]="1">
+            <kendo-gridlayout class="grid-layout-container" VerticalAlignment="Center" GridLayout
+                    [cols]="[{ width: '20fr'}, { width: '80fr'}]">
+                <kendo-gridlayout-item [row]="1" [col]="1">
+                    <div containerStyle>
+                        <iImage #imgMsgIconTempRef Name="imgMsgIcon" HorizontalAlignment="Center"
+                            Source="./assets/Images/iinfonor16.png" Margin="5,5" ToolTip="VerifiedToolTip" Width="35"
+                            Height="35" Visibility="Visible">
+                        </iImage>
+                    </div>
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [row]="1" [col]="2">
+                    <kendo-gridlayout class="grid-layout-container" Margin="5,10,0,0" GridLayout
+                            [rows]="[{ height: '15fr'}, { height: '15fr'}]">
+                        <kendo-gridlayout-item [row]="1" [col]="1">
+                            <div containerStyle>
+                                <iLabel [(Text)]="DataContext.MessageText" IsWordwrap="True"></iLabel>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]="2" [col]="1">
+                            <div containerStyle>
+                                <br/>    
+                                <iCheckBox #iChkOverrideScanTempRef Name="iChkOverrideScan" HorizontalAlignment="Left"
+                                    Text = "Override scan"
+                                    IsEnabled="True" [(IsChecked)]="DataContext.IsOverrideScan"
+                                    [Unchecked]="iChkOverrideScan_Unchecked_Func" [Checked]="iChkOverrideScan_Checked_Func">
+                                </iCheckBox>
+                                <iButton #cmdWristbandScanTempRef
+                                [Text]="oMedsAdministrator.cmdWristbandScan_text"
+                                [ToolTip]="oMedsAdministrator.cmdWristbandScan_tooltip"
+                                    Height="23" Cursor="Hand" Width="auto" HorizontalAlignment="Left"
+                                    Name="cmdWristbandScan" 
+                                    ImageSource="./assets/Images/scanicon18.png"
+                                    DisabledImageSource="./assets/Images/scanicon18_Dis.png"
+                                    ActiveImageSource="./assets/Images/scanicon18.png" (Click_Func)="cmdWristbandScan_Click($event)"
+                                    Click="cmdWristbandScan_Click"  (click)="cmdWristbandScan_Click($event)"
+                                     TextDecorations="Underline" Foreground="#0000C8" Margin="120,-30,0,0"></iButton>
+                                <iTextBox #txtBarcodeOverrideTempRef Name="txtBarcodeOverride"
+                                    (GotFocus_Func)="txtBarcode_GotFocus($event)"
+                                    (LostFocus_Func)="txtBarcode_LostFocus($event)" (KeyUp_Func)="txtBarcode_KeyDown($event)"
+                                    Width="75" IsTabStop="True" TabIndex="0" Height="23" Margin="244,-60,2,0">
+                                </iTextBox>
+                            </div>
+                        </kendo-gridlayout-item>
+                    </kendo-gridlayout>
+                </kendo-gridlayout-item>
+            </kendo-gridlayout>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]="2" [col]="1">
+            <div id="divResNotScan">
+                <kendo-gridlayout class="grid-layout-container" GridLayout
+                    [cols]="[{ width: '50fr'}, { width: '50fr'}]" [rows]="[{ height: '20fr'}, { height: '30fr'}]">
+                    <kendo-gridlayout-item [row]="1" [col]="1">
+                        <div containerStyle>
+                            <iLabel #lblResNotScanTempRef Name="lblResNotScan" Margin="0,5"
+                                [ToolTip]="GetResourceString('lblResNotScan_text')"
+                                Mandatory="True" [Text]="GetResourceString('lblResNotScan_text')"
+                                VerticalAlignment="Top">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="1" [col]="2">
+                        <div containerStyle>
+                            <iComboBox #cboResNotScanTempRef Name="cboResNotScan" Width="Auto" Margin="0,5" IsDropDownStretch="True"
+                                [(ItemsSource)]="DataContext.OverrideScan"
+                                [(SelectedValue)]="DataContext.OverrideScanSelected"
+                                [ToolTip]="GetResourceString('cboResNotScan_tooltip')"
+                                [SelectionChanged]="cboResNotScan_SelectionChanged_Func" Height="21" SelectAllTextEvent="None" IsEditable="false">
+                            </iComboBox>
+                        </div>  
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="2" [col]="1">
+                        <div containerStyle>
+                            <iLabel #lblCommentsTempRef Name="lblComments" Margin="0,5" [Text]="GetResourceString('lblComments')">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="2" [col]="2">
+                        <div containerStyle>
+                            <iTextBox #txtCommentsTempRef Name="txtComments" MaxLength="255" Width="auto" HorizontalAlignment="Stretch"
+                                Margin="0,5"
+                                [ToolTip]="GetResourceString('lblComments')"
+                                [Text]="DataContext.OverrideComments" VerticalScrollBarVisibility="Auto"
+                                VerticalAlignment="Stretch" Height="37" TextWrapping="Wrap" AcceptsReturn = "True">
+                            </iTextBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]="3" [col]="1">
+            <div containerStyle id="divAuditTxt">
+                <iLabel #lblAuditTextTempRef Name="lblAuditText" IsWordwrap="True" 
+                    [Text]="GetResourceString('AuditTxt')" HorizontalAlignment="Left" Margin="0,5" Width="408"
+                    Height="20">
+                </iLabel>
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

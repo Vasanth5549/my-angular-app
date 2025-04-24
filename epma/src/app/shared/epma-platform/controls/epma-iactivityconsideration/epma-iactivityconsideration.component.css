@@ -1,0 +1,58 @@
+.kendo-popup-content {
+  padding: 5px;/* padding: 5px 10px 5px 10px; */
+  border: 1px solid #000;
+  background-color: #deeefc;
+  width: 365px;/* width: 332px; */
+}
+
+.label-hyperlink {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #0000ff;/*#007bff; */
+}
+
+.rectangle-label-hyperlink {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #007bff;
+  margin-left: 10px;
+}
+
+.popup-header-Section {
+  font-weight: 600;
+}
+
+.rectangle-header-Section {
+  font-weight: 600;
+  margin-left: -5px !important;
+}
+
+.popup-node {
+  margin-left: 5px;
+}
+
+.k-icon-sm {
+  font-size: 20px !important;
+  top: -3px !important;
+}
+
+.k-icon-arrow {
+  font-size: 18px !important;
+}
+
+.rectangle {
+  width: 300px;
+  padding: 5px 50px 5px 10px;
+  border: 1px solid #000;
+  border-top: none;
+  background-color: #deeefc;
+}
+
+a:hover { text-decoration: none; cursor:default;}
+
+.k-iconalign {
+  vertical-align: middle;
+}
+.kendo-popup-marign-align{
+  margin-left: 28px;
+}

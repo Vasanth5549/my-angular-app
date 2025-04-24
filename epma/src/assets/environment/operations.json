@@ -1,0 +1,241 @@
+[
+  {
+    "id": "GetValuesByDomainCode",
+    "baseUrl": "",
+    "extendedUrl": "/webclient_sso/EPR/",
+    "resource": "SLAppCallback.aspx",
+    "verb": "POST",
+    "contentType": "XML",
+    "relativeURL": true
+  },
+  {
+    "id": "GetValuesByDomainCodes",
+    "baseUrl": "",
+    "extendedUrl": "/webclient_sso/EPR/",
+    "resource": "SLAppCallback.aspx",
+    "verb": "POST",
+    "contentType": "XML",
+    "relativeURL": true
+  },
+  {
+    "id": "GetFormViewerData",
+    "baseUrl": "",
+    "extendedUrl": "/webclient_sso/EPR/",
+    "resource": "VMCallback.aspx",
+    "verb": "POST",
+    "contentType": "XML",
+    "relativeURL": true
+  },
+  {
+    "id": "GetcontextData",
+    "baseUrl": "",
+    "extendedUrl": "/webclient_sso/EPR/",
+    "resource": "SLAppWizardPage.aspx",
+    "verb": "POST",
+    "contentType": "XML",
+    "relativeURL": true
+  },
+  {
+    "id": "FormViewerData",
+    "baseUrl": "",
+    "extendedUrl": "/webclient_sso/EPR/",
+    "resource": "VMCallback.aspx",
+    "verb": "POST",
+    "contentType": "XML",
+    "relativeURL": true
+  },
+  {
+    "id": "GetMedicationList",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/IPPMAManagePrescription_P2.asmx/",
+    "resource": "GetPatientMedicationList",
+    "verb": "POST",
+    "contentType": "JSON",
+    "relativeURL": true
+
+  },
+  {
+    "id": "PublishProblemInfo",
+    "baseUrl": "",
+    "extendedUrl": "/webclient_sso/EPR/",
+    "resource": "SLAppCallback.aspx",
+    "verb": "POST",
+    "contentType": "XML",
+    "relativeURL": true
+  },
+  {
+    "id": "GetProfileData",
+    "baseUrl": "",
+    "extendedUrl": "/webclient_sso/EPR/",
+    "resource": "SLAppCallback.aspx",
+    "verb": "POST",
+    "contentType": "XML",
+    "relativeURL": true
+  },
+  {
+    "id": "GetStationaryItem",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/MedicationMgmt_P2.asmx/",
+    "resource": "GetStationaryItem",
+    "verb": "POST",
+    "contentType": "JSON",
+    "relativeURL": true
+
+  },
+  {
+    "id": "GetResolveDefault",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/IPPMAManagePrescription_P2.asmx/",
+    "resource": "GetResolveDefault",
+    "verb": "POST",
+    "contentType": "JSON",
+    "relativeURL": true
+
+  },
+  {
+    "id": "GetResolveDetail",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/IPPMAManagePrescription_P2.asmx/",
+    "resource": "GetResolveDetail",
+    "verb": "POST",
+    "contentType": "JSON",
+    "relativeURL": true
+
+  },
+  {
+    "id": "GetDeactivateAttributes",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/ManagePrescription_P2.asmx/",
+    "resource": "GetDeactivateAttributes",
+    "verb": "POST",
+    "contentType": "JSON",
+    "relativeURL": true
+
+  },
+  {
+    "id": "GetFormViewDefaultParams",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/IPPMAManagePrescription_P2.asmx/",
+    "resource": "GetFormViewDefaultParams",
+    "verb": "POST",
+    "contentType": "JSON",
+    "relativeURL": true
+  },
+  {
+    "id": "CheckPrescribeRule",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/IPPMAManagePrescription_P2.asmx/",
+    "resource": "CheckPrescribeRule",
+    "verb": "POST",
+    "contentType": "JSON",
+    "relativeURL": true
+  },
+  {
+    "id": "GetMedicationsForInpatient",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/IPPMAManagePrescription_P2.asmx/",
+    "resource": "GetMedicationsForInpatient",
+    "verb": "POST",
+    "contentType": "JSON",
+    "relativeURL": true
+  },
+  {
+    "id": "GetIPPDecisionSupport",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/IPPMAManagePrescription_P2.asmx/",
+    "resource": "GetIPPDecisionSupport",
+    "verb": "POST",
+    "contentType": "JSON",
+    "relativeURL": true
+  },
+  {
+    "id": "GetFormViewControls",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/ManagePrescription_P2.asmx/",
+    "resource": "GetFormViewControls",
+    "verb": "POST",
+    "contentType": "JSON",
+    "relativeURL": true
+  },
+  {
+    "id": "SubmitDrugs",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/IPPMAManagePrescription_P2.asmx/",
+    "resource": "SubmitDrugs",
+    "verb": "POST",
+    "contentType": "JSON",
+    "relativeURL": true
+  },
+  {
+    "id": "SetAppSession",
+    "baseUrl": "",
+    "extendedUrl": "/webclient_sso/EPR/",
+    "resource": "SLAppCallback.aspx",
+    "verb": "POST",
+    "contentType": "XML",
+    "relativeURL": true
+  },
+  {
+    "id": "GetAppSession",
+    "baseUrl": "",
+    "extendedUrl": "/webclient_sso/EPR/",
+    "resource": "SLAppCallback.aspx",
+    "verb": "POST",
+    "contentType": "XML",
+    "relativeURL": true
+  },
+  {
+    "id": "IsExistsAppSession",
+    "baseUrl": "",
+    "extendedUrl": "/webclient_sso/EPR/",
+    "resource": "SLAppCallback.aspx",
+    "verb": "POST",
+    "contentType": "XML",
+    "relativeURL": true
+  },
+  {
+    "id": "RemoveAppSession",
+    "baseUrl": "",
+    "extendedUrl": "/webclient_sso/EPR/",
+    "resource": "SLAppCallback.aspx",
+    "verb": "POST",
+    "contentType": "XML",
+    "relativeURL": true
+  },
+  {
+    "id": "CheckResourcePermission",
+    "baseUrl": "",
+    "extendedUrl": "/webclient_sso/EPR/",
+    "resource": "SLAppCallback.aspx",
+    "verb": "POST",
+    "contentType": "XML",
+    "relativeURL": true
+  },
+  {
+    "id": "GetWizardDetails",
+    "baseUrl": "",
+    "extendedUrl": "/webclient_sso/EPR/",
+    "resource": "SLAppCallback.aspx",
+    "verb": "POST",
+    "contentType": "XML",
+    "relativeURL": true
+  },
+  {
+    "id": "GetSFSItems",
+    "baseUrl": "",
+    "extendedUrl": "/webclient_sso/EPR/",
+    "resource": "SLAppCallback.aspx",
+    "verb": "POST",
+    "contentType": "XML",
+    "relativeURL": true
+  },
+  {
+    "id": "AddSFSItems",
+    "baseUrl": "",
+    "extendedUrl": "/webclient_sso/EPR/",
+    "resource": "SLAppCallback.aspx",
+    "verb": "POST",
+    "contentType": "XML",
+    "relativeURL": true
+  }
+]

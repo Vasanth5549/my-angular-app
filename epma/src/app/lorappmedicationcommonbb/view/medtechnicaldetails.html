@@ -1,0 +1,450 @@
+<div class="grid-layout-container">
+    <kendo-gridlayout #LayoutRootTempRef Background="#FFE0EFF1" [Name]="LayoutRoot" HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch" [rows]="[ { height: 'auto'},{ height: '1fr'},{ height: 'auto'},{ height: '1fr'}]" [style.height.px]="fullHeight">
+        <kendo-gridlayout-item [row]='1' [col]='1'>
+            <div containerStyle>
+                <iLabel #lblSupplyDetHeadingTempRef Name="lblSupplyDetHeading" [Text]="mdkey.lblSupplyDetHeading_Header"
+                    FontWeight="Bold" HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                    Margin="0,7,0,3" Visibility="Visible"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <Border [row]='1' [col]='1' [iStyle]="Styles.whiteBorder"></Border>
+        <kendo-gridlayout-item [row]='2' [col]='1'>
+            <div containerStyle>
+                <kendo-grid id="grdSupplydetails" #grdSupplydetailsTempRef kendogridtoolbartemplate [style.width.px]="888"
+                    class="medTechnicalDetails grdSupplydetails" [selectable]="{ checkboxOnly: false, mode: 'single' }"
+                    [GridProperties]="grdSupplydetails" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                    Margin="0,5,0,10" [height]="maxGridHeight" [data]="grdSupplydetails.ItemsSource.array"
+                    (selectionChange)="grdSupplydetails.selectionChange($event)" kendoGridSelectBy
+                    [(selectedKeys)]="grdSupplydetails.selectedRowsIndex" [reorderable]="false" [rowClass]="rowCallback"
+                    (keyup)="grdSupplydetails.GridSelectionKeyUp($event)"
+                    (keydown)="grdSupplydetails.GridSelectionKeyDown($event)"
+                    (detailExpand)="grdSupplydetails.RowIsExpandedChanged($event)"
+                    (detailCollapse)="grdSupplydetails.RowIsExpandedChanged($event)"
+                    [kendoGridExpandDetailsBy]="grdSupplydetails.expandDetailsBy"
+                    [(expandedDetailKeys)]="grdSupplydetails.expandedDetailKeys" 
+                    (contentScroll)="grdSupplydetails.ContentScrollEvent($event, 'grdSupplydetails', 'NoRecordsTemplateID2')">
+             
+                    <kendo-grid-column *ngIf="grdSupplydetails.RowIndicatorVisibility == 0 ? true : false"
+                        UniqueName="rowindicator" field="rowindicator" title="" [width]="40">
+                        <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+                            <Image
+                                *ngIf="grdSupplydetails.selectedRowsIndex.length > 0 ? grdSupplydetails.selectedRowsIndex == rowIndex : false"
+                                Source="~/../assets/Images/iarrownor5x10.png" class="ArrowAlign">
+                            </Image>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <!-- NoRecordsText="There are no records to show"-->
+                    <ng-template kendoGridNoRecordsTemplate>
+                        <div id="NoRecordsTemplateID2">{{TechValidate.ResolveGridNoRecordsText}}</div>
+                    </ng-template>
+
+                    <kendo-grid-column UniqueName="MediactionName" [resizable]="false"
+                        [GridColumnProperties]="grdSupplydetails" TextWrapping="Wrap"
+                        [title]="mdkey.MediactionName_Header" field="Drugname" [sortable]="false" [width]="180"
+                        [filterable]="false">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip title="{{mdkey.MediactionName_Header}}">{{mdkey.MediactionName_Header}}</span>
+                          </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #tempgrdSupplydetails [dataItem]="dataItem" [index]="rowIndex"
+                                [colindex]="columnIndex" [gridHelper]="grdSupplydetails"
+                                (RowLoaded)="rowLoadedTV($event)">
+                                <ContentPresenter [Content]="dataItem | SupplyHistory : '' : 'Medicationitem'">
+                                </ContentPresenter>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+
+                    <kendo-grid-column UniqueName="SupplyStatus" [resizable]="false"
+                        [GridColumnProperties]="grdSupplydetails" TextWrapping="Wrap"
+                        [title]="mdkey.Supplystatus_Header" field="SupplystatusCode" [sortable]="false" [width]="117"
+                        [filterable]="false">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip title="{{mdkey.Supplystatus_Header}}">{{mdkey.Supplystatus_Header}}</span>
+                          </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #tempgrdSupplydetails [dataItem]="dataItem" [index]="rowIndex"
+                                [colindex]="columnIndex" [gridHelper]="grdSupplydetails">
+                                <ContentPresenter [Content]="dataItem | SupplyHistory : '' : 'SupplystatusCode'">
+                                </ContentPresenter>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <kendo-grid-column UniqueName="SupplyInstructions/Comments" [resizable]="false" class="textWrap"
+                        [GridColumnProperties]="grdSupplydetails" TextWrapping="Wrap"
+                        [title]="mdkey.Supplyinstrs_Comnts_Header" field="Supplyinstruction" [sortable]="false"
+                        [width]="210" [filterable]="false" [editable]="false">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip title="{{mdkey.Supplyinstrs_Comnts_Header}}">{{mdkey.Supplyinstrs_Comnts_Header}}</span>
+                          </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #tempgrdSupplydetails [dataItem]="dataItem" [index]="rowIndex"
+                                [colindex]="columnIndex" [gridHelper]="grdSupplydetails">
+                                <ContentPresenter [Content]="dataItem | SupplyHistory : '' : 'Supplyinstruction'">
+                                </ContentPresenter>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+
+                    <kendo-grid-column UniqueName="TechnicallyValidatedBy" [resizable]="false"
+                        [GridColumnProperties]="grdSupplydetails" TextWrapping="Wrap" [title]="mdkey.Techvalby_Header"
+                        field="SupplieddBy" [sortable]="false" [width]="101" [filterable]="false">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip title="{{mdkey.Techvalby_Header}}">{{mdkey.Techvalby_Header}}</span>
+                          </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" style="margin-left: 2px;"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #tempgrdSupplydetails [dataItem]="dataItem" [index]="rowIndex"
+                                [colindex]="columnIndex" [gridHelper]="grdSupplydetails">
+                                <ContentPresenter [Content]="dataItem | SupplyHistory : '' : 'SupplieddBy'">
+                                </ContentPresenter>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+
+                    <kendo-grid-column UniqueName="Dispensingrequestdetailsdatetime" [resizable]="false"
+                        [GridColumnProperties]="grdSupplydetails" TextWrapping="Wrap"
+                        [title]="mdkey.Dispensingdet_Header" field="MediactionName" [sortable]="false" [width]="250"
+                        [filterable]="false">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip title="{{mdkey.Dispensingdet_Header}}">{{mdkey.Dispensingdet_Header}}</span>
+                          </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #tempgrdSupplydetails [dataItem]="dataItem" [index]="rowIndex"
+                                [colindex]="columnIndex" [gridHelper]="grdSupplydetails">
+                                <ContentPresenter [Content]="dataItem | SupplyHistory : '' : 'DispensingDetail'">
+                                </ContentPresenter>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+
+                    <kendo-grid-column UniqueName="NextSupply" [resizable]="false"
+                        [GridColumnProperties]="grdSupplydetails" TextWrapping="Wrap" [title]="mdkey.Next_Header"
+                        field="NextSupplyDttm" [sortable]="false" [width]="100" [filterable]="false">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip title="{{mdkey.Next_Header}}">{{mdkey.Next_Header}}</span>
+                          </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #tempgrdSupplydetails [dataItem]="dataItem" [index]="rowIndex"
+                                [colindex]="columnIndex" [gridHelper]="grdSupplydetails">
+                                <ContentPresenter [Content]="dataItem | SupplyHistory : '' : 'NextSupplyDttm'">
+                                </ContentPresenter>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+
+                    <kendo-grid-column UniqueName="Location" [resizable]="false" class="textWrap"
+                        [GridColumnProperties]="grdSupplydetails" TextWrapping="Wrap" [title]="mdkey.Location_Header"
+                        field="LocationName" [sortable]="false" [width]="80" [filterable]="false">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip title="{{mdkey.Location_Header}}">{{mdkey.Location_Header}}</span>
+                          </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #tempgrdSupplydetails [dataItem]="dataItem" [index]="rowIndex"
+                                [colindex]="columnIndex" [gridHelper]="grdSupplydetails">
+                                <ContentPresenter [Content]="dataItem | SupplyHistory : '' : 'LocationName'">
+                                </ContentPresenter>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+
+                    <kendo-grid-column UniqueName="PrescriptionType" [resizable]="false"
+                        [GridColumnProperties]="grdSupplydetails" TextWrapping="Wrap" [title]="mdkey.Presctype_Header"
+                        field="Prescriptiontype" [sortable]="false" [width]="135" [filterable]="false">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip title="{{mdkey.Presctype_Header}}">{{mdkey.Presctype_Header}}</span>
+                          </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #tempgrdSupplydetails [dataItem]="dataItem" [index]="rowIndex"
+                                [colindex]="columnIndex" [gridHelper]="grdSupplydetails">
+                                <ContentPresenter [Content]="dataItem | SupplyHistory : '' : 'Prescriptiontype'">
+                                </ContentPresenter>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+
+                    <!-- //Re-visit -->
+                    <ng-template [kendoGridDetailTemplateShowIf]="displayHierarchicalBtn" kendoGridDetailTemplate
+                        let-dataItemChild="dataItem" let-parentRowIndex="rowIndex">
+                        <DataTemplate>
+                            <kendo-grid #grdMCISupplyDetTempRef Name="grdMCISupplyDet"
+                                [selectable]="{ checkboxOnly: false, mode: 'single' }"
+                                [data]="dataItemChild?.SupplyHistoryMCIChild?.array"
+                                [GridProperties]="dataItemChild.ChildGridExtension" HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                (selectionChange)="dataItemChild.ChildGridExtension.selectionChange($event)"
+                                [ChildCollectionProp]="'SupplyHistoryMCIChild'" [ParentRow]="dataItemChild"
+                                class="vertical-class-stretch grdTecValItmChld scroll padright"
+                                [(selectedKeys)]="dataItemChild.ChildGridExtension.selectedRowsIndex" kendoGridSelectBy>
+
+                                <!-- <kendo-grid-column *ngIf=" grdMCISupplyDet.RowIndicatorVisibility==0 ? true : false" -->
+                                <kendo-grid-column UniqueName="rowindicator" field="rowindicator" title="" [width]="45">
+                                    <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+                                        <Image [style.marginLeft.px]="15" [style.marginRight.px]="10" class="Arrow"
+                                            *ngIf="dataItemChild.ChildGridExtension.selectedRowsIndex.length > 0 ? dataItemChild.ChildGridExtension.selectedRowsIndex == rowIndex : false"
+                                            Source="~/../assets/Images/iarrownor5x10.png">
+                                        </Image>
+                                    </ng-template>
+                                </kendo-grid-column>
+
+                                <ng-template kendoGridNoRecordsTemplate>
+                                    There are no records to show
+                                </ng-template>
+
+                                <kendo-grid-column UniqueName="MediactionName" [resizable]="false" class="textWrap"
+                                    [GridColumnProperties]="grdMCISupplyDet" TextWrapping="Wrap"
+                                    [title]="mdkey.MediactionName_Header" field="Drugname" [sortable]="false"
+                                    [width]="175" [filterable]="false">
+                                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                        let-columnIndex="columnIndex">
+                                        <DataTemplate #grdSupplydetailschildDTTempRef columnName="MediactionName"
+                                            [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                            [gridHelper]="dataItemChild.ChildGridExtension"
+                                            [ParentRowIndex]="parentRowIndex"
+                                            (RowLoaded)="rowLoadedTVChild($event,dataItemChild)">
+                                            <ContentPresenter
+                                                [Content]="dataItem | SupplyHistoryForMCI : '' : 'Medicationitem'">
+                                            </ContentPresenter>
+                                        </DataTemplate>
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column UniqueName="SupplyStatus" [resizable]="false"
+                                    [GridColumnProperties]="grdMCISupplyDet" TextWrapping="Wrap"
+                                    [title]="mdkey.Supplystatus_Header" field="SupplystatusCode" [sortable]="false"
+                                    [width]="100" [filterable]="false">
+                                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                        let-columnIndex="columnIndex">
+                                        <DataTemplate #grdSupplydetailschildDTTempRef columnName="SupplyStatus"
+                                            [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                            [gridHelper]="dataItemChild.ChildGridExtension"
+                                            [ParentRowIndex]="parentRowIndex">
+                                            <ContentPresenter
+                                                [Content]="dataItem | SupplyHistoryForMCI : '' : 'SupplystatusCode'">
+                                            </ContentPresenter>
+                                        </DataTemplate>
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column UniqueName="SupplyInstructions/Comments" [resizable]="false"
+                                    class="textWrap" [GridColumnProperties]="grdMCISupplyDet" TextWrapping="Wrap"
+                                    [title]="mdkey.Supplyinstrs_Comnts_Header" field="Supplyinstruction"
+                                    [sortable]="false" [width]="210" [filterable]="false" [editable]="false">
+                                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                        let-columnIndex="columnIndex">
+                                        <DataTemplate #grdSupplydetailschildDTTempRef
+                                            columnName="SupplyInstructions/Comments" [dataItem]="dataItem"
+                                            [index]="rowIndex" [colindex]="columnIndex"
+                                            [gridHelper]="dataItemChild.ChildGridExtension"
+                                            [ParentRowIndex]="parentRowIndex">
+                                            <ContentPresenter
+                                                [Content]="dataItem | SupplyHistoryForMCI : '' : 'Supplyinstruction'"
+                                                [ToolTip]="dataItem | SupplyHistoryForMCI : '' : 'Supplyinstruction'">
+                                            </ContentPresenter>
+                                        </DataTemplate>
+                                    </ng-template>
+                                </kendo-grid-column>
+
+                                <kendo-grid-column UniqueName="TechnicallyValidatedBy" [resizable]="false"
+                                    class="textWrap" [GridColumnProperties]="grdMCISupplyDet" TextWrapping="Wrap"
+                                    [title]="mdkey.Techvalby_Header" field="SupplieddBy" [sortable]="false"
+                                    [width]="101" [filterable]="false">
+                                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                        let-columnIndex="columnIndex">
+                                        <DataTemplate #grdSupplydetailschildDTTempRef
+                                            columnName="TechnicallyValidatedBy" [dataItem]="dataItem" [index]="rowIndex"
+                                            [colindex]="columnIndex" [gridHelper]="dataItemChild.ChildGridExtension"
+                                            [ParentRowIndex]="parentRowIndex">
+                                            <ContentPresenter
+                                                [Content]="dataItem | SupplyHistoryForMCI : '' : 'SupplieddBy'">
+                                            </ContentPresenter>
+                                        </DataTemplate>
+                                    </ng-template>
+                                </kendo-grid-column>
+
+                                <kendo-grid-column UniqueName="Dispensingrequestdetailsdatetime" [resizable]="false"
+                                    [GridColumnProperties]="grdMCISupplyDet" TextWrapping="Wrap"
+                                    [title]="mdkey.Dispensingdet_Header" field="MediactionName" [sortable]="false"
+                                    [width]="250" [filterable]="false">
+                                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                        let-columnIndex="columnIndex">
+                                        <DataTemplate #grdSupplydetailschildDTTempRef
+                                            columnName="Dispensingrequestdetailsdatetime" [dataItem]="dataItem"
+                                            [index]="rowIndex" [colindex]="columnIndex"
+                                            [gridHelper]="dataItemChild.ChildGridExtension"
+                                            [ParentRowIndex]="parentRowIndex">
+                                            <ContentPresenter
+                                                [Content]="dataItem | SupplyHistoryForMCI : '' : 'DispensingDetail'"
+                                                [ToolTip]="dataItem | SupplyHistoryForMCI : '' : 'DispensingDetail'">
+                                            </ContentPresenter>
+                                        </DataTemplate>
+                                    </ng-template>
+                                </kendo-grid-column>
+
+                                <kendo-grid-column UniqueName="NextSupply" [resizable]="false"
+                                    [GridColumnProperties]="grdMCISupplyDet" TextWrapping="Wrap"
+                                    [title]="mdkey.Next_Header" field="NextSupplyDttm" [sortable]="false" [width]="100"
+                                    [filterable]="false">
+                                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                        let-columnIndex="columnIndex">
+                                        <DataTemplate #grdSupplydetailschildDTTempRef columnName="NextSupply"
+                                            [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                            [gridHelper]="dataItemChild.ChildGridExtension"
+                                            [ParentRowIndex]="parentRowIndex">
+                                            <ContentPresenter
+                                                [Content]="dataItem | SupplyHistoryForMCI : '' : 'NextSupplyDttm'"
+                                                [ToolTip]="dataItem | SupplyHistoryForMCI : '' : 'NextSupplyDttm'">
+                                            </ContentPresenter>
+                                        </DataTemplate>
+                                    </ng-template>
+                                </kendo-grid-column>
+
+                                <kendo-grid-column UniqueName="Location" [resizable]="false" class="textWrap"
+                                    [GridColumnProperties]="grdMCISupplyDet" TextWrapping="Wrap"
+                                    [title]="mdkey.Location_Header" field="LocationName" [sortable]="false" [width]="80"
+                                    [filterable]="false">
+                                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                        let-columnIndex="columnIndex">
+                                        <DataTemplate #grdSupplydetailschildDTTempRef columnName="Location"
+                                            [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                            [gridHelper]="dataItemChild.ChildGridExtension"
+                                            [ParentRowIndex]="parentRowIndex">
+                                            <ContentPresenter
+                                                [Content]="dataItem | SupplyHistoryForMCI : '' : 'LocationName'">
+                                            </ContentPresenter>
+                                        </DataTemplate>
+                                    </ng-template>
+                                </kendo-grid-column>
+
+                                <kendo-grid-column UniqueName="PrescriptionType" [resizable]="false"
+                                    [GridColumnProperties]="grdMCISupplyDet" TextWrapping="Wrap"
+                                    [title]="mdkey.Presctype_Header" field="Prescriptiontype" [sortable]="false"
+                                    [width]="125" [filterable]="false">
+                                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                        let-columnIndex="columnIndex">
+                                        <DataTemplate #grdSupplydetailschildDTTempRef columnName="PrescriptionType"
+                                            [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                            [gridHelper]="dataItemChild.ChildGridExtension"
+                                            [ParentRowIndex]="parentRowIndex">
+                                            <ContentPresenter
+                                                [Content]="dataItem | SupplyHistoryForMCI : '' : 'Prescriptiontype'">
+                                            </ContentPresenter>
+                                        </DataTemplate>
+                                    </ng-template>
+                                </kendo-grid-column>
+                            </kendo-grid>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='3' [col]='1'>
+            <div containerStyle>
+                <iLabel #lblHeadingTempRef Name="lblHeading" [Text]="ddkey.lblHeading_Header" FontWeight="Bold"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True" Margin="0,2,0,3">
+                </iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <Border [row]='3' [col]='1'></Border>
+
+        <kendo-gridlayout-item [row]='4' [col]='1'>
+            <kendo-grid id="grdData" #grdDataTempRef Name="grdData" [data]="grdData?.ItemsSource?.array" [GridProperties]="grdData" [style.width.px]="888" Margin="0,5,0,0"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" [height]="maxGridHeight" [reorderable]="false" 
+				(keyup)="grdData.GridSelectionKeyUp($event)" kendoGridSelectBy
+                (keydown)="grdData.GridSelectionKeyDown($event)" [(selectedKeys)]="grdData.selectedRowsIndex"
+                [selectable]="{ checkboxOnly: false, mode: 'single' }" class="medTechnicalDetails" 
+                (contentScroll)="grdData.ContentScrollEvent($event, 'grdData', 'NoRecordsTemplateID1')">
+                <ng-template kendoGridNoRecordsTemplate>
+                    <div id="NoRecordsTemplateID1">{{TechValidate.ResolveGridNoRecordsText}}</div>
+                </ng-template>
+                <kendo-grid-column UniqueName="IdentityfyingName" [resizable]="false" [GridColumnProperties]="grdData"
+                    class="textWrap" TextWrapping="Wrap" [title]="ddkey.IdentityfyingName_Header" field="IdentifyingName"
+                    [sortable]="false" [width]="250" [filterable]="false">
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip title="{{ddkey.IdentityfyingName_Header}}">{{ddkey.IdentityfyingName_Header}}</span>
+                      </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #tempgrdData [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdData" (RowLoaded)="rowLoadedData($event)">
+                            <ContentPresenter [Content]="dataItem | TechnicalDetailsHistory : '' : 'IdentityfyingName'">
+                            </ContentPresenter>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+
+                <kendo-grid-column UniqueName="Quantity" [resizable]="false" [GridColumnProperties]="grdData"
+                    TextWrapping="Wrap" [title]="ddkey.Quantity_Header" field="QuantityPerDoseWithUOM"
+                    [sortable]="false" [width]="167" [filterable]="false">
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip title="{{ddkey.Quantity_Header}}">{{ddkey.Quantity_Header}}</span>
+                      </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #tempgrdData [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdData">
+                            <ContentPresenter
+                                [Content]="dataItem | TechnicalDetailsHistory : '' : 'QuantityPerDoseWithUOM'">
+                            </ContentPresenter>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column UniqueName="TotalQuantity" [resizable]="false" [GridColumnProperties]="grdData"
+                    TextWrapping="Wrap" [title]="ddkey.TotalQuantity_Header" field="TotalQuantityWithUOM"
+                    [sortable]="false" [width]="130" [filterable]="false">
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip title="{{ddkey.TotalQuantity_Header}}">{{ddkey.TotalQuantity_Header}}</span>
+                      </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #tempgrdData [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdData">
+                            <ContentPresenter
+                                [Content]="dataItem | TechnicalDetailsHistory : '' : 'TotalQuantityWithUOM'">
+                            </ContentPresenter>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column UniqueName="SupplyInstruction/Comments" [resizable]="false"
+                    class="textWrap" [GridColumnProperties]="grdData" TextWrapping="Wrap" [title]="ddkey.SupplyInstruction_Header"
+                    field="SupplyInstructionDesc" [sortable]="false" [width]="250" [filterable]="false">
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip title="{{ddkey.SupplyInstruction_Header}}">{{ddkey.SupplyInstruction_Header}}</span>
+                      </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #tempgrdData [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdData">
+                            <ContentPresenter
+                                [Content]="dataItem | TechnicalDetailsHistory : '' : 'SupplyInstructionDesc'"
+                                [ToolTip]="dataItem | TechnicalDetailsHistory : '' : 'SupplyInstructionDesc'">
+                            </ContentPresenter>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column UniqueName="Dispensingrequestdetailsdatetime" [resizable]="false"
+                    [GridColumnProperties]="grdData" TextWrapping="Wrap" field="DispensingDetail" [sortable]="false"
+                    [width]="250" [filterable]="false" [title]="mdkey.Dispensingdet_Header">
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip title="{{mdkey.Dispensingdet_Header}}">{{mdkey.Dispensingdet_Header}}</span>
+                      </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #tempgrdData [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdData">
+                            <ContentPresenter [Content]="dataItem | TechnicalDetailsHistory : '' : 'DispensingDetail'"
+                                [ToolTip]="dataItem | TechnicalDetailsHistory : '' : 'DispensingDetail'">
+                            </ContentPresenter>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+            </kendo-grid>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

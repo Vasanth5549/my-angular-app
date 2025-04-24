@@ -1,0 +1,11 @@
+<div name="LayoutRoot">
+    <kendo-gridlayout class="grid-layout-container" GridLayout [cols]="[{width : '1fr'}]">
+        <kendo-gridlayout-item [row]='2' [col]='2' [colSpan]='4'>
+            <div containerStyle>
+                <!-- <ContentControl #ContentCtrlMedConflictsTempRef Name="ContentCtrlMedConflicts"
+                    HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"></ContentControl> -->
+                    <medfrmconflictsCA [DataContext]="DataContext"></medfrmconflictsCA>
+                </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

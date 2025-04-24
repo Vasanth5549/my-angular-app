@@ -1,0 +1,20 @@
+<!-- <medfrmconflictsCA *ngIf="page == 'medfrmconflictsCA'" [DataContext]="DataContext">
+</medfrmconflictsCA>
+
+<medsupplydispensinginstructionstab *ngIf="page == 'medsupplydispensinginstructionstab'" [DataContext]="DataContext">
+</medsupplydispensinginstructionstab>
+
+<medTechvalidateCA *ngIf="page == 'medTechvalidateCA'" [DataContext]="DataContext">
+</medTechvalidateCA> -->
+
+<medprescribedrugs *ngIf="page == 'MN_MEDCLERKSL_P2' || page == 'MN_MEDADMINISTRAT_P2' || page == 'MN_MEDINPATSL_P2' || page == 'MN_MEDOUTPATSL_P2' || page == 'MN_MEDDISCHRGESL_P2' || page == 'MN_MEDLEAVESL_P2' || page == 'MN_RECORDPGDSUPLY_P2' " [DataContext]="DataContext">
+</medprescribedrugs>
+<medsupplydispensinginstructionstab *ngIf="page == 'MN_SUPINSTR_P2'" [DataContext]="DataContext"></medsupplydispensinginstructionstab>
+
+<MedAuthorise *ngIf="page=='MN_MED_VERIFY_SL_P2'" [DataContext]="DataContext"></MedAuthorise>
+
+<medTechvalidateCA *ngIf="page == 'MN_MED_VALIDATE_S_P2'" [DataContext]="DataContext"></medTechvalidateCA>
+
+<medfrmconflictsCA *ngIf="page == 'MN_RSLV_CONFLICTS'" [DataContext]="DataContext"></medfrmconflictsCA>
+
+<!-- <ng-template #nopagefound>No Page Found</ng-template> -->

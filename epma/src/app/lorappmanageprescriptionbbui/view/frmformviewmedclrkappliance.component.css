@@ -1,0 +1,25 @@
+.leftAlignment {
+    padding-left: 0.4rem;
+}
+
+
+.SupplyInscroll
+{
+  overflow: auto; line-height: 1.5;
+}
+.SupplyVis
+{
+    display:none;
+}
+@media screen and (max-width: 1400px) {
+    .TopAlignment {
+        height: 288px;
+        padding-top: 7px;
+      }
+  }
+  @media screen and (min-width: 1400px) {
+    .TopAlignment {
+        height: 300px;
+        padding-top: 7px;
+      }
+  } 

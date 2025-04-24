@@ -1,0 +1,51 @@
+<div #dataTemplateId *ngIf="projection" [title]="ToolTip" [ngStyle]="iStyle" id={{GUID}}>
+  <ng-content> </ng-content>
+</div>
+<div #dataTemplateId *ngIf="!projection" kendoTooltip [title]="ToolTip" [ngStyle]="iStyle" id={{GUID}}>
+  <ng-container *ngIf="render">
+  <ng-container *ngIf="Child?.constructor?.name == 'StackPanel'">
+    <StackPanel [ChildrenElementArray]="Child?.ChildrenElementArray"></StackPanel>
+  </ng-container>
+  <ng-container *ngIf="Child?.constructor?.name == 'Image'">
+    <Image [Source]="Child?.Source" [MouseLeftButtonUp]="Child?.MouseLeftButtonUp" [DataContext]="Child?.DataContext"> </Image>
+  </ng-container>
+  <ng-container *ngIf="Child?.constructor?.name == 'Canvas'">
+    <epmaCanvas  [Height]="Child.Height" [Width]="Child.Width" [_Children]="Child._Children"></epmaCanvas>
+  </ng-container>
+  <ng-container *ngIf="Child?.constructor?.name == 'RichTextBox'">
+    <RichTextBox [paraArr]="Child?.paraArr" [style]="Child?.style"></RichTextBox>
+  </ng-container>
+  <ng-container *ngIf="Child?.constructor?.name == 'Border' && Child.ChildAsTempRef">
+    <ng-container [ngTemplateOutlet]="Child?.ChildAsTempRef" [ngTemplateOutletContext]="{DataContext:Child?.DataContext}"></ng-container>
+  </ng-container>
+  <ng-container *ngIf="Content?.constructor?.name == 'TextBlock'">
+    <TextBlock  [Text]="Content?.Text"></TextBlock>
+  </ng-container>
+  
+  <ng-container *ngIf="Content?.constructor?.name == 'Border' && !Child.ChildAsTempRef">
+    <Border GridLayout [Child]="Content?.Child" [iStyle]="Styles.whiteBorder" [style]="Content?.baseStyle"></Border>
+  </ng-container>
+  
+  <ng-container *ngIf="Content?.constructor?.name == 'Grid'">
+    <Grid [style]="Content?.style" [Tooltip]="Content?.Tooltip" [ChildrenArr]="Content?.ChildrenArr"  [RowDefinitionsArr]="Content?.RowDefinitionsArr" [ColumnDefinitionsArr]="Content?.ColumnDefinitionsArr" [ColWidth]="Content?.ColWidth" [RowHeight]="Content?.RowHeight"></Grid>
+  </ng-container>
+</ng-container>
+  <ng-container *ngIf="!render && Content.ChildrenArr && Content.ChildrenArr.Count() > 0 && Content.ChildrenArr[0].control.Children && Content.ChildrenArr[0].control.ChildrenElementArray.length == 1" >
+    <div style="place-self: stretch;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgb(112, 144, 165);
+    border-style: solid;
+    border-width: 1px;
+    " [ngStyle]="getValue(Content.ChildrenArr[0].control.ChildrenElementArray[0])"></div>
+  </ng-container>
+  <div *ngIf="!render && !(Content.ChildrenArr && Content.ChildrenArr.Count() > 0 && Content.ChildrenArr[0].control.Children && Content.ChildrenArr[0].control.ChildrenElementArray.length == 1)" >
+   <div *ngFor="let item of Content.ChildrenArr[0].control.ChildrenElementArray" style="place-self: stretch;
+   background: rgba(255, 255, 255, 0.1);
+   border-color: rgb(112, 144, 165);
+   border-style: solid;
+   border-width: 1px;
+   " [ngStyle]="getValue(item)">
+    </div> 
+  </div>
+
+</div>

@@ -1,0 +1,9 @@
+k-radio.k-checked .k-radio.k-checked {
+    border-color: #085f5c !important;
+    color: white !important;
+    background-color: #085f5c !important;
+}
+
+.k-radio {
+    border-color: #87a7ae !important;
+}

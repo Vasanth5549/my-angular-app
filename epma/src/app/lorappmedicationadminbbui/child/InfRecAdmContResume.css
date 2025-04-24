@@ -1,0 +1,8 @@
+:host::ng-deep.overflow1 .\!k-overflow-y-auto{
+    overflow-y: scroll !important;
+    height: 50px !important;
+}
+::ng-deep .infusionDoseCtrl > div{
+    display: flex ;
+    flex-direction: row ;
+}

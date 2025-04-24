@@ -1,0 +1,809 @@
+<div class="grid-layout-container" name="LayoutRoot" Height="Auto" Width="Auto" Background="White">
+  <kendo-gridlayout [rows]="[{ height: '1'},{ height: 'auto'},{ height: 'auto'}, { height: '1fr'},{ height: 'auto'}]"
+    [cols]="[{ width: '3fr'},{ width: '1fr'}]">
+    <!-- <kendo-gridlayout-item [row]='1' [col]='1'>
+
+
+      <div containerStyle>
+        </div>
+    </kendo-gridlayout-item> -->
+    <kendo-gridlayout-item [row]='2' [col]='7'>
+      <div containerStyle>
+        <iLabel #lblPatientHtWtBSATempRef Name="lblPatientHtWtBSA" [Text]="DataContext.PatientHtWtBSAText"
+          Margin="0,5,17,0" Width="auto" HorizontalAlignment="Right" FontWeight="Bold" VerticalAlignment="Top"></iLabel>
+      </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='2' [col]='1'>
+      <div containerStyle>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="23,5,0,0">
+          <iLabel #lblChatStatusTempRef Name="lblChatStatus" Text="Chart status: " Width="auto" Margin="0,0,3,0"></iLabel>
+          <iLabel #lblChatStatusValueTempRef Name="lblChatStatusValue"
+            [Text]="LayoutRoot.DataContext.ChartStatusDisplayText" Width="auto" FontWeight="Bold"></iLabel>
+          <iButton #btnHeightweightPopUpTempRef Name="btnHeightweightPopUp" [Text]="DataContext.HeightWeightIndText"
+            Cursor="Arrow" Margin="40,0,0,0" [(Visibility)]="DataContext.IsVisibleHWIndicator" FontWeight="Bold"
+            Foreground="Brown" DisabledImageSource="assets/Images/idissentinfonor16_A.png"
+            ActiveImageSource="assets/Images/idissentinfonor16_A.png"
+            ImageSource="assets/Images/idissentinfonor16_A.png">
+          </iButton>
+        </StackPanel>
+      </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='3' [col]='1'>
+      <div containerStyle>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="23,5,0,0">
+          <iLabel #lblDSTClockNotifierTempRef Name="lblDSTClockNotifier" Text="*There is a clock change on "
+            Foreground="#B40404" Width="auto" Visibility="Collapsed"></iLabel>
+          <iLabel #lblAuthoriseNotifierTempRef Name="lblAuthoriseNotifier"
+            Text="Medication items pending authorisation for this patient" Foreground="#B40404" Width="auto"
+            Margin="50,0,0,0" Visibility="Collapsed" FontWeight="Bold"></iLabel>
+        </StackPanel>
+      </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='3' [col]='7'>
+      <div containerStyle>
+        <StackPanel #ChartLegandRightTempRef Name="ChartLegandRight" Orientation="Horizontal"
+          HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,7,0,7">
+          <div class="ref">
+            <Border #RectOverdueColorTempRef Name="RectOverdueColor" Height="16" MinWidth="16" Width="Auto"
+              BorderThickness="0" [Background]="LayoutRoot.DataContext.OverDueSlotsColor">
+              <iLabel #lblOverdueNumberTempRef Name="lblOverdueNumber" Width="auto"
+                [Text]="LayoutRoot.DataContext.OverDueCount" class="due" VerticalAlignment="Center"
+                HorizontalAlignment="Center"></iLabel>
+            </Border>
+            <iLabel #lblOverdueTempRef Name="lblOverdue" Padding="0,10,0,10" [Text]="oMedsAdminChart.Overdue"
+              Width="auto">
+            </iLabel>
+            <Border #RectDueColorTempRef Name="RectDueColor" Height="16" MinWidth="16" Width="Auto" BorderThickness="0"
+              [Background]="LayoutRoot.DataContext.DueSlotsColor" HorizontalAlignment="Center">
+              <iLabel #lblDueNumberTempRef Name="lblDueNumber" Width="auto" [Text]="LayoutRoot.DataContext.DuenowCount"
+                class="due" VerticalAlignment="Center" HorizontalAlignment="Center"></iLabel>
+            </Border>
+            <iLabel #lblDueTempRef Name="lblDue" [Text]="oMedsAdminChart.Duenow" Padding="0,10,0,10" Width="auto">
+            </iLabel>
+            <Border #RectInprogressColorTempRef Name="RectInprogressColor" Height="16" MinWidth="16" Width="Auto"
+              BorderThickness="0" [Background]="LayoutRoot.DataContext.InProgressSlotsColor"
+              HorizontalAlignment="Center">
+              <iLabel #lblInprogressNumberTempRef Name="lblInprogressNumber" Width="auto" class="due"
+                [Text]="LayoutRoot.DataContext.InprogressCount" VerticalAlignment="Center" HorizontalAlignment="Center"
+                Padding="0,0,0,0"></iLabel>
+            </Border>
+            <iLabel #lblInprogressTempRef Name="lblInprogress" [Text]="oMedsAdminChart.InProgress" Padding="0,10,0,10"
+              Width="auto"></iLabel>
+            <Border #RectAsRequiredColorTempRef Name="RectAsRequiredColor" Height="16" MinWidth="16" Width="Auto"
+              BorderThickness="0" [Background]="LayoutRoot.DataContext.AsRequiredSlotsColor"
+              HorizontalAlignment="Center">
+              <iLabel #lblAsRequiredNumberTempRef Name="lblAsRequiredNumber" Width="auto" class="due"
+                [Text]="LayoutRoot.DataContext.AsrequiredCount" VerticalAlignment="Center" HorizontalAlignment="Center"
+                Padding="0,0,0,0"></iLabel>
+            </Border>
+            <iLabel #lblAsRequiredTempRef Name="lblAsRequired" [Text]="oMedsAdminChart.Asrequired" Padding="0,5,0,10"
+              Width="auto"></iLabel>
+          </div>
+        </StackPanel>
+      </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='4' [col]='1' [colSpan]='7'>
+      <div [ngClass]="isChildWizard ? 'divHeightChangedInfusion' : 'divDefaultHeightInfusion'">
+        <!-- [ChartRows]="child.control['ChartRows']"  -->
+        <ng-container *ngFor="let child of LayoutRoot.ChildrenArr">
+          <iInfusionChart #InfusionChartControlTempRef *ngIf="child.control.constructor?.name == 'iInfusionChart'"
+            [OnChartHotSpotClick]="child.control['OnChartHotSpotClick']"
+            [OnPreviousClick]="child.control['OnPreviousClick']"
+            [OnPreviousClickComplete]="child.control['OnPreviousClickComplete']"
+            [OnNextClick]="child.control['OnNextClick']"
+            [OnNextClickComplete]="child.control['OnNextClickComplete']"
+            [OnDrugHotSpotClick]="child.control['OnDrugHotSpotClick']"
+            [StartDate]="child.control['StartDate']" [EndDate]="child.control['EndDate']"
+            [Timeheader]="child.control['Timeheader']" [DrugHeaderText]="child.control['DrugHeaderText']"
+            [EnablePreviousButton]="child.control['EnablePreviousButton']"
+            [EnableNextButton]="child.control['EnableNextButton']" [ChartInterval]="child.control['ChartInterval']">
+          </iInfusionChart>
+        </ng-container>
+      </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='5' [col]='1' [colSpan]='1'>
+      <div containerStyle>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="5,0,5,5">
+          <iButton #cmdRecordPGDLinksTempRef Name="cmdRecordPGDLinks" Text="Record PGD "
+            [Tooltip]="oMedsAdminChart.RecordPGDToolTip" (click)="cmdRecordPGDLinks_Click($event)"
+            Visibility="Collapsed" 
+            DisabledImageSource="assets/Images/iarrowdis5x10.png" ActiveImageSource="assets/Images/iarrowshot5x10.png"
+            ImageSource="assets/Images/iarrownor5x10.png" ImageHeight="12" ImageWidth="5" Padding="0,0,0,5"></iButton>
+          <iButton #cmdPrescribeTempRef Name="cmdPrescribe" 
+            Text="Prescribe" [Tooltip]="oMedsAdminChart.PrescribeToolTip"
+            Visibility="Collapsed" 
+            DisabledImageSource="assets/Images/iarrowdis5x10.png" ActiveImageSource="assets/Images/iarrowshot5x10.png"
+            ImageSource="assets/Images/iarrownor5x10.png" ImageHeight="12" ImageWidth="5" Padding="0,0,0,5"></iButton>
+            <!-- [Command]="LayoutRoot.DataContext.PrescribeCommand" -->
+          <iButton #cmdPrintMedChartTempRef Name="cmdPrintMedChart"
+            [Command]="LayoutRoot.DataContext.PrintMedChartCommand" Text="Print"
+            [Tooltip]="oMedsAdminChart.PrintToolTip" DisabledImageSource="assets/Images/iarrowdis5x10.png"
+            ActiveImageSource="assets/Images/iarrowshot5x10.png" ImageSource="assets/Images/iarrownor5x10.png"
+            ImageHeight="12" ImageWidth="5" Padding="0,0,0,5"></iButton>
+          <!-- <iButton #cmdFluidBalanceTempRef Name="cmdFluidBalance" [Command]="LayoutRoot.DataContext.BtnLaunchFBChart"
+            [Text]="oMedsAdminChart.cmdFluidBalance_Text" [Tooltip]="oMedsAdminChart.cmdFluidBalance_ToolTip"
+            DisabledImageSource="assets/Images/iarrowdis5x10.png" ActiveImageSource="assets/Images/iarrowshot5x10.png"
+            ImageSource="assets/Images/iarrownor5x10.png" ImageHeight="12" ImageWidth="5" Padding="0,0,0,5"></iButton> -->
+          <iButton #cmdRequestMedicationTempRef Name="cmdRequestMedication" Padding="0,0,0,5"
+            [Command]="LayoutRoot.DataContext.BtnLaunchRM" [Text]="oMedicationRequest.cmdReqMedication_Text"
+            [Tooltip]="oMedicationRequest.cmdReqMedication_Tooltip"
+            DisabledImageSource="assets/Images/iarrowdis5x10.png" ActiveImageSource="assets/Images/iArrowsHOT5x10.png"
+            ImageSource="assets/Images/iArrowNOR5x10.png" ImageHeight="12" ImageWidth="5"></iButton>
+          <iButton #cmdTechValidateTempRef Name="cmdTechValidate" [Command]="LayoutRoot.DataContext.BtnLaunchTV"
+            Padding="0,0,0,5" [Text]="oMedsAdminChart.cmdTechValidate_Text"
+            [Tooltip]="oMedsAdminChart.cmdTechValidate_Tooltip" DisabledImageSource="assets/Images/iarrowdis5x10.png"
+            ActiveImageSource="assets/Images/iArrowsHOT5x10.png" ImageSource="assets/Images/iArrowNOR5x10.png"
+            ImageHeight="12" ImageWidth="5"></iButton>
+          <iButton #cmdShowLegendTempRef Name="cmdShowLegend" Text="Show legend" Padding="0,0,0,5"
+            [Tooltip]="oMedsAdminChart.ShowLegend" DisabledImageSource="assets/Images/iarrowdis5x10.png"
+            ActiveImageSource="assets/Images/iarrowshot5x10.png" ImageSource="assets/Images/iarrownor5x10.png"
+            ImageHeight="12" ImageWidth="5" (click)="cmdShowLegend_Click()"></iButton>
+        </StackPanel>
+      </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='5' [col]='7'>
+      <div containerStyle>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="22,0,0,0">
+          <iButton #cmdWristbandScanTempRef [Text]="oMedsAdminChart.cmdWristbandScan_tooltip"
+            [Tooltip]="oMedsAdminChart.cmdWristbandScan_tooltip" Height="23" TextDecorations="Underline" Cursor="Hand"
+            Foreground="#0000C8" Width="auto" HorizontalAlignment="Right" Name="cmdWristbandScan"
+            VerticalAlignment="Top" ImageSource="assets/Images/scanicon18.png" [IsEnabled]="true"
+            DisabledImageSource="assets/Images/scanicon18_Dis.png" ActiveImageSource="assets/Images/scanicon18.png"
+            (click)="cmdWristbandScan_Click()"></iButton>
+          <iLabel #lblEmptyTempRef Name="lblEmpty" Text="" Width="auto" Margin="5,5,0,5"></iLabel>
+          <!-- <iTextBox #txtBarcodeTempRef Name="txtBarcode" (GotFocus_Func)="txtBarcode_GotFocus($event)"
+            (LostFocus_Func)="txtBarcode_LostFocus($event)" (KeyUp_Func)="txtBarcode_KeyDown($event)" MinWidth="0"
+            IsTabStop="True" TabIndex="0" BorderThickness="1"></iTextBox> -->
+
+            <input #txtBarcodeTempRef [readonly]="barCodeReadOnlyFlag" [hidden]="!barCodeVisibilityFlag" Name="txtBarcode" class="defaultBarCodeStyle" [ngClass]="{'barcodeFocus': barcodeStyleFocus}" autocomplete="off"  type="text" Width="110" MinWidth="0" IsTabStop="True"
+           (focus)="txtBarcode_GotFocus($event)" (blur)="txtBarcode_LostFocus($event)" (keydown.enter)="txtBarcode_KeyDown($event)"/>
+        </StackPanel>
+      </div>
+    </kendo-gridlayout-item>
+
+  </kendo-gridlayout>
+</div>
+<!-- <kendo-popup #popup,BrdTempRef [anchor]="cmdShowLegendTempRef.searchElement" Name="popup" Width="400" Height="330" (Open)="popupcan_Opened" (close)="popupcan_Closed" -->
+<kendo-popup #popupTempRef [anchor]="cmdShowLegendTempRef.searchElement" Name="popup" [anchorAlign]="anchorAlign"
+  [popupAlign]="popupAlign" mousedown="popup_MouseLeftButtonDown" Name="Brd" BorderBrush="Black" *ngIf="showPopup"
+  BorderThickness="1">
+  <Border #BrdTempRef Name="Brd" BorderBrush="Black" BorderThickness="1" class="kendoPopupInfusionchartHeight">
+    <div Name="LayoutRoot1" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Visible" Background="white">
+      <div Height="Auto" Width="Auto" *ngIf="LegendsVisibility" name="LegendsLayoutRoot">
+        <kendo-gridlayout ScrollViewer.VerticalScrollBarVisibility="Auto"
+        Visibility="Visible" Background="white"
+        [rows]="[{height: '27'}, {height: '403'}]"
+        [cols]="[{width: '200'},  {width: '200'}]" class="infChartlegent">
+          <kendo-gridlayout-item [row]='1' [col]='2'>
+            <div containerStyle style="justify-content: end;">
+              <iButton #btnNotGivenReasonTempRef class="popupbtnstyle" Name="btnNotGivenReason" HorizontalAlignment="Right"
+                  IsTabStop="False" TabIndex="-1" Text="&lt;&lt;Not given reasons>>"
+                  (click)="notGivenLegendIcon_Click()" TextDecorations="Underline" Foreground="#0000C8" Cursor="Hand"
+                  Margin="0,0,2,0"></iButton>             
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='2' [col]='1'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdScheduledstartTempRef Name="cmdScheduledstart" IsTabStop="False"
+                  HorizontalAlignment="Left" TabIndex="-1" Text="Scheduled start" Cursor="Arrow" Margin="20,15,2,2"
+                  DisabledImageSource="assets/Images/infution_scheduled_sstart_timenor.png"
+                  ActiveImageSource="assets/Images/infution_scheduled_sstart_timenor.png"
+                  ImageSource="assets/Images/infution_scheduled_sstart_timenor.png" ImageHeight="14" ImageWidth="14">
+                </iButton>
+          
+          
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='3' [col]='1'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdDeferredTempRef Name="cmdDeferred" IsTabStop="False" HorizontalAlignment="Left"
+                  TabIndex="-1" Text="Deferred" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/Images/infusion deferred.png"
+                  ActiveImageSource="assets/Images/infusion deferred.png" ImageSource="assets/Images/infusion deferred.png"
+                  ImageHeight="16" ImageWidth="16"></iButton>
+          
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='4' [col]='1'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdBegunTempRef Name="cmdBegun" IsTabStop="False" HorizontalAlignment="Left"
+                  TabIndex="-1" Text="Begun/Resume" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/Images/infution_start_nor.png"
+                  ActiveImageSource="assets/Images/infution_start_nor.png" ImageSource="assets/Images/infution_start_nor.png"
+                  ImageHeight="14" ImageWidth="14"></iButton>
+          
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='5' [col]='1'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdPausedTempRef Name="cmdPaused" IsTabStop="False" HorizontalAlignment="Left"
+                  TabIndex="-1" Text="Pause" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/Images/infution_pause_nor16.png"
+                  ActiveImageSource="assets/Images/infution_pause_nor16.png" ImageSource="assets/Images/infution_pause_nor16.png"
+                  ImageHeight="14" ImageWidth="14"></iButton>
+          
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='6' [col]='1'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdStoppedTempRef Name="cmdStopped" IsTabStop="False" HorizontalAlignment="Left"
+                  TabIndex="-1" Text="Stopped" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/Images/infusion stopped_nor1.png"
+                  ActiveImageSource="assets/Images/infusion stopped_nor1.png"
+                  ImageSource="assets/Images/infusion stopped_nor1.png" ImageHeight="14" ImageWidth="14">
+                </iButton>
+          
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='7' [col]='1'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdCompletedTempRef Name="cmdCompleted" IsTabStop="False"
+                  HorizontalAlignment="Left" TabIndex="-1" Text="Completed" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/Images/infution_completed_nor.png"
+                  ActiveImageSource="assets/Images/infution_completed_nor.png"
+                  ImageSource="assets/Images/infution_completed_nor.png" ImageHeight="14" ImageWidth="14">
+                </iButton>
+          
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='8' [col]='1'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdNotGivenTempRef Name="cmdNotGiven" IsTabStop="False" HorizontalAlignment="Left"
+                  TabIndex="-1" Text="Not given" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/Images/infusion_notgiven.png"
+                  ActiveImageSource="assets/Images/infusion_notgiven.png" ImageSource="assets/Images/infusion_notgiven.png"
+                  ImageHeight="14" ImageWidth="14"></iButton>
+          
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='9' [col]='1'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdEstimatedStopTempRef Name="cmdEstimatedStop" IsTabStop="False"
+                  HorizontalAlignment="Left" TabIndex="-1" Text="Estimated completion" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/Images/estimated completion time.png"
+                  ActiveImageSource="assets/Images/estimated completion time.png"
+                  ImageSource="assets/Images/estimated completion time.png" ImageHeight="14" ImageWidth="14">
+                </iButton>
+          
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='10' [col]='1'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdOmittedTempRef Name="cmdOmitted" IsTabStop="False"
+                  HorizontalAlignment="Left" TabIndex="-1" Text="Omitted" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/Images/infution_omit.png" ActiveImageSource="assets/Images/infution_omit.png"
+                  ImageSource="assets/Images/infution_omit.png" ImageHeight="14" ImageWidth="14"></iButton>
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='11' [col]='1'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdLegend_RequestMedicationTempRef Name="cmdLegend_RequestMedication" IsTabStop="False"
+                  HorizontalAlignment="Left" TabIndex="-1" Text="Request medication" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/images/supply flag_nor16.png" ActiveImageSource="assets/images/supply flag_nor16.png"
+                  ImageSource="assets/images/supply flag_nor16.png" ImageHeight="14" ImageWidth="14"></iButton>
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='12' [col]='1'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdLegend_HomeLeaveTempRef Name="cmdLegend_HomeLeave" IsTabStop="False"
+                  HorizontalAlignment="Left" TabIndex="-1" Text="Home leave" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/images/patient_on_home_leave.png" ActiveImageSource="assets/images/patient_on_home_leave.png"
+                  ImageSource="assets/images/patient_on_home_leave.png" ImageHeight="14" ImageWidth="14"></iButton>
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='13' [col]='1'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdLegend_ReviewDueTempRef Name="cmdLegend_ReviewDue" IsTabStop="False"
+                  HorizontalAlignment="Left" TabIndex="-1" Text="Review due" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/images/iReviewAfterNOR16.png" ActiveImageSource="assets/images/iReviewAfterNOR16.png"
+                  ImageSource="assets/images/iReviewAfterNOR16.png" ImageHeight="14" ImageWidth="14"></iButton>
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='14' [col]='1'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdLegend_AmendedTempRef Name="cmdLegend_Amended" HorizontalAlignment="Left"
+                  IsTabStop="False" TabIndex="-1" Text="Amended" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/images/icommenthot16.png" ImageSource="assets/images/icommenthot16.png"
+                  ImageHeight="14" ImageWidth="14"></iButton>
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='15' [col]='1'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popuplastbtnstyle" #cmdLegend_SupplyInstTempRef Name="cmdLegend_SupplyInst" HorizontalAlignment="Left"
+                  IsTabStop="False" TabIndex="-1" Text="Supply instruction" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/images/icon/iholdhot16.png" ImageSource="assets/images/icon/iholdhot16.png"
+                  ImageHeight="14" ImageWidth="14"></iButton>
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- <kendo-gridlayout-item [row]='2' [col]='1'>
+            <div containerStyle>
+              <StackPanel Visibility="Visible" Orientation="Vertical" HorizontalAlignment="Left"
+                VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdScheduledstartTempRef Name="cmdScheduledstart" IsTabStop="False" HorizontalAlignment="Left"
+                  TabIndex="-1" Text="Scheduled start" Cursor="Arrow" Margin="20,15,2,2"
+                  DisabledImageSource="assets/Images/infution_scheduled_sstart_timenor.png"
+                  ActiveImageSource="assets/Images/infution_scheduled_sstart_timenor.png"
+                  ImageSource="assets/Images/infution_scheduled_sstart_timenor.png" ImageHeight="14" ImageWidth="14">
+                </iButton>
+                <iButton class="popupbtnstyle"  #cmdDeferredTempRef Name="cmdDeferred" IsTabStop="False" HorizontalAlignment="Left"
+                  TabIndex="-1" Text="Deferred" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/Images/infusion deferred.png"
+                  ActiveImageSource="assets/Images/infusion deferred.png"
+                  ImageSource="assets/Images/infusion deferred.png" ImageHeight="16" ImageWidth="16"></iButton>
+                <iButton  class="popupbtnstyle" #cmdBegunTempRef Name="cmdBegun" IsTabStop="False" HorizontalAlignment="Left" TabIndex="-1"
+                  Text="Begun/Resume" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/Images/infution_start_nor.png"
+                  ActiveImageSource="assets/Images/infution_start_nor.png"
+                  ImageSource="assets/Images/infution_start_nor.png" ImageHeight="14" ImageWidth="14"></iButton>
+                <iButton  class="popupbtnstyle" #cmdPausedTempRef Name="cmdPaused" IsTabStop="False" HorizontalAlignment="Left" TabIndex="-1"
+                  Text="Pause" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/Images/infution_pause_nor16.png"
+                  ActiveImageSource="assets/Images/infution_pause_nor16.png"
+                  ImageSource="assets/Images/infution_pause_nor16.png" ImageHeight="14" ImageWidth="14"></iButton>
+                <iButton  class="popupbtnstyle" #cmdStoppedTempRef Name="cmdStopped" IsTabStop="False" HorizontalAlignment="Left" TabIndex="-1"
+                  Text="Stopped" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/Images/infusion stopped_nor1.png"
+                  ActiveImageSource="assets/Images/infusion stopped_nor1.png"
+                  ImageSource="assets/Images/infusion stopped_nor1.png" ImageHeight="14" ImageWidth="14">
+                </iButton>
+                <iButton  class="popupbtnstyle" #cmdCompletedTempRef Name="cmdCompleted" IsTabStop="False" HorizontalAlignment="Left"
+                  TabIndex="-1" Text="Completed" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/Images/infution_completed_nor.png"
+                  ActiveImageSource="assets/Images/infution_completed_nor.png"
+                  ImageSource="assets/Images/infution_completed_nor.png" ImageHeight="14" ImageWidth="14">
+                </iButton>
+                <iButton class="popupbtnstyle"  #cmdNotGivenTempRef Name="cmdNotGiven" IsTabStop="False" HorizontalAlignment="Left"
+                  TabIndex="-1" Text="Not given" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/Images/infusion_notgiven.png"
+                  ActiveImageSource="assets/Images/infusion_notgiven.png"
+                  ImageSource="assets/Images/infusion_notgiven.png" ImageHeight="14" ImageWidth="14"></iButton>
+                <iButton  class="popupbtnstyle" #cmdEstimatedStopTempRef Name="cmdEstimatedStop" IsTabStop="False" HorizontalAlignment="Left"
+                  TabIndex="-1" Text="Estimated completion" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/Images/estimated completion time.png"
+                  ActiveImageSource="assets/Images/estimated completion time.png"
+                  ImageSource="assets/Images/estimated completion time.png" ImageHeight="14" ImageWidth="14">
+                </iButton>
+                <iButton  class="popuplastbtnstyle" #cmdOmittedTempRef Name="cmdOmitted" IsTabStop="False" HorizontalAlignment="Left" TabIndex="-1"
+                  Text="Omitted" Cursor="Arrow" Margin="20,2,2,2" DisabledImageSource="assets/Images/infution_omit.png"
+                  ActiveImageSource="assets/Images/infution_omit.png" ImageSource="assets/Images/infution_omit.png"
+                  ImageHeight="14" ImageWidth="14"></iButton>
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item> -->
+          <kendo-gridlayout-item [row]='2' [col]='2'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdMciTempRef Name="cmdMci" HorizontalAlignment="Left" IsTabStop="False"
+                  TabIndex="-1" Text="MCI" Cursor="Arrow" Margin="20,15,2,2"
+                  ActiveImageSource="assets/Images/multicomponent item.png" ImageSource="assets/Images/multicomponent item.png"
+                  ImageHeight="14" ImageWidth="14"></iButton>
+          
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='3' [col]='2'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdOrderSetTempRef Name="cmdOrderSet" HorizontalAlignment="Left" IsTabStop="False"
+                  TabIndex="-1" Text="Order set" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/Images/group_medicines_nor16.png"
+                  ImageSource="assets/Images/group_medicines_nor16.png" ImageHeight="14" ImageWidth="14">
+                </iButton>
+          
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='4' [col]='2'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmCDTempRef Name="cmCD" HorizontalAlignment="Left" IsTabStop="False" TabIndex="-1"
+                  Text="Controlled drug" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/Images/icontrolleddrughot16.png" ImageSource="assets/Images/icontrolleddrughot16.png"
+                  ImageHeight="14" ImageWidth="14"></iButton>
+          
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='5' [col]='2'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" class="popupbtnstyle" #cmdAllertTempRef Name="cmdAllert" HorizontalAlignment="Left"
+                  IsTabStop="False" TabIndex="-1" Text="Infusion chart notification" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/Images/ialert32.png" ImageSource="assets/Images/ialert32.png" ImageHeight="14"
+                  ImageWidth="14"></iButton>
+          
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='6' [col]='2'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdCumlativeDoseTempRef Name="cmdCumlativeDose" HorizontalAlignment="Left"
+                  IsTabStop="False" TabIndex="-1" Text="Cumulative dose icon" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/Images/cumulative_paracetamol_hot.png"
+                  ImageSource="assets/Images/cumulative_paracetamol_hot.png" ImageHeight="14" ImageWidth="14">
+                </iButton>
+          
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='7' [col]='2'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdConflitsTempRef Name="cmdConflits" HorizontalAlignment="Left" IsTabStop="False"
+                  TabIndex="-1" Text="Conflicts" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/Images/ibubmandatorynor16.png" ImageSource="assets/Images/ibubmandatorynor16.png"
+                  ImageHeight="14" ImageWidth="14"></iButton>
+          
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='8' [col]='2'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdClinicalVrfyTempRef Name="cmdClinicalVrfy" HorizontalAlignment="Left"
+                  IsTabStop="False" TabIndex="-1" Text="Clinically verify" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/Images/INewYes.png" ImageSource="assets/Images/INewYes.png" ImageHeight="14"
+                  ImageWidth="14"></iButton>
+          
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='9' [col]='2'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdDiscontinueTempRef Name="cmdDiscontinue" HorizontalAlignment="Left"
+                  IsTabStop="False" TabIndex="-1" Text="Discontinue" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/Images/idiscontinuedrugnor16.png"
+                  ImageSource="assets/Images/idiscontinuedrugnor16.png" ImageHeight="14" ImageWidth="14">
+                </iButton>     
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='10' [col]='2'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdUnackConflictTempRef Name="cmdUnackConflict" HorizontalAlignment="Left"
+                  IsTabStop="False" TabIndex="-1" Text="Unacknowledged conflicts" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/Images/ibubblestarnor16.png" ImageSource="assets/Images/ibubblestarnor16.png"
+                  ImageHeight="14" ImageWidth="14"></iButton>
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='11' [col]='2'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdLegend_DoseDetailsTempRef Name="cmdLegend_DoseDetails" HorizontalAlignment="Left"
+                  IsTabStop="False" TabIndex="-1" Text="Dose details" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/images/idosetypenor16.png" ImageSource="assets/images/idosetypenor16.png"
+                  ImageHeight="14" ImageWidth="14"></iButton>
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='12' [col]='2'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdLegend_OnAdmissionTempRef Name="cmdLegend_OnAdmission" HorizontalAlignment="Left"
+                  IsTabStop="False" TabIndex="-1" Text="On admission" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/images/ionadmissionnor16.png" ImageSource="assets/images/ionadmissionnor16.png"
+                  ImageHeight="14" ImageWidth="14"></iButton>
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='13' [col]='2'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdLegend_DoseCalculatorTempRef Name="cmdLegend_DoseCalculator" HorizontalAlignment="Left"
+                  IsTabStop="False" TabIndex="-1" Text="Dose calculator" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets\Images\icalculatornor16.png" ImageSource="assets\Images\icalculatornor16.png"
+                  ImageHeight="14" ImageWidth="14"></iButton>
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='14' [col]='2'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popupbtnstyle" #cmdLegend_prescriptiondetailsTempRef Name="cmdLegend_prescriptiondetails" IsTabStop="False"
+                  HorizontalAlignment="Left" TabIndex="-1" Text="View prescription item details" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/images/ipatientmedicationhot16.png" ActiveImageSource="assets/images/ipatientmedicationhot16.png"
+                  ImageSource="assets/images/ipatientmedicationhot16.png" ImageHeight="14" ImageWidth="14"></iButton>
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='15' [col]='2'>
+            <div containerStyle style="justify-content: start;">
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton class="popuplastbtnstyle" #cmdLegend_criticalMedsTempRef Name="cmdLegend_CriticalMeds" IsTabStop="False"
+                  HorizontalAlignment="Left" TabIndex="-1" Text="Critical medication" Cursor="Arrow" Margin="20,2,2,2"
+                  DisabledImageSource="assets/Images/Critical_Meds_Icon.png" ActiveImageSource="assets/Images/Critical_Meds_Icon.png"
+                  ImageSource="assets/Images/Critical_Meds_Icon.png" ImageHeight="14" ImageWidth="14"></iButton>
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+          <!-- <kendo-gridlayout-item [row]='2' [col]='3'>
+            <div containerStyle>
+              <StackPanel Visibility="Visible" Orientation="Vertical" HorizontalAlignment="Left"
+                VerticalAlignment="Top">
+                <iButton class="popupbtnstyle"  #cmdMciTempRef Name="cmdMci" HorizontalAlignment="Left" IsTabStop="False" TabIndex="-1"
+                  Text="MCI" Cursor="Arrow" Margin="20,15,2,2" ActiveImageSource="assets/Images/multicomponent item.png"
+                  ImageSource="assets/Images/multicomponent item.png" ImageHeight="14" ImageWidth="14"></iButton>
+                <iButton class="popupbtnstyle"  #cmdOrderSetTempRef Name="cmdOrderSet" HorizontalAlignment="Left" IsTabStop="False"
+                  TabIndex="-1" Text="Order set" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/Images/group_medicines_nor16.png"
+                  ImageSource="assets/Images/group_medicines_nor16.png" ImageHeight="14" ImageWidth="14">
+                </iButton>
+                <iButton class="popupbtnstyle"  #cmCDTempRef Name="cmCD" HorizontalAlignment="Left" IsTabStop="False" TabIndex="-1"
+                  Text="Controlled drug" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/Images/icontrolleddrughot16.png"
+                  ImageSource="assets/Images/icontrolleddrughot16.png" ImageHeight="14" ImageWidth="14"></iButton>
+                <iButton class="popupbtnstyle"  class="popupbtnstyle"  #cmdAllertTempRef Name="cmdAllert" HorizontalAlignment="Left" IsTabStop="False" TabIndex="-1"
+                  Text="Infusion chart notification" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/Images/ialert32.png" ImageSource="assets/Images/ialert32.png"
+                  ImageHeight="14" ImageWidth="14"></iButton>
+                <iButton class="popupbtnstyle"  #cmdCumlativeDoseTempRef Name="cmdCumlativeDose" HorizontalAlignment="Left" IsTabStop="False"
+                  TabIndex="-1" Text="Cumulative dose icon" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/Images/cumulative_paracetamol_hot.png"
+                  ImageSource="assets/Images/cumulative_paracetamol_hot.png" ImageHeight="14" ImageWidth="14">
+                </iButton>
+                <iButton  class="popupbtnstyle" #cmdConflitsTempRef Name="cmdConflits" HorizontalAlignment="Left" IsTabStop="False"
+                  TabIndex="-1" Text="Conflicts" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/Images/ibubmandatorynor16.png"
+                  ImageSource="assets/Images/ibubmandatorynor16.png" ImageHeight="14" ImageWidth="14"></iButton>
+                <iButton  class="popupbtnstyle" #cmdClinicalVrfyTempRef Name="cmdClinicalVrfy" HorizontalAlignment="Left" IsTabStop="False"
+                  TabIndex="-1" Text="Clinically verify" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/Images/INewYes.png" ImageSource="assets/Images/INewYes.png" ImageHeight="14"
+                  ImageWidth="14"></iButton>
+                <iButton class="popupbtnstyle"  #cmdDiscontinueTempRef Name="cmdDiscontinue" HorizontalAlignment="Left" IsTabStop="False"
+                  TabIndex="-1" Text="Discontinue" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/Images/idiscontinuedrugnor16.png"
+                  ImageSource="assets/Images/idiscontinuedrugnor16.png" ImageHeight="14" ImageWidth="14">
+                </iButton>
+                <iButton  class="popuplastbtnstyle" #cmdUnackConflictTempRef Name="cmdUnackConflict" HorizontalAlignment="Left" IsTabStop="False"
+                  TabIndex="-1" Text="Unacknowledged conflicts" Cursor="Arrow" Margin="20,2,2,2"
+                  ActiveImageSource="assets/Images/ibubblestarnor16.png"
+                  ImageSource="assets/Images/ibubblestarnor16.png" ImageHeight="14" ImageWidth="14"></iButton>
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item> -->
+        </kendo-gridlayout>
+
+      </div>
+      <div class="grid-layout-container" *ngIf="NotGivenReasonsVisibility" name="NotGivenReasonsLayoutRoot"
+        Height="Auto" Width="Auto">
+        <kendo-gridlayout ScrollViewer.VerticalScrollBarVisibility="Auto" Background="White" Visibility="Collapsed"
+          [rows]="[{height:'20'},{height:'20'},{height:'33'},{height:'33'},{height:'33'},{height:'33'},{height:'33'},{height:'33'},{height:'33'},{height:'33'},{height:'33'},{height:'33'},{height:'33'},{height:'20'}]"
+          [cols]="[{width:'20'},{width:'270'},{width:'90'},{width:'20'}]">
+
+          <kendo-gridlayout-item [row]='1' [col]='5'>
+            <div containerStyle>
+              <StackPanel Visibility="Visible" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <iButton #btnLegendsTempRef Name="btnLegends" HorizontalAlignment="Right" BorderThickness="2" IsTabStop="False"
+                  TabIndex="-1" Text="&lt;&lt;Legends>>" (click)="LegendsIcon_Click()" TextDecorations="Underline"
+                  Foreground="#0000C8" Cursor="Arrow" Margin="0,10,2,0"></iButton>
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+
+          <kendo-gridlayout-item [row]='2' [col]='2' [colSpan]='3' style="padding-left: 20px;padding-top: 10px;">
+            <div containerStyle>
+              <Border BorderBrush="Gray" BorderThickness="1" Padding="7">
+                <iLabel #btnRsnHeaderTempRef Name="btnRsnHeader" HorizontalAlignment="Left" BorderThickness="2"
+                  IsTabStop="False" TabIndex="-1" Text="Reason for not given" Foreground="Black" FontWeight="Bold" Cursor="Hand"
+                  Margin="15,0,2,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='2' [col]='5' style="padding-right: 20px;padding-top: 10px;">
+            <div containerStyle>
+              <Border BorderBrush="Gray" BorderThickness="1" Padding="7">
+                <iLabel #btnNumbersTempRef Name="btnNumbers" HorizontalAlignment="Left" BorderThickness="2" IsTabStop="False"
+                  TabIndex="-1" Text="Numbers" FontWeight="Bold" Foreground="Black" Cursor="Arrow" Margin="15,0,20,0">
+                </iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+
+          <kendo-gridlayout-item [row]='3' [col]='2' [colSpan]='3' style="padding-left: 20px;">
+            <div containerStyle>
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnPatientUnavailableTempRef Name="btnPatientUnavailable" HorizontalAlignment="Left"
+                  BorderThickness="2" IsTabStop="False" TabIndex="-1" Text="Patient unavailable" Foreground="Black"
+                  Cursor="Arrow" Margin="15,0,2,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='3' [col]='5' style="padding-right: 20px;">
+            <div containerStyle>
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnNo1TempRef Name="btnNo1" HorizontalAlignment="Left" BorderThickness="2" IsTabStop="False"
+                  TabIndex="-1" Text="1" Foreground="Black" Cursor="Arrow" Margin="15,0,2,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+
+          <kendo-gridlayout-item [row]='4' [col]='2' [colSpan]='3' style="padding-left: 20px;">
+            <div containerStyle style="background-color: lightgray;">
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnPatientRefuseddoseWCTempRef Name="btnPatientRefuseddoseWC" HorizontalAlignment="Left"
+                  BorderThickness="2" IsTabStop="False" TabIndex="-1" Text="Patient refused dose with capacity"
+                  Foreground="Black" Cursor="Arrow" Margin="15,0,2,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='4' [col]='5' style="padding-right: 20px;">
+            <div containerStyle style="background-color: lightgray;">
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnNo2TempRef Name="btnNo2" HorizontalAlignment="Left" BorderThickness="2" IsTabStop="False"
+                  TabIndex="-1" Text="2" Foreground="Black" Cursor="Arrow" Margin="15,0,2,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='5' [col]='2' [colSpan]='3' style="padding-left: 20px;">
+            <div containerStyle>
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnPatientRefuseddoseWOCTempRef Name="btnPatientRefuseddoseWOC" HorizontalAlignment="Left"
+                  BorderThickness="2" IsTabStop="False" TabIndex="-1" Text="Patient refused dose without capacity"
+                  Foreground="Black" Cursor="Arrow" Margin="15,0,25,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='5' [col]='5' style="padding-right: 20px;">
+            <div containerStyle>
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnNo3TempRef Name="btnNo3" HorizontalAlignment="Left" BorderThickness="2" IsTabStop="False"
+                  TabIndex="-1" Text="3" Foreground="Black" Cursor="Arrow" Margin="15,0,2,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='6' [col]='2' [colSpan]='3' style="padding-left: 20px;">
+            <div containerStyle style="background-color: lightgray;">
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnMedicationUnavailableTempRef Name="btnMedicationUnavailable" HorizontalAlignment="Left"
+                  BorderThickness="2" IsTabStop="False" TabIndex="-1" Text="Medication unavailable" Foreground="Black"
+                  Cursor="Arrow" Margin="15,0,2,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='6' [col]='5' style="padding-right: 20px;">
+            <div containerStyle style="background-color: lightgray;">
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnNo4TempRef Name="btnNo4" HorizontalAlignment="Left" BorderThickness="2" IsTabStop="False"
+                  TabIndex="-1" Text="4" Foreground="Black" Cursor="Arrow" Margin="15,0,2,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='7' [col]='2' [colSpan]='3' style="padding-left: 20px;">
+            <div containerStyle>
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnNilbyMouthTempRef Name="btnNilbyMouth" HorizontalAlignment="Left" BorderThickness="2"
+                  IsTabStop="False" TabIndex="-1" Text="Nil by mouth" Foreground="Black" Cursor="Arrow" Margin="15,0,2,0">
+                </iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='7' [col]='5' style="padding-right: 20px;">
+            <div containerStyle>
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnNo5TempRef Name="btnNo5" HorizontalAlignment="Left" BorderThickness="2" IsTabStop="False"
+                  TabIndex="-1" Text="5" Foreground="Black" Cursor="Arrow" Margin="15,0,2,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='8' [col]='2' [colSpan]='3' style="padding-left: 20px;">
+            <div containerStyle style="background-color: lightgray;">
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnRouteNotAvailableTempRef Name="btnRouteNotAvailable" HorizontalAlignment="Left" BorderThickness="2"
+                  IsTabStop="False" TabIndex="-1" Text="Route not available" Foreground="Black" Cursor="Arrow"
+                  Margin="15,0,2,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='8' [col]='5' style="padding-right: 20px;">
+            <div containerStyle style="background-color: lightgray;">
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnNo6TempRef Name="btnNo6" HorizontalAlignment="Left" BorderThickness="2" IsTabStop="False"
+                  TabIndex="-1" Text="6" Foreground="Black" Cursor="Arrow" Margin="15,0,2,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='9' [col]='2' [colSpan]='3' style="padding-left: 20px;">
+            <div containerStyle>
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnMedicinefreeIntervalTempRef Name="btnMedicinefreeInterval" HorizontalAlignment="Left"
+                  BorderThickness="2" IsTabStop="False" TabIndex="-1" Text="Medicine free interval" Foreground="Black"
+                  Cursor="Arrow" Margin="15,0,2,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='9' [col]='5' style="padding-right: 20px;">
+            <div containerStyle>
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnNo7TempRef Name="btnNo7" HorizontalAlignment="Left" BorderThickness="2" IsTabStop="False"
+                  TabIndex="-1" Text="7" Foreground="Black" Cursor="Arrow" Margin="15,0,2,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='10' [col]='2' [colSpan]='3' style="padding-left: 20px;">
+            <div containerStyle style="background-color: lightgray;">
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnPrescriptionIncorrectTempRef Name="btnPrescriptionIncorrect" HorizontalAlignment="Left"
+                  BorderThickness="2" IsTabStop="False" TabIndex="-1" Text="Prescription incorrect" Foreground="Black"
+                  Cursor="Arrow" Margin="15,0,2,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='10' [col]='5' style="padding-right: 20px;">
+            <div containerStyle style="background-color: lightgray;">
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnNo8TempRef Name="btnNo8" HorizontalAlignment="Left" BorderThickness="2" IsTabStop="False"
+                  TabIndex="-1" Text="8" Foreground="Black" Cursor="Arrow" Margin="15,0,2,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='11' [col]='2' [colSpan]='3' style="padding-left: 20px;">
+            <div containerStyle>
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnPatientUnableToTakeTempRef Name="btnPatientUnableToTake" HorizontalAlignment="Left"
+                  BorderThickness="2" IsTabStop="False" TabIndex="-1" Text="Patient unable to take" Foreground="Black"
+                  Cursor="Arrow" Margin="15,0,2,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='11' [col]='5' style="padding-right: 20px;">
+            <div containerStyle>
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnNo9TempRef Name="btnNo9" HorizontalAlignment="Left" BorderThickness="2" IsTabStop="False"
+                  TabIndex="-1" Text="9" Foreground="Black" Cursor="Arrow" Margin="15,0,2,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='12' [col]='2' [colSpan]='3' style="padding-left: 20px;padding-bottom: 20px;">
+            <div containerStyle style="background-color: lightgray;">
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnClinicalReasonTempRef Name="btnClinicalReason" HorizontalAlignment="Left" BorderThickness="2"
+                  IsTabStop="False" TabIndex="-1" Text="Clinical reason" Foreground="Black" Cursor="Arrow" Margin="15,0,2,0">
+                </iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]='12' [col]='5' style="padding-right: 20px;padding-bottom: 20px;">
+            <div containerStyle style="background-color: lightgray;">
+              <Border BorderBrush="Gray" BorderThickness="0.5" Padding="7">
+                <iLabel #btnNo10TempRef Name="btnNo10" HorizontalAlignment="Left" BorderThickness="2" IsTabStop="False"
+                  TabIndex="-1" Text="10" Foreground="Black" Cursor="Arrow" Margin="15,0,2,0"></iLabel>
+              </Border>
+            </div>
+          </kendo-gridlayout-item>
+        </kendo-gridlayout>
+      </div>
+    </div>
+  </Border>
+</kendo-popup>

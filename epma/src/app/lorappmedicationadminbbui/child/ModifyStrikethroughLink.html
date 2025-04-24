@@ -1,0 +1,18 @@
+<div name="LayoutRoot" Background="{StaticResource LzoPageBG}" HorizontalAlignment="Left">
+    <kendo-gridlayout>
+        <StackPanel Orientation="Horizontal">
+            <iButton #cmdModifyTempRef  class="modifyAlign align" Name="cmdModify" Text="Modify" VerticalAlignment="Bottom"
+                HorizontalAlignment="Left" Height="20px"   
+                DisabledImageSource="assets/images/iarrowdis5x10.png"
+                ActiveImageSource="assets/images/iarrowshot5x10.png" ImageSource="assets/images/iarrownor5x10.png"
+                ImageHeight="8" ImageWidth="5" Visibility="Visible" [Tooltip]="objStrikethrough.cmdModify_Tooltip" TabIndex="1"
+                (Click_Func)="cmdModify_Click_Func($event)"></iButton>
+            <iButton #cmdStrikethroughTempRef  class="strikethroughAlign align" Name="cmdStrikethrough" Text=" Strikethrough" VerticalAlignment="Bottom"
+                HorizontalAlignment="Left" Height="20px"  
+                DisabledImageSource="assets/images/iarrowdis5x10.png"
+                ActiveImageSource="assets/images/iarrowshot5x10.png" ImageSource="assets/images/iarrownor5x10.png"
+                ImageHeight="8" ImageWidth="5"  [Tooltip]="objStrikethrough.cmdStrikethru_Tooltip" Visibility="Visible"  TabIndex="2"
+                (Click_Func)="cmdStrikethrough_Click_Func($event)"></iButton>
+        </StackPanel>
+    </kendo-gridlayout>
+</div>

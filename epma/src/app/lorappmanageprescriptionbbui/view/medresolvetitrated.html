@@ -1,0 +1,231 @@
+<div>
+    <kendo-gridlayout Name="LayoutRoot" HorizontalAlignment="Stretch" [Background]="Styles.LzoPageBG"
+        [rows]="[{height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'}]"
+        [cols]="[{width:'8fr'},{width:40},{width:'8fr'}]">
+        <kendo-gridlayout-item GridLayout [row]='1' [col]="1" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+            Width="auto" Margin="10,6,0,0" [Background]="Styles.LzoPageBG">
+            <div containerStyle>
+                <kendo-gridlayout
+                    [rows]="[{height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'},{height:5},{height:'auto'}]"
+                    [cols]="[{width:'6fr'},{width:'19fr'}]">
+                    <Border [row]='1' [col]='2' [rowSpan]='4' [Background]="Styles.InnerBG"></Border>
+                    <Border [row]='1' [col]='2' [rowSpan]='1' [Background]="Styles.InnerBG"></Border>
+                    <!-- [col]='5' -->
+                    <Border [row]='2' [col]='6' [Background]="Styles.InnerBG" Height="5" VerticalAlignment="Top">
+                    </Border>
+                    <Border [row]='2' [col]='1' [colSpan]='2' [Background]="Styles.whiteBorder"></Border>
+                    <Border [row]='3' [col]='1' [colSpan]='2'></Border>
+                    <Border [row]='4' [col]='1' [colSpan]='2' [Background]="Styles.whiteBorder"></Border>
+                    <Border [row]='5' [col]='1' [colSpan]='3' [Background]="Styles.whiteBorder"></Border>
+                    <Border [row]='2' [col]='4' [colSpan]='2' [Background]="Styles.whiteBorder"></Border>
+                    <kendo-gridlayout-item [row]='1' [col]='1'>
+                        <div containerStyle>
+                            <iLabel #lblFrequencyTempRef HorizontalAlignment="Stretch" Name="lblFrequency"
+                                VerticalAlignment="Center" [Text]="resKey.lblFrequencyTitrated_Text"
+                                [(Mandatory)]="DataContext.FormViewerDetails.BasicDetails.IsMandatoryFrequency"
+                                Width="auto"></iLabel>
+                                <!-- [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.TitratedDoseDetails.isenablefrequency" -->
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='1' [col]='2'>
+                        <div containerStyle>
+                            <iComboBox #cboFrequencyTempRef IsEditable="True" IsTypeAHead="True" TabIndex="11"
+                                IsTextSearchEnabled="True"
+                                Name="cboFrequency" Width="auto" Height="21" HorizontalAlignment="Stretch" Margin="5"
+                                [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.DefaultDetails.NonPRNFrequencies"
+                                [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.Frequency"
+                                [Tooltip]="resKey.cboFrequecnyTitrated_Tooltip"
+                                [SelectionChanged]="cboFrequency_SelectionChanged_Func">
+                                <!-- [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.TitratedDoseDetails.isenablefrequency" -->
+                            </iComboBox>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <kendo-gridlayout-item [row]='3' [col]='1'>
+                        <div containerStyle>
+                            <iLabel #lblTitratedDoseInstructionTempRef HorizontalAlignment="Stretch"
+                                Name="lblTitratedDoseInstruction" VerticalAlignment="Center"
+                                [Text]="resKey.lblTitratedDoseInstruction_Text" Mandatory="False"
+                                Width="auto" IsWordwrap="True"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <kendo-gridlayout-item [row]='3' [col]='2'>
+                        <div containerStyle>
+                            <iComboBox #cboTitratedDoseInstructionTempRef IsEditable="True" IsTypeAHead="True"
+                                TabIndex="11" IsTextSearchEnabled="True" Name="cboTitratedDoseInstruction" Width="auto"
+                                Height="21" HorizontalAlignment="Stretch" Margin="5"
+                                [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.TitratedDoseInstructionList"
+                                [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.TitratedDoseInstruction"
+                                [Tooltip]="resKey.cboTitratedDoseInstruction_Tooltip"
+                                IsDropDownStretch="True"></iComboBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='3' [col]='2' HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                        Width="auto" Margin="5,5">
+                        <kendo-gridlayout [rows]="[{height:'auto'}]" [cols]="[{width:'140fr'},{width:'2fr'}]">
+                        </kendo-gridlayout>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item GridLayout [row]='1' [col]='3' HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="auto"
+            Margin="0,6,10,0" [Background]="Styles.LzoPageBG">
+            <div containerStyle>
+                <kendo-gridlayout [rows]="[{height:'31fr'},{height:'31fr'},{height:'auto'},{height:'5fr'}]"
+                    [cols]="[{width:'6fr'},{width:'19fr'}]">
+                    <Border [row]='1' [col]='2' [rowSpan]='1' [Background]="Styles.InnerBG"></Border>
+                    <Border [row]='1' [col]='2' Height="5" VerticalAlignment="Top" [Background]="Styles.InnerBG">
+                    </Border>
+                    <Border [row]='3' [col]='1' [colSpan]='3' #brdDaysOfWeekTempRef Name="brdDaysOfWeek"
+                        [Background]="Styles.whiteBorder"></Border>
+                    <Border [row]='2' [col]='2' [colSpan]='3' #brdDaysOfWeekBGTempRef Name="brdDaysOfWeekBG"
+                        [Background]="Styles.InnerBG"></Border>
+                    <kendo-gridlayout-item [row]='1' [col]='1' [rowSpan]='2'>
+                        <div containerStyle>
+                            <iLabel #lblVariableTempRef HorizontalAlignment="Stretch" Name="lblVariable"
+                                VerticalAlignment="Top" Mandatory="False" IsWordwrap="True"
+                                [Text]="resKey.lblVariable_Titrated_Text" Margin="0,2,0,0"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='1' [col]='2' [colSpan]='3' [rowSpan]='2'>
+                        <div containerStyle>
+                            <iTextBox #txtTitratedDoseCommentsTempRef TabIndex="12" Width="auto" MaxLength="500"
+                                HorizontalAlignment="Stretch" Name="txtTitratedDoseComments" VerticalAlignment="Top"
+                                AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible"
+                                Margin="5,5" Height="50" [Tooltip]="resKey.txtTitratedDoseComments_Tooltip"
+                                [(Text)]="DataContext.FormViewerDetails.BasicDetails.TitratedDoseAdtnlComments">
+                            </iTextBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='2' [col]='2' [colSpan]='2'>
+                        <div containerStyle>
+                            <StackPanel Orientation="Horizontal" Margin="5,0,0,5"></StackPanel>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <kendo-gridlayout-item [row]='3' [col]='2'>
+                        <div containerStyle>
+                            <StackPanel Orientation="Horizontal" Margin="5,5"></StackPanel>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='2' [colSpan]='5'>
+            <div containerStyle>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top"></StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item GridLayout [row]='3' [colSpan]='5' VerticalAlignment="Top" Width="auto" Margin="10,6,0,12"
+            [Background]="Styles.LzoPageBG">
+            <kendo-gridlayout [rows]="[{height:'auto'},{height:'auto'}]" [cols]="[{width:'800fr'}]">
+                <kendo-gridlayout-item #btnReviewcopieddosesTempRef Name="btnReviewcopieddoses"
+                    TextDecorations="Underline" TabIndex="13" Cursor="Hand" HorizontalAlignment="Left"
+                    VerticalAlignment="Top" ImageSource="./assets/images/icon_downsmallhot.png"
+                    ActiveImageSource="./assets/images/icon_downsmallhot.png" Margin="10,10,0,0"
+                    [Click]="btnReviewcopieddoses_Click_Func"></kendo-gridlayout-item> <kendo-gridlayout-item [row]='1'
+                    [col]='1'>
+                    <div containerStyle>
+                        <iButton #btnReviewcopieddosesTempRef Name="btnReviewcopieddoses"
+                            [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsReviewtiratedosesLinkVisibility"
+                            [Tooltip]="resKey.ReviewCopiedDoses_Tooltip" TextDecorations="Underline"
+                            TabIndex="13" Cursor="Hand" HorizontalAlignment="Left" VerticalAlignment="Top"
+                            ImageSource="./assets/images/icon_downsmallhot.png"
+                            ActiveImageSource="./assets/images/icon_downsmallhot.png" Margin="0,10,0,10"
+                            [Click]="btnReviewcopieddoses_Click_Func"></iButton>
+                    </div>
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [row]='2' [col]='1' [colSpan]='5'>
+                    <div containerStyle>
+                        <!-- <ContentControl #ContentCtrlMedResloveTitratedTempRef Name="ContentCtrlMedResloveTitrated"
+                            VerticalContentAlignment="Stretch"
+                            [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsReviewtiratedosesVisibility">
+                        </ContentControl> -->
+                        <ng-container *ngIf="DataContext.FormViewerDetails.BasicDetails.IsReviewtiratedosesVisibility == 0 && ContentCtrlMedResloveTitrated 
+                            && ContentCtrlMedResloveTitrated.Content && ContentCtrlMedResloveTitrated.Content.constructor.name == 'MedTitratedDoseChild'">
+                            <MedTitratedDoseChild [oTitratedDoseCommonVM]="oTitratedDoseCommonVM"></MedTitratedDoseChild>
+                        </ng-container>
+                    </div>
+                </kendo-gridlayout-item>
+
+            </kendo-gridlayout>
+
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item GridLayout [row]='4' [col]='1' [colSpan]='5' HorizontalAlignment="Stretch" VerticalAlignment="Top"
+            Width="auto" Margin="10,6,0,0">
+            <kendo-gridlayout-item [row]='1' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblClerkedDosesTempRef Name="lblClerkedDoses" VerticalAlignment="Center" Mandatory="False"
+                        Width="auto" IsWordwrap="True" HorizontalAlignment="Stretch"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+
+
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item GridLayout [row]='5' [col]='1' [colSpan]='5' HorizontalAlignment="Stretch" VerticalAlignment="Top"
+            Width="auto" Margin="10,6,0,0" [Background]="Styles.LzoPageBG">
+            <kendo-gridlayout [rows]="[{height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'}]"
+                [cols]="[{width:'1fr'}]">
+
+                <!-- iGrid implementation -->
+                <kendo-gridlayout-item [row]="1" [col]="1" [colSpan]="3">
+                    <div containerStyle>
+                        <kendo-grid GridLayout #grdTitratedDoseTempRef TabIndex="14" VerticalAlignment="Stretch" [data]="grdTitratedDose.ItemsSource.array"
+                            [reorderable]="false" HorizontalAlignment="Stretch" Background="#E0EFF1FF" Margin="1,0,5,10"
+                            [resizable]="false" [sortable]="false" Width="910" class="grd-medresolve-titrated"
+                            [ngClass]="{'HorizontalScrollBarVisibility': grdTitratedDose.EnableScrollBarVisibility}"
+                            [ScrollBarViewer]="{vertical:'Auto'}" [ScrollBarViewer]="{horizontal:'Hidden'}"
+                            MinHeight="70" MaxHeight="130" [selectable]="{checkboxOnly: true, mode: 'single'}"
+                            kendoGridSelectBy [(selectedKeys)]="grdTitratedDose.selectedRowsIndex"
+                            [GridProperties]="grdTitratedDose"
+                            >
+                            <ng-template kendoGridNoRecordsTemplate>No records to show</ng-template>
+                            <ng-container *ngIf="grdTitratedDose.dColumns.Count > 0">
+                                <kendo-grid-column *ngFor="let column of grdTitratedDose.dColumns.array ; let i = index" 
+                                [title]="column.Header" class="grdTitratedDoseColumn" [width]="column.Width"
+                                >    
+                                <ng-template kendoGridHeaderTemplate>
+                                    <span kendoTooltip title="{{column.Header }}"> 
+                                       {{column.Header }}
+                                    </span>
+                                  </ng-template>                                
+                                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                let-colIndex="columnIndex">
+                                <div style="padding-left: 5px">
+                                <GridCellTemplate  [IsInsideDynamicColumn]="true"  [isEditable]= "i ==0 ? false:true" [dataItem]="dataItem" [title]="resKey.TitratedGrdTitratedDose_Tooltip"
+                                    [columnNumber]="colIndex" [cell]="'cell'+colIndex"
+                                    [Content]="column.CellTemplate" [DataContext]="dataItem">
+                                </GridCellTemplate>
+                                <GridCellEditTemplate *ngIf="column.CellEditTemplate.Child.ChildrenArr" [dataItem]="dataItem" [cell]="'cell'+colIndex" [Content]="column.CellEditTemplate" [DataContext]="dataItem" [GridHelper]="grdTitratedDose" [GridColumn]="column" [DynamicControlFocus]="column.CellEditTemplate.Child.ChildrenArr[0].control">
+                                </GridCellEditTemplate>
+                                </div>
+                                </ng-template>
+                                
+                                </kendo-grid-column>
+                            </ng-container>
+                        </kendo-grid>
+                    </div>
+                </kendo-gridlayout-item>
+                <!-- <kendo-gridlayout-item #cmdClearTempRef TabIndex="15" Tooltip="Click to clear all doses"
+                    TextDecorations="Underline" Cursor="Hand" Height="15" Width="75" HorizontalAlignment="Left"
+                    VerticalAlignment="Top" Name="cmdClear" ImageSource="./assets/images/iClearNOR24.png"
+                    DisabledImageSource="./assets/images/iClearDIS24.png" Margin="5,0,5,0"
+                    ActiveImageSource="./assets/images/iClearHOT24.png"></kendo-gridlayout-item>  -->
+                    <kendo-gridlayout-item [row]='2' [col]='1'>
+                    <div containerStyle tabindex="100">
+                        <iButton #cmdClearTempRef TabIndex="15" class="clearImg" [Text]="resKey.lblClearAll_Titrated_Text"
+                            Tooltip="Click to clear all doses" TextDecorations="Underline" Cursor="Hand" Height="15"
+                            Width="75" HorizontalAlignment="Left" VerticalAlignment="Top" Name="cmdClear" 
+                            ImageSource="./assets/images/iClearNOR24.png" DisabledImageSource="./assets/images/iClearDIS24.png" [Command]="DataContext.FormViewerDetails.BasicDetails.TitratedDoseDetails?.ClearTitrate"
+                            Margin="5,10,5,0" ActiveImageSource="./assets/images/iClearHOT24.png"
+                           >
+                           <!--  -->
+                        </iButton>
+                    </div>
+                </kendo-gridlayout-item>
+            </kendo-gridlayout>
+
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

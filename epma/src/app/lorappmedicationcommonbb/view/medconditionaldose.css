@@ -1,0 +1,21 @@
+.DoseInstruction_warp {
+    white-space: normal !important;
+}
+.extraspace::ng-deep.k-grid-content td{
+   padding: 3px 5px 3px 5px !important;
+}
+.extraspace{
+    overflow-y: auto !important;
+    max-height: 130px !important;
+}
+/* @media screen and (min-device-width : 1400px) and (max-device-width: 1550px) {
+   .medConGrid{
+    height: 85px;
+    overflow-y: auto;
+   }
+  }
+  @media screen and (max-device-width: 1600px) {
+    .medConGrid{
+        height: 130px;
+    }
+  } */

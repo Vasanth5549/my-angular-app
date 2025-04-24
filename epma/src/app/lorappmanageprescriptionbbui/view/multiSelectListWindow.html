@@ -1,0 +1,47 @@
+<ScrollViewer Name="svwFormViewer" VerticalScrollBarVisibility="Visible" MaxWidth="425" HorizontalAlignment="Stretch"
+    MaxHeight="850" BorderThickness="0">
+    <div>
+        <kendo-gridlayout Name="LayoutRoot" #LayoutRootTempRef [Background]="Styles.LzoPageBG" Margin="0,0,0,5"
+            [rows]="[{height:0},{height:31},{height:'auto'},{height:25},{height:31}]"
+            [cols]="[{width:'auto'},{width:'auto'}]">
+
+            <kendo-gridlayout-item [row]='2' [col]="1" [colSpan]='2'>
+                <div containerStyle>
+                    <iLabel #lblInstructionsTempRef HorizontalAlignment="Left" Margin="10,0,0,0" IsWordwrap="True"
+                        Name="lblInstructions" VerticalAlignment="Center" [Text]="DataContext.InstructionsText"
+                        FontWeight="Bold"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='3' [col]='1' [colSpan]='2'>
+                <div containerStyle>
+                    <iCheckedListBox #chkInstructionsTempRef HorizontalAlignment="Left" VerticalAlignment="Center"
+                        Height="150" Margin="10,0,0,0" Name="chkInstructions" OnSelect="chkInstructions_OnSelect"
+                        OnUnSelect="chkInstructions_OnUnSelect" Width="410"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto"></iCheckedListBox>
+                </div>
+            </kendo-gridlayout-item>
+
+            <!-- [Text]="DataContext.lblOtherInstructions_Text. | mulsel" -->
+            <kendo-gridlayout-item [row]='4' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblOtherInstructionsTempRef Name="lblOtherInstructions"
+                        [Text]="mulsel?.lblOtherInstructions_Text"
+                         HorizontalAlignment="Left"
+                        Margin="10,0,0,0" IsEnabled="False" Height="Auto"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+
+            <!-- [Tooltip]="DataContext.txtOtherInstructions_Tooltip. | mulsel" -->
+            <kendo-gridlayout-item [row]='5' [col]='1' [colSpan]='2'>
+                <div containerStyle>
+                    <iTextBox #txtOtherInstructionsTempRef Name="txtOtherInstructions" HorizontalAlignment="Stretch"
+                        Margin="10,0,10,0" Height="21" Width="Auto"
+                        [Tooltip]="mulsel?.txtOtherInstructions_Tooltip" VerticalAlignment="Top" 
+                        IsEnabled="False"></iTextBox>
+                </div>
+            </kendo-gridlayout-item>
+
+        </kendo-gridlayout>
+    </div>
+</ScrollViewer>

@@ -1,0 +1,8 @@
+.includenonform{
+    margin-top: 5px;
+    float : right;
+  }
+.FormularyNoteIcon{
+  display: flex;
+  justify-content: center;
+}

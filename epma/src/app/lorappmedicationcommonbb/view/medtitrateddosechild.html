@@ -1,0 +1,161 @@
+<div name="grdMedTitratedParent" Background="#E0EFF1FF" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <kendo-gridlayout [rows]="[{height: '1fr'}]" [cols]="[{ width: '1fr'}]">
+        <Border #DTitratedDoseBorderTempRef Background="#E0EFF1FF" CornerRadius="2" Name="DTitratedDoseBorder" Height="305"
+            BorderThickness="1" Padding="4" BorderBrush="#75b3b4" [isContent]="true" >
+            <kendo-gridlayout-item [row]='1'>
+                <div name="grdMedTitratedDose" Background="#E0EFF1FF" VerticalAlignment="Stretch">
+                    <kendo-gridlayout [rows]="[ { height: '1fr'}]" [cols]="[{ width:'1fr'}]">
+                        <kendo-gridlayout-item [row]='1' [col]='1' >
+                            <div name="TitratedDosedetails" Background="#E0EFF1FF" VerticalAlignment="Stretch"
+                                ShowGridLines="False">
+                                <kendo-gridlayout [rows]="[ { height: '1fr'},{ height: 2},{ height: 140}]"
+                                            [cols]="[{ width:'1fr'}]">
+                                    <div HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                        <kendo-gridlayout [rows]="[ { height: '1fr'}]" [cols]="[{ width:'1fr'}]">
+                                            <Border [iStyle]="Styles.lblTitrateddose" Background="#E0EFF1FF"
+                                                 [isContent]="true">
+                                                <StackPanel>
+                                                    <iLabel #lblTitrateddoseTempRef Name="lblTitrateddose"
+                                                        FontWeight="Bold" Padding="5,0,5,0"
+                                                        [Text]="steppeddose.TitratedDose_Header_Title"
+                                                        Foreground="#000000" Height="Auto" Width="Auto"></iLabel>
+                                                </StackPanel>
+                                            </Border>
+                                            <!-- <igrid> -->
+                                            <kendo-grid #grdTitratedDoseTempRef 
+                                                [style.width.px]= "860"
+                                                [style.height.px]= "150"
+                                                [style.marginTop.px]="-9"
+                                                [style.marginBottom.px]="7"
+                                                [style.marginLeft.px]="9"
+                                                [style.marginRight.px]="10"
+                                                [style.background]="'#E0EFF1'"                                                 
+                                                [reorderable]="false" 
+                                                [resizeable]="true"
+                                                [sortable]="true"
+                                                [row]="1"
+                                                [editable]=false
+                                                [navigable]="true"
+                                                [data]="grdTitratedDose.ItemsSource?.array"
+                                                class="titratedchild">
+                                                <ng-template kendoGridNoRecordsTemplate>
+                                                    There are no records to show
+                                                </ng-template>
+
+                                                <ng-container *ngIf="grdTitratedDose.dColumns.Count > 0">
+                                                    <kendo-grid-column *ngFor="let i=index ; let column of grdTitratedDose.dColumns.array"
+                                                    [title]="column.Header"
+                                                    [hidden]="column.IsVisible ? false : true"
+                                                    [editable]="column.IsReadOnly ? false : true"
+                                                    [filterable]="column.IsFilterable ? true : false"
+                                                    [width]="column.Width"
+                                                    class="grdTitratedDoseChildColumn Dose"
+                                                    >    
+
+                                                    <ng-template kendoGridHeaderTemplate>                                                   
+                                                        <!-- <span [title]="column.Header" class="titratedHedr">{{ column.Header }}</span>                                                  -->
+                                                        <iLabel [title]="column.Header" class="titratedHedr" Text="{{column.Header}}"></iLabel>
+                                                    </ng-template>
+
+                                                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                                        let-colIndex="columnIndex">
+                                                        <div style="padding:0px 0px 0px 5px ;cursor: context-menu;">
+                                                        <GridCellTemplate [isEditable]="false" [dataItem]="dataItem" class="titratedChildCellHeight"
+                                                            [columnNumber]="colIndex" [cell]="'cell'+colIndex" [DataContext]="dataItem" title="">
+                                                            <!-- <span *ngIf = "i == 0">
+                                                                {{dataItem.ScheduleTime}}
+                                                            </span>
+                                                            <span *ngIf = "i > 0">
+                                                                {{dataItem.ScheduleDoseValue[i-1]}} {{dataItem.TitratedDoseUom[i-1]}}
+                                                            </span> -->
+                                                            <iLabel *ngIf = "i == 0" Text="{{dataItem.ScheduleTime}}"></iLabel>
+                                                            <iLabel *ngIf = "i > 0" Text="{{dataItem.ScheduleDoseValue[i-1]}} {{dataItem.TitratedDoseUom[i-1]}}"></iLabel>
+                                                        </GridCellTemplate>
+                                                    </div>
+                                                    </ng-template>                                                    
+                                                </kendo-grid-column>
+                                            </ng-container>
+                                            
+                                            <!-- <GridDataTemplate [Content]="column.CellTemplate" [DataContext]="dataItem">
+                                            </GridDataTemplate> -->
+                                            </kendo-grid>
+                                        </kendo-gridlayout>
+                                    </div>
+                                    <kendo-gridlayout-item [row]='3' [col]='1'>
+                                        <div name="TitratedDoseDetails" Background="#E0EFF1FF"
+                                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                            <kendo-gridlayout [rows]="[ { height: 2},{ height: 40},{ height: 80},{ height: '1fr'}]"
+                                                [cols]="[ { width:170},{ width:360}]">
+
+                                                <Border [Background]="Styles.InnerBG" [row]='2' [col]='2'></Border>                                                
+                                                <Border [Background]="Styles.InnerBG" [row]='3' [col]='2'></Border>
+                                                
+                                                <Border [iStyle]="Styles.whiteBorder" [row]='2' [col]='1' Margin="10,0,0,0"></Border>                                                
+                                                <Border [iStyle]="Styles.whiteBorder" [row]='3' [col]='1' Margin="10,0,0,0"></Border>                                                
+                                                <Border [iStyle]="Styles.whiteBorder" [row]='4' [col]='1' Margin="10,0,0,0"></Border>                                                
+                                                <Border [iStyle]="Styles.whiteBorder" [row]='2' [col]='2'></Border>                                                
+                                                <Border [iStyle]="Styles.whiteBorder" [row]='3' [col]='2'></Border>                                                
+                                                <Border [iStyle]="Styles.whiteBorder" [row]='4' [col]='2'></Border>
+                                                <kendo-gridlayout-item [row]='2' [col]='1'>
+                                                    <div containerStyle style="padding-left: 6px;">
+                                                        <iLabel #lblTitrDoseInstrTempRef Name="lblTitrDoseInstr"
+                                                            [Text]="steppeddose.TitratedDoseInstructions_Text"
+                                                            HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                                                            Height="30" Margin="5,5,0,0"></iLabel>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+                                                <kendo-gridlayout-item [row]='2' [col]='2'>
+                                                    <div containerStyle>
+                                                        <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="32"
+                                                            BorderThickness="0" HorizontalAlignment="Left"
+                                                            VerticalAlignment="Center" Width="345" Height="35"
+                                                            Margin="5,0,5,0">
+                                                            <kendo-gridlayout-item [row]='2' [col]='2'>
+                                                                <div containerStyle>
+                                                                    <iLabel #lblTitrDoseInstrDataTempRef
+                                                                        Name="lblTitrDoseInstrData"
+                                                                        HorizontalAlignment="Left"
+                                                                        VerticalAlignment="Top" IsWordwrap="True"
+                                                                        Width="330"></iLabel>
+                                                                </div>
+                                                            </kendo-gridlayout-item>
+                                                        </ScrollViewer>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+                                                <kendo-gridlayout-item [row]='3' [col]='1'>
+                                                    <div containerStyle style="padding-bottom: 50px; padding-left: 6px;">
+                                                        <iLabel #lblTitrDoseAddnlCommentsTempRef 
+                                                            Name="lblTitrDoseAddnlComments"
+                                                            [Text]="steppeddose.TitratedDoseComments_Text"
+                                                            HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                                                            Height="50" Margin="5,5,0,0"></iLabel>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+                                                <kendo-gridlayout-item [row]='3' [col]='2'>
+                                                    <div containerStyle>
+                                                        <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="67"
+                                                            BorderThickness="0" HorizontalAlignment="Left"
+                                                            VerticalAlignment="Center" Width="350" Height="70"
+                                                            Margin="5,0,5,0">
+                                                            <iLabel #lblTitrDoseAddnlCommentsValTempRef class="lblTitrDoseAddnlComments-label"
+                                                                Name="lblTitrDoseAddnlCommentsVal" Text=""
+                                                                HorizontalAlignment="Left" VerticalAlignment="Top"
+                                                                IsWordwrap="True" Width="330">
+                                                            </iLabel>
+
+                                                        </ScrollViewer>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+                                            </kendo-gridlayout>
+                                        </div>
+                                    </kendo-gridlayout-item>
+                                </kendo-gridlayout>
+                            </div>
+                        </kendo-gridlayout-item>
+                    </kendo-gridlayout>
+                </div>
+            </kendo-gridlayout-item>
+        </Border>
+    </kendo-gridlayout>
+
+</div>

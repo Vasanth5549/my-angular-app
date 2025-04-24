@@ -1,0 +1,98 @@
+<div name="LayoutRoot" Background="#E0EFF1FF" Margin="0,0,0,0" class="check">
+    <kendo-gridlayout [rows]="[{height: '5fr'},]">
+        <kendo-grid #grdDataTempRef [row]="2" [col]="1"  [style.width.px]="880" [style.height.px]="maxGridHeight" class="grdDataHeight"
+            [GridProperties]="grdData" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="hidden"
+            RowIndicatorVisibility="Collapsed" HorizontalAlignment="Stretch" Margin="0,5,0,10"
+            [selectable]="{checkboxOnly: false, mode: 'single'}" kendoGridSelectBy [reorderable]="true"
+            [(selectedKeys)]="grdData.selectedRowsIndex" [data]="grdData.ItemsSource.array">
+            <kendo-grid-column *ngIf="grdData.RowIndicatorVisibility == 0 ? true : false" UniqueName="rowindicator"
+                field="rowindicator" title="" [width]="40">
+                <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+                    <Image *ngIf="grdData.selectedRowsIndex.length > 0 ? grdData.selectedRowsIndex == 
+            rowIndex : false" Source="../assets/images/iarrownor5x10.png"></Image>
+                </ng-template>
+            </kendo-grid-column>
+            <ng-template kendoGridNoRecordsTemplate>
+                {{ ddkey.NoRecordsText_Text }}
+            </ng-template>
+            <kendo-grid-column UniqueName="ConflictType" [title]="ddkey.ConflictType_Header" [width]="130"
+                [GridColumnProperties]="grdData" TextWrapping="Wrap" [resizable]="false" [sortable]="false"
+                field="ConflictType" [filterable]="false">
+                <ng-template kendoGridHeaderTemplate let-column>
+                    <span [title]="ddkey.ConflictType_Header">{{ column.title }}</span>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                        [gridHelper]="grdData">
+                        <ContentPresenter [Content]="dataItem | ShowStarImages : '' : 200">
+                        </ContentPresenter>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column UniqueName="Details" [title]="ddkey.Details_Header" [width]="190"
+                [GridColumnProperties]="grdData" TextWrapping="Wrap" [resizable]="false" [sortable]="false"
+                [filterable]="false">
+                <ng-template kendoGridHeaderTemplate let-column>
+                    <span [title]="ddkey.Details_Header">{{ column.title }}</span>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                        [gridHelper]="grdData">
+                        <ContentPresenter [Content]="dataItem | FormatConflicts : '' : 200">
+                        </ContentPresenter>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column UniqueName="PrescriberAcknowledgementreason"
+                [title]="ddkey.PrescriberAcknowledgementreason_Header" [width]="205" field="PrescriberComments"
+                [GridColumnProperties]="grdData" TextWrapping="Wrap" [resizable]="false" [sortable]="false"
+                [filterable]="false">
+                <ng-template kendoGridHeaderTemplate let-column>
+                    <span [title]="ddkey.PrescriberAcknowledgementreason_Header">{{ column.title }}</span>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                        [gridHelper]="grdData">
+                            <div>
+                                {{dataItem.PrescriberComments}}
+                            </div>      
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column UniqueName="viewStatus" [title]="ddkey.viewStatus_Header" [width]="110"
+                [GridColumnProperties]="grdData" TextWrapping="Wrap" [resizable]="false" [sortable]="false"
+                [filterable]="false">
+                <ng-template kendoGridHeaderTemplate let-column>
+                    <span [title]="ddkey.viewStatus_Header">{{ column.title }}</span>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                        [gridHelper]="grdData" style="text-align: center;">
+                        <!-- <ContentPresenter [Content]="dataItem.AcknowledgeDisplay" HorizontalAlignment="Center"> -->
+                        <!-- </ContentPresenter> -->
+                        <ContentPresenter [Content]="dataItem | DisplayAcknowledgeStatus : '':200"  ></ContentPresenter>
+                        
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column UniqueName="Authoriseracknowledgementreason"
+                [title]="ddkey.Authoriseracknowledgementreason_Header" [width]="160" field="AuthroiserComments"
+                [GridColumnProperties]="grdData" TextWrapping="Wrap" [resizable]="false" [sortable]="false"
+                [filterable]="false">
+                <ng-template kendoGridHeaderTemplate let-column>
+                    <span [title]="ddkey.Authoriseracknowledgementreason_Header">{{ column.title }}</span>
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column UniqueName="Clinicalverifieracknowledgementreason"
+                [title]="ddkey.Clinicalverifieracknowledgementreason_Header" [width]="200"
+                field="ClinicallVeriferComments" [GridColumnProperties]="grdData" TextWrapping="Wrap"
+                [resizable]="false" [sortable]="false" [filterable]="false">
+                <ng-template kendoGridHeaderTemplate let-column>
+                    <span [title]="ddkey.Clinicalverifieracknowledgementreason_Header">{{ column.title }}</span>
+                </ng-template>
+            </kendo-grid-column>
+
+        </kendo-grid>
+
+    </kendo-gridlayout>
+</div>

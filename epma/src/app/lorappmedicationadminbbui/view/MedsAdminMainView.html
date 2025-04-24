@@ -1,0 +1,28 @@
+<div name="LayoutRoot">
+  <kendo-gridlayout class="grid-layout-container" #gridLayoutTempRef
+                    GridLayout
+                    [rows]="[{ height: 'auto'},{ height: 'auto'}, { height: '1fr'}]">
+    <Border [col]="1" [row]="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Width="auto"
+            Height="auto"
+            BorderThickness="1"
+            BorderBrush="#77b3b4"
+            Margin="-2, 0, -2, 0"
+            [iStyle]="Styles.BorderSidenone">
+      <MedsAdminObservationView *ngIf="ShowOnlyObservationView"></MedsAdminObservationView>
+      <medsadminprescchartview *ngIf="ShowOnlyPrescChartView"></medsadminprescchartview>
+      <div [hidden]="!ShowAllView">
+        <iTab #tabTempRef
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch"
+              Name="oTab"
+              Margin="0,0,0,0"
+              Width="auto"
+              Height="auto">
+        </iTab>
+      </div>
+    </Border>
+  </kendo-gridlayout>
+</div>

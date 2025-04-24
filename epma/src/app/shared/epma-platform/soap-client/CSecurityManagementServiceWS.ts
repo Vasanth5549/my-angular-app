@@ -1,0 +1,4098 @@
+import DateTime from "epma-platform/DateTime";
+import { byte, CContextInformation, CLZOObject } from "epma-platform/models";
+import { ObservableCollection } from "../models/observable-collection";
+import { HelperService } from "./helper.service";
+export class CSecurityManagementServiceWSSoapClient {
+
+ValidateLoginCompleted: Function;
+ValidateLoginAsync(oCReqMsgValidateLogin:CReqMsgValidateLogin ) : void {
+  HelperService.Invoke<CReqMsgValidateLogin,CResMsgValidateLogin,ValidateLoginCompletedEventArgs>("CSecurityManagementServiceWS.ValidateLogin",oCReqMsgValidateLogin,this.ValidateLoginCompleted,"sPassword",new ValidateLoginCompletedEventArgs(), prototypeList);
+}
+
+CreatePermissionCompleted: Function;
+CreatePermissionAsync(oCReqMsgCreatePermission:CReqMsgCreatePermission ) : void {
+  HelperService.Invoke<CReqMsgCreatePermission,CResMsgCreatePermission,CreatePermissionCompletedEventArgs>("CSecurityManagementServiceWS.CreatePermission",oCReqMsgCreatePermission,this.CreatePermissionCompleted,"objDepPermissions",new CreatePermissionCompletedEventArgs(), prototypeList);
+}
+
+ModifyPermissionCompleted: Function;
+ModifyPermissionAsync(oCReqMsgModifyPermission:CReqMsgModifyPermission ) : void {
+  HelperService.Invoke<CReqMsgModifyPermission,CResMsgModifyPermission,ModifyPermissionCompletedEventArgs>("CSecurityManagementServiceWS.ModifyPermission",oCReqMsgModifyPermission,this.ModifyPermissionCompleted,"objDepPermissions",new ModifyPermissionCompletedEventArgs(), prototypeList);
+}
+
+GetPermissionCompleted: Function;
+GetPermissionAsync(oCReqMsgGetPermission:CReqMsgGetPermission ) : void {
+  HelperService.Invoke<CReqMsgGetPermission,CResMsgGetPermission,GetPermissionCompletedEventArgs>("CSecurityManagementServiceWS.GetPermission",oCReqMsgGetPermission,this.GetPermissionCompleted,"bIncludeInActive",new GetPermissionCompletedEventArgs(), prototypeList);
+}
+
+GetPermissionByPageCompleted: Function;
+GetPermissionByPageAsync(oCReqMsgGetPermissionByPage:CReqMsgGetPermissionByPage ) : void {
+  HelperService.Invoke<CReqMsgGetPermissionByPage,CResMsgGetPermissionByPage,GetPermissionByPageCompletedEventArgs>("CSecurityManagementServiceWS.GetPermissionByPage",oCReqMsgGetPermissionByPage,this.GetPermissionByPageCompleted,"bIncludeInActive",new GetPermissionByPageCompletedEventArgs(), prototypeList);
+}
+
+GetPermissionByCategoryCompleted: Function;
+GetPermissionByCategoryAsync(oCReqMsgGetPermissionByCategory:CReqMsgGetPermissionByCategory ) : void {
+  HelperService.Invoke<CReqMsgGetPermissionByCategory,CResMsgGetPermissionByCategory,GetPermissionByCategoryCompletedEventArgs>("CSecurityManagementServiceWS.GetPermissionByCategory",oCReqMsgGetPermissionByCategory,this.GetPermissionByCategoryCompleted,"lnPermCatOid",new GetPermissionByCategoryCompletedEventArgs(), prototypeList);
+}
+
+GetPermForSecurityGrpByPageCompleted: Function;
+GetPermForSecurityGrpByPageAsync(oCReqMsgGetPermForSecurityGrpByPage:CReqMsgGetPermForSecurityGrpByPage ) : void {
+  HelperService.Invoke<CReqMsgGetPermForSecurityGrpByPage,CResMsgGetPermForSecurityGrpByPage,GetPermForSecurityGrpByPageCompletedEventArgs>("CSecurityManagementServiceWS.GetPermForSecurityGrpByPage",oCReqMsgGetPermForSecurityGrpByPage,this.GetPermForSecurityGrpByPageCompleted,"bIsRowCountReq",new GetPermForSecurityGrpByPageCompletedEventArgs(), prototypeList);
+}
+
+RemoveAllUserAccessConfigCompleted: Function;
+RemoveAllUserAccessConfigAsync(oCReqMsgRemoveAllUserAccessConfig:CReqMsgRemoveAllUserAccessConfig ) : void {
+  HelperService.Invoke<CReqMsgRemoveAllUserAccessConfig,CResMsgRemoveAllUserAccessConfig,RemoveAllUserAccessConfigCompletedEventArgs>("CSecurityManagementServiceWS.RemoveAllUserAccessConfig",oCReqMsgRemoveAllUserAccessConfig,this.RemoveAllUserAccessConfigCompleted,"objReqRemoveAllUserAccessConfig",new RemoveAllUserAccessConfigCompletedEventArgs(), prototypeList);
+}
+
+CreateWorkingAreaEnterpriseObjectCompleted: Function;
+CreateWorkingAreaEnterpriseObjectAsync(oCReqMsgCreateWorkingAreaEnterpriseObject:CReqMsgCreateWorkingAreaEnterpriseObject ) : void {
+  HelperService.Invoke<CReqMsgCreateWorkingAreaEnterpriseObject,CResMsgCreateWorkingAreaEnterpriseObject,CreateWorkingAreaEnterpriseObjectCompletedEventArgs>("CSecurityManagementServiceWS.CreateWorkingAreaEnterpriseObject",oCReqMsgCreateWorkingAreaEnterpriseObject,this.CreateWorkingAreaEnterpriseObjectCompleted,"objWorkingAreaEntObj",new CreateWorkingAreaEnterpriseObjectCompletedEventArgs(), prototypeList);
+}
+
+GetAllWorkingAreaCompleted: Function;
+GetAllWorkingAreaAsync(oCReqMsgGetAllWorkingArea:CReqMsgGetAllWorkingArea ) : void {
+  HelperService.Invoke<CReqMsgGetAllWorkingArea,CResMsgGetAllWorkingArea,GetAllWorkingAreaCompletedEventArgs>("CSecurityManagementServiceWS.GetAllWorkingArea",oCReqMsgGetAllWorkingArea,this.GetAllWorkingAreaCompleted,"nEndIndex",new GetAllWorkingAreaCompletedEventArgs(), prototypeList);
+}
+
+GetWorkingAreaDtlByOIDCompleted: Function;
+GetWorkingAreaDtlByOIDAsync(oCReqMsgGetWorkingAreaDtlByOID:CReqMsgGetWorkingAreaDtlByOID ) : void {
+  HelperService.Invoke<CReqMsgGetWorkingAreaDtlByOID,CResMsgGetWorkingAreaDtlByOID,GetWorkingAreaDtlByOIDCompletedEventArgs>("CSecurityManagementServiceWS.GetWorkingAreaDtlByOID",oCReqMsgGetWorkingAreaDtlByOID,this.GetWorkingAreaDtlByOIDCompleted,"nEndIndex",new GetWorkingAreaDtlByOIDCompletedEventArgs(), prototypeList);
+}
+
+GetWorkingAreaByOIDCompleted: Function;
+GetWorkingAreaByOIDAsync(oCReqMsgGetWorkingAreaByOID:CReqMsgGetWorkingAreaByOID ) : void {
+  HelperService.Invoke<CReqMsgGetWorkingAreaByOID,CResMsgGetWorkingAreaByOID,GetWorkingAreaByOIDCompletedEventArgs>("CSecurityManagementServiceWS.GetWorkingAreaByOID",oCReqMsgGetWorkingAreaByOID,this.GetWorkingAreaByOIDCompleted,"lnWorkingAreaOID",new GetWorkingAreaByOIDCompletedEventArgs(), prototypeList);
+}
+
+ModifyWorkingAreaCompleted: Function;
+ModifyWorkingAreaAsync(oCReqMsgModifyWorkingArea:CReqMsgModifyWorkingArea ) : void {
+  HelperService.Invoke<CReqMsgModifyWorkingArea,CResMsgModifyWorkingArea,ModifyWorkingAreaCompletedEventArgs>("CSecurityManagementServiceWS.ModifyWorkingArea",oCReqMsgModifyWorkingArea,this.ModifyWorkingAreaCompleted,"objWorkingAreaEntObj",new ModifyWorkingAreaCompletedEventArgs(), prototypeList);
+}
+
+GetWorkingAreaByCritCompleted: Function;
+GetWorkingAreaByCritAsync(oCReqMsgGetWorkingAreaByCrit:CReqMsgGetWorkingAreaByCrit ) : void {
+  HelperService.Invoke<CReqMsgGetWorkingAreaByCrit,CResMsgGetWorkingAreaByCrit,GetWorkingAreaByCritCompletedEventArgs>("CSecurityManagementServiceWS.GetWorkingAreaByCrit",oCReqMsgGetWorkingAreaByCrit,this.GetWorkingAreaByCritCompleted,"nEndIndex",new GetWorkingAreaByCritCompletedEventArgs(), prototypeList);
+}
+
+GetWorkingAreaForRoleProfileOIDCompleted: Function;
+GetWorkingAreaForRoleProfileOIDAsync(oCReqMsgGetWorkingAreaForRoleProfileOID:CReqMsgGetWorkingAreaForRoleProfileOID ) : void {
+  HelperService.Invoke<CReqMsgGetWorkingAreaForRoleProfileOID,CResMsgGetWorkingAreaForRoleProfileOID,GetWorkingAreaForRoleProfileOIDCompletedEventArgs>("CSecurityManagementServiceWS.GetWorkingAreaForRoleProfileOID",oCReqMsgGetWorkingAreaForRoleProfileOID,this.GetWorkingAreaForRoleProfileOIDCompleted,"lnRoleProfileOID",new GetWorkingAreaForRoleProfileOIDCompletedEventArgs(), prototypeList);
+}
+
+ValidateUserCompleted: Function;
+ValidateUserAsync(oCReqMsgValidateUser:CReqMsgValidateUser ) : void {
+  HelperService.Invoke<CReqMsgValidateUser,CResMsgValidateUser,ValidateUserCompletedEventArgs>("CSecurityManagementServiceWS.ValidateUser",oCReqMsgValidateUser,this.ValidateUserCompleted,"sPassword",new ValidateUserCompletedEventArgs(), prototypeList);
+}
+
+GetNativeLoginsForUsersCompleted: Function;
+GetNativeLoginsForUsersAsync(oCReqMsgGetNativeLoginsForUsers:CReqMsgGetNativeLoginsForUsers ) : void {
+  HelperService.Invoke<CReqMsgGetNativeLoginsForUsers,CResMsgGetNativeLoginsForUsers,GetNativeLoginsForUsersCompletedEventArgs>("CSecurityManagementServiceWS.GetNativeLoginsForUsers",oCReqMsgGetNativeLoginsForUsers,this.GetNativeLoginsForUsersCompleted,"sUserOIDs",new GetNativeLoginsForUsersCompletedEventArgs(), prototypeList);
+}
+
+CreateLoginAccountCompleted: Function;
+CreateLoginAccountAsync(oCReqMsgCreateLoginAccount:CReqMsgCreateLoginAccount ) : void {
+  HelperService.Invoke<CReqMsgCreateLoginAccount,CResMsgCreateLoginAccount,CreateLoginAccountCompletedEventArgs>("CSecurityManagementServiceWS.CreateLoginAccount",oCReqMsgCreateLoginAccount,this.CreateLoginAccountCompleted,"objUserRoleProfiles",new CreateLoginAccountCompletedEventArgs(), prototypeList);
+}
+
+ModifyLoginCompleted: Function;
+ModifyLoginAsync(oCReqMsgModifyLogin:CReqMsgModifyLogin ) : void {
+  HelperService.Invoke<CReqMsgModifyLogin,CResMsgModifyLogin,ModifyLoginCompletedEventArgs>("CSecurityManagementServiceWS.ModifyLogin",oCReqMsgModifyLogin,this.ModifyLoginCompleted,"bIsRandPwdEnabled",new ModifyLoginCompletedEventArgs(), prototypeList);
+}
+
+ModifyLoginsCompleted: Function;
+ModifyLoginsAsync(oCReqMsgModifyLogins:CReqMsgModifyLogins ) : void {
+  HelperService.Invoke<CReqMsgModifyLogins,CResMsgModifyLogins,ModifyLoginsCompletedEventArgs>("CSecurityManagementServiceWS.ModifyLogins",oCReqMsgModifyLogins,this.ModifyLoginsCompleted,"bIsRandPwdEnabled",new ModifyLoginsCompletedEventArgs(), prototypeList);
+}
+
+GetLoginAccountsCompleted: Function;
+GetLoginAccountsAsync(oCReqMsgGetLoginAccounts:CReqMsgGetLoginAccounts ) : void {
+  HelperService.Invoke<CReqMsgGetLoginAccounts,CResMsgGetLoginAccounts,GetLoginAccountsCompletedEventArgs>("CSecurityManagementServiceWS.GetLoginAccounts",oCReqMsgGetLoginAccounts,this.GetLoginAccountsCompleted,"bIncludeLockedLoginAccounts",new GetLoginAccountsCompletedEventArgs(), prototypeList);
+}
+
+IsLoginIDValidCompleted: Function;
+IsLoginIDValidAsync(oCReqMsgIsLoginIDValid:CReqMsgIsLoginIDValid ) : void {
+  HelperService.Invoke<CReqMsgIsLoginIDValid,CResMsgIsLoginIDValid,IsLoginIDValidCompletedEventArgs>("CSecurityManagementServiceWS.IsLoginIDValid",oCReqMsgIsLoginIDValid,this.IsLoginIDValidCompleted,"idProvider",new IsLoginIDValidCompletedEventArgs(), prototypeList);
+}
+
+GetLoginByPageCompleted: Function;
+GetLoginByPageAsync(oCReqMsgGetLoginByPage:CReqMsgGetLoginByPage ) : void {
+  HelperService.Invoke<CReqMsgGetLoginByPage,CResMsgGetLoginByPage,GetLoginByPageCompletedEventArgs>("CSecurityManagementServiceWS.GetLoginByPage",oCReqMsgGetLoginByPage,this.GetLoginByPageCompleted,"nPageSize",new GetLoginByPageCompletedEventArgs(), prototypeList);
+}
+
+GetOrganisationForLoginCompleted: Function;
+GetOrganisationForLoginAsync(oCReqMsgGetOrganisationForLogin:CReqMsgGetOrganisationForLogin ) : void {
+  HelperService.Invoke<CReqMsgGetOrganisationForLogin,CResMsgGetOrganisationForLogin,GetOrganisationForLoginCompletedEventArgs>("CSecurityManagementServiceWS.GetOrganisationForLogin",oCReqMsgGetOrganisationForLogin,this.GetOrganisationForLoginCompleted,"dttmActiveTo",new GetOrganisationForLoginCompletedEventArgs(), prototypeList);
+}
+
+GetUserForLoginCompleted: Function;
+GetUserForLoginAsync(oCReqMsgGetUserForLogin:CReqMsgGetUserForLogin ) : void {
+  HelperService.Invoke<CReqMsgGetUserForLogin,CResMsgGetUserForLogin,GetUserForLoginCompletedEventArgs>("CSecurityManagementServiceWS.GetUserForLogin",oCReqMsgGetUserForLogin,this.GetUserForLoginCompleted,"sIncludeInActive",new GetUserForLoginCompletedEventArgs(), prototypeList);
+}
+
+GetUserForLoginByPageCompleted: Function;
+GetUserForLoginByPageAsync(oCReqMsgGetUserForLoginByPage:CReqMsgGetUserForLoginByPage ) : void {
+  HelperService.Invoke<CReqMsgGetUserForLoginByPage,CResMsgGetUserForLoginByPage,GetUserForLoginByPageCompletedEventArgs>("CSecurityManagementServiceWS.GetUserForLoginByPage",oCReqMsgGetUserForLoginByPage,this.GetUserForLoginByPageCompleted,"nPageSize",new GetUserForLoginByPageCompletedEventArgs(), prototypeList);
+}
+
+GetADUSersCompleted: Function;
+GetADUSersAsync(oCReqMsgGetADUSers:CReqMsgGetADUSers ) : void {
+  HelperService.Invoke<CReqMsgGetADUSers,CResMsgGetADUSers,GetADUSersCompletedEventArgs>("CSecurityManagementServiceWS.GetADUSers",oCReqMsgGetADUSers,this.GetADUSersCompleted,"sTitle",new GetADUSersCompletedEventArgs(), prototypeList);
+}
+
+GetUserCompleted: Function;
+GetUserAsync(oCReqMsgGetUser:CReqMsgGetUser ) : void {
+  HelperService.Invoke<CReqMsgGetUser,CResMsgGetUser,GetUserCompletedEventArgs>("CSecurityManagementServiceWS.GetUser",oCReqMsgGetUser,this.GetUserCompleted,"lUserOID",new GetUserCompletedEventArgs(), prototypeList);
+}
+
+GetUsersByRoleCompleted: Function;
+GetUsersByRoleAsync(oCReqMsgGetUsersByRole:CReqMsgGetUsersByRole ) : void {
+  HelperService.Invoke<CReqMsgGetUsersByRole,CResMsgGetUsersByRole,GetUsersByRoleCompletedEventArgs>("CSecurityManagementServiceWS.GetUsersByRole",oCReqMsgGetUsersByRole,this.GetUsersByRoleCompleted,"sRoleCode",new GetUsersByRoleCompletedEventArgs(), prototypeList);
+}
+
+GetLoginNameByUserOIDCompleted: Function;
+GetLoginNameByUserOIDAsync(oCReqMsgGetLoginNameByUserOID:CReqMsgGetLoginNameByUserOID ) : void {
+  HelperService.Invoke<CReqMsgGetLoginNameByUserOID,CResMsgGetLoginNameByUserOID,GetLoginNameByUserOIDCompletedEventArgs>("CSecurityManagementServiceWS.GetLoginNameByUserOID",oCReqMsgGetLoginNameByUserOID,this.GetLoginNameByUserOIDCompleted,"enmLoginType",new GetLoginNameByUserOIDCompletedEventArgs(), prototypeList);
+}
+
+GetUserLoginAccountsCompleted: Function;
+GetUserLoginAccountsAsync(oCReqMsgGetUserLoginAccounts:CReqMsgGetUserLoginAccounts ) : void {
+  HelperService.Invoke<CReqMsgGetUserLoginAccounts,CResMsgGetUserLoginAccounts,GetUserLoginAccountsCompletedEventArgs>("CSecurityManagementServiceWS.GetUserLoginAccounts",oCReqMsgGetUserLoginAccounts,this.GetUserLoginAccountsCompleted,"lnUserOID",new GetUserLoginAccountsCompletedEventArgs(), prototypeList);
+}
+
+GeneratePasswordCompleted: Function;
+GeneratePasswordAsync(oCReqMsgGeneratePassword:CReqMsgGeneratePassword ) : void {
+  HelperService.Invoke<CReqMsgGeneratePassword,CResMsgGeneratePassword,GeneratePasswordCompletedEventArgs>("CSecurityManagementServiceWS.GeneratePassword",oCReqMsgGeneratePassword,this.GeneratePasswordCompleted,"SecretAnswer",new GeneratePasswordCompletedEventArgs(), prototypeList);
+}
+
+GetSecretQuestionCompleted: Function;
+GetSecretQuestionAsync(oCReqMsgGetSecretQuestion:CReqMsgGetSecretQuestion ) : void {
+  HelperService.Invoke<CReqMsgGetSecretQuestion,CResMsgGetSecretQuestion,GetSecretQuestionCompletedEventArgs>("CSecurityManagementServiceWS.GetSecretQuestion",oCReqMsgGetSecretQuestion,this.GetSecretQuestionCompleted,"sCultureCode",new GetSecretQuestionCompletedEventArgs(), prototypeList);
+}
+
+GetLoginSecretQuestionsCompleted: Function;
+GetLoginSecretQuestionsAsync(oCReqMsgGetLoginSecretQuestions:CReqMsgGetLoginSecretQuestions ) : void {
+  HelperService.Invoke<CReqMsgGetLoginSecretQuestions,CResMsgGetLoginSecretQuestions,GetLoginSecretQuestionsCompletedEventArgs>("CSecurityManagementServiceWS.GetLoginSecretQuestions",oCReqMsgGetLoginSecretQuestions,this.GetLoginSecretQuestionsCompleted,"sCultureCode",new GetLoginSecretQuestionsCompletedEventArgs(), prototypeList);
+}
+
+GetRandomQuestionCompleted: Function;
+GetRandomQuestionAsync(oCReqMsgGetRandomQuestion:CReqMsgGetRandomQuestion ) : void {
+  HelperService.Invoke<CReqMsgGetRandomQuestion,CResMsgGetRandomQuestion,GetRandomQuestionCompletedEventArgs>("CSecurityManagementServiceWS.GetRandomQuestion",oCReqMsgGetRandomQuestion,this.GetRandomQuestionCompleted,"sCultureCode",new GetRandomQuestionCompletedEventArgs(), prototypeList);
+}
+
+GetSpecialtyCompleted: Function;
+GetSpecialtyAsync(oCReqMsgGetSpecialty:CReqMsgGetSpecialty ) : void {
+  HelperService.Invoke<CReqMsgGetSpecialty,CResMsgGetSpecialty,GetSpecialtyCompletedEventArgs>("CSecurityManagementServiceWS.GetSpecialty",oCReqMsgGetSpecialty,this.GetSpecialtyCompleted,"sIncludeInActive",new GetSpecialtyCompletedEventArgs(), prototypeList);
+}
+
+GetServiceCompleted: Function;
+GetServiceAsync(oCReqMsgGetService:CReqMsgGetService ) : void {
+  HelperService.Invoke<CReqMsgGetService,CResMsgGetService,GetServiceCompletedEventArgs>("CSecurityManagementServiceWS.GetService",oCReqMsgGetService,this.GetServiceCompleted,"sIncludeActive",new GetServiceCompletedEventArgs(), prototypeList);
+}
+
+GetTeamCompleted: Function;
+GetTeamAsync(oCReqMsgGetTeam:CReqMsgGetTeam ) : void {
+  HelperService.Invoke<CReqMsgGetTeam,CResMsgGetTeam,GetTeamCompletedEventArgs>("CSecurityManagementServiceWS.GetTeam",oCReqMsgGetTeam,this.GetTeamCompleted,"sIncludeInActive",new GetTeamCompletedEventArgs(), prototypeList);
+}
+
+GetJobRoleCompleted: Function;
+GetJobRoleAsync(oCReqMsgGetJobRole:CReqMsgGetJobRole ) : void {
+  HelperService.Invoke<CReqMsgGetJobRole,CResMsgGetJobRole,GetJobRoleCompletedEventArgs>("CSecurityManagementServiceWS.GetJobRole",oCReqMsgGetJobRole,this.GetJobRoleCompleted,"bIncludeInActive",new GetJobRoleCompletedEventArgs(), prototypeList);
+}
+
+GetAllJobRoleCompleted: Function;
+GetAllJobRoleAsync(oCReqMsgGetAllJobRole:CReqMsgGetAllJobRole ) : void {
+  HelperService.Invoke<CReqMsgGetAllJobRole,CResMsgGetAllJobRole,GetAllJobRoleCompletedEventArgs>("CSecurityManagementServiceWS.GetAllJobRole",oCReqMsgGetAllJobRole,this.GetAllJobRoleCompleted,"objReqGetAllJobRole",new GetAllJobRoleCompletedEventArgs(), prototypeList);
+}
+
+CreateEnterpriseObjectSecurityGroupCompleted: Function;
+CreateEnterpriseObjectSecurityGroupAsync(oCReqMsgCreateEnterpriseObjectSecurityGroup:CReqMsgCreateEnterpriseObjectSecurityGroup ) : void {
+  HelperService.Invoke<CReqMsgCreateEnterpriseObjectSecurityGroup,CResMsgCreateEnterpriseObjectSecurityGroup,CreateEnterpriseObjectSecurityGroupCompletedEventArgs>("CSecurityManagementServiceWS.CreateEnterpriseObjectSecurityGroup",oCReqMsgCreateEnterpriseObjectSecurityGroup,this.CreateEnterpriseObjectSecurityGroupCompleted,"objEntObjSecurityGroup",new CreateEnterpriseObjectSecurityGroupCompletedEventArgs(), prototypeList);
+}
+
+ModifyEnterpriseObjectSecurityGroupCompleted: Function;
+ModifyEnterpriseObjectSecurityGroupAsync(oCReqMsgModifyEnterpriseObjectSecurityGroup:CReqMsgModifyEnterpriseObjectSecurityGroup ) : void {
+  HelperService.Invoke<CReqMsgModifyEnterpriseObjectSecurityGroup,CResMsgModifyEnterpriseObjectSecurityGroup,ModifyEnterpriseObjectSecurityGroupCompletedEventArgs>("CSecurityManagementServiceWS.ModifyEnterpriseObjectSecurityGroup",oCReqMsgModifyEnterpriseObjectSecurityGroup,this.ModifyEnterpriseObjectSecurityGroupCompleted,"objEntObjSecurityGroup",new ModifyEnterpriseObjectSecurityGroupCompletedEventArgs(), prototypeList);
+}
+
+GetSecurityGroupForEnterpriseObjectCompleted: Function;
+GetSecurityGroupForEnterpriseObjectAsync(oCReqMsgGetSecurityGroupForEnterpriseObject:CReqMsgGetSecurityGroupForEnterpriseObject ) : void {
+  HelperService.Invoke<CReqMsgGetSecurityGroupForEnterpriseObject,CResMsgGetSecurityGroupForEnterpriseObject,GetSecurityGroupForEnterpriseObjectCompletedEventArgs>("CSecurityManagementServiceWS.GetSecurityGroupForEnterpriseObject",oCReqMsgGetSecurityGroupForEnterpriseObject,this.GetSecurityGroupForEnterpriseObjectCompleted,"lnJobRoleOID",new GetSecurityGroupForEnterpriseObjectCompletedEventArgs(), prototypeList);
+}
+
+GetPermissionForEntObjSecGrpOIDCompleted: Function;
+GetPermissionForEntObjSecGrpOIDAsync(oCReqMsgGetPermissionForEntObjSecGrpOID:CReqMsgGetPermissionForEntObjSecGrpOID ) : void {
+  HelperService.Invoke<CReqMsgGetPermissionForEntObjSecGrpOID,CResMsgGetPermissionForEntObjSecGrpOID,GetPermissionForEntObjSecGrpOIDCompletedEventArgs>("CSecurityManagementServiceWS.GetPermissionForEntObjSecGrpOID",oCReqMsgGetPermissionForEntObjSecGrpOID,this.GetPermissionForEntObjSecGrpOIDCompleted,"lnEntObjSecGrpOID",new GetPermissionForEntObjSecGrpOIDCompletedEventArgs(), prototypeList);
+}
+
+GetPermsForSecurityGrpByPageCompleted: Function;
+GetPermsForSecurityGrpByPageAsync(oCReqMsgGetPermsForSecurityGrpByPage:CReqMsgGetPermsForSecurityGrpByPage ) : void {
+  HelperService.Invoke<CReqMsgGetPermsForSecurityGrpByPage,CResMsgGetPermsForSecurityGrpByPage,GetPermsForSecurityGrpByPageCompletedEventArgs>("CSecurityManagementServiceWS.GetPermsForSecurityGrpByPage",oCReqMsgGetPermsForSecurityGrpByPage,this.GetPermsForSecurityGrpByPageCompleted,"nEndIndex",new GetPermsForSecurityGrpByPageCompletedEventArgs(), prototypeList);
+}
+
+GetSecurityMappingInfoCompleted: Function;
+GetSecurityMappingInfoAsync(oCReqMsgGetSecurityMappingInfo:CReqMsgGetSecurityMappingInfo ) : void {
+  HelperService.Invoke<CReqMsgGetSecurityMappingInfo,CResMsgGetSecurityMappingInfo,GetSecurityMappingInfoCompletedEventArgs>("CSecurityManagementServiceWS.GetSecurityMappingInfo",oCReqMsgGetSecurityMappingInfo,this.GetSecurityMappingInfoCompleted,"sAreaOfWorkCode",new GetSecurityMappingInfoCompletedEventArgs(), prototypeList);
+}
+
+AssignSecurityGroupCompleted: Function;
+AssignSecurityGroupAsync(oCReqMsgAssignSecurityGroup:CReqMsgAssignSecurityGroup ) : void {
+  HelperService.Invoke<CReqMsgAssignSecurityGroup,CResMsgAssignSecurityGroup,AssignSecurityGroupCompletedEventArgs>("CSecurityManagementServiceWS.AssignSecurityGroup",oCReqMsgAssignSecurityGroup,this.AssignSecurityGroupCompleted,"objEnterpriseObject",new AssignSecurityGroupCompletedEventArgs(), prototypeList);
+}
+
+AssignEntObjSecurityGroupCompleted: Function;
+AssignEntObjSecurityGroupAsync(oCReqMsgAssignEntObjSecurityGroup:CReqMsgAssignEntObjSecurityGroup ) : void {
+  HelperService.Invoke<CReqMsgAssignEntObjSecurityGroup,CResMsgAssignEntObjSecurityGroup,AssignEntObjSecurityGroupCompletedEventArgs>("CSecurityManagementServiceWS.AssignEntObjSecurityGroup",oCReqMsgAssignEntObjSecurityGroup,this.AssignEntObjSecurityGroupCompleted,"objCSecurityGroupEntObj",new AssignEntObjSecurityGroupCompletedEventArgs(), prototypeList);
+}
+
+GetAdditionalSecurityGroupByRPCodeCompleted: Function;
+GetAdditionalSecurityGroupByRPCodeAsync(oCReqMsgGetAdditionalSecurityGroupByRPCode:CReqMsgGetAdditionalSecurityGroupByRPCode ) : void {
+  HelperService.Invoke<CReqMsgGetAdditionalSecurityGroupByRPCode,CResMsgGetAdditionalSecurityGroupByRPCode,GetAdditionalSecurityGroupByRPCodeCompletedEventArgs>("CSecurityManagementServiceWS.GetAdditionalSecurityGroupByRPCode",oCReqMsgGetAdditionalSecurityGroupByRPCode,this.GetAdditionalSecurityGroupByRPCodeCompleted,"sRoleProfileCode",new GetAdditionalSecurityGroupByRPCodeCompletedEventArgs(), prototypeList);
+}
+
+GetAdditionalSecurityGroupByRPOIDCompleted: Function;
+GetAdditionalSecurityGroupByRPOIDAsync(oCReqMsgGetAdditionalSecurityGroupByRPOID:CReqMsgGetAdditionalSecurityGroupByRPOID ) : void {
+  HelperService.Invoke<CReqMsgGetAdditionalSecurityGroupByRPOID,CResMsgGetAdditionalSecurityGroupByRPOID,GetAdditionalSecurityGroupByRPOIDCompletedEventArgs>("CSecurityManagementServiceWS.GetAdditionalSecurityGroupByRPOID",oCReqMsgGetAdditionalSecurityGroupByRPOID,this.GetAdditionalSecurityGroupByRPOIDCompleted,"lRoleProfileOID",new GetAdditionalSecurityGroupByRPOIDCompletedEventArgs(), prototypeList);
+}
+
+GetSecurityMappingInfoByPageCompleted: Function;
+GetSecurityMappingInfoByPageAsync(oCReqMsgGetSecurityMappingInfoByPage:CReqMsgGetSecurityMappingInfoByPage ) : void {
+  HelperService.Invoke<CReqMsgGetSecurityMappingInfoByPage,CResMsgGetSecurityMappingInfoByPage,GetSecurityMappingInfoByPageCompletedEventArgs>("CSecurityManagementServiceWS.GetSecurityMappingInfoByPage",oCReqMsgGetSecurityMappingInfoByPage,this.GetSecurityMappingInfoByPageCompleted,"nPageSize",new GetSecurityMappingInfoByPageCompletedEventArgs(), prototypeList);
+}
+
+GetSecurityMappingForEntObjectsCompleted: Function;
+GetSecurityMappingForEntObjectsAsync(oCReqMsgGetSecurityMappingForEntObjects:CReqMsgGetSecurityMappingForEntObjects ) : void {
+  HelperService.Invoke<CReqMsgGetSecurityMappingForEntObjects,CResMsgGetSecurityMappingForEntObjects,GetSecurityMappingForEntObjectsCompletedEventArgs>("CSecurityManagementServiceWS.GetSecurityMappingForEntObjects",oCReqMsgGetSecurityMappingForEntObjects,this.GetSecurityMappingForEntObjectsCompleted,"objEntObjReq",new GetSecurityMappingForEntObjectsCompletedEventArgs(), prototypeList);
+}
+
+GetEntObjForSecGrpByPageCompleted: Function;
+GetEntObjForSecGrpByPageAsync(oCReqMsgGetEntObjForSecGrpByPage:CReqMsgGetEntObjForSecGrpByPage ) : void {
+  HelperService.Invoke<CReqMsgGetEntObjForSecGrpByPage,CResMsgGetEntObjForSecGrpByPage,GetEntObjForSecGrpByPageCompletedEventArgs>("CSecurityManagementServiceWS.GetEntObjForSecGrpByPage",oCReqMsgGetEntObjForSecGrpByPage,this.GetEntObjForSecGrpByPageCompleted,"nEndIndex",new GetEntObjForSecGrpByPageCompletedEventArgs(), prototypeList);
+}
+
+GetSecGroupsByEntObjSecGroupCompleted: Function;
+GetSecGroupsByEntObjSecGroupAsync(oCReqMsgGetSecGroupsByEntObjSecGroup:CReqMsgGetSecGroupsByEntObjSecGroup ) : void {
+  HelperService.Invoke<CReqMsgGetSecGroupsByEntObjSecGroup,CResMsgGetSecGroupsByEntObjSecGroup,GetSecGroupsByEntObjSecGroupCompletedEventArgs>("CSecurityManagementServiceWS.GetSecGroupsByEntObjSecGroup",oCReqMsgGetSecGroupsByEntObjSecGroup,this.GetSecGroupsByEntObjSecGroupCompleted,"nEndIndex",new GetSecGroupsByEntObjSecGroupCompletedEventArgs(), prototypeList);
+}
+
+GetSecGrpsBySecGrpPermCatCompleted: Function;
+GetSecGrpsBySecGrpPermCatAsync(oCReqMsgGetSecGrpsBySecGrpPermCat:CReqMsgGetSecGrpsBySecGrpPermCat ) : void {
+  HelperService.Invoke<CReqMsgGetSecGrpsBySecGrpPermCat,CResMsgGetSecGrpsBySecGrpPermCat,GetSecGrpsBySecGrpPermCatCompletedEventArgs>("CSecurityManagementServiceWS.GetSecGrpsBySecGrpPermCat",oCReqMsgGetSecGrpsBySecGrpPermCat,this.GetSecGrpsBySecGrpPermCatCompleted,"nEndIndex",new GetSecGrpsBySecGrpPermCatCompletedEventArgs(), prototypeList);
+}
+
+CreateRoleprofileEnterpriseObjectCompleted: Function;
+CreateRoleprofileEnterpriseObjectAsync(oCReqMsgCreateRoleprofileEnterpriseObject:CReqMsgCreateRoleprofileEnterpriseObject ) : void {
+  HelperService.Invoke<CReqMsgCreateRoleprofileEnterpriseObject,CResMsgCreateRoleprofileEnterpriseObject,CreateRoleprofileEnterpriseObjectCompletedEventArgs>("CSecurityManagementServiceWS.CreateRoleprofileEnterpriseObject",oCReqMsgCreateRoleprofileEnterpriseObject,this.CreateRoleprofileEnterpriseObjectCompleted,"objRoleProfileEntObject",new CreateRoleprofileEnterpriseObjectCompletedEventArgs(), prototypeList);
+}
+
+ModifyRoleProfileEnterpriseObjectCompleted: Function;
+ModifyRoleProfileEnterpriseObjectAsync(oCReqMsgModifyRoleProfileEnterpriseObject:CReqMsgModifyRoleProfileEnterpriseObject ) : void {
+  HelperService.Invoke<CReqMsgModifyRoleProfileEnterpriseObject,CResMsgModifyRoleProfileEnterpriseObject,ModifyRoleProfileEnterpriseObjectCompletedEventArgs>("CSecurityManagementServiceWS.ModifyRoleProfileEnterpriseObject",oCReqMsgModifyRoleProfileEnterpriseObject,this.ModifyRoleProfileEnterpriseObjectCompleted,"objRoleProfileEntObject",new ModifyRoleProfileEnterpriseObjectCompletedEventArgs(), prototypeList);
+}
+
+GetRoleProfileEnterpriseObjectCompleted: Function;
+GetRoleProfileEnterpriseObjectAsync(oCReqMsgGetRoleProfileEnterpriseObject:CReqMsgGetRoleProfileEnterpriseObject ) : void {
+  HelperService.Invoke<CReqMsgGetRoleProfileEnterpriseObject,CResMsgGetRoleProfileEnterpriseObject,GetRoleProfileEnterpriseObjectCompletedEventArgs>("CSecurityManagementServiceWS.GetRoleProfileEnterpriseObject",oCReqMsgGetRoleProfileEnterpriseObject,this.GetRoleProfileEnterpriseObjectCompleted,"sIdentifyingType",new GetRoleProfileEnterpriseObjectCompletedEventArgs(), prototypeList);
+}
+
+CreateDependentPermissionCompleted: Function;
+CreateDependentPermissionAsync(oCReqMsgCreateDependentPermission:CReqMsgCreateDependentPermission ) : void {
+  HelperService.Invoke<CReqMsgCreateDependentPermission,CResMsgCreateDependentPermission,CreateDependentPermissionCompletedEventArgs>("CSecurityManagementServiceWS.CreateDependentPermission",oCReqMsgCreateDependentPermission,this.CreateDependentPermissionCompleted,"objDependentPermission",new CreateDependentPermissionCompletedEventArgs(), prototypeList);
+}
+
+ModifyDependentPermissionCompleted: Function;
+ModifyDependentPermissionAsync(oCReqMsgModifyDependentPermission:CReqMsgModifyDependentPermission ) : void {
+  HelperService.Invoke<CReqMsgModifyDependentPermission,CResMsgModifyDependentPermission,ModifyDependentPermissionCompletedEventArgs>("CSecurityManagementServiceWS.ModifyDependentPermission",oCReqMsgModifyDependentPermission,this.ModifyDependentPermissionCompleted,"objDependentPermission",new ModifyDependentPermissionCompletedEventArgs(), prototypeList);
+}
+
+GetDependentPermissionCompleted: Function;
+GetDependentPermissionAsync(oCReqMsgGetDependentPermission:CReqMsgGetDependentPermission ) : void {
+  HelperService.Invoke<CReqMsgGetDependentPermission,CResMsgGetDependentPermission,GetDependentPermissionCompletedEventArgs>("CSecurityManagementServiceWS.GetDependentPermission",oCReqMsgGetDependentPermission,this.GetDependentPermissionCompleted,"lnPermissionOID",new GetDependentPermissionCompletedEventArgs(), prototypeList);
+}
+
+GetUserAccessConfigCompleted: Function;
+GetUserAccessConfigAsync(oCReqMsgGetUserAccessConfig:CReqMsgGetUserAccessConfig ) : void {
+  HelperService.Invoke<CReqMsgGetUserAccessConfig,CResMsgGetUserAccessConfig,GetUserAccessConfigCompletedEventArgs>("CSecurityManagementServiceWS.GetUserAccessConfig",oCReqMsgGetUserAccessConfig,this.GetUserAccessConfigCompleted,"objReqGetUserAccessConfig",new GetUserAccessConfigCompletedEventArgs(), prototypeList);
+}
+
+UpdateUserAccessConfigCompleted: Function;
+UpdateUserAccessConfigAsync(oCReqMsgUpdateUserAccessConfig:CReqMsgUpdateUserAccessConfig ) : void {
+  HelperService.Invoke<CReqMsgUpdateUserAccessConfig,CResMsgUpdateUserAccessConfig,UpdateUserAccessConfigCompletedEventArgs>("CSecurityManagementServiceWS.UpdateUserAccessConfig",oCReqMsgUpdateUserAccessConfig,this.UpdateUserAccessConfigCompleted,"bRemoveAllExistingConfig",new UpdateUserAccessConfigCompletedEventArgs(), prototypeList);
+}
+
+CreateRoleProfileCompleted: Function;
+CreateRoleProfileAsync(oCReqMsgCreateRoleProfile:CReqMsgCreateRoleProfile ) : void {
+  HelperService.Invoke<CReqMsgCreateRoleProfile,CResMsgCreateRoleProfile,CreateRoleProfileCompletedEventArgs>("CSecurityManagementServiceWS.CreateRoleProfile",oCReqMsgCreateRoleProfile,this.CreateRoleProfileCompleted,"objRoleProfileEntObjs",new CreateRoleProfileCompletedEventArgs(), prototypeList);
+}
+
+ModifyRoleProfileCompleted: Function;
+ModifyRoleProfileAsync(oCReqMsgModifyRoleProfile:CReqMsgModifyRoleProfile ) : void {
+  HelperService.Invoke<CReqMsgModifyRoleProfile,CResMsgModifyRoleProfile,ModifyRoleProfileCompletedEventArgs>("CSecurityManagementServiceWS.ModifyRoleProfile",oCReqMsgModifyRoleProfile,this.ModifyRoleProfileCompleted,"objRoleProfileEntObjs",new ModifyRoleProfileCompletedEventArgs(), prototypeList);
+}
+
+GetRoleProfileCompleted: Function;
+GetRoleProfileAsync(oCReqMsgGetRoleProfile:CReqMsgGetRoleProfile ) : void {
+  HelperService.Invoke<CReqMsgGetRoleProfile,CResMsgGetRoleProfile,GetRoleProfileCompletedEventArgs>("CSecurityManagementServiceWS.GetRoleProfile",oCReqMsgGetRoleProfile,this.GetRoleProfileCompleted,"bIncludeInActive",new GetRoleProfileCompletedEventArgs(), prototypeList);
+}
+
+GetRoleProfileByOrganisationCompleted: Function;
+GetRoleProfileByOrganisationAsync(oCReqMsgGetRoleProfileByOrganisation:CReqMsgGetRoleProfileByOrganisation ) : void {
+  HelperService.Invoke<CReqMsgGetRoleProfileByOrganisation,CResMsgGetRoleProfileByOrganisation,GetRoleProfileByOrganisationCompletedEventArgs>("CSecurityManagementServiceWS.GetRoleProfileByOrganisation",oCReqMsgGetRoleProfileByOrganisation,this.GetRoleProfileByOrganisationCompleted,"sOrgName",new GetRoleProfileByOrganisationCompletedEventArgs(), prototypeList);
+}
+
+GetRoleProfileforOIDCompleted: Function;
+GetRoleProfileforOIDAsync(oCReqMsgGetRoleProfileforOID:CReqMsgGetRoleProfileforOID ) : void {
+  HelperService.Invoke<CReqMsgGetRoleProfileforOID,CResMsgGetRoleProfileforOID,GetRoleProfileforOIDCompletedEventArgs>("CSecurityManagementServiceWS.GetRoleProfileforOID",oCReqMsgGetRoleProfileforOID,this.GetRoleProfileforOIDCompleted,"lnRoleProfileOID",new GetRoleProfileforOIDCompletedEventArgs(), prototypeList);
+}
+
+GetRoleProfileByEntCompleted: Function;
+GetRoleProfileByEntAsync(oCReqMsgGetRoleProfileByEnt:CReqMsgGetRoleProfileByEnt ) : void {
+  HelperService.Invoke<CReqMsgGetRoleProfileByEnt,CResMsgGetRoleProfileByEnt,GetRoleProfileByEntCompletedEventArgs>("CSecurityManagementServiceWS.GetRoleProfileByEnt",oCReqMsgGetRoleProfileByEnt,this.GetRoleProfileByEntCompleted,"sOrganisationName",new GetRoleProfileByEntCompletedEventArgs(), prototypeList);
+}
+
+GetRoleProfileForUserOIDCompleted: Function;
+GetRoleProfileForUserOIDAsync(oCReqMsgGetRoleProfileForUserOID:CReqMsgGetRoleProfileForUserOID ) : void {
+  HelperService.Invoke<CReqMsgGetRoleProfileForUserOID,CResMsgGetRoleProfileForUserOID,GetRoleProfileForUserOIDCompletedEventArgs>("CSecurityManagementServiceWS.GetRoleProfileForUserOID",oCReqMsgGetRoleProfileForUserOID,this.GetRoleProfileForUserOIDCompleted,"lnUserOID",new GetRoleProfileForUserOIDCompletedEventArgs(), prototypeList);
+}
+
+GetRoleProfileSharGroupForUserOIDCompleted: Function;
+GetRoleProfileSharGroupForUserOIDAsync(oCReqMsgGetRoleProfileSharGroupForUserOID:CReqMsgGetRoleProfileSharGroupForUserOID ) : void {
+  HelperService.Invoke<CReqMsgGetRoleProfileSharGroupForUserOID,CResMsgGetRoleProfileSharGroupForUserOID,GetRoleProfileSharGroupForUserOIDCompletedEventArgs>("CSecurityManagementServiceWS.GetRoleProfileSharGroupForUserOID",oCReqMsgGetRoleProfileSharGroupForUserOID,this.GetRoleProfileSharGroupForUserOIDCompleted,"lnUserOID",new GetRoleProfileSharGroupForUserOIDCompletedEventArgs(), prototypeList);
+}
+
+GetRoleProfileByEntObjCompleted: Function;
+GetRoleProfileByEntObjAsync(oCReqMsgGetRoleProfileByEntObj:CReqMsgGetRoleProfileByEntObj ) : void {
+  HelperService.Invoke<CReqMsgGetRoleProfileByEntObj,CResMsgGetRoleProfileByEntObj,GetRoleProfileByEntObjCompletedEventArgs>("CSecurityManagementServiceWS.GetRoleProfileByEntObj",oCReqMsgGetRoleProfileByEntObj,this.GetRoleProfileByEntObjCompleted,"objRoleProfileReq",new GetRoleProfileByEntObjCompletedEventArgs(), prototypeList);
+}
+
+GetRoleProfileByEOPermCritCompleted: Function;
+GetRoleProfileByEOPermCritAsync(oCReqMsgGetRoleProfileByEOPermCrit:CReqMsgGetRoleProfileByEOPermCrit ) : void {
+  HelperService.Invoke<CReqMsgGetRoleProfileByEOPermCrit,CResMsgGetRoleProfileByEOPermCrit,GetRoleProfileByEOPermCritCompletedEventArgs>("CSecurityManagementServiceWS.GetRoleProfileByEOPermCrit",oCReqMsgGetRoleProfileByEOPermCrit,this.GetRoleProfileByEOPermCritCompleted,"enmSearchType",new GetRoleProfileByEOPermCritCompletedEventArgs(), prototypeList);
+}
+
+GetEODetailsForRPOIDCompleted: Function;
+GetEODetailsForRPOIDAsync(oCReqMsgGetEODetailsForRPOID:CReqMsgGetEODetailsForRPOID ) : void {
+  HelperService.Invoke<CReqMsgGetEODetailsForRPOID,CResMsgGetEODetailsForRPOID,GetEODetailsForRPOIDCompletedEventArgs>("CSecurityManagementServiceWS.GetEODetailsForRPOID",oCReqMsgGetEODetailsForRPOID,this.GetEODetailsForRPOIDCompleted,"lnRoleProfileOID",new GetEODetailsForRPOIDCompletedEventArgs(), prototypeList);
+}
+
+GetRoleProfileByOrgIDCompleted: Function;
+GetRoleProfileByOrgIDAsync(oCReqMsgGetRoleProfileByOrgID:CReqMsgGetRoleProfileByOrgID ) : void {
+  HelperService.Invoke<CReqMsgGetRoleProfileByOrgID,CResMsgGetRoleProfileByOrgID,GetRoleProfileByOrgIDCompletedEventArgs>("CSecurityManagementServiceWS.GetRoleProfileByOrgID",oCReqMsgGetRoleProfileByOrgID,this.GetRoleProfileByOrgIDCompleted,"sRoleCode",new GetRoleProfileByOrgIDCompletedEventArgs(), prototypeList);
+}
+
+CreateUserRoleProfileCompleted: Function;
+CreateUserRoleProfileAsync(oCReqMsgCreateUserRoleProfile:CReqMsgCreateUserRoleProfile ) : void {
+  HelperService.Invoke<CReqMsgCreateUserRoleProfile,CResMsgCreateUserRoleProfile,CreateUserRoleProfileCompletedEventArgs>("CSecurityManagementServiceWS.CreateUserRoleProfile",oCReqMsgCreateUserRoleProfile,this.CreateUserRoleProfileCompleted,"objUserRoleProfile",new CreateUserRoleProfileCompletedEventArgs(), prototypeList);
+}
+
+ModifyUserRoleProfileCompleted: Function;
+ModifyUserRoleProfileAsync(oCReqMsgModifyUserRoleProfile:CReqMsgModifyUserRoleProfile ) : void {
+  HelperService.Invoke<CReqMsgModifyUserRoleProfile,CResMsgModifyUserRoleProfile,ModifyUserRoleProfileCompletedEventArgs>("CSecurityManagementServiceWS.ModifyUserRoleProfile",oCReqMsgModifyUserRoleProfile,this.ModifyUserRoleProfileCompleted,"objUserRoleProfile",new ModifyUserRoleProfileCompletedEventArgs(), prototypeList);
+}
+
+IsRoleProfileInUseCompleted: Function;
+IsRoleProfileInUseAsync(oCReqMsgIsRoleProfileInUse:CReqMsgIsRoleProfileInUse ) : void {
+  HelperService.Invoke<CReqMsgIsRoleProfileInUse,CResMsgIsRoleProfileInUse,IsRoleProfileInUseCompletedEventArgs>("CSecurityManagementServiceWS.IsRoleProfileInUse",oCReqMsgIsRoleProfileInUse,this.IsRoleProfileInUseCompleted,"lnUserId",new IsRoleProfileInUseCompletedEventArgs(), prototypeList);
+}
+
+GetRoleProfileForLoginCompleted: Function;
+GetRoleProfileForLoginAsync(oCReqMsgGetRoleProfileForLogin:CReqMsgGetRoleProfileForLogin ) : void {
+  HelperService.Invoke<CReqMsgGetRoleProfileForLogin,CResMsgGetRoleProfileForLogin,GetRoleProfileForLoginCompletedEventArgs>("CSecurityManagementServiceWS.GetRoleProfileForLogin",oCReqMsgGetRoleProfileForLogin,this.GetRoleProfileForLoginCompleted,"sLoginName",new GetRoleProfileForLoginCompletedEventArgs(), prototypeList);
+}
+
+GetAllLoginRoleprofilesCompleted: Function;
+GetAllLoginRoleprofilesAsync(oCReqMsgGetAllLoginRoleprofiles:CReqMsgGetAllLoginRoleprofiles ) : void {
+  HelperService.Invoke<CReqMsgGetAllLoginRoleprofiles,CResMsgGetAllLoginRoleprofiles,GetAllLoginRoleprofilesCompletedEventArgs>("CSecurityManagementServiceWS.GetAllLoginRoleprofiles",oCReqMsgGetAllLoginRoleprofiles,this.GetAllLoginRoleprofilesCompleted,"bIncludeInActive",new GetAllLoginRoleprofilesCompletedEventArgs(), prototypeList);
+}
+
+CreateSecurityPolicyCompleted: Function;
+CreateSecurityPolicyAsync(oCReqMsgCreateSecurityPolicy:CReqMsgCreateSecurityPolicy ) : void {
+  HelperService.Invoke<CReqMsgCreateSecurityPolicy,CResMsgCreateSecurityPolicy,CreateSecurityPolicyCompletedEventArgs>("CSecurityManagementServiceWS.CreateSecurityPolicy",oCReqMsgCreateSecurityPolicy,this.CreateSecurityPolicyCompleted,"objSecKeys",new CreateSecurityPolicyCompletedEventArgs(), prototypeList);
+}
+
+ModifySecurityPolicyCompleted: Function;
+ModifySecurityPolicyAsync(oCReqMsgModifySecurityPolicy:CReqMsgModifySecurityPolicy ) : void {
+  HelperService.Invoke<CReqMsgModifySecurityPolicy,CResMsgModifySecurityPolicy,ModifySecurityPolicyCompletedEventArgs>("CSecurityManagementServiceWS.ModifySecurityPolicy",oCReqMsgModifySecurityPolicy,this.ModifySecurityPolicyCompleted,"objSecKeys",new ModifySecurityPolicyCompletedEventArgs(), prototypeList);
+}
+
+GetSecurityPolicyCompleted: Function;
+GetSecurityPolicyAsync(oCReqMsgGetSecurityPolicy:CReqMsgGetSecurityPolicy ) : void {
+  HelperService.Invoke<CReqMsgGetSecurityPolicy,CResMsgGetSecurityPolicy,GetSecurityPolicyCompletedEventArgs>("CSecurityManagementServiceWS.GetSecurityPolicy",oCReqMsgGetSecurityPolicy,this.GetSecurityPolicyCompleted,"objReqGetSecurityPolicy",new GetSecurityPolicyCompletedEventArgs(), prototypeList);
+}
+
+IsAutoUserCreationEnabledCompleted: Function;
+IsAutoUserCreationEnabledAsync(oCReqMsgIsAutoUserCreationEnabled:CReqMsgIsAutoUserCreationEnabled ) : void {
+  HelperService.Invoke<CReqMsgIsAutoUserCreationEnabled,CResMsgIsAutoUserCreationEnabled,IsAutoUserCreationEnabledCompletedEventArgs>("CSecurityManagementServiceWS.IsAutoUserCreationEnabled",oCReqMsgIsAutoUserCreationEnabled,this.IsAutoUserCreationEnabledCompleted,"objReqIsAutoUserCreationEnabled",new IsAutoUserCreationEnabledCompletedEventArgs(), prototypeList);
+}
+
+CreateResourceCompleted: Function;
+CreateResourceAsync(oCReqMsgCreateResource:CReqMsgCreateResource ) : void {
+  HelperService.Invoke<CReqMsgCreateResource,CResMsgCreateResource,CreateResourceCompletedEventArgs>("CSecurityManagementServiceWS.CreateResource",oCReqMsgCreateResource,this.CreateResourceCompleted,"objEnterpriseResource",new CreateResourceCompletedEventArgs(), prototypeList);
+}
+
+ModifyResourceCompleted: Function;
+ModifyResourceAsync(oCReqMsgModifyResource:CReqMsgModifyResource ) : void {
+  HelperService.Invoke<CReqMsgModifyResource,CResMsgModifyResource,ModifyResourceCompletedEventArgs>("CSecurityManagementServiceWS.ModifyResource",oCReqMsgModifyResource,this.ModifyResourceCompleted,"objEnterpriseResource",new ModifyResourceCompletedEventArgs(), prototypeList);
+}
+
+GetResouresCompleted: Function;
+GetResouresAsync(oCReqMsgGetResoures:CReqMsgGetResoures ) : void {
+  HelperService.Invoke<CReqMsgGetResoures,CResMsgGetResoures,GetResouresCompletedEventArgs>("CSecurityManagementServiceWS.GetResoures",oCReqMsgGetResoures,this.GetResouresCompleted,"sResourseName",new GetResouresCompletedEventArgs(), prototypeList);
+}
+
+AssignResourcePermisisonCompleted: Function;
+AssignResourcePermisisonAsync(oCReqMsgAssignResourcePermisison:CReqMsgAssignResourcePermisison ) : void {
+  HelperService.Invoke<CReqMsgAssignResourcePermisison,CResMsgAssignResourcePermisison,AssignResourcePermisisonCompletedEventArgs>("CSecurityManagementServiceWS.AssignResourcePermisison",oCReqMsgAssignResourcePermisison,this.AssignResourcePermisisonCompleted,"arrInActiveList",new AssignResourcePermisisonCompletedEventArgs(), prototypeList);
+}
+
+GetAllProfilesByPermissionCompleted: Function;
+GetAllProfilesByPermissionAsync(oCReqMsgGetAllProfilesByPermission:CReqMsgGetAllProfilesByPermission ) : void {
+  HelperService.Invoke<CReqMsgGetAllProfilesByPermission,CResMsgGetAllProfilesByPermission,GetAllProfilesByPermissionCompletedEventArgs>("CSecurityManagementServiceWS.GetAllProfilesByPermission",oCReqMsgGetAllProfilesByPermission,this.GetAllProfilesByPermissionCompleted,"sIdentifyingType",new GetAllProfilesByPermissionCompletedEventArgs(), prototypeList);
+}
+
+InvalidateSessionForLoginCompleted: Function;
+InvalidateSessionForLoginAsync(oCReqMsgInvalidateSessionForLogin:CReqMsgInvalidateSessionForLogin ) : void {
+  HelperService.Invoke<CReqMsgInvalidateSessionForLogin,CResMsgInvalidateSessionForLogin,InvalidateSessionForLoginCompletedEventArgs>("CSecurityManagementServiceWS.InvalidateSessionForLogin",oCReqMsgInvalidateSessionForLogin,this.InvalidateSessionForLoginCompleted,"sSessionKey",new InvalidateSessionForLoginCompletedEventArgs(), prototypeList);
+}
+
+GetActiveSessionsCompleted: Function;
+GetActiveSessionsAsync(oCReqMsgGetActiveSessions:CReqMsgGetActiveSessions ) : void {
+  HelperService.Invoke<CReqMsgGetActiveSessions,CResMsgGetActiveSessions,GetActiveSessionsCompletedEventArgs>("CSecurityManagementServiceWS.GetActiveSessions",oCReqMsgGetActiveSessions,this.GetActiveSessionsCompleted,"lnHostId",new GetActiveSessionsCompletedEventArgs(), prototypeList);
+}
+
+GetActiveSessionByPageCompleted: Function;
+GetActiveSessionByPageAsync(oCReqMsgGetActiveSessionByPage:CReqMsgGetActiveSessionByPage ) : void {
+  HelperService.Invoke<CReqMsgGetActiveSessionByPage,CResMsgGetActiveSessionByPage,GetActiveSessionByPageCompletedEventArgs>("CSecurityManagementServiceWS.GetActiveSessionByPage",oCReqMsgGetActiveSessionByPage,this.GetActiveSessionByPageCompleted,"bIsRowCountReq",new GetActiveSessionByPageCompletedEventArgs(), prototypeList);
+}
+
+CreatePermissionCategoryCompleted: Function;
+CreatePermissionCategoryAsync(oCReqMsgCreatePermissionCategory:CReqMsgCreatePermissionCategory ) : void {
+  HelperService.Invoke<CReqMsgCreatePermissionCategory,CResMsgCreatePermissionCategory,CreatePermissionCategoryCompletedEventArgs>("CSecurityManagementServiceWS.CreatePermissionCategory",oCReqMsgCreatePermissionCategory,this.CreatePermissionCategoryCompleted,"bIsRoot",new CreatePermissionCategoryCompletedEventArgs(), prototypeList);
+}
+
+ModifyPermissionCategoryCompleted: Function;
+ModifyPermissionCategoryAsync(oCReqMsgModifyPermissionCategory:CReqMsgModifyPermissionCategory ) : void {
+  HelperService.Invoke<CReqMsgModifyPermissionCategory,CResMsgModifyPermissionCategory,ModifyPermissionCategoryCompletedEventArgs>("CSecurityManagementServiceWS.ModifyPermissionCategory",oCReqMsgModifyPermissionCategory,this.ModifyPermissionCategoryCompleted,"bIsRoot",new ModifyPermissionCategoryCompletedEventArgs(), prototypeList);
+}
+
+GetPermissionCategoryCompleted: Function;
+GetPermissionCategoryAsync(oCReqMsgGetPermissionCategory:CReqMsgGetPermissionCategory ) : void {
+  HelperService.Invoke<CReqMsgGetPermissionCategory,CResMsgGetPermissionCategory,GetPermissionCategoryCompletedEventArgs>("CSecurityManagementServiceWS.GetPermissionCategory",oCReqMsgGetPermissionCategory,this.GetPermissionCategoryCompleted,"sPermissionCategryDesc",new GetPermissionCategoryCompletedEventArgs(), prototypeList);
+}
+
+GetPermissionCategoryByIdCompleted: Function;
+GetPermissionCategoryByIdAsync(oCReqMsgGetPermissionCategoryById:CReqMsgGetPermissionCategoryById ) : void {
+  HelperService.Invoke<CReqMsgGetPermissionCategoryById,CResMsgGetPermissionCategoryById,GetPermissionCategoryByIdCompletedEventArgs>("CSecurityManagementServiceWS.GetPermissionCategoryById",oCReqMsgGetPermissionCategoryById,this.GetPermissionCategoryByIdCompleted,"lnPermCatgryOID",new GetPermissionCategoryByIdCompletedEventArgs(), prototypeList);
+}
+
+GetAllRootPermCatgryCompleted: Function;
+GetAllRootPermCatgryAsync(oCReqMsgGetAllRootPermCatgry:CReqMsgGetAllRootPermCatgry ) : void {
+  HelperService.Invoke<CReqMsgGetAllRootPermCatgry,CResMsgGetAllRootPermCatgry,GetAllRootPermCatgryCompletedEventArgs>("CSecurityManagementServiceWS.GetAllRootPermCatgry",oCReqMsgGetAllRootPermCatgry,this.GetAllRootPermCatgryCompleted,"objReqGetAllRootPermCatgry",new GetAllRootPermCatgryCompletedEventArgs(), prototypeList);
+}
+
+CreateSecurityGroupCompleted: Function;
+CreateSecurityGroupAsync(oCReqMsgCreateSecurityGroup:CReqMsgCreateSecurityGroup ) : void {
+  HelperService.Invoke<CReqMsgCreateSecurityGroup,CResMsgCreateSecurityGroup,CreateSecurityGroupCompletedEventArgs>("CSecurityManagementServiceWS.CreateSecurityGroup",oCReqMsgCreateSecurityGroup,this.CreateSecurityGroupCompleted,"objSecGrpPerms",new CreateSecurityGroupCompletedEventArgs(), prototypeList);
+}
+
+ModifySecurityGroupCompleted: Function;
+ModifySecurityGroupAsync(oCReqMsgModifySecurityGroup:CReqMsgModifySecurityGroup ) : void {
+  HelperService.Invoke<CReqMsgModifySecurityGroup,CResMsgModifySecurityGroup,ModifySecurityGroupCompletedEventArgs>("CSecurityManagementServiceWS.ModifySecurityGroup",oCReqMsgModifySecurityGroup,this.ModifySecurityGroupCompleted,"objSecGrpPerms",new ModifySecurityGroupCompletedEventArgs(), prototypeList);
+}
+
+GetSecurityGroupCompleted: Function;
+GetSecurityGroupAsync(oCReqMsgGetSecurityGroup:CReqMsgGetSecurityGroup ) : void {
+  HelperService.Invoke<CReqMsgGetSecurityGroup,CResMsgGetSecurityGroup,GetSecurityGroupCompletedEventArgs>("CSecurityManagementServiceWS.GetSecurityGroup",oCReqMsgGetSecurityGroup,this.GetSecurityGroupCompleted,"bIncludeInActive",new GetSecurityGroupCompletedEventArgs(), prototypeList);
+}
+
+GetSecurityGroupByPageCompleted: Function;
+GetSecurityGroupByPageAsync(oCReqMsgGetSecurityGroupByPage:CReqMsgGetSecurityGroupByPage ) : void {
+  HelperService.Invoke<CReqMsgGetSecurityGroupByPage,CResMsgGetSecurityGroupByPage,GetSecurityGroupByPageCompletedEventArgs>("CSecurityManagementServiceWS.GetSecurityGroupByPage",oCReqMsgGetSecurityGroupByPage,this.GetSecurityGroupByPageCompleted,"bIncludeInActive",new GetSecurityGroupByPageCompletedEventArgs(), prototypeList);
+}
+
+GetPermForSecurityGrpCompleted: Function;
+GetPermForSecurityGrpAsync(oCReqMsgGetPermForSecurityGrp:CReqMsgGetPermForSecurityGrp ) : void {
+  HelperService.Invoke<CReqMsgGetPermForSecurityGrp,CResMsgGetPermForSecurityGrp,GetPermForSecurityGrpCompletedEventArgs>("CSecurityManagementServiceWS.GetPermForSecurityGrp",oCReqMsgGetPermForSecurityGrp,this.GetPermForSecurityGrpCompleted,"sSecurityGroupOId",new GetPermForSecurityGrpCompletedEventArgs(), prototypeList);
+}
+
+GetSecurityGroupByRPOIDCompleted: Function;
+GetSecurityGroupByRPOIDAsync(oCReqMsgGetSecurityGroupByRPOID:CReqMsgGetSecurityGroupByRPOID ) : void {
+  HelperService.Invoke<CReqMsgGetSecurityGroupByRPOID,CResMsgGetSecurityGroupByRPOID,GetSecurityGroupByRPOIDCompletedEventArgs>("CSecurityManagementServiceWS.GetSecurityGroupByRPOID",oCReqMsgGetSecurityGroupByRPOID,this.GetSecurityGroupByRPOIDCompleted,"lnRoleProfileOID",new GetSecurityGroupByRPOIDCompletedEventArgs(), prototypeList);
+}
+
+GetSecGroupsforEntObjCompleted: Function;
+GetSecGroupsforEntObjAsync(oCReqMsgGetSecGroupsforEntObj:CReqMsgGetSecGroupsforEntObj ) : void {
+  HelperService.Invoke<CReqMsgGetSecGroupsforEntObj,CResMsgGetSecGroupsforEntObj,GetSecGroupsforEntObjCompletedEventArgs>("CSecurityManagementServiceWS.GetSecGroupsforEntObj",oCReqMsgGetSecGroupsforEntObj,this.GetSecGroupsforEntObjCompleted,"lstTeamOIDs",new GetSecGroupsforEntObjCompletedEventArgs(), prototypeList);
+}
+
+GetEntObjBySecurityGroupCompleted: Function;
+GetEntObjBySecurityGroupAsync(oCReqMsgGetEntObjBySecurityGroup:CReqMsgGetEntObjBySecurityGroup ) : void {
+  HelperService.Invoke<CReqMsgGetEntObjBySecurityGroup,CResMsgGetEntObjBySecurityGroup,GetEntObjBySecurityGroupCompletedEventArgs>("CSecurityManagementServiceWS.GetEntObjBySecurityGroup",oCReqMsgGetEntObjBySecurityGroup,this.GetEntObjBySecurityGroupCompleted,"sSecurityGroupOIDs",new GetEntObjBySecurityGroupCompletedEventArgs(), prototypeList);
+}
+
+GetSecurityGroupByEOCompleted: Function;
+GetSecurityGroupByEOAsync(oCReqMsgGetSecurityGroupByEO:CReqMsgGetSecurityGroupByEO ) : void {
+  HelperService.Invoke<CReqMsgGetSecurityGroupByEO,CResMsgGetSecurityGroupByEO,GetSecurityGroupByEOCompletedEventArgs>("CSecurityManagementServiceWS.GetSecurityGroupByEO",oCReqMsgGetSecurityGroupByEO,this.GetSecurityGroupByEOCompleted,"sRoleProfileOIDs",new GetSecurityGroupByEOCompletedEventArgs(), prototypeList);
+}
+
+CreateRoleCompleted: Function;
+CreateRoleAsync(oCReqMsgCreateRole:CReqMsgCreateRole ) : void {
+  HelperService.Invoke<CReqMsgCreateRole,CResMsgCreateRole,CreateRoleCompletedEventArgs>("CSecurityManagementServiceWS.CreateRole",oCReqMsgCreateRole,this.CreateRoleCompleted,"objRole",new CreateRoleCompletedEventArgs(), prototypeList);
+}
+
+ModifyRoleCompleted: Function;
+ModifyRoleAsync(oCReqMsgModifyRole:CReqMsgModifyRole ) : void {
+  HelperService.Invoke<CReqMsgModifyRole,CResMsgModifyRole,ModifyRoleCompletedEventArgs>("CSecurityManagementServiceWS.ModifyRole",oCReqMsgModifyRole,this.ModifyRoleCompleted,"objRole",new ModifyRoleCompletedEventArgs(), prototypeList);
+}
+
+GetRoleCompleted: Function;
+GetRoleAsync(oCReqMsgGetRole:CReqMsgGetRole ) : void {
+  HelperService.Invoke<CReqMsgGetRole,CResMsgGetRole,GetRoleCompletedEventArgs>("CSecurityManagementServiceWS.GetRole",oCReqMsgGetRole,this.GetRoleCompleted,"bIncludeInActive",new GetRoleCompletedEventArgs(), prototypeList);
+}
+
+GetRolesByPageCompleted: Function;
+GetRolesByPageAsync(oCReqMsgGetRolesByPage:CReqMsgGetRolesByPage ) : void {
+  HelperService.Invoke<CReqMsgGetRolesByPage,CResMsgGetRolesByPage,GetRolesByPageCompletedEventArgs>("CSecurityManagementServiceWS.GetRolesByPage",oCReqMsgGetRolesByPage,this.GetRolesByPageCompleted,"bIsRowCountReq",new GetRolesByPageCompletedEventArgs(), prototypeList);
+}
+
+GetRolesDetailsByPageCompleted: Function;
+GetRolesDetailsByPageAsync(oCReqMsgGetRolesDetailsByPage:CReqMsgGetRolesDetailsByPage ) : void {
+  HelperService.Invoke<CReqMsgGetRolesDetailsByPage,CResMsgGetRolesDetailsByPage,GetRolesDetailsByPageCompletedEventArgs>("CSecurityManagementServiceWS.GetRolesDetailsByPage",oCReqMsgGetRolesDetailsByPage,this.GetRolesDetailsByPageCompleted,"objRoleSearchCriteria",new GetRolesDetailsByPageCompletedEventArgs(), prototypeList);
+}
+
+GetRoleByIdCompleted: Function;
+GetRoleByIdAsync(oCReqMsgGetRoleById:CReqMsgGetRoleById ) : void {
+  HelperService.Invoke<CReqMsgGetRoleById,CResMsgGetRoleById,GetRoleByIdCompletedEventArgs>("CSecurityManagementServiceWS.GetRoleById",oCReqMsgGetRoleById,this.GetRoleByIdCompleted,"lnRoleOID",new GetRoleByIdCompletedEventArgs(), prototypeList);
+}
+
+GetRoleByIdsCompleted: Function;
+GetRoleByIdsAsync(oCReqMsgGetRoleByIds:CReqMsgGetRoleByIds ) : void {
+  HelperService.Invoke<CReqMsgGetRoleByIds,CResMsgGetRoleByIds,GetRoleByIdsCompletedEventArgs>("CSecurityManagementServiceWS.GetRoleByIds",oCReqMsgGetRoleByIds,this.GetRoleByIdsCompleted,"arrRoleOID",new GetRoleByIdsCompletedEventArgs(), prototypeList);
+}
+
+GetAllRolesCompleted: Function;
+GetAllRolesAsync(oCReqMsgGetAllRoles:CReqMsgGetAllRoles ) : void {
+  HelperService.Invoke<CReqMsgGetAllRoles,CResMsgGetAllRoles,GetAllRolesCompletedEventArgs>("CSecurityManagementServiceWS.GetAllRoles",oCReqMsgGetAllRoles,this.GetAllRolesCompleted,"objReqGetAllRoles",new GetAllRolesCompletedEventArgs(), prototypeList);
+}
+
+CreateRoleSecGrpCompleted: Function;
+CreateRoleSecGrpAsync(oCReqMsgCreateRoleSecGrp:CReqMsgCreateRoleSecGrp ) : void {
+  HelperService.Invoke<CReqMsgCreateRoleSecGrp,CResMsgCreateRoleSecGrp,CreateRoleSecGrpCompletedEventArgs>("CSecurityManagementServiceWS.CreateRoleSecGrp",oCReqMsgCreateRoleSecGrp,this.CreateRoleSecGrpCompleted,"objEnterpriseArray",new CreateRoleSecGrpCompletedEventArgs(), prototypeList);
+}
+
+GetRolesByNameCompleted: Function;
+GetRolesByNameAsync(oCReqMsgGetRolesByName:CReqMsgGetRolesByName ) : void {
+  HelperService.Invoke<CReqMsgGetRolesByName,CResMsgGetRolesByName,GetRolesByNameCompletedEventArgs>("CSecurityManagementServiceWS.GetRolesByName",oCReqMsgGetRolesByName,this.GetRolesByNameCompleted,"sDisplayName",new GetRolesByNameCompletedEventArgs(), prototypeList);
+}
+
+GetRoleByUserOIdCompleted: Function;
+GetRoleByUserOIdAsync(oCReqMsgGetRoleByUserOId:CReqMsgGetRoleByUserOId ) : void {
+  HelperService.Invoke<CReqMsgGetRoleByUserOId,CResMsgGetRoleByUserOId,GetRoleByUserOIdCompletedEventArgs>("CSecurityManagementServiceWS.GetRoleByUserOId",oCReqMsgGetRoleByUserOId,this.GetRoleByUserOIdCompleted,"lnUsersOId",new GetRoleByUserOIdCompletedEventArgs(), prototypeList);
+}
+
+GetUserRoleCompleted: Function;
+GetUserRoleAsync(oCReqMsgGetUserRole:CReqMsgGetUserRole ) : void {
+  HelperService.Invoke<CReqMsgGetUserRole,CResMsgGetUserRole,GetUserRoleCompletedEventArgs>("CSecurityManagementServiceWS.GetUserRole",oCReqMsgGetUserRole,this.GetUserRoleCompleted,"objReqGetUserRole",new GetUserRoleCompletedEventArgs(), prototypeList);
+}
+
+CreateSecurityGroupPermissionCompleted: Function;
+CreateSecurityGroupPermissionAsync(oCReqMsgCreateSecurityGroupPermission:CReqMsgCreateSecurityGroupPermission ) : void {
+  HelperService.Invoke<CReqMsgCreateSecurityGroupPermission,CResMsgCreateSecurityGroupPermission,CreateSecurityGroupPermissionCompletedEventArgs>("CSecurityManagementServiceWS.CreateSecurityGroupPermission",oCReqMsgCreateSecurityGroupPermission,this.CreateSecurityGroupPermissionCompleted,"objSecurityGroupPermission",new CreateSecurityGroupPermissionCompletedEventArgs(), prototypeList);
+}
+
+ModifySecurityGroupPermissionCompleted: Function;
+ModifySecurityGroupPermissionAsync(oCReqMsgModifySecurityGroupPermission:CReqMsgModifySecurityGroupPermission ) : void {
+  HelperService.Invoke<CReqMsgModifySecurityGroupPermission,CResMsgModifySecurityGroupPermission,ModifySecurityGroupPermissionCompletedEventArgs>("CSecurityManagementServiceWS.ModifySecurityGroupPermission",oCReqMsgModifySecurityGroupPermission,this.ModifySecurityGroupPermissionCompleted,"objSecurityGroupPermission",new ModifySecurityGroupPermissionCompletedEventArgs(), prototypeList);
+}
+}
+
+export class ValidateLoginCompletedEventArgs {
+  public Result: CResMsgValidateLogin;
+  public Error: any;
+}
+export class CreatePermissionCompletedEventArgs {
+  public Result: CResMsgCreatePermission;
+  public Error: any;
+}
+export class ModifyPermissionCompletedEventArgs {
+  public Result: CResMsgModifyPermission;
+  public Error: any;
+}
+export class GetPermissionCompletedEventArgs {
+  public Result: CResMsgGetPermission;
+  public Error: any;
+}
+export class GetPermissionByPageCompletedEventArgs {
+  public Result: CResMsgGetPermissionByPage;
+  public Error: any;
+}
+export class GetPermissionByCategoryCompletedEventArgs {
+  public Result: CResMsgGetPermissionByCategory;
+  public Error: any;
+}
+export class GetPermForSecurityGrpByPageCompletedEventArgs {
+  public Result: CResMsgGetPermForSecurityGrpByPage;
+  public Error: any;
+}
+export class RemoveAllUserAccessConfigCompletedEventArgs {
+  public Result: CResMsgRemoveAllUserAccessConfig;
+  public Error: any;
+}
+export class CreateWorkingAreaEnterpriseObjectCompletedEventArgs {
+  public Result: CResMsgCreateWorkingAreaEnterpriseObject;
+  public Error: any;
+}
+export class GetAllWorkingAreaCompletedEventArgs {
+  public Result: CResMsgGetAllWorkingArea;
+  public Error: any;
+}
+export class GetWorkingAreaDtlByOIDCompletedEventArgs {
+  public Result: CResMsgGetWorkingAreaDtlByOID;
+  public Error: any;
+}
+export class GetWorkingAreaByOIDCompletedEventArgs {
+  public Result: CResMsgGetWorkingAreaByOID;
+  public Error: any;
+}
+export class ModifyWorkingAreaCompletedEventArgs {
+  public Result: CResMsgModifyWorkingArea;
+  public Error: any;
+}
+export class GetWorkingAreaByCritCompletedEventArgs {
+  public Result: CResMsgGetWorkingAreaByCrit;
+  public Error: any;
+}
+export class GetWorkingAreaForRoleProfileOIDCompletedEventArgs {
+  public Result: CResMsgGetWorkingAreaForRoleProfileOID;
+  public Error: any;
+}
+export class ValidateUserCompletedEventArgs {
+  public Result: CResMsgValidateUser;
+  public Error: any;
+}
+export class GetNativeLoginsForUsersCompletedEventArgs {
+  public Result: CResMsgGetNativeLoginsForUsers;
+  public Error: any;
+}
+export class CreateLoginAccountCompletedEventArgs {
+  public Result: CResMsgCreateLoginAccount;
+  public Error: any;
+}
+export class ModifyLoginCompletedEventArgs {
+  public Result: CResMsgModifyLogin;
+  public Error: any;
+}
+export class ModifyLoginsCompletedEventArgs {
+  public Result: CResMsgModifyLogins;
+  public Error: any;
+}
+export class GetLoginAccountsCompletedEventArgs {
+  public Result: CResMsgGetLoginAccounts;
+  public Error: any;
+}
+export class IsLoginIDValidCompletedEventArgs {
+  public Result: CResMsgIsLoginIDValid;
+  public Error: any;
+}
+export class GetLoginByPageCompletedEventArgs {
+  public Result: CResMsgGetLoginByPage;
+  public Error: any;
+}
+export class GetOrganisationForLoginCompletedEventArgs {
+  public Result: CResMsgGetOrganisationForLogin;
+  public Error: any;
+}
+export class GetUserForLoginCompletedEventArgs {
+  public Result: CResMsgGetUserForLogin;
+  public Error: any;
+}
+export class GetUserForLoginByPageCompletedEventArgs {
+  public Result: CResMsgGetUserForLoginByPage;
+  public Error: any;
+}
+export class GetADUSersCompletedEventArgs {
+  public Result: CResMsgGetADUSers;
+  public Error: any;
+}
+export class GetUserCompletedEventArgs {
+  public Result: CResMsgGetUser;
+  public Error: any;
+}
+export class GetUsersByRoleCompletedEventArgs {
+  public Result: CResMsgGetUsersByRole;
+  public Error: any;
+}
+export class GetLoginNameByUserOIDCompletedEventArgs {
+  public Result: CResMsgGetLoginNameByUserOID;
+  public Error: any;
+}
+export class GetUserLoginAccountsCompletedEventArgs {
+  public Result: CResMsgGetUserLoginAccounts;
+  public Error: any;
+}
+export class GeneratePasswordCompletedEventArgs {
+  public Result: CResMsgGeneratePassword;
+  public Error: any;
+}
+export class GetSecretQuestionCompletedEventArgs {
+  public Result: CResMsgGetSecretQuestion;
+  public Error: any;
+}
+export class GetLoginSecretQuestionsCompletedEventArgs {
+  public Result: CResMsgGetLoginSecretQuestions;
+  public Error: any;
+}
+export class GetRandomQuestionCompletedEventArgs {
+  public Result: CResMsgGetRandomQuestion;
+  public Error: any;
+}
+export class GetSpecialtyCompletedEventArgs {
+  public Result: CResMsgGetSpecialty;
+  public Error: any;
+}
+export class GetServiceCompletedEventArgs {
+  public Result: CResMsgGetService;
+  public Error: any;
+}
+export class GetTeamCompletedEventArgs {
+  public Result: CResMsgGetTeam;
+  public Error: any;
+}
+export class GetJobRoleCompletedEventArgs {
+  public Result: CResMsgGetJobRole;
+  public Error: any;
+}
+export class GetAllJobRoleCompletedEventArgs {
+  public Result: CResMsgGetAllJobRole;
+  public Error: any;
+}
+export class CreateEnterpriseObjectSecurityGroupCompletedEventArgs {
+  public Result: CResMsgCreateEnterpriseObjectSecurityGroup;
+  public Error: any;
+}
+export class ModifyEnterpriseObjectSecurityGroupCompletedEventArgs {
+  public Result: CResMsgModifyEnterpriseObjectSecurityGroup;
+  public Error: any;
+}
+export class GetSecurityGroupForEnterpriseObjectCompletedEventArgs {
+  public Result: CResMsgGetSecurityGroupForEnterpriseObject;
+  public Error: any;
+}
+export class GetPermissionForEntObjSecGrpOIDCompletedEventArgs {
+  public Result: CResMsgGetPermissionForEntObjSecGrpOID;
+  public Error: any;
+}
+export class GetPermsForSecurityGrpByPageCompletedEventArgs {
+  public Result: CResMsgGetPermsForSecurityGrpByPage;
+  public Error: any;
+}
+export class GetSecurityMappingInfoCompletedEventArgs {
+  public Result: CResMsgGetSecurityMappingInfo;
+  public Error: any;
+}
+export class AssignSecurityGroupCompletedEventArgs {
+  public Result: CResMsgAssignSecurityGroup;
+  public Error: any;
+}
+export class AssignEntObjSecurityGroupCompletedEventArgs {
+  public Result: CResMsgAssignEntObjSecurityGroup;
+  public Error: any;
+}
+export class GetAdditionalSecurityGroupByRPCodeCompletedEventArgs {
+  public Result: CResMsgGetAdditionalSecurityGroupByRPCode;
+  public Error: any;
+}
+export class GetAdditionalSecurityGroupByRPOIDCompletedEventArgs {
+  public Result: CResMsgGetAdditionalSecurityGroupByRPOID;
+  public Error: any;
+}
+export class GetSecurityMappingInfoByPageCompletedEventArgs {
+  public Result: CResMsgGetSecurityMappingInfoByPage;
+  public Error: any;
+}
+export class GetSecurityMappingForEntObjectsCompletedEventArgs {
+  public Result: CResMsgGetSecurityMappingForEntObjects;
+  public Error: any;
+}
+export class GetEntObjForSecGrpByPageCompletedEventArgs {
+  public Result: CResMsgGetEntObjForSecGrpByPage;
+  public Error: any;
+}
+export class GetSecGroupsByEntObjSecGroupCompletedEventArgs {
+  public Result: CResMsgGetSecGroupsByEntObjSecGroup;
+  public Error: any;
+}
+export class GetSecGrpsBySecGrpPermCatCompletedEventArgs {
+  public Result: CResMsgGetSecGrpsBySecGrpPermCat;
+  public Error: any;
+}
+export class CreateRoleprofileEnterpriseObjectCompletedEventArgs {
+  public Result: CResMsgCreateRoleprofileEnterpriseObject;
+  public Error: any;
+}
+export class ModifyRoleProfileEnterpriseObjectCompletedEventArgs {
+  public Result: CResMsgModifyRoleProfileEnterpriseObject;
+  public Error: any;
+}
+export class GetRoleProfileEnterpriseObjectCompletedEventArgs {
+  public Result: CResMsgGetRoleProfileEnterpriseObject;
+  public Error: any;
+}
+export class CreateDependentPermissionCompletedEventArgs {
+  public Result: CResMsgCreateDependentPermission;
+  public Error: any;
+}
+export class ModifyDependentPermissionCompletedEventArgs {
+  public Result: CResMsgModifyDependentPermission;
+  public Error: any;
+}
+export class GetDependentPermissionCompletedEventArgs {
+  public Result: CResMsgGetDependentPermission;
+  public Error: any;
+}
+export class GetUserAccessConfigCompletedEventArgs {
+  public Result: CResMsgGetUserAccessConfig;
+  public Error: any;
+}
+export class UpdateUserAccessConfigCompletedEventArgs {
+  public Result: CResMsgUpdateUserAccessConfig;
+  public Error: any;
+}
+export class CreateRoleProfileCompletedEventArgs {
+  public Result: CResMsgCreateRoleProfile;
+  public Error: any;
+}
+export class ModifyRoleProfileCompletedEventArgs {
+  public Result: CResMsgModifyRoleProfile;
+  public Error: any;
+}
+export class GetRoleProfileCompletedEventArgs {
+  public Result: CResMsgGetRoleProfile;
+  public Error: any;
+}
+export class GetRoleProfileByOrganisationCompletedEventArgs {
+  public Result: CResMsgGetRoleProfileByOrganisation;
+  public Error: any;
+}
+export class GetRoleProfileforOIDCompletedEventArgs {
+  public Result: CResMsgGetRoleProfileforOID;
+  public Error: any;
+}
+export class GetRoleProfileByEntCompletedEventArgs {
+  public Result: CResMsgGetRoleProfileByEnt;
+  public Error: any;
+}
+export class GetRoleProfileForUserOIDCompletedEventArgs {
+  public Result: CResMsgGetRoleProfileForUserOID;
+  public Error: any;
+}
+export class GetRoleProfileSharGroupForUserOIDCompletedEventArgs {
+  public Result: CResMsgGetRoleProfileSharGroupForUserOID;
+  public Error: any;
+}
+export class GetRoleProfileByEntObjCompletedEventArgs {
+  public Result: CResMsgGetRoleProfileByEntObj;
+  public Error: any;
+}
+export class GetRoleProfileByEOPermCritCompletedEventArgs {
+  public Result: CResMsgGetRoleProfileByEOPermCrit;
+  public Error: any;
+}
+export class GetEODetailsForRPOIDCompletedEventArgs {
+  public Result: CResMsgGetEODetailsForRPOID;
+  public Error: any;
+}
+export class GetRoleProfileByOrgIDCompletedEventArgs {
+  public Result: CResMsgGetRoleProfileByOrgID;
+  public Error: any;
+}
+export class CreateUserRoleProfileCompletedEventArgs {
+  public Result: CResMsgCreateUserRoleProfile;
+  public Error: any;
+}
+export class ModifyUserRoleProfileCompletedEventArgs {
+  public Result: CResMsgModifyUserRoleProfile;
+  public Error: any;
+}
+export class IsRoleProfileInUseCompletedEventArgs {
+  public Result: CResMsgIsRoleProfileInUse;
+  public Error: any;
+}
+export class GetRoleProfileForLoginCompletedEventArgs {
+  public Result: CResMsgGetRoleProfileForLogin;
+  public Error: any;
+}
+export class GetAllLoginRoleprofilesCompletedEventArgs {
+  public Result: CResMsgGetAllLoginRoleprofiles;
+  public Error: any;
+}
+export class CreateSecurityPolicyCompletedEventArgs {
+  public Result: CResMsgCreateSecurityPolicy;
+  public Error: any;
+}
+export class ModifySecurityPolicyCompletedEventArgs {
+  public Result: CResMsgModifySecurityPolicy;
+  public Error: any;
+}
+export class GetSecurityPolicyCompletedEventArgs {
+  public Result: CResMsgGetSecurityPolicy;
+  public Error: any;
+}
+export class IsAutoUserCreationEnabledCompletedEventArgs {
+  public Result: CResMsgIsAutoUserCreationEnabled;
+  public Error: any;
+}
+export class CreateResourceCompletedEventArgs {
+  public Result: CResMsgCreateResource;
+  public Error: any;
+}
+export class ModifyResourceCompletedEventArgs {
+  public Result: CResMsgModifyResource;
+  public Error: any;
+}
+export class GetResouresCompletedEventArgs {
+  public Result: CResMsgGetResoures;
+  public Error: any;
+}
+export class AssignResourcePermisisonCompletedEventArgs {
+  public Result: CResMsgAssignResourcePermisison;
+  public Error: any;
+}
+export class GetAllProfilesByPermissionCompletedEventArgs {
+  public Result: CResMsgGetAllProfilesByPermission;
+  public Error: any;
+}
+export class InvalidateSessionForLoginCompletedEventArgs {
+  public Result: CResMsgInvalidateSessionForLogin;
+  public Error: any;
+}
+export class GetActiveSessionsCompletedEventArgs {
+  public Result: CResMsgGetActiveSessions;
+  public Error: any;
+}
+export class GetActiveSessionByPageCompletedEventArgs {
+  public Result: CResMsgGetActiveSessionByPage;
+  public Error: any;
+}
+export class CreatePermissionCategoryCompletedEventArgs {
+  public Result: CResMsgCreatePermissionCategory;
+  public Error: any;
+}
+export class ModifyPermissionCategoryCompletedEventArgs {
+  public Result: CResMsgModifyPermissionCategory;
+  public Error: any;
+}
+export class GetPermissionCategoryCompletedEventArgs {
+  public Result: CResMsgGetPermissionCategory;
+  public Error: any;
+}
+export class GetPermissionCategoryByIdCompletedEventArgs {
+  public Result: CResMsgGetPermissionCategoryById;
+  public Error: any;
+}
+export class GetAllRootPermCatgryCompletedEventArgs {
+  public Result: CResMsgGetAllRootPermCatgry;
+  public Error: any;
+}
+export class CreateSecurityGroupCompletedEventArgs {
+  public Result: CResMsgCreateSecurityGroup;
+  public Error: any;
+}
+export class ModifySecurityGroupCompletedEventArgs {
+  public Result: CResMsgModifySecurityGroup;
+  public Error: any;
+}
+export class GetSecurityGroupCompletedEventArgs {
+  public Result: CResMsgGetSecurityGroup;
+  public Error: any;
+}
+export class GetSecurityGroupByPageCompletedEventArgs {
+  public Result: CResMsgGetSecurityGroupByPage;
+  public Error: any;
+}
+export class GetPermForSecurityGrpCompletedEventArgs {
+  public Result: CResMsgGetPermForSecurityGrp;
+  public Error: any;
+}
+export class GetSecurityGroupByRPOIDCompletedEventArgs {
+  public Result: CResMsgGetSecurityGroupByRPOID;
+  public Error: any;
+}
+export class GetSecGroupsforEntObjCompletedEventArgs {
+  public Result: CResMsgGetSecGroupsforEntObj;
+  public Error: any;
+}
+export class GetEntObjBySecurityGroupCompletedEventArgs {
+  public Result: CResMsgGetEntObjBySecurityGroup;
+  public Error: any;
+}
+export class GetSecurityGroupByEOCompletedEventArgs {
+  public Result: CResMsgGetSecurityGroupByEO;
+  public Error: any;
+}
+export class CreateRoleCompletedEventArgs {
+  public Result: CResMsgCreateRole;
+  public Error: any;
+}
+export class ModifyRoleCompletedEventArgs {
+  public Result: CResMsgModifyRole;
+  public Error: any;
+}
+export class GetRoleCompletedEventArgs {
+  public Result: CResMsgGetRole;
+  public Error: any;
+}
+export class GetRolesByPageCompletedEventArgs {
+  public Result: CResMsgGetRolesByPage;
+  public Error: any;
+}
+export class GetRolesDetailsByPageCompletedEventArgs {
+  public Result: CResMsgGetRolesDetailsByPage;
+  public Error: any;
+}
+export class GetRoleByIdCompletedEventArgs {
+  public Result: CResMsgGetRoleById;
+  public Error: any;
+}
+export class GetRoleByIdsCompletedEventArgs {
+  public Result: CResMsgGetRoleByIds;
+  public Error: any;
+}
+export class GetAllRolesCompletedEventArgs {
+  public Result: CResMsgGetAllRoles;
+  public Error: any;
+}
+export class CreateRoleSecGrpCompletedEventArgs {
+  public Result: CResMsgCreateRoleSecGrp;
+  public Error: any;
+}
+export class GetRolesByNameCompletedEventArgs {
+  public Result: CResMsgGetRolesByName;
+  public Error: any;
+}
+export class GetRoleByUserOIdCompletedEventArgs {
+  public Result: CResMsgGetRoleByUserOId;
+  public Error: any;
+}
+export class GetUserRoleCompletedEventArgs {
+  public Result: CResMsgGetUserRole;
+  public Error: any;
+}
+export class CreateSecurityGroupPermissionCompletedEventArgs {
+  public Result: CResMsgCreateSecurityGroupPermission;
+  public Error: any;
+}
+export class ModifySecurityGroupPermissionCompletedEventArgs {
+  public Result: CResMsgModifySecurityGroupPermission;
+  public Error: any;
+}
+export class CReqMsgCreatePermissionCategory {
+  objPermissionCategoryBC: CPermissionCategory;
+  bIsRootBC: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CHiM {
+  CreatedAt: DateTime;
+  CreatedBy: number;
+  ModifiedAt: DateTime;
+  ModifiedBy: number;
+  Status: string;
+}
+export class CPermissionCategory extends CHiM {
+  Description: string;
+  Name: string;
+  OID: number;
+  OwnerOrganisationOID: number;
+  ParentOID: number;
+  PerCatHierarchy: string;
+}
+export class CSecurityGroup extends CHiM {
+  Code: string;
+  Description: string;
+  IsRetired: string;
+  LevelFlag: string;
+  Name: string;
+  OID: number;
+  OwnerOrganisationOID: number;
+  ReleaseVersion: byte;
+}
+export class CSecurityGroupPermission extends CHiM {
+  LevelFlag: string;
+  OID: number;
+  OwnerOrganisationOID: number;
+  PermissionOID: number;
+  SecurityGroupOID: number;
+}
+export class CRole extends CHiM {
+  CATGYCode: string;
+  Code: string;
+  Description: string;
+  IsAPIOnly: string;
+  IsCareProviderRole: string;
+  IsRetired: string;
+  LevelFlag: string;
+  Name: string;
+  OID: number;
+  OwnerOrganisationOID: number;
+  RoleType: string;
+}
+export class CRoleDetailsVO extends CRole {
+  FNTYPCode: string;
+  RoleAliasName: string;
+}
+export class CAreaOfWork extends CHiM {
+  Code: string;
+  Description: string;
+  Name: string;
+  OID: number;
+  OwnerOrganisationOID: number;
+}
+export class CUsers extends CHiM {
+  CPTYPOID: string;
+  CULTCCode: string;
+  DeceasedDTTM: DateTime;
+  DISTRCode: string;
+  DTTMOFBirth: DateTime;
+  EndDTTM: DateTime;
+  ETHGRCode: string;
+  FORENAME: string;
+  Initials: string;
+  IsAvailOnHolidays: string;
+  ISCareprovider: string;
+  IsDateOfBirthEstimated: string;
+  IsInterpreter: string;
+  IsMDDFDisclaimerAcknowledged: string;
+  IsParticipateInConflictcheck: string;
+  MainIdentifier: string;
+  MARRYCode: string;
+  MFNBatchStatus: string;
+  NATNLCode: string;
+  OCCUPCode: string;
+  OID: number;
+  OutOfHrs: number;
+  OwnerOrganisationOID: number;
+  ParentHOTYPCode: string;
+  ParentOrganisationCode: string;
+  PIN: string;
+  Qualification: string;
+  RELIGCode: string;
+  SEXXXCode: string;
+  SPOKLCode: string;
+  StartDTTM: DateTime;
+  SURNAME: string;
+  TitleCode: string;
+  UITYPCode: string;
+  WardAvailablity: string;
+}
+export class CSpecialty extends CHiM {
+  CPTIRCode: string;
+  Description: string;
+  DIVSNCode: string;
+  EndDTTM: DateTime;
+  HasDataFilter: string;
+  LevelCode: string;
+  MainIdentifier: string;
+  Name: string;
+  OID: number;
+  OrganisationOID: number;
+  OwnerOrganisationOID: number;
+  ParentHOTYPCode: string;
+  ParentOrganisationCode: string;
+  ParentSpecialtyOID: number;
+  SPETYCode: string;
+  StartDTTM: DateTime;
+}
+export class CService extends CHiM {
+  AUGCACode: string;
+  CareProviderOID: number;
+  CCUCFCode: string;
+  CCUFNCode: string;
+  CSITTCode: string;
+  Description: string;
+  EDTYPCode: string;
+  EndDTTM: DateTime;
+  FormCode: string;
+  HasCCPEpisode: string;
+  HasDataFilter: string;
+  HorizonValue: number;
+  INLVLCode: string;
+  Instruction: string;
+  IsAllowRetroBooking: string;
+  IsCapacityCheckRequired: string;
+  IsCarePoint: string;
+  IsCaseNotePresent: string;
+  IsCDSExcluded: string;
+  IsDataDeficitCheck: string;
+  IsEnablePlaceOfSafety: string;
+  IsEprescribingAllowed: string;
+  IsForwardWaitView: string;
+  IsLeaveAndDischargeAllowed: string;
+  IsLocked: string;
+  IsMajorIncident: string;
+  IsPatientTracking: string;
+  IsPorterView: string;
+  IsQuickDischargeEnabled: string;
+  ISSchedulable: string;
+  IsSessionLockPostRestruct: string;
+  IsWardAttendance: string;
+  MainIdentifier: string;
+  Name: string;
+  OID: number;
+  OrganisationOID: number;
+  OwnerOrganisationOID: number;
+  ParentHOTYPCode: string;
+  ParentOrganisationCode: string;
+  ParentServiceOID: number;
+  PTRLNCode: string;
+  ReferredToProviderLocationOID: number;
+  ScheduleInstruction: string;
+  SERCTCode: string;
+  SERLNCode: string;
+  SpecialtyOID: number;
+  SPTYPCode: string;
+  StandardAdmitDTTM: DateTime;
+  StandardDischargeDTTM: DateTime;
+  StartDTTM: DateTime;
+  TransferFormRequired: string;
+}
+export class CServiceVO extends CService {
+  ServiceIds: ObservableCollection<CServiceId>;
+}
+export class CServiceId extends CHiM {
+  EndDttm: DateTime;
+  Identifier: string;
+  ISMainIdentifier: string;
+  OID: number;
+  OwnerOrganisationOID: number;
+  ParentHOTYPCode: string;
+  ParentOrganisationCode: string;
+  ServiceOID: number;
+  SITYPCode: string;
+  StartDttm: DateTime;
+}
+export class CTeam extends CHiM {
+  AssignCaseLoad: string;
+  CMTOSCode: string;
+  CMTTPCode: string;
+  Description: string;
+  EndDTTM: DateTime;
+  HasDataFilter: string;
+  Identifier: string;
+  IsDeActivated: string;
+  IsSecureTeam: string;
+  IsTeamQualifiesForClustering: string;
+  LevelCode: string;
+  LocationOID: number;
+  Name: string;
+  OID: number;
+  OrganisationOID: number;
+  OwnerOrganisationOID: number;
+  ParentTeamOID: number;
+  SERCTCode: string;
+  SERLNCode: string;
+  ServiceOID: number;
+  SpecialtyOID: number;
+  StartDTTM: DateTime;
+  TMTYPCode: string;
+  UsersOID: number;
+}
+export class CJobRole extends CHiM {
+  Code: string;
+  Description: string;
+  IsRetired: string;
+  LevelFlag: string;
+  Name: string;
+  OID: number;
+  OwnerOrganisationOID: number;
+}
+export class CWorkingArea extends CHiM {
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  Description: string;
+  LevelFlag: string;
+  Name: string;
+  OID: number;
+  OrganisationOID: number;
+  OwnerOrganisationOID: number;
+}
+export class CRoleprofile extends CHiM {
+  IncludeChildOrganisation: string;
+  IsLoginable: string;
+  IsNative: string;
+  IsRetired: string;
+  LevelFlag: string;
+  OID: number;
+  OrganisationOID: number;
+  OwnerOrganisationOID: number;
+  ProfileCode: string;
+  ProfileDescription: string;
+  ProfileName: string;
+  UIDTYCode: string;
+}
+export class CRoleProfileEnterpriseObject extends CHiM {
+  IdentifyingOID: number;
+  IdentifyingType: string;
+  IsMain: string;
+  LevelFlag: string;
+  OID: number;
+  OwnerOrganisationOID: number;
+  RoleProfileOID: number;
+}
+export class CUserRoleprofile extends CHiM {
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  DISTRCode: string;
+  IsDefault: string;
+  LevelFlag: string;
+  OID: number;
+  OwnerOrganisationOID: number;
+  PrevWorkingAreaOID: number;
+  RoleProfileOID: number;
+  UsersOID: number;
+}
+export class CSecurityPolicy extends CHiM {
+  AllowFurtherLogon: string;
+  CanResetPassword: string;
+  ChangePwdAtFirstInstance: string;
+  ConcurrencyActiveTimeLimit: number;
+  ConcurrencyLimit: number;
+  DefaultPwdForNewLogin: string;
+  DigitsInLoginID: number;
+  InitializedPasswordExpiryDays: number;
+  IsAllowAutoUserCreation: string;
+  IsWSRegirstionRequired: string;
+  LoginIDMaxLength: number;
+  LoginIDMinLength: number;
+  MaxAllowedLoginAttempts: number;
+  MinDigitsInPwd: number;
+  OID: number;
+  OwnerOrganisationOID: number;
+  PasswordExpiryDays: number;
+  PasswordMaxLength: number;
+  PasswordMinLength: number;
+  PasswordNotifyMode: string;
+  PwdExpiryNotifyFrom: number;
+  PwdHistoryCount: number;
+  PwdSpecialCharRequired: number;
+  SessionIdleTimeOut: number;
+  SpecialCharList: string;
+  TemporaryPwdExpiryDays: number;
+  TokenValidity: number;
+}
+export class CSecurityKey extends CHiM {
+  CertificateLocation: string;
+  CertificateStore: string;
+  CertificateSubject: string;
+  IsPrivateKey: string;
+  OID: number;
+  OwnerOrganisationOID: number;
+  PrivateKey: string;
+  SecurityPolicyOID: number;
+}
+export class CEnterpriseResource extends CHiM {
+  AttributeName: string;
+  AttributeValue: string;
+  LevelFlag: string;
+  LKLVLCode: string;
+  OID: number;
+  OwnerOrganisationOID: number;
+  RECOACode: string;
+  ResourceName: string;
+  ResourceType: string;
+  SequenceID: number;
+}
+export class CEntObjSecurityGroup extends CHiM {
+  AreaOfWorkOID: number;
+  JobRoleOID: number;
+  LevelCode: string;
+  LevelFlag: string;
+  OID: number;
+  OwnerOrganisationOID: number;
+  RoleOID: number;
+  RoleProfileOID: number;
+  SecurityGroupOID: number;
+  ServiceOID: number;
+  SpecialtyOID: number;
+  TeamOID: number;
+}
+export class CDependentPermission extends CHiM {
+  DependentPermissionOID: number;
+  OID: number;
+  OwnerOrganisationOID: number;
+  PermissionOID: number;
+}
+export class CUserAccessConfig extends CHiM {
+  LoginOID: number;
+  OID: number;
+  OwnerOrganisationOID: number;
+  RoleProfileOID: number;
+  UsersOID: number;
+}
+export class CWorkingAreaEnterpriseObject extends CHiM {
+  IdentifyingOID: number;
+  IdentifyingType: string;
+  LevelFlag: string;
+  OID: number;
+  OwnerOrganisationOID: number;
+  WorkingAreaOID: number;
+}
+export class CLogin extends CHiM {
+  EndDTTM: DateTime;
+  HasUserChangedPassword: string;
+  IDProvider: string;
+  IsAdminChangePwd: string;
+  IsLocked: string;
+  IsRetired: string;
+  IsSecretAnswerEntered: string;
+  IsSystemUser: string;
+  IsTemporaryPassword: string;
+  LastAccessedDTTM: DateTime;
+  LastPasswordModifiedDTTM: DateTime;
+  LevelFlag: string;
+  LoginName: string;
+  LoginType: string;
+  NoOfFailureAttempts: number;
+  OID: number;
+  OwnerOrganisationOID: number;
+  Password: string;
+  PasswordChangeCount: number;
+  PrevRoleProfileOID: number;
+  SecretAnswer: string;
+  SecretQuestion: string;
+  StartDTTM: DateTime;
+  UsersOID: number;
+  UserType: string;
+}
+export class COrganisation extends CHiM {
+  CULTCCode: string;
+  Description: string;
+  EndDTTM: DateTime;
+  HasDataFilter: string;
+  HOTYPCode: string;
+  IsGMSRegistered: string;
+  IslegalEntity: string;
+  ISLocal: string;
+  LevelCode: string;
+  MainIdentifier: string;
+  MFNBatchStatus: string;
+  Name: string;
+  OID: number;
+  ORGRPCode: string;
+  ParentHOTYPCode: string;
+  ParentOrganisationCode: string;
+  ParentOrganisationOID: number;
+  PRLTNCode: string;
+  StartDTTM: DateTime;
+}
+export class CSecretQuestion extends CHiM {
+  CULTCCode: string;
+  IsActive: string;
+  OID: number;
+  OwnerOrganisationOID: number;
+  Question: string;
+  QuestionCode: string;
+  QuestionNumber: byte;
+}
+export class CPermission extends CHiM {
+  Code: string;
+  Description: string;
+  IsRetired: string;
+  LevelFlag: string;
+  OID: number;
+  OwnerOrganisationOID: number;
+  PerCatOID: number;
+}
+export class CResMsgCreatePermissionCategory {
+  lnOID: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgModifyPermissionCategory {
+  objPermissionCategoryBC: CPermissionCategory;
+  bIsRootBC: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgModifyPermissionCategory {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPermissionCategory {
+  sPermissionCategryNameBC: string;
+  sPermissionCategryDescBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPermissionCategory {
+  oContextInformation: CContextInformation;
+  objPermissionCategory: ObservableCollection<CPermissionCategory>;
+}
+export class CReqMsgGetPermissionCategoryById {
+  lnPermCatgryOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPermissionCategoryById {
+  oContextInformation: CContextInformation;
+  objPermissionCategory: ObservableCollection<CPermissionCategory>;
+}
+export class CReqMsgGetAllRootPermCatgry {
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetAllRootPermCatgry {
+  oContextInformation: CContextInformation;
+  objPermissionCategory: ObservableCollection<CPermissionCategory>;
+}
+export class CReqMsgCreateSecurityGroup {
+  objSecurityGroupBC: CSecurityGroup;
+  oContextInformation: CContextInformation;
+  objSecGrpPermsBC: ObservableCollection<CSecurityGroupPermission>;
+}
+export class CResMsgCreateSecurityGroup {
+  lnOID: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgModifySecurityGroup {
+  objSecurityGroupBC: CSecurityGroup;
+  oContextInformation: CContextInformation;
+  objSecGrpPermsBC: ObservableCollection<CSecurityGroupPermission>;
+}
+export class CResMsgModifySecurityGroup {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetSecurityGroup {
+  sSecurityGroupCodeBC: string;
+  sSecurityGroupNameBC: string;
+  sDescriptionBC: string;
+  bIncludeInActiveBC: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetSecurityGroup {
+  oContextInformation: CContextInformation;
+  objSecurityGroups: ObservableCollection<CSecurityGroup>;
+}
+export class CReqMsgGetSecurityGroupByPage {
+  sSecurityGroupCodeBC: string;
+  sSecurityGroupNameBC: string;
+  sDescriptionBC: string;
+  sPermDescBC: string;
+  sPrevCodeBC: string;
+  sIsNextBC: string;
+  nPageSizeBC: number;
+  bIncludeInActiveBC: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetSecurityGroupByPage {
+  nRowCount: number;
+  oContextInformation: CContextInformation;
+  objSecurityList: ObservableCollection<Object>;
+}
+export class CReqMsgGetPermForSecurityGrp {
+  sSecurityGroupOIdBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPermForSecurityGrp {
+  oContextInformation: CContextInformation;
+  objPermissions: ObservableCollection<CPermissionAndCategory>;
+}
+export class CPermissionAndCategory {
+  Code: string;
+  Description: string;
+  IsRetired: string;
+  IsWorkStationSpecific: string;
+  LevelFlag: string;
+  OID: number;
+  OwnerOrganisationOID: number;
+  PerCatOID: number;
+  PerCatName: string;
+  PerCatDescription: string;
+  Status: string;
+}
+export class CReqMsgGetSecurityGroupByRPOID {
+  lnRoleProfileOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetSecurityGroupByRPOID {
+  oContextInformation: CContextInformation;
+  arrRoleProfileSecurityMapInfo: ObservableCollection<CRoleProfileSecurityMapInfo>;
+}
+export class CRoleProfileSecurityMapInfo {
+  SecurityGroupOID: number;
+  SecurityGroupCode: string;
+  SecurityGroupName: string;
+  SecurityGroupDescription: string;
+  RoleName: string;
+  TeamName: string;
+  SpecialtyName: string;
+  ServicePointName: string;
+  AOWName: string;
+  JobRoleName: string;
+}
+export class CReqMsgGetSecGroupsforEntObj {
+  lnRoleProfileOIDBC: number;
+  oContextInformation: CContextInformation;
+  lstRoleOIDsBC: ObservableCollection<number>;
+  lstServiceOIDsBC: ObservableCollection<number>;
+  lstSpecialtyOIDsBC: ObservableCollection<number>;
+  lstTeamOIDsBC: ObservableCollection<number>;
+}
+export class CResMsgGetSecGroupsforEntObj {
+  oContextInformation: CContextInformation;
+  arrRoleProfileSecurityMapInfo: ObservableCollection<CRoleProfileSecurityMapInfo>;
+}
+export class CReqMsgGetEntObjBySecurityGroup {
+  enmEOIdentifyingTypeBC: EnmEOIdentifyingType;
+  sSecurityGroupOIDsBC: string;
+  oContextInformation: CContextInformation;
+}
+export enum EnmEOIdentifyingType {
+  ALL,
+  ROLE,
+  TEAM,
+  SPECIALTY,
+  SERVICE,
+  ROLEPROFILE,
+  LINKED,
+}
+export class CResMsgGetEntObjBySecurityGroup {
+  oContextInformation: CContextInformation;
+  arrEntObjSecurityGroup: ObservableCollection<CEntObjSecurityGroupVO>;
+}
+export class CEntObjSecurityGroupVO {
+  EntObjSecurityGroupOID: number;
+  LevelFlag: string;
+  RoleOID: number;
+  RoleCode: string;
+  RoleName: string;
+  RoleDescription: string;
+  RoleProfileOID: number;
+  RoleProfileCode: string;
+  RoleProfileName: string;
+  RoleProfileDescription: string;
+  ServiceOID: number;
+  ServiceName: string;
+  ServiceDescription: string;
+  ServiceActiveFrom: DateTime;
+  ServiceActiveTo: DateTime;
+  SpecialtyOID: number;
+  SpecialtyType: string;
+  SpecialtyName: string;
+  SpecialtyDescription: string;
+  TeamOID: number;
+  TeamType: string;
+  TeamName: string;
+  TeamDescription: string;
+  SecurityGroupOID: number;
+  SecurityGroupCode: string;
+  SecurityGroupName: string;
+  SecurityGroupDescription: string;
+}
+export class CReqMsgGetSecurityGroupByEO {
+  RoleOIDsBC: string;
+  TeamOIDsBC: string;
+  sSpecialtyOIdsBC: string;
+  sServiceOIdsBC: string;
+  sRoleProfileOIDsBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetSecurityGroupByEO {
+  oContextInformation: CContextInformation;
+  objEntObjSecurityMap: ObservableCollection<CSecGrpEOMapVO>;
+}
+export class CSecGrpEOMapVO {
+  EntObjSecurityGroupOID: number;
+  LevelFlag: string;
+  TeamOID: number;
+  TeamName: string;
+  RoleOID: number;
+  RoleName: string;
+  SpecialtyOID: number;
+  SpecialtyName: string;
+  RoleProfileOID: number;
+  RoleProfileName: string;
+  ServicePointOID: number;
+  ServicePointName: string;
+  SecurityGroupOID: number;
+  SecurityGroupCode: string;
+  SecurityGroupName: string;
+  RoleProfileCode: string;
+}
+export class CReqMsgCreateRole {
+  objRoleBC: CRole;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgCreateRole {
+  lnOID: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgModifyRole {
+  objRoleBC: CRole;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgModifyRole {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetRole {
+  sRoleCodeBC: string;
+  sNameBC: string;
+  sDescriptionBC: string;
+  sIsCareProviderBC: string;
+  sCatgrycodeBC: string;
+  bIncludeInActiveBC: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetRole {
+  oContextInformation: CContextInformation;
+  objRoles: ObservableCollection<CRole>;
+}
+export class CReqMsgGetRolesByPage {
+  sCodeBC: string;
+  sNameBC: string;
+  sDescriptionBC: string;
+  sIsCareProviderRoleBC: string;
+  sCatgrycodeBC: string;
+  bIncludeInActiveBC: boolean;
+  nStartIndexBC: number;
+  nEndIndexBC: number;
+  bIsRowCountReqBC: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetRolesByPage {
+  nTotalRowCount: number;
+  oContextInformation: CContextInformation;
+  objRoles: ObservableCollection<CRole>;
+}
+export class CReqMsgGetRolesDetailsByPage {
+  objRoleSearchCriteriaBC: CRoleSearchCriteria;
+  oContextInformation: CContextInformation;
+}
+export class CRoleSearchCriteria {
+  Code: string;
+  Name: string;
+  Description: string;
+  IsCareProviderRole: string;
+  CategoryCode: string;
+  IncludeInActive: boolean;
+  StartIndex: number;
+  EndIndex: number;
+  IsRowCountReq: boolean;
+  FNTYPCode: string;
+  RoleAliasName: string;
+  RoleType: string;
+}
+export class CResMsgGetRolesDetailsByPage {
+  nTotalRowCount: number;
+  oContextInformation: CContextInformation;
+  objRoleDetailsVO: ObservableCollection<CRoleDetailsVO>;
+}
+export class CReqMsgGetRoleById {
+  lnRoleOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetRoleById {
+  oContextInformation: CContextInformation;
+  objRole: ObservableCollection<CRole>;
+}
+export class CReqMsgGetRoleByIds {
+  oContextInformation: CContextInformation;
+  arrRoleOIDBC: ObservableCollection<number>;
+}
+export class CResMsgGetRoleByIds {
+  oContextInformation: CContextInformation;
+  objRole: ObservableCollection<CRole>;
+}
+export class CReqMsgGetAllRoles {
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetAllRoles {
+  oContextInformation: CContextInformation;
+  objRole: ObservableCollection<CRole>;
+}
+export class CReqMsgCreateRoleSecGrp {
+  objRoleBC: CRole;
+  oContextInformation: CContextInformation;
+  objEnterpriseArrayBC: ObservableCollection<CEnterpriseObjectArray>;
+}
+export class CEnterpriseObjectArray {
+  PrevWorkingAreaOID: number;
+  IncludeWorkingArea: boolean;
+  JobRole: CJobRole;
+  IncludeChildOrganisation: string;
+  IsDisclaimerAck: boolean;
+  OID: number;
+  OrganisationOID: number;
+  OwnerOrganisationOID: number;
+  ProfileCode: string;
+  ProfileName: string;
+  ProfileDescription: string;
+  OrgName: string;
+  Status: string;
+  SessionKey: string;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  UserID: number;
+  IsDefault: string;
+  ForeName: string;
+  SurName: string;
+  TitleCode: string;
+  OccupType: string;
+  Gender: string;
+  UserIdentifier: string;
+  LocationName: string;
+  LocationOID: number;
+  LastAccessedDTTM: DateTime;
+  NoOfFailureAttempts: number;
+  PermissionCatName: string;
+  PerCatOID: number;
+  IsRetired: string;
+  Description: string;
+  Code: string;
+  IsNative: string;
+  IsLoginable: string;
+  CultureCode: string;
+  SharingGroupOID: number;
+  ModifiedAt: DateTime;
+  PrevSelectRoleProfOID: number;
+  MainWorkingArea: number;
+  AreaOfWork: ObservableCollection<CAreaOfWork>;
+  Role: ObservableCollection<CRole>;
+  RoleDetails: ObservableCollection<CRoleDetailsVO>;
+  Users: ObservableCollection<CUsers>;
+  Specialty: ObservableCollection<CSpecialty>;
+  Service: ObservableCollection<CService>;
+  Team: ObservableCollection<CTeam>;
+  WorkingArea: ObservableCollection<CWorkingArea>;
+  MainSpecialty: ObservableCollection<number>;
+}
+export class CResMsgCreateRoleSecGrp {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetRolesByName {
+  sDisplayNameBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetRolesByName {
+  oContextInformation: CContextInformation;
+  objRole: ObservableCollection<CRole>;
+}
+export class CReqMsgGetRoleByUserOId {
+  lnUsersOIdBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetRoleByUserOId {
+  oContextInformation: CContextInformation;
+  objRole: ObservableCollection<CRole>;
+}
+export class CReqMsgGetUserRole {
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetUserRole {
+  objRole: CRole;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgCreateSecurityGroupPermission {
+  objSecurityGroupPermissionBC: CSecurityGroupPermission;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgCreateSecurityGroupPermission {
+  lnOID: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgModifySecurityGroupPermission {
+  objSecurityGroupPermissionBC: CSecurityGroupPermission;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgModifySecurityGroupPermission {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgCreateRoleProfile {
+  objRoleProfileBC: CRoleprofile;
+  oContextInformation: CContextInformation;
+  objRoleProfileEntObjsBC: ObservableCollection<CRoleProfileEnterpriseObject>;
+}
+export class CResMsgCreateRoleProfile {
+  lnOID: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgModifyRoleProfile {
+  objRoleProfileBC: CRoleprofile;
+  oContextInformation: CContextInformation;
+  objRoleProfileEntObjsBC: ObservableCollection<CRoleProfileEnterpriseObject>;
+}
+export class CResMsgModifyRoleProfile {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetRoleProfile {
+  sProfileCodeBC: string;
+  sDescriptionBC: string;
+  bIncludeInActiveBC: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetRoleProfile {
+  oContextInformation: CContextInformation;
+  objEnterpriseObjectArray: ObservableCollection<CEnterpriseObjectArray>;
+}
+export class CReqMsgGetRoleProfileByOrganisation {
+  sRoleCodeBC: string;
+  sProfileCodeBC: string;
+  sProfileDescBC: string;
+  sOrgNameBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetRoleProfileByOrganisation {
+  oContextInformation: CContextInformation;
+  objEnterpriseObjectArray: ObservableCollection<CEnterpriseObjectArray>;
+}
+export class CReqMsgGetRoleProfileforOID {
+  lnRoleProfileOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetRoleProfileforOID {
+  objRoleprofiles: CRoleprofile;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetRoleProfileByEnt {
+  sProfileCodeBC: string;
+  sProfileDescBC: string;
+  lnRoleOIDBC: number;
+  lnOrganisationOIDBC: number;
+  sOrganisationNameBC: string;
+  oContextInformation: CContextInformation;
+  arrSpecialtyListBC: ObservableCollection<Object>;
+  arrServiceListBC: ObservableCollection<Object>;
+  arrTeamListBC: ObservableCollection<Object>;
+}
+export class CResMsgGetRoleProfileByEnt {
+  oContextInformation: CContextInformation;
+  objRoleprofiles: ObservableCollection<CEnterpriseObjectArray>;
+}
+export class CReqMsgGetRoleProfileForUserOID {
+  lnUserOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetRoleProfileForUserOID {
+  oContextInformation: CContextInformation;
+  objRoleprofiles: ObservableCollection<CRoleprofile>;
+}
+export class CReqMsgGetRoleProfileSharGroupForUserOID {
+  lnUserOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetRoleProfileSharGroupForUserOID {
+  oContextInformation: CContextInformation;
+  objRoleprofiles: ObservableCollection<CRoleprofile>;
+  objRPSharGroup: ObservableCollection<CRoleProfileSharGroup>;
+}
+export class CRoleProfileSharGroup {
+  RoleprofileOID: number;
+  SharingGroupOID: number;
+}
+export class CReqMsgGetRoleProfileByEntObj {
+  objRoleProfileReqBC: CReqRoleprofileEntObj;
+  oContextInformation: CContextInformation;
+}
+export class CReqRoleprofileEntObj {
+  ProfileCode: string;
+  ProfileDesc: string;
+  OrganisationName: string;
+  RoleName: string;
+  SpecialtyName: string;
+  TeamName: string;
+  ServiceName: string;
+}
+export class CResMsgGetRoleProfileByEntObj {
+  oContextInformation: CContextInformation;
+  arrRoleproile: ObservableCollection<CRoleprofileDetailsVO>;
+}
+export class CRoleprofileDetailsVO {
+  RoleprofileOID: number;
+  RoleprofileCode: string;
+  RoleProfileName: string;
+  RoleprofileDescription: string;
+  OrganisationName: string;
+  OrganisationOID: number;
+  RoleCode: string;
+  RoleName: string;
+  RoleDescription: string;
+}
+export class CReqMsgGetRoleProfileByEOPermCrit {
+  objCReqEntObjPermCriteriaBC: CReqEntObjPermCriteria;
+  enmSearchTypeBC: SearchType;
+  oContextInformation: CContextInformation;
+}
+export class CReqEntObjPermCriteria {
+  ProfileCode: string;
+  ProfileName: string;
+  OrganisationOID: number;
+  RoleOID: number;
+  SecurityGroupOID: number;
+  PermissionCategoryOID: number;
+  PermissionOID: number;
+  SpecialtyOID: ObservableCollection<number>;
+  TeamOID: ObservableCollection<number>;
+  ServiceOID: ObservableCollection<number>;
+}
+export enum SearchType {
+  ROLEPROFILE,
+  PERMISSION,
+}
+export class CResMsgGetRoleProfileByEOPermCrit {
+  oContextInformation: CContextInformation;
+  arrRoleProfileDetails: ObservableCollection<CRoleprofileDetailsVO>;
+}
+export class CReqMsgGetEODetailsForRPOID {
+  lnUsersOIDBC: number;
+  lnRoleProfileOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetEODetailsForRPOID {
+  oRoleprofileEODetailsVO: CRoleprofileEODetailsVO;
+  oContextInformation: CContextInformation;
+}
+export class CRoleprofileEODetailsVO {
+  RoleProfileOID: number;
+  RoleProfileCode: string;
+  RoleProfileName: string;
+  RoleProfileDescription: string;
+  RoleOID: number;
+  RoleCode: string;
+  RoleName: string;
+  RoleDescription: string;
+  OrganisationOID: number;
+  OrganisationName: string;
+  TeamID: ObservableCollection<CEntObjID>;
+  ServiceID: ObservableCollection<CEntObjID>;
+  SpecialtyID: ObservableCollection<CEntObjID>;
+  UserID: ObservableCollection<CEntObjID>;
+  OrganisationID: ObservableCollection<CEntObjID>;
+}
+export class CEntObjID {
+  OID: number;
+  Name: string;
+  Code: string;
+  TermText: string;
+  IDType: string;
+  Identifier: string;
+}
+export class CReqMsgGetRoleProfileByOrgID {
+  sOrgIDBC: string;
+  sLoginNameBC: string;
+  sRoleCodeBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetRoleProfileByOrgID {
+  objRoleProfile: CEnterpriseObjectArray;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgCreateUserRoleProfile {
+  objUserRoleProfileBC: CUserRoleprofile;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgCreateUserRoleProfile {
+  lnOID: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgModifyUserRoleProfile {
+  objUserRoleProfileBC: CUserRoleprofile;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgModifyUserRoleProfile {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgIsRoleProfileInUse {
+  sRoleProfileCodeBC: string;
+  lnUserIdBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgIsRoleProfileInUse {
+  bRoleProfileInUse: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetRoleProfileForLogin {
+  sLoginNameBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetRoleProfileForLogin {
+  oContextInformation: CContextInformation;
+  objLoginRoleProfile: ObservableCollection<CRoleprofile>;
+}
+export class CReqMsgGetAllLoginRoleprofiles {
+  sLoginNameBC: string;
+  bIncludeInActiveBC: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetAllLoginRoleprofiles {
+  oContextInformation: CContextInformation;
+  objArrayCollection: ObservableCollection<CEnterpriseObjectArray>;
+}
+export class CReqMsgCreateSecurityPolicy {
+  objSecurityPolicyBC: CSecurityPolicy;
+  oContextInformation: CContextInformation;
+  objSecKeysBC: ObservableCollection<CSecurityKey>;
+}
+export class CResMsgCreateSecurityPolicy {
+  lnOID: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgModifySecurityPolicy {
+  objSecurityPolicyBC: CSecurityPolicy;
+  oContextInformation: CContextInformation;
+  objSecKeysBC: ObservableCollection<CSecurityKey>;
+}
+export class CResMsgModifySecurityPolicy {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetSecurityPolicy {
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetSecurityPolicy {
+  objSecurityPolicy: CSecurityPolicy;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgIsAutoUserCreationEnabled {
+  oContextInformation: CContextInformation;
+}
+export class CResMsgIsAutoUserCreationEnabled {
+  AllowAutoUserCreation: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgCreateResource {
+  objEnterpriseResourceBC: CEnterpriseResource;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgCreateResource {
+  lnOID: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgModifyResource {
+  objEnterpriseResourceBC: CEnterpriseResource;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgModifyResource {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetResoures {
+  sResourceCodeBC: string;
+  sResourseNameBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetResoures {
+  oContextInformation: CContextInformation;
+  objEnterpriseResource: ObservableCollection<CEnterpriseResource>;
+}
+export class CReqMsgAssignResourcePermisison {
+  objEnterpriseResourceBC: CEnterpriseResource;
+  oContextInformation: CContextInformation;
+  arrActiveListBC: ObservableCollection<Object>;
+  arrInActiveListBC: ObservableCollection<Object>;
+}
+export class CResMsgAssignResourcePermisison {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetAllProfilesByPermission {
+  sResourceNameBC: string;
+  sNameBC: string;
+  sIdentifyingTypeBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetAllProfilesByPermission {
+  oContextInformation: CContextInformation;
+  objEnterprises: ObservableCollection<CEnterpriseSearch>;
+}
+export class CEnterpriseSearch {
+  IdentifyingOID: number;
+  IdentifyingType: string;
+  Name: string;
+  Description: string;
+  objRoleprofiles: ObservableCollection<CRoleprofiles>;
+}
+export class CRoleprofiles {
+  objRoles: CRole;
+  OrganisationName: string;
+  IncludeChildOrganisation: string;
+  OID: number;
+  OrganisationOID: number;
+  ProfileCode: string;
+  ProfileDescription: string;
+}
+export class CReqMsgInvalidateSessionForLogin {
+  sLoginNameBC: string;
+  sSessionKeyBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgInvalidateSessionForLogin {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetActiveSessions {
+  sLoginNameBC: string;
+  lnRoleProfileIDBC: number;
+  sHostIPBC: string;
+  lnHostIdBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetActiveSessions {
+  oContextInformation: CContextInformation;
+  objSecuritySessions: ObservableCollection<CCustomActiveSession>;
+}
+export class CCustomActiveSession {
+  LoginName: string;
+  HostIP: string;
+  LastAccessedDTTM: DateTime;
+  ProfileCode: string;
+  LocaleOID: number;
+  RoleProfileOID: number;
+  OrganisationOID: number;
+  IncludeChildOrganisation: string;
+  UsersOID: number;
+  OID: number;
+  SessionKey: string;
+}
+export class CReqMsgGetActiveSessionByPage {
+  sLoginNameBC: string;
+  lnRoleProfileIDBC: number;
+  sHostIPBC: string;
+  lnHostIdBC: number;
+  nStartIndexBC: number;
+  nEndIndexBC: number;
+  bIsRowCountReqBC: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetActiveSessionByPage {
+  nTotalRowCount: number;
+  oContextInformation: CContextInformation;
+  objSecuritySessions: ObservableCollection<CCustomActiveSession>;
+}
+export class CReqMsgGetSpecialty {
+  sNameBC: string;
+  sDescriptionBC: string;
+  sIdTypeBC: string;
+  sIdentifierBC: string;
+  sIncludeInActiveBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetSpecialty {
+  oContextInformation: CContextInformation;
+  objSpecialty: ObservableCollection<CSpecialty>;
+}
+export class CReqMsgGetService {
+  sNameBC: string;
+  sServiceTypeBC: string;
+  sIdTypeBC: string;
+  sIdentifierBC: string;
+  sIncludeActiveBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetService {
+  oContextInformation: CContextInformation;
+  objService: ObservableCollection<CServiceVO>;
+}
+export class CReqMsgGetTeam {
+  sNameBC: string;
+  sTypeBC: string;
+  sSurNameBC: string;
+  sSpecialtyNameBC: string;
+  sServiceNameBC: string;
+  sOrganisationNameBC: string;
+  sIncludeInActiveBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetTeam {
+  oContextInformation: CContextInformation;
+  objTeam: ObservableCollection<CTeam>;
+}
+export class CReqMsgGetJobRole {
+  sCodeBC: string;
+  sNameBC: string;
+  sDescriptionBC: string;
+  bIncludeInActiveBC: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetJobRole {
+  oContextInformation: CContextInformation;
+  objJobRoles: ObservableCollection<CJobRole>;
+}
+export class CReqMsgGetAllJobRole {
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetAllJobRole {
+  oContextInformation: CContextInformation;
+  objJobRoles: ObservableCollection<CJobRole>;
+}
+export class CReqMsgCreateEnterpriseObjectSecurityGroup {
+  objEntObjSecurityGroupBC: CEntObjSecurityGroup;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgCreateEnterpriseObjectSecurityGroup {
+  lnOID: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgModifyEnterpriseObjectSecurityGroup {
+  objEntObjSecurityGroupBC: CEntObjSecurityGroup;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgModifyEnterpriseObjectSecurityGroup {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetSecurityGroupForEnterpriseObject {
+  lnAreaOfWorkOIDBC: number;
+  lnRoleOIDBC: number;
+  lnServiceOIDBC: number;
+  lnSpecialtyOIDBC: number;
+  lnTeamOIDBC: number;
+  lnJobRoleOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetSecurityGroupForEnterpriseObject {
+  oContextInformation: CContextInformation;
+  objSecurityGroup: ObservableCollection<CSecurityGroup>;
+}
+export class CReqMsgGetPermissionForEntObjSecGrpOID {
+  lnEntObjSecGrpOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPermissionForEntObjSecGrpOID {
+  oContextInformation: CContextInformation;
+  objPermissionVO: ObservableCollection<CPermissionVO>;
+}
+export class CPermissionVO {
+  PermissionOID: number;
+  PerCatOID: number;
+  PermissionCategoryCode: string;
+  PermissionCategoryDesc: string;
+  PermissionCode: string;
+  PermissionDesc: string;
+}
+export class CReqMsgGetPermsForSecurityGrpByPage {
+  lnSecurityGroupOIDBC: number;
+  sSortByColBC: string;
+  nStartIndexBC: number;
+  nEndIndexBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPermsForSecurityGrpByPage {
+  nRecordCount: number;
+  oContextInformation: CContextInformation;
+  objPermissions: ObservableCollection<CPermissionAndCategory>;
+}
+export class CReqMsgGetSecurityMappingInfo {
+  sJobRoleCodeBC: string;
+  sSecGrpCodeBC: string;
+  sAreaOfWorkCodeBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetSecurityMappingInfo {
+  oContextInformation: CContextInformation;
+  objSecurityMapping: ObservableCollection<CSecurityMappingInfoVO>;
+}
+export class CSecurityMappingInfoVO {
+  EntObjSecurityGroupOID: number;
+  JobRoleCode: string;
+  JobRoleName: string;
+  SecurityGroupCode: string;
+  SecurityGroupName: string;
+  AreaOfWorkCode: string;
+  AreaOfWorkName: string;
+}
+export class CReqMsgAssignSecurityGroup {
+  lnSecurityGroupOIDBC: number;
+  oContextInformation: CContextInformation;
+  objEnterpriseObjectBC: ObservableCollection<CEnterpriseObject>;
+}
+export class CEnterpriseObject {
+  SpecialtyOID: number;
+  ServiceOID: number;
+  TeamOID: number;
+  RoleOID: number;
+  AreaOfWorkOID: number;
+  JobRoleOID: number;
+  Status: string;
+  RoleProfileOID: number;
+}
+export class CResMsgAssignSecurityGroup {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgAssignEntObjSecurityGroup {
+  oContextInformation: CContextInformation;
+  objCSecurityGroupEntObjBC: ObservableCollection<CSecurityGroupEntObj>;
+}
+export class CSecurityGroupEntObj {
+  SecurityGroupOID: number;
+  arrEnterpriseObject: ObservableCollection<CEnterpriseObject>;
+}
+export class CResMsgAssignEntObjSecurityGroup {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetAdditionalSecurityGroupByRPCode {
+  sRoleProfileCodeBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetAdditionalSecurityGroupByRPCode {
+  oContextInformation: CContextInformation;
+  arrSecurityMappingInfo: ObservableCollection<CSecurityMappingInfoVO>;
+}
+export class CReqMsgGetAdditionalSecurityGroupByRPOID {
+  lRoleProfileOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetAdditionalSecurityGroupByRPOID {
+  oContextInformation: CContextInformation;
+  arrSecurityMappingInfo: ObservableCollection<CSecurityMappingInfoVO>;
+}
+export class CReqMsgGetSecurityMappingInfoByPage {
+  sJobRoleCodeBC: string;
+  sSecGrpCodeBC: string;
+  sAreaOfWorkCodeBC: string;
+  lPrevOIDBC: number;
+  sIsNextBC: string;
+  nPageSizeBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetSecurityMappingInfoByPage {
+  nRowCount: number;
+  oContextInformation: CContextInformation;
+  objSecurityMapping: ObservableCollection<CSecurityMappingInfoVO>;
+}
+export class CReqMsgGetSecurityMappingForEntObjects {
+  objEntObjReqBC: CEntObjSecurityMapRequest;
+  oContextInformation: CContextInformation;
+}
+export class CEntObjSecurityMapRequest {
+  RoleOID: number;
+  ServiceOID: number;
+  SecurityGroupOID: number;
+  AOWCode: string;
+  TeamOID: number;
+  JobRoleOID: number;
+  SpecialtyOID: number;
+  RoleProfileOID: number;
+}
+export class CResMsgGetSecurityMappingForEntObjects {
+  oContextInformation: CContextInformation;
+  arrSecurityMappingInfo: ObservableCollection<CEntObjSecurityMapResponse>;
+}
+export class CEntObjSecurityMapResponse {
+  EntObjSecurityGroupOID: number;
+  JobRoleCode: string;
+  JobRoleName: string;
+  SecurityGroupCode: string;
+  SecurityGroupName: string;
+  AreaOfWorkCode: string;
+  AreaOfWorkName: string;
+  RoleCode: string;
+  RoleName: string;
+  TeamName: string;
+  SpecialtyName: string;
+  ServicePointName: string;
+  RoleprofileCode: string;
+  RoleprofileDescription: string;
+  ModifiedAt: DateTime;
+  RoleProfileName: string;
+}
+export class CReqMsgGetEntObjForSecGrpByPage {
+  lnSecurityGroupOIDBC: number;
+  sSortByColBC: string;
+  nStartIndexBC: number;
+  nEndIndexBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetEntObjForSecGrpByPage {
+  nRecordCount: number;
+  oContextInformation: CContextInformation;
+  objEntObjSecurityGroup: ObservableCollection<CEntObjSecurityMapResponse>;
+}
+export class CReqMsgGetSecGroupsByEntObjSecGroup {
+  sSecurityGroupCodeBC: string;
+  sSecurityGroupNameBC: string;
+  sSecurityGroupDescBC: string;
+  lnRoleProfileOIDBC: number;
+  lnRoleOIDBC: number;
+  lnSpecialtyOIDBC: number;
+  lnTeamOIDBC: number;
+  lnServiceOIDBC: number;
+  sSortByColBC: string;
+  nStartIndexBC: number;
+  nEndIndexBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetSecGroupsByEntObjSecGroup {
+  nRowCount: number;
+  oContextInformation: CContextInformation;
+  objSecurityGroup: ObservableCollection<CSecurityGroup>;
+}
+export class CReqMsgGetSecGrpsBySecGrpPermCat {
+  sSecurityGroupCodeBC: string;
+  sSecurityGroupNameBC: string;
+  sSecurityGroupDescBC: string;
+  lnPermCategoryOIDBC: number;
+  lnPermissionOIDBC: number;
+  sSortByColBC: string;
+  nStartIndexBC: number;
+  nEndIndexBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetSecGrpsBySecGrpPermCat {
+  nRowCount: number;
+  oContextInformation: CContextInformation;
+  objSecurityGroup: ObservableCollection<CSecurityGroup>;
+}
+export class CReqMsgCreateRoleprofileEnterpriseObject {
+  objRoleProfileEntObjectBC: CRoleProfileEnterpriseObject;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgCreateRoleprofileEnterpriseObject {
+  lnOID: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgModifyRoleProfileEnterpriseObject {
+  objRoleProfileEntObjectBC: CRoleProfileEnterpriseObject;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgModifyRoleProfileEnterpriseObject {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetRoleProfileEnterpriseObject {
+  lnRoleProfileOIDBC: number;
+  bIncludeWorkingAreaBC: boolean;
+  sIdentifyingTypeBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetRoleProfileEnterpriseObject {
+  objEnterpriseObjectArray: CEnterpriseObjectArray;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgCreateDependentPermission {
+  objDependentPermissionBC: CDependentPermission;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgCreateDependentPermission {
+  lnOID: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgModifyDependentPermission {
+  objDependentPermissionBC: CDependentPermission;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgModifyDependentPermission {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetDependentPermission {
+  lnPermissionOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetDependentPermission {
+  oContextInformation: CContextInformation;
+  objDependentPermission: ObservableCollection<CDependentPermission>;
+}
+export class CReqMsgGetUserAccessConfig {
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetUserAccessConfig {
+  oContextInformation: CContextInformation;
+  objUserAccessConfig: ObservableCollection<CUserAccessConfigResponseVO>;
+  objRestrictedOrganisation: ObservableCollection<CRestrictedOrganisation>;
+}
+export class CUserAccessConfigResponseVO {
+  OID: number;
+  OrganisationOID: number;
+  OrganisationName: string;
+  UserOID: number;
+  UserTitleCode: string;
+  UserForeName: string;
+  UserSurName: string;
+  RoleProfileOID: number;
+  RoleProfileName: string;
+  LoginOID: number;
+  LoginName: string;
+}
+export class CRestrictedOrganisation {
+  OID: number;
+  OrganisationOID: number;
+  OrganisationName: string;
+  Status: string;
+}
+export class CReqMsgUpdateUserAccessConfig {
+  AccessRestrictionTypeBC: string;
+  bRemoveAllExistingConfigBC: boolean;
+  oContextInformation: CContextInformation;
+  objUserAccessConfigBC: ObservableCollection<CUserAccessConfig>;
+  objRestrictedOrganisationBC: ObservableCollection<CRestrictedOrganisation>;
+}
+export class CResMsgUpdateUserAccessConfig {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgRemoveAllUserAccessConfig {
+  oContextInformation: CContextInformation;
+}
+export class CResMsgRemoveAllUserAccessConfig {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgCreateWorkingAreaEnterpriseObject {
+  objWorkingAreaBC: CWorkingArea;
+  oContextInformation: CContextInformation;
+  objWorkingAreaEntObjBC: ObservableCollection<CWorkingAreaEnterpriseObject>;
+}
+export class CResMsgCreateWorkingAreaEnterpriseObject {
+  lnWorkingAreaOID: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetAllWorkingArea {
+  sSortByColBC: string;
+  nStartIndexBC: number;
+  nEndIndexBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetAllWorkingArea {
+  nRecordCount: number;
+  oContextInformation: CContextInformation;
+  objWorkingArea: ObservableCollection<CWorkingAreaVO>;
+}
+export class CWorkingAreaVO {
+  WorkingAreaOID: number;
+  Name: string;
+  Description: string;
+  ActiveDateFrom: DateTime;
+  ActiveTo: DateTime;
+  STATUS: string;
+  PrevModifiedDate: DateTime;
+}
+export class CReqMsgGetWorkingAreaDtlByOID {
+  lnWorkingAreaOIDBC: number;
+  sSortByColBC: string;
+  nStartIndexBC: number;
+  nEndIndexBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetWorkingAreaDtlByOID {
+  nRecordCount: number;
+  oContextInformation: CContextInformation;
+  obWorkingAreaEntObj: ObservableCollection<CWorkingAreaEntObjVO>;
+}
+export class CWorkingAreaEntObjVO {
+  OID: number;
+  WorkingAreaOID: number;
+  IdentifyingOID: number;
+  IdentifyingType: string;
+  Status: string;
+  AssociationType: string;
+  AssociationValue: string;
+  WorkingAreaName: string;
+}
+export class CReqMsgGetWorkingAreaByOID {
+  lnWorkingAreaOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetWorkingAreaByOID {
+  objWokringAreaEntArr: CWorkingAreaEntObjArray;
+  oContextInformation: CContextInformation;
+}
+export class CWorkingAreaEntObjArray {
+  WorkingAreaOID: number;
+  Name: string;
+  Description: string;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  PrevModifiedAt: DateTime;
+  CSpecialtyVO: ObservableCollection<CSpecialtyVO>;
+  CServicesVO: ObservableCollection<CServicesVO>;
+}
+export class CSpecialtyVO {
+  Name: string;
+  Description: string;
+  SpecialityOid: number;
+}
+export class CServicesVO {
+  Name: string;
+  Description: string;
+  ServiceOid: number;
+}
+export class CReqMsgModifyWorkingArea {
+  objWorkingAreaBC: CWorkingArea;
+  oContextInformation: CContextInformation;
+  objWorkingAreaEntObjBC: ObservableCollection<CWorkingAreaEnterpriseObject>;
+}
+export class CResMsgModifyWorkingArea {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetWorkingAreaByCrit {
+  sWorkingAreaNameBC: string;
+  sWorkingAreaDescBC: string;
+  dtActiveFromBC: DateTime;
+  dtActiveToBC: DateTime;
+  OrganisationOIdBC: number;
+  nStartIndexBC: number;
+  nEndIndexBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetWorkingAreaByCrit {
+  nRecordCount: number;
+  oContextInformation: CContextInformation;
+  objWorkingAreaEODtls: ObservableCollection<CWorkingAreaEODtls>;
+}
+export class CWorkingAreaEODtls {
+  WorkingAreaOID: number;
+  Name: string;
+  Description: string;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  Speciality: string;
+  ServicePoint: string;
+}
+export class CReqMsgGetWorkingAreaForRoleProfileOID {
+  lnRoleProfileOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetWorkingAreaForRoleProfileOID {
+  oContextInformation: CContextInformation;
+  objWAEntObj: ObservableCollection<CWorkingAreaEntObjVO>;
+}
+export class CReqMsgValidateUser {
+  sLoginNameBC: string;
+  sPasswordBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgValidateUser {
+  nNoofRemainAttmpts: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetNativeLoginsForUsers {
+  sUserOIDsBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetNativeLoginsForUsers {
+  oContextInformation: CContextInformation;
+  UserLoginInfo: ObservableCollection<UserLoginInfo>;
+}
+export class UserLoginInfo {
+  Forename: string;
+  Surname: string;
+  LoginName: string;
+  UsersOID: number;
+}
+export class CReqMsgCreateLoginAccount {
+  oContextInformation: CContextInformation;
+  objLoginBC: ObservableCollection<CLogin>;
+  objUserRoleProfilesBC: ObservableCollection<CUserRoleprofile>;
+}
+export class CResMsgCreateLoginAccount {
+  sTemporaryPwd: string;
+  iPasswordNotifyMode: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgModifyLogin {
+  bIsResetBC: boolean;
+  bIsRandPwdEnabledBC: boolean;
+  oContextInformation: CContextInformation;
+  objLoginBC: ObservableCollection<CLogin>;
+  objUserRoleProfilesBC: ObservableCollection<CUserRoleprofile>;
+}
+export class CResMsgModifyLogin {
+  sTemporaryPwd: string;
+  iPasswordNotifyMode: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgModifyLogins {
+  bIsResetBC: boolean;
+  oContextInformation: CContextInformation;
+  objLoginBC: ObservableCollection<CLogin>;
+  objUserRoleProfilesBC: ObservableCollection<CUserRoleprofile>;
+  bIsRandPwdEnabledBC: ObservableCollection<boolean>;
+}
+export class CResMsgModifyLogins {
+  oContextInformation: CContextInformation;
+  sTemporaryPwd: ObservableCollection<string>;
+  iPasswordNotifyMode: ObservableCollection<number>;
+}
+export class CReqMsgGetLoginAccounts {
+  sLoginIDBC: string;
+  lnUserOIDBC: number;
+  dtmActiveFromBC: DateTime;
+  dtmActiveToBC: DateTime;
+  bIncludeRetiredLoginAccountsBC: boolean;
+  bIncludeLockedLoginAccountsBC: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetLoginAccounts {
+  oContextInformation: CContextInformation;
+  objLogins: ObservableCollection<CLogin>;
+}
+export class CReqMsgIsLoginIDValid {
+  lnUsersOIDBC: number;
+  enmLoginTypeBC: LoginType;
+  idProviderBC: string;
+  oContextInformation: CContextInformation;
+}
+export enum LoginType {
+  Native,
+  SSO,
+  ADS,
+  OpenID,
+  SSOIMP,
+}
+export class CResMsgIsLoginIDValid {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetLoginByPage {
+  sLoginIDBC: string;
+  lUsersOIDBC: number;
+  dtmActiveFromBC: DateTime;
+  dtmActiveToBC: DateTime;
+  bIncludeRetiredLoginAccountsBC: boolean;
+  bIncludeLockedLoginAccountsBC: boolean;
+  sPrevCodeBC: string;
+  sIsNextBC: string;
+  nPageSizeBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetLoginByPage {
+  nRowCount: number;
+  oContextInformation: CContextInformation;
+  objLoginList: ObservableCollection<Object>;
+}
+export class CReqMsgGetOrganisationForLogin {
+  sOrgNameBC: string;
+  sDescriptionBC: string;
+  sOrgTypeBC: string;
+  sOrgIdentifierBC: string;
+  sIsActiveBC: string;
+  dttmActiveFromBC: DateTime;
+  dttmActiveToBC: DateTime;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetOrganisationForLogin {
+  oContextInformation: CContextInformation;
+  objOrganisation: ObservableCollection<COrganisation>;
+}
+export class CReqMsgGetUserForLogin {
+  sSurNameBC: string;
+  sForeNameBC: string;
+  sGenderBC: string;
+  sOccupationBC: string;
+  sIDTypeBC: string;
+  sIdentifierBC: string;
+  dtmActiveFromBC: DateTime;
+  dtmActiveToBC: DateTime;
+  lOrganisationOIDBC: number;
+  sIncludeInActiveBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetUserForLogin {
+  oContextInformation: CContextInformation;
+  objEnterpriseArray: ObservableCollection<CEnterpriseObjectArray>;
+}
+export class CReqMsgGetUserForLoginByPage {
+  sSurNameBC: string;
+  sForeNameBC: string;
+  sGenderBC: string;
+  sOccupationBC: string;
+  sIDTypeBC: string;
+  sIdentifierBC: string;
+  dtmActiveFromBC: DateTime;
+  dtmActiveToBC: DateTime;
+  lOrganisationOIDBC: number;
+  sIncludeInActiveBC: string;
+  sPrevCodeBC: string;
+  sIsNextBC: string;
+  nPageSizeBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetUserForLoginByPage {
+  nRowCount: number;
+  oContextInformation: CContextInformation;
+  objEnterpriseArray: ObservableCollection<CEnterpriseObjectArray>;
+}
+export class CReqMsgGetADUSers {
+  sDomainNameBC: string;
+  sUserNameBC: string;
+  sFirstNameBC: string;
+  sLastNameBC: string;
+  sEmailBC: string;
+  sPhoneBC: string;
+  sTitleBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetADUSers {
+  oContextInformation: CContextInformation;
+  objUserInfo: ObservableCollection<ADUserInfo>;
+}
+export class ADUserInfo {
+  LoginName: string;
+  FirstName: string;
+  LastName: string;
+  EmailAddress: string;
+  Phone: string;
+  Title: string;
+  DomainName: string;
+}
+export class CReqMsgGetUser {
+  lUserOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetUser {
+  objEnterpriseObject: CEnterpriseObjectArray;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetUsersByRole {
+  sRoleCodeBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetUsersByRole {
+  oContextInformation: CContextInformation;
+  objUsers: ObservableCollection<CUsers>;
+}
+export class CReqMsgGetLoginNameByUserOID {
+  lnUsersOIDBC: number;
+  enmLoginTypeBC: LoginType;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetLoginNameByUserOID {
+  sLoginName: string;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetUserLoginAccounts {
+  lnUserOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetUserLoginAccounts {
+  oContextInformation: CContextInformation;
+  objOutCLogin: ObservableCollection<CLogin>;
+}
+export class CReqMsgGeneratePassword {
+  sLoginNameBC: string;
+  sQuestioncodeBC: string;
+  oContextInformation: CContextInformation;
+  SecretAnswerBC: ObservableCollection<CSecretAnswer>;
+}
+export class CSecretAnswer {
+  Key: number;
+  Value: string;
+}
+export class CResMsgGeneratePassword {
+  sTemporaryPwd: string;
+  iPasswordNotifyMode: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetSecretQuestion {
+  sCultureCodeBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetSecretQuestion {
+  oContextInformation: CContextInformation;
+  objSecretQuestion: ObservableCollection<CSecretQuestion>;
+}
+export class CReqMsgGetLoginSecretQuestions {
+  sLoginNameBC: string;
+  sCultureCodeBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetLoginSecretQuestions {
+  oContextInformation: CContextInformation;
+  objloginSecretQuestion: ObservableCollection<CLoginSecretQuestions>;
+}
+export class CLoginSecretQuestions {
+  SecretQuestionNumber: byte;
+  SecretQuestionCode: string;
+  SecretQuestion: string;
+  SecretAnswer: string;
+}
+export class CReqMsgGetRandomQuestion {
+  sLoginNameBC: string;
+  sCultureCodeBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetRandomQuestion {
+  sSecretQuestionCode: string;
+  sSecretQuestion: string;
+  iSecretAnswerLength: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgValidateLogin {
+  sLoginNameBC: string;
+  sPasswordBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgValidateLogin {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgCreatePermission {
+  objPermissionBC: CPermission;
+  oContextInformation: CContextInformation;
+  objDepPermissionsBC: ObservableCollection<CDependentPermission>;
+}
+export class CResMsgCreatePermission {
+  lnOID: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgModifyPermission {
+  objPermissionBC: CPermission;
+  oContextInformation: CContextInformation;
+  objDepPermissionsBC: ObservableCollection<CDependentPermission>;
+}
+export class CResMsgModifyPermission {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPermission {
+  sPermissionCodeBC: string;
+  sDescriptionBC: string;
+  bIncludeInActiveBC: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPermission {
+  oContextInformation: CContextInformation;
+  objPermissions: ObservableCollection<CEnterpriseObjectArray>;
+}
+export class CReqMsgGetPermissionByPage {
+  sPermissionCodeBC: string;
+  sDescriptionBC: string;
+  lnPermCatgryOIDBC: number;
+  sPermCatgryDescBC: string;
+  sPrevCodeBC: string;
+  sIsNextBC: string;
+  nPageSizeBC: number;
+  bIncludeInActiveBC: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPermissionByPage {
+  nRowCount: number;
+  oContextInformation: CContextInformation;
+  objPermissionList: ObservableCollection<CPermissionAndCategory>;
+}
+export class CReqMsgGetPermissionByCategory {
+  lnPermCatOidBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPermissionByCategory {
+  oContextInformation: CContextInformation;
+  objPermissions: ObservableCollection<CEnterpriseObjectArray>;
+}
+export class CReqMsgGetPermForSecurityGrpByPage {
+  lnSecurityGroupOIDBC: number;
+  nStartIndexBC: number;
+  nEndIndexBC: number;
+  bIsRowCountReqBC: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPermForSecurityGrpByPage {
+  nRowCount: number;
+  oContextInformation: CContextInformation;
+  objPermissions: ObservableCollection<CPermissionAndCategory>;
+}
+
+
+ const prototypeList = {"CSecurityManagementServiceWS.ValidateLogin":CResMsgValidateLogin.prototype ,
+"CSecurityManagementServiceWS.CreatePermission":CResMsgCreatePermission.prototype ,
+"CSecurityManagementServiceWS.ModifyPermission":CResMsgModifyPermission.prototype ,
+"CSecurityManagementServiceWS.GetPermission":CResMsgGetPermission.prototype ,
+"CSecurityManagementServiceWS.GetPermissionByPage":CResMsgGetPermissionByPage.prototype ,
+"CSecurityManagementServiceWS.GetPermissionByCategory":CResMsgGetPermissionByCategory.prototype ,
+"CSecurityManagementServiceWS.GetPermForSecurityGrpByPage":CResMsgGetPermForSecurityGrpByPage.prototype ,
+"CSecurityManagementServiceWS.RemoveAllUserAccessConfig":CResMsgRemoveAllUserAccessConfig.prototype ,
+"CSecurityManagementServiceWS.CreateWorkingAreaEnterpriseObject":CResMsgCreateWorkingAreaEnterpriseObject.prototype ,
+"CSecurityManagementServiceWS.GetAllWorkingArea":CResMsgGetAllWorkingArea.prototype ,
+"CSecurityManagementServiceWS.GetWorkingAreaDtlByOID":CResMsgGetWorkingAreaDtlByOID.prototype ,
+"CSecurityManagementServiceWS.GetWorkingAreaByOID":CResMsgGetWorkingAreaByOID.prototype ,
+"CSecurityManagementServiceWS.ModifyWorkingArea":CResMsgModifyWorkingArea.prototype ,
+"CSecurityManagementServiceWS.GetWorkingAreaByCrit":CResMsgGetWorkingAreaByCrit.prototype ,
+"CSecurityManagementServiceWS.GetWorkingAreaForRoleProfileOID":CResMsgGetWorkingAreaForRoleProfileOID.prototype ,
+"CSecurityManagementServiceWS.ValidateUser":CResMsgValidateUser.prototype ,
+"CSecurityManagementServiceWS.GetNativeLoginsForUsers":CResMsgGetNativeLoginsForUsers.prototype ,
+"CSecurityManagementServiceWS.CreateLoginAccount":CResMsgCreateLoginAccount.prototype ,
+"CSecurityManagementServiceWS.ModifyLogin":CResMsgModifyLogin.prototype ,
+"CSecurityManagementServiceWS.ModifyLogins":CResMsgModifyLogins.prototype ,
+"CSecurityManagementServiceWS.GetLoginAccounts":CResMsgGetLoginAccounts.prototype ,
+"CSecurityManagementServiceWS.IsLoginIDValid":CResMsgIsLoginIDValid.prototype ,
+"CSecurityManagementServiceWS.GetLoginByPage":CResMsgGetLoginByPage.prototype ,
+"CSecurityManagementServiceWS.GetOrganisationForLogin":CResMsgGetOrganisationForLogin.prototype ,
+"CSecurityManagementServiceWS.GetUserForLogin":CResMsgGetUserForLogin.prototype ,
+"CSecurityManagementServiceWS.GetUserForLoginByPage":CResMsgGetUserForLoginByPage.prototype ,
+"CSecurityManagementServiceWS.GetADUSers":CResMsgGetADUSers.prototype ,
+"CSecurityManagementServiceWS.GetUser":CResMsgGetUser.prototype ,
+"CSecurityManagementServiceWS.GetUsersByRole":CResMsgGetUsersByRole.prototype ,
+"CSecurityManagementServiceWS.GetLoginNameByUserOID":CResMsgGetLoginNameByUserOID.prototype ,
+"CSecurityManagementServiceWS.GetUserLoginAccounts":CResMsgGetUserLoginAccounts.prototype ,
+"CSecurityManagementServiceWS.GeneratePassword":CResMsgGeneratePassword.prototype ,
+"CSecurityManagementServiceWS.GetSecretQuestion":CResMsgGetSecretQuestion.prototype ,
+"CSecurityManagementServiceWS.GetLoginSecretQuestions":CResMsgGetLoginSecretQuestions.prototype ,
+"CSecurityManagementServiceWS.GetRandomQuestion":CResMsgGetRandomQuestion.prototype ,
+"CSecurityManagementServiceWS.GetSpecialty":CResMsgGetSpecialty.prototype ,
+"CSecurityManagementServiceWS.GetService":CResMsgGetService.prototype ,
+"CSecurityManagementServiceWS.GetTeam":CResMsgGetTeam.prototype ,
+"CSecurityManagementServiceWS.GetJobRole":CResMsgGetJobRole.prototype ,
+"CSecurityManagementServiceWS.GetAllJobRole":CResMsgGetAllJobRole.prototype ,
+"CSecurityManagementServiceWS.CreateEnterpriseObjectSecurityGroup":CResMsgCreateEnterpriseObjectSecurityGroup.prototype ,
+"CSecurityManagementServiceWS.ModifyEnterpriseObjectSecurityGroup":CResMsgModifyEnterpriseObjectSecurityGroup.prototype ,
+"CSecurityManagementServiceWS.GetSecurityGroupForEnterpriseObject":CResMsgGetSecurityGroupForEnterpriseObject.prototype ,
+"CSecurityManagementServiceWS.GetPermissionForEntObjSecGrpOID":CResMsgGetPermissionForEntObjSecGrpOID.prototype ,
+"CSecurityManagementServiceWS.GetPermsForSecurityGrpByPage":CResMsgGetPermsForSecurityGrpByPage.prototype ,
+"CSecurityManagementServiceWS.GetSecurityMappingInfo":CResMsgGetSecurityMappingInfo.prototype ,
+"CSecurityManagementServiceWS.AssignSecurityGroup":CResMsgAssignSecurityGroup.prototype ,
+"CSecurityManagementServiceWS.AssignEntObjSecurityGroup":CResMsgAssignEntObjSecurityGroup.prototype ,
+"CSecurityManagementServiceWS.GetAdditionalSecurityGroupByRPCode":CResMsgGetAdditionalSecurityGroupByRPCode.prototype ,
+"CSecurityManagementServiceWS.GetAdditionalSecurityGroupByRPOID":CResMsgGetAdditionalSecurityGroupByRPOID.prototype ,
+"CSecurityManagementServiceWS.GetSecurityMappingInfoByPage":CResMsgGetSecurityMappingInfoByPage.prototype ,
+"CSecurityManagementServiceWS.GetSecurityMappingForEntObjects":CResMsgGetSecurityMappingForEntObjects.prototype ,
+"CSecurityManagementServiceWS.GetEntObjForSecGrpByPage":CResMsgGetEntObjForSecGrpByPage.prototype ,
+"CSecurityManagementServiceWS.GetSecGroupsByEntObjSecGroup":CResMsgGetSecGroupsByEntObjSecGroup.prototype ,
+"CSecurityManagementServiceWS.GetSecGrpsBySecGrpPermCat":CResMsgGetSecGrpsBySecGrpPermCat.prototype ,
+"CSecurityManagementServiceWS.CreateRoleprofileEnterpriseObject":CResMsgCreateRoleprofileEnterpriseObject.prototype ,
+"CSecurityManagementServiceWS.ModifyRoleProfileEnterpriseObject":CResMsgModifyRoleProfileEnterpriseObject.prototype ,
+"CSecurityManagementServiceWS.GetRoleProfileEnterpriseObject":CResMsgGetRoleProfileEnterpriseObject.prototype ,
+"CSecurityManagementServiceWS.CreateDependentPermission":CResMsgCreateDependentPermission.prototype ,
+"CSecurityManagementServiceWS.ModifyDependentPermission":CResMsgModifyDependentPermission.prototype ,
+"CSecurityManagementServiceWS.GetDependentPermission":CResMsgGetDependentPermission.prototype ,
+"CSecurityManagementServiceWS.GetUserAccessConfig":CResMsgGetUserAccessConfig.prototype ,
+"CSecurityManagementServiceWS.UpdateUserAccessConfig":CResMsgUpdateUserAccessConfig.prototype ,
+"CSecurityManagementServiceWS.CreateRoleProfile":CResMsgCreateRoleProfile.prototype ,
+"CSecurityManagementServiceWS.ModifyRoleProfile":CResMsgModifyRoleProfile.prototype ,
+"CSecurityManagementServiceWS.GetRoleProfile":CResMsgGetRoleProfile.prototype ,
+"CSecurityManagementServiceWS.GetRoleProfileByOrganisation":CResMsgGetRoleProfileByOrganisation.prototype ,
+"CSecurityManagementServiceWS.GetRoleProfileforOID":CResMsgGetRoleProfileforOID.prototype ,
+"CSecurityManagementServiceWS.GetRoleProfileByEnt":CResMsgGetRoleProfileByEnt.prototype ,
+"CSecurityManagementServiceWS.GetRoleProfileForUserOID":CResMsgGetRoleProfileForUserOID.prototype ,
+"CSecurityManagementServiceWS.GetRoleProfileSharGroupForUserOID":CResMsgGetRoleProfileSharGroupForUserOID.prototype ,
+"CSecurityManagementServiceWS.GetRoleProfileByEntObj":CResMsgGetRoleProfileByEntObj.prototype ,
+"CSecurityManagementServiceWS.GetRoleProfileByEOPermCrit":CResMsgGetRoleProfileByEOPermCrit.prototype ,
+"CSecurityManagementServiceWS.GetEODetailsForRPOID":CResMsgGetEODetailsForRPOID.prototype ,
+"CSecurityManagementServiceWS.GetRoleProfileByOrgID":CResMsgGetRoleProfileByOrgID.prototype ,
+"CSecurityManagementServiceWS.CreateUserRoleProfile":CResMsgCreateUserRoleProfile.prototype ,
+"CSecurityManagementServiceWS.ModifyUserRoleProfile":CResMsgModifyUserRoleProfile.prototype ,
+"CSecurityManagementServiceWS.IsRoleProfileInUse":CResMsgIsRoleProfileInUse.prototype ,
+"CSecurityManagementServiceWS.GetRoleProfileForLogin":CResMsgGetRoleProfileForLogin.prototype ,
+"CSecurityManagementServiceWS.GetAllLoginRoleprofiles":CResMsgGetAllLoginRoleprofiles.prototype ,
+"CSecurityManagementServiceWS.CreateSecurityPolicy":CResMsgCreateSecurityPolicy.prototype ,
+"CSecurityManagementServiceWS.ModifySecurityPolicy":CResMsgModifySecurityPolicy.prototype ,
+"CSecurityManagementServiceWS.GetSecurityPolicy":CResMsgGetSecurityPolicy.prototype ,
+"CSecurityManagementServiceWS.IsAutoUserCreationEnabled":CResMsgIsAutoUserCreationEnabled.prototype ,
+"CSecurityManagementServiceWS.CreateResource":CResMsgCreateResource.prototype ,
+"CSecurityManagementServiceWS.ModifyResource":CResMsgModifyResource.prototype ,
+"CSecurityManagementServiceWS.GetResoures":CResMsgGetResoures.prototype ,
+"CSecurityManagementServiceWS.AssignResourcePermisison":CResMsgAssignResourcePermisison.prototype ,
+"CSecurityManagementServiceWS.GetAllProfilesByPermission":CResMsgGetAllProfilesByPermission.prototype ,
+"CSecurityManagementServiceWS.InvalidateSessionForLogin":CResMsgInvalidateSessionForLogin.prototype ,
+"CSecurityManagementServiceWS.GetActiveSessions":CResMsgGetActiveSessions.prototype ,
+"CSecurityManagementServiceWS.GetActiveSessionByPage":CResMsgGetActiveSessionByPage.prototype ,
+"CSecurityManagementServiceWS.CreatePermissionCategory":CResMsgCreatePermissionCategory.prototype ,
+"CSecurityManagementServiceWS.ModifyPermissionCategory":CResMsgModifyPermissionCategory.prototype ,
+"CSecurityManagementServiceWS.GetPermissionCategory":CResMsgGetPermissionCategory.prototype ,
+"CSecurityManagementServiceWS.GetPermissionCategoryById":CResMsgGetPermissionCategoryById.prototype ,
+"CSecurityManagementServiceWS.GetAllRootPermCatgry":CResMsgGetAllRootPermCatgry.prototype ,
+"CSecurityManagementServiceWS.CreateSecurityGroup":CResMsgCreateSecurityGroup.prototype ,
+"CSecurityManagementServiceWS.ModifySecurityGroup":CResMsgModifySecurityGroup.prototype ,
+"CSecurityManagementServiceWS.GetSecurityGroup":CResMsgGetSecurityGroup.prototype ,
+"CSecurityManagementServiceWS.GetSecurityGroupByPage":CResMsgGetSecurityGroupByPage.prototype ,
+"CSecurityManagementServiceWS.GetPermForSecurityGrp":CResMsgGetPermForSecurityGrp.prototype ,
+"CSecurityManagementServiceWS.GetSecurityGroupByRPOID":CResMsgGetSecurityGroupByRPOID.prototype ,
+"CSecurityManagementServiceWS.GetSecGroupsforEntObj":CResMsgGetSecGroupsforEntObj.prototype ,
+"CSecurityManagementServiceWS.GetEntObjBySecurityGroup":CResMsgGetEntObjBySecurityGroup.prototype ,
+"CSecurityManagementServiceWS.GetSecurityGroupByEO":CResMsgGetSecurityGroupByEO.prototype ,
+"CSecurityManagementServiceWS.CreateRole":CResMsgCreateRole.prototype ,
+"CSecurityManagementServiceWS.ModifyRole":CResMsgModifyRole.prototype ,
+"CSecurityManagementServiceWS.GetRole":CResMsgGetRole.prototype ,
+"CSecurityManagementServiceWS.GetRolesByPage":CResMsgGetRolesByPage.prototype ,
+"CSecurityManagementServiceWS.GetRolesDetailsByPage":CResMsgGetRolesDetailsByPage.prototype ,
+"CSecurityManagementServiceWS.GetRoleById":CResMsgGetRoleById.prototype ,
+"CSecurityManagementServiceWS.GetRoleByIds":CResMsgGetRoleByIds.prototype ,
+"CSecurityManagementServiceWS.GetAllRoles":CResMsgGetAllRoles.prototype ,
+"CSecurityManagementServiceWS.CreateRoleSecGrp":CResMsgCreateRoleSecGrp.prototype ,
+"CSecurityManagementServiceWS.GetRolesByName":CResMsgGetRolesByName.prototype ,
+"CSecurityManagementServiceWS.GetRoleByUserOId":CResMsgGetRoleByUserOId.prototype ,
+"CSecurityManagementServiceWS.GetUserRole":CResMsgGetUserRole.prototype ,
+"CSecurityManagementServiceWS.CreateSecurityGroupPermission":CResMsgCreateSecurityGroupPermission.prototype ,
+"CSecurityManagementServiceWS.ModifySecurityGroupPermission":CResMsgModifySecurityGroupPermission.prototype ,
+
+CReqMsgCreatePermissionCategory : { 
+objPermissionCategoryBC:CPermissionCategory.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CServiceVO : { 
+ServiceIds:CServiceId.prototype ,
+
+ },CResMsgCreatePermissionCategory : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgModifyPermissionCategory : { 
+objPermissionCategoryBC:CPermissionCategory.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgModifyPermissionCategory : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPermissionCategory : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPermissionCategory : { 
+oContextInformation:CContextInformation.prototype ,
+objPermissionCategory:CPermissionCategory.prototype ,
+
+ },CReqMsgGetPermissionCategoryById : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPermissionCategoryById : { 
+oContextInformation:CContextInformation.prototype ,
+objPermissionCategory:CPermissionCategory.prototype ,
+
+ },CReqMsgGetAllRootPermCatgry : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetAllRootPermCatgry : { 
+oContextInformation:CContextInformation.prototype ,
+objPermissionCategory:CPermissionCategory.prototype ,
+
+ },CReqMsgCreateSecurityGroup : { 
+objSecurityGroupBC:CSecurityGroup.prototype ,
+oContextInformation:CContextInformation.prototype ,
+objSecGrpPermsBC:CSecurityGroupPermission.prototype ,
+
+ },CResMsgCreateSecurityGroup : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgModifySecurityGroup : { 
+objSecurityGroupBC:CSecurityGroup.prototype ,
+oContextInformation:CContextInformation.prototype ,
+objSecGrpPermsBC:CSecurityGroupPermission.prototype ,
+
+ },CResMsgModifySecurityGroup : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetSecurityGroup : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetSecurityGroup : { 
+oContextInformation:CContextInformation.prototype ,
+objSecurityGroups:CSecurityGroup.prototype ,
+
+ },CReqMsgGetSecurityGroupByPage : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetSecurityGroupByPage : { 
+oContextInformation:CContextInformation.prototype ,
+objSecurityList:Object.prototype ,
+
+ },CReqMsgGetPermForSecurityGrp : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPermForSecurityGrp : { 
+oContextInformation:CContextInformation.prototype ,
+objPermissions:CPermissionAndCategory.prototype ,
+
+ },CReqMsgGetSecurityGroupByRPOID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetSecurityGroupByRPOID : { 
+oContextInformation:CContextInformation.prototype ,
+arrRoleProfileSecurityMapInfo:CRoleProfileSecurityMapInfo.prototype ,
+
+ },CReqMsgGetSecGroupsforEntObj : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetSecGroupsforEntObj : { 
+oContextInformation:CContextInformation.prototype ,
+arrRoleProfileSecurityMapInfo:CRoleProfileSecurityMapInfo.prototype ,
+
+ },CReqMsgGetEntObjBySecurityGroup : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetEntObjBySecurityGroup : { 
+oContextInformation:CContextInformation.prototype ,
+arrEntObjSecurityGroup:CEntObjSecurityGroupVO.prototype ,
+
+ },CReqMsgGetSecurityGroupByEO : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetSecurityGroupByEO : { 
+oContextInformation:CContextInformation.prototype ,
+objEntObjSecurityMap:CSecGrpEOMapVO.prototype ,
+
+ },CReqMsgCreateRole : { 
+objRoleBC:CRole.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgCreateRole : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgModifyRole : { 
+objRoleBC:CRole.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgModifyRole : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetRole : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRole : { 
+oContextInformation:CContextInformation.prototype ,
+objRoles:CRole.prototype ,
+
+ },CReqMsgGetRolesByPage : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRolesByPage : { 
+oContextInformation:CContextInformation.prototype ,
+objRoles:CRole.prototype ,
+
+ },CReqMsgGetRolesDetailsByPage : { 
+objRoleSearchCriteriaBC:CRoleSearchCriteria.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRolesDetailsByPage : { 
+oContextInformation:CContextInformation.prototype ,
+objRoleDetailsVO:CRoleDetailsVO.prototype ,
+
+ },CReqMsgGetRoleById : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRoleById : { 
+oContextInformation:CContextInformation.prototype ,
+objRole:CRole.prototype ,
+
+ },CReqMsgGetRoleByIds : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRoleByIds : { 
+oContextInformation:CContextInformation.prototype ,
+objRole:CRole.prototype ,
+
+ },CReqMsgGetAllRoles : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetAllRoles : { 
+oContextInformation:CContextInformation.prototype ,
+objRole:CRole.prototype ,
+
+ },CReqMsgCreateRoleSecGrp : { 
+objRoleBC:CRole.prototype ,
+oContextInformation:CContextInformation.prototype ,
+objEnterpriseArrayBC:CEnterpriseObjectArray.prototype ,
+
+ },CEnterpriseObjectArray : { 
+JobRole:CJobRole.prototype ,
+AreaOfWork:CAreaOfWork.prototype ,
+Role:CRole.prototype ,
+RoleDetails:CRoleDetailsVO.prototype ,
+Users:CUsers.prototype ,
+Specialty:CSpecialty.prototype ,
+Service:CService.prototype ,
+Team:CTeam.prototype ,
+WorkingArea:CWorkingArea.prototype ,
+
+ },CResMsgCreateRoleSecGrp : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetRolesByName : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRolesByName : { 
+oContextInformation:CContextInformation.prototype ,
+objRole:CRole.prototype ,
+
+ },CReqMsgGetRoleByUserOId : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRoleByUserOId : { 
+oContextInformation:CContextInformation.prototype ,
+objRole:CRole.prototype ,
+
+ },CReqMsgGetUserRole : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetUserRole : { 
+objRole:CRole.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgCreateSecurityGroupPermission : { 
+objSecurityGroupPermissionBC:CSecurityGroupPermission.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgCreateSecurityGroupPermission : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgModifySecurityGroupPermission : { 
+objSecurityGroupPermissionBC:CSecurityGroupPermission.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgModifySecurityGroupPermission : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgCreateRoleProfile : { 
+objRoleProfileBC:CRoleprofile.prototype ,
+oContextInformation:CContextInformation.prototype ,
+objRoleProfileEntObjsBC:CRoleProfileEnterpriseObject.prototype ,
+
+ },CResMsgCreateRoleProfile : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgModifyRoleProfile : { 
+objRoleProfileBC:CRoleprofile.prototype ,
+oContextInformation:CContextInformation.prototype ,
+objRoleProfileEntObjsBC:CRoleProfileEnterpriseObject.prototype ,
+
+ },CResMsgModifyRoleProfile : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetRoleProfile : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRoleProfile : { 
+oContextInformation:CContextInformation.prototype ,
+objEnterpriseObjectArray:CEnterpriseObjectArray.prototype ,
+
+ },CReqMsgGetRoleProfileByOrganisation : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRoleProfileByOrganisation : { 
+oContextInformation:CContextInformation.prototype ,
+objEnterpriseObjectArray:CEnterpriseObjectArray.prototype ,
+
+ },CReqMsgGetRoleProfileforOID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRoleProfileforOID : { 
+objRoleprofiles:CRoleprofile.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetRoleProfileByEnt : { 
+oContextInformation:CContextInformation.prototype ,
+arrSpecialtyListBC:Object.prototype ,
+arrServiceListBC:Object.prototype ,
+arrTeamListBC:Object.prototype ,
+
+ },CResMsgGetRoleProfileByEnt : { 
+oContextInformation:CContextInformation.prototype ,
+objRoleprofiles:CEnterpriseObjectArray.prototype ,
+
+ },CReqMsgGetRoleProfileForUserOID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRoleProfileForUserOID : { 
+oContextInformation:CContextInformation.prototype ,
+objRoleprofiles:CRoleprofile.prototype ,
+
+ },CReqMsgGetRoleProfileSharGroupForUserOID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRoleProfileSharGroupForUserOID : { 
+oContextInformation:CContextInformation.prototype ,
+objRoleprofiles:CRoleprofile.prototype ,
+objRPSharGroup:CRoleProfileSharGroup.prototype ,
+
+ },CReqMsgGetRoleProfileByEntObj : { 
+objRoleProfileReqBC:CReqRoleprofileEntObj.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRoleProfileByEntObj : { 
+oContextInformation:CContextInformation.prototype ,
+arrRoleproile:CRoleprofileDetailsVO.prototype ,
+
+ },CReqMsgGetRoleProfileByEOPermCrit : { 
+objCReqEntObjPermCriteriaBC:CReqEntObjPermCriteria.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRoleProfileByEOPermCrit : { 
+oContextInformation:CContextInformation.prototype ,
+arrRoleProfileDetails:CRoleprofileDetailsVO.prototype ,
+
+ },CReqMsgGetEODetailsForRPOID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetEODetailsForRPOID : { 
+oRoleprofileEODetailsVO:CRoleprofileEODetailsVO.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CRoleprofileEODetailsVO : { 
+TeamID:CEntObjID.prototype ,
+ServiceID:CEntObjID.prototype ,
+SpecialtyID:CEntObjID.prototype ,
+UserID:CEntObjID.prototype ,
+OrganisationID:CEntObjID.prototype ,
+
+ },CReqMsgGetRoleProfileByOrgID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRoleProfileByOrgID : { 
+objRoleProfile:CEnterpriseObjectArray.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgCreateUserRoleProfile : { 
+objUserRoleProfileBC:CUserRoleprofile.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgCreateUserRoleProfile : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgModifyUserRoleProfile : { 
+objUserRoleProfileBC:CUserRoleprofile.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgModifyUserRoleProfile : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgIsRoleProfileInUse : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgIsRoleProfileInUse : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetRoleProfileForLogin : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRoleProfileForLogin : { 
+oContextInformation:CContextInformation.prototype ,
+objLoginRoleProfile:CRoleprofile.prototype ,
+
+ },CReqMsgGetAllLoginRoleprofiles : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetAllLoginRoleprofiles : { 
+oContextInformation:CContextInformation.prototype ,
+objArrayCollection:CEnterpriseObjectArray.prototype ,
+
+ },CReqMsgCreateSecurityPolicy : { 
+objSecurityPolicyBC:CSecurityPolicy.prototype ,
+oContextInformation:CContextInformation.prototype ,
+objSecKeysBC:CSecurityKey.prototype ,
+
+ },CResMsgCreateSecurityPolicy : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgModifySecurityPolicy : { 
+objSecurityPolicyBC:CSecurityPolicy.prototype ,
+oContextInformation:CContextInformation.prototype ,
+objSecKeysBC:CSecurityKey.prototype ,
+
+ },CResMsgModifySecurityPolicy : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetSecurityPolicy : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetSecurityPolicy : { 
+objSecurityPolicy:CSecurityPolicy.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgIsAutoUserCreationEnabled : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgIsAutoUserCreationEnabled : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgCreateResource : { 
+objEnterpriseResourceBC:CEnterpriseResource.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgCreateResource : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgModifyResource : { 
+objEnterpriseResourceBC:CEnterpriseResource.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgModifyResource : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetResoures : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetResoures : { 
+oContextInformation:CContextInformation.prototype ,
+objEnterpriseResource:CEnterpriseResource.prototype ,
+
+ },CReqMsgAssignResourcePermisison : { 
+objEnterpriseResourceBC:CEnterpriseResource.prototype ,
+oContextInformation:CContextInformation.prototype ,
+arrActiveListBC:Object.prototype ,
+arrInActiveListBC:Object.prototype ,
+
+ },CResMsgAssignResourcePermisison : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetAllProfilesByPermission : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetAllProfilesByPermission : { 
+oContextInformation:CContextInformation.prototype ,
+objEnterprises:CEnterpriseSearch.prototype ,
+
+ },CEnterpriseSearch : { 
+objRoleprofiles:CRoleprofiles.prototype ,
+
+ },CRoleprofiles : { 
+objRoles:CRole.prototype ,
+
+ },CReqMsgInvalidateSessionForLogin : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgInvalidateSessionForLogin : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetActiveSessions : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetActiveSessions : { 
+oContextInformation:CContextInformation.prototype ,
+objSecuritySessions:CCustomActiveSession.prototype ,
+
+ },CReqMsgGetActiveSessionByPage : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetActiveSessionByPage : { 
+oContextInformation:CContextInformation.prototype ,
+objSecuritySessions:CCustomActiveSession.prototype ,
+
+ },CReqMsgGetSpecialty : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetSpecialty : { 
+oContextInformation:CContextInformation.prototype ,
+objSpecialty:CSpecialty.prototype ,
+
+ },CReqMsgGetService : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetService : { 
+oContextInformation:CContextInformation.prototype ,
+objService:CServiceVO.prototype ,
+
+ },CReqMsgGetTeam : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetTeam : { 
+oContextInformation:CContextInformation.prototype ,
+objTeam:CTeam.prototype ,
+
+ },CReqMsgGetJobRole : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetJobRole : { 
+oContextInformation:CContextInformation.prototype ,
+objJobRoles:CJobRole.prototype ,
+
+ },CReqMsgGetAllJobRole : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetAllJobRole : { 
+oContextInformation:CContextInformation.prototype ,
+objJobRoles:CJobRole.prototype ,
+
+ },CReqMsgCreateEnterpriseObjectSecurityGroup : { 
+objEntObjSecurityGroupBC:CEntObjSecurityGroup.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgCreateEnterpriseObjectSecurityGroup : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgModifyEnterpriseObjectSecurityGroup : { 
+objEntObjSecurityGroupBC:CEntObjSecurityGroup.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgModifyEnterpriseObjectSecurityGroup : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetSecurityGroupForEnterpriseObject : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetSecurityGroupForEnterpriseObject : { 
+oContextInformation:CContextInformation.prototype ,
+objSecurityGroup:CSecurityGroup.prototype ,
+
+ },CReqMsgGetPermissionForEntObjSecGrpOID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPermissionForEntObjSecGrpOID : { 
+oContextInformation:CContextInformation.prototype ,
+objPermissionVO:CPermissionVO.prototype ,
+
+ },CReqMsgGetPermsForSecurityGrpByPage : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPermsForSecurityGrpByPage : { 
+oContextInformation:CContextInformation.prototype ,
+objPermissions:CPermissionAndCategory.prototype ,
+
+ },CReqMsgGetSecurityMappingInfo : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetSecurityMappingInfo : { 
+oContextInformation:CContextInformation.prototype ,
+objSecurityMapping:CSecurityMappingInfoVO.prototype ,
+
+ },CReqMsgAssignSecurityGroup : { 
+oContextInformation:CContextInformation.prototype ,
+objEnterpriseObjectBC:CEnterpriseObject.prototype ,
+
+ },CResMsgAssignSecurityGroup : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgAssignEntObjSecurityGroup : { 
+oContextInformation:CContextInformation.prototype ,
+objCSecurityGroupEntObjBC:CSecurityGroupEntObj.prototype ,
+
+ },CSecurityGroupEntObj : { 
+arrEnterpriseObject:CEnterpriseObject.prototype ,
+
+ },CResMsgAssignEntObjSecurityGroup : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetAdditionalSecurityGroupByRPCode : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetAdditionalSecurityGroupByRPCode : { 
+oContextInformation:CContextInformation.prototype ,
+arrSecurityMappingInfo:CSecurityMappingInfoVO.prototype ,
+
+ },CReqMsgGetAdditionalSecurityGroupByRPOID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetAdditionalSecurityGroupByRPOID : { 
+oContextInformation:CContextInformation.prototype ,
+arrSecurityMappingInfo:CSecurityMappingInfoVO.prototype ,
+
+ },CReqMsgGetSecurityMappingInfoByPage : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetSecurityMappingInfoByPage : { 
+oContextInformation:CContextInformation.prototype ,
+objSecurityMapping:CSecurityMappingInfoVO.prototype ,
+
+ },CReqMsgGetSecurityMappingForEntObjects : { 
+objEntObjReqBC:CEntObjSecurityMapRequest.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetSecurityMappingForEntObjects : { 
+oContextInformation:CContextInformation.prototype ,
+arrSecurityMappingInfo:CEntObjSecurityMapResponse.prototype ,
+
+ },CReqMsgGetEntObjForSecGrpByPage : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetEntObjForSecGrpByPage : { 
+oContextInformation:CContextInformation.prototype ,
+objEntObjSecurityGroup:CEntObjSecurityMapResponse.prototype ,
+
+ },CReqMsgGetSecGroupsByEntObjSecGroup : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetSecGroupsByEntObjSecGroup : { 
+oContextInformation:CContextInformation.prototype ,
+objSecurityGroup:CSecurityGroup.prototype ,
+
+ },CReqMsgGetSecGrpsBySecGrpPermCat : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetSecGrpsBySecGrpPermCat : { 
+oContextInformation:CContextInformation.prototype ,
+objSecurityGroup:CSecurityGroup.prototype ,
+
+ },CReqMsgCreateRoleprofileEnterpriseObject : { 
+objRoleProfileEntObjectBC:CRoleProfileEnterpriseObject.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgCreateRoleprofileEnterpriseObject : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgModifyRoleProfileEnterpriseObject : { 
+objRoleProfileEntObjectBC:CRoleProfileEnterpriseObject.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgModifyRoleProfileEnterpriseObject : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetRoleProfileEnterpriseObject : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRoleProfileEnterpriseObject : { 
+objEnterpriseObjectArray:CEnterpriseObjectArray.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgCreateDependentPermission : { 
+objDependentPermissionBC:CDependentPermission.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgCreateDependentPermission : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgModifyDependentPermission : { 
+objDependentPermissionBC:CDependentPermission.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgModifyDependentPermission : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetDependentPermission : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetDependentPermission : { 
+oContextInformation:CContextInformation.prototype ,
+objDependentPermission:CDependentPermission.prototype ,
+
+ },CReqMsgGetUserAccessConfig : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetUserAccessConfig : { 
+oContextInformation:CContextInformation.prototype ,
+objUserAccessConfig:CUserAccessConfigResponseVO.prototype ,
+objRestrictedOrganisation:CRestrictedOrganisation.prototype ,
+
+ },CReqMsgUpdateUserAccessConfig : { 
+oContextInformation:CContextInformation.prototype ,
+objUserAccessConfigBC:CUserAccessConfig.prototype ,
+objRestrictedOrganisationBC:CRestrictedOrganisation.prototype ,
+
+ },CResMsgUpdateUserAccessConfig : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgRemoveAllUserAccessConfig : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgRemoveAllUserAccessConfig : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgCreateWorkingAreaEnterpriseObject : { 
+objWorkingAreaBC:CWorkingArea.prototype ,
+oContextInformation:CContextInformation.prototype ,
+objWorkingAreaEntObjBC:CWorkingAreaEnterpriseObject.prototype ,
+
+ },CResMsgCreateWorkingAreaEnterpriseObject : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetAllWorkingArea : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetAllWorkingArea : { 
+oContextInformation:CContextInformation.prototype ,
+objWorkingArea:CWorkingAreaVO.prototype ,
+
+ },CReqMsgGetWorkingAreaDtlByOID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetWorkingAreaDtlByOID : { 
+oContextInformation:CContextInformation.prototype ,
+obWorkingAreaEntObj:CWorkingAreaEntObjVO.prototype ,
+
+ },CReqMsgGetWorkingAreaByOID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetWorkingAreaByOID : { 
+objWokringAreaEntArr:CWorkingAreaEntObjArray.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CWorkingAreaEntObjArray : { 
+CSpecialtyVO:CSpecialtyVO.prototype ,
+CServicesVO:CServicesVO.prototype ,
+
+ },CReqMsgModifyWorkingArea : { 
+objWorkingAreaBC:CWorkingArea.prototype ,
+oContextInformation:CContextInformation.prototype ,
+objWorkingAreaEntObjBC:CWorkingAreaEnterpriseObject.prototype ,
+
+ },CResMsgModifyWorkingArea : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetWorkingAreaByCrit : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetWorkingAreaByCrit : { 
+oContextInformation:CContextInformation.prototype ,
+objWorkingAreaEODtls:CWorkingAreaEODtls.prototype ,
+
+ },CReqMsgGetWorkingAreaForRoleProfileOID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetWorkingAreaForRoleProfileOID : { 
+oContextInformation:CContextInformation.prototype ,
+objWAEntObj:CWorkingAreaEntObjVO.prototype ,
+
+ },CReqMsgValidateUser : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgValidateUser : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetNativeLoginsForUsers : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetNativeLoginsForUsers : { 
+oContextInformation:CContextInformation.prototype ,
+UserLoginInfo:UserLoginInfo.prototype ,
+
+ },CReqMsgCreateLoginAccount : { 
+oContextInformation:CContextInformation.prototype ,
+objLoginBC:CLogin.prototype ,
+objUserRoleProfilesBC:CUserRoleprofile.prototype ,
+
+ },CResMsgCreateLoginAccount : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgModifyLogin : { 
+oContextInformation:CContextInformation.prototype ,
+objLoginBC:CLogin.prototype ,
+objUserRoleProfilesBC:CUserRoleprofile.prototype ,
+
+ },CResMsgModifyLogin : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgModifyLogins : { 
+oContextInformation:CContextInformation.prototype ,
+objLoginBC:CLogin.prototype ,
+objUserRoleProfilesBC:CUserRoleprofile.prototype ,
+
+ },CResMsgModifyLogins : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetLoginAccounts : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetLoginAccounts : { 
+oContextInformation:CContextInformation.prototype ,
+objLogins:CLogin.prototype ,
+
+ },CReqMsgIsLoginIDValid : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgIsLoginIDValid : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetLoginByPage : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetLoginByPage : { 
+oContextInformation:CContextInformation.prototype ,
+objLoginList:Object.prototype ,
+
+ },CReqMsgGetOrganisationForLogin : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetOrganisationForLogin : { 
+oContextInformation:CContextInformation.prototype ,
+objOrganisation:COrganisation.prototype ,
+
+ },CReqMsgGetUserForLogin : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetUserForLogin : { 
+oContextInformation:CContextInformation.prototype ,
+objEnterpriseArray:CEnterpriseObjectArray.prototype ,
+
+ },CReqMsgGetUserForLoginByPage : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetUserForLoginByPage : { 
+oContextInformation:CContextInformation.prototype ,
+objEnterpriseArray:CEnterpriseObjectArray.prototype ,
+
+ },CReqMsgGetADUSers : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetADUSers : { 
+oContextInformation:CContextInformation.prototype ,
+objUserInfo:ADUserInfo.prototype ,
+
+ },CReqMsgGetUser : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetUser : { 
+objEnterpriseObject:CEnterpriseObjectArray.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetUsersByRole : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetUsersByRole : { 
+oContextInformation:CContextInformation.prototype ,
+objUsers:CUsers.prototype ,
+
+ },CReqMsgGetLoginNameByUserOID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetLoginNameByUserOID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetUserLoginAccounts : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetUserLoginAccounts : { 
+oContextInformation:CContextInformation.prototype ,
+objOutCLogin:CLogin.prototype ,
+
+ },CReqMsgGeneratePassword : { 
+oContextInformation:CContextInformation.prototype ,
+SecretAnswerBC:CSecretAnswer.prototype ,
+
+ },CResMsgGeneratePassword : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetSecretQuestion : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetSecretQuestion : { 
+oContextInformation:CContextInformation.prototype ,
+objSecretQuestion:CSecretQuestion.prototype ,
+
+ },CReqMsgGetLoginSecretQuestions : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetLoginSecretQuestions : { 
+oContextInformation:CContextInformation.prototype ,
+objloginSecretQuestion:CLoginSecretQuestions.prototype ,
+
+ },CReqMsgGetRandomQuestion : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRandomQuestion : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgValidateLogin : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgValidateLogin : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgCreatePermission : { 
+objPermissionBC:CPermission.prototype ,
+oContextInformation:CContextInformation.prototype ,
+objDepPermissionsBC:CDependentPermission.prototype ,
+
+ },CResMsgCreatePermission : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgModifyPermission : { 
+objPermissionBC:CPermission.prototype ,
+oContextInformation:CContextInformation.prototype ,
+objDepPermissionsBC:CDependentPermission.prototype ,
+
+ },CResMsgModifyPermission : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPermission : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPermission : { 
+oContextInformation:CContextInformation.prototype ,
+objPermissions:CEnterpriseObjectArray.prototype ,
+
+ },CReqMsgGetPermissionByPage : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPermissionByPage : { 
+oContextInformation:CContextInformation.prototype ,
+objPermissionList:CPermissionAndCategory.prototype ,
+
+ },CReqMsgGetPermissionByCategory : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPermissionByCategory : { 
+oContextInformation:CContextInformation.prototype ,
+objPermissions:CEnterpriseObjectArray.prototype ,
+
+ },CReqMsgGetPermForSecurityGrpByPage : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPermForSecurityGrpByPage : { 
+oContextInformation:CContextInformation.prototype ,
+objPermissions:CPermissionAndCategory.prototype ,
+
+ },CContextInformation : { 
+Current:CContextInformation.prototype ,
+
+ },
+ }
+ 
+const charPropertyLookup = [
+'RoleType',
+'MFNBatchStatus',
+'TransferFormRequired',
+'Value',]
+ 

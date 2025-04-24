@@ -1,0 +1,33 @@
+:host ::ng-deep .k-grid-header .k-header:hover:not(:first-child):not(:nth-child(2)){
+    background-color: #2b8694 !important;
+  }
+
+
+:host ::ng-deep .k-grid-header .k-header:hover span.only-show-on-hover {
+    color: white !important;
+     font-size: 12px !important;
+}
+
+.textsize{
+  font-size: 12px;
+}
+.includenonformitem{
+  margin-top: 5px;
+  float : right;
+  
+}
+
+:host ::ng-deep .k-i-sort-desc-sm,
+:host ::ng-deep .k-i-sort-asc-sm {
+  font-size: 10px;
+  color: white;
+}
+:host ::ng-deep .k-i-sort-desc-sm::before {
+  content: "\25BC";
+}
+:host ::ng-deep .k-i-sort-asc-sm::before {
+  content: "\25B2";
+}
+    
+
+    

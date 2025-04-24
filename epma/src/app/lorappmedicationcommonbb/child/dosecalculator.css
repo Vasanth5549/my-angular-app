@@ -1,0 +1,50 @@
+.Recordheightandweight{
+    padding-right: 5px;
+}
+
+.calculatedamount{
+    padding-right: 5px;
+}
+
+.OptWeightbutton{
+    padding-left: 4px;
+}
+
+.calculateddose{
+    padding-right: 5px;
+}
+
+.dailyDose{
+    padding-left: 111px;
+}
+.lblCalOptValue_align{
+    height: 30px;
+}
+
+.Adjustedbodybutton{
+    padding-top: 3px;
+    background: 1px #FFE4AF
+}
+
+.lblAdjWarninglabel{
+    background: 1px #FDF2D6
+}
+
+.brdCalDecimalErrborder{
+    height: auto !important;
+    width: auto !important;
+}
+
+.lblFreqErralign{
+    padding-left: 10px;
+}
+
+.Errorboxsize{
+    width: auto !important;
+    margin:10px 5px 0px 125px !important;
+}
+
+.lblErrorsize{
+    padding: 5px;
+    padding-top: 10px;
+}

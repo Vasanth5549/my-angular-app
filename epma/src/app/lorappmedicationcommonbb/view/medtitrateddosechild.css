@@ -1,0 +1,19 @@
+:host ::ng-deep .k-grid .k-grid-content {
+
+    overflow-x: auto !important;
+
+}
+::ng-deep .k-grid.titratedchild table{
+    width: 864px !important;
+}
+::ng-deep .lblTitrDoseAddnlComments-label kendo-label{
+    width : calc(100% - 20px) !important;
+}
+.titratedHedr {
+    display: flex;
+    justify-content: left;
+    margin-left: 13px;
+}
+::ng-deep .k-grid .k-grid-content td.grdTitratedDoseChildColumn {
+    position: relative;
+}

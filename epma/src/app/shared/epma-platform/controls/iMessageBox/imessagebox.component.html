@@ -1,0 +1,45 @@
+
+    <!-- Title bar markup  -->
+    <kendo-dialog-titlebar kendoTooltip showOn="none" #tooltip="kendoTooltip" class="titlebar-style zero-padding-title">
+
+        <p class="title">{{title}} </p>
+
+    </kendo-dialog-titlebar>
+
+    <!-- Content section -->
+    <div class="content msgAll">
+        <img  class="icon" [class.icon-place-center]="placeIconCenter == true" [src]="imageSrc | lowercase">
+
+        &nbsp; &nbsp;
+        <span class="message messageBoxContent"><div class="messageBoxContentborder">{{message}}</div></span>
+    </div>
+
+    
+    <!-- Actions markup -->
+    <kendo-dialog-actions class="center">
+
+        <div class="center">
+            <span *ngIf="displayButton['button1'] !== 'none'" tabindex="0" class="focushover app-pointer" (keydown)="focusEvent($event, displayButton['button1'])" kendoTooltip [title]="displayButton['button1']">
+                <img [ngClass]="iconType == '1' ? 'buttonConflict' :'buttons'" (click)="showResult(displayButton['button1'])" [src]="image1 | lowercase">
+
+                <button class="img-ok_symbol button"
+                    (click)="showResult(displayButton['button1'])">{{displayButton['button1']}}</button>
+            </span>
+            &nbsp; 
+            <span *ngIf="displayButton['button2'] !== 'none'" tabindex="0" class="focushover app-pointer" (keydown)="focusEvent($event, displayButton['button2'])" kendoTooltip [title]="displayButton['button2']">
+                <img class="buttons" (click)="showResult(displayButton['button2'])" [src]="image2 | lowercase">
+
+                <button class="img-ok_symbol button"
+                    (click)="showResult(displayButton['button2'])">{{displayButton['button2']}}</button>
+            </span>
+            &nbsp; 
+            <span *ngIf="displayButton['button3'] !== 'none'" tabindex="0" class="focushover app-pointer" (keydown)="focusEvent($event, displayButton['button3'])" kendoTooltip [title]="displayButton['button3']">
+                <img class="buttons" (click)="showResult(displayButton['button3'])" [src]="image3 | lowercase">
+
+                <button class="img-ok_symbol button"
+                    (click)="showResult(displayButton['button3'])">{{displayButton['button3']}}</button>
+            </span>
+        </div>
+
+        
+    </kendo-dialog-actions>

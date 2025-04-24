@@ -1,0 +1,109 @@
+<div class="div-dialog-content">
+    <ScrollViewer #brdHeaderTempRef Name="brdHeader" VerticalScrollBarVisibility="Auto" BorderBrush="#77b3b4"
+        BorderThickness="1" Height="100" Background="white" Margin="0">
+
+        <kendo-gridlayout name="LayoutRoot" [rows]="[{height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'},
+            {height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'}]"
+            [cols]="[{width:'70'},{width:'50'},{width:'145'},{width:'2'},{width:'35'},{width:'2'},{width:'86fr'}]">
+
+            <kendo-gridlayout-item [row]='1' [col]='1' [colSpan]='8'>
+            <div containerStyle >
+                <ContentPresenter #CntMedicatonValueTempRef  Name="CntMedicatonValue" class="div-margin fontClass"
+                    [Content]="DataContext | MedAdminLineDisplay:'':'200'"></ContentPresenter>
+            </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='2' [col]='1' [colSpan]='8'>
+                <div containerStyle class="marginStyle">
+                    <ContentPresenter #CntDoseHdrValueTempRef Margin="5" Name="CntDoseHdrValue" style="line-height: 18px;"
+                            HorizontalAlignment="Left" [Content]="DataContext | MedDoseWrap: '' : pgdDrugHeader"></ContentPresenter>
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='3' [col]='1' [colSpan]='8'>
+                <div containerStyle class="marginStyle">
+                        <ContentPresenter #CntRouteSiteValueTempRef Margin="5" Name="CntRouteSiteValue"
+                            HorizontalAlignment="Left" [Content]="DataContext | MedRouteSiteWrap"></ContentPresenter>
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='4' [col]='1' [colSpan]='8'>
+                <div containerStyle class="marginStyle" *ngIf="DataContext?.oDrugHdrBasicInfo?.TargetSaturationRange || DataContext?.oDrugHdrBasicInfo?.AdministrationInstlblVisibility == 0">
+                        <ContentPresenter #CntTargetSatValueTempRef Margin="5" Name="CntTargetSatValue"
+                            HorizontalAlignment="Left" [Content]="DataContext | MedTargetsatrangeWrap">
+                        </ContentPresenter>
+                        <StackPanel Orientation="Horizontal" Height="auto" Margin="5,0,0,0"  *ngIf="DataContext.oDrugHdrBasicInfo.AdministrationInstlblVisibility == 0">
+                            <TextBlock #lblInstructionsTempRef Name="lblInstructions" [Text]="DataContext.oDrugHdrBasicInfo.AdministrationInst" TextAlignment="Left" IsWordwrap="True"
+                                [(Visibility)]="DataContext.oDrugHdrBasicInfo.AdministrationInstlblVisibility">
+                            </TextBlock>
+                        </StackPanel>
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='5' [col]='1' [colSpan]='8'>
+                <div containerStyle class="marginStyle" *ngIf="DataContext?.oDrugHdrBasicInfo?.Humidification">
+                    <ContentPresenter #CntHumidificationValueTempRef Margin="5" Name="CntHumidificationValue"
+                            HorizontalAlignment="Left" [Content]="DataContext | MedHumidificationWrap">
+                        </ContentPresenter>
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='6' [col]='1' [colSpan]='8'>
+                <div containerStyle  class="marginStyle" *ngIf="DataContext?.oDrugHdrAddnlInfo?.RecordedAtlblVisibility == 0 || DataContext?.oDrugHdrAddnlInfo?.DueAtlblVisibility == 0">
+                    <StackPanel Orientation="Horizontal" Height="auto" Margin="5,0,0,0">
+                        <TextBlock #lblRec1AtTempRef Name="lblRec1At" Margin="0,0,2,0"
+                            [Text]="DataContext.oDrugHdrAddnlInfo.BegunAtLabel" TextAlignment="left" [(Visibility)]="DataContext.oDrugHdrAddnlInfo.RecordedAtlblVisibility">
+                        </TextBlock>
+                        <TextBlock #lblRec1AtValueTempRef Name="lblRec1AtValue" Margin="1,0,0,0" TextAlignment="Left"
+                            [Text]="DataContext.oDrugHdrAddnlInfo.RecordedAt" [(Visibility)]="DataContext.oDrugHdrAddnlInfo.RecordedAtlblVisibility">
+                        </TextBlock>
+                        <TextBlock #lblDueAtTempRef Name="lblDueAt" Margin="0,0,2,0"
+                            [Text]="DataContext.oDrugHdrAddnlInfo.DueAtLabel" TextAlignment="Left" [(Visibility)]="DataContext.oDrugHdrAddnlInfo.DueAtlblVisibility">
+                        </TextBlock>
+                        <TextBlock #lblDueAtValueTempRef Name="lblDueAtValue" Margin="2,0,0,0" TextAlignment="Left"
+                            [Text]="DataContext.oDrugHdrAddnlInfo.DueAt" [(Visibility)]="DataContext.oDrugHdrAddnlInfo.DueAtlblVisibility">
+                        </TextBlock>
+                    </StackPanel>
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='7' [col]='1' [colSpan]='8'>
+                <div containerStyle  class="marginStyle" *ngIf="DataContext?.oDrugHdrAddnlInfo?.ReviewAtlblVisibility == 0">
+                    <StackPanel Orientation="Horizontal" Height="auto" Margin="5,0,0,0">
+                        <TextBlock #lblReviewAtTempRef Name="lblReviewAt" Margin="0,0,2,0"
+                            [Text]="DataContext.oDrugHdrAddnlInfo.ReviewAtLabel" TextAlignment="Left"
+                            [(Visibility)]="DataContext.oDrugHdrAddnlInfo.ReviewAtlblVisibility">
+                        </TextBlock>
+                        <TextBlock #lblReviewAtValueTempRef Name="lblReviewAtValue" Margin="2,0,0,0" TextAlignment="Left"
+                            [Text]="DataContext.oDrugHdrAddnlInfo.ReviewAt"  [(Visibility)]="DataContext.oDrugHdrAddnlInfo.ReviewAtlblVisibility">
+                        </TextBlock>
+                        <Image #ReviewImgTempRef Name="ReviewImg" Source="./assets/Images/iReviewAfterNOR16.png"
+                            HorizontalAlignment="Right" [(Visibility)]="DataContext.oDrugHdrAddnlInfo.ReviewAtVisibility"
+                            [Tooltip]="DataContext.oDrugHdrAddnlInfo.ReviewIconTooltip">
+                        </Image>
+                    </StackPanel>
+                </div>
+            </kendo-gridlayout-item>
+
+            <!-- <kendo-gridlayout-item [row]='5' [col]='1' [colSpan]='8' *ngIf="DataContext.oDrugHdrBasicInfo.AdministrationInstlblVisibility == 0">
+            <div containerStyle class="marginStyle">
+                    <StackPanel Orientation="Horizontal" Height="auto" Margin="5,0,0,0">
+                        <TextBlock #lblInstructionsTempRef Name="lblInstructions" [Text]="DataContext.oDrugHdrBasicInfo.AdministrationInst" TextAlignment="Left" IsWordwrap="True"
+                            [(Visibility)]="DataContext.oDrugHdrBasicInfo.AdministrationInstlblVisibility">
+                        </TextBlock>
+                    </StackPanel>
+                </div>
+            </kendo-gridlayout-item> -->
+
+            <kendo-gridlayout-item [row]='6' [col]='1' [colSpan]='8'>
+                <div containerStyle  class="marginStyle" *ngIf="DataContext?.oDrugHdrAddnlInfo?.IngredientAdminWarning">
+                    <TextBlock #lblIngAdminWarningTempRef HorizontalAlignment="Stretch" style="margin-left: 5px;" 
+                        Name="lblIngAdminWarning" VerticalAlignment="Center"
+                        [Text]="DataContext.oDrugHdrAddnlInfo.IngredientAdminWarning" IsWordwrap="True" *ngIf="DataContext.oDrugHdrAddnlInfo.IngredientAdminWarning">
+                    </TextBlock>
+                </div>
+            </kendo-gridlayout-item>
+
+        </kendo-gridlayout>
+    </ScrollViewer>
+</div>

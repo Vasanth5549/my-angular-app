@@ -1,0 +1,170 @@
+.k-dialog-titlebar {
+
+    /* background: #2c9cadbf 0% 0% no-repeat padding-box; */
+  
+    /* background: linear-gradient(to top, #6fa8a4, #7bb9b4, #88c9c4, #95dbd4, #a2ece4);
+    
+      font-weight: 500;
+    
+      color: #000000; */
+    background: #79B7C0 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 6px #00000061;
+    border: 1px solid #B2B2B2;
+    opacity: 1;
+  
+  }
+  
+  .k-dialog-buttongroup {
+    background: #C2E2E3 0% 0% no-repeat padding-box;
+    /* border-radius: 0px 0px 5px 5px; */
+    opacity: 1;
+  }
+  
+  .k-window-titlebar {
+    padding: 0px;
+    height: 33px;
+  }
+  
+.k-window-content,
+.k-prompt-container {
+  padding: 0px 0px;
+  border-width: 0;
+  border-color: inherit;
+  color: inherit;
+  background: #e0eff1 0% 0% no-repeat padding-box;
+  outline: 0;
+  overflow: auto;
+  position: relative;
+  flex: 1 1 auto;
+}
+
+  .button {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    padding-bottom: 5px;
+  }
+
+  .button::first-letter {
+  
+    text-decoration:underline;
+  }
+  
+  .icon {
+    height: 36px;
+  
+  }
+  
+  .buttons {
+    height: 16px;
+    margin-bottom: -3px;
+    margin-right: -12px;
+  }
+  
+  .title {
+    padding-left: 10px;
+    text-align: left;
+    font: normal normal bold 13px/16px Verdana;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+  
+  }
+  
+  .message {
+    padding-left: 5px;
+    margin-top: 4px;
+    font: normal normal normal 13px/16px Verdana;
+    letter-spacing: 0px;
+    color: #000000;
+  }
+  .center{
+    text-align-last: center
+  }
+  .right{
+    text-align-last: right;
+    margin-right: 5px;
+    
+  }
+  .left{
+    text-align-last: left
+  }
+  .background-border{
+    background: #E0EFF1;
+    border-top: none;
+  }
+  .content{
+    display: flex;
+    /* margin: 12px auto; */
+  }
+  
+  
+  .k-window-content,
+  .k-prompt-container {
+    background: #E0EFF1 0% 0% no-repeat padding-box !important;
+  }
+
+  .help{
+    text-align-last: right;
+    float: right;
+  }
+  
+  .appactivity-dialog-titlebar {
+    padding: 0px 5px 0px 10px !important;
+    background: #79b7c0 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 6px #00000061;
+    border-bottom: 1px solid #b2b2b2;
+    opacity: 1;
+    color: white !important;
+    display: flex;
+    justify-content: space-between;   
+    height: 31px !important;
+    font-weight: 600; 
+  }
+.white {
+  color: white !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+  .appactivity-content {
+    padding: 16px 16px !important;
+  }
+
+  ::ng-deep.k-window-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+  }
+
+  ::ng-deep .k-window-titlebar .k-button{
+    margin-right: -10px !important;
+  }
+  ::ng-deep .k-i-x:hover::before{
+    background: red;
+    width:100%;
+    color:white;   
+  }
+
+
+
+  
+  /* .k-button ,
+  .k-button ::before,
+  .k-button ::after {
+      box-sizing: border-box !important;
+      background: red !important;
+  } */
+  
+  
+  
+  /* .body {
+    text-align: left;
+  font: normal normal normal 13px/16px Verdana;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+  } */

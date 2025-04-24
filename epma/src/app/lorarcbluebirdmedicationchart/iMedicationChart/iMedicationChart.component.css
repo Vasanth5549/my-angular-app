@@ -1,0 +1,168 @@
+.float-right {
+  float: right;
+}
+
+.height-set {
+  height: auto;
+}
+
+.padding-0 {
+  padding: 0px;
+}
+.padding {
+  padding-top: 10px;
+
+}
+.margin-0{
+  margin:0px;
+  padding: 0px;
+}
+
+#medication .k-tr:hover{
+  background-color: #d1e6fd;
+}
+
+#medication .k-alt:hover{
+  background-color: #b8d2f0;
+}
+
+.iMedicationChart.k-grid tr td {
+  padding: 0px 0px 0px 0px !important;
+}
+
+.iMedicationChart.k-grid td,
+.iMedicationChart.k-grid-footer {
+  border: none;
+}
+
+.iMedicationChart.k-grid-header
+.iMedicationChart.k-header,
+.iMedicationChart th.k-header{
+  border-top: none;
+  border-bottom: 2px solid #205860;
+}
+.iMedicationChart.k-grid tr td.CellStyle:first-child{
+  display: contents;
+}
+
+.HeaderCellStyle{
+  background-color: #74b9c3 !important;
+}
+
+.text-wrap {
+  white-space: normal;
+}
+
+.inlineuicontainer {
+  display: inline-block;
+}
+
+
+.right-align-icon {
+  float: right;
+}
+
+.colon-align {
+  margin-left: 21px;
+}
+
+.display-align {
+  margin-right: 20px;
+}
+.colAlignPrescriptionChart{
+  display: flex;
+  justify-content: center;
+  text-align: center !important;
+  margin: -3px -5px 0px -1px;
+}
+
+
+.colAlignMedicationChart {
+  display: flex;
+  justify-content: center;
+  text-align: center !important;
+  margin: 0px 6px 0px 0px;
+}
+
+:host ::ng-deep #medication .k-grid td{
+  padding: 0px !important;
+  }
+:host ::ng-deep #medication .k-grid td dataTemplate div{
+  padding: 8px 2px;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+:host ::ng-deep #medication table{
+  border-collapse: collapse !important;
+}
+.iMedicationChart .iMedicationChartCheckBox {
+  text-align: center !important;
+}
+.txtBlockWrap
+{
+  white-space: normal;
+}
+.margin-10{
+  margin: 0px 10px 0px 0px;
+}
+.grid-visibility {
+  display : none !important; 
+}
+.display-alignment{
+  display:flex;
+}
+.Richtxt{
+  background-color: #74b9c3 !important;
+}
+
+.subGrid{
+  padding-left: 15px !important;
+  width: auto !important;
+}
+.medgrid{
+  padding-left:2px !important ;
+  width: auto !important;
+}
+
+
+
+/* .defaultGridHeight{
+height: 682px;
+} */
+@media screen and (max-width: 1450px) {
+  .defaultGridHeight{
+    height: 355px;
+    width: 99.8%;
+}
+.changeGridHeight{
+  height: 340px;
+  }
+  .presItemWidth{
+    width:  40px;
+  }
+  .adminWarning{
+    width: 435px;
+    display: inline-block;
+    white-space: break-spaces;
+  }
+}
+@media screen and (min-device-width : 1400px) and (max-device-width: 1550px) {
+  .defaultGridHeight{
+    height: 456px;
+    width: 100%;
+  }
+  .changeGridHeight{
+    height: 437px;
+    }
+ }
+@media screen and (min-width: 1600px) {
+  .defaultGridHeight{
+    height: 682px;
+    width: 100%;
+  }
+  .changeGridHeight{
+    height: 656px;
+    }
+}

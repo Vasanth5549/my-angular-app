@@ -1,0 +1,573 @@
+<kendo-gridlayout GridLayout #LayoutRootTempRef Name="LayoutRoot" HorizontalAlignment="Stretch"
+    [Background]="Styles.LzoPageBG" [rows]="[{height: 'auto'}]" [cols]="[{width: '9fr'},{width: 34},{width: '9fr'}]" class="TopAlignment" >
+
+    <kendo-gridlayout-item GridLayout [col]="1" [row]="1">
+        <kendo-gridlayout HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="auto" Margin="0,6,0,0"
+            [Background]="Styles.LzoPageBG"
+            [rows]="[{height: 'auto'},{height: 'auto'},{height: 31},{height: 31},{height: 'auto'},{height: 'auto'},{height: 'auto'},{height: 'auto'},{height: 'auto'},{height: 'auto'},{height: 5},{height: 'auto'}]"
+            [cols]="[{width: '6fr'},{width: '19fr'}]">
+            <Border GridLayout [row]="1" [col]='2' [rowSpan]="11" [Background]="Styles.InnerBG"></Border>
+            <Border GridLayout [row]='4' [col]='2' [colSpan]='2'
+                [(Background)]="DataContext.FormViewerDetails.BasicDetails.PRNChkColorVisible"></Border>
+            <Border GridLayout [row]='11' [col]='2' [Background]="Styles.InnerBG"></Border>
+            <Border GridLayout [row]='2' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='3' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='4' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='5' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='6' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='8' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='9' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='9' [col]='2' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='10' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='7' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"
+                [Visibility]="DataContext.FormViewerDetails.BasicDetails.IsBrandMandatory"></Border>
+            <Border GridLayout [row]='11' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+
+            <kendo-gridlayout-item [row]='7' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblDateCommencedTempRef IsWordwrap="True" HorizontalAlignment="Stretch"
+                        Name="lblDateCommenced" VerticalAlignment="Center" [Text]="resKey.lblDateCommenced_Text"
+                        Mandatory="False"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='7' [col]='2'>
+                <div containerStyle>
+                    <StackPanel Orientation="Horizontal" Width="auto" Margin="5,5">
+                        <iRadioButton #optCompletedateTempRef [Text]="resKey.optCompletedate_Text"
+                            Name="optCompletedate"
+                            [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.Completedate" MinWidth="100"
+                            Width="110" Margin="0,0,10,0" IsWordWrap="True" GroupName="Dateoption" IsTabStop="True" TabIndex="5" [Value]="resKey.optCompletedate_Text" [isGlobalEnabled]="IsEnabled">
+                        </iRadioButton>
+                        <iRadioButton #optPartialdateTempRef [Text]="resKey.optPartialdate_Text" Name="optPartialdate"
+                            VerticalAlignment="Center"
+                            [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.Partialdate" GroupName="Dateoption"
+                           MinWidth="98" Width="80" Margin="0,0,10,0" IsWordWrap="True" IsTabStop="True"
+                            TabIndex="6" [Value]="resKey.optPartialdate_Text" [isGlobalEnabled]="IsEnabled">
+                        </iRadioButton>
+                    </StackPanel>
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='8' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblStartDateTempRef HorizontalAlignment="Stretch" Name="lblStartDate"
+                        VerticalAlignment="Center" [Text]="resKey.lblDate_Text" Mandatory="False"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsenableStartdate"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='8' [col]='2'>
+                <div containerStyle>
+                    <iDateTimePicker #dtpStartDateTempRef DatePickerMode="DATEPICKER" EnableCultureSupport="False"
+                        HorizontalAlignment="Stretch" [Tooltip]="resKey.dtpStartDate_Tooltip" Name="dtpStartDate"
+                        Height="21" Width="auto" Margin="5,5" DateTimeFormat="Custom" CustomFormat="dd-MMM-yyyy"
+                        [(SelectedDateTime)]="DataContext.FormViewerDetails.BasicDetails.CompleteStartDTTM"
+                        IsTabStop="True" [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsenableStartdate"
+                        TabIndex="7" [RangeStartDate]="DataContext.FormViewerDetails.BasicDetails.RangeStartDTTM"
+                        [RangeEndDate]="DataContext.FormViewerDetails.BasicDetails.RangeEndDTTM" [isGlobalEnabled]="IsEnabled"></iDateTimePicker>
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='9' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblMonthTempRef HorizontalAlignment="Stretch" Name="lblMonth" VerticalAlignment="Center"
+                        [Text]="resKey.lblMonth_Text" Mandatory="False"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsenableMonthYear"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='9' [col]='2'>
+                <kendo-gridlayout HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5,5"
+                    [rows]="[{height: 'auto'}]" [cols]="[{width: '1fr'},{width: '1fr'}]">
+                    <kendo-gridlayout-item [row]='1' [col]='1'>
+                        <div containerStyle>
+                    <iComboBox #cboMonthTempRef IsEditable="True"
+                        [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.DefaultDetails.Month"
+                        [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.Month" IsTypeAHead="True"
+                        [Tooltip]="resKey.cboMonth_Tooltip" IsTextSearchEnabled="True" HorizontalAlignment="Left"
+                        Name="cboMonth" Height="21" Width="165" Margin="5,5"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsenableMonthYear" IsTabStop="True"
+                        TabIndex="8" [isGlobalEnabled]="IsEnabled"></iComboBox></div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='1' [col]='2'>
+                        <div containerStyle>
+                            <iUpDownBox #udYearTempRef Height="21" Name="udYear" [Tooltip]="resKey.udyear_Tooltip" 
+                                Width="auto" Margin="5" [(Value)]="DataContext.FormViewerDetails.BasicDetails.Year" Minimum="1900"
+                                Maximum="2500" IsDecimal="False" DecimalPlaces="0"
+                                [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsenableMonthYear"
+                                IsTabStop="True" TabIndex="9" [isGlobalEnabled]="IsEnabled"></iUpDownBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='10' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblQuantityTempRef HorizontalAlignment="Stretch" Name="lblQuantity"
+                        VerticalAlignment="Center" [Text]="resKey.lblQuantity_Text"
+                        [Mandatory]="DataContext.FormViewerDetails.BasicDetails.IsQuantityMandatory"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsQuantityEnabled"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]="10" [col]="2">
+                <kendo-gridlayout HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5,5"
+                    [rows]="[{height: 'auto'}]" [cols]="[{width: '1fr'},{width: '1fr'}]">
+                    <kendo-gridlayout-item [row]='1' [col]='1'>
+                        <div containerStyle>
+                            <iTextBox #txtQuantityTempRef HorizontalAlignment="Left"
+                                [Tooltip]="resKey.txtQuantity_Tooltip" Name="txtQuantity" VerticalAlignment="Center"
+                                [(Text)]="DataContext.FormViewerDetails.BasicDetails.Quantity" Width="165" Margin="5,5"
+                                Type="Numeric" Nonnegative="True"
+                                [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsQuantityEnabled"
+                                IsTabStop="True" TabIndex="10" Height="21" Precision="3" Scale="5" MaxLength="9" [isGlobalEnabled]="IsEnabled">
+                            </iTextBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='1' [col]='2'>
+                        <div containerStyle>
+                            <iComboBox #cboQuantityTempRef IsEditable="True" 
+                                [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.DefaultDetails.Quantitys"
+                                [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.QuantityUOM"
+                                [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsQuantityEnabled"
+                                IsDropDownStretch="True" [Tooltip]="resKey.cboQuantity_Tooltip" IsTypeAHead="True"
+                                IsTextSearchEnabled="True" HorizontalAlignment="Stretch" Name="cboQuantity"
+                                VerticalAlignment="Center" Height="21" Width="auto" Margin="5"IsTabStop="True" TabIndex="11"
+                                SelectAllTextEvent="None" [isGlobalEnabled]="IsEnabled"></iComboBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]="6" [col]="1" [colSpan]="2">
+                <div containerStyle>
+                    <frmWeekdays #WeekdaysTempRef Name="Weekdays" HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch" Height="Auto" Width="Auto" [DataContext]= "DataContext" Margin="1,0,66,0" TabIndex="4" [isGlobalEnabled]="IsEnabled"></frmWeekdays>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='11' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblBrandTempRef TabIndex="10" HorizontalAlignment="Stretch" Name="lblBrand"
+                        VerticalAlignment="Center" [Text]="resKey.lblBrand_Text"
+                        [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsBrandMandatory"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+
+
+            <kendo-gridlayout-item [row]="11" [col]="2">
+                <kendo-gridlayout [rows]="[{height: 'auto'},{height: 20}]" [cols]="[{width: 320}]" Margin="5,5"
+                    [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsBrandMandatory">
+                    <kendo-gridlayout-item [row]='1' [col]='1'>
+                        <div containerStyle>
+                            <iLabel #cmdBrandTempRef Width="Auto"
+                                [(Text)]="DataContext.FormViewerDetails.BasicDetails.BrandName" IsWordwrap="True"
+                                [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsBrandMandatory"
+                                TextDecorations="Underline" Cursor="Hand" Height="Auto" HorizontalAlignment="Left"
+                                VerticalAlignment="Top" Name="cmdBrand"
+                                [(Tooltip)]="DataContext.FormViewerDetails.BasicDetails.BrandName"
+                                [MouseLeftButtonUp]="cmdBrand_MouseLeftButtonDown" TabIndex="12"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='2' [col]='1'>
+                        <div containerStyle>
+                            <iButton #cmdClearTempRef TabIndex="11" Text="Clear"
+                                [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsClearEnabled"
+                                [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsBrandMandatory"
+                                Tooltip="Clear" TextDecorations="Underline" Cursor="Hand" Height="23"
+                                HorizontalAlignment="Right" Width="55" Margin="5,0,5,0" VerticalAlignment="Top"
+                                Name="cmdClear" ImageSource="../Images/iClearNOR24.png"
+                                DisabledImageSource="../Images/iClearDIS24.png"
+                                ActiveImageSource="../Images/iClearHOT24.png" [Command]="DataContext.ClearBrand">
+                            </iButton>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='3' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblFrequencyTempRef HorizontalAlignment="Stretch" Name="lblFrequency"
+                        VerticalAlignment="Center" [Text]="resKey.lblFrequency_Text"
+                        [(Mandatory)]="DataContext.FormViewerDetails.BasicDetails.IsMandatoryFrequency"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsenableFrequency"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='3' [col]='2'>
+                <div containerStyle>
+                    <iComboBox #cboFrequencyTempRef IsEditable="True" IsTypeAHead="True" IsTextSearchEnabled="True"
+                        Name="cboFrequency" VerticalAlignment="Center" Width="auto" Height="21"
+                        HorizontalAlignment="Stretch" Margin="5,5"
+                        [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.IsenableFrequency"
+                        [Tooltip]="resKey.cboFrequency_Tooltip"
+                        [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.DefaultDetails.Frequencys"
+                        [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.Frequency" IsTabStop="True"
+                        TabIndex="1" [isGlobalEnabled]="IsEnabled"></iComboBox>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='4' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblIsPRNTempRef HorizontalAlignment="Stretch" Name="lblIsPRN" VerticalAlignment="Center"
+                        [Text]="resKey.lblIsPRN_Text" Mandatory="False"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsenableAsrequired"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='4' [col]='2'>
+                <div containerStyle>
+                    <iCheckBox #chkPRNTempRef Content="" HorizontalAlignment="Stretch" Name="chkPRN"  
+                        [Tooltip]="resKey.chkPRN_Tooltip" VerticalAlignment="Center" Width="auto" Margin="3,5"
+                        [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.AsRequired"
+                        [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.IsenableAsrequired"
+                        [KeyDown]="chkPRN_KeyDown_Func" TabIndex="2" [isGlobalEnabled]="IsEnabled"></iCheckBox>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='5' [col]="1">
+                <div containerStyle>
+                    <iLabel #lblPRNInstructionTempRef HorizontalAlignment="Stretch" Name="lblPRNInstruction"
+                        VerticalAlignment="Center" Text="PRN instructions" IsWordwrap="True"
+                        [(Mandatory)]="DataContext.FormViewerDetails.BasicDetails.IsPRNInstructionMandatory"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsEnablePRNInst"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='5' [col]='2'>
+                <div containerStyle>
+                    <iComboBox #cboPRNInstructionTempRef Name="cboPRNInstruction" TabIndex="3" IsTextSearchEnabled="True"
+                        VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="21" Width="Auto" Margin="5,5"
+                        IsTypeAHead="True" IsEditable="True"
+                        [ItemsSource]="DataContext.FormViewerDetails.BasicDetails.DefaultDetails.PRNInstructions"
+                        [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.PRNInstruction"
+                        [(Text)]="DataContext.FormViewerDetails.BasicDetails.PRNInstructionFreeText"
+                        AllowInputText="True" [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.IsEnablePRNInst"
+                        IsTabStop="True" [Tooltip]="resKey.cboPRNInstruction_ToolTip" MaxTextLength="255"
+                        SelectAllTextEvent="None" [isGlobalEnabled]="IsEnabled"></iComboBox>
+                </div>
+            </kendo-gridlayout-item>
+
+
+
+        </kendo-gridlayout>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]="1" [col]="3">
+        <kendo-gridlayout HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="auto" Margin="0,6,0,0"
+            [Background]="Styles.LzoPageBG"
+            [rows]="[{height: 'auto'},{height: 'auto'},{height: 'auto'},{height: 'auto'},{height: 'auto'},{height: 'auto'},{height: 'auto'},{height: 'auto'},{height: 'auto'},{height: 'auto'},{height: 'auto'},{height: 5},{height: 'auto'},{height: 'auto'},{height: 'auto'}]"
+            [cols]="[{width: '6fr'},{width: '19fr'}]">
+
+            <Border GridLayout [row]='1' [col]='2' [Background]="Styles.InnerBG"></Border>
+            <Border GridLayout [row]='2' [col]='2' [Background]="Styles.InnerBG"></Border>
+            <Border GridLayout [row]='3' [col]='2'
+                [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsVisibleClinicallyverify"
+                [Background]="Styles.InnerBG"></Border>
+            <Border GridLayout [row]='4' [col]='2'
+                [Visibility]="DataContext.FormViewerDetails.BasicDetails.IsVisibleClinicallyverify"
+                [Background]="Styles.InnerBG"></Border>
+            <Border GridLayout [row]='5' [col]='2'
+                [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsVisibleClinicallyverify"
+                [Background]="Styles.InnerBG"></Border>
+            <Border GridLayout [row]='6' [col]='2' [Visibility]="DataContext.IsReasonForModificationVisible"
+                [Background]="Styles.InnerBG"></Border>
+            <Border GridLayout [row]='7' [col]='2' [Visibility]="DataContext.IsReasonForModificationVisible"
+                [Background]="Styles.InnerBG"></Border>
+            <Border GridLayout [row]='8' [col]='2' [Background]="Styles.InnerBG"></Border>
+            <Border GridLayout [row]='9' [col]='2' [Background]="Styles.InnerBG"></Border>
+            <Border GridLayout [row]='10' [col]='2' [Background]="Styles.InnerBG"></Border>
+            <Border GridLayout [row]='11' [col]='2' [Background]="Styles.InnerBG"></Border>
+            <Border GridLayout [row]='12' [col]='2' [Background]="Styles.InnerBG"></Border>
+            <Border GridLayout [row]='1' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='2' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='3' [col]='1' [colSpan]='2'
+                [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsVisibleClinicallyverify"
+                [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='4' [col]='1' [colSpan]='2'
+                [Visibility]="DataContext.FormViewerDetails.BasicDetails.IsVisibleClinicallyverify"
+                [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='5' [col]='1' [colSpan]='2'
+                [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsVisibleClinicallyverify"
+                [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='6' [col]='1' [colSpan]='2'
+                [Visibility]="DataContext.IsReasonForModificationVisible" [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='7' [col]='1' [colSpan]='2'
+                [Visibility]="DataContext.IsReasonForModificationVisible" [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='8' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='9' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='10' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='11' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+            <Border GridLayout [row]='12' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+            <kendo-gridlayout-item [row]='1' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblDurationTempRef HorizontalAlignment="Stretch" Name="lblDuration"
+                        VerticalAlignment="Center" [Text]="resKey.lblDuration_Text" Mandatory="False"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsenableDuration"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]="1" [col]="2">
+                <kendo-gridlayout HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5,5"
+                    [cols]="[{width: '1fr'},{width: '2fr'}]" [rows]="[{height: 'auto'}]">
+                    <kendo-gridlayout-item [row]="1" [col]='1'>
+                        <div containerStyle>
+                            <iUpDownBox #udDurationTempRef Height="21" [Tooltip]="resKey.udDuration_Tooltip"
+                                Maximum="999" Precision="0" Scale="3" Name="udDuration"
+                                [(Value)]="DataContext.FormViewerDetails.BasicDetails.Duration" Width="auto"
+                                Margin="5,5,5,5"
+                                [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.IsenableDuration"
+                                IsTabStop="True" TabIndex="12" [isGlobalEnabled]="IsEnabled"></iUpDownBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="1" [col]='2'>
+                        <div containerStyle>
+                            <iComboBox #cboDurationTempRef IsEditable="True" Tooltip="Select a unit of measure"
+                                [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.DefaultDetails.Duration"
+                                [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.DurationUOM"
+                                IsTypeAHead="True" IsTextSearchEnabled="True" HorizontalAlignment="Stretch"
+                                Name="cboDuration" VerticalAlignment="Center" Height="21" Width="auto" Margin="5,5"
+                                [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.IsenableDuration"
+                                IsTabStop="True" TabIndex="13" [isGlobalEnabled]="IsEnabled"></iComboBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='2' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblStatTypeTempRef HorizontalAlignment="Stretch" Name="lblStatType"
+                        VerticalAlignment="Center" [Text]="resKey.lblStatType_Text" Mandatory="False"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsEnableStationeryType"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='2' [col]='2'>
+                <div containerStyle>
+                    <iComboBox #cboStatTypeTempRef IsEditable="False"
+                        [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.DefaultDetails.Stationarys"
+                        [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.StationaryType"
+                        [Tooltip]="resKey.cboStatType_Tooltip" IsTypeAHead="False" IsTextSearchEnabled="False"
+                        HorizontalAlignment="Stretch" Name="cboStatType" VerticalAlignment="Center" Height="21"
+                        Width="auto" Margin="5,5"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsEnableStationeryType"
+                        IsTabStop="True" TabIndex="14" [isGlobalEnabled]="IsEnabled"></iComboBox>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='10' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblSupplyInstTempRef Name="lblSupplyInst" [Text]="resKey.lblSupplyInst_Text"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsenableSupplyInstruction"
+                        HorizontalAlignment="Left" VerticalAlignment="Center" Mandatory="False"
+                        TextDecorations="Underline" IsFocusable="True" TabIndex="21" Cursor="Hand"
+                        [Tooltip]="resKey.lblSupplyInstructions_Tooltip" Width="106" Margin="0,12,0,12"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='10' [col]='2'>
+                <div containerStyle>
+                    <ScrollViewer class="SupplyInscroll" VerticalScrollBarVisibility="Auto" MaxHeight="35" BorderThickness="0"
+                        HorizontalAlignment="Left" Width="342">
+                        <kendo-gridlayout-item [row]='10' [col]='2'>
+                            <div class="leftAlignment" containerStyle>
+                                <iLabel #lblSupplyInstTextTempRef Name="lblSupplyInstText" Width="auto"
+                                    [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsVisibleSupplyInstr"
+                                    [(Text)]="DataContext.FormViewerDetails.BasicDetails.SupplyInsTextWithComments"
+                                    [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsenableSupplyInstruction"
+                                    HorizontalAlignment="Left" VerticalAlignment="Center" IsWordwrap="True"
+                                    Height="Auto"
+                                    >
+                                </iLabel>
+                            </div>
+                        </kendo-gridlayout-item>
+
+                    </ScrollViewer>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='10' [col]='2' class="SupplyVis">
+                <div containerStyle>
+                    <iLabel #lblSupplyInstValueTempRef Name="lblSupplyInstValue"
+                        [Text]="DataContext.FormViewerDetails.BasicDetails.SupplyInsVal" Visibility="Collapsed">
+                    </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='11' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblTreatToConTempRef HorizontalAlignment="Stretch" IsWordwrap="True" Name="lblTreatToCon"
+                        VerticalAlignment="Center" [Text]="resKey.lblTreatToCon_Text" Mandatory="False"
+                        [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.ISvisibletreatmentcontinue"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsEnableTreatmentCont"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='11' [col]='2'>
+                <div containerStyle>
+                    <iComboBox #cboTreatToConTempRef IsEditable="True"
+                        [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.DefaultDetails.TreatToContinue"
+                        [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.TreatmentToContinue"
+                        [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.ISvisibletreatmentcontinue"
+                        IsTypeAHead="True" IsTextSearchEnabled="True" [Tooltip]="resKey.cboTreatToCon_Tooltip"
+                        HorizontalAlignment="Stretch" Name="cboTreatToCon" VerticalAlignment="Center" Width="auto"
+                        Height="21" Margin="5,5"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsEnableTreatmentCont"
+                        IsTabStop="True" TabIndex="22" [isGlobalEnabled]="IsEnabled"></iComboBox>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='7' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblModCommentsTempRef HorizontalAlignment="Stretch" Name="lblModComments"
+                        [Visibility]="DataContext.IsReasonForModificationVisible" VerticalAlignment="Center"
+                        Mandatory="False" [Text]="resKey.lblModComments_Text"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsenableModificationcomments"
+                        IsWordwrap="True"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='7' [col]='2'>
+                <div containerStyle>
+                    <iTextBox #txtModCommentsTempRef class="txtspc" [Visibility]="DataContext.IsReasonForModificationVisible"
+                        [Tooltip]="resKey.txtModComments_Tooltip" HorizontalAlignment="Stretch" AcceptsReturn="True"
+                        TextWrapping="Wrap" Name="txtModComments" VerticalAlignment="Bottom"
+                        VerticalScrollBarVisibility="Visible" Width="auto" Height="50"
+                        [(Text)]="DataContext.FormViewerDetails.BasicDetails.ModificationComments" Margin="5,5"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsenableModificationcomments"
+                        IsTabStop="True" TabIndex="18" MaxLength="255" [isGlobalEnabled]="IsEnabled"></iTextBox>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='5' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblVerificationCommentsTempRef HorizontalAlignment="Stretch" Name="lblVerificationComments"  [isGlobalEnabled]="IsEnabled"
+                        VerticalAlignment="Center" [Text]="resKey.lblVerificationComments_Text"
+                        [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsVisibleClinicallyverify"
+                        IsWordwrap="True" [(Mandatory)]="DataContext.IsClinicallyVerifyCommentsMandatory"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='5' [col]='2'>
+                <div containerStyle>
+                    <iTextBox #txtVerificationCommentsTempRef HorizontalAlignment="Stretch" AcceptsReturn="True"
+                        TextWrapping="Wrap" Name="txtVerificationComments"
+                        [Tooltip]="resKey.txtVerificationComments_Tooltip" VerticalAlignment="Center" Width="auto"
+                        Margin="5,5" Height="50" VerticalScrollBarVisibility="Visible"
+                        [isGlobalEnabled]="IsEnabled"
+                        [(Text)]="DataContext.FormViewerDetails.BasicDetails.VerificationComments"
+                        [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsVisibleClinicallyverify"
+                        IsTabStop="True" TabIndex="16" MaxLength="255" [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.IsEnableChkClinivallyVerify" [isGlobalEnabled]="IsEnabled"></iTextBox>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='9' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblAdditionalCommentsTempRef IsWordwrap="True" HorizontalAlignment="Stretch"
+                        Name="lblAdditionalComments" VerticalAlignment="Center" Text="Additional Comments"
+                        Mandatory="False" Width="auto"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsenableAdditionalcomments"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='9' [col]='2'>
+                <div containerStyle>
+                    <iTextBox #txtAddCommentsTempRef HorizontalAlignment="Stretch" AcceptsReturn="True"
+                        TextWrapping="Wrap" Width="auto" Margin="5,5" MaxLength="255" Name="txtAddComments"
+                        [Tooltip]="resKey.txtAddComments_Tooltip" VerticalAlignment="Center" Height="35"
+                        VerticalScrollBarVisibility="Visible"
+                        [(Text)]="DataContext.FormViewerDetails.BasicDetails.AdditionalComments"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsenableAdditionalcomments"
+                        IsTabStop="True" TabIndex="20" [isGlobalEnabled]="IsEnabled"></iTextBox>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='8' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblPblmIndTempRef IsWordwrap="True" HorizontalAlignment="Stretch" Name="lblPblmInd"
+                        VerticalAlignment="Center" [Text]="resKey.lblPblmInd_Text" Mandatory="False" Width="auto"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsEnableProblemIndication"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='8' [col]='2'>
+                <div containerStyle>
+                    <iTextBox #txtProblemTempRef Height="42" Width="auto" [Tooltip]="resKey.txtProblem_Tooltip"
+                        HorizontalAlignment="Stretch" Name="txtProblem" VerticalAlignment="Stretch"
+                        [(Text)]="DataContext.FormViewerDetails.BasicDetails.ProblemIndication"
+                        [(Tag)]="DataContext.FormViewerDetails.BasicDetails.PatientProblemCode"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsEnableProblemIndication"
+                        TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" IsTabStop="True"
+                        TabIndex="19" Margin="5,5" [isGlobalEnabled]="IsEnabled"></iTextBox>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='6' [col]='1' [colSpan]='1'>
+                <div containerStyle>
+                    <iLabel #lblRsnForModTempRef HorizontalAlignment="Stretch"
+                        [Visibility]="DataContext.IsReasonForModificationVisible" Name="lblRsnForMod"
+                        [(Mandatory)]="DataContext.FormViewerDetails.BasicDetails.IsMandatoryRSNFORMOD"
+                        VerticalAlignment="Center" [Text]="resKey.lblRsnForMod_Text" IsWordwrap="True"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsenableRSNFORMOD"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='6' [col]='2'>
+                <div containerStyle>
+                    <iComboBox #cboRsnForModTempRef IsEditable="True"
+                        [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.DefaultDetails.ReasonforModification"
+                        [Visibility]="DataContext.IsReasonForModificationVisible"
+                        [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.ReasonforModification"
+                        [Tooltip]="resKey.cboRsnForMod_Tooltip" IsTypeAHead="True" IsTextSearchEnabled="True"
+                        HorizontalAlignment="Stretch" Name="cboRsnForMod" Width="auto" Height="21"
+                        VerticalAlignment="Center" Margin="5,5"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsenableRSNFORMOD"
+                        IsEnabledChanged="cboRsnForMod_IsEnabledChanged" IsTabStop="True" TabIndex="17"></iComboBox>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='4' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblIsClinicallyVerifiedTempRef HorizontalAlignment="Stretch" IsWordwrap="True"
+                        Name="lblIsClinicallyVerified" VerticalAlignment="Center"
+                        [Text]="resKey.lblIsClinicallyVerified_Text"
+                        [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsVisibleClinicallyverify"
+                        [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.IsEnableChkClinivallyVerify"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='4' [col]='2'>
+                <div containerStyle>
+                    <iCheckBox #chckClinicalVerifyTempRef Name="chckClinicalVerify" HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center" Width="auto" Margin="3,5"
+                        [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.IsClinicallyVerified"
+                        Tooltip="Select To clinically Verify Item"
+                        [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsVisibleClinicallyverify"
+                        [OnChange]="chckClinicalVerify_OnChange_Func" IsTabStop="True" TabIndex="15"
+                        [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.IsEnableChkClinivallyVerify">
+                    </iCheckBox>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='3' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblPrescribedbyTempRef HorizontalAlignment="Stretch" IsWordwrap="True"
+                        Name="lblPrescribedby" VerticalAlignment="Center" [Text]="resKey.lblPrescribedByCaption"
+                        [Visibility]="DataContext.FormViewerDetails.BasicDetails.IsVisibleClinicallyverify"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='3' [col]='2'>
+                <div containerStyle>
+                    <iLabel #txtPrescribedbyTempRef HorizontalAlignment="Stretch" IsWordwrap="True"
+                        Name="txtPrescribedby" VerticalAlignment="Center" Width="auto" Margin="5,5"
+                        [Text]="DataContext.FormViewerDetails.BasicDetails.PrescribedByWithRoleName"
+                        [Visibility]="DataContext.FormViewerDetails.BasicDetails.IsVisibleClinicallyverify"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='13' [col]="1" [colSpan]='5'>
+                <div containerStyle>
+                    <Border #brdSTATempRef Name="brdSTA" [iStyle]="Styles.BorderFrame" BorderThickness="1"
+                        CornerRadius="2"
+                        [Visibility]="DataContext.FormViewerDetails.BasicDetails.IscontentForModificationVisible"
+                        HorizontalAlignment="Stretch">
+                        <kendo-gridlayout-item [row]="1" [col]="1">
+                            <kendo-gridlayout [rows]="[{height: '1fr'},{height: 99}]">
+                                <kendo-gridlayout-item [row]='1' [col]="1">
+                                    <!-- <div containerStyle>
+                                        <StackPanel Margin="10,-10,0,0" Background="#FFE0EFF1"
+                                            HorizontalAlignment="Left" Orientation="Vertical">
+                                            <iLabel #lblBorderTempRef Name="lblBorder"
+                                                [Text]="DataContext.FormViewerDetails.BasicDetails.SteppedVariablePanelHeader"
+                                                Padding="5,0,5,0" Foreground="Black" FontWeight="Bold" Margin="2,0,2,0">
+                                            </iLabel>
+
+                                        </StackPanel>
+                                    </div> -->
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='2' [col]="1">
+                                    <div containerStyle>
+                                        <ContentControl #ContentCtrlMedResolveSteppedTempRef
+                                            Name="ContentCtrlMedResolveStepped" HorizontalContentAlignment="Stretch"
+                                            VerticalContentAlignment="Stretch"
+                                            [Visibility]="DataContext.FormViewerDetails.BasicDetails.IscontentForModificationVisible">
+                                        </ContentControl>
+                                    </div>
+                                </kendo-gridlayout-item>
+                            </kendo-gridlayout>
+
+                        </kendo-gridlayout-item>
+                    </Border>
+                </div>
+            </kendo-gridlayout-item>
+
+        </kendo-gridlayout></kendo-gridlayout-item>
+</kendo-gridlayout>

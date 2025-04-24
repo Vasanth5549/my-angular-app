@@ -1,0 +1,55 @@
+.k-input {
+    overflow-y: auto;
+}
+
+.k-icon {
+    vertical-align: bottom;
+}
+
+.k-chip {
+    display: contents;
+}
+
+.k-popup,
+.k-list-container,
+.k-reset {
+    height: 80px;
+}
+
+.k-list-content {
+
+    height: 115px;
+    border-width: 0;
+}
+
+:host::ng-deep .k-chip-content:first-child {
+    margin-inline: -3px;
+}
+
+:host::ng-deep .k-chip-label {
+    font-size: 10.667px;
+}
+
+::ng-deep .k-popup .k-checkbox {
+    border: 1px solid #858080ee;
+    border-radius: 2px;
+}
+
+::ng-deep .newMultLineClass *{
+    width: auto !important;
+    white-space: pre-line;
+}
+
+/* .k-popup > .k-list {
+    height: 115px;
+    border-width: 0;
+} */
+
+
+.fitDivContent {
+    width: fit-content;
+}
+.multiselect-enableflag{
+    pointer-events: none;
+    opacity: 0.5;
+}

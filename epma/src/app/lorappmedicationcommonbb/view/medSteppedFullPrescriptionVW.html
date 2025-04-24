@@ -1,0 +1,254 @@
+<kendo-gridlayout name="Steppeddose" Background="#FFE0EFF1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+    class="grid-layout-container" GridLayout [class]="windowresolution? 'scrollheight' : 'scrollheight1' " [style.height.px]="maxLayoutHeight" style="overflow-y: auto; padding-top: 2px"
+    [rows]="[ { height: '2'}, { height: 'auto'},  { height: '1fr'},{height: '2'},  { height: '1fr'},{height: 'auto'}]"
+    [cols]="[ { width: 'auto'}]">
+
+<!--1-->
+    <kendo-gridlayout-item [row]='1' [col]='1'>
+        <div containerStyle>
+            <iLabel #lblTitleSteppedDoseTempRef style="text-align: center;padding: 0px 0px 10px 0px;"
+                [(Text)]="DataContext.PrescribedDoseTitle" Name="lblTitleSteppedDose"  [ngClass]="eprview? 'dateandTimeLabel Bold' : 'dateandTimeLabel1 Bold' "
+                HorizontalAlignment="Center" Foreground="#000000" Height="20" Width="Auto"></iLabel>        
+        </div>
+  
+    </kendo-gridlayout-item>
+         
+	<!--2-->	
+    <kendo-gridlayout-item [row]='2' [col]='1' style=" height: 190px;">
+        <div containerStyle>
+            <kendo-grid #grdSteppedref
+             [style.background-color]="'#E0EFF1'" [style.width.%]="99" [ngClass]="eprview? 'setGridHeight' : 'setGridHeight1' "
+                [selectable]="{checkboxOnly: true, mode: 'single'}" kendoGridSelectBy IsReadOnly="True"
+                [data]="grdStepped.ItemsSource.array" HorizontalAlignment="Stretch"
+                [(selectedKeys)]="grdStepped.selectedRowsIndex" VerticalAlignment="Stretch" [sortable]="false"
+                [reorderable]="false" [filterable]="false" (cellClick)="grdStepped.cellClick($event)">
+                <ng-template kendoGridNoRecordsTemplate> {{ddkey.NoRecordsText_Text}}
+                </ng-template>
+
+                <kendo-grid-column UniqueName="SelectColumn" [editable]="false" title="" [resizable]="false"
+                    [sortable]="false" [filterable]="false" [width]="25" field="SelectColumn">
+                </kendo-grid-column>
+
+                <kendo-grid-column UniqueName="grdDose" field="grdDose" [title]="steppeddose1.Dose_Header" [width]="90"
+                    [sortable]="false" [filterable]="false">
+                    <ng-template kendoGridHeaderTemplate >
+                        <span kendoTooltip [title]="steppeddose1.Dose_Header">{{ steppeddose1.Dose_Header }}</span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex">
+                            <ContentPresenter [Content]="dataItem | FrmChangingDoseMedStp : '' : 0"></ContentPresenter>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+
+
+                <kendo-grid-column UniqueName="grdInfusion" field="grdInfusion" [title]="steppeddose1.Infusion_Header"
+                    [width]="110" [sortable]="false" [filterable]="false">
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip [title]="steppeddose1.Infusion_Header">{{ steppeddose1.Infusion_Header }}</span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex">
+                            <ContentPresenter [Content]="dataItem | FrmInfusionRate : '' : 0"></ContentPresenter>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+
+                <kendo-grid-column UniqueName="grdFrequency" field="grdFrequency"
+                    [title]="steppeddose1.Frequency_Header" [width]="95" [sortable]="false" [filterable]="false">
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip [title]="steppeddose1.Frequency_Header">{{ steppeddose1.Frequency_Header }}</span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex">
+                            <ContentPresenter [Content]="dataItem | FrmDisplayFrequency : '' : 0"></ContentPresenter>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+
+                <kendo-grid-column UniqueName="grdDuration" field="grdDuration" [title]="steppeddose1.Duration_Header"
+                    [width]="85" [sortable]="false" [filterable]="false">
+                    <ng-template kendoGridHeaderTemplate >
+                        <span kendoTooltip [title]="steppeddose1.Duration_Header">{{ steppeddose1.Duration_Header }}</span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex">
+                            <ContentPresenter [Content]="dataItem | FrmDisplayDuration : '' : 0"></ContentPresenter>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column UniqueName="grdAdministrationtimes" field="grdAdministrationtimes"
+                    [title]="'Administration times'" [width]="165" [sortable]="false" [filterable]="false">
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip [title]="'Administration times'">{{ 'Administration times' }}</span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex">
+                            <ContentPresenter [Content]="dataItem | FrmAdminTimeDisplay : '' : 0 : getUpdatedValues(dataItem)"getUpdatedValues></ContentPresenter>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column UniqueName="grdVariabledoseinstruction" field="grdVariabledoseinstruction"
+                    [title]="steppeddose1.Variable_Header" [sortable]="false" [filterable]="false">
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip [title]="steppeddose1.Variable_Header">{{ steppeddose1.Variable_Header }}</span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex">
+
+                            <ContentPresenter [Content]="dataItem | FrmDisplayVariableDoseInst : '' : 0">
+                            </ContentPresenter>
+
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+            </kendo-grid>
+
+        </div>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]='3' [col]='1' style="padding: 20px 0px 10px 0px;"  [ngClass]="bolFooterCss == 3 ? 'heightChange': 'noHeightChange'">
+        <div containerStyle    [ngClass]="bolFooterCss == 1 ? 'HgtPlus' :( bolFooterCss == 0 ?'HgtFull' : ( bolFooterCss == 2 ?'HgtFullNoFooter' : ( bolFooterCss == 3 ?'HgtPlusNoFooter' : 'HgtNone' )))" >
+            <kendo-grid-item [row]='5' [col]='1' style="height:103%;">
+                <div containerStyle>
+                    <kendo-gridlayout Name="Steppeddosedetails" Grid.Row="4" Background="#E0EFF1FF"
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ShowGridLines="False"
+                        class="grid-layout-container" GridLayout [rows]="[{height: 'auto'}]" style="height: 99%;">
+                        <div containerStyle>
+                            <Border #DChangingBorderTempRef [ngStyle]="elementStyles"  Background="#E0EFF1FF" CornerRadius="2"
+                                style="height: 100%;" HorizontalAlignment="Stretch" Name="DChangingBorder"
+                                VerticalAlignment="Stretch" BorderThickness="1" Padding="4" BorderBrush="#75b3b4">
+                                <kendo-gridlayout-item [row]='2' [col]='1' style="height: 100%;">
+                                    <div containerStyle>
+                                        <kendo-gridlayout HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                            ShowGridLines="False" class="grid-layout-container" GridLayout
+                                            [rows]="[{height: '70'},{height: 'auto'}]" >
+
+                                            <div containerStyle style="margin:0px 6px 0px 6px">
+
+                                                <Border #BorderChangedoseTempRef Name="BorderChangedose" style="height: 5px !important"
+                                                    HorizontalAlignment="Left" Background="#FFE0EFF1" Margin="5,-20,0,12"
+                                                    Width="Auto">
+                                                    <StackPanel>
+                                                        <iLabel #lblChangingdoseTempRef Name="lblChangingdose"   
+                                                            FontWeight="Bold" Background="#e0eff1" Padding="5,5,5,5"
+                                                            [Text]="DataContext.ScheduleGridTitile" Foreground="#000000"
+                                                            Height="Auto" Width="Auto"></iLabel>
+
+                                                    </StackPanel>
+                                                </Border>
+                                                <kendo-gridlayout-item  [row]='2' [style.background-color]="'#e0eff1'"   [ngClass]="bolFooterCss == 1 ? 'InnerHgtPlus' :( bolFooterCss == 0 ?'InnerHgtfull' : ( bolFooterCss == 2 ?'InnerHgtfullNofooter' : ( bolFooterCss == 3 ?'InnerHgtPlusNoFooter' : 'innerHgtNone' )))"  ><!-- [style.width.%]="100"> -->
+                                                
+                                                    <iLabel #lblScheduleNotExistTempRef Name="lblScheduleNotExist"
+                                                    Padding="5,0,5,0" [(Text)]="DataContext.ScheduleNotExistMessage"  
+                                                    Foreground="#000000" Height="20" Width="Auto" Visibility="Visible" 
+                                                    HorizontalAlignment="Center"></iLabel>
+
+                                                    <kendo-grid #grdChangingDoseref
+                                                        [style.background-color]="'#FFE0EFF1'"
+                                                        [style.height.%]=  "96"
+                                                        [selectable]="{checkboxOnly: true, mode: 'single'}"
+                                                        kendoGridSelectBy 
+                                                        [data]="grdSchduleView"
+                                                        [(selectedKeys)]="grdChangingDose.selectedRowsIndex"
+                                                        [GridProperties]="grdChangingDose" 
+                                                        [ScrollBarViewer]="{vertical:'Auto'}"
+                                                        [ScrollBarViewer]="{horizontal:'Auto'}"
+                                                        [sortable]="true"
+                                                        [navigable]="true"  
+                                                        [scrollable]="'scrollable'" 
+                                                        [reorderable]="false"
+                                                        [pageSize]="5"  
+                                                        [pageable]="true"
+                                                        [skip]="skip"
+                                                        (pageChange)="pageChange($event)" 
+                                                        [ngClass]="eprview? 'scheduleDoseGrid kendogridpageinfo' : 'scheduleDoseGrid1 kendogridpageinfo'"
+                                                        >
+
+                                                        <ng-template kendoGridNoRecordsTemplate>
+                                                            {{ddkey.NoRecordsText_Text}}
+                                                        </ng-template>
+
+                                                        <kendo-grid-column kendoTooltip [title]="steppeddose1.Times_Header"
+                                                            [filterable]="false" [editable]="false" field="ScheduleTime"
+                                                            [width]="55"
+                                                            [minResizableWidth]="55"
+                                                            [maxResizableWidth]="56"
+                                                            >
+                                                            <ng-template kendoGridHeaderTemplate >
+                                                                <span kendoTooltip [title]="steppeddose1.Times_Header">{{ steppeddose1.Times_Header }}</span>
+                                                            </ng-template>
+                                                        </kendo-grid-column>
+
+                                                        <ng-container  *ngIf="grdChangingDose.dColumns.Count>0">
+                                                            <kendo-grid-column kendoTooltip  *ngFor="let column of grdChangingDose.dColumns.array"
+                                                                [title]="column.Header"
+                                                                [hidden]="column.IsVisible ? false : true"
+                                                                [editable]="column.IsReadOnly ? false : true"
+                                                                [filterable]="column.IsFilterable ? true : false"
+                                                                [width]="100" 
+                                                                [minResizableWidth]="100"
+                                                                [maxResizableWidth]="100"
+                                                                >
+                                                                <ng-template kendoGridHeaderTemplate >
+                                                                    <span kendoTooltip [title]="column.Header">{{ column.Header }}</span>
+                                                                </ng-template>
+                                                                <ng-template kendoGridCellTemplate let-dataItem>
+                                                                    <GridDataTemplate [Content]="column.CellTemplate"
+                                                                        [DataContext]="dataItem">
+                                                                    </GridDataTemplate>
+                                                                </ng-template>
+                                                            </kendo-grid-column>
+                                                        </ng-container>
+
+                                                        <ng-template
+                                                                     kendoPagerTemplate
+                                                                     let-currentPage="currentPage"
+                                                        >
+                                                          <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
+                                                          <kendo-pager-input class="kendopagerinput"></kendo-pager-input>
+                                                          <kendo-pager-next-buttons></kendo-pager-next-buttons>
+                                                        </ng-template>
+                                                    </kendo-grid>
+                                                    <iLabel #lblPresWarningMessageTempRef Name="lblPresWarningMessage"
+                                                    FontWeight="Bold"   Visibility="Visible"
+                                                    [(Text)]="DataContext.PrescribedWarningMessage" 
+                                                    [style.float]="'Left'" class="WarningMsg"
+                                                    [style.text-align] = "'Center'"
+                                                    Foreground="#ff0000" 
+                                                    Height="Auto" Width="Auto" >
+                                                </iLabel>                                       
+                                                </kendo-gridlayout-item>
+                                            </div>
+                                        </kendo-gridlayout>
+                                    </div>
+                                </kendo-gridlayout-item>
+                            </Border>
+                        </div>
+                    </kendo-gridlayout>
+                </div>
+            </kendo-grid-item>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='4' [col]='1' [ngClass]="eprview ? 'noteDetails' : 'noteDetails1' ">
+        <div containerStyle>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Grid.Row="5" Height="Auto" Width="Auto">
+
+                <kendo-gridlayout-item [row]='6' [col]="1">
+                    <div containerStyle>
+                        <TextBlock #lblDrugroundProfileWarningMessageTempRef Name="lblDrugroundProfileWarningMessage"
+                            [Text]="steppeddose1.WT_DrugroundTimeWarningMessage" TextWrapping="Wrap"
+                            HorizontalAlignment="Left" Height="Auto" Width="Auto"></TextBlock>
+                    </div>
+                </kendo-gridlayout-item>
+            </StackPanel>
+        </div>
+    </kendo-gridlayout-item>
+</kendo-gridlayout>

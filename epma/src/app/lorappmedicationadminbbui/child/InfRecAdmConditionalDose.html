@@ -1,0 +1,182 @@
+<!--fmk:iAppDialogWindow  covers entire DOM but implementation not known-->
+
+<!-- fmk:iAppDialogWindow.Resources implementation also not done-->
+
+<!--First Grid-->
+<div name="Conditionaldose">
+  <kendo-gridlayout
+    class="grid-layout-container"
+    GridLayout
+    Background="#FFE0EFF1"
+    [rows]="[{ height: '30' }, { height: '230' }, { height: '40' }]"
+  >
+    <!--iSOFT:iLabel Implementation-->
+    <kendo-gridlayout-item [row]="1">
+      <div containerStyle>
+        <iLabel
+          #lblConditionalDoseTempRef
+          Name="lblConditionalDose"
+          Text="Conditional dose regime"
+          FontWeight="Bold"
+          HorizontalAlignment="Left"
+          VerticalAlignment="Center"
+          Width="Auto"
+          Margin="10,5,5,5"
+        ></iLabel>
+      </div>
+    </kendo-gridlayout-item>
+
+    <!--isoftGrid:iGrid IMPLEMENATION-->
+    <!--Grid.ColumnSpan="2" is coverted as [colSpan]="3" but must ask doubt as nothing in guidelines-->
+    <kendo-gridlayout-item [row]="2" [colSpan]="3">
+      <div containerStyle>
+        <!-- class="horizontal-class-stretch vertical-class-stretch" -->
+        <!-- <kendo-grid style="display: grid; grid-template-columns: auto 1fr 2fr;" -->
+        <kendo-grid
+          #grdConditionalDoseTempRef
+          [GridProperties]="grdConditionalDose"
+          VerticalAlignment="Stretch"
+          HorizontalAlignment="Stretch"
+          [style.margin.px]="10"
+          [style.height]="'auto'"
+          [reorderable]="false"
+          [resizable]="false"
+          [sortable]="false"
+          [IsEnabled]="iPPMABaseVM.IsGridEnable"
+          [ScrollBarViewer] = "{vertical:'Auto'}"
+          [ScrollBarViewer] = "{horizontal:'Auto'}"
+
+          kendoGridSelectBy
+          [(selectedKeys)]="grdConditionalDose.selectedRowsIndex"
+          [data]="grdConditionalDose.ItemsSource.array"
+        >
+
+          <ng-template kendoGridNoRecordsTemplate>
+            <!-- {{ConditionalDose.NoRecordsText}} -->
+            There are no records to show
+          </ng-template>
+
+        <!--It is not put as column like other columns but is done because of RowIndicatorVisibility-->
+          <!-- <kendo-grid-column [width]="30">
+        <ng-template kendoGridCellTemplate let-dataItem>
+          <Image
+            Source="assets/Images/iarrownor5x10.png"
+            Width="5"
+            Height="5"
+          >
+        </Image>
+        </ng-template>
+      </kendo-grid-column> -->
+
+          <!--Kendo Grid(iGrid) Columns-->
+
+          <!--First Column-->
+          <!--Width="2*"  has not been implemented yet-->
+          <kendo-grid-column [filterable]="false" [resizable]="false" field="ValueRange">
+            <ng-template kendoGridHeaderTemplate>
+              <ControlTemplate TargetType="telerikGridView:GridViewHeaderCell">
+                <iLabel
+                  #lblObservationResultTempRef
+                  Name="lblObservationResult"
+                  Margin="5,2"
+                  [Text]="DataContext.lblConditionName.Text"
+                  [Tooltip]="DataContext.lblConditionName.Text"
+                  HorizontalAlignment="Stretch"
+                  IsWordwrap="True"
+                ></iLabel>
+              </ControlTemplate>
+            </ng-template>
+          </kendo-grid-column>
+
+          <!--Second Column-->
+          <!--UniqueName and DataMemberBinding names are differing must ask-->
+          <!--Width="3*"  has not been implemented yet-->
+          <kendo-grid-column
+            [filterable]="false"
+            field="DoseInstruction"
+            title="Dose/Instruction"
+          >
+          </kendo-grid-column>
+        </kendo-grid>
+      </div>
+    </kendo-gridlayout-item>
+
+    <!--iSOFT:iLabel Implementation-->
+    <kendo-gridlayout-item [row]="7" [col]="2">
+      <div containerStyle>
+        <iLabel
+        [GridProperties]="grdConditionalDose"
+          #lblConditionNameTempRef
+          Name="lblConditionName"
+          Visibility="Collapsed"
+          Text="DataContext.ObservationResult"
+        ></iLabel>
+      </div>
+    </kendo-gridlayout-item>
+
+    <!--Second Grid inside First Grid-->
+    <!-- <div> -->
+      <!-- Second Grid inside First Grid must be inside kendo-gridlayout-item -->
+      <kendo-gridlayout-item [row]="3">
+        <div containerStyle>
+        <kendo-gridlayout
+          [rows]="[{ height: 'auto' }]"
+          [cols]="[{ width: '0.34fr' }]"
+        >
+        <!--iButton Implementation-->
+          <kendo-gridlayout-item [col]="1">
+            <div containerStyle>
+              <iButton
+                #cmdObservationsResultsTempRef
+                Name="cmdObservationsResults"
+                HorizontalAlignment="Left"
+                Margin="5,2"
+                TextDecorations="Underline"
+                Cursor="Hand"
+                Foreground="#0000C8"
+                Text="Observation/Results"
+                Tooltip="Observations Results"
+                Height="23"
+                DisabledImageSource="../../../../assets/Images/iarrownor5x10.png"
+                ActiveImageSource="../../../../assets/Images/iarrownor5x10.png"
+                ImageSource="../../../../assets/Images/iarrownor5x10.png"
+                ImageHeight="12"
+                ImageWidth="5"
+                (Click_Func)="cmdObservationsResults_Click()"
+              ></iButton>
+            </div>
+          </kendo-gridlayout-item>
+        </kendo-gridlayout>
+      </div>
+      </kendo-gridlayout-item>
+    <!-- </div> -->
+  </kendo-gridlayout>
+
+</div>
+
+
+<!--
+NOTE:
+
+Line 10:     Must confirm conversion of Background="#FFE0EFF1" availability
+Line 30:     Grid.ColumnSpan="2" is coverted as [colSpan]="3" but must ask doubt as nothing in guidelines
+Line 40:     [style.margin.px]="10" must be checked for iGrid based conversion
+Line 41:     [style.height]="'auto'" must be checked for iGrid based conversion
+Line 73:     Width="2*" has not been implemented yet
+Line 144:    Click function must be checked along with no cursor symbol as well as colour of link type button
+Line 81:     Text="DataContext.lblConditionName Path" but conversion is [Text] must ask
+Line 82:     Tooltip="DataContext.lblConditionName Path" but conversion is [Tooltip] must ask
+Line 92:     Width="3*" has not been implemented yet
+Line 110:    Text="DataContext.ObservationResult" but conversion is [Text] must ask
+
+Common to be asked::::
+Must ask,
+             How to check datas in itemssource and selectedValue , since I'm using mock data for now
+Must ask whether,
+             Height="Auto" HorizontalAlignment="Stretch" Margin="10" must be placed inside
+             <div> tag or <kendo-gridlayout> tag or <kendo-gridlayout-item> tag
+             Note:For now, I've placed inside <kendo-gridlayout> tag
+Must ask about,
+             IsEnabled in Line 25 of silverlight is not present in guidelines
+             -- I think -- solution is -----[(IsEnabled)]="iPPMABaseVM.IsGridEnable"
+-->
