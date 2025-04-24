@@ -1,0 +1,16 @@
+<kendo-gridlayout GridLayout #LayoutRootTempRef Name="LayoutRoot" Background="Styles.LzoPageBG">
+    <!-- <StackPanel #LayoutRootTempRef Name="LayoutRoot" Background="Styles.LzoPageBG" Margin="0,10,0,5"> -->
+    <iLabel Margin="5,5,5,5" [Text]="oMedsAdminOverview.lblMixedMultiRouteAlert_Text" IsWordwrap="True">
+    </iLabel>
+    <kendo-gridlayout-item style="background: #9bd8e182; margin-top: 5px;">
+    <StackPanel  Margin="0,11,0,9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Orientation="Vertical" class="multiStyle">
+        <iRadioButton class="iRdbMedAdminstyle" #iRdbMedAdminTempRef Name="iRdbMedAdmin" Margin="15,5,10,5"
+            [Text]="oMedsAdminOverview.lblAdmin_Text" IsChecked="true"
+            [Tooltip]="oMedsAdminOverview.lblAdmin_Text"></iRadioButton>
+        <iRadioButton #iRdbInfusionAdminTempRef Name="iRdbInfusionAdmin"
+            Margin="15,0,10,0" [Text]="oMedsAdminOverview.lblInfAdmin_Text"
+            [Tooltip]="oMedsAdminOverview.lblInfAdmin_Text"></iRadioButton>
+    </StackPanel>
+</kendo-gridlayout-item>
+<!-- </StackPanel> -->
+</kendo-gridlayout>

@@ -1,0 +1,178 @@
+<div name="LayoutRoot" Background="{StaticResource LzoPageBG}">
+    <kendo-gridlayout name="LayoutRoot" [rows]="[ {height:'auto'},{height:'auto'},
+    {height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'},{height:'5'}]"
+        [cols]="[ {width:'150fr'},{width:'200fr'} ]">
+        <kendo-gridlayout-item [row]='1' [col]='1' [colSpan]='3'>
+            <div containerStyle>
+                <iLabel IsWordwrap="True" class="titleClass" [Text]="DataContext.DoseVolumeTitle">
+                </iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='2' [col]='2' [rowSpan]='3'>
+            <div containerStyle [ngClass]="DataContext.DoseVolumeShow ? '' : 'div-bg-whiteborder'">
+                <Border Margin="0,0,5,0" [Visibility]="DataContext.DoseVolumeShow"></Border>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='3' [col]='2' [rowSpan]='3'>
+            <div containerStyle [ngClass]="DataContext.DoseVolumeShow ? '' : 'div-bg-whiteborder'">
+                <Border Margin="0,0,5,0" [Visibility]="DataContext.DoseVolumeShow"></Border>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='4' [col]='2' [rowSpan]='3'>
+            <div containerStyle [ngClass]="DataContext.DoseVolumeShow ? '' : 'div-bg-whiteborder'">
+                <Border Margin="0,0,5,0" [Visibility]="DataContext.DoseVolumeShow"></Border>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='5' [col]='2' [rowSpan]='3'>
+            <div containerStyle>
+                <Border Margin="0,0,5,0"></Border>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='2' [col]='1'>
+            <div containerStyle>
+                <StackPanel #splblintendedTempRef Name="splblintended" Orientation="Vertical" Margin="10,5,5,0"
+                    [Visibility]="DataContext.DoseVolumeShow">
+                    <iLabel #lblintendedTempRef HorizontalAlignment="Center" Name="lblintended" FontWeight="Bold"
+                        [Text]="objRecordAdmin.lblintended_text" IsWordwrap="True">
+                    </iLabel>
+                    <iLabel #lbldosevolume1TempRef HorizontalAlignment="Center" Name="lbldosevolume1" FontWeight="Bold"
+                        [Text]="objRecordAdmin.lbldosevolume_text" IsWordwrap="True">
+                    </iLabel>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='2' [col]='2'>
+            <div containerStyle>
+                <StackPanel #spacutalTempRef Name="spacutal" Orientation="Vertical" Margin="10,5,5,5"
+                    [Visibility]="DataContext.DoseVolumeShow">
+                    <iLabel #lblactualTempRef HorizontalAlignment="Center" Name="lblactual" FontWeight="Bold"
+                        [Text]="objRecordAdmin.lblactual_text" IsWordwrap="True">
+                    </iLabel>
+                    <iLabel #lbldosevolume2TempRef HorizontalAlignment="Center" Name="lbldosevolume2" FontWeight="Bold"
+                        [Text]="objRecordAdmin.lbldosevolume_text" IsWordwrap="True">
+                    </iLabel>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='3' [col]='1'>
+            <div containerStyle>
+                <iLabel #lblintendeddosevalueTempRef Margin="0,0,0,0" [Visibility]="DataContext.DoseVolumeShow"
+                    HorizontalAlignment="Center" Name="lblintendeddosevalue" [Text]="DataContext.DoseDescreIntendedDose"
+                    IsWordwrap="True" class="doseAlignment"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='3' [col]='2'>
+            <div containerStyle>
+                <iLabel #lblactualdosevalueTempRef Margin="0,0,0,0" [Visibility]="DataContext.DoseVolumeShow"
+                    HorizontalAlignment="Center" Name="lblactualdosevalue" [Text]="DataContext.DoseDescreActualDose"
+                    [FontWeight]="DataContext.DoseFontWeight" [Foreground]="DataContext.DoseForeColor" IsWordwrap="True"
+                    class="doseAlignment"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='4' [col]='1'>
+            <div containerStyle>
+                <iLabel #lblintendedvolvalueTempRef Margin="0,0,0,0" [Visibility]="DataContext.DoseVolumeShow"
+                    HorizontalAlignment="Center" Name="lblintendedvolvalue"
+                    [Text]="DataContext.DoseDescreIntendedVolume" IsWordwrap="True" class="doseAlignment"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='4' [col]='2'>
+            <div containerStyle>
+                <iLabel #lblactualvolvalueTempRef Margin="0,0,0,0" [Visibility]="DataContext.DoseVolumeShow"
+                    HorizontalAlignment="Center" Name="lblactualvolvalue" [Text]="DataContext.DoseDescreActualVolume"
+                    [FontWeight]="DataContext.VolFontWeight" [Foreground]="DataContext.VolForeColor" IsWordwrap="True"
+                    class="doseAlignment"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='5' [col]='1'>
+            <div containerStyle class="div-whiteborder">
+                <iLabel [Text]="objRecordAdmin.lbReason_text" Mandatory="True" Height="20" Margin="5,0,5,0"
+                    HorizontalAlignment="Left" VerticalAlignment="Stretch" AccessKey="R"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='5' [col]='2'>
+            <div containerStyle class="div-bg-whiteborder">
+                <iComboBox #cboDoseDiscReasonTempRef HorizontalAlignment="Stretch" Margin="5,5,10,5"
+                    Name="cboDoseDiscReason" [SelectionChanged]="cboDoseDiscReason_SelectionChanged_Func"
+                    [Tooltip]="objRecordAdmin.lblReason_tooltip" IsEditable="False"
+                    [ItemsSource]="DataContext.AdministrationDetail.DoseDiscReasonCodes"
+                    [(SelectedValue)]="DataContext.AdministrationDetail.DoseDiscReasonCode" AccessKey="R">
+                </iComboBox>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='6' [col]='1'>
+            <div containerStyle>
+                <iLabel #lblcliniIncFrmTempRef HorizontalAlignment="Left" Name="lblcliniIncFrm"
+                    [Visibility]="lblcliniIncFrm.Visibility" [Text]="objRecordAdmin.lblcliniIncFrm_text" Height="21"
+                    Margin="5,0,5,0" IsWordwrap="True" VerticalAlignment="Center"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='6' [col]='2'>
+            <div containerStyle>
+                <iLabel #lblcliniIncFrmValueTempRef HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"
+                    Name="lblcliniIncFrmValue" Cursor="Hand" TextDecorations="Underline" class="initiate"
+                    Foreground="#0000C8" Height="20" IsWordwrap="True"
+                    [Text]="DataContext.AdministrationDetail.ClinicalIncidentForm"
+                    [Tooltip]="objRecordAdmin.lblCIFValue_Tooltip"
+                    [MouseLeftButtonUp]="lblCIFValue_MouseLeftButtonUp_Func"
+                    [Visibility]="lblcliniIncFrmValue.Visibility">
+                </iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='7' [col]='1'>
+            <div containerStyle class="div-whiteborder">
+                <iLabel #lblCommentsTempRef Name="lblComments" Margin="5,0,5,0"
+                    [Text]="objRecordAdmin.lblComments_text"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='7' [col]='2'>
+            <div containerStyle class="div-bg-whiteborder">
+                <iTextBox #txtCommentsTempRef Name="txtComments" MaxLength="255"
+                    HorizontalAlignment="Stretch" Margin="3,5,4,5"
+                    [(Text)]="DataContext.AdministrationDetail.DoseDiscComments"
+                    [Tooltip]="objRecordAdmin.txtComments_tooltip" AcceptsReturn="True" TextWrapping="Wrap"
+                    VerticalAlignment="Stretch" Height="34"></iTextBox>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='2' [col]='1' [colSpan]='2'>
+            <div containerStyle [ngClass]="DataContext.DoseVolumeShow ? '' : 'div-whiteborder'">
+                <Border Margin="10,0,5,0" [Visibility]="DataContext.DoseVolumeShow"></Border>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='3' [col]='1' [colSpan]='2'>
+            <div containerStyle [ngClass]="DataContext.DoseVolumeShow ? '' : 'div-whiteborder'">
+                <Border Margin="10,0,5,0" [Visibility]="DataContext.DoseVolumeShow" Height="35"></Border>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='4' [col]='1' [colSpan]='2'>
+            <div containerStyle [ngClass]="DataContext.DoseVolumeShow ? '' : 'div-whiteborder'">
+                <Border Margin="10,0,5,0" [Visibility]="DataContext.DoseVolumeShow" Height="30"></Border>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='5' [col]='1' [colSpan]='2'>
+            <div containerStyle>
+                <Border Margin="10,0,5,0"></Border>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='6' [col]='1' [colSpan]='2'>
+            <div containerStyle [ngClass]="lblcliniIncFrm.Visibility ? '' : 'div-whiteborder'">
+                <Border Margin="10,0,5,0" [Visibility]="lblcliniIncFrm.Visibility" Height="21"></Border>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='6' [col]='2'>
+            <div containerStyle [ngClass]="lblcliniIncFrmValue.Visibility ? '' : 'div-bg-border'">
+                <Border Margin="0,0,5,0"  [Visibility]="lblcliniIncFrmValue.Visibility"  Height="20"></Border>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='7' [col]='1' [colSpan]='2'>
+            <div containerStyle>
+                <Border Margin="10,0,5,0"></Border>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='8' [col]='1' [colSpan]='2'>
+            <div containerStyle class="div-whiteborder">
+                <Border Margin="10,0,5,0"></Border>
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

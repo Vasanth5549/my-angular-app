@@ -1,0 +1,11 @@
+:host::ng-deep.k-tabstrip > .k-content{
+    overflow: unset !important;
+}
+:host::ng-deep.k-tabstrip > .k-content:focus{
+   outline-width: 0px !important; 
+}
+/* ::ng-deep .k-window-content,
+.k-prompt-container {
+  overflow-y: auto;
+} */
+

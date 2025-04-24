@@ -1,0 +1,324 @@
+    <div class="grid-layout-container" name="MedDosecalc"  Background="#FFE0EFF1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Width="auto">
+      <kendo-gridlayout  #MedDosecalc [rows]="[ { height: '1fr' } ]" [cols]="[{ width: 800 }]"  ShowGridLines="False" class="meddosedtlLayout">
+        <kendo-gridlayout-item [row]='1' [col]='1'>
+          <div containerStyle [style.height.px]="mezmaxheight">
+            <Border Background="#e0eff1" CornerRadius="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+               Margin="10" BorderThickness="1" Padding="5" BorderBrush="#75b3b4" Width="Auto" [isContent]="true" style="cursor: default;" class="meddoseheight"> 
+              <div class="grid-layout-container">
+                <kendo-gridlayout [rows]="[ { height: '1fr' } ]" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                
+                  <Border HorizontalAlignment="Left" Background="#e0eff1" Margin="5,-14,0,11" Width="Auto" [isContent]="true">                   
+                    <StackPanel >
+                      <iLabel #lblDosecalculationTempRef Name="lblDosecalculation" FontWeight="Bold" Padding="5,0,5,0" [Text]="ResKey.lblDosecalculation_Text" Height="18" Width="Auto" Foreground="CadetBlue"  ></iLabel> 
+                    </StackPanel>
+                  </Border>                 
+                
+                    <div class="grid-layout-container"  name="layout" Height="570" Width="auto" >
+                      <kendo-gridlayout #LayoutRoot [rows]="[  { height: 0 },  { height: '1fr' },  { height: 50 }, ]" [cols]="[{ width: '15fr' }, { width: '43fr' }, { width: '37fr' },{ width: '55fr' },{ width: '523fr' }]" >
+                        <kendo-gridlayout-item [row]='2' [col] = '1' [colSpan]="5">
+                          <div class="grid-layout-container" Width="Auto" Height="520" >
+                            <kendo-gridlayout 
+                            [rows]="[ { height: 31 },  { height: 31 }, { height: 31 }, { height: 31 }, { height: 31 },{ height: 31 },    { height: 31},   { height: 90 },   {minHeight:35}, {minHeight:35},  {minHeight:35}, {minHeight:35},  {minHeight:35},{minHeight:35}  ]" 
+                            [cols]="[{ width: 'auto' },{ width: '1fr' }, { width: 10 },{ width: '1fr' },{ width: '1fr' }]" 
+                            HorizontalAlignment="Left" Margin="0,13,0,60">
+                              
+                        <Border [Background]="Styles.InnerBG" [col]='2' [row]='1' [rowSpan]='5'></Border>      
+                        <Border [Background]="Styles.InnerBG" [row]='6' [col]='2'></Border>
+                        <Border [Background]="Styles.InnerBG" [col]='5' [row]='1' [rowSpan]='5'></Border>
+                        <Border [Background]="Styles.InnerBG" [row]='6' [col]='5'></Border>
+                        <!-- <Border [Background]="Styles.InnerBG" [row]='8' [col]='2' [colSpan]='5' Width="560"></Border> -->
+                              
+                        <Border [iStyle]="Styles.whiteBorder" Margin="7,0,0,0" [row]='2' [col]='1' [colSpan]='2'></Border>
+                        <Border [iStyle]="Styles.whiteBorder" Margin="7,0,0,0" [row]='3' [col]='1' [colSpan]='2'></Border>
+                        <Border [iStyle]="Styles.whiteBorder" Margin="7,0,0,0" [row]='4' [col]='1' [colSpan]='2'></Border>
+                        <Border [iStyle]="Styles.whiteBorder" Margin="7,0,0,0" [row]='5' [col]='1' [colSpan]='2'></Border>
+                        <Border [iStyle]="Styles.whiteBorder" Margin="7,0,0,0" [row]='6' [col]='1' [colSpan]='2'></Border>
+                        <Border [iStyle]="Styles.whiteBorder" Margin="7,-3,0,0" [row]='8' [col]='1' [colSpan]='5'></Border>
+                        <Border [iStyle]="Styles.whiteBorder" Margin="5,0,0,0" [row]='2' [col]='4' [colSpan]='2'></Border>
+                        <Border [iStyle]="Styles.whiteBorder" Margin="5,0,0,0" [row]='3' [col]='4' [colSpan]='2'></Border>
+                        <Border [iStyle]="Styles.whiteBorder" Margin="5,0,0,0" [row]='4' [col]='4' [colSpan]='2'></Border>
+                        <Border [iStyle]="Styles.whiteBorder" Margin="5,0,0,0" [row]='5' [col]='4' [colSpan]='2'></Border>
+                        <Border [iStyle]="Styles.whiteBorder" Margin="5,0,0,0" [row]='6' [col]='4' [colSpan]='2'></Border>
+                        <Border [iStyle]="Styles.whiteBorder" Margin="5,0,0,0" [row]='8' [col]='4' [colSpan]='5'></Border>
+                        <Border HorizontalAlignment="Left" Background="#e0eff1" Margin="9,-13,0,0"></Border>
+                              <kendo-gridlayout-item [row]='1' [col]='1'>
+                                <div containerStyle>
+                                  <iLabel #lblHeightTempRef Name="lblHeight" [Text]="ResKey.lblHeight_Text"
+                                    HorizontalAlignment="Left" VerticalAlignment="Center" Margin="7,0,0,0"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='1' [col]='2'>
+                                <div containerStyle>                                  
+                                  <iLabel #lblHeightValTempRef Name="lblHeightVal" Margin="5,0,0,0" FontWeight="Bold"
+                                    [Text]="DataContext.HeightVal" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" IsWordwrap="True" Width="Auto"></iLabel>                                  
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='1' [col]='4'>
+                                <div containerStyle>
+                                  <iLabel #lblFrequencyTempRef Name="lblFrequency"
+                                    [Text]="ResKey.lblFrequency_Text" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" Margin="5" IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='1' [col]='5'>
+                                <div containerStyle>
+                                  <iLabel #lblFrequencyValTempRef Name="lblFrequencyVal" Margin="5,0,0,0"
+                                    FontWeight="Bold" [Text]="DataContext.Freq" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='2' [col]='1'>
+                                <div containerStyle>
+                                  <iLabel #lblRecWeightTempRef Name="lblRecWeight"
+                                    [Text]="ResKey.lblRecWeight_Text" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" Margin="7,0,0,0" IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='2' [col]='2'>
+                                <div containerStyle>
+                                  <iLabel #lblRecWeightValTempRef Name="lblRecWeightVal" Margin="5,0,0,0"
+                                    FontWeight="Bold" [Text]="DataContext.RecBdyWeight" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" IsWordwrap="True" Width="Auto" ></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='2' [col]='4'>
+                                <div containerStyle>
+                                  <iLabel #lblCalcDoseTempRef Name="lblCalcDose"
+                                    [Text]="ResKey.lblCalcDose_Text" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" Margin="7,0,0,0" IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='2' [col]='5'>
+                                <div containerStyle>
+                                  <iLabel #lblCalcDoseValTempRef Name="lblCalcDoseVal" Margin="5,0,0,0"
+                                    FontWeight="Bold" [Text]="DataContext.Caldose" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='3' [col]='1'>
+                                <div containerStyle>
+                                  <iLabel #lblIdealWeightTempRef Name="lblIdealWeight"
+                                    [Text]="ResKey.lblIdealWeight_Text" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" Margin="5" IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='3' [col]='2'>
+                                <div containerStyle>
+                                  <iLabel #lblIdealWeightValTempRef Name="lblIdealWeightVal" Margin="5,0,0,0"
+                                    FontWeight="Bold" [Text]="DataContext.IdealWeight" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='3' [col]='4'>
+                                <div containerStyle>
+                                  <iLabel #lblTotDailyDoseTempRef Name="lblTotDailyDose"
+                                    [Text]="ResKey.lblTotalDailyDose_Text" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" Margin="5" IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='3' [col]='5'>
+                                <div containerStyle>
+                                  <iLabel #lblTotDailyDoseValTempRef Name="lblTotDailyDoseVal" Margin="5,0,0,0"
+                                    FontWeight="Bold" [Text]="DataContext.TotDailyDose" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='4' [col]='1'>
+                                <div containerStyle>
+                                  <iLabel #lblAdjBdyWeightTempRef Name="lblAdjBdyWeight"
+                                    [Text]="ResKey.lblAdjBdyWeight_Text" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" Margin="5" IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='4' [col]='2'>
+                                <div containerStyle>
+                                  <iLabel #lblAdjBdyWeightValTempRef Name="lblAdjBdyWeightVal" Margin="5,0,0,0"
+                                    FontWeight="Bold" [Text]="DataContext.AdjBdyWeight" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='4' [col]='4'>
+                                <div containerStyle>
+                                  <iLabel #lblOrderedAmtPerDoseTempRef Name="lblOrderedAmtPerDose"
+                                    [Text]="ResKey.lblOrderedAmtPerDose_Text" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" Margin="5" IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='4' [col]='5'>
+                                <div containerStyle>
+                                  <iLabel #lblOrderedAmtPerDoseValTempRef Name="lblOrderedAmtPerDoseVal"
+                                    Margin="5,0,0,0" FontWeight="Bold" [Text]="DataContext.OrdAmtDse"
+                                    HorizontalAlignment="Left" VerticalAlignment="Center" IsWordwrap="True"
+                                    Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='5' [col]='4'>
+                                <div containerStyle>
+                                  <iLabel #lblReqDoseTempRef Name="lblReqDose"
+                                    [Text]="ResKey.RequestedDose_Text" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" Margin="7,0,0,0" IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='5' [col]='5'>
+                                <div containerStyle>
+                                  <iLabel #lblReqDoseValTempRef Name="lblReqDoseVal" FontWeight="Bold"
+                                    [Text]="DataContext.Reqdose" Margin="5,0,0,0" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='5' [col]='1'>
+                                <div containerStyle>
+                                  <iLabel #lblBSATempRef Name="lblBSA" [Text]="ResKey.lblBSA_Text"
+                                    HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" IsWordwrap="True"
+                                    Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='5' [col]='2'>
+                                <div containerStyle>
+                                  <iLabel #lblBSAValTempRef Name="lblBSAVal" Margin="5,0,0,0" FontWeight="Bold"
+                                    [Text]="DataContext.BSA" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                    IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='6' [col]='4'>
+                                <div containerStyle>
+                                  <iLabel #lbReasForOverTempRef Name="lbReasForOver" Margin="7,0,0,0"
+                                    [Text]="ResKey.lbReasForOver_Text" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='6' [col]='5'>
+                                <div containerStyle>
+                                  <iLabel #lbReasForOverValTempRef Name="lbReasForOverVal" Margin="5,0,0,0"
+                                    FontWeight="Bold" [Text]="DataContext.Reasonforoverride" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='6' [col]='1'>
+                                <div containerStyle>
+                                  <iLabel #lblIndDoseTempRef Name="lblIndDose"
+                                    [Text]="ResKey.lblIndDose_Text" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" Margin="5" IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='6' [col]='2'>
+                                <div containerStyle>
+                                  <iLabel #lblIndDoseValTempRef Name="lblIndDoseVal" Margin="5,0,0,0" FontWeight="Bold"
+                                    [Text]="DataContext.IndivDose" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                    IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='8' [col]='1'>
+                                <div containerStyle>
+                                  <iLabel #lblDoseCalDetailsTempRef Name="lblDoseCalDetails"
+                                    [Text]="ResKey.lblDoseCalcDetails_Text" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" Margin="5" IsWordwrap="True" Width="Auto"></iLabel>
+                                </div>
+                              </kendo-gridlayout-item>
+                              <kendo-gridlayout-item [row]='8' [col]='2' [colSpan]="5">
+                                <div class="grid-layout-container colors"  #grdchildTempRef name="grdchild" Height="Auto" Width="560">
+                                  <kendo-gridlayout [rows]="[ { height: 'auto' }, { height: 'auto' },   { height: 'auto' },   { height: 'auto' }, { height: 'auto' },  ]" [cols]="[{ width: 200 }, { width: 360 }]">
+                                    <kendo-gridlayout-item *ngIf="DataContext.DoseCalTxt1" [row]='1' [col]='1' [Background]="Styles.InnerBG">
+                                      <div class="firstBottom" containerStyle>
+                                        <iLabel #lblDoseCalcTxt1TempRef Name="lblDoseCalcTxt1" Margin="3,5,0,0"
+                                          [Text]="DataContext.DoseCalTxt1" HorizontalAlignment="Left"
+                                          VerticalAlignment="Center" IsWordwrap="True" Width="Auto" Foreground="Blue"
+                                          FontWeight="Bold" Height="Auto"></iLabel>
+                                      </div>
+                                    </kendo-gridlayout-item>
+                                    <kendo-gridlayout-item *ngIf="DataContext.DoseCalVal1" [row]='1' [col]='2' [Background]="Styles.InnerBG">
+                                      <div containerStyle>
+                                        <iLabel #lblDoseCalcTxtVal1TempRef Name="lblDoseCalcTxtVal1" FontWeight="Bold"
+                                          [Text]="DataContext.DoseCalVal1" HorizontalAlignment="Left"
+                                          VerticalAlignment="Center" Margin="5" IsWordwrap="True" Width="Auto"
+                                          Foreground="Blue" Height="Auto"></iLabel>
+                                      </div>
+                                    </kendo-gridlayout-item>
+                                    <kendo-gridlayout-item *ngIf="DataContext.DoseCalTxt2" [row]='2' [col]='1' [Background]="Styles.InnerBG">
+                                      <div class="bottoms" containerStyle>
+                                        <iLabel #lblDoseCalcTxt2TempRef Name="lblDoseCalcTxt2" Margin="3,5,0,0"
+                                          [Text]="DataContext.DoseCalTxt2" FontWeight="Bold" HorizontalAlignment="Left"
+                                          VerticalAlignment="Top" IsWordwrap="True" Width="Auto" Foreground="Blue"
+                                          [Visibility]="DataContext.TotDailyDseVisible" Height="Auto"></iLabel>
+                                      </div>
+                                    </kendo-gridlayout-item>
+                                    <kendo-gridlayout-item *ngIf="DataContext.DoseCalVal2" [row]='2' [col]='2' [Background]="Styles.InnerBG">
+                                      <div containerStyle>
+                                        <!-- [Visibility]="DataContext.TotDailyDseVisible" -->
+                                        <iLabel #lblDoseCalcTxtVal2TempRef Name="lblDoseCalcTxtVal2"
+                                          [Text]="DataContext.DoseCalVal2" HorizontalAlignment="Left"
+                                          VerticalAlignment="Top" Margin="5" IsWordwrap="True" Width="Auto"
+                                          Foreground="Blue" FontWeight="Bold"
+                                         Height="Auto"></iLabel>
+                                      </div>
+                                    </kendo-gridlayout-item>
+                                    <kendo-gridlayout-item *ngIf="DataContext.DoseCalTxt3" [row]='3' [col]='1' [Background]="Styles.InnerBG">
+                                      <div class="frequencyBottom" containerStyle>
+                                        <iLabel #lblDoseCalcTxt3TempRef Name="lblDoseCalcTxt3" Margin="3,5,0,0"
+                                          FontWeight="Bold" [Text]="DataContext.DoseCalTxt3" HorizontalAlignment="Left"
+                                          VerticalAlignment="Top" IsWordwrap="True" Width="Auto" Foreground="Blue"
+                                          [Visibility]="DataContext.FreqVisible" Height="Auto"></iLabel>
+                                      </div>
+                                    </kendo-gridlayout-item>
+                                    <kendo-gridlayout-item *ngIf="DataContext.DoseCalVal3" [row]='3' [col]='2' [Background]="Styles.InnerBG">
+                                      <div containerStyle>
+                                        <!-- [Visibility]="DataContext.FreqVisible" -->
+                                        <iLabel #lblDoseCalcTxtVal3TempRef Name="lblDoseCalcTxtVal3"
+                                          [Text]="DataContext.DoseCalVal3" FontWeight="Bold" HorizontalAlignment="Left"
+                                          VerticalAlignment="Top" Margin="5" IsWordwrap="True" Width="Auto"
+                                          Foreground="Blue"  Height="Auto">
+                                        </iLabel>
+                                      </div>
+                                    </kendo-gridlayout-item>
+                                    <kendo-gridlayout-item *ngIf="DataContext.DoseCalTxt4" [row]='4' [col]='1' [Background]="Styles.InnerBG">
+                                      <div class="bottoms1" containerStyle>
+                                        <iLabel #lblDoseCalcTxt4TempRef Name="lblDoseCalcTxt4" Margin="3,5,0,0"
+                                          FontWeight="Bold" [Text]="DataContext.DoseCalTxt4" HorizontalAlignment="Left"
+                                          VerticalAlignment="Top" IsWordwrap="True" Width="Auto" Foreground="Blue"
+                                          Height="Auto"></iLabel>
+                                      </div>
+                                    </kendo-gridlayout-item>
+                                    <kendo-gridlayout-item *ngIf="DataContext.DoseCalVal4" [row]='4' [col]='2' [Background]="Styles.InnerBG">
+                                      <div containerStyle>
+                                        <iLabel #lblDoseCalcTxtVal4TempRef Name="lblDoseCalcTxtVal4"
+                                          [Text]="DataContext.DoseCalVal4" FontWeight="Bold" HorizontalAlignment="Left"
+                                          VerticalAlignment="Top" Margin="5" IsWordwrap="True" Width="Auto"
+                                          Foreground="Blue" Height="Auto"></iLabel>
+                                      </div>
+                                    </kendo-gridlayout-item>
+                                    <kendo-gridlayout-item *ngIf="DataContext.DoseCalTxt5" [row]='5' [col]='1' [Background]="Styles.InnerBG">
+                                      <div class="orderBottom" containerStyle>
+                                        <iLabel #lblDoseCalcTxt5TempRef Name="lblDoseCalcTxt5" Margin="3,5,0,5"
+                                          FontWeight="Bold" [Text]="DataContext.DoseCalTxt5" HorizontalAlignment="Left"
+                                          VerticalAlignment="Top" IsWordwrap="True" Width="Auto" Foreground="Blue"
+                                          Height="Auto"></iLabel>
+                                      </div>
+                                    </kendo-gridlayout-item>
+                                    <kendo-gridlayout-item *ngIf="DataContext.DoseCalVal5" [row]='5' [col]='2' [Background]="Styles.InnerBG">
+                                      <div containerStyle>
+                                        <iLabel #lblDoseCalcTxtVal5TempRef Name="lblDoseCalcTxtVal5"
+                                          [Text]="DataContext.DoseCalVal5" HorizontalAlignment="Left"
+                                          VerticalAlignment="Top" Margin="5" IsWordwrap="True" Width="Auto"
+                                          Foreground="Blue" FontWeight="Bold" Height="Auto"></iLabel>
+                                      </div>
+                                    </kendo-gridlayout-item>
+                                  </kendo-gridlayout>
+                                </div>
+                              </kendo-gridlayout-item>
+                            </kendo-gridlayout>
+                          </div>
+                        </kendo-gridlayout-item>
+                      </kendo-gridlayout>
+                    </div>
+                 
+                </kendo-gridlayout>
+              </div>
+        <!-- </kendo-gridlayout-item> -->
+        
+        </Border>
+    </div>
+    </kendo-gridlayout-item>
+    </kendo-gridlayout>
+    </div>
+    

@@ -1,0 +1,481 @@
+<kendo-gridlayout GridLayout #LayoutRootTempRef Name="LayoutRoot" HorizontalAlignment="Stretch" Background="#FFE0EFF1"
+    [rows]="[{height:'auto'},{height: 6},{height: 35},{height:'2fr'}]"
+    [cols]="[{width:'1fr'},{width:'3fr'},{width:40},{width:'1fr'},{width:'3fr'}]" Margin="10,10,10,10">
+    <Border [row]='1' [col]='2' [Background]="Styles.InnerBG"></Border>
+    <kendo-gridlayout-item [row]='1' [col]='1'>
+        <div class="condition-label">
+            <iLabel #lblConditionTempRef Name="lblCondition" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                Width="auto" [Text]="ResConditional.lblCondition_Text" IsWordwrap="True"></iLabel>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='1' [col]='2'>
+        <div containerStyle>
+            <iTreeView #tvwConditionTempRef HorizontalAlignment="Stretch" Margin="5,5" TabIndex="1" Name="tvwCondition"
+                VerticalAlignment="Stretch" [Tooltip]="ResConditional.tvwCondition_ToolTip" class="condition-treeview"
+                [IsConditionalDose]="true"
+                [ngClass]="{'disable-tree': !tvwCondition.IsEnabled, 'enable-tree': tvwCondition.IsEnabled }"
+                [SelectedItem]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.SelectedObservationResult" (DataContextChange)="tvwConditionDataContextChanged($event)"
+                [TreeViewDataContext]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.ObservationsResults"
+                [SelectionChanged_Func]="tvwCondition_SelectionChanged_Func" SelectionMode="Single" MaxHeight="150">
+            </iTreeView>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='1' [col]='4' [colSpan]="2">
+        <kendo-gridlayout HorizontalAlignment="Stretch" VerticalAlignment="Top" [cols]="[{width:'1fr'},{width:'3fr'}]"
+            [rows]="[{height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'}]">
+
+            <Border [row]='1' [col]='2' [Background]="Styles.InnerBG"></Border>
+            <Border [row]='2' [col]='2' [Background]="Styles.InnerBG"></Border>
+            <Border [row]='3' [col]='2' [Background]="Styles.InnerBG"></Border>
+            <Border [row]='5' [col]='2' [Background]="Styles.InnerBG"></Border>
+            <Border [row]='4' [col]='2' #InfusioninnerBorderTempRef [Background]="Styles.InnerBG"
+                Name="InfusioninnerBorder"
+                [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsInfusionRateVisible">
+            </Border>
+            <Border [row]='1' [col]='1' [colSpan]='4' [iStyle]="Styles.whiteBorder"></Border>
+            <Border [row]='2' [col]='1' [colSpan]='4' [iStyle]="Styles.whiteBorder"
+                [Visibility]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.DoseVisibility">
+            </Border>
+            <Border [row]='3' [col]='1' [colSpan]='4' [iStyle]="Styles.whiteBorder"></Border>
+            <Border [row]='4' [col]='1' [colSpan]='4' [iStyle]="Styles.whiteBorder"></Border>
+            <Border [row]='5' [col]='1' [colSpan]='4' #InfusionrateBorderTempRef [iStyle]="Styles.whiteBorder"
+                Name="InfusionrateBorder"
+                [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsInfusionRateVisible">
+            </Border>
+            <kendo-gridlayout-item [row]='1' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblValueRangeTempRef Name="lblValueRange" HorizontalAlignment="Stretch" Width="auto"
+                        [Text]="ResConditional.lblValueRange_Text" IsWordwrap="True"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='1' [col]='2'>
+                <kendo-gridlayout #layoutValueRangeTempRef Margin="0" HorizontalAlignment="Stretch"
+                    Name="LayoutValueRange" [cols]="[{width:'1.2fr'},
+                    {width:'1.5fr'},
+                    {width:7},
+                    {width:'1.5fr'},
+                    {width:'1fr'},
+                    {width:'1.8fr'}]">
+                    <kendo-gridlayout-item [col]='1' [row]='1'>
+                        <div containerStyle>
+                            <iComboBox #cboRangeValInfTempRef TabIndex="2" HorizontalAlignment="Stretch"
+                                class="range-val" Name="cboRangeValInf" VerticalAlignment="Center" Margin="5,5"
+                                Height="21" MinWidth="20" width="auto" IsEditable="True" IsTypeAHead="True"
+                                IsTextSearchEnabled="True"
+                                [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.RangeOperators"
+                                [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.Condition.RangeOperator"
+                                [Tooltip]="ResConditional.txtValueRange_Tooltip" IsEnabled="True"
+                                [SelectionChanged]="cboRangeValInf_SelectionChanged_Func"
+                                [KeyDown]="cboRangeValInf_KeyDown_Func"  [isGlobalEnabled]="IsEnabled">
+                            </iComboBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [col]='2' [row]='1'>
+                        <div containerStyle>
+                            <iTextBox #txtLowerRangeTempRef TabIndex="3" HorizontalAlignment="Stretch"
+                                Name="txtLowerRange" VerticalAlignment="Center" Margin="5,5" MinWidth="20" width="auto"
+                                Type="Numeric" Nonnegative="True" Scale="5" Precision="9" MaxLength="10"
+                                [Tooltip]="ResConditional.txtLowerRange_ToolTip"
+                                [(Text)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.Condition.LowerRange"
+                                [TextChanged]="txtLowerRange_TextChanged_Func"
+                                [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsLowerRangeEnabled"  [isGlobalEnabled]="IsEnabled"
+                                [RaiseTxtChangeEvent]="true">
+                            </iTextBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [col]='3' [row]='1'>
+                        <div containerStyle>
+                            <iLabel #lblHifenTempRef Name="lblHifen" Width="auto" Text="-"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [col]='4' [row]='1'>
+                        <div containerStyle>
+                            <iTextBox #txtUpperRangeTempRef TabIndex="4" HorizontalAlignment="Stretch"
+                                Name="txtUpperRange" VerticalAlignment="Center" Margin="5,5" MinWidth="20" width="auto"
+                                Type="Numeric" Nonnegative="True" Scale="5" Precision="9" MaxLength="10"
+                                [Tooltip]="ResConditional.txtUpperRange_ToolTip"
+                                [(Text)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.Condition.UpperRange"
+                                IsEnabled="False" [isGlobalEnabled]="IsEnabled"></iTextBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [col]='5' [row]='1'>
+                        <div containerStyle>
+                            <iLabel #lblValueRangeUOMTempRef Name="lblValueRangeUOM" HorizontalAlignment="Stretch"
+                                Margin="18,5,5,5" VerticalAlignment="Center" Width="auto"
+                                [Text]="ResConditional.lblValueRangeUOM_Text" IsWordwrap="False"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [col]='6' [row]='1'>
+                        <div containerStyle>
+                            <iComboBox #cboRangeUOMTempRef TabIndex="5" HorizontalAlignment="Stretch" Name="cboRangeUOM"
+                                class="uom" VerticalAlignment="Center" Margin="5,5" Height="21" MinWidth="20"
+                                width="auto" IsEditable="True" IsTypeAHead="True" IsTextSearchEnabled="True"
+                                [Tooltip]="ResConditional.cboRangeUOM_ToolTip" IsDropDownStretch="True"
+                                [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.Condition.RangeUoM"
+                                [ItemsSource]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.RangeUOMs"
+                                [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsRangeUoMEnabled" [isGlobalEnabled]="IsEnabled">
+                            </iComboBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='2' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblDoseValueTempRef Name="lblDoseValue" HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center" Width="auto"
+                        [Text]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.ConditionalDoseValue"
+                        Visibility="Collapsed"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='2' [col]='2'>
+                <kendo-gridlayout Margin="0" HorizontalAlignment="Stretch" Name="LayoutDoseValueType" [cols]="[{width:'2fr'},
+                    {width:'3fr'}]">
+                    <kendo-gridlayout-item [row]='1' [col]='1'>
+                        <div containerStyle>
+                            <iRadioButton #optNumericTempRef TabIndex="6" IsWordWrap="True" Margin="5,5"
+                                GroupName="DoseValueType" Name="optNumeric" Text="Numeric"
+                                [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsNumericChecked"
+                                HorizontalAlignment="Left" Value="N" Width="Auto" MinWidth="0" Visibility="Collapsed" [isGlobalEnabled]="IsEnabled">
+                            </iRadioButton>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='1' [col]='2'>
+                        <div containerStyle>
+                            <iRadioButton #optInstructionTempRef TabIndex="7" IsWordWrap="True" Margin="5,5"
+                                GroupName="DoseValueType" Name="optInstruction" Text="Instruction"
+                                [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsInstructionChecked"
+                                HorizontalAlignment="Left" Value="I" Width="Auto" MinWidth="0" Visibility="Collapsed" [isGlobalEnabled]="IsEnabled">
+                            </iRadioButton>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='2' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblDoseTempRef Name="lblDose" HorizontalAlignment="Stretch" Width="auto" Text="Dose"
+                        IsWordwrap="True"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsConditionalDoseEnable"
+                        [Visibility]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.DoseVisibility">
+                    </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='2' [col]='2'>
+                <kendo-gridlayout Margin="0" HorizontalAlignment="Stretch" Name="LayoutDoseValue"
+                    [cols]="[{width:'2.1fr'},{width:7},{width:'2.1fr'},{width:'1fr'},{width:'1.8fr'}]">
+                    <kendo-gridlayout-item [row]='1' [col]='1' [colSpan]='1'>
+                        <div containerStyle>
+                            <iTextBox #txtDoseValueTempRef HorizontalAlignment="Stretch" TabIndex="6"
+                                Name="txtDoseValue" VerticalAlignment="Center" Margin="5,5,4,5" width="auto"
+                                Type="Numeric" Nonnegative="True" Precision="3"
+                                [Tooltip]="ResConditional.txtDoseValue_ToolTip"
+                                [(Text)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.Condition.Dose"
+                                [Visibility]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.DoseVisibility"
+                                [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsConditionalDoseEnable"
+                                [KeyDown]="txtDoseValue_KeyDown_Func" Scale="7" MaxLength="11" [isGlobalEnabled]="IsEnabled"></iTextBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='1' [col]='2'>
+                        <div containerStyle>
+                            <iLabel #lblDoseHifenTempRef Name="lblDoseHifen" Width="auto" Text="-"
+                                [Visibility]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.DoseVisibility">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='1' [col]='3'>
+                        <div containerStyle>
+                            <iTextBox #txtUpperDoseValueTempRef TabIndex="7" HorizontalAlignment="Stretch"
+                                Name="txtUpperDoseValue" VerticalAlignment="Center" Margin="5,5,0,5" MinWidth="20"
+                                width="auto" Type="Numeric" Nonnegative="True" Scale="7" Precision="3" MaxLength="11"
+                                [Tooltip]="ResConditional.txtUpperDoseValue_ToolTip"
+                                [(Text)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.Condition.UpperDose"
+                                [Visibility]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.DoseVisibility" [isGlobalEnabled]="IsEnabled">
+                            </iTextBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='1' [col]='4'>
+                        <div containerStyle>
+                            <iLabel #lblDoseValueUOMTempRef Name="lblDoseValueUOM" HorizontalAlignment="Right"
+                                Margin="0,5,5,5" VerticalAlignment="Center" Width="auto"
+                                [Text]="ResConditional.lblDoseValueUOM_Text" IsWordwrap="False"
+                                [Visibility]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.DoseVisibility"
+                                [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsConditionalDoseEnable" [isGlobalEnabled]="IsEnabled">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='1' [col]='5'>
+                        <div containerStyle>
+                            <iComboBox #cboDoseValueUOMTempRef TabIndex="8" HorizontalAlignment="Stretch" class="uom"
+                                Name="cboDoseValueUOM" VerticalAlignment="Center" Margin="5,5,5,5" width="auto"
+                                Height="21" IsEditable="True" IsTypeAHead="True" IsTextSearchEnabled="True"
+                                [Tooltip]="ResConditional.cboDoseValueUOM_ToolTip" IsDropDownStretch="True"
+                                [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.Condition.DoseUoM"
+                                [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.DoseUOMs"
+                                [Visibility]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.DoseVisibility"
+                                [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsConditionalDoseEnable"
+                                [SelectionChanged]="cboDoseValueUOM_SelectionChanged_Func" [isGlobalEnabled]="IsEnabled"></iComboBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='3' [col]='1'>
+                <div containerStyle>
+                    <kendo-gridlayout Name="InfusionrateLabel" VerticalAlignment="Center"
+                        [Visibility]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsInfusionRateVisible"
+                        [cols]="[{width:70},{width:'auto'}]">
+                        <kendo-gridlayout-item [col]='1' [row]='1'>
+                            <div containerStyle>
+                                <iLabel #lblInfusionrateTempRef IsWordwrap="True" Width="70" HorizontalAlignment="Left"
+                                    Name="lblInfusionrate" VerticalAlignment="Center"
+                                    [Text]="resKey1.lblInfusionRateLabel2_Text"
+                                    [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsCondInfusionRateEnable" [isGlobalEnabled]="IsEnabled">
+                                </iLabel>
+                            </div>
+                        </kendo-gridlayout-item>
+                    </kendo-gridlayout>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='3' [col]='2'>
+                <kendo-gridlayout Name="InfusionrateLayoutRoot" Height="31"
+                    [Visibility]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsInfusionRateVisible"
+                    [cols]="[{width:'0.9fr'},{width:'auto'},{width:'0.9fr'},{width:'0.6fr'},{width:'1.2fr'},{width:'auto'},{width:'1.2fr'}]">
+                    <kendo-gridlayout-item [col]='1' [row]='1'>
+                        <div containerStyle>
+                            <iTextBox #txtLowerInfusionrateTempRef TabIndex="9" HorizontalAlignment="Stretch"
+                                width="auto" [TextChanged]="txtLowerInfusionrate_TextChanged_Func" Name="txtLowerInfusionrate"
+                                VerticalAlignment="Center" Height="21" Margin="5" MinWidth="20" MaxLength="255"
+                                [(Text)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.Condition.Infusionrate"
+                                Type="Numeric" Nonnegative="True" Scale="7" Precision="3"
+                                [Visibility]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsInfusionRateVisible"
+                                [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsCondInfusionRateEnable"
+                                IsTabStop="True" [Tooltip]="resKey1.txtinfrate_Tooltip" [isGlobalEnabled]="IsEnabled" [RaiseTxtChangeEvent]="true"></iTextBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [col]='2' [row]='1'>
+                        <div containerStyle>
+                            <iLabel #lblHifen1TempRef Name="lblHifen1" Width="auto" Text="-"
+                                [Visibility]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsInfusionRateVisible">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [col]='3' [row]='1'>
+                        <div containerStyle>
+                            <iTextBox #txtUpperInfusionrateTempRef TabIndex="10" HorizontalAlignment="Stretch"
+                                width="auto" Name="txtUpperInfusionrate" VerticalAlignment="Center" Height="21"
+                                Margin="5" MinWidth="20" MaxLength="255"
+                                [(Text)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.Condition.InfusionUpperrate"
+                                Type="Numeric" Nonnegative="True" Scale="7" Precision="3" IsTabStop="True"
+                                [Tooltip]="resKey1.txtInfUpperrRate_ToolTip"
+                                [Visibility]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsInfusionRateVisible" [isGlobalEnabled]="IsEnabled">
+                            </iTextBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [col]='4' [row]='1'>
+                        <div containerStyle>
+                            <iLabel #lblUOMInfusionrateTempRef HorizontalAlignment="Left" Name="lblUOMInfusionrate"
+                                VerticalAlignment="Center"
+                                [Visibility]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsInfusionRateVisible"
+                                [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsCondInfusionRateEnable"
+                                Text="UOM" Width="auto" MinWidth="20" Height="20" [isGlobalEnabled]="IsEnabled"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [col]='5' [row]='1'>
+                        <div containerStyle>
+                            <iComboBox #cboUOMInfusionrateTempRef TabIndex="11" class="uom"
+                                [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.InfRateNumeratorUOMList"
+                                [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.Condition.Infratenumeratoruom"
+                                [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsCondInfusionRateEnable"
+                                IsEditable="True" IsTypeAHead="True" IsTextSearchEnabled="True"
+                                [Visibility]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsInfusionRateVisible"
+                                HorizontalAlignment="Stretch" Name="cboUOMInfusionrate" VerticalAlignment="Center"
+                                width="auto" Height="21" IsDropDownStretch="True" IsTabStop="True"
+                                [Tooltip]="resKey1.cboInfustionRateUOM_Tooltip" [isGlobalEnabled]="IsEnabled"></iComboBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [col]='6' [row]='1'>
+                        <div containerStyle>
+                            <iLabel #lblUOMInfusionrate1TempRef HorizontalAlignment="Center" Name="lblUOMInfusionrate1"
+                                VerticalAlignment="Center" Text="/" Margin="5,5,5,5" Width="auto" Mandatory="False"
+                                [Visibility]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsInfusionRateVisible"
+                                MinWidth="10" Height="20"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [col]='7' [row]='1' [colSpan]='3'>
+                        <div containerStyle style="padding-left: 6px;">
+                            <iComboBox #cboUOMInfusionrate1TempRef TabIndex="12" class="uom"
+                                [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.InfusionratedenoUOMList"
+                                IsDropDownStretch="True"
+                                [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.Condition.InfrateDenominatoruom"
+                                [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsCondInfusionRateEnable"
+                                IsEditable="True" IsTypeAHead="True" IsTextSearchEnabled="True"
+                                HorizontalAlignment="Center" Name="cboUOMInfusionrate1" VerticalAlignment="Center"
+                                Height="20" IsTabStop="True" Width="64"
+                                [Visibility]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsInfusionRateVisible"
+                                [Tooltip]="resKey1.cboInfusionRateUOM_Tooltip" [isGlobalEnabled]="IsEnabled"></iComboBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='4' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblInstuctionTempRef Name="lblInstuction" HorizontalAlignment="Stretch" Width="auto"
+                        Text="Instruction" IsWordwrap="True"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='4' [col]='2'>
+                <div containerStyle>
+                    <iTextBox #txtInstructionTempRef TabIndex="13" HorizontalAlignment="Stretch" Name="txtInstruction"
+                        VerticalAlignment="Center" Margin="5,5" MinWidth="20" Type="Text" MaxLength="255"
+                        [Tooltip]="ResConditional.txtInstruction_ToolTip"
+                        [(Text)]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.Condition.Instruction"
+                        width="auto" [isGlobalEnabled]="IsEnabled"></iTextBox>
+                </div>
+            </kendo-gridlayout-item>
+        </kendo-gridlayout>
+    </kendo-gridlayout-item>
+    <Border [row]='1' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+    <Border [row]='2' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+    <kendo-gridlayout-item [row]='3' [col]='4' [colSpan]='2'>
+        <div containerStyle>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5,2,0,2">
+                <kendo-gridlayout-item [row]='1' [col]='1'>
+                    <div containerStyle>
+                        <iButton #cmdAddTempRef Name="cmdAdd" TabIndex="14" [Text]="ResConditional.cmdAdd_Caption "
+                            SLAccessKeyProperties.AccessKey="A" HorizontalAlignment="Right" Height="23" Margin="5,2,5,2"
+                            ImageSource="./assets/Images/iNewAdd.png"
+                            DisabledImageSource="./assets/Images/iNewAddDis.png"
+                            ActiveImageSource="./assets/Images/iNewAddHot.png" [Tooltip]="ResConditional.cmdAdd_ToolTip"
+                            [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsAddEnabled"
+                            [Command]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.AddCommand" [isGlobalEnabled]="IsEnabled">
+                        </iButton>
+                    </div>
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [row]='1' [col]='1'>
+                    <div containerStyle>
+                        <iButton #cmdUpdateTempRef Name="cmdUpdate" TabIndex="15"
+                            [Text]="ResConditional.cmdUpdate_Caption " SLAccessKeyProperties.AccessKey="D"
+                            HorizontalAlignment="Right" Height="23" Margin="5,2,5,2"
+                            ImageSource="./assets/Images/iNewUpdate.png"
+                            DisabledImageSource="./assets/Images/iNewUpdateDis.png"
+                            ActiveImageSource="./assets/Images/iNewUpdateHot.png"
+                            [Tooltip]="ResConditional.cmdUpdate_ToolTip"
+                            [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsUpdateEnabled"
+                            [Command]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.UpdateCommand" [isGlobalEnabled]="IsEnabled">
+                        </iButton>
+                    </div>
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [row]='1' [col]='1'>
+                    <div containerStyle>
+                        <iButton #cmdRemoveTempRef Name="cmdRemove" TabIndex="16"
+                            [Text]="ResConditional.cmdRemove_Caption" SLAccessKeyProperties.AccessKey="M"
+                            HorizontalAlignment="Right" Height="23" Margin="5,2,0,2"
+                            ImageSource="./assets/Images/iNewDelete.png"
+                            DisabledImageSource="./assets/Images/iNewDeleteDis.png"
+                            ActiveImageSource="./assets/Images/iNewDeleteHot.png"
+                            [Tooltip]="ResConditional.cmdRemove_ToolTip"
+                            [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.IsRemoveEnabled"
+                            [Command]="DataContext.FormViewerDetails.BasicDetails.ConditionalDosingDetails.RemoveCommand" [isGlobalEnabled]="IsEnabled">
+                        </iButton>
+                    </div>
+                </kendo-gridlayout-item>
+            </StackPanel>
+        </div>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]="4" [colSpan]="5">
+        <kendo-grid #grdConditionTempRef Name="grdCondition" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+            [selectable]="{ checkboxOnly: true, mode: 'multiple' }" [sortable]="false" class="grd-condition"
+            [reorderable]="false" [resizable]="false" [data]="grdCondition.ItemsSource.array" kendoGridSelectBy
+            (selectionChange)="grdCondition_SelectionChanged({},$event)"
+            [(selectedKeys)]="grdCondition.selectedRowsIndex">
+            <ng-template kendoGridNoRecordsTemplate>
+                No records to show
+            </ng-template>
+            <kendo-grid-column *ngIf="grdCondition.RowIndicatorVisibility == 0 ? true : false" UniqueName="rowindicator"
+                field="rowindicator" title="">
+                <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+                    <Image [style.marginLeft.px]="10" [style.marginRight.px]="10"
+                        *ngIf="grdCondition.selectedRowsIndex.length > 0 ? grdCondition.selectedRowsIndex == rowIndex : false"
+                        Source="~/../assets/Images/iarrownor5x10.png">
+                    </Image>
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-checkbox-column [style]="{ 'text-align': 'center' }" [width]="0.25" Name="CheckBoxColumn"
+                [showSelectAll]="true">
+                <ng-template kendoGridHeaderTemplate let-dataItem>
+                    <iCheckBox class="CheckBoxAlign" #chkGridHeaderSelectionRef Name="chkGridSelections" [OnChange]="GridHeaderCheckboxChange_Func" [isGlobalEnabled]="IsEnabled"> </iCheckBox>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem let-idx="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate #temp [dataItem]="dataItem" [index]="idx" [colindex]="columnIndex"
+                        [gridHelper]="grdCondition">
+                        <iCheckBox class="CheckBoxAlign1" [kendoGridSelectionCheckbox]="idx" [GridRowIndex]="idx" #chkGridSelectionRef Name="chkGridSelection"
+                            id="chkbx{{idx}}" [OnChange]="GridRowCheckboxChange_Func" [isGlobalEnabled]="IsEnabled">
+                        </iCheckBox>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-checkbox-column>
+            <!-- <kendo-grid-column [title]="ResConditional.grdCondition_ObservationResult" UniqueName="ObservationResult"
+                [filterable]="false" [editable]="false" field="ObservationResult" [width]="2">
+            </kendo-grid-column>
+            <kendo-grid-column [title]="ResConditional.grdCondition_ValueRange" UniqueName="ValueRange"
+                [filterable]="false" [editable]="false" field="ValueRange" [width]="1">
+            </kendo-grid-column>
+            <kendo-grid-column [title]="ResConditional.grdCondition_DoseInstruction" UniqueName="DoseInstruction"
+                [filterable]="false" [editable]="false" field="DoseInstruction" [width]="2">
+            </kendo-grid-column> -->
+            <kendo-grid-column [title]="ResConditional.grdCondition_ObservationResult" UniqueName="ObservationResult" [filterable]="false"
+
+                [editable]="false" field="ObservationResult" [width]="2" >
+
+                <ng-template kendoGridHeaderTemplate >
+
+                    <span [title]="ResConditional.grdCondition_ObservationResult">{{ResConditional.grdCondition_ObservationResult}} </span>
+
+                </ng-template>
+
+                <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+
+                    <span kendoTooltip title={{dataItem.ObservationResult}}>{{dataItem.ObservationResult}}</span>
+
+                </ng-template>
+
+            </kendo-grid-column>
+
+            <kendo-grid-column [title]="ResConditional.grdCondition_ValueRange" UniqueName="ValueRange" [filterable]="false" [editable]="false"
+
+                field="ValueRange" [width]="1">  
+
+                <ng-template kendoGridHeaderTemplate >
+
+                    <span [title]="ResConditional.grdCondition_ValueRange">{{ResConditional.grdCondition_ValueRange}} </span>
+
+                </ng-template>    
+
+                <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+
+                    <span kendoTooltip title={{dataItem.ValueRange}}>{{dataItem.ValueRange}}</span>
+
+                </ng-template>          
+
+            </kendo-grid-column>
+
+            <kendo-grid-column [title]="ResConditional.grdCondition_DoseInstruction" UniqueName="DoseInstruction" [filterable]="false"
+
+                [editable]="false" field="DoseInstruction" [width]="2">
+
+                <ng-template kendoGridHeaderTemplate >
+
+                    <span [title]="ResConditional.grdCondition_DoseInstruction">{{ResConditional.grdCondition_DoseInstruction}} </span>
+
+                 </ng-template>
+
+                 <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+
+                    <span kendoTooltip title={{dataItem.DoseInstruction}}>{{dataItem.DoseInstruction}}</span>
+
+                  </ng-template>
+
+            </kendo-grid-column>
+        </kendo-grid>
+    </kendo-gridlayout-item>
+
+</kendo-gridlayout>

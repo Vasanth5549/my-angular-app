@@ -1,0 +1,66 @@
+.aligndrugheader {
+    width: 380px !important;
+}
+
+.labelalign {
+    display: inline-grid !important;
+    min-width: 40px;
+    margin: 5px;
+    height: 21px;
+    word-break: break-word;
+    padding-top: 4px;
+}
+
+.grid-layout-container {
+    /* Revisit Required */
+    height: auto;
+}
+.div-bg-whiteborder {
+    border-top: 2px solid white;
+    background-color: #c2e2e3;
+}
+.div-bg {
+    background-color: #c2e2e3;
+}
+.div-whiteborder {
+    border-top: 2px solid white;
+}
+.div-whiteborder-comments  {
+    border-top: 2px solid white;
+    align-items: start !important;
+    padding-top: 10px;
+}
+.div-dialog-content {
+    height: 663px;
+    border: 1px solid #77b3b4;
+    border-radius: 3px;
+    padding: 10px;
+    margin: -13px;
+}
+.div-dialog-contents {
+    height: 663px;
+    border: 1px solid #77b3b4;
+    border-radius: 3px;
+    padding: 10px;
+    margin: -13px;
+    overflow-y:auto;
+}
+.div-dialog-buttons {
+    text-align: right;
+    height: 15px;
+    padding: 10px;
+}
+.div-radio-button {
+    height: 20px !important; 
+}
+.div-med-action {
+    height: 80px !important; 
+}
+.div-dose-detail {
+    height: 180px !important; 
+}
+@media screen and (max-device-width: 1400px) {
+    ::ng-deep .stickHeader > kendo-label{
+        white-space: nowrap !important;
+    }
+  }

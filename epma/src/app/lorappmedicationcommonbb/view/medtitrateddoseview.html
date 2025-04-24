@@ -1,0 +1,12 @@
+<div name="grdMedTitratedDose" Background="#FFE0EFF1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <kendo-gridlayout  [rows]="[ { height: 'auto'}]"
+    [cols]="[ { width: 'auto'}]">
+        <kendo-gridlayout-item [row]='1' [col]="1">
+            <div containerStyle>
+                <!-- <ContentControl #ContentCtrlMedTitratedDoseViewTempRef Name="ContentCtrlMedTitratedDoseView"
+                    HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"></ContentControl> -->
+                    <MedTitratedDoseChild [oTitratedDoseCommonVM]="oTitratedDoseCommonVM"> </MedTitratedDoseChild>
+            </div>            
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

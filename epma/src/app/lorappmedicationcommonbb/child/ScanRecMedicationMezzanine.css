@@ -1,0 +1,37 @@
+.grid-layout-container {
+    /* Revisit Required */
+    height: auto;
+}
+.div-bg-whiteborder {
+    border-top: 2px solid white;
+    background-color: #c2e2e3;
+}
+.div-bg {
+    background-color: #c2e2e3;
+}
+.div-whiteborder {
+    border-top: 2px solid white;
+}
+
+.gridCell{
+    white-space: normal;
+    word-break: break-all;
+}
+
+.gridClass{
+    padding-top: 10px;
+}
+.scanRecord{
+    border:1px solid #77b3b4;
+}
+
+::ng-deep .k-grid .k-grid-content td.prodSacn {
+    position: relative;
+  
+  }
+
+  .gridScan{
+    white-space: normal;
+    word-break: break-word;
+    display: contents !important;
+  }

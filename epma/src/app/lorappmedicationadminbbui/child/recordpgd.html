@@ -1,0 +1,400 @@
+<div name="LayoutRoot">
+    <kendo-gridlayout id="recordPGD" class="grid-layout-container" GridLayout class="overallAlign"
+        [cols]="[{width : '10'}, {width : '328fr'}, {width : '1fr'}, {width : '163fr'}, {width : '6'}]"
+        [rows]="[{ height : '1fr'}, {height : 'auto'}, {height : '5'}, {height : '32'}]">
+
+        <kendo-gridlayout-item [row]='1' [col]='1' [colSpan]='7' [ngClass]="IsPatientTransferd ? '':'pgd_warning_padding'">
+            <Border #PGDMaxAdminAlertTempRef Name="PGDMaxAdminAlert" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+               Height="45" [Visibility]="IsPatientTransferd">
+                <kendo-gridlayout class="grid-layout-container" GridLayout [style.background]="'#FFE4AF'" [rows]="[{height : '48'}]"
+                    [cols]="[{width : '54'}, {width : '1fr'}]" [style]="{ 'padding': '10px','height': '45px' }">
+                    <Image Source="assets/Images/ialert32.png" Width="25" Height="25"></Image>
+                    <kendo-gridlayout-item [row]='1' [col]='2'>
+                        <div containerStyle>
+                            <iLabel #lblPGDWarningTempRef class="PGDWarning" HorizontalAlignment="Left" Width="auto" Name="lblPGDWarning"
+                                Mandatory="False" IsWordwrap="True" Height="26" [Text]="getResource('lblPGDWarning_Msg')"
+                                VerticalAlignment="Center">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </Border>
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item [row]='2' [col]='2' [colSpan]='4'>
+            <div class="algin" [class]="windowpix ?'containerStyle' : 'containerStyle1'">
+                
+                <div class="panelbar-wrapper">
+                    <kendo-panelbar [expandMode]="1" [height]="'auto'"> <!-- IpanelBar -->
+                        <!-- panelbarItem -->
+                        <kendo-panelbar-item [title]="PGDListNameServicePoint"   [expanded]="true" [ngClass]="{'panelbarItem':IsPatientTransferd,'panelbarItem_warning_padding':!IsPatientTransferd,'panelConent': !grdPGDListServicePoint.ItemsSource?.array} ">
+                            <!-- IpanelBar lblPGDListName  item and header-->
+                            <ng-template kendoPanelBarContent>
+                                <div>
+                                    <kendo-gridlayout class="grid-layout-container" GridLayout
+                                        [rows]="[{ height: 'auto'}]" [cols]="[{ width: 'auto'}]"
+                                        HorizontalAlignment="Stretch" Width="825" VerticalAlignment="Stretch"
+                                        Height="30"> <!-- Grid -->
+                                        <kendo-grid #grdPGDListServicePointTempRef
+                                            class="horizontal-class-stretch vertical-class-stretch recordPGDClass"
+                                            (cellClick)="grdPGDListServicePoint_onCellClick($event)"
+                                            [data]="grdPGDListServicePoint.ItemsSource?.array" [reorderable]="false"
+                                            [sortable]="false"  [rowClass]="rowCallback" >
+                                            <ng-template kendoGridNoRecordsTemplate> No records to show</ng-template>  
+                                            <!-- iGrid --> <!--(RowLoaded)="grdPGDListServicePoint_RowLoaded($event)"-->
+                                            <kendo-grid-column field="SlctColumn" [width]="6" [filterable]="false" [style]="{ 'text-align': 'center' }">
+                                                <ng-template kendoGridHeaderTemplate>
+                                                    <ControlTemplate TargetType="telerikGridView:GridViewHeaderCell">
+                                                        <GridBorder #ControlTemplateBordrerStyle
+                                                            BorderThickness="0,0,1,1" BorderBrush="#FFB3B3B3">
+                                                            <Image Source="assets/Images/icopyacrossnor24.png"
+                                                                Width="15" Height="15" >
+                                                            </Image>
+                                                        </GridBorder>
+                                                    </ControlTemplate>
+                                                </ng-template>
+                                                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                                    let-columnIndex="columnIndex">
+                                                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex"
+                                                        [colindex]="columnIndex" [gridHelper]="grdPGDListServicePoint">
+                                                        <kendo-gridlayout>
+                                                            <kendo-gridlayout-item [row]='1'>
+                                                                <div containerStyle>
+                                                                    <Image class="imgCopyAcross"  [Visibility]="dataItem.IsCopyAcross"
+                                                                        Source="assets/Images/icopyacrossnor24.png"
+                                                                        Width="15" Height="15"
+                                                                        [Tooltip]="getResource('PGD_List_ServicePoint_Selection')">
+                                                                    </Image>
+                                                                </div>
+                                                            </kendo-gridlayout-item>
+                                                            <kendo-gridlayout-item [row]='1'>
+                                                                <div containerStyle>
+                                                                    <Image [Visibility]="!dataItem.IsCopyAcross" Source="assets/Images/icopyacrossdis24.png" Width="15" Height="15" [Tooltip]="getResource('CopyAcrossTooltip')">
+                                                                    </Image>
+                                                                </div>
+                                                            </kendo-gridlayout-item>
+                                                        </kendo-gridlayout>
+                                                    </DataTemplate>
+                                                </ng-template>
+                                            </kendo-grid-column>
+                                            <kendo-grid-column field="PrescribableItem" title="Prescription item"
+                                                [width]='140' [filterable]="false" [style]="{ 'padding': '0px' }" class="bg-color">
+                                                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                                    let-columnIndex="columnIndex">
+                                                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex"
+                                                        [colindex]="columnIndex" [gridHelper]="grdPGDListServicePoint">
+                                                        <ContentPresenter
+                                                            [Content]="dataItem | MedAdminLineDisplay : '' : 110">
+                                                        </ContentPresenter>
+                                                    </DataTemplate>
+                                                </ng-template>
+                                            </kendo-grid-column>
+                                            <kendo-grid-column field="PGDUsed" [title]="objRecordPGD.PGDUsed_Text"
+                                                [width]="30" [filterable]="false" [style]="{ 'text-align': 'center' }" class="bg-color">
+                                                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                                    let-columnIndex="columnIndex">
+                                                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex"
+                                                        [colindex]="columnIndex" [gridHelper]="grdPGDListServicePoint">
+                                                        <!-- (RowLoaded)="rowLoaded($event)"-->
+                                                        <iLabel #lblPGDusedTempRef Name="lblPGDused"
+                                                            HorizontalAlignment="Center" IsWordwrap="False"
+                                                            [(Text)]="dataItem.PGDUsed"
+                                                            [(Tooltip)]="dataItem.PGDUsedTooltip" Cursor="Arrow">
+                                                        </iLabel>
+                                                    </DataTemplate>
+                                                </ng-template>
+                                            </kendo-grid-column>
+                                        </kendo-grid>
+                                    </kendo-gridlayout>
+                                </div>
+                            </ng-template>
+                        </kendo-panelbar-item>
+
+                        <!-- panelbarItem Role removed-->
+                        <!-- <kendo-panelbar-item title="PGDListNameRole" [expanded]="true"> <!- - IpanelBar  item and header- ->
+                                        <ng-template kendoPanelBarContent>
+                                        <div>
+                                            <kendo-gridlayout GridLayout [rows]="[{ height: 'auto'}]" [cols]="[{ width: 'auto'}]"
+                                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"> 
+                                                <kendo-grid #grdPGDListRoleTempRef class="horizontal-class-stretch vertical-class-stretch"
+                                                    (cellClick)="grdPGDListRole_onCellClick($event,null)" [reorderable]="false"
+                                                    [sortable]="false"> 
+                                                    <kendo-grid-column field="SlctColumn" [width]="7" [filterable]="false">
+                                                        <ng-template kendoGridHeaderTemplate>
+                                                            <ControlTemplate TargetType="telerikGridView:GridViewHeaderCell">
+                                                                <GridBorder #ControlTemplateBordrerStyle BorderThickness="0,0,1,1"
+                                                                    BorderBrush="#FFB3B3B3">
+                                                                    <!- - <Image Source="assets/Images/icopyacrossnor24.png" Width="15" Height="15" Margin="5,0,0,10">
+                                                                    </Image> - ->
+                                                                    <img src="assets/Images/icopyacrossnor24.png" Width="15" Height="15"
+                                                                        Margin="5,0,0,10">
+                                                                </GridBorder>
+                                                            </ControlTemplate>
+                                            </ng-template>
+                                            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                                let-columnIndex="columnIndex">
+                                                <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex"
+                                                    [colindex]="columnIndex" [gridHelper]="grdPGDListRole">
+                                                    <kendo-gridlayout>
+                                                        <kendo-gridlayout-item [row]="1" [col]="1">
+                                                            <Image Source="../Images/icopyacrossnor24.png" Width="15" Height="15"
+                                                                [Tooltip]="DataContext.objRecordPGD.PGD_List_ServicePoint_Selection">
+                                                            </Image>
+                                                        </kendo-gridlayout-item>
+                                                    </kendo-gridlayout>
+                                                </DataTemplate>
+                                                </ng-template>
+                                            </kendo-grid-column>
+                                            <kendo-grid-column field="PrescribableItem" title="Prescription item" [width]="10"
+                                                [filterable]="false" [editable]="false">
+                                                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                                    let-columnIndex="columnIndex">
+                                                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex"
+                                                        [colindex]="columnIndex" [gridHelper]="grdPGDListRole">
+                                                        <ContentPresenter *ngIf="!dataItem.IsGroupheader"
+                                                            [Content]="dataItem | MedLineDisplay: '' : 110">
+                                                        </ContentPresenter>
+                                                    </DataTemplate>
+                                                </ng-template>
+                                            </kendo-grid-column>
+                                        </kendo-grid>
+                                    </kendo-gridlayout>
+                                </div>
+                            </ng-template>
+                        </kendo-panelbar-item> -->
+                    </kendo-panelbar>
+                </div>
+
+                <kendo-gridlayout-item [row]='1' [col]='7' style="padding-bottom: 5%;height: 518px;">
+                    <div containerStyle>
+                        <StackPanel #spDetailsTempRef Name="spDetails" Orientation="Vertical" Grid.Column="3"
+                            Grid.Row="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,0,19">
+                            <drugheader #drgHeaderTempRef class="drgHeaderClass" Name="drgHeader" Width="Auto" pgdDrugHeader="1"
+                                [DataContext]="drgHeader?.DataContext"></drugheader>
+                            
+                            <Border #brdHeaderTempRef class="warning-border" Name="brdHeader" BorderBrush="Black" BorderThickness="1" Height="Auto" Background="#FFFBC6"
+                                Margin="5,5,5,0">
+                                <iLabel #lblIngredientWarnMsgTempRef Name="lblIngredientWarnMsg" Margin="2" IsWordwrap="True"></iLabel>
+                            </Border>
+                            <kendo-gridlayout name="grdMedicationAndMore" class="grid-layout-container grd-padding" Height="auto"
+                                VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                                Background="{StaticResource LzoPageBG}" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                [cols]="[{width : '25fr'}, {width : '50fr'}]"
+                                [rows]="[{ height : '10'},{ height : '31'},{ height : '31'}, {height : 'auto'}, {height : '31'}, {height : '31'}]">
+
+                                <kendo-gridlayout-item [row]='2' [col]='1'>
+                                    <div containerStyle>
+                                        <iLabel #lblMedicationActionTempRef Name="lblMedicationAction"
+                                            HorizontalAlignment="Left" Text="Medication action"
+                                            Width="150" Mandatory="False" Margin="0,5,0,0">
+                                        </iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='2' [col]='2'>
+                                    <div containerStyle class="div-bg givenHeight">
+                                        <iLabel #lblGivenTempRef Name="lblGiven" HorizontalAlignment="Left" Text="Given" class="medicationAction"
+                                            Width="180" Height="30" Mandatory="False" Margin="5,0,0,0"></iLabel>
+                                            <!-- style="display:block; padding: 6px 0px 6px 7px;" -->
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='3' [col]='1'>
+                                    <div containerStyle class="div-whiteborder">
+                                        <iLabel #lblDoseTempRef Name="lblDose" HorizontalAlignment="Left" Text="Dose"
+                                            Width="150" [(Mandatory)]="DataContext.IsDoseMandatory"
+                                            [(IsEnabled)]="DataContext.IsDoseEnabled"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='3' [col]='2'>
+                                    <div containerStyle class="div-bg-whiteborder givenHeightDose">
+                                        <kendo-gridlayout-item [row]='1' [col]='1'>
+                                            <iTextBox #txtDoseTempRef class="doseTextBox" Name="txtDose" HorizontalAlignment="Left"
+                                                Width="90" Tooltip="Enter Dose" [(Text)]="DataContext.Dose"
+                                                [(IsEnabled)]="DataContext.IsDoseEnabled" Nonnegative="True"
+                                                TabIndex="5" Type="Numeric" Margin="5" MaxLength="11" Scale="7"
+                                                Precision="3"></iTextBox>
+                                        </kendo-gridlayout-item>
+                                        <kendo-gridlayout-item [row]='1' [col]='2' style="width: 100px !important;">
+                                            <iLabel #lblDoseUOMTempRef class="lblDoseUOMWrap" Name="lblDoseUOM" HorizontalAlignment="Left"
+                                                [Text]="DataContext.DoseUOM | FormatText" Width="100"  Mandatory="False"
+                                                Margin="5,5,5,5"  IsWordwrap="True"></iLabel>
+                                        </kendo-gridlayout-item>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='4' [col]='1' CommonGridLayout [Visibility]="DataContext.RateVisible">
+                                    <div containerStyle [ngClass]="DataContext.RateVisible ? '':'div-whiteborder'">
+                                        <iLabel #lblRateTempRef Name="lblRate" HorizontalAlignment="Left" Text="Rate"
+                                            Width="150" [(Mandatory)]="DataContext.IsRateMandatory"
+                                            [(IsEnabled)]="DataContext.IsRateEnabled"
+                                            [(Visibility)]="DataContext.RateVisible"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='4' [col]='2' CommonGridLayout [Visibility]="DataContext.RateVisible">
+                                    <div containerStyle [ngClass]="DataContext.RateVisible ? '':'div-bg-whiteborder givenHeightDose'">
+                                        <kendo-gridlayout-item [row]='1' [col]='1'>
+                                            <iTextBox #txtRateTempRef Name="txtRate" HorizontalAlignment="Left"
+                                                [Width]="90" Tooltip="Enter Rate" [(Text)]="DataContext.Rate"
+                                                [(IsEnabled)]="DataContext.IsRateEnabled"
+                                                [(Visibility)]="DataContext.RateVisible" Nonnegative="True" TabIndex="5"
+                                                Type="Numeric" Margin="5" MaxLength="11" Scale="7" Precision="3">
+                                            </iTextBox>
+                                        </kendo-gridlayout-item>
+                                        <kendo-gridlayout-item [row]='1' [col]='2' style="width: 100px !important;">
+                                            <iLabel #lblRateUOMTempRef class="lblRateUOMWrap" Name="lblRateUOM" HorizontalAlignment="Left"
+                                                [(Text)]="DataContext.RateUOM" [Width]="30" Mandatory="False"
+                                                 IsWordwrap="True" Margin="0,5,0,0"
+                                                [(Visibility)]="DataContext.RateVisible"></iLabel>
+                                        </kendo-gridlayout-item>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='5' [col]='1'>
+                                    <div containerStyle class="div-whiteborder">
+                                        <iLabel #lblBatchNoTempRef Name="lblBatchNo" HorizontalAlignment="Left"
+                                            Text="Batch no" Width="150" Mandatory="False"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='5' [col]='2'>
+                                    <div containerStyle class="div-bg-whiteborder">
+                                        <iTextBox #txtBatchNoTempRef class="batchTextbox" Name="txtBatchNo" HorizontalAlignment="Left"
+                                            Width="185" [(Text)]="DataContext.BatchNo" TabIndex="6" MaxLength="50"
+                                            Type="Alphanumeric" Margin="5" [Tooltip]="getResource('txtBatchno_text')"></iTextBox>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='6' [col]='1'>
+                                    <div containerStyle class="div-whiteborder">
+                                        <iLabel #lblExpiryDateTempRef Name="lblExpiryDate" HorizontalAlignment="Left"
+                                            Text="Expiry date" Width="200" Mandatory="False"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='6' [col]='2'>
+                                    <div containerStyle class="div-bg-whiteborder">
+                                        <iDateTimePicker #dtpExpiryDateTempRef Width="auto" class="expiryDatePicker" Name="dtpExpiryDate"
+                                            EnableCultureSupport="False" DatePickerMode="DATEPICKER"
+                                            HorizontalAlignment="Stretch" Margin="5,5,5,5" Height="21"
+                                            [(SelectedDateTime)]="DataContext.ExpiryDate"
+                                            [Tooltip]="getResource('Expiry_date_Tolltip')" DateTimeFormat="Custom"
+                                            CustomFormat="dd-MMM-yyyy">
+                                        </iDateTimePicker>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='7' [col]='1'>
+                                    <div containerStyle class="div-whiteborder">
+                                        <iLabel #lblGivenDateTimeTempRef Name="lblGivenDateTime"
+                                            HorizontalAlignment="Left" Text="Date/Time given" Width="110"
+                                            Mandatory="True" Height="14" Margin="0,9,0,8"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='7' [col]='2'>
+                                    <div containerStyle class="div-bg-whiteborder">
+                                        <iDateTimePicker #dtpGivenDateTempRef Name="dtpGivenDate"
+                                            EnableCultureSupport="False" Height="Auto" IsConstrainEntry="True"
+                                            HorizontalAlignment="Left" Margin="5,5,0,5" Width="110"
+                                            DatePickerMode="DATEPICKER" DateTimeFormat="Custom"
+                                            CustomFormat="dd-MMM-yyyy" [Tooltip]="getResource('Date_Time_given_Tolltip')"
+                                            [(SelectedDateTime)]="DataContext.AdministrationDate" TabIndex="8"
+                                            [OnDateChange]="dtpGivenDate_OnDateChange_Func">
+                                        </iDateTimePicker>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='7' [col]='2'>
+                                    <div containerStyle>
+                                        <iTimeBox #tbGivenTimeTempRef class="adminTime" Name="tbGivenTime" EnableDST="True" Height="auto"
+                                            HorizontalAlignment="Right" Width="80" TabIndex="9"
+                                            [(Value)]="DataContext.AdministrationTime" IsEnabled="False"
+                                            Margin="5,5,5,5" VerticalAlignment="Bottom" [Tooltip]="getResource('Date_Time_given_Tolltip')"></iTimeBox>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='8' [col]='1' [colSpan]='3'>
+                                    <div containerStyle class="div-whiteborder">
+                                        <iLabel #lblAdministeredbyTempRef Name="lblAdministeredby"
+                                            HorizontalAlignment="Left" Text="Administered by" Width="130"
+                                            Mandatory="True" SLAccessKeyProperties.AccessKey="A" Height="14"
+                                            Margin="0,9,0,8"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='8' [col]='2'>
+                                    <div containerStyle class="div-bg-whiteborder">
+                                        <iSFS Width="185" Name="iSFSAdministeredby" class="iSFSAdministeredby" MaxSize="10" Height="30"
+                                            Margin="5,5,0,0" TabIndex="11" #iSFSAdministeredbyTempRef
+                                            [ToolTip]="getResource('sfsAdministeredby_Tooltip')"
+                                            (OnSFSOpen)="iSFSAdministeredby_OnSFSOpen($event)" AccessKey="A"
+                                            IsEnabled="true" [(SelectedText)]="DataContext.AdministeredBy"
+                                            [(SelectedValue)]="DataContext.AdministeredByOID"
+                                            [(ItemsSource)]="DataContext.AdministeredByList" [style]="{'display':'flex','margin': '5px'}"></iSFS>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='9' [col]='1'>
+                                    <div containerStyle class="div-whiteborder">
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='9' [col]='2'>
+                                    <div containerStyle class="div-bg-whiteborder givenHeight">
+                                        <iCheckBox #chkNoWitnessTempRef Name="chkNoWitness" HorizontalAlignment="Left"
+                                            Margin="3,5,0,5" [Checked]="chkNoWitness_Checked_Func"
+                                            [Unchecked]="chkNoWitness_Unchecked_Func" Text="No witness available"
+                                            Tooltip="Select to indicate that no witness is available" Height="Auto"
+                                            TabIndex="12"></iCheckBox>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='10' [col]='1'>
+                                    <div containerStyle>
+                                        <iLabel #lblWitnessedByTempRef Name="lblWitnessedBy" Text="Witnessed by"
+                                            Tooltip="Select Witness" [(Mandatory)]="DataContext.IsWitnessMandatory"
+                                            SLAccessKeyProperties.AccessKey="W" Height="14" Margin="0,9,0,8"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='10' [col]='2'>
+                                    <div containerStyle class="div-bg">
+                                        <iSFS Width="auto" Name="sfsWitnessedby" class="iSFSAdministeredby" MaxSize="10" Height="30" Margin="5,5,5,0" TabIndex="13" #sfsWitnessedbyTempRef
+                                            MaxSize="10" ToolTip="Select Witness" (OnSFSOpen)="sfsWitnessedby_OnSFSOpen($event)" AccessKey="W"
+                                            IsEnabled="true" [(SelectedText)]="DataContext.WitnessBy"
+                                            [(SelectedValue)]="DataContext.WitnessByOID" [ItemsSource]="DataContext.WitnessByList"  [style]="{'display':'flex','margin': '5px'}"></iSFS>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='11' [col]='1'>
+                                    <div containerStyle class="div-whiteborder commentsStyle">
+                                        <iLabel #lblCommentsTempRef Name="lblComments" HorizontalAlignment="Left"
+                                            Text="Comments" Width="100" Mandatory="False"
+                                            Margin="0,10 ,0,0" Height="14"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='11' [col]='2' [colSpan]='3'>
+                                    <div containerStyle class="div-bg-whiteborder">
+                                        <iTextBox #txtCommentsTempRef Name="txtComments" class="commentsText" HorizontalAlignment="Left"
+                                            VerticalAlignment="Top" TextWrapping="Wrap" Width="188" Height="75"
+                                            Margin="6,6,6,6" [(Text)]="DataContext.Comments" TabIndex="14"
+                                            MaxLength="255" VerticalScrollBarVisibility="Auto"
+                                            AcceptsReturn="True" [Tooltip]="getResource('txtComments_Tooltip')"></iTextBox>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <!-- </kendo-gridlayout> -->
+
+                            </kendo-gridlayout>
+                        </StackPanel>
+                    </div>
+                </kendo-gridlayout-item>
+
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

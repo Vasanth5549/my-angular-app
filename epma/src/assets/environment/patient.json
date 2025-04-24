@@ -1,0 +1,38 @@
+{
+    "TheatreCount": "",
+    "oContextInformation": {
+      "UserID": 600000000721,
+      "OrganizationID": "490000000144",
+      "SecurityToken": "22cefbv5osmor50xpin4a4vh#637964147950925677",
+      "WorkingAreaOID": 600000012114,
+      "ReleaseVersion": 2,
+      "CultureCode": "en-AU",
+      "BPCode": "",
+      "BPIID": "",
+      "ReqIID": "",
+      "ActiveUserID": 0,
+      "RemoteHostID": "",
+      "PatientID": "",
+      "PatientIDType": "",
+      "OrganizationType": "",
+      "MsgType": "",
+      "ResToken": "",
+      "PageInfo": "",
+      "Extra": "",
+      "LoginName": "",
+      "RemoteHostIP": "",
+      "Errors": [
+        {
+          "ErrorID": 9028,
+          "Context": "",
+          "Message": "",
+          "Severity": "",
+          "Category": "",
+          "CategoryID": 0,
+          "EventID": 0
+        }
+      ],
+      "CareActivityCode": "Theatres.GetTheatresCount",
+      "MultiCampusPattern": 0
+    }
+  }

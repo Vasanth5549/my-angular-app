@@ -1,0 +1,8 @@
+<span [ngStyle]="style">
+<input kendoTooltip [title]="ToolTip" #radioFocus type="radio" name="{{GroupName}}" text="Text" [tabindex]="TabIndex" [value]="Text"
+[disabled]="!IsEnabled" [(ngModel)]="model.IsChecked" (click)="onButtonClick($event, Value, GroupName)"
+(change)="change_event($event, Value, GroupName)" (keydown)="KeyDownEvent($event)" (keyup)="KeyUpEvent($event)"
+#iRadioButton kendoRadioButton/>
+<kendo-label kendoTooltip [title]="!IsEnabled?'':ToolTip"  [ngStyle]="style" [text]="Text" [for]="iRadioButton">
+</kendo-label>
+</span>

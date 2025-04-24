@@ -1,0 +1,121 @@
+{
+  "Envelope": {
+    "Body": {
+      "GetEncountersPagingResponse": {
+        "GetEncountersPagingResult": {
+          "oEncounter": {
+            "Encounter": {
+              "LastModifiedAt": "0001-01-01T00:00:00",
+              "EncounterID": "1000000011644",
+              "EncounterType": "CC_INPAT",
+              "OrganisationID": "0",
+              "LocationID": "0",
+              "CreatedDttm": "2012-09-03T08:01:33+01:00",
+              "ClosureDttm": "0001-01-01T00:00:00",
+              "StartedDttm": "0001-01-01T00:00:00",
+              "PatientLeave": "0",
+              "CareProviderID": "0",
+              "CareProviderName": "Silpa Ragupathi",
+              "SpecialtyID": "0",
+              "SpecialtyName": "ADULT MENTAL ILLNESS",
+              "CareServiceID": "0",
+              "ServiceID": "0",
+              "APEStartDTTM": "0001-01-01T00:00:00",
+              "EncounterCreation": "0001-01-01T00:00:00",
+              "CreatedBy": "0",
+              "EncounterStatus": "CC_ENCOPEN",
+              "ReferralDttm": "0001-01-01T00:00:00",
+              "ExpectedDischargeDttm": "0001-01-01T00:00:00",
+              "bNegation": "false",
+              "bFromRestAPI": "false",
+              "LinkedEncounterOId": "0",
+              "ReferralOID": "0",
+              "SealOID": "0",
+              "CurrentCareProviderOID": "0",
+              "CurrentSpecialtyOID": "0",
+              "CurrentServiceOID": "0",
+              "HasFilter": "false",
+              "IsSealBroken": "false",
+              "IsSealOwner": "0",
+              "HasOwnSealBroken": "false",
+              "EncCancelDTTM": "0001-01-01T00:00:00",
+              "IsBkgByAPEWrittenOPOffer": "false",
+              "ISADWNOTICEEXISTS": "false",
+              "MedNextReviewDTTM": "0001-01-01T00:00:00",
+              "IsOnHold": "false",
+              "IParentLocationOID": "0",
+              "BedLocationCode": "0",
+              "BedParentLocationCode": "0",
+              "CPMBookingOID": "0",
+              "LeastLocationOID": "0",
+              "ActualDischargeDTTM": "0001-01-01T00:00:00",
+              "OldPatientOID": "0",
+              "OldReferralOID": "0",
+              "OldEpisodeoid": "0",
+              "IsENCCA": "false",
+              "ISReferralUpdate": "false",
+              "APEOID": "0",
+              "RefPatientOID": "0",
+              "DischargeDTTM": "0001-01-01T00:00:00",
+              "RecordedUserOID": "0",
+              "IPEndDate": "0001-01-01T00:00:00",
+              "ChildlocationOID": "0",
+              "SubAreaLocOID": "0",
+              "IsSimple": "0",
+              "PatientDOB": "0001-01-01T00:00:00",
+              "Count": "0",
+              "IsCustomFilter": "false",
+              "DateofBirth": "0001-01-01T00:00:00"
+            }
+          },
+          "CurrentPageElement": {
+            "PageSize": "20",
+            "PageIndex": "1",
+            "PageCount": "0",
+            "RecFrm": "-19",
+            "RecTo": "0",
+            "FindPageCount": "false",
+            "ChildPagination": "true",
+            "FilterBy": {
+              "Type": "None",
+              "ListMetaphoreOID": "0",
+              "Serialize": "0~0"
+            },
+            "GroupBy": {
+              "Type": "None",
+              "ColumnName": "",
+              "ParentValue": "",
+              "Text": "",
+              "Serialize": "0~~~"
+            },
+            "FilterByColumn": "",
+            "SortingColumns": "",
+            "FilterByXML": "",
+            "SPSortingColumns": "",
+            "SelectedDate": "0001-01-01T00:00:00"
+          },
+          "TotalRecCount": 1,
+          "oContextInformation": {
+            "ReqIID": "aa68716a-ab37-4f50-9854-ec56c310a160",
+            "UserID": "700000019307",
+            "ActiveUserID": "0",
+            "PatientID": "1000000015439",
+            "OrganizationID": "600000161691",
+            "SecurityToken": "lalcuwl0icmx5uwnx25nuwpq#638119746428378972",
+            "WorkingAreaOID": "0",
+            "Errors": "",
+            "CareActivityCode": "ATC_VIEW_CARE_EVENTS",
+            "MultiCampusPattern": "GLOBAL",
+            "ReleaseVersion": "2"
+          }
+        },
+        "_xmlns": "http://isoftplc.com/"
+      },
+      "__prefix": "soap"
+    },
+    "_xmlns:soap": "http://schemas.xmlsoap.org/soap/envelope/",
+    "_xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "_xmlns:xsd": "http://www.w3.org/2001/XMLSchema",
+    "__prefix": "soap"
+  }
+}

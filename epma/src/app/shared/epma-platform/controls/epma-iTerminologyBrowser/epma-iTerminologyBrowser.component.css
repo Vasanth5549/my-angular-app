@@ -1,0 +1,26 @@
+.k-image{
+    height: 16px !important;
+    width: 16px !important;
+}
+.btn-align{
+    display: flex;
+    flex-direction: column;
+    float: right;
+    top: 8px;
+    position: relative;
+    right: 7px;
+    margin-left: 8px;
+}
+.text-align{
+    display: flex;
+} 
+.text-align-label{
+    display: flex;
+    margin-top: 5px;
+    margin-left: 2px;
+    font-style: normal;
+} 
+:host::ng-deep.k-autocomplete .k-clear-value {
+    display: none !important;
+}
+:host::ng-deep.txtWidth{ width: 100%; }

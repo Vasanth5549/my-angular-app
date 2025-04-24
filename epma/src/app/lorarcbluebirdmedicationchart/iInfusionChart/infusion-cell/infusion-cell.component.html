@@ -1,0 +1,15 @@
+<div name="Chartgrid">
+    <kendo-gridlayout #chartGridTempRef 
+    class="grid-layout-container horizontal-class-stretch vertical-class-stretch" 
+    GridLayout  
+    [rows]="[{ height: 'auto' }]"
+    [cols]="[{ width: '1fr' }]" 
+   >
+   <kendo-gridlayout-item [row]="1" [col]='1'>
+       <div containerStyle>
+           <ContentPresenter #CntPresenterTempRef  Name="CntPresenter"
+           [Content]="objGrid"></ContentPresenter>
+       </div>
+   </kendo-gridlayout-item>
+   </kendo-gridlayout> 
+</div> 

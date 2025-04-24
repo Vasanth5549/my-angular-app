@@ -1,0 +1,33 @@
+::ng-deep .imgStyle contentpresenter image img {
+    position: relative !important;
+    top: 3.5px !important;
+    margin: -5px 1px 0px 1px !important;
+  }
+
+  ::ng-deep .newLineClass *{
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    width: max-content;
+    /*position: inherit;
+    height: 22px;*/
+  }
+
+  .imgStyle{
+    /* line-height: 15px;
+    margin-left: -13px;
+    margin-top: -15px;
+    height:70px !important;
+    overflow-y: auto; */
+    margin: -16px 15px 6px -13px;
+  }
+  .view-dialog-width{
+    width: auto;
+  }
+  .wizard-dialog-width{
+    width: 905px;
+  }
+  @media screen and (max-device-width: 1400px) {
+    .meddrugdetail{
+      position: absolute;
+    }
+  }

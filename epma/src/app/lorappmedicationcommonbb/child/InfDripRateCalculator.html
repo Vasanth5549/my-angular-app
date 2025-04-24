@@ -1,0 +1,786 @@
+<!--PRIMARY GRID STARTS-->
+<div name="LayoutRoot" [ngClass]="{'paddingOnCondition':DataContext.IsDoseBasedInfusionRate == 1}">
+    <kendo-gridlayout Margin="10,10,0,0"
+                      Background="LzoPageBG"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Stretch"
+                      [rows]="[{ height: 'auto' },{ height: 'auto' },
+         { height: 'auto' },{ height: 'auto' },
+         { height: '60' },{ height: 'auto' }]"
+                      [cols]="[{ width: '200' },{ width: '300' }]">
+        <!--Border1-->
+        <Border [row]="1"
+                [col]="2"
+                [Background]="Styles.InnerBG"
+                Margin="5,0,10,0"
+                [(Visibility)]="DataContext.IsDoseBasedInfusionRate"></Border>
+
+        <!--Border2-->
+        <Border [row]="2"
+                [col]="2"
+                [Background]="Styles.InnerBG"
+                Margin="5,0,10,0"
+                [(Visibility)]="DataContext.IsDoseBasedInfusionRate"></Border>
+
+        <!--Border3-->
+        <Border [row]="2"
+                [col]="1"
+                [colSpan]="2"
+                [iStyle]="Styles.whiteBorder"
+                [(Visibility)]="DataContext.IsDoseBasedInfusionRate"></Border>
+
+        <!--Border4-->
+        <Border [row]="3"
+                [col]="1"
+                [colSpan]="2"
+                [iStyle]="Styles.whiteBorder"
+                [(Visibility)]="DataContext.IsDoseBasedInfusionRate"></Border>
+
+        <!--iSoft:iLabel-->
+        <kendo-gridlayout-item [col]="1">
+            <div containerStyle>
+                <iLabel #lblInfusionRateDoseTempRef
+                        IsWordwrap="True"
+                        HorizontalAlignment="Stretch"
+                        Margin="5"
+                        Mandatory="False"
+                        Name="lblInfusionRateDose"
+                        VerticalAlignment="Center"
+                        [Text]="ResrcKey.lblInfusionRateDose_Text"
+                        [(Visibility)]="DataContext.IsDoseBasedInfusionRate"
+                        SLAccessKeyProperties.AccessKey="D"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+
+        <!--GRID 1 INSIDE PRIMARY GRID STARTS-->
+        <kendo-gridlayout-item [row]="1" [col]="2">
+            <div name="InfusionrateLayoutRoot" style="float:left" [ngClass]="{'displayView':DataContext.IsDoseBasedInfusionRate == 1}">
+                <kendo-gridlayout Margin="10,0,10,0"
+                                  [(Visibility)]="DataContext.IsDoseBasedInfusionRate"
+                                  [cols]="[{ width: '70' },{ width: 'auto' }]">
+                    <!--iTextbox-->
+                    <kendo-gridlayout-item [col]="1">
+                        <div containerStyle>
+                            <iTextBox class="marginAdjust"
+                                      #txtInfusionRateTempRef
+                                      HorizontalAlignment="Left"
+                                      Name="txtInfusionRate"
+                                      VerticalAlignment="Stretch"
+                                      Width="70"
+                                      [(Text)]="DataContext.InfRateInDose"
+                                      [IsEnabled]="DataContext.IsEnabledInfusionrate"
+                                      Type="Numeric"
+                                      Scale="7"
+                                      Precision="3"
+                                      MaxLength="11"
+                                      IsTabStop="True"
+                                      [Tooltip]="ResrcKey.txtInfusionRate_Tooltip"
+                                      SLAccessKeyProperties.AccessKey="D"></iTextBox>
+                            <!--[IsEnabled]="DataContext.IsEnabledInfusionrate"-->
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <!--stack panel-->
+                    <kendo-gridlayout-item [col]="2">
+                        <div containerStyle>
+                            <StackPanel Orientation="Horizontal" Margin="10,5,0,0">
+                                <!--First iLabel-->
+                                <ng-container *ngIf="DataContext.InfRateInDoseUOM">
+                                <iLabel *ngIf="DataContext.InfRateInDoseUOM.DisplayText" #lblInfRateInDoseUOMTempRef
+                                        HorizontalAlignment="Stretch"
+                                        Name="lblInfRateInDoseUOM"
+                                        VerticalAlignment="Stretch"
+                                        [(Text)]="DataContext.InfRateInDoseUOM.DisplayText"
+                                        Height="20"></iLabel>
+                                    </ng-container>
+
+                                <!--Second iLabel-->
+                                <ng-container *ngIf="DataContext.InfRateInDoseUOM">
+                                <iLabel #lblInfusionRateHifenTempRef
+                                        HorizontalAlignment="Stretch"
+                                        Name="lblInfusionRateHifen"
+                                        VerticalAlignment="Stretch"
+                                        Height="20"
+                                        MinWidth="5"
+                                        Width="5"
+                                        Text="/"
+                                        [(Visibility)]="DataContext.IsSlashVisible"></iLabel>
+                                </ng-container>
+
+                                <!--Third iLabel-->
+                                <ng-container *ngIf="DataContext.InfRateInDosePerUOM">
+                                <iLabel *ngIf="DataContext.InfRateInDosePerUOM.DisplayText" #lblInfRateInDosePerUOMTempRef
+                                        HorizontalAlignment="Stretch"
+                                        Name="lblInfRateInDosePerUOM"
+                                        VerticalAlignment="Stretch"
+                                        [(Text)]="DataContext.InfRateInDosePerUOM.DisplayText"
+                                        Height="20"></iLabel>
+                                    </ng-container>
+                            </StackPanel>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+        <!--GRID 1 INSIDE PRIMARY GRID ENDS-->
+        <!--iSoft:iLabel-->
+        <kendo-gridlayout-item [row]="2" [col]="1">
+            <div containerStyle>
+                <iLabel #lblInfConcentrationTempRef
+                        IsWordwrap="True"
+                        HorizontalAlignment="Stretch"
+                        Margin="5"
+                        Mandatory="False"
+                        Name="lblInfConcentration"
+                        VerticalAlignment="Center"
+                        [Text]="ResrcKey.lblConcentration_text"
+                        [(Visibility)]="DataContext.IsDoseBasedInfusionRate"
+                        SLAccessKeyProperties.AccessKey="D"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+
+        <!--GRID 2 INSIDE PRIMARY GRID STARTS-->
+        <kendo-gridlayout-item [row]="2" [col]="2">
+            <div name="InfConcentrationLayoutRoot" [ngClass]="{'displayView':DataContext.IsDoseBasedInfusionRate == 1}">
+                <kendo-gridlayout Margin="10,0,10,0"
+                                  [(Visibility)]="DataContext.IsDoseBasedInfusionRate"
+                                  [cols]="[{ width: '50' },{ width: '80' },{ width: '15' },{ width: '50' },{ width: '80' }]">
+                    <!--iText box-->
+                    <kendo-gridlayout-item [col]="1">
+                        <div containerStyle>
+                            <iTextBox class="marginAdjuest2"
+                                      #txtConcentrationStrengthTempRef
+                                      HorizontalAlignment="Left"
+                                      Width="50"
+                                      Name="txtConcentrationStrength"
+                                      VerticalAlignment="Stretch"
+                                      [(Text)]="DataContext.InfStrength"
+                                      [IsEnabled]="true"
+                                      Type="Numeric"
+                                      MaxLength="11"
+                                      IsTabStop="True"
+                                      [Tooltip]="ResrcKey.txtConcenStrenght_tooltip"
+                                      Scale="7"
+                                      Precision="3"></iTextBox>
+                            <!--[IsEnabled]="DataContext.FormViewerDetails.BasicDetails.InfusionDetails.IsenableInfusionRate"-->
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <!--iCombo box-->
+                    <kendo-gridlayout-item [col]="2">
+                        <div containerStyle>
+                            <iComboBox #cboConcentrationUOMTempRef
+                                       class="marginAdjuest2"
+                                       IsEditable="True"
+                                       [(ItemsSource)]="DataContext.InfStrengthUOMList"
+                                       [(SelectedValue)]="DataContext.InfStrengthUOM"
+                                       [IsEnabled]="true"
+                                       IsTypeAHead="True"
+                                       IsTextSearchEnabled="True"
+                                       HorizontalAlignment="Stretch"
+                                       Name="cboConcentrationUOM"
+                                       VerticalAlignment="Center"
+                                       Width="76"
+                                       Height="21"
+                                       IsDropDownStretch="True"
+                                       IsTabStop="True"
+                                       [Tooltip]="ResrcKey.cboConcentrationUOM_tooltip"
+                                       ></iComboBox>
+                            <!--[IsEnabled]="DataContext.FormViewerDetails.BasicDetails.InfusionDetails.IsenableInfusionRate"-->
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <!--iLabel box-->
+                    <kendo-gridlayout-item [col]="3">
+                        <div containerStyle>
+                            <iLabel #lblInfConHifenTempRef
+                                    class="marginAdjuest2 concentGridPadding"
+                                    HorizontalAlignment="Stretch"
+                                    Name="lblInfConHifen"
+                                    VerticalAlignment="Stretch"
+                                    Height="20"
+                                    MinWidth="5"
+                                    Width="5"
+                                    Text="/"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <!--iText box-->
+                    <kendo-gridlayout-item [col]="4">
+                        <div containerStyle>
+                            <iTextBox #txtConcentrationVolumeTempRef
+                                      HorizontalAlignment="Left"
+                                      class="marginAdjuest2"
+                                      Width="50"
+                                      Name="txtConcentrationVolume"
+                                      VerticalAlignment="Stretch"
+                                      [(Text)]="DataContext.InfVolume"
+                                      [IsEnabled]="true"
+                                      Type="Numeric"
+                                      MaxLength="8"
+                                      IsTabStop="True"
+                                      [Tooltip]="ResrcKey.txtConcenStrenght_tooltip"
+                                      Scale="5"
+                                      Precision="2"></iTextBox>
+                            <!--[IsEnabled]="DataContext.FormViewerDetails.BasicDetails.InfusionDetails.IsenableInfusionRate"-->
+
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <!--iCombo box-->
+                    <kendo-gridlayout-item [col]="5">
+                        <div containerStyle>
+                            <iComboBox #cboConcentrationVolumUOMTempRef
+                                       IsEditable="True"
+                                       class="concentGridCombo"
+                                       [(ItemsSource)]="DataContext.InfVolumeUOMList"
+                                       [(SelectedValue)]="DataContext.InfVolumeUOM"
+                                       [IsEnabled]="true"
+                                       IsTypeAHead="True"
+                                       IsTextSearchEnabled="True"
+                                       HorizontalAlignment="Stretch"
+                                       Name="cboConcentrationVolumUOM"
+                                       VerticalAlignment="Center"
+                                       Width="76"
+                                       Height="21"
+                                       IsDropDownStretch="True"
+                                       IsTabStop="True"
+                                       [Tooltip]="ResrcKey.cboConcentrationUOM_tooltip"
+                                       ></iComboBox>
+                            <!--[IsEnabled]="DataContext.FormViewerDetails.BasicDetails.InfusionDetails.IsenableInfusionRate"-->
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+        <!--GRID 2 INSIDE PRIMARY GRID ENDS-->
+        <!--iSOFTNav:iButton-->
+        <kendo-gridlayout-item [row]="2" [col]="2">
+            <div containerStyle>
+                <iButton #cmddosecalcTempRef
+                         Name="cmddosecalc"
+                         [Command]="DataContext.BtnDoseCalClick"
+                         Visibility="Collapsed"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Right"
+                         TextDecorations="Underline"
+                         Cursor="Hand"
+                         Foreground="#0000C8"
+                         [Text]="ResrcKey.cmddosecalc_Text"
+                         [Tooltip]="ResrcKey.cmddosecalc_Tooltip"
+                         Height="23"
+                         Margin="0,5,10,0"
+                         ImageHeight="12"
+                         ImageWidth="5"
+                         ></iButton>
+            </div>
+        </kendo-gridlayout-item>
+
+        <!--GRID 3 INSIDE PRIMARY GRID STARTS-->
+        <kendo-gridlayout-item [row]="4" [colSpan]="3" style="padding-top: 15px;padding-bottom: 15px;" [ngClass]="{'displayView':DataContext.IsDoseBasedInfusionRate == 1}">
+            <div name="InfConcentrationLayoutRoot">
+                <kendo-gridlayout HorizontalAlignment="Stretch"
+                                  VerticalAlignment="Top"
+                                  Width="auto"
+                                  Margin="5,15,0,0"
+                                  [Background]="Styles.LzoPageBG"
+                                  [(Visibility)]="DataContext.IsDoseBasedInfusionRate"
+                                  [rows]="[{ height: 'auto' },{ height: '1' },{ height: 'auto' },
+          { height: '5' },{ height: 'auto' },{ height: '10' }]"
+                                  [cols]="[{ width: '250' },{ width: '350' }]">
+                    <!--BORDER-->
+                    <Border [col]="1"
+                            [row]="1"
+                            [colSpan]="3"
+                            [rowSpan]="6"
+                            [Background]="Styles.InnerBG"
+                            Margin="0,0,10,0"></Border>
+
+                    <!--iLabel-->
+                    <kendo-gridlayout-item [row]="1" [col]="1">
+                        <div containerStyle>
+                            <iLabel #lblinfusrateTempRef
+                                    HorizontalAlignment="Stretch"
+                                    Name="lblinfusrate"
+                                    Mandatory="False"
+                                    VerticalAlignment="Center"
+                                    Margin="5"
+                                    [Text]="ResrcKey.lblinfusratevol_Text"
+                                    IsWordwrap="True"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <!--iLabel-->
+                    <kendo-gridlayout-item [row]="1" [col]="1">
+                        <div containerStyle>
+                            <iLabel #lblinfusratequalTempRef
+                                    HorizontalAlignment="Right"
+                                    Name="lblinfusratequal"
+                                    Mandatory="False"
+                                    Margin="0,17,0,-7"
+                                    VerticalAlignment="Bottom"
+                                    Text="="
+                                    IsWordwrap="True"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <!--Stack Panel 1 starts-->
+                    <kendo-gridlayout-item [row]="1" [col]="2">
+                        <div containerStyle>
+                            <StackPanel Orientation="Horizontal">
+                                <!--iLabel-->
+                                <iLabel #lblinfurateTempRef
+                                        HorizontalAlignment="Stretch"
+                                        Name="lblinfurate"
+                                        VerticalAlignment="Center"
+                                        [Text]="ResrcKey.lblInfusionRateDose_Text"
+                                        Margin="5,0,5,0"></iLabel>
+                            </StackPanel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <!--Stack Panel 1 ends-->
+                    <!--BORDER-->
+                    <Border [row]="2"
+                            [col]="2"
+                            [colSpan]="2"
+                            BorderBrush="Black"
+                            HorizontalAlignment="Left"
+                            Width="185"
+                            class="divideBy"
+                            Margin="5,0,5,0"></Border>
+
+                    <!-- <Border
+                      [row]="2"
+                      [col]="2"
+                      [colSpan]="2"
+                      BorderBrush="Black"
+                      HorizontalAlignment="Left"
+                      BorderThickness="5"
+                      Width="185"
+                      class="divideBy"
+                      Margin="5,0,5,0"
+                    ></Border> -->
+                    <!--iLabel-->
+                    <kendo-gridlayout-item [row]="2" [col]="2">
+                        <div containerStyle>
+                            <iLabel #lblinfusratequa2TempRef
+                                    HorizontalAlignment="Left"
+                                    Name="lblinfusratequa2"
+                                    class="lblinfusratequa2"
+                                    Mandatory="False"
+                                    Margin="5"
+                                    VerticalAlignment="Top"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <!--Stack Panel 2 starts-->
+                    <kendo-gridlayout-item [row]="3" [col]="2">
+                        <div containerStyle>
+                            <StackPanel Orientation="Horizontal">
+                                <!--iLabel-->
+                                <iLabel #lblinfuconTempRef
+                                        HorizontalAlignment="Stretch"
+                                        Name="lblinfucon"
+                                        VerticalAlignment="Center"
+                                        [Text]="ResrcKey.lblInfuconcent_Text"
+                                        Margin="25,5,5,5"></iLabel>
+                            </StackPanel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <!--Stack Panel 2 ends-->
+                    <!--Stack Panel 3 starts-->
+                    <kendo-gridlayout-item [row]="5" [col]="1" [colSpan]="3">
+                        <div containerStymatTabLabel>
+                            <div
+                                        VerticalAlignment="Top"
+                                        Orientation="Horizontal">
+                                <!--GRID INSIDE STACK PANEL STARTS-->
+                                <kendo-gridlayout-item>
+                                    <div>
+                                        <kendo-gridlayout [cols]="[{ width: '255' },{ width: '290' }]"
+                                                          style="padding-top: 15px;padding-bottom: 5px;">
+                                            <!--iButton 1-->
+                                            <kendo-gridlayout-item [row]="1" [col]="1">
+                                                <div containerStyle style="justify-content: end;">
+                                                    <iButton #cmdDoseCalTempRef
+                                                             Height="23"
+                                                             Cursor="Hand"
+                                                             HorizontalAlignment="Right"
+                                                             VerticalAlignment="Stretch"
+                                                             Name="cmdDoseCal"
+                                                             [Tooltip]="ResrcKey.cmdcalc_Tooltip"
+                                                             ImageSource="assets/Images/iCalculatorNOR16.png"
+                                                             DisabledImageSource="assets/Images/iCalculatorDIS16.png"
+                                                             ActiveImageSource="assets/Images/iCalculatorHOT16.png"
+                                                             [Command]="DataContext.BtnCalculateClick"
+                                                             ></iButton>
+                                                </div>
+                                            </kendo-gridlayout-item>
+
+                                            <!--iButton 2-->
+                                            <kendo-gridlayout-item [row]="1" [col]="2">
+                                                <div containerStyle>
+                                                    <iButton #cmdcalcTempRef
+                                                             Name="cmdcalc"
+                                                             HorizontalAlignment="Left"
+                                                             VerticalAlignment="Center"
+                                                             TextDecorations="Underline"
+                                                             Cursor="Hand"
+                                                             Foreground="#0000C8"
+                                                             [Text]="ResrcKey.cmdcalc_Text"
+                                                             [Tooltip]="ResrcKey.cmdcalc_Tooltip"
+                                                             Height="23"
+                                                             Margin="0,0,5,0"
+                                                             ImageHeight="12"
+                                                             ImageWidth="5"
+                                                             [Command]="DataContext.BtnCalculateClick"
+                                                             ></iButton>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                        </kendo-gridlayout>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <!--GRID INSIDE STACK PANEL ENDS-->
+                            </div>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <!--Stack Panel 3 ends-->
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+        <!--GRID 3 INSIDE PRIMARY GRID ENDS-->
+        <!--GRID 4 INSIDE PRIMARY GRID STARTS-->
+        <kendo-gridlayout-item [row]="5" [colSpan]="3">
+            <div>
+                <kendo-gridlayout HorizontalAlignment="Stretch"
+                                  VerticalAlignment="Top"
+                                  Width="auto"
+                                  Margin="5,10,0,0"
+                                  Background="LzoPageBG"
+                                  [rows]="[{ height: 'auto' },{ height: '5' }]"
+                                  [cols]="[{ width: '200' },{ width: '300' }]">
+                    <!--BORDER 1-->
+                    <Border [row]="1"
+                            [col]="2"
+                            [rowSpan]="3"
+                            [Background]="Styles.InnerBG"
+                            Margin="0,0,10,0"></Border>
+
+                    <!--BORDER 2-->
+                    <Border [row]="2"
+                            [col]="1"
+                            [colSpan]="3"
+                            [iStyle]="Styles.whiteBorder"
+                            Margin="0,0,10,0"></Border>
+
+                    <!--iSoft:iLabel-->
+                    <kendo-gridlayout-item [row]="1" [col]="1">
+                        <div containerStyle style="padding-right:25px;">
+                            <iLabel #lblinfusratevolTempRef
+                                    HorizontalAlignment="Stretch"
+                                    Name="lblinfusratevol"
+                                    [Mandatory]="DataContext.IsEnabledInfusionrate"
+                                    VerticalAlignment="Center"
+                                    [Text]="ResrcKey.lblinfusratevol_Text"
+                                    IsWordwrap="True"
+                                    SLAccessKeyProperties.AccessKey="V"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <!-- GRID INSIDE GRID 4 STARTS -->
+                    <kendo-gridlayout-item [col]="2" [row]="1">
+                        <div name="InfusionratevolumeLayoutRoot">
+                            <!-- [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.InfusionDetails.IsenableInfusionRate" -->
+                            <kendo-gridlayout Margin="5,5" [IsEnabled]="true"
+                                              [cols]="[{ width: '70' },{ width: '45' },{ width: '70' },{ width: '22' },{ width: '70' }]">
+                                <!--iSoft:iTextBox-->
+                                <kendo-gridlayout-item [col]="1">
+                                    <div containerStyle>
+                                        <iTextBox class="paddingAdjust"
+                                                  #txtInfusionRatevolTempRef
+                                                  HorizontalAlignment="Left"
+                                                  Name="txtInfusionRatevol"
+                                                  VerticalAlignment="Stretch"
+                                                  Width="70"
+                                                  [(Text)]="DataContext.InfRateInVolume"
+                                                  [IsEnabled]="DataContext.IsEnabledInfusionrate"
+                                                  Type="Numeric"
+                                                  Scale="7"
+                                                  Precision="3"
+                                                  MaxLength="11"
+                                                  IsTabStop="True"
+                                                  [Tooltip]="ResrcKey.txtInfusionRatevol_Tooltip"
+                                                  SLAccessKeyProperties.AccessKey="V"></iTextBox>
+                                        <!--[IsEnabled]="DataContext.IsEnabledInfusionrate"-->
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <!--iSoft:iLabel-->
+                                <kendo-gridlayout-item [col]="2">
+                                    <div containerStyle>
+                                        <iLabel #lblInfusionvolUOMTempRef
+                                                HorizontalAlignment="Stretch"
+                                                Margin="5,5,5,0"
+                                                Name="lblInfusionvolUOM"
+                                                VerticalAlignment="Stretch"
+                                                [Mandatory]="DataContext.IsEnabledInfusionrate"
+                                                [Text]="ResrcKey.lblinfuconuom_Text"
+                                                Height="20"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <!--iSoft:iComboBox-->
+                                <kendo-gridlayout-item [col]="3">
+                                    <div containerStyle>
+                                        <iComboBox #cboInfustionRatevolUOMTempRef
+                                                   IsEditable="True"
+                                                   [(ItemsSource)]="DataContext.InfVolumeUOMList"
+                                                   [(SelectedValue)]="DataContext.InfRateInVolumeUOM"
+                                                   IsTypeAHead="True"
+                                                   IsTextSearchEnabled="True"
+                                                   HorizontalAlignment="Stretch"
+                                                   Name="cboInfustionRatevolUOM"
+                                                   IsDropDownStretch="True"
+                                                   VerticalAlignment="Center"
+                                                   Width="auto"
+                                                   Height="21"
+                                                   [IsEnabled]="DataContext.IsEnabledInfusionrate"
+                                                   IsTabStop="True"
+                                                   [Tooltip]="ResrcKey.cboInfustionRatevolUOM_Tooltip"
+                                                   SLAccessKeyProperties.AccessKey="V"
+                                                   ></iComboBox>
+                                        <!--[IsEnabled]="DataContext.IsEnabledInfusionrate"-->
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <!--iSoft:iLabel-->
+                                <kendo-gridlayout-item [col]="4" [colSpan]="1">
+                                    <div containerStyle style="padding-left: 9px;padding-right: 7px;">
+                                        <iLabel #lblInfusionRatevolHifenTempRef
+                                                class="concentGridPadding"
+                                                HorizontalAlignment="Stretch"
+                                                Name="lblInfusionRatevolHifen"
+                                                VerticalAlignment="Center"
+                                                Height="20"
+                                                MinWidth="5"
+                                                Width="5"
+                                                Text="/"
+                                                Margin="0,0,2,0"
+                                                [Mandatory]="DataContext.IsEnabledInfusionrate"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                                <!--iSoft:iComboBox-->
+                                <kendo-gridlayout-item [col]="5">
+                                    <div containerStyle style="width:70px;">
+                                        <iComboBox #cboInfusionRatevolUOMTempRef
+                                                   IsEditable="True"
+                                                   IsTypeAHead="True"
+                                                   IsTextSearchEnabled="True"
+                                                   HorizontalAlignment="Stretch"
+                                                   class="concentGridCombo"
+                                                   Name="cboInfusionRatevolUOM"
+                                                   VerticalAlignment="Center"
+                                                   Width="auto"
+                                                   Height="21"
+                                                   IsDropDownStretch="True"
+                                                   [(IsEnabled)]="DataContext.IsEnabledInfusionrate"
+                                                   [(ItemsSource)]="DataContext.InfRatePerUOMList"
+                                                   [(SelectedValue)]="DataContext.InfRateInVolumePerUOM"
+                                                   IsTabStop="True"
+                                                   [Tooltip]="ResrcKey.cboInfustionRatevolUOM_Tooltip"
+                                                   SLAccessKeyProperties.AccessKey="V"
+                                                   ></iComboBox>
+                                        <!--[(IsEnabled)]="DataContext.IsEnabledInfusionrate"-->
+                                    </div>
+                                </kendo-gridlayout-item>
+                            </kendo-gridlayout>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <!-- GRID INSIDE GRID 4 ENDS -->
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+        <!--GRID 4 INSIDE PRIMARY GRID ENDS-->
+        <!--STACKPANEL STARTS-->
+        <kendo-gridlayout-item [row]="6" [col]="1" [colSpan]="3">
+            <div containerStyle>
+                <StackPanel HorizontalAlignment="Stretch" Height="Auto">
+                    <!--BORDER STARTS-->
+                    <!-- <Border
+                      #brdDripratecalcTempRef
+                      Name="brdDripratecalc"
+                      BorderBrush="Gray"
+                      BorderThickness="1"
+                      CornerRadius="2"
+                      Height="Auto"
+                      Margin="6"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch"
+                    > -->
+                    <!--GRID INSIDE BORDER INSIDE STACKPANEL STARTS-->
+                    <kendo-gridlayout-item>
+                        <div>
+                            <kendo-gridlayout [rows]="[{ height: '20' },{ height: 'auto' }]">
+                                <!--BORDER INSIDE GRID STARTS-->
+                                <fieldset style="padding-bottom: 16px;">
+                                    <legend>
+                                        <Border [row]="1"
+                                                Background="#FFE0EFF1"
+                                                Margin="15,-20,-10,0"
+                                                VerticalAlignment="Center"
+                                                Width="115"
+                                                HorizontalAlignment="Left">
+                                            <!--iLabel-->
+                                            <iLabel #lblDripratecalcTempRef
+                                                    Name="lblDripratecalc"
+                                                    HorizontalAlignment="Center"
+                                                    [Text]="ResrcKey.lblDripratecalc_Text"
+                                                    [Tooltip]="objRecordAdmin.txtmediAction_tooltip"
+                                                    Foreground="#0000C8"
+                                                    Width="Auto"></iLabel>
+                                        </Border>
+                                    </legend>
+                                    <!--BORDER INSIDE GRID ENDS-->
+                                    <!--THIS GRID IS INSIDE GRID WHICH IS INSIDE INSIDE BORDER INSIDE STACKPANEL STARTS-->
+                                    <kendo-gridlayout-item [row]="6" [colSpan]="3">
+                                        <div>
+                                            <kendo-gridlayout HorizontalAlignment="Stretch"
+                                                              Width="auto"
+                                                              Background="LzoPageBG"
+                                                              [rows]="[{ height: 'auto' },{ height: 'auto' },
+  { height: '5' },{ height: '15' }]"
+                                                              [cols]="[{ width: '200' },{ width: '300' }]">
+                                                <!--BORDER 1-->
+                                                <Border [row]="1"
+                                                        [col]="2"
+                                                        [rowSpan]="4"
+                                                        [Background]="Styles.InnerBG"
+                                                        Margin="0,0,25,0"></Border>
+
+                                                <!--BORDER 2-->
+                                                <!--Margin="5,0,25,0" is removed and [colSpan]="3" is changed to [colSpan]="2"-->
+                                                <Border [row]="2"
+                                                        [col]="1"
+                                                        [colSpan]="2"
+                                                        [iStyle]="Styles.whiteBorder"></Border>
+
+                                                <!--BORDER 3-->
+                                                <!--Margin="5,0,25,0" is removed and [colSpan]="3" is changed to [colSpan]="2"-->
+                                                <Border [row]="3"
+                                                        [col]="1"
+                                                        [colSpan]="2"
+                                                        [iStyle]="Styles.whiteBorder"></Border>
+
+                                                <!--iLabel-->
+                                                <kendo-gridlayout-item [row]="1" [col]="1">
+                                                    <div containerStyle>
+                                                        <iLabel #lbldropfactorTempRef
+                                                                HorizontalAlignment="Stretch"
+                                                                Name="lbldropfactor"
+                                                                Mandatory="False"
+                                                                VerticalAlignment="Center"
+                                                                Margin="5"
+                                                                [Text]="ResrcKey.lbldropfactor_Text"></iLabel>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+
+                                                <!--STACKPANEL 1 STARTS-->
+                                                <kendo-gridlayout-item [row]="1" [col]="2">
+                                                    <div containerStyle>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <!--TextBox-->
+                                                            <iTextBox #txtdropfacTempRef
+                                                                      HorizontalAlignment="Left"
+                                                                      [Tooltip]="ResrcKey.txtdropfac_Tooltip"
+                                                                      Name="txtdropfac"
+                                                                      [(Text)]="DataContext.DropFactor"
+                                                                      VerticalAlignment="Center"
+                                                                      MaxLength="8"
+                                                                      Margin="5,5"
+                                                                      Width="70"
+                                                                      Type="Numeric"
+                                                                      Scale="5"
+                                                                      Precision="2"
+                                                                      ></iTextBox>
+
+                                                            <!--iLabel-->
+                                                            <kendo-gridlayout-item [row]="3" [col]="1">
+                                                                <div containerStyle>
+                                                                    <iLabel #lbldropfacvalueTempRef
+                                                                            HorizontalAlignment="Stretch"
+                                                                            Name="lbldropfacvalue"
+                                                                            VerticalAlignment="Center"
+                                                                            Text="drops/ml"
+                                                                            Margin="0,5,5,5"></iLabel>
+                                                                </div>
+                                                            </kendo-gridlayout-item>
+                                                        </StackPanel>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+                                                <!--STACKPANEL 1 ENDS-->
+                                                <!--iLabel-->
+                                                <kendo-gridlayout-item [row]="2" [col]="1">
+                                                    <div containerStyle>
+                                                        <iLabel #lblcalcdriprateTempRef
+                                                                HorizontalAlignment="Stretch"
+                                                                Name="lblcalcdriprate"
+                                                                VerticalAlignment="Center"
+                                                                Margin="5"
+                                                                [Text]="ResrcKey.lblcalcdriprate_Text"></iLabel>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+
+                                                <!--STACKPANEL 2 STARTS-->
+                                                <kendo-gridlayout-item [row]="2" [col]="2">
+                                                    <div containerStyle>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <!--iLabel 1-->
+                                                            <kendo-gridlayout-item [row]="2" [col]="2">
+                                                                <div containerStyle>
+                                                                    <iLabel #lblcalcdripratevalueTempRef
+                                                                            HorizontalAlignment="Left"
+                                                                            Name="lblcalcdripratevalue"
+                                                                            [(Text)]="DataContext.DripRate"
+                                                                            VerticalAlignment="Center"
+                                                                            Margin="5,5"
+                                                                            Width="70"
+                                                                            IsWordwrap="True"></iLabel>
+                                                                </div>
+                                                            </kendo-gridlayout-item>
+
+                                                            <!--iLabel 2-->
+                                                            <kendo-gridlayout-item [row]="2" [col]="2">
+                                                                <div containerStyle style="margin-left: 10px;">
+                                                                    <iLabel #lblcalcdriprateuomTempRef
+                                                                            HorizontalAlignment="Stretch"
+                                                                            Name="lblcalcdriprateuom"
+                                                                            VerticalAlignment="Center"
+                                                                            Margin="0,5,5,5"
+                                                                            Text="drops/min"
+                                                                            IsWordwrap="True"></iLabel>
+                                                                </div>
+                                                            </kendo-gridlayout-item>
+                                                        </StackPanel>
+                                                    </div>
+                                                </kendo-gridlayout-item>
+                                                <!--STACKPANEL 2 ENDS-->
+                                            </kendo-gridlayout>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                </fieldset>
+                                <!--THIS GRID IS INSIDE GRID WHICH IS INSIDE INSIDE BORDER INSIDE STACKPANEL STARTS-->
+                            </kendo-gridlayout>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <!--GRID INSIDE BORDER INSIDE STACKPANEL STARTS-->
+                    <!-- </Border> -->
+                    <!--BORDER ENDS-->
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+        <!--STACKPANEL ENDS-->
+    </kendo-gridlayout>
+</div>
+<!--PRIMARY GRID ENDS-->

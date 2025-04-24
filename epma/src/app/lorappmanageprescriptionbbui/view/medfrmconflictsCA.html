@@ -1,0 +1,203 @@
+<div>
+    <!-- Main grid-->
+    <kendo-gridlayout #LayoutRootTempRef VerticalAlignment="Stretch" [Background]="Styles.LzoPageBG"
+        HorizontalAlignment="Stretch" [row]="[{Height:5},{Height:'1fr'},{Height:30}]"
+        [col]="[{Height:5},{Height:'1fr'},{Height:5}]">
+        <!--first grid -->
+        <kendo-gridlayout-item [row]="1" [col]="1">
+            <div containerStyle>
+                <kendo-grid #grdConflictsTempRef Name="grdConflicts" [GridProperties]="grdConflicts"
+                    HorizontalAlignment="Stretch" [data]="grdConflicts.ItemsSource.array"
+                    [selectable]="{checkboxOnly: false, mode: 'single'}" kendoGridSelectBy
+                    [(selectedKeys)]="grdConflicts.selectedRowsIndex" [resizable]="false" [sortable]="false"
+                    (keyup)="grdConflicts.GridSelectionKeyUp($event)" 
+                    (keydown)="grdConflicts.GridSelectionKeyDown($event)"
+                    Margin="0,10,0,10" [class]="windowpx ?'medfrmconflictsCA' : 'medfrmconflictsCA1'" 
+                    (contentScroll)="ContentScrollEvent($event)">
+                    <kendo-grid-column class="HorizontalTextAlignCenter" *ngIf="grdConflicts.RowIndicatorVisibility == 0 ? true : false" UniqueName="rowindicator" field="rowindicator" title="" [width]="40">
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex" [gridHelper]="grdConflicts" (RowLoaded)="rowLoaded($event)">
+                                <Image *ngIf="grdConflicts.selectedRowsIndex.length > 0 ? grdConflicts.selectedRowsIndex ==
+                                 rowIndex : false" Source="./assets/images/iarrownor5x10.png"></Image>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <!-- First igrid.coulmns #PrescriptionItem-->
+                    <kendo-grid-column UniqueName="PrescriptionItem" [title]="conflicts.PrescriptionItem_Header"
+                        [width]="180" [GridColumnProperties]="grdConflicts" TextWrapping="Wrap" [filterbale]="false"
+                        [editable]="true" [reorderable]="false" [sortable]="true">
+                        <ng-template kendoGridHeaderTemplate>
+                        <span class="textwrap" kendoTooltip [title]="conflicts.PrescriptionItem_Header">
+                          {{conflicts.PrescriptionItem_Header}}
+                        </span>
+                       </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"[gridHelper]="grdConflicts" (RowLoaded)="rowLoaded($event)">           
+                                <iLabel #lblPrescriptionItemTempRef Name="lblPrescriptionItem"
+                                    VerticalAlignment="Center" HorizontalAlignment="Left" [Text]="dataItem.DrugName"
+                                    IsWordwrap="True" [Tooltip]="dataItem.DrugName" TextWrapping="Wrap"></iLabel>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <!--  column #PrescriptionType-->
+                    <kendo-grid-column UniqueName="PrescriptionType" [title]="conflicts.PrescriptionType_Header"
+                        [width]="140" [GridColumnProperties]="grdConflicts" IsWordwrap="True" TextWrapping="Wrap"
+                        [filterbale]="false" [editable]="true" [reorderable]="false" [sortable]="true">
+                        <ng-template kendoGridHeaderTemplate>
+                            <!-- span for header wordwrap -->
+                            <span class="textwrap" kendoTooltip [title]="conflicts.PrescriptionType_Header">
+                              {{conflicts.PrescriptionType_Header}}
+                            </span>
+                           </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex" [gridHelper]="grdConflicts" (RowLoaded)="rowLoaded($event)">
+                                <iLabel #lblPrescriptionTypeTempRef Name="lblPrescriptionType"
+                                    VerticalAlignment="Center" HorizontalAlignment="Left"
+                                    [Text]="dataItem.PrescriptionType" IsWordwrap="True" TextWrapping="Wrap"
+                                    [Tooltip]="dataItem.PrescriptionType"></iLabel>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <!-- column #WarningType-->
+                    <kendo-grid-column UniqueName="WarningType" [title]="conflicts.ConflictType_Header" [width]="180"
+                        [GridColumnProperties]="grdConflicts" IsWordwrap="True" TextWrapping="Wrap" [filterbale]="false"
+                        [editable]="true" [reorderable]="false" [sortable]="true">
+                        <ng-template kendoGridHeaderTemplate>
+                            <!-- span for header wordwrap -->
+                            <span class="textwrap" kendoTooltip [title]="conflicts.ConflictType_Header">
+                              {{conflicts.ConflictType_Header}}
+                            </span>
+                           </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                [gridHelper]="grdConflicts" (RowLoaded)="rowLoaded($event)">
+                                <ContentPresenter [Content]="dataItem | ShowStarImages : '' : 200"
+                                    [Tooltip]="dataItem.WarningType"></ContentPresenter>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <!-- column #WarningMessage_Header-->
+                    <kendo-grid-column UniqueName="WarningMessage" [title]="conflicts.WarningMessage_Header" [width]="275"
+                        [GridColumnProperties]="grdConflicts" IsWordwrap="True" TextWrapping="Wrap" [filterbale]="false"
+                        [editable]="true" [reorderable]="false" [sortable]="true">
+                        <ng-template kendoGridHeaderTemplate>
+                            <!-- span for header wordwrap -->
+                            <span class="textwrap" kendoTooltip [title]="conflicts.WarningMessage_Header">
+                              {{conflicts.WarningMessage_Header}}
+                            </span>
+                           </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                [gridHelper]="grdConflicts">
+                                <ContentPresenter [Content]="dataItem | FormatConflicts : '' : 275"
+                                    [Tooltip]="dataItem.WarningType"></ContentPresenter>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <!-- column #PrescriberReason-->
+                    <kendo-grid-column UniqueName="PrescriberReason" [title]="conflicts.PrescriberReason_Header"
+                                       [reorderable]="false" [width]="235" [sortable]="true" [filterable]="false" [reorderable]="false">
+                      <ng-template kendoGridHeaderTemplate>
+                        <!-- span for header wordwrap -->
+                        <span class="textwrap" kendoTooltip [title]="conflicts.PrescriberReason_Header">
+                          {{conflicts.PrescriberReason_Header}}
+                        </span>
+                      </ng-template>
+                      <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                   let-colIndex="columnIndex">
+                        <DataTemplate #medConflictsDataTemplate [dataItem]="dataItem" [index]="rowIndex" [colindex]="colIndex"
+                                      [gridHelper]="grdConflicts" >
+                          <GridCellTemplate [isEditable]="true" [columnNumber]="0" [cell]="'cell0'"
+                                            [dataItem]="dataItem">
+                                            <!--[EditableControlRef]="cboReasonTempRef" // removed - refer changeset 20381 for issueid 50576-->
+                            <StackPanel>
+                              <iLabel #lblReasonTempRef HorizontalAlignment="Stretch"
+                                      [Mandatory]="dataItem.ReasonMandatory" Name="lblReason"
+                                      VerticalAlignment="Center" [(Text)]="dataItem.PrescriberReason.DisplayText"
+                                      TextDecorations="Underline" [FontSize]="dataItem.ReasonFontSize"
+                                      [FontWeight]="dataItem.ReasonFontWeight"></iLabel>
+                              <iLabel #lblReasonstarTempRef Name="lblReasonstar" HorizontalAlignment="Left"
+                                      VerticalAlignment="Center" [Mandatory]="dataItem.ReasonMandatory" Text="*"
+                                      [FontSize]="dataItem.ReasonFontSize"
+                                      [FontWeight]="dataItem.ReasonFontWeight"
+                                      [Visibility]="dataItem.IsMandatoryStarVisible"
+                                      [(Tooltip)]="dataItem.PrescriberReason.DisplayText">
+                              </iLabel>
+                            </StackPanel>
+                          </GridCellTemplate>
+                          <GridCellEditTemplate *ngIf="dataItem['cell0']" [cell]="'cell0'" [dataItem]="dataItem">
+                            <iComboBox #cboReasonTempRef HorizontalAlignment="Stretch" Name="cboReason" IsEditable="false"
+                                       VerticalAlignment="Center" ColumnCellIndex="cell0" [DataContext]="dataItem"
+                                       [ItemsSource]="dataItem.PrescriberReasonCombo"
+                                       [(SelectedValue)]="dataItem.PrescriberReason" Width="auto" IsDropDownOpen="True"
+                                       [isGlobalEnabled]="IsEnabled"
+                                       [(Tooltip)]="dataItem.PrescriberReason.DisplayText" IsDropDownStretch="True" [IsParentEventPrevent]="true"
+                                       (blur)="dataItem['cell0'] = false" [FocusToggle]="'True'" (kendoComboInstance)="getCombo($event)">
+                            </iComboBox>
+                          </GridCellEditTemplate>
+                        </DataTemplate>
+                      </ng-template>
+                    </kendo-grid-column>
+                    <!-- column #AcknowledgeStatus-->
+                    <kendo-grid-column UniqueName="AcknowledgeStatus" [title]="conflicts.AcknowledgeStatus_Header" [width]="100"
+                        [reorderable]="false" field="AcknowledgeStatus" [sortable]="true" [filterable]="false">
+                        <ng-template kendoGridHeaderTemplate>
+                            <!-- span for header wordwrap -->
+                            <span class="textwrap" kendoTooltip [title]="conflicts.AcknowledgeStatus_Header">
+                              {{conflicts.AcknowledgeStatus_Header}}
+                            </span>
+                          </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-colIndex="columnIndex">
+                            <DataTemplate #medConflictsDataTemplate [dataItem]="dataItem" [index]="rowIndex"
+                                [colindex]="colIndex" [gridHelper]="grdConflicts" (RowLoaded)="rowLoaded($event)">
+                                <StackPanel Name="AcknowledgeStatus" Orientation="Horizontal"
+                                    HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <iCheckBox #chkAcknowledgeStatusTempRef Name="chkAcknowledgeStatus"
+                                        [IsEnabled]="dataItem.EnableAcknowledgementDetails"
+                                        [Mandatory]="dataItem.AcknowledgeBorder"
+                                         FontSize="16" FontWeight="ExtraBold"
+                                        FontStretch="Normal" Foreground="Blue" Width="Auto" HorizontalAlignment="Center"
+                                        VerticalAlignment="Center" [(IsChecked)]="dataItem.AcknowledgeStatus" (OnChange_Func)="iCheckBox_OnChange($event,rowIndex)"
+                                        [Tooltip]="dataItem.AckstatusToolTip" [Text]="dataItem.AcknowledgeMandatory" class="control-spacing"></iCheckBox>
+                                    <!-- <iLabel #lblAckstarTempRef Name="lblAckstar" HorizontalAlignment="Left"
+                                        VerticalAlignment="Center" [Mandatory]="dataItem.AcknowledgeBorder"
+                                        [Text]="dataItem.AcknowledgeMandatory" FontSize="16" FontWeight="ExtraBold"
+                                        [(Tooltip)]="dataItem.AckstatusToolTip">
+                                    </iLabel> -->
+                                </StackPanel>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                </kendo-grid>
+            </div>
+        </kendo-gridlayout-item>
+
+        <!--second grid-->
+        <kendo-gridlayout-item [row]="2" [col]="1">
+            <div class="grid2">
+                <kendo-gridlayout #grdMandatoryfieldsTempRef Name="grdMandatoryfields" HorizontalAlignment="Right"
+                    [row]="3" [col]="1" [cols]="[{width:15},{width:95}]" VerticalAlignment="Stretch">
+                    <kendo-gridlayout-item [col]='1'>
+                        <div containerStyle class="istar">
+                            <iLabel #ilblStarTempRef Height="30" HorizontalAlignment="Right" Name="ilblStar"
+                                VerticalAlignment="Center" Mandatory="False" Text="*" FontSize="24" Foreground="Blue"
+                                FontWeight="ExtraBold"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [col]='2'>
+                        <div containerStyle>
+                            <iLabel #iLabel1TempRef Height="20" HorizontalAlignment="Right" Name="iLabel1"
+                                VerticalAlignment="Center" Mandatory="False" [Text]="conflicts.iLabel1_Text">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

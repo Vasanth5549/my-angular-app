@@ -1,0 +1,17 @@
+  @media screen and (max-width: 1450px) {
+    .grid-layout-container {
+      height: 373px;
+      width: 99.8%;
+    }
+  }  
+  @media screen and (min-width: 1600px) {
+    .grid-layout-container {
+      height: 720px;
+    }
+  }
+  @media screen and (min-device-width : 1400px) and (max-device-width: 1550px) {
+    .grid-layout-container {
+      height: 549px;
+      width: 99.95%;
+    }
+   }

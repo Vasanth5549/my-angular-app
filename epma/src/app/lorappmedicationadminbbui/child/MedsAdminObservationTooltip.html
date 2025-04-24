@@ -1,0 +1,16 @@
+<div *ngIf="dataItem" style="margin: 5px">
+<ng-container *ngFor="let ttItem of dataItem.sTooltipText.split('#'); index as i">
+    <div *ngIf="i==0"><b>{{ttItem}}</b></div>
+    <div *ngIf="i!=0">{{ttItem}}</div>
+    
+</ng-container>
+<kendo-gridlayout *ngIf="dataItem.FormOID!=null && showActionLinks">
+    <kendo-gridlayout-item [row]="1" [col]="1">
+        <div href="#" class="hyperlinktxt" (click)="lnkModify_Click(dataItem)" *ngIf="dataItem.ModifyObserRights">Modify</div>
+    </kendo-gridlayout-item>
+    <!-- [align]="{ horizontal: 'end'}" -->
+    <kendo-gridlayout-item [row]="1" [col]="2" style="text-align: right;">
+        <div class="hyperlinktxt" (click)="lnkCancel_Click(dataItem)" *ngIf="dataItem.CancelObserRights">Cancel</div>
+    </kendo-gridlayout-item>
+</kendo-gridlayout>
+</div>

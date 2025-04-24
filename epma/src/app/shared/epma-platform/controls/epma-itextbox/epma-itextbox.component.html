@@ -1,0 +1,81 @@
+<ng-container
+    *ngIf="(!AlteredTextArea) && (AcceptsReturn == 'True' && Type != 'StringNumeric' && Type != 'Numeric' || TextWrapping == 'Wrap')">
+    <div kendoTooltip showOn="none">
+        <div #ToolTipTempRef [title]="ToolTip"> </div>
+        <kendo-textarea #itextbox selectionStart (mouseenter)="mouseevent(ToolTipTempRef,true)"
+            (mouseleave)="mouseevent(ToolTipTempRef,false)" (click)="mouseevent(ToolTipTempRef,false)" [ngStyle]="style"
+            [ngClass]="{'overflow1 k-overflow-y-scroll': VerticalScrollBarVisibility =='Visible', 
+    'overflow2': VerticalScrollBarVisibility =='Hidden'}" [rows]="textRows" resizable="none" [readonly]="IsReadOnly"
+            class="overflow" [disabled]="!IsEnabled" [maxlength]="MaxLength" [ngModel]="Text"
+            (ngModelChange)="ngModelChangeEvent($event)" (focusout)="FocusOutEvent($event)"
+            class="form-control textBox1" (valueChange)="TextChangedEvent($event)" (blur)="onblur()"
+            (click)="OnClickEvent($event)" (keydown)="KeyDownEvent($event)" (keyup)="KeyUpEventTextArea($event)"
+            (focusin)="GotFocusEvent($event)" spellcheck="false">
+        </kendo-textarea>
+    </div>
+</ng-container>
+<ng-container
+    *ngIf="(!AlteredTextArea) && (AcceptsReturn != 'True' && Type != 'Numeric' && Type != 'StringNumeric' && TextWrapping == 'NoWrap')">
+    <div kendoTooltip showOn="none">
+        <div #ToolTipTempRef [title]="ToolTip"> </div>
+        <kendo-textbox #itextbox selectionStart (mouseenter)="mouseevent(ToolTipTempRef,true)"
+            (mouseleave)="mouseevent(ToolTipTempRef,false)" (click)="mouseevent(ToolTipTempRef,false)" [ngStyle]="style"
+            [disabled]="!IsEnabled" [maxlength]="MaxLength" [readonly]="IsReadOnly"
+            (valueChange)="TextChangedEvent($event)" [ngModel]="Text" (ngModelChange)="ngModelChangeEvent($event)"
+            (blur)="onblur()" class="form-control textBox1" (keypress)="restrictEvent($event)"
+            (click)="OnClickEvent($event)" (keydown)="KeyDownEvent($event)" (focusout)="FocusOutEvent($event)"
+            (keyup)="KeyUpEvent($event)" (focusin)="GotFocusEvent($event)" spellcheck="false">
+        </kendo-textbox>
+    </div>
+</ng-container>
+<ng-container *ngIf="Type == 'StringNumeric'">
+    <div kendoTooltip showOn="none">
+        <div #ToolTipTempRef [title]="ToolTip"> </div>
+        <kendo-textbox #itextbox selectionStart (mouseenter)="mouseevent(ToolTipTempRef,true)"
+            (mouseleave)="mouseevent(ToolTipTempRef,false)" (click)="mouseevent(ToolTipTempRef,false)"
+            [disabled]="!IsEnabled" [ngStyle]="style" (blur)="onblur()" [maxlength]="MaxLength" [ngModel]="Text"
+            (ngModelChange)="ngModelChangeEvent($event)" (keypress)="restrictEvent($event)"
+            (keydown)="KeyDownEventStringNumeric($event)" (focusin)="GotFocusEvent($event)"
+            (valueChange)="TextChangedEvent($event);SelectionChangedEvent($event)" (focusout)="FocusOutEvent($event)"
+            (keyup)="KeyUpEvent($event)" (input)="validateNumber($event)">
+        </kendo-textbox>
+    </div>
+</ng-container>
+<!-- <ng-container *ngIf="AcceptsReturn != 'True' && Type != 'Numeric'">
+    <kendo-textbox selectionStart kendoTooltip [title]="ToolTip" [ngStyle]="style" [disabled]="!IsEnabled"
+        [maxlength]="MaxLength" [tabIndex]="NumTabIndex" [readonly]="IsReadOnly"
+        (valueChange)="TextChangedEvent($event)" [ngModel]="Text" (ngModelChange)="txtChange($event)" (blur)="onblur()"
+        class="form-control textBox1" (click)="OnClickEvent($event)" (keydown)="KeyDownEvent($event)"
+        (focusin)="GotFocusEvent($event)" (keyup)="KeyUpEvent($event)">
+    </kendo-textbox>
+</ng-container> -->
+<ng-container *ngIf="Type == 'Numeric'">
+    <div kendoTooltip showOn="none">
+        <div #ToolTipTempRef [title]="ToolTip"> </div>
+        <kendo-numerictextbox #itextbox selectionStart (mouseenter)="mouseevent(ToolTipTempRef,true)"
+            (mouseleave)="mouseevent(ToolTipTempRef,false)" (click)="mouseevent(ToolTipTempRef,false)"
+            [disabled]="!IsEnabled" [spinners]="false" [ngStyle]="style" [decimals]="Precision"
+            [format]="Numbericformat" (blur)="onblur()" [min]="Minimum" [max]="Maximum" [maxlength]="MaxLength"
+            [ngModel]="Text" [readonly]="IsReadOnly" (ngModelChange)="ngModelChangeEvent($event)"
+            (keypress)="restrictEvent($event)" (focusin)="GotFocusEvent($event)"
+            (valueChange)="TextChangedEvent($event);SelectionChangedEvent($event)" (focusout)="FocusOutEvent($event)"
+            (keyup)="KeyUpEvent($event)" (keydown)="KeyDownEvent($event)" [step]="numstep" [changeValueOnScroll]="false">
+        </kendo-numerictextbox>
+    </div>
+</ng-container>
+<ng-container *ngIf="AlteredTextArea">
+    <div kendoTooltip showOn="none">
+        <div #ToolTipTempRef [title]="ToolTip"> </div>
+        <kendo-textarea #itextbox selectionStart (mouseenter)="mouseevent(ToolTipTempRef,true)"
+            (mouseleave)="mouseevent(ToolTipTempRef,false)" (click)="mouseevent(ToolTipTempRef,false)" [ngStyle]="style"
+            [ngClass]="{'overflow1 k-overflow-y-scroll': VerticalScrollBarVisibility =='Visible', 
+    'overflow2': VerticalScrollBarVisibility =='Hidden'}" [rows]="textRows" resizable="none" [readonly]="IsReadOnly"
+            class="overflow" [disabled]="!IsEnabled" [maxlength]="MaxLength" [ngModel]="Text"
+            (ngModelChange)="ngmodelchangetextarea($event)" (focusout)="FocusOutEvent($event)"
+            class="form-control textBox1 textboxtest1" (valueChange)="TextChangedEvent($event)"
+            (blur)="onblurtextarea()" (click)="OnClickEvent($event)" (keydown)="KeyDownEvent($event)"
+            (keyup)="KeyUpEventTextArea($event)" (focusin)="GotFocusEvent($event)" spellcheck="false"
+            (focus)="onfocustextarea()">
+        </kendo-textarea>
+    </div>
+</ng-container>

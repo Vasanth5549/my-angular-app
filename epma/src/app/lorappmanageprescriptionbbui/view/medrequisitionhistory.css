@@ -1,0 +1,22 @@
+:host ::ng-deep .k-grid .k-grid-content {
+    overflow-x: auto !important;
+    padding-right: 1px !important;
+}
+
+.History ::ng-deep .k-grid-header {
+    padding-right: 15px !important;
+}
+.imgalign {
+    align-items: end !important;
+}
+@media screen and (max-width: 1400px) {
+    .medrequisitionHsty{
+      position: absolute;
+    }
+  }
+
+@media screen and (min-width: 1500px) {
+    .medrequisitionHsty{
+      position: absolute;
+    }
+  }

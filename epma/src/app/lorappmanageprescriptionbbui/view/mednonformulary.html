@@ -1,0 +1,76 @@
+<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="left" MaxWidth="500" MaxHeight="400"
+Height="150" Width="412"BorderThickness="0">
+    
+    <kendo-gridlayout #LayoutRootTempRef Name="LayoutRoot"
+        [rows]="[{height: 'auto'}, {height: 'auto'},{height: 'auto', minheight: '30'}, {height: 'Datacontext.OtherRSNRowHeight'},{height: 'auto'}, {height: 5},{height: 'auto'}]"
+        [cols]="[{width:190},{width:200}]" Background="Styles.LzoPageBG" Margin="5,5,5,0">
+
+        <Border [Background]="Styles.InnerBG" [row]='2' [col]='2'></Border>
+
+        <Border [Background]="Styles.InnerBG" [row]='3' [col]='2'></Border>
+
+
+        <Border [Background]="Styles.InnerBG" [row]='4' [col]='2'></Border>
+
+        <Border [Background]="Styles.InnerBG" [row]='6' [col]='2'></Border>
+
+
+        <Border [iStyle]="Styles.whiteBorder" [row]='3' [col]='1' [colSpan]='2'></Border>
+
+        <Border [iStyle]="Styles.whiteBorder" [row]='4' [col]='1' [colSpan]='2'></Border>
+        
+        <Border [iStyle]="Styles.whiteBorder" *ngIf="DataContext.ReasonForPrescribing?.Value == 'CC_OTHER'" [row]='5' [col]='1' [colSpan]='2'></Border>
+        
+        <kendo-gridlayout-item [row]='2' [col]='1'>
+            <div containerStyle>
+                <iLabel #lblitemNameTextTempRef HorizontalAlignment="Left" Name="lblitemNameText"
+                    VerticalAlignment="Center" [Text]="NonForRsn.lblItemName_Text"
+                    [Tooltip]="NonForRsn.lblItemName_Text" Mandatory="False" Width="170" Margin="0,5,5,5">
+                </iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='2' [col]='2'>
+            <div containerStyle>
+                <iLabel #lblitemNameTempRef HorizontalAlignment="Left" Name="lblitemName" VerticalAlignment="Center"
+                    Mandatory="False" IsWordwrap="True" Width="170" [Text]="DataContext.ItemName" Margin="5,5,5,5"
+                    Height="Auto"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='3' [col]='1'>
+            <div containerStyle>
+                <iLabel #lblReasonTempRef HorizontalAlignment="Left" Name="lblReason"
+                    SLAccessKeyProperties.AccessKey="R" VerticalAlignment="Center"
+                    [Text]="NonForRsn.lblReason_Text" [Tooltip]="NonForRsn.lblReason_Text"
+                    IsWordwrap="True" Width="170" Mandatory="True" Margin="0,0,0,0"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='3' [col]='2'>
+            <div containerStyle>
+                <iComboBox #cboReasonTempRef HorizontalAlignment="Left" Margin="5,0,5,0" Name="cboReason"
+                    VerticalAlignment="Center" [Tooltip]="NonForRsn.txtOtherReason_ToolTip"
+                    IsDropDownStretch="True" [ItemsSource]="DataContext.NonFormularyReasons"
+                    SLAccessKeyProperties.AccessKey="E" [(SelectedValue)]="DataContext.ReasonForPrescribing"
+                    TabIndex="1" IsEditable="False" Height="21" Width="180"></iComboBox>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='4' [col]='1'>
+            <div containerStyle>
+                <iLabel #lblOtherReasonTempRef VisibilityWidthDirective [VisibilityWidth]="DataContext.OtherRSNRowHeight" HorizontalAlignment="Left" Name="lblOtherReason"
+                    VerticalAlignment="Center" [Text]="NonForRsn.lblOtherReason_Text"
+                    [Tooltip]="NonForRsn.lblOtherReason_Text" Width="170" Margin="0,0,0,0"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='4' [col]='2'>
+            <div *ngIf="!(DataContext.ReasonForPrescribing?.Value == 'CC_OTHER')" class="rectangles"></div>
+            <div containerStyle>
+                <iTextBox #txtOtherReasonTempRef VisibilityWidthDirective [VisibilityWidth]="DataContext.OtherRSNRowHeight" Height="21" HorizontalAlignment="Left" Margin="5,5,5,5"
+                    Name="txtOtherReason" VerticalAlignment="Center" Width="180"
+                    [Tooltip]="NonForRsn.txtOtherReason_ToolTip" MaxLength="215"
+                    [(Text)]="DataContext.OtherReason"></iTextBox>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='5' [col]='2'>
+                <div *ngIf="DataContext.ReasonForPrescribing?.Value == 'CC_OTHER'" class="rectangles1"></div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</ScrollViewer>

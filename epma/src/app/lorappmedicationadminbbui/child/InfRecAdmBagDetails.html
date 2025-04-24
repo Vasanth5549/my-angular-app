@@ -1,0 +1,23 @@
+<div name="LayoutRoot">
+    <kendo-gridlayout
+    class="grid-layout-container"
+    GridLayout
+    [rows]="[ { height: 5}, { height:'auto'},{ height: 200}]"
+    [cols]="[ { width: 5},{ width: 'auto'},{ width: 5}]">
+  
+    <kendo-gridlayout-item [row]='2' [col]='2'>
+        <div containerStyle style="font-weight: bold;" >
+            <ContentPresenter Height="Auto" [style.margin-top.px]="-10" [Content]="BagHeaderDisplay"></ContentPresenter>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='3' [col]='2'  >
+        <div containerStyle >
+            <ContentControl #cntBagDetailsTempRef Name="cntBagDetails" >
+
+                <app-medbagdetails [DataContext] ="oBagDetailsView.DataContext" ></app-medbagdetails>
+            </ContentControl>
+        </div>
+    </kendo-gridlayout-item>
+
+    </kendo-gridlayout>
+</div>

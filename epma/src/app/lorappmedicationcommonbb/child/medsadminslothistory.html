@@ -1,0 +1,182 @@
+<div class="grid-layout-container">
+    <kendo-gridlayout Name="LayoutRoot" Background="#E0EFF1FF"
+        [rows]="[ { height: 0}, { height:'1fr' },{ height: 0}, { height:'1fr' },{ height: 0}]" class="medhistory">
+        <kendo-gridlayout-item [row]='2' [col]="1">
+            <div containerStyle>
+                <StackPanel style="padding-bottom: 22px;">
+                    <kendo-grid #grdAdminHistoryListTempRef [selectable]="{checkboxOnly: false, mode: 'single'}"
+                        kendoGridSelectBy [(selectedKeys)]="grdAdminHistoryList.selectedRowsIndex"  class="medhistyGrid"
+                        VerticalContentAlignment="Stretch"
+                        (selectionChange)="grdAdminHistoryList.selectionChange($event)" Visibility="Visible"
+                        [navigable]="false" [sortable]="false" [resizeable]="false" [style.marginLeft.px]="0"
+                        [style.marginTop.px]="0" [style.marginRight.px]="0" [style.marginBottom.px]="0"
+                        [reorderable]="false" [data]="grdAdminHistoryList?.ItemsSource?.array">
+
+                        <ng-template kendoGridNoRecordsTemplate>No records to show
+                        </ng-template>
+                        <kendo-grid-column UniqueName="column" title=" " field="" [filterable]="false" [width]="25"
+                            [editable]="false">
+                            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+                                <Image *ngIf="grdAdminHistoryList.selectedRowsIndex[0]==rowIndex"
+                                    Source="assets/Images/iarrownor5x10.png" Width="6" Height="11" Margin ="5">
+                                </Image>
+                            </ng-template>
+                        </kendo-grid-column>
+                       
+
+                        <kendo-grid-column UniqueName="Action" title="Action" field="ActionCode" TextWrapping="Wrap"
+                            [width]="130">
+                            <ng-template kendoGridHeaderTemplate let-column>
+                                <span title="Action">{{ column.title }}</span>
+                            </ng-template>
+                            <ng-template kendoGridCellTemplate let-dataItem>
+                                <span [title]="dataItem.ActionCode ">{{ dataItem.ActionCode }}</span>
+                            </ng-template>
+                        </kendo-grid-column>
+
+                        <kendo-grid-column UniqueName="ActionCode" title="ActionCode" [hidden]="false"
+                            field="ActionCodeValue" TextWrapping="Wrap" [width]="0">
+                            <ng-template kendoGridHeaderTemplate let-column>
+                                <span title="ActionCode">{{ column.title }}</span>
+                            </ng-template>
+                            <ng-template kendoGridCellTemplate let-dataItem>
+                                <span [title]="dataItem.ActionCodeValue ">{{ dataItem.ActionCodeValue }}</span>
+                            </ng-template>
+                        </kendo-grid-column>
+                        <kendo-grid-column UniqueName="Statusc" title="Status" field="Status" TextWrapping="Wrap"
+                            [width]="170">
+                            <ng-template kendoGridHeaderTemplate let-column>
+                                <span title="Status">{{ column.title }}</span>
+                            </ng-template>
+                            <ng-template kendoGridCellTemplate let-dataItem>
+                                <span [title]="dataItem.Status ">{{ dataItem.Status }}</span>
+                            </ng-template>
+                        </kendo-grid-column>
+                        <kendo-grid-column UniqueName="DateTime" title="Date/Time" [filterable]="false" [width]="125">
+                            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                [GridColumnProperties]="grdAdminHistoryList" let-columnIndex="columnIndex">
+                                <ng-template kendoGridHeaderTemplate let-column>
+                                    <span title="DateTime">{{ column.title }}</span>
+                                </ng-template>
+                                <ng-template kendoGridCellTemplate let-dataItem>
+                                    <span [title]="dataItem.DateTime ">{{ dataItem.DateTime }}</span>
+                                </ng-template>
+                                <DataTemplate>
+                                    <iLabel #lblDatetimeTempRef Name="lblDatetime" HorizontalAlignment="Left"
+                                        [Tooltip]="dataItem.ActionDTTM | date :  'dd-MMM-yyyy HH:mm' : 'en-GB' | CustomDate : dataItem.ActionDTTM"
+                                        Text="{{dataItem.ActionDTTM | date :  'dd-MMM-yyyy HH:mm' : 'en-GB' | CustomDate : dataItem.ActionDTTM}}">
+                                    </iLabel>
+                                </DataTemplate>
+                            </ng-template>
+                        </kendo-grid-column>
+                        <kendo-grid-column UniqueName="ActionedBy" title="Actioned by" field="ActionByTitle"
+                            TextWrapping="Wrap" [width]="125">
+                            <ng-template kendoGridHeaderTemplate let-column>
+                                <span title="ActionedBy">{{ column.title }}</span>
+                            </ng-template>
+                            <ng-template kendoGridCellTemplate let-dataItem>
+                                <span [title]="dataItem.ActionByTitle "  style="white-space: normal !important">{{ dataItem.ActionByTitle }}</span>
+                            </ng-template>
+
+                        </kendo-grid-column>
+                    </kendo-grid>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+
+
+        <kendo-gridlayout-item [row]='4' [col]="1" Margin="0,10,0,0" style="margin-top: -24px;">
+            <div containerStyle>
+                <kendo-gridlayout Name="LayoutRoot" Background="#E0EFF1FF" style="display: block;"
+                    [rows]="[ { height:'auto' },{ height: 20}]" Margin="0,10,0,0">
+                    <kendo-gridlayout-item [row]="1" [col]="1" [colSpan]=3>
+                        <div containerStyle class="adminslothistry">
+                            <Border Background="#E0EFF1FF" width="130" [iStyle]="Styles.BorderFrame"
+                                [isContent]="true" Margin="0,0,0,0">
+                                <kendo-gridlayout GridLayout [rows]="[ { height:10 },{ height: 'auto'}]" style="padding: 5px 5px 5px 5px; width:'fit-content';">
+                                    <kendo-gridlayout-item [row]="1" [col]="1"style="width:130px">
+                                        <StackPanel Background="#E0EFF1FF" HorizontalAlignment="Left"
+                                            Margin="10,-14,0,0" VerticalAlignment="Left" Orientation="Vertical">
+                                            
+                                                <iLabel #TitleLblTempRef Name="TitleLbl" Text="Changed attributes"
+                                                FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Left"
+                                               ></iLabel>
+                                           
+                                            
+                                        </StackPanel>
+                                    </kendo-gridlayout-item>
+                                    <kendo-gridlayout-item [row]="2" [col]="1">
+                                        <div containerStyle>
+                                            <kendo-grid #grdModifydataTempRef [GridProperties]="grdModifydata"
+                                                HorizontalAlignment="left"
+                                                [selectable]="{checkboxOnly: true, mode: 'multiple'}" kendoGridSelectBy
+                                                [(selectedKeys)]="grdModifydata.selectedRowsIndex" [sortable]="false" 
+                                                [resizeable]="false"
+                                                class="changeAttributegrid"
+                                                [style.marginLeft.px]="5"
+                                                [style.marginRight.px]="6"
+                                                [style.marginTop.px]="-5"
+                                                [style.marginBottom.px]="21"
+                                                [reorderable]="false" [navigable]="false"
+                                                [data]="grdModifydata?.ItemsSource?.array">
+                                                <ng-template kendoGridNoRecordsTemplate>No records to show
+                                                </ng-template>
+                                                <kendo-grid-column UniqueName="Modified" title="Modified"
+                                                    field="Modified" TextWrapping="Wrap" [width]="170">
+                                                    <ng-template kendoGridHeaderTemplate let-column>
+                                                        <span title="Modified">{{ column.title }}</span>
+                                                    </ng-template>
+                                                    <ng-template kendoGridCellTemplate let-dataItem>
+                                                        <span [title]="dataItem.Modified ">{{ dataItem.Modified
+                                                            }}</span>
+                                                    </ng-template>
+                                                </kendo-grid-column>
+                                                <kendo-grid-column UniqueName="From" title="From" field="From"
+                                                    TextWrapping="Wrap" [width]="170">
+                                                    <ng-template kendoGridHeaderTemplate let-column>
+                                                        <span title="From">{{ column.title }}</span>
+                                                    </ng-template>
+                                                    <ng-template kendoGridCellTemplate let-dataItem>
+                                                        <span   kendoTooltip [tooltipTemplate] ="tooltipTo" title="" (mouseenter)="showTooltip(dataItem.From)"  style="white-space: pre-line !important">{{ dataItem.From }}</span>
+                                                    </ng-template>
+                                                </kendo-grid-column>
+                                                <kendo-grid-column UniqueName="To" title="To" field="To"
+                                                    TextWrapping="Wrap" [width]="215">
+                                                    <ng-template kendoGridHeaderTemplate let-column>
+                                                        <span title="To">{{ column.title }}</span>
+                                                    </ng-template>
+                                                     
+                                                    <ng-template #tooltipTo>
+                                                        <span   style=" display: block; max-width: 300px;">
+                                                          {{tooltipText}} 
+                                                        </span>
+                                                    </ng-template>
+                                                    <ng-template kendoGridCellTemplate let-dataItem>
+                                                       <span   kendoTooltip [tooltipTemplate] ="tooltipTo" title="" (mouseenter)="showTooltip( dataItem.To )"  style="white-space:pre-line !important;" >{{ dataItem.To }}</span>
+                                                    </ng-template>
+                                                </kendo-grid-column>
+
+                                            </kendo-grid>
+                                        </div>
+                                    </kendo-gridlayout-item>
+                                </kendo-gridlayout>
+
+                            </Border>
+                        </div>
+                    </kendo-gridlayout-item>
+                       <kendo-gridlayout-item [row]='2' [col]='4'>
+                        <div containerStyle style="margin: -20px 10px 0px 0px;">
+                            <iLabel #lblviewrecordmedicationTempRef Name="lblviewrecordmedication"
+                                Text="View scanned/Recorded medication" HorizontalAlignment="Right"
+                                VerticalAlignment="Center" [MouseLeftButtonUp]="lblviewrecordmedication_MouseLeftButtonUp_Func"
+                                Cursor="Hand" width="200" TextDecorations="Underline" Foreground="Blue" [Visibility]="DataContext?.IsViewRecMedLinkExists">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+
+            </div>
+        </kendo-gridlayout-item>
+        
+    </kendo-gridlayout>
+</div>

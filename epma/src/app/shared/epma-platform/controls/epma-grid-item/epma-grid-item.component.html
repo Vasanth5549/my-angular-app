@@ -1,0 +1,108 @@
+<ng-container *ngIf="Control.constructor?.name == 'iLabel'">
+    <iLabel #DynamicRenderConrol [Text]="Control?.Text" [Name]="Control?.Name" [Visibility]="Control?.Visibility" [isGlobalEnabled]="Control?.isGlobalEnabled" 
+    [IsEnabled]="Control?.IsEnabled" [Mandatory]="Control?.Mandatory" [IsWordwrap]="Control?.IsWordwrap" [MouseLeftButtonDown]="Control?.MouseLeftButtonDown"
+    [iLabelInLineElements]="Control['iLabelInLineElements']" [BindingObjects]="Control?.BindingObjects" [DataContext]="DataContext"
+    [style]="Control?.style" [displayVisibilityWidth]="Control?.displayVisibilityWidth" [MouseLeftButtonUp]="Control?.MouseLeftButtonUp" [Tooltip]="Control['Tooltip']">
+    </iLabel>
+</ng-container>
+<ng-container *ngIf="Control.constructor?.name == 'iTextBox'">
+    <iTextBox #DynamicRenderConrol [Name]="Control?.Name" [Text]="Control?.Text" [BindingObjects]="Control?.BindingObjects" [style]="Control?.style" [ColumnCellIndex]="cell" [DataContext]="DataContext" [Type]="Control?.Type" [Precision]="Control?.Precision"
+    [Nonnegative]="Control?.Nonnegative"  [Scale]="Control?.Scale" [MaxLength]="Control?.MaxLength" [BindingObjects]="Control?.BindingObjects" [GridHelper]="GridHelper" [GridColumn]="GridColumn"
+    [displayVisibilityWidth]="Control?.displayVisibilityWidth" [AcceptsReturn]="Control?.AcceptsReturn" [TextWrapping]="Control?.TextWrapping"
+    [KeyDown]="Control?.KeyDown" [OnClick]="Control?.OnClick" [IsEnabled]="Control?.IsEnabled" [isGlobalEnabled]="Control?.isGlobalEnabled" [Tooltip]="Control['Tooltip']">
+</iTextBox>
+</ng-container>
+<ng-container *ngIf="Control.constructor?.name == 'iRadioButton'">
+    <iRadioButton #DynamicRenderConrol  [Text]="Control.Text" [Name]="Control?.Name" [style]="Control?.style" [Tooltip]="Control['Tooltip']" [Visibility]="Control?.Visibility" [IsEnabled]="Control?.IsEnabled" [IsChecked]="Control?.IsChecked" [DataContext]="DataContext" [TabIndex]="Control?.TabIndex" [GroupName]="Control?.GroupName" [BindingObjects]="Control?.BindingObjects" [isGlobalEnabled]="Control?.isGlobalEnabled">
+    </iRadioButton>
+</ng-container>
+<ng-container *ngIf="Control.constructor?.name == 'iComboBox'">
+    <iComboBox
+    #DynamicRenderConrol
+    [ItemsSource]="Control['ItemsSource']"
+    [(SelectedValue)]="Control['SelectedValue']"
+    [IsEnabled]="Control['IsEnabled']"
+    [Visibility]="Control['Visibility']"
+    [BindingObjects]="Control?.BindingObjects"
+    [IsEditable]="Control['IsEditable']"
+    [CanAutocompleteSelectItems]="Control['CanAutocompleteSelectItems']"
+    [IsTypeAHead]="Control['IsTypeAHead']"
+    [IsTextSearchEnabled]="Control['IsTextSearchEnabled']"
+    [Tooltip]="Control['Tooltip']" [style]="Control['style']" [Name]="Control?.Name"
+    [isGlobalEnabled]="Control?.isGlobalEnabled"
+    [AllowInputText]="Control['AllowInputText']"
+    [SelectAllTextEvent]="Control['SelectAllTextEvent']"
+    [Text]="Control['Text']"
+    [SelectionChanged]="Control['SelectionChanged']"
+	[IsEnabledChanged]="Control['IsEnabledChanged']"
+    [ISDynamicFormPRN] = "Control['ISDynamicFormPRN']"
+    ></iComboBox>
+</ng-container>
+<ng-container *ngIf="Control.constructor?.name == 'iButton'">
+    <iButton #DynamicRenderConrol 
+    [Text]="Control.Text"  
+    [BindingObjects]="Control?.BindingObjects"
+    [ImageSource]="Control?.ImageSource" [ActiveImageSource]="Control?.ActiveImageSource" [DisabledImageSource]="Control?.DisabledImageSource" [Visibility]="Control?.Visibility"
+    [Command]="Control?.Command"   [IsEnabled]="Control?.IsEnabled" [isGlobalEnabled]="Control?.isGlobalEnabled" 
+    [Tooltip]="Control['Tooltip']" [Name]="Control?.Name" [style]="Control?.style" [MouseLeftButtonDown]="Control?.MouseLeftButtonDown" [Click]="Control?.Click"
+    ></iButton>
+</ng-container>
+<ng-container *ngIf="Control.constructor?.name == 'iMultiSelectDropdown'">
+    <iMultiSelectDropDown #DynamicRenderConrol
+        [Tooltip]="Control['Tooltip']" 
+        [ItemsSource]="Control['ItemsSource']"  
+        [BindingObjects]="Control?.BindingObjects"
+        [IsEnabled]="Control?.IsEnabled"    
+        [isGlobalEnabled]="Control?.isGlobalEnabled"
+        [SelectedItems]="Control['SelectedItems']"
+        [Visibility]="Control['Visibility']" [Name]="Control?.Name" [style]="Control?.style">
+    </iMultiSelectDropDown>
+</ng-container>
+
+<ng-container *ngIf="Control.constructor?.name == 'iUpDownBox'">
+    <iUpDownBox #DynamicRenderConrol [Value]="Control?.Value" [DecimalPlaces]="Control.DecimalPlaces" [Name]="Control?.Name" [Visibility]="Control?.Visibility" [IsEnabled]="Control?.IsEnabled" [isGlobalEnabled]="Control?.isGlobalEnabled" [BindingObjects]="Control?.BindingObjects" [Tooltip]="Control['Tooltip']"  [style]="Control?.style" [Minimum]="Control?.Minimum" [Maximum]="Control?.Maximum"></iUpDownBox>
+</ng-container>
+
+<ng-container *ngIf="Control.constructor?.name == 'iDateTimePicker'">
+    <iDateTimePicker #DynamicRenderConrol [style]="Control?.style" [Tooltip]="Control['Tooltip']" [(SelectedDateTime)]="Control['SelectedDateTime']"
+    [RangeStartDate]="Control['RangeStartDate']"
+    [RangeEndDate]="Control['RangeEndDate']"
+    [(IsEnabled)]="Control['IsEnabled']" [isGlobalEnabled]="Control?.isGlobalEnabled" [BindingObjects]="Control?.BindingObjects"
+    [EnableCultureSupport]="Control['EnableCultureSupport']" [DatePickerMode]="Control['DatePickerMode']"
+    [DateTimeFormat]="Control['DateTimeFormat']" [CustomFormat]="Control?.CustomFormat" [Name]="Control?.Name" [OnDateValueChanged]="Control?.OnDateValueChanged">
+</iDateTimePicker>
+</ng-container>
+
+<ng-container *ngIf="Control.constructor?.name == 'iTimeBox'">
+    <iTimeBox #DynamicRenderConrol [style]="Control?.style" [BindingObjects]="Control?.BindingObjects" [TimeFormat]="Control?.TimeFormat" [Name]="Control?.Name" [IsEnabled]="Control?.IsEnabled" [isGlobalEnabled]="Control?.isGlobalEnabled" [EnableDST]="Control?.EnableDST" [Value]="Control?.Value" [Tooltip]="Control['Tooltip']" [ValueChanged]="Control?.ValueChanged"></iTimeBox>
+</ng-container>
+
+<ng-container *ngIf="Control.constructor?.name == 'iCheckBox'">
+    <iCheckBox #DynamicRenderConrol [IsChecked]="Control?.IsChecked" [BindingObjects]="Control?.BindingObjects" [Visibility]="Control?.Visibility" [IsEnabled]="Control?.IsEnabled" [isGlobalEnabled]="Control?.isGlobalEnabled" [Tooltip]="Control['Tooltip']" [style]="Control?.style" [Name]="Control?.Name" [OnChange]="Control?.OnChange"></iCheckBox>
+</ng-container>
+
+<ng-container *ngIf="Control.constructor?.name == 'TextBlock'">
+    <TextBlock #DynamicRenderConrol [style]="Control.style" [BindingObjects]="Control?.BindingObjects" [Visibility]="Control?.Visibility" [IsEnabled]="Control?.IsEnabled" [isGlobalEnabled]="Control?.isGlobalEnabled" [InlinesElements]="Control['InlinesElements']"
+        [Text]="Control.Text" [classObj]="Control['controlclass']" [Name]="Control?.Name" [Tooltip]="Control['Tooltip']">
+    </TextBlock>
+</ng-container>
+
+<ng-container *ngIf="Control.constructor?.name == 'StackPanel'">
+    <StackPanel #DynamicRenderConrol [style]="Control?.style" [BindingObjects]="Control?.BindingObjects"
+        [ChildrenElementArray]="Control?.['ChildrenElementArray']" [Name]="Control?.Name" [IsEnabled]="Control?.IsEnabled" [isGlobalEnabled]="Control?.isGlobalEnabled" ></StackPanel>
+</ng-container>
+<ng-container *ngIf="Control.constructor?.name == 'Border'">
+    <Border #DynamicRenderConrol GridLayout [Child]="Control['Child']" [BindingObjects]="Control?.BindingObjects" [Style]="Control['baseStyle']" [ToolTip]="Control['ToolTip']"></Border>
+</ng-container>
+<ng-container *ngIf="Control.constructor?.name == 'Canvas'">
+    <epmaCanvas #DynamicRenderConrol [Height]="Control['Height']" [Width]="Control['Width']"
+        [_Children]="Control['_Children']"></epmaCanvas>
+</ng-container>
+<ng-container *ngIf="Control.constructor?.name == 'Grid'">
+    <Grid #DynamicRenderConrol [style]="Control?.style" [Name]="Control?.Name" [BindingObjects]="Control?.BindingObjects" [Tooltip]="Control?.ToolTip" [ChildrenArr]="Control['ChildrenArr']"
+    [RowDefinitionsArr]="Control['RowDefinitionsArr']" [ColumnDefinitionsArr]="Control['ColumnDefinitionsArr']" [ColWidth]="Control['ColWidth']" [isGlobalEnabled]="Control?.isGlobalEnabled"
+    [RowHeight]="Control['RowHeight']"></Grid>
+</ng-container>
+<ng-container *ngIf="Control.constructor?.name == 'ScrollViewer'">
+    <ScrollViewer #DynamicRenderConrol GridLayout [Content]="Control['Content']" [BindingObjects]="Control?.BindingObjects" [isGlobalEnabled]="Control?.isGlobalEnabled" [IsEnabled]="Control?.IsEnabled" [style]="Control['baseStyle']" [ToolTip]="Control['ToolTip']"></ScrollViewer>
+</ng-container>

@@ -1,0 +1,52 @@
+<kendo-tabstrip #tabstrip [keepTabContent]="KeepTabContent" [style.max-height.px]="_MaxScrollHeight" [ngStyle]="style" (tabSelect)="onTabSelect($event)"
+  (keydown)="KeyDownEvent($event)" (keyup)="KeyUpEvent($event)" [scrollable]="true">
+
+  <ng-container *ngFor="let tabitem of iTabItems">
+    <kendo-tabstrip-tab *ngIf="!tabitem.isHidden" [title]="tabitem?.Header" kendoTooltip
+      [selected]="tabitem?._IsSelected" [disabled]="!tabitem.IsEnabled">
+      <ng-template kendoTabContent>
+        <ng-container *ngTemplateOutlet="tabitem.contentTemplate">
+        </ng-container>
+      </ng-template>
+    </kendo-tabstrip-tab>
+  </ng-container>
+
+  <ng-container *ngFor="let tab of itabs;">
+    <kendo-tabstrip-tab *ngIf="!tab.isHidden" [title]="tab?.Header" kendoTooltip [selected]="tab._IsSelected"
+      [disabled]="!tab.IsEnabled">
+      <ng-template kendoTabTitle>
+        <ng-container *ngIf="tab?.Header?.constructor?.name == 'StackPanel' else regularHeader">
+          <StackPanel [isExtendedWidth]="tab?.Header?.isExtendedWidth" [Visibility]="tab?.Header?.Visibility" [style]="tab?.Header?.style"
+            [VerticalAlignment]="tab?.Header?.VerticalAlignment"
+            [HorizontalAlignment]="tab?.Header?.HorizontalAlignment"
+            [ChildrenElementArray]="tab?.Header?.ChildrenElementArray" [Width]="tab?.Header?.Width">
+          </StackPanel>
+        </ng-container>
+        <ng-template #regularHeader>
+          <span [title]="tab.ToolTip"> {{ tab.Header}} </span>
+          <ng-container *ngIf="tab?.HeaderImage && (tab?.HeaderImage!=''&& tab?.HeaderImage != undefined)">
+            <img *ngIf="tab?.HeaderImage && (tab?.HeaderImage!='' && tab?.HeaderImage != 'undefined')" kendoTooltip
+              [title]="tab.HeaderImgToolTip" [ngStyle]="tab.imgStyle" [src]="tab.HeaderImage" />
+          </ng-container>
+        </ng-template>
+      </ng-template>
+      <ng-template kendoTabContent>
+        <div data-id={{tab.Header}} #tabHosts>
+        </div>
+      </ng-template>
+    </kendo-tabstrip-tab>
+  </ng-container>
+
+  <ng-container *ngFor="let tab of ItemsSource?.array;">
+    <kendo-tabstrip-tab *ngIf="!tab.isHidden" [selected]="tab._IsSelected" [disabled]="!tab.IsEnabled">
+      <ng-template kendoTabTitle>
+        <span [title]="tab.ToolTip"> {{ tab.Header}} </span>
+      </ng-template>
+      <ng-template kendoTabContent>
+        <div data-id={{tab.Header}} #tabHosts>
+        </div>
+      </ng-template>
+    </kendo-tabstrip-tab>
+  </ng-container>
+
+</kendo-tabstrip>

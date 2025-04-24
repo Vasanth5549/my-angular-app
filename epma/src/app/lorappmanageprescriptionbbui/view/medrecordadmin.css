@@ -1,0 +1,11 @@
+.combobox1{
+    padding-right: 1px;
+    padding-left: 1px;
+} 
+:host::ng-deep.overflow1 .\!k-overflow-y-auto{
+     overflow-y: scroll !important;
+     height: 50px !important;
+ }
+ .dripcalculator{
+    margin-left: 77px;
+ }

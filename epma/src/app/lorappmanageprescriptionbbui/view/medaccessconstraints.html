@@ -1,0 +1,249 @@
+<kendo-gridlayout #MainLayoutRootTempRef [Name]="MainLayoutRoot" [rows]="[{height : '1fr'}]"
+    Background="Styles.LzoPageBG" class="medaccessconstraints">
+    <kendo-gridlayout-item>
+        <kendo-gridlayout #LayoutRootTempRef [Name]="LayoutRoot" Background="#FFE0EFF1" [rows]="[{height: 'auto'},{ height: 'auto'},{ height: 'auto'},
+                                           { height: 'auto'},
+                                           { height: maxscrollHeightone},                                                                                      
+                                           { height: 'auto'},
+                                           { height: 'auto'}]"> <!--4th row height changed from Height="120" to auto-->
+
+            <kendo-gridlayout-item [row]='1' [col]='1'>
+                <div containerStyle>
+                    <iLabel #lblCaptionNameTempRef Name="lblCaptionName"
+                        [Text]="objResMedAccessConstraints.lblCaptionName_Text" HorizontalAlignment="Stretch"
+                        Mandatory="False" IsWordwrap="True" Margin="0,3,10,0"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+
+            <kendo-gridlayout-item [row]='2' [col]='1'>
+                <div containerStyle style="padding-top:5px;padding-bottom:2px;">
+                    <iLabel #lblIndicationsTempRef Name="lblIndications"
+                        [Text]="objResMedAccessConstraints.lblIndications_Text" class="Bold" FontWeight="Bold"
+                        HorizontalAlignment="Stretch" Mandatory="False" Margin="0,3,10,0"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <!-- <iSOFT:iListBox Name="lstIndication" TabIndex="1" Grid.Row="3" HorizontalAlignment="Stretch" Margin="0,0,0,10" VerticalAlignment="Stretch" SelectionChanged="lstIndication_SelectionChanged"></iSOFT:iListBox>-->
+            <kendo-gridlayout-item [row]='3' [col]='1' HorizontalAlignment="Stretch" 
+                >
+                <div style="border: 1px solid #94b7cf;padding-bottom: 5px">
+                <iListBox #lstIndicationTempRef Name="lstIndication" [Width]="788" [Height]="120"
+                    (SelectionChanged)="lstIndication_SelectionChanged({},$event)">
+                </iListBox>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='4' [col]='1'>
+                <div containerStyle style="padding-top:10px;padding-bottom:2px;">
+                    <iLabel #lblPrescribingTempRef Name="lblPrescribing" VerticalAlignment="Center" class="Bold"
+                        FontWeight="Bold" [Text]="objResMedAccessConstraints.lblPrescribing_Text"
+                        HorizontalAlignment="Stretch" Mandatory="False"></iLabel>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='5'
+                [col]='1'><!--TabIndex="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"-->
+                <kendo-grid #grdDetailsTempRef [reorderable]="false" [sortable]="false"
+                    [data]="grdDetails.ItemsSource.array" (cellClick)="grdDetails.cellClick($event)"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" [GridProperties]="grdDetails" tabindex="2"
+                    Width=788 [height]="rowHeight">
+
+                    <ng-template kendoGridNoRecordsTemplate>
+                        There are no records to show
+                    </ng-template>
+
+                    <kendo-grid-column UniqueName="SlctColumn" [editable]="true" [hidden]="false" [resizable]="true"
+                        [width]="20">
+                        <ng-template kendoGridHeaderTemplate>
+                            <ControlTemplate TargetType="telerikGridView:GridViewHeaderCell">
+                                <GridBorder Padding="0" Margin="0" BorderThickness="0,0,1,1" BorderBrush="#7BB0AF">
+                                    <Image Source="assets/images/icopyacrossnor24.png" Width="15" Height="15"
+                                        [Tooltip]="objResMedAccessConstraints.CopyAcross_ToolTip"></Image>
+                                </GridBorder>
+                            </ControlTemplate>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate>
+                            <DataTemplate #temp>
+                                <Image Source="assets/images/icopyacrossnor24.png" Width="15" Height="15"
+                                    [Tooltip]="objResMedAccessConstraints.CopyAcross_ToolTip"></Image>
+                            </DataTemplate>
+                        </ng-template>
+
+                    </kendo-grid-column>
+                    <!-- <kendo-grid-column UniqueName="FormularyNote" [filterable]="false" [editable]="false"
+                        [resizable]="false" [width]="20">
+                        <ng-template kendoGridHeaderTemplate>
+                            <DataTemplate #temp>
+                                <ControlTemplate TargetType="telerikGridView:GridViewHeaderCell">
+                                    <GridBorder Padding="0" Margin="0" BorderThickness="0,0,1,1" BorderBrush="#7BB0AF">
+                                        <Image Source="assets/images/iwarninginfonor16.png" Width="17" Height="15" Stretch="None"
+                                            [Tooltip]="objResMedAccessConstraints.FormularyNote_ToolTip"></Image>
+                                    </GridBorder>
+                                </ControlTemplate>
+                            </DataTemplate>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">                            
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                [gridHelper]="grdDetails">                                
+                                <StackPanel Orientation="Horizontal">
+                                    <Image #imgFormularyTempRef Name="imgFormulary"
+                                        Source="assets/images/iwarninginfonor16.png" Stretch="None"
+                                        [Tooltip]="DataContext.FormularyNote | CCWrapToolTip:'':'300'"
+                                        [Visibility]="DataContext.IsIconVisible"></Image>
+                                    <Image #imgExclamTempRef Name="imgExclam" Source="assets/images/exclam.png"
+                                        Stretch="None" [Tooltip]="DataContext.DrugPropertyNote | CCWrapToolTip:'':'300'"
+                                        [Visibility]="DataContext.IsDrugPropertyIconVisible">
+                                    </Image>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column> -->
+                    <kendo-grid-column UniqueName="FormularyNote" [width]="17" [filterbale]="false" [editable]="false"
+                        [resizable]="false">
+                        <ng-template kendoGridHeaderTemplate>
+                            <DataTemplate #temp>
+                                <ControlTemplate TargetType="telerikGridView:GridViewHeaderCell">
+                                    <GridBorder Padding="0" Margin="0" BorderThickness="0,0,1,1" BorderBrush="#7BB0AF"
+                                        style="margin-left:-2px;">
+                                        <Image Source="assets/images/iwarninginfonor16.png" Width="14" Height="15"
+                                            [Tooltip]="objResMedAccessConstraints.FormularyNote_ToolTip"></Image>
+                                    </GridBorder>
+                                </ControlTemplate>
+                            </DataTemplate>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                [gridHelper]="grdDetails">
+                                <StackPanel>
+                                    <Image Source="assets/images/iwarninginfonor16.png" Stretch="None"
+                                        [Tooltip]="dataItem.FormularyNote | CCWrapToolTip : 0 : '300'"
+                                        CustomWrapToolTip="True" [Visibility]="dataItem?.IsIconVisible">
+                                    </Image>
+
+                                    <Image Source="assets/images/exclam.png" Stretch="None"
+                                        [Tooltip]="dataItem.DrugPropertyNote | CCWrapToolTip : 0 : '300'"
+                                        CustomWrapToolTip="True" [Visibility]="dataItem?.IsDrugPropertyIconVisible">
+                                    </Image>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <kendo-grid-column [title]="objResMedAccessConstraints.PrescriptionItem_Text"
+                        UniqueName="PrescriptionItem" [filterable]="false" [editable]="true" [hidden]="false"
+                        [width]="280">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip title="{{ objResMedAccessConstraints.PrescriptionItem_Text }}"> {{
+                                objResMedAccessConstraints.PrescriptionItem_Text }}
+                            </span>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                [gridHelper]="grdDetails">
+                                <ContentPresenter [Content]="dataItem | MedLineDisplay : '' : '200'">
+                                </ContentPresenter>
+
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+
+                    <kendo-grid-column [title]="objResMedAccessConstraints.Otherinformation_Text"
+                        UniqueName="Otherinformation" [filterable]="false" [editable]="true" [resizable]="true"
+                        [width]="150">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip title="{{ objResMedAccessConstraints.Otherinformation_Text }}"> {{
+                                objResMedAccessConstraints.Otherinformation_Text }}
+                            </span>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                [gridHelper]="grdDetails">
+
+                                <ContentPresenter [Content]="dataItem | MedOtherDisplay : '' : 105">
+                                </ContentPresenter>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+
+                    <kendo-grid-column [title]="objResMedAccessConstraints.OrderSentenceDesc_Text"
+                        UniqueName="OrdersentenceDesc" [filterable]="false" [editable]="true" [width]="180"
+                        [resizable]="true">
+                        <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip title="{{ objResMedAccessConstraints.OrderSentenceDesc_Text }}"> {{
+                                objResMedAccessConstraints.OrderSentenceDesc_Text }}
+                            </span>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                [gridHelper]="grdDetails">
+                                <!-- <iLabel #lblOrdersentenceDescTempRef Name="lblOrdersentenceDesc"
+                                                                [Text]="dataItem?.FormViewerDetails?.BasicDetails?.OrderSentenceDesc" MinHeight="10"
+                                                                MaxHeight="39" IsWordwrap="True"  [Tooltip]="dataItem?.FormViewerDetails?.BasicDetails?.OrderSentenceDesc" > -->
+
+                                <TextBlock TextWrapping="Wrap"
+                                    [Text]="dataItem?.FormViewerDetails?.BasicDetails?.OrderSentenceDesc" MinHeight="10"
+                                    MaxHeight="172" MinWidth="10" MaxWidth="170"
+                                    [Tooltip]="dataItem?.FormViewerDetails?.BasicDetails?.OrderSentenceDesc">
+                                </TextBlock>
+
+                                <!-- </iLabel> -->
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                </kendo-grid>
+            </kendo-gridlayout-item>
+
+            <!-- <kendo-gridlayout-item [row]="6">
+                <kendo-gridlayout [rows]="[{height : '1fr'}]">
+                </kendo-gridlayout>
+            </kendo-gridlayout-item> -->
+            <!--{width: '7'} 2nd column-->
+
+            <kendo-gridlayout-item GridLayout [row]='7' [Visibility]="DataContext.IsVisibleOverrideIndication"
+                Style="margin-top: 12px;">
+                <kendo-gridlayout [rows]="[{height: 17},{ height: 5}]"
+                    [cols]="[{width: 125},{width: 125}]"><!--Visibility="IsVisibleOverrideIndication" Grid.Row="8"-->
+
+                    <kendo-gridlayout-item [row]='1' [col]='1'>
+                        <div containerStyle>
+                            <iLabel #lblOverrideIndicationTempRef Name="lblOverrideIndication" Height="18"
+                                [Text]="objResMedAccessConstraints.lblOverrideIndications_Text" Mandatory="False"
+                                IsWordwrap="True" SLAccessKeyProperties.AccessKey="O"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='1' [col]='2'>
+                        <div containerStyle>
+                            <iCheckBox #chkOverrideIndicationTempRef HorizontalAlignment="Left" Height="18"
+                                Name="chkOverrideIndication"
+                                [Tooltip]="objResMedAccessConstraints.ChkOverrideIndications_Tooltip"
+                                VerticalAlignment="Center" 
+                                [(IsChecked)]="DataContext.IsChkOverrideIndication" IsEnabled="True"
+                                SLAccessKeyProperties.AccessKey="O"></iCheckBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='3' [col]='1'>
+                        <div containerStyle>
+                            <iLabel #lblReasonForIndicationTempRef Name="lblReasonForIndication" Height="18"
+                                [Text]="objResMedAccessConstraints.lblReasonoverride_Text" VerticalAlignment="Center"
+                                [(Mandatory)]="DataContext.IsEnableOverrideReason"
+                                [(IsEnabled)]="DataContext.IsEnableOverrideReason" SLAccessKeyProperties.AccessKey="R">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='3' [col]='2'>
+                        <div containerStyle>
+                            <iComboBox #cboOverrideReasonTempRef Name="cboOverrideReason" VerticalAlignment="Center"
+                                HorizontalAlignment="Stretch" IsEditable="false" Height="21" Width="270"
+                                [(ItemsSource)]="DataContext.IndicationOverrideReason" IsDropDownStretch="True"
+                                [(SelectedValue)]="DataContext.IndicationOverrideReasonValue"
+                                [(IsEnabled)]="DataContext.IsEnableOverrideReason"
+                                [Tooltip]="objResMedAccessConstraints.cboReasonoverride_Tooltip"
+                                SLAccessKeyProperties.AccessKey="R"></iComboBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </kendo-gridlayout-item>
+        </kendo-gridlayout>
+    </kendo-gridlayout-item>
+</kendo-gridlayout>

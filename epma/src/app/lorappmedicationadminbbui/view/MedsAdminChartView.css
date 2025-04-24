@@ -1,0 +1,61 @@
+body {
+    background-color: lightblue;
+  }
+.ref{
+    display: flex;
+    justify-content: flex-end;
+}
+.showdiv{
+  display: block !important ;
+}
+.hidediv{
+  display: none;
+}
+/* .showlegendpopup{
+  top:380px !important;
+  left: 205px !important;
+} */
+.showicon{
+  justify-content: flex-start;
+}
+.due{
+  display: block;
+  text-align: center;
+}
+.medsdislink{
+  font-size: 11px !important;
+}
+
+
+@media screen and (max-width: 1450px) {
+  .divDefaultHeightInfusion{
+    height: 370px;
+  }
+  /* .divHeightChangedInfusion{
+    height: 355px;   
+  } */
+  .kendoPopupChartViewHeight{
+    height: 382px;
+    overflow-y: auto;
+  }
+  .labelStatus{
+    width: 80px;
+  }
+}
+@media screen and (min-device-width : 1400px) and (max-device-width: 1550px) {
+  .divDefaultHeightInfusion{
+    height: 460px;
+  }
+  .Chartlegent{
+    height: 450px;
+    overflow-y: auto;
+  }
+ }
+@media screen and (min-width: 1600px) {
+  .divDefaultHeightInfusion{
+    height: 690px;
+  }
+  .divHeightChangedInfusion{
+    height: 654px;   
+  }
+}

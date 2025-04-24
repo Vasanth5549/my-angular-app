@@ -1,0 +1,239 @@
+<!--Main Stack Panel Starts-->
+<kendo-gridlayout #LayoutRootTempRef Name="LayoutRoot" [style.height.px]="maxScrollContentHeight" VerticalAlignment="Top" style="overflow-y: auto;">
+
+    <!--Stack Panel inside Main Stack Panel Starts-->
+    <!-- <StackPanel HorizontalAlignment="Stretch" Height="Auto" Margin="5,5,5,5" Background="White"> -->
+
+    <!--DrugHeader starts-->
+        <kendo-gridlayout-item [row]="1" [col]="1">
+            <div containerStyle>
+                <drugheader #objDrugHeaderTempRef Name="objDrugHeader" [DataContext]="objDrugHeader._DataContext">
+                </drugheader>
+            </div>
+        </kendo-gridlayout-item>
+        <!--DrugHeader ends-->
+
+    <!-- </StackPanel> -->
+    <!--Stack Panel inside Main Stack Panel Starts-->
+    <!--Grid Starts-->
+    <kendo-gridlayout-item [row]="2" [col]="1" style="padding-top:11px;">
+    <div>
+        <kendo-gridlayout Height="460" Width="410" [rows]="[{height: '180'},{ height: '1fr'}]">
+            <!--Main Border 1 Starts-->
+            <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="2" Height="168" Width="390" Margin="3,-6,5,0"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                <!--Stack Panel Inside Border Starts-->
+                <kendo-gridlayout-item [row]='1'>
+                    <div containerStyle>
+                        <StackPanel HorizontalAlignment="stretch" Margin="0,0,0,-9">
+
+                            <!--Grid starts-->
+                            <kendo-gridlayout-item [row]="1" [col]="1">
+                                <div>
+                                    <kendo-gridlayout [rows]="[{height: '2'},{ height: '2'},{height: '30'},{ height: '5'},{height: '120'}]">
+
+                                        <!--Stack Panel 1 starts-->
+                                        <kendo-gridlayout-item [row]='3'>
+                                            <div containerStyle>
+                                                <StackPanel #spOmitActionsTempRef Name="spOmitActions"
+                                                            Orientation="Horizontal">
+
+                                                    <!--Border 1 containing grid starts-->
+                                                    <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="2"
+                                                            Height="Auto" Width="376" Margin="5"
+                                                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                                                        <!--Grid inside border starts-->
+
+                                                        <kendo-gridlayout-item [row]="1" [col]="1">
+                                                            <div>
+                                                                <kendo-gridlayout [rows]="[{height: '130'},{ height: '130'},{height: '130'}]">
+
+                                                                    <!--Radio button 1-->
+                                                                    <kendo-gridlayout-item [col]='1'>
+                                                                        <div containerStyle style="padding: 2px;">
+                                                                            <iRadioButton #iRdbSelectedSlotTempRef
+                                                                                          (change)="iRdbSelectedSlot_Checked(null,null)"
+                                                                                          Name="iRdbSelectedSlot"
+                                                                                          Margin="0,0,0,0"
+                                                                                          [Text]="objOmitSlots.rdbSelectedSlot_text"
+                                                                                          [Tooltip]="objOmitSlots.rdbSelectedSlot_tooltip"
+                                                                                          Checked="iRdbSelectedSlot_Checked"
+                                                                                          [IsEnabled]="DataContext.IsEnableSelectedSlot"
+                                                                                          SLAccessKeyProperties.AccessKey="S">
+                                                                            </iRadioButton>
+                                                                        </div>
+                                                                    </kendo-gridlayout-item>
+
+                                                                    <!--Radio button 2-->
+                                                                    <kendo-gridlayout-item [col]='2'>
+                                                                        <div containerStyle style="padding-left:55px;">
+                                                                            <iRadioButton #iRdbUntilTempRef
+                                                                                          (change)="iRdbUntil_Checked(null,null)"
+                                                                                          Name="iRdbUntil" Margin="0,0,0,0"
+                                                                                          [Text]="objOmitSlots.rdbUntil_text"
+                                                                                          [Tooltip]="objOmitSlots.rdbUntil_tooltip"
+                                                                                          Checked="iRdbUntil_Checked"
+                                                                                          [IsEnabled]="DataContext.IsEnableUntil"
+                                                                                          SLAccessKeyProperties.AccessKey="U">
+                                                                            </iRadioButton>
+                                                                        </div>
+                                                                    </kendo-gridlayout-item>
+
+                                                                    <!--Radio button 3-->
+                                                                    <kendo-gridlayout-item [col]='3'>
+                                                                        <div containerStyle style="padding-left:52px;">
+                                                                            <iRadioButton #iRdbIndefiniteTempRef
+                                                                                          (change)="iRdbIndefinite_Checked(null,null)"
+                                                                                          Name="iRdbIndefinite" Margin="0,0,0,0"
+                                                                                          [Text]="objOmitSlots.rdbIndefinite_text"
+                                                                                          [Tooltip]="objOmitSlots.rdbIndefinite_tooltip"
+                                                                                          Checked="iRdbIndefinite_Checked"
+                                                                                           [IsEnabled]="DataContext.IsEnableIndefinite"
+                                                                                          SLAccessKeyProperties.AccessKey="I">
+                                                                            </iRadioButton>
+                                                                        </div>
+                                                                    </kendo-gridlayout-item>
+
+                                                                </kendo-gridlayout>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+
+                                                        <!--Grid inside border ends-->
+
+                                                    </Border>
+
+
+                                                </StackPanel>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                        <!--Stack Panel 1 ends-->
+                                        <!--Stack Panel 2 starts-->
+                                        <kendo-gridlayout-item [row]='5'>
+                                            <div containerStyle>
+                                                <StackPanel HorizontalAlignment="stretch" Margin="0,0,0,-9">
+
+
+                                                    <!--Grid starts-->
+                                                    <kendo-gridlayout-item>
+                                                        <div>
+                                                            <kendo-gridlayout Width="auto"
+                                                                              [rows]="[{height: '5'},{ height: '25'},{height: '4'},{ height: '81'},{height: '5'}]"
+                                                                              [rows]="[{width: '91'},{ width: '297'}]">
+
+                                                                <!--iLabel-->
+                                                                <kendo-gridlayout-item [row]='2'>
+                                                                    <div containerStyle style="padding-top:15px;">
+                                                                        <iLabel #lblOmitReasonTempRef
+                                                                                Name="lblOmitReason" Mandatory="True"
+                                                                                [Text]="objOmitSlots.lblOmitReason_Text"
+                                                                                Margin="10,10,0,1"
+                                                                                VerticalAlignment="Stretch"
+                                                                                HorizontalAlignment="Left"></iLabel>
+                                                                    </div>
+                                                                </kendo-gridlayout-item>
+
+
+                                                                <!--Border-->
+                                                                <Border [col]='2' [colSpan]='3' [rowSpan]='5'
+                                                                        BorderBrush="#C2E2E3" BorderThickness="5"
+                                                                        Height="110" HorizontalAlignment="Right"
+                                                                        Margin="0,-1,4,1">
+                                                                    <!--iTextbox inside border-->
+                                                                    <kendo-gridlayout-item [col]='2' [rowSpan]='3'>
+                                                                        <div containerStyle style="width:270px;">
+                                                                            <iTextBox #txtOmitReasonTempRef
+                                                                                      Name="txtOmitReason" MaxLength="255"
+                                                                                      [(Text)]="DataContext.OmitReason"
+                                                                                      [Tooltip]="objOmitSlots.txtOmitReason_ToolTip"
+                                                                                      Height="100" Width="270"
+                                                                                      AcceptsReturn="True" TabIndex="4"
+                                                                                      VerticalAlignment="Center"
+                                                                                      TextWrapping="Wrap"
+                                                                                      HorizontalAlignment="Center"
+                                                                                      Margin="-1,0,0,0"
+                                                                                      TextRows="6"
+                                                                                      [AlteredTextArea]="true"
+                                                                                      ></iTextBox>
+                                                                        </div>
+                                                                    </kendo-gridlayout-item>
+
+                                                                </Border>
+
+                                                                <Border [row]='4' [col]='2' [colSpan]='3'
+                                                                        Margin="20,0,4,0" Width="278" Height="5">
+                                                                </Border>
+
+
+                                                            </kendo-gridlayout>
+                                                        </div>
+                                                    </kendo-gridlayout-item>
+                                                    <!--Grid ends-->
+
+                                                </StackPanel>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                        <!--Stack Panel 2 ends-->
+
+                                    </kendo-gridlayout>
+                                </div>
+                            </kendo-gridlayout-item>
+                            <!--Grid ends-->
+
+
+                        </StackPanel>
+                    </div>
+                </kendo-gridlayout-item>
+                <!--Stack Panel Inside Border Ends-->
+
+            </Border>
+            <!--Main Border 1 Ends-->
+            <!--Main Border 2 Starts-->
+            <Border BorderBrush="Gray" [row]='2' BorderThickness="1" CornerRadius="2" Height="Auto" Width="390"
+                    Margin="3,3,5,20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                <!--StackPanel-->
+                <StackPanel HorizontalAlignment="stretch">
+
+                    <!--Grid-->
+                    <kendo-gridlayout-item>
+                        <div>
+                            <kendo-gridlayout [rows]="[{height: '1fr'}]">
+
+
+                                <kendo-gridlayout-item [row]="2">
+                                    <!--revisitme-->
+                                    <!-- <div containerStyle>
+                                        <ContentControl #ContentCtrlOmitTempRef Name="ContentCtrlOmit"
+                                            HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                                            VerticalAlignment="Stretch"></ContentControl>
+                                    </div> -->
+                                    <ng-container *ngIf="ContentCtrlOmit?.Content">
+                                        <OmitIndefinite [DataContext]="oOmitSlotsVM" *ngIf="ContentCtrlOmit.Content?.constructor?.name == 'OmitIndefinite'"></OmitIndefinite>
+                                        <OmitSelectedSlots [DataContext]="oOmitSlotsVM" *ngIf="ContentCtrlOmit.Content?.constructor?.name == 'OmitSelectedSlots'"></OmitSelectedSlots>
+                                        <OmitUntil [DataContext]="oOmitSlotsVM" *ngIf="ContentCtrlOmit.Content?.constructor?.name == 'OmitUntil'"></OmitUntil>
+                                    </ng-container>
+                                </kendo-gridlayout-item>
+
+                            </kendo-gridlayout>
+                        </div>
+                    </kendo-gridlayout-item>
+
+
+                </StackPanel>
+
+
+            </Border>
+            <!--Main Border 2 Ends-->
+
+
+
+        </kendo-gridlayout>
+    </div>
+    </kendo-gridlayout-item>
+    <!--Grid Ends-->
+
+
+</kendo-gridlayout>
+<!--Main Stack Panel Ends-->

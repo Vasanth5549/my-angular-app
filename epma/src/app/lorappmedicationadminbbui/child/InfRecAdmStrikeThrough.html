@@ -1,0 +1,69 @@
+<kendo-gridlayout class="grid_layout_container" GridLayout [Background]="LzoPageBG" [rows]="[{ height : 'auto'}]">
+    <kendo-gridlayout-item [row]="1">
+        <div containerStyle>
+<kendo-gridlayout Name="LayoutRoot" CommonGridLayout [Background]="LzoPageBG" Margin="5"
+    VerticalAlignment="Top" HorizontalAlignment="Stretch"
+    [rows]="[{ height : '35'}, { height : 'auto'}, { height : '35'}, { height : '5'}]"
+    [cols]="[{ width: '200fr'}, { width: '250fr'}]">
+
+    <Border [col]='2' [row]='1' [Background]="InnerBG"></Border>
+    <Border [col]='2' [row]='2' [Background]="InnerBG"></Border>
+    <Border [col]='2' [row]='3' [Background]="InnerBG"></Border>
+    <Border [col]='2' [row]='4' [Background]="InnerBG"></Border>
+    <!--<Border Grid.Column="0" Grid.Row="0" [colSpan]='2' [iStyle]="whiteBorder"  ></Border>-->
+
+    <Border [col]='1' [row]='2' [colSpan]='2' [iStyle]="whiteBorder"></Border>
+    <Border [col]='1' [row]='3' [colSpan]='2' [iStyle]="whiteBorder"></Border>
+    <Border [col]='1' [row]='4' [colSpan]='2' [iStyle]="whiteBorder"></Border>
+    <!--<Border Grid.Column="0" Grid.Row='4' [colSpan]='2' [iStyle]="whiteBorder" ></Border>-->
+    <kendo-gridlayout-item [row]='1' [col]='1'>
+        <div containerStyle>
+            <iLabel #lblstrikethroughTempRef Name="lblstrikethrough" Text="Strikethrough" VerticalAlignment="Center">
+            </iLabel>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='1'  [col]='2'>
+        <div containerStyle>
+            <iLabel #lblStrikethroughdataTempRef Name="lblStrikethroughdata" [Text]="DataContext.StrikeThruAction"
+                IsWordwrap="True" Width="240" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center"></iLabel>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='2' [col]='1'>
+        <div containerStyle>
+            <iLabel #lblReasonTempRef Name="lblReason" [Text]="Strikethrough.lblReason_Text"
+                SLAccessKeyProperties.AccessKey="R" Margin="0,5,5,5" Mandatory="True" IsWordwrap="True"
+                VerticalAlignment="Top"></iLabel>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='2' [col]='2'>
+        <div containerStyle>
+                <iComboBox #cboStrikethroughReasonTempRef class="cboStrikethroughReason" Name="cboStrikethroughReason" Margin="5,8,0,8"
+                    [(ItemsSource)]="DataContext.StrikethroughReason" Height="21" Width="244" HorizontalAlignment="Left"
+                    VerticalAlignment="Top" FontSize="13" BorderThickness="1" TabIndex="3"
+                    [(SelectedValue)]="DataContext.ReasonforStrikethrough" BorderThickness="1" IsEditable="true" IsReadOnly="False"
+                    [IsEnabled]="IsEnablePRNInst" [Tooltip]="Strikethrough.cboStrikethroughReason_Tooltip" IsTypeAHead="True"
+                    IsTabStop="True" SLAccessKeyProperties.AccessKey="R" CanDropDown="true" [AllowInputText]="false"
+                    IsDropDownStretch="false" IsDropDownOpen="true">                
+                </iComboBox>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='3' [col]='1'>
+        <div containerStyle>
+            <iLabel #lblcliniIncFrmTempRef Name="lblcliniIncFrm" IsEnabled= "true"
+                [Text]="objRecordAdmin.lblcliniIncFrm_text" style="margin: 5,0,5,0 !important;" MinHeight="30"></iLabel>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='3'  [col]='2'>
+        <div containerStyle style="min-height: 25px !important;">
+            <iLabel #lblcliniIncFrmValueTempRef Name="lblcliniIncFrmValue" [Visibility]="LblcliniIncFrmValueEnable"
+            [IsEnabled]="LblcliniIncFrmValueEnable" TextDecorations="Underline"  Cursor="Hand"
+                TextDecorations="Underline" Cursor="Hand" Foreground="#0000C8" MinHeight="25" [Text]="CaptionToDisplay"
+                [Tooltip]="objRecordAdmin.lblCIFValue_Tooltip"
+                (click)="lblCIFValue_MouseLeftButtonUp()" IsFocusable="True" Margin="5"></iLabel>
+        </div>
+    </kendo-gridlayout-item>
+
+</kendo-gridlayout>
+        </div>
+    </kendo-gridlayout-item>
+</kendo-gridlayout>

@@ -1,0 +1,68 @@
+[
+    {
+        "id":"GetValuesByDomainCode",
+        "baseUrl":"http://localhost:80",
+        "extendedUrl":"/localconnect/",
+        "resource":"SLAppCallback.aspx",
+        "verb":"POST",
+        "contentType" : "XML"
+    },
+    {
+        "id":"GetValuesByDomainCodes",
+        "baseUrl":"http://localhost:80",
+        "extendedUrl":"/localconnect/",
+        "resource":"SLAppCallback.aspx",
+        "verb":"POST",
+        "contentType" : "XML"
+    },
+    {
+        "id":"GetFormViewerData",
+        "baseUrl":"http://localhost:80",
+        "extendedUrl":"/localconnect/",
+        "resource":"VMCallback.aspx",
+        "verb":"POST",
+        "contentType" : "XML"
+    },
+    {
+        "id":"GetcontextData",
+        "baseUrl":"http://localhost:80",
+        "extendedUrl":"/localconnect/",
+        "resource":"SLAppWizardPage.aspx",
+        "verb":"POST",
+        "contentType" : "XML"        
+    },
+    {
+        "id":"FormViewerData",
+        "baseUrl":"http://localhost:80",
+        "extendedUrl":"/localconnect/",
+        "resource":"VMCallback.aspx",
+        "verb":"POST",        
+        "contentType" : "XML"
+    },
+    {
+        "id":"GetMedicationList",
+        "baseUrl":"http://dhhappchne6080.cscidp.net/appserver",
+        "extendedUrl":"/IPPMAManagePrescription_P2.asmx/",
+        "resource":"GetPatientMedicationList",
+        "verb":"POST",        
+        "contentType" : "JSON"        
+
+    },
+    {
+        "id":"PublishProblemInfo",
+        "baseUrl":"http://localhost:80",
+        "extendedUrl":"/localconnect/",
+        "resource":"SLAppCallback.aspx",
+        "verb":"POST",
+        "contentType" : "XML"
+    },
+    {
+        "id":"GetProfileData",
+        "baseUrl":"http://localhost:80",
+        "extendedUrl":"/localconnect/",
+        "resource":"SLAppCallback.aspx",
+        "verb":"POST",
+        "contentType" : "XML"
+    }
+    
+]

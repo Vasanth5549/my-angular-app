@@ -1,0 +1,106 @@
+/* add css here */
+.grd-tech-val-item ::ng-deep .k-grid-content{
+    overflow:auto !important;
+}
+
+.grd-tech-val-item ::ng-deep .k-grid-header{
+    padding: 0px !important;
+}
+
+::ng-deep .k-grid .k-grid-content td.SupplyComments, 
+::ng-deep .k-grid .k-grid-content td.SupplyCommentsChild {
+    position: relative;
+} 
+
+.changePaddingAndOverflow ::ng-deep .k-grid-header {
+    padding-right: 0px !important;
+}
+
+.changePaddingAndOverflow1 ::ng-deep .k-grid-header {
+    padding-right: 15px !important;
+}
+
+.changePaddingAndOverflow ::ng-deep .k-grid-content {
+    overflow-y: hidden !important;
+}
+
+.changePaddingAndOverflow1 ::ng-deep .k-grid-content {
+    overflow-y: scroll !important;
+}
+
+:host ::ng-deep .k-i-plus::before, 
+:host ::ng-deep .k-i-minus::before {
+    content: '';
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 13px;
+    height: 13px;
+}
+:host ::ng-deep .k-i-plus:hover,
+:host ::ng-deep .k-i-minus:hover {
+    font-family: "WebComponentsIcons";
+    font-size: 16px;
+}
+:host ::ng-deep .k-i-plus::before {
+    background-image: url(../../../assets/Images/hgchildclose.gif);
+}
+
+:host ::ng-deep .k-i-minus::before {
+    background-image: url(../../../assets/Images/hgchildopen.gif);
+}
+
+:host .grdTecValItmChld ::ng-deep .k-grid-content {
+    overflow-x: hidden !important;
+}
+.aligningTableClass{
+  padding-left:30px!important;
+}
+.add-supply-instruction-button ::ng-deep kendo-label:hover{
+    font-weight: 900 !important;
+    color:blue!important;
+    text-decoration: underline blue;
+}
+
+.add-supply-instruction-button  :host ::ng-deep .k-tooltip {
+    background-color: white;
+    font-size: 9px;
+    color: blue;
+  }
+/* .add-supply-instruction-button::ng-deep kendo-label{
+    color:blue;
+} */
+.grd-tech-val-item ::ng-deep .k-grid .k-grid-content td {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+.CatalogueAndFormularyoptions{
+    margin-top: -9px;
+}
+.vertical-class-bottom{
+    padding-bottom: 3px;
+}
+#grdPrescribe ::ng-deep .k-grid-content{
+    overflow-y: auto !important;
+}
+#grdPrescribe ::ng-deep .k-grid-header{
+   padding-right: 0px !important;
+}
+#grdDosecombinations ::ng-deep .k-grid-content{
+    overflow-y: hidden;
+}
+.gridDisplay ::ng-deep ilabel div{
+    display: grid !important;
+}
+.enabledClass{
+    pointer-events:all;
+}
+.disabledClass, ::ng-deep .disabledClassHyperLink kendo-label {
+    pointer-events:none;
+    color: grey !important;
+}
+
+/* @media screen and (max-width: 1400px) { */
+  .medtechValiLayout {
+        display: block;
+    }
+/* } */

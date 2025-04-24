@@ -1,0 +1,9 @@
+.nowrap ::ng-deep kendo-label {
+    white-space: nowrap !important;
+}
+::ng-deep .grdChangingDose .k-grid-content td.Dose{
+    position: relative;
+}
+.changingdosetxt ::ng-deep kendo-label {
+    font-weight: bold !important;
+}

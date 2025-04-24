@@ -1,0 +1,11 @@
+.includenonformitems{
+  margin-top: 5px;
+  float : right;
+  }
+.height{
+  height: 25px;
+  }
+  .FormularyNoteIcon{
+    display: flex;
+    justify-content: center;
+  }

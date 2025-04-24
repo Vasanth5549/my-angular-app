@@ -1,0 +1,188 @@
+<div>
+    <kendo-gridlayout #LayoutRootTempRef Name="LayoutRoot" Margin="10,10,10,10"
+        [rows]="[{height: 'auto'}, {height: 'auto'},{ height: 'auto'},{ height:'auto'},{ height:'auto'} ,{ height:5}]"
+        [cols]="[{width: '5fr'},{width: '9fr'},{width: '6fr'}]">
+
+        <Border [Background]="Styles.InnerBG" [row]="1" [col]="2" [colSpan]="3" style="margin-right: 5px;"></Border>
+        <Border [Background]="Styles.InnerBG" [col]="1" [row]="3" [colSpan]="2"></Border>
+        <Border GridLayout [Background]="Styles.InnerBG" [col]="3" [row]="3"
+            [Visibility]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.DaysOfWeekVisibility"></Border>
+
+        <Border [iStyle]="Styles.whiteBorder" [row]="1" [col]="1" [colSpan]="3"></Border>
+        <Border [iStyle]="Styles.whiteBorder" [row]="2" [col]="1" [colSpan]="3"></Border>
+        <!--<Border [iStyle]="Styles.whiteBorder" [row]="3" [col]="1" [colSpan]="3"></Border>-->
+        <Border GridLayout [iStyle]="Styles.whiteBorder" [row]="5" [col]="1" [colSpan]="3"
+            [Visibility]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.DaysOfWeekVisibility"></Border>
+
+        <kendo-gridlayout-item [row]='1' [col]='1'>
+            <div containerStyle>
+                <iLabel #lblSlotTimeTempRef Name="lblSlotTime" Text="Slot times for administration" IsWordwrap="True" Margin="10,0,0,0"
+                    [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsSlotTimeModeEnable"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='1' [col]='2' [colSpan]='2'>
+            <div containerStyle>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5" (click)="stacPanelClic()">
+                    <iRadioButton #optFixedTimeTempRef Name="optFixedTime" GroupName="SlotTimeMode"
+                        Text="Use fixed time(s)"     
+                        Value = "F"
+                        [isGlobalEnabled]="IsEnabled"
+                        [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsFixedTime"
+                        [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsSlotTimeModeEnable"
+                        IsWordWrap="True" MinWidth="120" Width="80"></iRadioButton>
+                    <iRadioButton #optDrugRoundTimeTempRef Name="optDrugRoundTime" GroupName="SlotTimeMode"
+                        Text="Use drug round time(s)"
+                        Value = "D"
+                        [isGlobalEnabled]="IsEnabled"
+                        [IsChecked]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsDrugroundTime"
+                        (IsCheckedChange)="CheckedChange($event)" 
+                        [IsEnabled]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsDrugroundEnable"
+                        Height="Auto" IsWordWrap="True" MinWidth="120" Width="120" Padding="4"></iRadioButton>                              
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='2' [col]='1' [colSpan]='2'>
+            <div containerStyle>
+                <StackPanel Orientation="Vertical" Margin="5">
+                    <kendo-gridlayout-item [row]='2' [col]='1'>
+                        <div containerStyle>
+                            <iLabel #lblAdministrationTimesTempRef Name="lblAdministrationTimes"
+                                Text="Administration times" IsWordwrap="True" Margin="0,5,15,5"
+                                HorizontalAlignment="Center" VerticalAlignment="Top"
+                                [(Mandatory)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsAdminTimesEnabled"
+                                [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsAdminTimelblEnable">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='3' [col]='1' [colSpan]='2'>
+            <div containerStyle>
+                <StackPanel Orientation="Vertical" Margin="5">
+                    <kendo-grid #grdAdminTimesTempRef class="horizontal-class-stretch vertical-class-stretch" class="Text-style"
+                        [GridProperties]="grdAdminTimes"
+                        [IsEnabled]="IsEnabled"
+                        [reorderable]="false" [resizable]="false" [sortable]="false"
+                        [data]="grdAdminTimes.ItemsSource?.array"
+                        [style.margin.px]="5" [style.height.px]="150">
+                        <ng-template kendoGridNoRecordsTemplate>No records to show</ng-template>
+                        <kendo-grid-column UniqueName="ScheduledDTTM" title="Scheduled" [width]="50"
+                            [filterable]="false" [editable]="true" [hidden]="true">
+                            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                                <DataTemplate #temp
+                                [dataItem]="dataItem"
+                                [index]="rowIndex"
+                                [colindex] = "columnIndex">
+                                    <GridCellTemplate [EditableControlRef]="iTimeScheduledTempRef" [column]="grdAdminTimes.Columns['ScheduledDTTM']" [isEditable]="true" [dataItem]="dataItem" [columnNumber]="0" [cell]="'cell0'" >
+                                        <iLabel #lblScheduledTempRef Name="lblScheduled" VerticalAlignment="Center"
+                                            [DateTimeValue]="dataItem.ScheduleDTTM" DateTimePattern="ShortTimePattern"
+                                            [(Mandatory)]="dataItem.IsFixedMandatory"
+                                            [(IsEnabled)]="dataItem.IsFixedEnable" EnableDST="True"></iLabel>
+                                    </GridCellTemplate>
+                                    <GridCellEditTemplate [dataItem]="dataItem" [cell]="'cell0'">
+                                        <iTimeBox #iTimeScheduledTempRef Name="iTimeScheduled" ColumnCellIndex="cell0"
+                                        [DataContext]="dataItem"
+                                        Unloaded="iTimeScheduled_Unloaded" TimeFormat="hhMM"
+                                        [(Value)]="dataItem.ScheduleDTTM" HorizontalAlignment="Left" Width="Auto"
+                                        Margin="0" [LostFocus]="iTimeScheduled_LostFocus_Func" EnableTimeConversion="True"
+                                        EnableDST="True" (keydown.Tab)="onInnerTabKey($event,rowIndex)"></iTimeBox>
+                                    </GridCellEditTemplate>
+                                </DataTemplate>                            
+                            </ng-template>
+                        </kendo-grid-column>
+                        <kendo-grid-column UniqueName="DrugroundDTTM" title="Drug round" [width]="50"
+                            [filterable]="false" [editable]="true" [hidden]="true">
+                            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                                <DataTemplate #temp
+                                [dataItem]="dataItem"
+                                [index]="rowIndex"
+                                [colindex] = "columnIndex">
+                                    <iLabel #lblDruRoundTempRef Name="lblDruRound" VerticalAlignment="Center"
+                                        [DateTimeValue]="dataItem.DrugroundDTTM" DateTimePattern="ShortTimePattern"
+                                        EnableDST="True" [(Mandatory)]="dataItem.IsDrugroundMandatory"
+                                        [(IsEnabled)]="dataItem.IsDrugroundEnable" [DstSubstr]="true"></iLabel>
+                                </DataTemplate>
+                            </ng-template>
+                        </kendo-grid-column>
+                        <kendo-grid-column UniqueName="ScheduledDate" title="Date" [width]="50"
+                        [filterable]="false" [editable]="true" [hidden]="false">
+                        <ng-template kendoGridCellTemplate let-dataItem>
+                            {{dataItem.ScheduleDTTM | date: 'dd-MMM-yyyy'}}
+                        </ng-template>
+                        </kendo-grid-column>
+                        <kendo-grid-column UniqueName="ScheduledTime" title="Time" [width]="50"
+                        [filterable]="false" [editable]="true" [hidden]="false">
+                        <ng-template kendoGridCellTemplate let-dataItem>
+                            {{dataItem.ScheduleDTTM | date: 'HH:mm' | CustomDate : dataItem.ScheduleDTTM}}
+                        </ng-template>
+                        </kendo-grid-column>
+                    </kendo-grid>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='2' [col]='3'>
+            <div containerStyle>
+                <iLabel #lblDaysOfWeekTempRef Name="lblDaysOfWeek" Text="Days of the week" VerticalAlignment="Top"
+                    HorizontalAlignment="Center" IsWordwrap="True"
+                    [(Mandatory)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsDaysOfWeekMandatory"
+                    [Visibility]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.DaysOfWeekVisibility"
+                    [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.isDayOfWeekEnable"
+                    ></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='3' [col]='3'>
+            <div containerStyle class="daysofweek">
+                <kendo-gridlayout [rows]="[{height:'auto'}]" [cols]="[{width:'auto'},{width:'auto'}]">
+                     <kendo-gridlayout-item [row]='1' [col]='1'style="margin-bottom: 70px;"> 
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="0"
+                        [Visibility]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.DaysOfWeekVisibility">
+                        <iCheckBox #chkSundayTempRef Name="chkSunday" Margin="3" Text="Sun" Width="17"
+                            [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsSun"
+                            [isGlobalEnabled]="IsEnabled"
+                            [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsSunEnable"
+                            [Tooltip]="resKey.chk_Sunday_Tooltip"></iCheckBox>
+                        <iCheckBox #chkMondayTempRef Name="chkMonday" Margin="3" Text="Mon" Width="17"
+                            [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsMon"
+                            [isGlobalEnabled]="IsEnabled"
+                            [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsMonEnable"
+                            [Tooltip]="resKey.chk_Monday_Tooltip"></iCheckBox>
+                        <iCheckBox #chkTuesdayTempRef Name="chkTuesday" Margin="3" Text="Tue " Width="17"
+                            [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsTue"
+                            [isGlobalEnabled]="IsEnabled"
+                            [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsTueEnable"
+                            [Tooltip]="resKey.chk_Tuesday_Tooltip"></iCheckBox>
+                        <iCheckBox #chkWednesdayTempRef Name="chkWednesday" Margin="3" Text="Wed" Width="17"
+                            [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsWed"
+                            [isGlobalEnabled]="IsEnabled"
+                            [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsWedEnable"
+                            [Tooltip]="resKey.chk_Wednesday_Tooltip"></iCheckBox>
+                    </StackPanel>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='1' [col]='2'>
+                        <StackPanel Orientation="Vertical" 
+                                [Visibility]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.DaysOfWeekVisibility">
+                                <iCheckBox #chkThursdayTempRef Name="chkThursday" Margin="3" Text="Thu" Width="17"
+                                    [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsThu"
+                                    [isGlobalEnabled]="IsEnabled"
+                                    [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsThuEnable"
+                                    [Tooltip]="resKey.chk_Thursday_Tooltip"></iCheckBox>
+                                <iCheckBox #chkFridayTempRef Name="chkFriday" Margin="3" Text="Fri" Width="17"
+                                    [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsFri"
+                                    [isGlobalEnabled]="IsEnabled"
+                                    [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsFriEnable"
+                                    [Tooltip]="resKey.chk_Friday_Tooltip"></iCheckBox>
+                                <iCheckBox #chkSaturdayTempRef Name="chkSaturday" Margin="3" Text="Sat" Width="17"
+                                    [(IsChecked)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsSat"
+                                    [isGlobalEnabled]="IsEnabled"
+                                    [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.AdminTimes.IsSatEnable"
+                                    [Tooltip]="resKey.chk_Saturday_Tooltip"></iCheckBox>
+                            </StackPanel>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>             
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

@@ -1,0 +1,494 @@
+<div>
+  <kendo-gridlayout
+    name="LayoutRoot"
+    Loaded="LayoutRoot_Loaded"
+    [Background]="Styles.LzoPageBG"
+    [rows]="[{ height: 'auto'},{ height: '1fr'},{ height: 21}]"
+    [cols]="[{ width: 'auto'}]"
+    style="overflow-y: hidden;"
+    >
+    <iButton
+      #cmdMedConflctSealTempRef
+      Name="cmdMedConflctSeal"
+      HorizontalAlignment="Right"
+      Foreground="Blue"
+      [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.ConflictExistSealInfoVisible"
+      [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsConflictExistSealInfo"
+      TextDecorations="Underline"
+      Click="cmdMedConflctSeal_Click"
+      Tooltip="Select to break the seal"
+      Text="Further conflicts exist based on sealed information. Click to view"
+      VerticalAlignment="Bottom"
+      Width="389"
+    ></iButton>
+    <kendo-gridlayout-item [row]="2" [col]="1">
+      <div containerStyle>
+        <kendo-grid
+          id="grdConflicts"
+          #grdConflictsTempRef
+          class="horizontal-class-stretch"
+          [ngClass]="{'HideHorizontalScrollBar': HideHorizontalScrollBar, 'ShowHorizontalScrollBar': ShowHorizontalScrollBar}"
+          [data]="grdConflicts.ItemsSource.array"
+          [style.margin.px]="0"
+          [style.marginTop.px]="5"
+          [style.marginBottom.px]="10"
+          [sortable]="true"
+          [height]="maxGridHeight"
+          [style.width.px]="952"
+          [selectable]="{ checkboxOnly: false, mode: 'single' }"
+          kendoGridSelectBy
+          [(selectedKeys)]="grdConflicts.selectedRowsIndex" 
+		      [GridProperties]="grdConflicts"
+          (contentScroll)="ContentScrollEvent($event)"
+        >
+          <ng-template kendoGridNoRecordsTemplate>{{conflicts.NoRecordsText}}</ng-template>
+  
+          <kendo-grid-column 
+            *ngIf="grdConflicts.RowIndicatorVisibility == 0 ? true : false"
+            class="HorizontalTextAlignCenter" 
+            title="" field="rowindicator" 
+            [reorderable]="true"
+            [width]="30"
+          >
+            <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+              <Image
+                *ngIf="grdConflicts.selectedRowsIndex.length > 0 ? grdConflicts.selectedRowsIndex == rowIndex : false" 
+                Source="./assets/images/iarrownor5x10.png"
+              ></Image>
+            </ng-template>
+          </kendo-grid-column>
+
+          <kendo-grid-column
+            UniqueName="WarningType"
+            [title]="conflicts.WarningType_Header"
+            field="WarningType"
+            [width]="150"
+            [reorderable]="true"
+            [sortable]="true"
+            [editable]="false"
+            [filterable]="false"
+          >
+            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-colIndex="columnIndex">
+              <DataTemplate
+                #medConflictsDataTemplate
+                rowLoaded="true"
+                [dataItem]="dataItem"
+                [index]="rowIndex"
+                [colindex]="colIndex"
+                [gridHelper]="grdConflicts"
+                (RowLoaded)="rowLoaded($event)"
+              >
+                <ContentPresenter [Content]="dataItem | ShowStarImages : '' : 200" [Tooltip]="'WarningType'"></ContentPresenter>
+              </DataTemplate>
+            </ng-template>
+          </kendo-grid-column>
+
+          <kendo-grid-column
+            UniqueName="WarningMessage"
+            [title]="conflicts.WarningMessage_Header"
+            field="WarningMessage"
+            [width]="275"
+            [reorderable]="true"
+            [sortable]="false"
+            [editable]="false"
+            [filterable]="false"
+            [resizable]="false"
+          >
+            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-colIndex="columnIndex">
+              <DataTemplate
+                #medConflictsDataTemplate
+                [dataItem]="dataItem"
+                [index]="rowIndex"
+                [colindex]="colIndex"
+                [gridHelper]="grdConflicts"
+              >
+                <ContentPresenter [Content]="dataItem | FormatConflicts : '' : 275" [Tooltip]="'FormatConflicts'"></ContentPresenter>
+              </DataTemplate>
+            </ng-template>
+          </kendo-grid-column>
+
+          <kendo-grid-column
+            UniqueName="PrescriberReason"
+            [title]="conflicts.PrescriberReason_Header"
+            field="PrescriberReason"
+            [reorderable]="true"
+            [width]="235"
+            [sortable]="true"
+            [filterable]="false"
+          >
+            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-colIndex="columnIndex">
+              <DataTemplate
+                #medConflictsDataTemplate
+                [dataItem]="dataItem"
+                [index]="rowIndex"
+                [colindex]="colIndex"
+                [gridHelper]="grdConflicts"
+              >
+                <GridCellTemplate
+                  [isEditable]="true"
+                  [columnNumber]="0"
+                  [cell]="'cell0'"
+                  [dataItem]="dataItem"
+                >
+                  <StackPanel #ReasonMandatoryTempRef Orientation="Horizontal">
+                    <iLabel
+                      HorizontalAlignment="Stretch"
+                      [Mandatory]="dataItem.ReasonMandatory"
+                      #lblReasonTempRef
+                      Name="lblReason" basicTooltip="True"
+                      [(Tooltip)]="dataItem.PrescriberReason.DisplayText"
+                      VerticalAlignment="Center"
+                      [(Text)]="dataItem.PrescriberReason.DisplayText"
+                      TextDecorations="Underline"
+                      [FontSize]="dataItem.ReasonFontSize"
+                      [FontWeight]="dataItem.ReasonFontWeight"
+                      (click)="onLastItemClicked(rowIndex)"
+                    ></iLabel>
+                    <iLabel
+                      #lblReasonstarTempRef
+                      Name="lblReasonstar"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      [Mandatory]="dataItem.ReasonMandatory"
+                      Text="*"
+                      [FontSize]="dataItem.ReasonFontSize"
+                      [FontWeight]="dataItem.ReasonFontWeight"
+                      [Visibility]="dataItem.IsMandatoryStarVisible"
+                      [(Tooltip)]="dataItem.PrescriberReason.DisplayText"
+                    ></iLabel>
+                  </StackPanel>
+                </GridCellTemplate>
+                <GridCellEditTemplate *ngIf="dataItem['cell0']" [cell]="'cell0'" [dataItem]="dataItem">
+                  <iComboBox
+                    #cboReasonTempRef
+                    Name="cboReason"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Width="auto"
+                    ColumnCellIndex="cell0"
+                    [DataContext]="dataItem"
+                    [ItemsSource]="dataItem.PrescriberReasonCombo"
+                    IsDropDownOpen="True"
+                    IsEditable="false"
+                    [(SelectedValue)]="dataItem.PrescriberReason"
+                    [(Tooltip)]="dataItem.PrescriberReason.DisplayText"
+                    (blur)="dataItem['cell0'] = false"
+                    [FocusToggle]="'True'"
+                    (kendoComboInstance)="getCombo($event)" 
+                    >
+                  </iComboBox>
+
+                </GridCellEditTemplate>
+              </DataTemplate>
+            </ng-template>
+          </kendo-grid-column>
+
+          <kendo-grid-column
+            UniqueName="AuthVerifyPrescriberReason"
+            [title]="conflicts.PrescriberReason_Header"
+            [reorderable]="true"
+            field="AuthVerifyPrescriberReason"
+            [width]="260"
+            [sortable]="true"
+            [filterable]="false"
+          >
+          <!-- <CellStyle>
+            <ControlTemplate> -->
+            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-colIndex="columnIndex">
+              <DataTemplate
+                #medConflictsDataTemplate
+                [dataItem]="dataItem"
+                [index]="rowIndex"
+                [colindex]="colIndex"
+                [gridHelper]="grdConflicts"
+              >
+                  <!-- <Border Padding="5,0,5,0" BorderThickness="0,0,1,1" BorderBrush="#7EA9D4"> -->
+                    <iLabel
+                      #lblReasonTempRef
+                      Name="lblReason"
+                      [IsEnabled]="dataItem.EnableAcknowledgementDetails"
+                      HorizontalAlignment="Stretch"
+                      [Mandatory]="dataItem.ReasonMandatory"
+                      VerticalAlignment="Center"
+                      [(Text)]="dataItem.PrescriberReason.DisplayText"
+                      TextDecorations="Underline"
+                      [ToolTip]="conflicts.Acknowledge_reason"
+                    ></iLabel>
+                  <!-- </Border> -->
+                </DataTemplate>
+                <!-- </ControlTemplate>
+              </CellStyle> -->
+            </ng-template>
+          </kendo-grid-column>
+
+          <kendo-grid-column
+            UniqueName="AcknowledgeStatus"
+            [title]="conflicts.AcknowledgeStatus_Header"
+            [reorderable]="true"
+            field="AcknowledgeStatus"
+            [sortable]="true"
+            [filterable]="false"
+            [width]="150"
+            [style]="{ 'text-align': 'center' }"
+          >
+          <!-- <CellStyle>
+            <ControlTemplate> -->
+            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-colIndex="columnIndex">
+              <DataTemplate
+                #medConflictsDataTemplate
+                [dataItem]="dataItem"
+                [index]="rowIndex"
+                [colindex]="colIndex"
+                [gridHelper]="grdConflicts"
+              >
+                  <!-- <Border Padding="5,0,5,0" BorderThickness="0,0,1,1" BorderBrush="#7EA9D4" isContent]="true"> -->
+                    <iCheckBox
+                      [IsEnabled]="dataItem.EnableAcknowledgementDetails"
+                      [Mandatory]="dataItem.AcknowledgeBorder"
+                      FontSize="16"
+                      FontWeight="ExtraBold"
+                      FontStretch="Normal"
+                      Foreground="Blue"
+                      Width="auto"
+                      [(IsChecked)]="dataItem.AcknowledgeStatus"
+                      (OnChange_Func)="iCheckBox_OnChange($event,rowIndex)"
+                      [Text]="dataItem.AcknowledgeMandatory"
+                      [ToolTip]="dataItem.AckstatusToolTip"
+                    >
+                    </iCheckBox>
+                  <!-- </Border> -->
+                </DataTemplate>
+                </ng-template>
+              <!-- </ControlTemplate>
+            </CellStyle> -->
+          </kendo-grid-column>
+
+          <kendo-grid-column
+            UniqueName="AuthoriserReason"
+            [title]="conflicts.AuthoriserReason_Header"
+            field="AuthoriserReason"
+            [reorderable]="true"
+            [width]="215"
+            [sortable]="true"
+            [filterable]="false"
+          >
+            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-colIndex="columnIndex">
+              <DataTemplate
+                #medConflictsDataTemplate
+                [dataItem]="dataItem"
+                [index]="rowIndex"
+                [colindex]="colIndex"
+                [gridHelper]="grdConflicts"
+              >
+                <GridCellTemplate
+                  [isEditable]="true"
+                  [columnNumber]="0"
+                  [cell]="'cell0'"
+                  [dataItem]="dataItem"
+                  [EditableControlRef]="cboAuthoriseReasonTempRef"
+                >
+                  <iLabel
+                    HorizontalAlignment="Stretch"
+                    #lblAuthoriseReasonTempRef
+                    Name="lblAuthoriseReason"
+                    VerticalAlignment="Center"
+                    [(Text)]="dataItem.AuthoriserReason.DisplayText"
+                    TextDecorations="Underline"
+                    [ToolTip]="conflicts.Acknowledge_reason"
+                  ></iLabel>
+                </GridCellTemplate>
+                <GridCellEditTemplate [cell]="'cell0'" [dataItem]="dataItem">
+                  <iComboBox
+                    #cboAuthoriseReasonTempRef
+                    Name="cboAuthoriseReason"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Width="auto"
+                    ColumnCellIndex="cell0"
+                    [DataContext]="dataItem"
+                    [ItemsSource]="dataItem.AuthoriseReasonCombo"
+                    IsDropDownOpen="True"
+                    IsEditable="false"
+                    [(SelectedValue)]="dataItem.AuthoriserReason"
+                    [Tooltip]="conflicts.Acknowledge_reason"
+                  ></iComboBox>
+                </GridCellEditTemplate>
+              </DataTemplate>
+            </ng-template>
+          </kendo-grid-column>
+
+          <kendo-grid-column
+            UniqueName="AuthVerifyAuthoriserReason"
+            [title]="conflicts.AuthoriserReason_Header"
+            [reorderable]="true"
+            field="AuthVerifyAuthoriserReason"
+            [width]="215"
+            [sortable]="true"
+            [filterable]="false"
+          >
+          <!-- <CellStyle>
+            <ControlTemplate> -->
+             <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-colIndex="columnIndex">
+              <DataTemplate
+                #medConflictsDataTemplate
+                [dataItem]="dataItem"
+                [index]="rowIndex"
+                [colindex]="colIndex"
+                [gridHelper]="grdConflicts"
+              >
+                  <!-- <Border Padding="5,0,5,0" BorderThickness="0,0,1,1" BorderBrush="#7EA9D4"> -->
+                    <iLabel
+                      #lblAuthoriseReasonTempRef
+                      Name="lblAuthoriseReason"
+                      [IsEnabled]="dataItem.EnableAcknowledgementDetails"
+                      HorizontalAlignment="Stretch"
+                      [Mandatory]="dataItem.ReasonMandatory"
+                      VerticalAlignment="Center"
+                      [(Text)]="dataItem.AuthoriserReason.DisplayText"
+                      TextDecorations="Underline"
+                      [ToolTip]="conflicts.Acknowledge_reason"
+                    ></iLabel>
+                  <!-- </Border> -->
+                </DataTemplate>
+                </ng-template>
+              <!-- </ControlTemplate>
+            </CellStyle> -->
+          </kendo-grid-column>
+
+          <kendo-grid-column
+            UniqueName="ClinicalVerfierReason"
+            [title]="conflicts.ClinicalVerfierReason_Header"
+            field="ClinicalVerfierReason"
+            [reorderable]="true"
+            [width]="215"
+            [sortable]="true"
+            [filterable]="false"
+          >
+            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-colIndex="columnIndex">
+              <DataTemplate
+                #medConflictsDataTemplate
+                [dataItem]="dataItem"
+                [index]="rowIndex"
+                [colindex]="colIndex"
+                [gridHelper]="grdConflicts"
+              >
+                <GridCellTemplate
+                  [isEditable]="true"
+                  [columnNumber]="1"
+                  [cell]="'cell1'"
+                  [dataItem]="dataItem"
+                  [EditableControlRef]="cboClinicalReasonTempRef"
+                >
+                  <iLabel
+                    HorizontalAlignment="Stretch"
+                    #lblClinicalReasonTempRef
+                    Name="lblClinicalReason"
+                    VerticalAlignment="Center"
+                    [(Text)]="dataItem.ClinicalVerfierReason.DisplayText"
+                    TextDecorations="Underline"
+                    [ToolTip]="conflicts.Acknowledge_reason"
+                  ></iLabel>
+                </GridCellTemplate>
+                <GridCellEditTemplate [cell]="'cell1'" [dataItem]="dataItem">
+                  <iComboBox
+                    HorizontalAlignment="Stretch"
+                    #cboClinicalReasonTempRef
+                    Name="cboClinicalReason"
+                    VerticalAlignment="Center"
+                    Width="auto"
+                    ColumnCellIndex="cell1"
+                    [DataContext]="dataItem"
+                    [ItemsSource]="dataItem.ClinicalReasonCombo"
+                    [LostFocus]="cboClinicalReason_LostFocus_func"
+                    IsDropDownOpen="True"
+                    IsEditable="false"
+                    [(SelectedValue)]="dataItem.ClinicalVerfierReason"
+                    [Tooltip]="conflicts.Acknowledge_reason"
+                  ></iComboBox>
+                </GridCellEditTemplate>
+              </DataTemplate>
+            </ng-template>
+          </kendo-grid-column>
+
+          <kendo-grid-column
+            UniqueName="AuthVerifyClinicalVerfierReason"
+            [title]="conflicts.ClinicalVerfierReason_Header"
+            [reorderable]="true"
+            field="AuthVerifyClinicalVerfierReason"
+            [width]="215"
+            [sortable]="true"
+            [filterable]="false"
+          >
+          <!-- <CellStyle>
+            <ControlTemplate> -->
+             <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-colIndex="columnIndex">
+              <DataTemplate
+                #medConflictsDataTemplate
+                [dataItem]="dataItem"
+                [index]="rowIndex"
+                [colindex]="colIndex"
+                [gridHelper]="grdConflicts"
+              >
+                  <!-- <Border Padding="5,0,5,0" BorderThickness="0,0,1,1" BorderBrush="#7EA9D4"> -->
+                    <iLabel
+                      #lblClinicalReasonTempRef
+                      Name="lblClinicalReason"
+                      [IsEnabled]="dataItem.EnableAcknowledgementDetails"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Center"
+                      [(Text)]="dataItem.ClinicalVerfierReason.DisplayText"
+                      TextDecorations="Underline"
+                      [ToolTip]="conflicts.Acknowledge_reason"
+                    ></iLabel>
+                  <!-- </Border> -->
+                </DataTemplate>
+                </ng-template>
+              <!-- </ControlTemplate>
+            </CellStyle> -->
+          </kendo-grid-column>
+        </kendo-grid>
+      </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]="3" HorizontalAlignment="Right" VerticalAlignment="Stretch">
+      <div containerStyle>
+        <kendo-gridlayout
+          class="horizontal-alignment-right"
+          [rows]="[{ height: 'auto'}]"
+          [cols]="[{ width: 15},{ width: 95}]"
+        >
+          <kendo-gridlayout-item [col]="1">
+            <div containerStyle>
+              <iLabel
+                #ilblStarTempRef
+                Name="ilblStar"
+                Height="30"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Mandatory="False"
+                Text="*"
+                FontSize="24"
+                Foreground="Blue"
+                FontWeight="ExtraBold"
+              >
+              </iLabel>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [col]="2">
+            <div containerStyle>
+              <iLabel
+                #iLabel1TempRef
+                Name="iLabel1"
+                Height="20"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Mandatory="False"
+                [Text]="conflicts.iLabel1_Text"
+              >
+              </iLabel>
+            </div>
+          </kendo-gridlayout-item>
+        </kendo-gridlayout>
+      </div>
+    </kendo-gridlayout-item>
+  </kendo-gridlayout>
+</div>

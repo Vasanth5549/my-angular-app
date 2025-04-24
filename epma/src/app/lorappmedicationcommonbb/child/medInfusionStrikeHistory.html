@@ -1,0 +1,128 @@
+<!--Primary Grid Starts-->
+<div name="LayoutRoot">
+    <kendo-gridlayout VerticalAlignment="Top" HorizontalAlignment="Center" [Background]="Styles.LzoPageBG"
+        [cols]="[{width:'600'}]">
+
+        <!--iGrid Starts-->
+        <div name="grdinfusionHistoryList">
+            <kendo-grid style="height: 215px;" #grdinfusionHistoryListTempRef [GridProperties]="grdinfusionHistoryList"
+                [Height]="215" Margin="-5" [editable]="false" [filterable]="false" [navigable]="false"
+                [sortable]="false" [resizable]="false" [reorderable]="false"
+                (keyup)="grdinfusionHistoryList.GridSelectionKeyUp($event)" (keydown)="grdinfusionHistoryList.GridSelectionKeyDown($event)"
+                (selectionChange)="grdinfusionHistoryList_SelectionChanged({}, $event)"
+                [data]="grdinfusionHistoryList.ItemsSource.array" [selectable]="{ checkboxOnly: false, mode: 'single' }"
+                kendoGridSelectBy [(selectedKeys)]="grdinfusionHistoryList.selectedRowsIndex"
+                [data]="grdinfusionHistoryList.ItemsSource.array">
+
+                <ng-template kendoGridNoRecordsTemplate>
+                    No records to show
+                </ng-template>
+
+                <!--iGrid ChildTableDefinitions to be implemented-->
+
+                <!--rowIndicatorVisibility is implemented and it adds a column starts-->
+                <kendo-grid-column *ngIf="grdinfusionHistoryList.RowIndicatorVisibility == 0 ? true : false"
+                     field="rowindicator" title="" [width]="30">
+                    <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+                        <Image *ngIf="grdinfusionHistoryList.selectedRowsIndex.length > 0 ? grdinfusionHistoryList.selectedRowsIndex ==
+                    rowIndex : false" Source="assets/Images/iarrownor5x10.png"></Image>
+                    </ng-template>
+                </kendo-grid-column>
+                <!--rowIndicatorVisibility is implemented and it adds a column ends-->
+
+                <!--iGrid Columns Starts-->
+                <!--First Column starts-->
+                <kendo-grid-column title="Strikethrough Action" field="ActonCode" [editable]="false" [resizable]="false"
+                    [width]="170" [resizable]="false" [GridColumnProperties]="grdinfusionHistoryList"
+                    TextWrapping="Wrap">
+
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip title="Strikethrough action"> Strikethrough action
+                        </span>
+                    </ng-template>
+
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <span kendoTooltip [title]="dataItem.ActonCode" style="white-space: normal;word-wrap: break-word">
+                            {{dataItem.ActonCode}}
+                        </span>
+
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            (RowLoaded)="rowLoaded($event)" [gridHelper]="grdinfusionHistoryList">
+                        </DataTemplate>
+                    </ng-template>
+
+                </kendo-grid-column>
+                <!--First Column ends-->
+
+                <!--Second Column starts-->
+                <kendo-grid-column title="Reason" field="AdminreasonValue" [editable]="false" [resizable]="false"
+                    [width]="120" [resizable]="false" [GridColumnProperties]="grdinfusionHistoryList"
+                    TextWrapping="Wrap">
+
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip title="Reason"> Reason
+                        </span>
+                    </ng-template>
+
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <span kendoTooltip [title]="dataItem.AdminreasonValue" style="white-space: normal;word-wrap: break-word">
+                            {{dataItem.AdminreasonValue}}
+                        </span>
+                    </ng-template>
+
+                </kendo-grid-column>
+                <!--Second Column ends-->
+
+                <!--Third Column starts-->
+                <kendo-grid-column title="Date/Time" field="RecordedAtValue" [editable]="false" [resizable]="false"
+                    [filterable]="false" [width]="135" [resizable]="false"
+                    [GridColumnProperties]="grdinfusionHistoryList" TextWrapping="Wrap">
+
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip title="Date/Time"> Date/Time
+                        </span>
+                    </ng-template>
+
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <span kendoTooltip [title]="dataItem.RecordedAtValue" style="white-space: normal;word-wrap: break-word">
+                            {{dataItem.RecordedAtValue}}
+                        </span>
+                    </ng-template>
+
+                </kendo-grid-column>
+                <!--Third Column ends-->
+
+                <!--Fourth Column starts-->
+                <kendo-grid-column title="Actioned by" field="RecordedByValue" [editable]="false" [resizable]="false"
+                    [width]="125" [resizable]="false" [GridColumnProperties]="grdinfusionHistoryList"
+                    TextWrapping="Wrap">
+
+                    <ng-template kendoGridHeaderTemplate>
+                        <span kendoTooltip title="Actioned by"> Actioned by
+                        </span>
+                    </ng-template>
+
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <span kendoTooltip [title]="dataItem.RecordedByValue" style="white-space: normal;word-wrap: break-word">
+                            {{dataItem.RecordedByValue}}
+                        </span>
+                    </ng-template>
+
+                </kendo-grid-column>
+                <!--Fourth Column ends-->
+                <!--iGrid Columns Ends-->
+
+                <!--iGrid.HierarchyChildTemplate implementation that is having iGrid starts-->
+                <!--iGrid.HierarchyChildTemplate implementation that is having iGrid starts-->
+
+            </kendo-grid>
+        </div>
+        <!--iGrid Ends-->
+
+    </kendo-gridlayout>
+</div>
+<!--Primary Grid Ends-->

@@ -1,0 +1,23 @@
+:host ::ng-deep .k-i-sort-desc-sm,
+:host ::ng-deep .k-i-sort-asc-sm {
+    font-size: 8px;
+    color: white;
+}
+
+:host ::ng-deep .k-i-sort-desc-sm::before {
+    content: "\25BC";
+    margin: -4px;
+}
+
+:host ::ng-deep .k-i-sort-asc-sm::before {
+    content: "\25B2";
+    margin: -4px;
+}
+
+:host ::ng-deep .k-column-title{
+    color: white;
+} 
+
+::ng-deep .k-grid .k-grid-content td.medtitrateddoseColumn {
+    position: relative;
+}

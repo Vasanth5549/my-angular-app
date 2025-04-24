@@ -1,0 +1,22 @@
+<div>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" MaxWidth="560" HorizontalAlignment="Stretch" MaxHeight="358"
+        BorderThickness="0">
+
+        <kendo-gridlayout Name="LayoutRoot" [Background]="Styles.LzoPageBG" VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch" [rows]="[{height: 'auto'}]">
+
+            <Border [row]='1' [col]='1' [Background]="Styles.InnerBG" HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch" Margin="5,5" BorderBrush="Black" BorderThickness="1" style="border: solid 1px"></Border>
+
+            <kendo-gridlayout-item [row]='1' [col]='1' style="padding:0px 5px 0px 5px;">
+                <div containerStyle style="position: relative;bottom: 0px;">
+                    <iLabel #lblGuidanceTextTempRef HorizontalAlignment="Left" Name="lblGuidanceText"
+                        VerticalAlignment="Center" [Text]="DataContext.Guidance" Height="auto"
+                        Width="auto" IsWordwrap="True" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                        Foreground="Black" FontWeight="Bold">
+                    </iLabel>
+                </div>
+            </kendo-gridlayout-item>
+        </kendo-gridlayout>
+    </ScrollViewer>
+</div>

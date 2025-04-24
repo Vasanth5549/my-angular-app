@@ -1,0 +1,30 @@
+.div-bg-whiteborder {
+    border-top: 2px solid white;
+    background-color: #c2e2e3;
+}
+
+.div-bg-border {
+    border-top: 2px solid white;
+    background-color: #c2e2e3;
+} 
+
+.div-bg {
+    background-color: #c2e2e3;
+}
+.div-whiteborder {
+    border-top: 2px solid white;
+}
+.titleClass{
+    margin-top: 0px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.initiate{
+    position: relative;
+}
+
+.doseAlignment{
+    display: flex;
+}

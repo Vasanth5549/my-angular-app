@@ -1,0 +1,128 @@
+.epma-med-tabs-docker-button {
+  background-image: linear-gradient(to top, #87cee8, #52b2bf);
+  padding: 0;
+  width: 12px;
+  /* Revisit Required */
+  /*height: calc(720px - 130px);*/
+
+  border-radius: 0;
+  border: none;
+  top: 2.5rem;
+}
+
+.grid-layout-container {
+  height: 713px;
+}
+
+.medprescribedrugsGridChildTabHeight{
+  height: 675px;
+}
+
+.encounter-grid-height {
+  height: calc(720px - 150px);
+}
+::ng-deep .epma-med-tabs-docker-button:focus {
+  box-shadow: none;
+}
+
+.epma-medtabs-width {
+  width: 100%;
+}
+
+.grid-layout-auto {
+  grid-template-rows: auto auto 100fr;
+}
+
+::ng-deep .grid-layout-checkgrid {
+  grid-template-rows: auto 20px 20px !important;
+  grid-template-columns: 30% 70% !important;
+}
+
+::ng-deep .grid-layout-encounter {
+  grid-template-columns: 1fr 100fr;
+}
+
+::ng-deep .epma-medtabs-label-display-inline .k-label {
+  display: inline-block;
+  font-weight: normal;
+}
+
+.epma-label-font-normal {
+  font-weight: normal;
+}
+
+::ng-deep .epma-med-tabs-popup-content-header {
+  border: 2px solid #87cee8;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+::ng-deep .epma-med-tabs-popup-content .k-popup {
+  border: none;
+  top: 8rem;
+}
+
+::ng-deep .epma-med-tabs-popup-content .k-card-body {
+  padding: 2px;
+  border: 2px solid #87cee8;
+}
+
+::ng-deep .epma-med-tabs-popup-content-header {
+  color: #e5f0ff;
+  background-image: linear-gradient(to right, #06386a, #4b72a0);
+  font-weight: bold;
+  padding: 4px 16px !important;
+}
+
+::ng-deep td.encounter-column-content {
+  color: #000000;
+}
+
+::ng-deep .epma-med-tabs-encounter-grid {
+  background-color: #e5f0ff;
+  width: 200px;
+}
+
+.arrowalign{
+  padding-left: 7px;
+}
+
+::ng-deep .epma-med-tabs-encounter-grid .k-grid-pager {
+  font-size: 10px;
+}
+
+::ng-deep .k-grid .k-grid-content td {
+  white-space: normal !important;
+  padding: 0px;
+  vertical-align: middle;
+   padding-left: 5px;
+  padding-right: 5px;
+  }
+  
+:host::ng-deep .k-tabstrip-items-wrapper {
+  margin-bottom: 9px;
+}
+
+#chkViewDiscontinueComplete,
+#chkViewDiscontinueCancel {
+  .k-rounded-md {
+    border-radius: 2px;
+    border-width: 2px;
+  }
+  & span {
+    & .k-checkbox:checked {
+      background-color: green;
+      background-image: url(../../../assets/icon/icon/checkmark.png);
+    }
+    & .k-checkbox {
+      background: linear-gradient(
+        to bottom,
+        #74b9cb,
+        #a0c8de,
+        #c6d8ec,
+        #e7eaf5,
+        #ffffff
+      );
+    }
+  }
+}

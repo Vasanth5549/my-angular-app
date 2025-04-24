@@ -1,0 +1,107 @@
+<kendo-gridlayout [rows]="[{height: 'auto'},{ height: 200}]">
+    <kendo-gridlayout-item [row]="1" [col]="1" style="padding-bottom: 15px;">
+        <div containerStyle class="changingdosetxt" >
+            <iLabel #lblDrugNameTempRef HorizontalAlignment="Stretch" FontWeight="Bold" Name="lblDrugName"
+                VerticalAlignment="Center" Text="Changing dose" Mandatory="False" Width="auto" Margin="10">
+            </iLabel>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]="2" [col]="1" Background="#FFE0EFF1">
+        <kendo-grid #grdChangingDoseTempRef class="horizontal-class-stretch vertical-class-stretch grdChangingDose" [GridProperties]="grdChangingDose" 
+            [reorderable]="false" [resizable]="false" [sortable]="false" [data]="grdChangingDose.ItemsSource.array"
+            [style.marginLeft.px]="10" [style.marginTop.px]="0" [style.marginRight.px]="10"
+            [style.marginBottom.px]="10" [ngClass]="Gridwidth">
+            <ng-template kendoGridNoRecordsTemplate>No records to show</ng-template>
+            <kendo-grid-column title="Time(s)" UniqueName="Time(s)" [width]="60" [filterable]="false" >
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex">
+                        <GridCellTemplate [isEditable]="true" [dataItem]="dataItem" [columnNumber]="0" [cell]="'cell0'" [column]="grdChangingDose.Columns['Time(s)']">
+                            <iLabel #lblTimeTempRef Name="lblTime" VerticalAlignment="Center"
+                                [Text]="dataItem.ScheduleTime" DateTimePattern="ShortTimePattern">
+                            </iLabel>
+                        </GridCellTemplate>
+                        <GridCellEditTemplate [dataItem]="dataItem" [cell]="'cell0'">
+                            <iTimeBox #iTimeTempRef Name="iTime" ColumnCellIndex="cell0" [DataContext]="dataItem"
+                                TimeFormat="hhMM" [(Value)]="dataItem.ScheduleDTTM" Width="auto" Margin="0"
+                                VerticalAlignment="center" LostFocus="iTimeScheduled_LostFocus"
+                                EnableTimeConversion="false"></iTimeBox>
+                        </GridCellEditTemplate>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column title="Dose" UniqueName="Dose" [width]="180" [filterable]="false" class="Dose">
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex">
+                        <GridCellTemplate [isEditable]="(dataItem.ScheduleDoseValue[0] || ((dataItem | RemoveDoseUOM : '' : 0) || IsChangingDoseEnabledflag)) ? true : false" [EditableControlRef]="txtDoseValueTempRef" [dataItem]="dataItem" [columnNumber]="1" [cell]="'cell1'" 
+                            [column]="grdChangingDose.Columns['Dose'].IsReadOnly ? grdChangingDose.Columns['Dose'] : undefined">
+                            <StackPanel Orientation="Horizontal">
+                                <iLabel #lblDoseValueTempRef  Name="lblDoseValue" VerticalAlignment="Center"
+                                    [Text]="dataItem.ScheduleDoseValue[0]">
+                                </iLabel>
+                                <ng-container *ngIf="IsChangingDoseEnabledflag">
+                                     <iLabel #lblDoseUOMTempRef class="DoseValue" Name="lblDoseUOM" VerticalAlignment="Center"
+                                    HorizontalAlignment="Stretch" Text="{{ dataItem._scheduleDoseUOM }}">
+                                   
+                                </iLabel>
+                                </ng-container>
+                                <ng-container *ngIf="!IsChangingDoseEnabledflag">
+                                 <iLabel #lblDoseUOMTempRef class="DoseValue" Name="lblDoseUOM" VerticalAlignment="Center"
+                                    HorizontalAlignment="Stretch" Text="{{ dataItem | RemoveDoseUOM : '': 0 }}">
+                                </iLabel>
+                                </ng-container>                              
+                            </StackPanel>
+                        </GridCellTemplate>
+                        <GridCellEditTemplate [dataItem]="dataItem" [cell]="'cell1'">
+                            <kendo-gridlayout [rows]="[{height:25}]" [cols]="[{width:'auto'},{width:'auto'}]">
+                                <kendo-gridlayout-item [row]='1' [col]='1'>
+                                    <div containerStyle>
+                                        <iTextBox #txtDoseValueTempRef Name="txtDoseValue" VerticalAlignment="Center"
+                                            [(Text)]="dataItem.ScheduleDoseValue[0]" Width="auto" Type="Numeric"
+                                            Nonnegative="True" Scale="7" Precision="3" MaxLength="11" MinWidth="20" ColumnCellIndex="cell1" [DataContext]="dataItem"
+                                            [KeyDown]="txtDoseValue_KeyDown_Func"></iTextBox>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='1' [col]='2'>
+                                    <div containerStyle>
+                                        <iLabel #lblDoseUOMTempRef Name="lblDoseUOM" HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Center" [Text]="dataItem.ScheduleDoseUOM"
+                                            Width="auto">
+                                        </iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+                            </kendo-gridlayout>
+                        </GridCellEditTemplate>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+            <ng-container *ngIf="grdChangingDose.dColumns.Count > 0">
+                <kendo-grid-column *ngFor="let column of grdChangingDose.dColumns.array; let i=index"
+                [title]="column.Header"
+                [hidden]="column.IsVisible ? false : true"
+                [editable]="column.IsReadOnly ? false : true"
+                [filterable]="column.IsFilterable ? true : false"
+                [width]="180" class="Dose"
+                >                                        
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                let-colIndex="columnIndex">
+                
+                <GridCellTemplate *ngIf="column.IsReadOnly" [isEditable]="true" [dataItem]="dataItem"
+                    [Content]="column.CellTemplate" [DataContext]="dataItem">
+                </GridCellTemplate>
+                <GridCellTemplate class="nowrap" *ngIf="!column.IsReadOnly" [isEditable]="((dataItem.ScheduleDoseValue[i+1]) || (dataItem | RemoveDoseUOM : '' : i+1)) ? true : false" [dataItem]="dataItem"
+                    [columnNumber]="colIndex" [cell]="'cell'+colIndex"
+                    [DataContext]="dataItem" title="">
+                    <iLabel Text="{{dataItem.ScheduleDoseValue[i+1]}}"></iLabel>
+                    <iLabel Text="{{dataItem | RemoveDoseUOM : '' : i+1}}"></iLabel>
+                </GridCellTemplate>
+                <GridCellEditTemplate *ngIf="!column.IsReadOnly" [dataItem]="dataItem" [cell]="'cell'+colIndex"
+                    [Content]="column.CellEditTemplate" [DataContext]="dataItem" [GridHelper]="grdChangingDose" [GridColumn]="column"
+                    [DynamicControlFocus]="column.CellEditTemplate.Child.ChildrenArr[0].control">
+                </GridCellEditTemplate>
+                </ng-template>
+                
+                </kendo-grid-column>
+            </ng-container>
+        </kendo-grid>
+    </kendo-gridlayout-item>
+</kendo-gridlayout>

@@ -1,0 +1,129 @@
+<div style="height: 100%;" >
+    <kendo-gridlayout #LayoutRootTempRef Name="LayoutRoot" HorizontalAlignment="Stretch" [Background]="Styles.LzoPageBG"
+        [rows]="[{height:5},{height:'auto'},{height:'1fr'}]" style="height: 100%;grid-template-rows: auto auto 1fr">
+        <kendo-gridlayout-item [row]='1'  [col]="1">
+
+        </kendo-gridlayout-item>
+
+        <!-- checkbox -->
+        <kendo-gridlayout-item [row]="2" [col]="1">
+            <div containerStyle class="includenonform" style="padding-bottom:10px">
+                <iCheckBox #chkInclNonForTempRef Name="chkInclNonFor" Text="Include non-formulary items"
+                    [Tooltip]="objResMedAlternateOption?.nonFormularyitem" Height="Auto" Width="Auto"
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom" IsWordWrap="True" FontStretch="Normal"
+                    Margin="0,0,0,0" FontSize="10" [(IsChecked)]="DataContext.IsFormularyCheckedAlternativeOption"
+                    (OnChange_Func)="checkboxClicked($event)">
+                </iCheckBox>
+                <!--VerticalAlignment="Top"  HorizontalAlignment="Right" Margin="0,5,10,0" Height="15"-->
+            </div>
+        </kendo-gridlayout-item>
+        <!-- iGrid -->
+        <kendo-gridlayout-item [row]="3" [col]="1" style="flex:1">
+            <div containerStyle #divGrid style="align-items: start !important">
+                <kendo-grid #grdAlternatesTempRef Name="grdAlternates" [reorderable]="false" [editable]="false"
+                    HorizontalAlignment="Stretch" [style.margin.px]="0"
+                    VerticalAlignment="Stretch" [sortable]="false" [row]="3" [col]="0"
+                    [data]="grdAlternates.ItemsSource.array" 
+                    [selectable]="{ checkboxOnly: false, mode: 'single' }"
+                    (cellClick)="grdAlternates.cellClick($event)" [height]="calcHeight"
+                    (selectionChange)="grdAlternates.GridSelectionChange($event)" kendoGridSelectBy
+                    [(selectedKeys)]="grdAlternates.selectedRowsIndex"
+                    (keyup)="grdAlternates.GridSelectionKeyUp($event)" 
+                    (keydown)="grdAlternates.GridSelectionKeyDown($event)"
+                >
+                    
+                    <!-- NoRecordsText="There are no records to show"-->
+                    <ng-template kendoGridNoRecordsTemplate>
+                        There are no records to show
+                    </ng-template>
+
+                    <!-- Row Indicator Visibility -->
+                    <kendo-grid-column *ngIf="grdAlternates.RowIndicatorVisibility == 0 ? true : false"
+                        UniqueName="rowindicator" field="rowindicator" title="" [width]="40">
+                        <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+                            <Image  [style.marginLeft.px]="10" [style.marginRight.px]="10"
+                                *ngIf="grdAlternates.selectedRowsIndex.length > 0 ? grdAlternates.selectedRowsIndex == rowIndex : false"
+                                Source="~/../assets/Images/iarrownor5x10.png">
+                            </Image>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <!-- FormularyNote -->
+                    <kendo-grid-column UniqueName="FormularyNote" field="FormularyNotes" [width]="40"
+                        [filterbale]="false" [editable]="false" [resizable]="false">
+                        <ng-template kendoGridHeaderTemplate>
+                            <DataTemplate #temp>
+                                <ControlTemplate TargetType="telerikGridView:GridViewHeaderCell" class="FormularyNoteIcon">
+                                    <GridBorder Padding="0" Margin="0" BorderThickness="0,0,1,1" BorderBrush="#7BB0AF">
+                                        <Image Source="~/../assets/Images/iwarninginfonor16.png" Width="17" Height="15"
+                                        [Tooltip]="objResMedAlternateOption?.formularynote"></Image>
+                                    </GridBorder>
+                                </ControlTemplate>
+                            </DataTemplate>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                [gridHelper]="grdAlternates">
+                                <StackPanel>
+                                    <Image Source="~/../assets/Images/iwarninginfonor16.png" Stretch="None"
+                                        [Tooltip]="dataItem.FormularyNotes"
+                                        [Visibility]="dataItem?.IsIconVisible">
+                                    </Image>
+
+                                    <Image Source="~/../assets/Images/exclam.png" Stretch="None"
+                                        [Tooltip]="dataItem.DrugPropertyNotes"
+                                        [Visibility]="dataItem?.IsDrugPropertyIconVisible">
+                                    </Image>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <!-- PrescriptionItem -->
+                    <kendo-grid-column field="IdentifyingName" UniqueName="PrescriptionItem" [filterbale]="false" [editable]="false"
+                    [resizable]="false" EnableToolTip="True" [editable]="false"
+                        [title]="objResMedAlternateOption?.medicationitemname">
+                        <!--   [width]='3*' pending to be revisited 24-04--->
+                        <ng-template kendoGridCellTemplate let-dataItem="dataItem" let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                [gridHelper]="grdAlternates" (RowLoaded)="rowLoaded($event)">
+                                <!-- stack panel -->
+                                <StackPanel Orientation="Horizontal" #sp>
+                                    <!-- label -->
+                                    <iLabel #lblDrugNameTempRef Name="lblDrugName"
+									    [containerParent]="sp" [index]="0"
+							 		    [Text]="dataItem.IdentifyingName"
+                                        [Tooltip]="dataItem.IdentifyingName" HorizontalAlignment="Stretch"
+                                        TextDecorations="Underline" FontWeight="Bold" Background="Transparent"
+                                        VerticalAlignment="Stretch" Width="230" Height="Auto"
+                                        IsWordwrap="True"
+                                        (MouseLeftButtonDown_Func) ="MouseLeftButtonDown_FuncNew($event,rowIndex,columnIndex)">
+                                    </iLabel>
+                                    <!-- Image -->
+                                    <Image alt="" #ImgMCITempRef Name="ImgMCI" [containerParent]="sp" [index]="1"
+                                        Source="~/../assets/Images/multicomponent item.png" Width="auto" Height="15"
+                                        Cursor="Hand" Visibility="Collapsed">
+                                    </Image>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <!-- Alternate Message -->
+                    <kendo-grid-column UniqueName="AlternateMessage" [editable]="false" [filterable]="false"
+                        [sortable]="false" EnableToolTip="True" [resizable]="false"
+                        [title]="objResMedAlternateOption.alternatemessage" field="Message">
+                        <!-- Width="2*" to be revisited -->
+                        <ng-template kendoGridCellTemplate let-dataItem="dataItem" let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                [gridHelper]="grdAlternates">
+                                <!-- {{dataItem.Message}} -->
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <!-- till here -->
+                </kendo-grid>
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

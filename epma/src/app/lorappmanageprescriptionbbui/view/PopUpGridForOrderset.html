@@ -1,0 +1,56 @@
+<kendo-gridlayout Name="LayoutRoot" HorizontalAlignment="Stretch"
+    [rows]="[{height: 20}, {height: 'auto'}, {height: 20}]" [cols]="[{width: 5}, {width: 'auto'}, {width: 10}]">
+
+    <kendo-gridlayout-item [col]="2" [row]="2">
+
+        <!-- Margin="10,0,10,10"  -->
+        <kendo-grid #grdOrderSetListTempRef Background="#FFE0EFF1" [GridProperties]="grdOrderSetList"
+            class="horizontal-class-stretch vertical-class-stretch"
+            [width]="'auto'" MaxHeight="240" MaxWidth="740"
+            [ScrollBarViewer]="{horizontal:'Disabled'}" [ScrollBarViewer]="{vertical:'Auto'}"
+            [data]="grdOrderSetList.ItemsSource.array" [reorderable]="false">
+
+            <ng-template kendoGridNoRecordsTemplate>
+                No records to show
+            </ng-template>
+
+            <kendo-grid-column TextWrapping="Wrap" UniqueName="PrescriptionItem" title="Prescription item"
+                [filterable]="false" [editable]="false" [width]="370" [resizable]="false"
+                [GridColumnProperties]="grdOrderSetList">
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate>
+                        <!--margin 2,10,10,10 -->
+                        <ContentPresenter
+                            [Content]="dataItem.PrescrptionItem | MedLineDisplay : '' : 'ORDERSETMEZZANINE'"
+                            Margin="10">
+                        </ContentPresenter>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column TextWrapping="Wrap" UniqueName="Otherinformation" title="Other information"
+                [filterable]="false" [editable]="false" [width]="180" [resizable]="false"
+                [GridColumnProperties]="grdOrderSetList">
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate>
+                        <ContentPresenter [Content]="dataItem.PrescrptionItem | MedOtherDisplay : '' : 75">
+                        </ContentPresenter>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column [title]="resKey.Offset_Header" [filterable]="false" [width]="140" [editable]="false"
+                [GridColumnProperties]="grdOrderSetList">
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate>
+                        <ContentPresenter [Content]="dataItem.Offset">
+                        </ContentPresenter>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+
+        </kendo-grid>
+
+    </kendo-gridlayout-item>
+
+</kendo-gridlayout>

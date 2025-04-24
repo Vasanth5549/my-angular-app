@@ -1,0 +1,7 @@
+<!-- [disabled]="!IsEnabled" -->
+<kendo-listbox #ListBox [data]="ItemsSource.array" [ngStyle]="style" [toolbar]="false"
+    kendoTooltip [title]="ToolTip" (selectionChange)="SelectionChangedValue($event)">
+    <ng-template kendoListBoxItemTemplate let-dataItem>
+        <span [title]="dataItem.DisplayText">{{ dataItem.DisplayText }}</span>
+    </ng-template>
+</kendo-listbox>

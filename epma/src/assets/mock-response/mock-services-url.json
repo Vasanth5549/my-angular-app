@@ -1,0 +1,59 @@
+[
+    {
+      "service": "IPPMAManagePrescriptionWS",
+      "baseUrl": "http://localhost:8081",
+      "extendedUrl": "/IPPMAManagePrescription_P2/",
+      "verb": "POST",
+      "contentType": "XML"
+    },
+    {
+      "service": "ManagePrescriptionWS",
+      "baseUrl": "http://localhost:8081",
+      "extendedUrl": "/ManagePrescription_P2/",
+      "verb": "POST",
+      "contentType": "XML"
+    },
+    {
+      "service": "MedicationAdministrationWS",
+      "baseUrl": "http://localhost:8081",
+      "extendedUrl": "/MedicationAdministration_P2/",
+      "verb": "POST",
+      "contentType": "XML"
+    },
+    {
+      "service": "CSecurityManagementServiceWS",
+      "baseUrl": "http://localhost:8081",
+      "extendedUrl": "/CSecurityManagementService/",
+      "verb": "POST",
+      "contentType": "XML"
+    },
+    {
+      "service": "MedicationMgmtWS",
+      "baseUrl": "http://localhost:8081",
+      "extendedUrl": "/MedicationMgmt_P2/",
+      "verb": "POST",
+      "contentType": "XML"
+    },
+    {
+      "service": "EncounterWS",
+      "baseUrl": "http://localhost:8081",
+      "extendedUrl": "/QueryCareEvents/",
+      "verb": "POST",
+      "contentType": "XML"
+    },
+    {
+      "service": "QueryPatientRecordWS",
+      "baseUrl": "http://localhost:8081",
+      "extendedUrl": "/QueryPatientRecord/",
+      "verb": "POST",
+      "contentType": "XML"
+    },
+    {
+      "service": "IPPMAPrescribableDefnWS",
+      "baseUrl": "http://localhost:8081",
+      "extendedUrl": "/IPPMAPrescribableDefn_P2/",
+      "verb": "POST",
+      "contentType": "XML"
+    }
+  ]
+  

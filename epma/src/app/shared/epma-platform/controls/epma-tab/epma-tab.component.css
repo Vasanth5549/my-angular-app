@@ -1,0 +1,55 @@
+:host::ng-deep .k-tabstrip>.k-content {
+    border-color: transparent;
+    outline: none;
+}
+
+:host::ng-deep .k-tabstrip-items {
+    background: #e0eff1;
+}
+
+:host::ng-deep .k-tabstrip-items-wrapper .k-item.k-active {
+    background-color: #94b7cf;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    font: normal normal bold 13px/16px Verdana;
+    margin-left: -0.5px !important;
+    margin-top: 1px !important;
+}
+
+:host::ng-deep .k-tabstrip-items-wrapper .k-item:hover {
+    color: black;
+    text-decoration: underline;
+    font: normal normal normal 13px/16px Verdana;
+}
+
+:host::ng-deep .k-tabstrip-items-wrapper .k-item {
+    color: black;
+    font: normal normal normal 13px/16px Verdana;
+}
+
+:host::ng-deep .k-tabstrip-items-wrapper {
+    border-bottom-color: #94b7cf !important;
+    border-bottom-style: solid !important;
+    border-bottom-width: 2px !important;
+}
+
+:host::ng-deep .k-tabstrip-items-wrapper .k-item.k-active .k-link {
+    border-right-color: black !important;
+    border-right-style: solid !important;
+    border-right-width: 2px !important;
+}
+
+:host::ng-deep .k-link {
+    border-right-style: solid !important;
+    border-right-color: #94b7cf !important;
+    border-right-width: 1px !important;
+}
+
+:host::ng-deep .k-tabstrip-items-wrapper .k-item.k-active:hover {
+    text-decoration: none;
+    font: normal normal bold 13px/16px Verdana;
+}
+
+:host::ng-deep .k-tabstrip-top>.k-tabstrip-items-wrapper .k-item {
+    margin-bottom: -2px;
+}

@@ -1,0 +1,28 @@
+.grid2{
+    display:flex;
+    justify-content: end;
+}
+::ng-deep .medfrmconflictsCA .k-grid-content td {
+    white-space: wrap;     
+}
+
+::ng-deep .medfrmconflictsCA1 .k-grid-content td {
+  white-space: wrap;     
+}
+
+::ng-deep .medfrmconflictsCA .k-grid-header{
+    padding: 0px 0px 0px 0px !important;
+}
+.textwrap {
+  white-space: nowrap;
+}
+.control-spacing {
+  padding-right: 2px;
+}
+::ng-deep .medfrmconflictsCA .k-grid-content{
+    overflow-y: hidden !important;
+}
+
+::ng-deep .medfrmconflictsCA1 .k-grid-content{
+  overflow-y: hidden !important;
+}

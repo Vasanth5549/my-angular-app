@@ -1,0 +1,21 @@
+::ng-deep.k-input {
+    font-size: 11px;
+    color: #000000;
+    width: -webkit-fill-available !important;
+}
+
+.leftAlignment:first-child {
+    padding-left: 0.4rem;
+}
+
+.brandClearRow {
+  text-align: right;
+}
+.SupplyInscroll
+{
+  overflow: auto; line-height: 1.5;
+}
+.SupplyVis
+{
+    display:none;
+}

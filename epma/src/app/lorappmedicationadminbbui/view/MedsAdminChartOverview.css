@@ -1,0 +1,39 @@
+body {
+    background-color: lightblue;
+  }
+.clockMsg ::ng-deep kendo-label{
+  margin-left: -170px !important;
+  top: 5px !important;
+}
+
+.btnHeightweightPopUp ::ng-deep button{
+  margin: 0px 0px 0px -20px !important; 
+}
+
+.btnHeightweightPopUp ::ng-deep button span img{
+  margin-top: 2px;
+}
+.cmdDateView{
+  margin-right: 30px;
+}
+ @media screen and (max-width: 1450px) {
+  .divDefaultHeightOverview{ 
+     /* height: 391px;  */
+   }
+  .divHeightChangedOverview{
+    height: 333px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .divDefaultHeightOverview{
+    height: 676px;
+  }
+  .divHeightChangedOverview{
+    height: 644px;
+  }
+}
+@media screen and (min-device-width : 1400px) and (max-device-width: 1550px) {
+  .divDefaultHeightOverview{
+    height: 460px;
+  }
+ }

@@ -1,0 +1,5759 @@
+import DateTime from "epma-platform/DateTime";
+import { byte, CContextInformation, CLZOObject, ObservableCollection } from "epma-platform/models";
+import { HelperService } from "./helper.service";
+export class QueryPatientRecordWSSoapClient{
+
+GetPatientInfoCompleted: Function;
+GetPatientInfoAsync(oCReqMsgGetPatientInfo:CReqMsgGetPatientInfo ) : void {
+  HelperService.Invoke<CReqMsgGetPatientInfo,CResMsgGetPatientInfo,GetPatientInfoCompletedEventArgs>("QueryPatientRecordWS.GetPatientInfo",oCReqMsgGetPatientInfo,this.GetPatientInfoCompleted,"PatientOID",new GetPatientInfoCompletedEventArgs(), prototypeList);
+}
+
+GetPatientAddressCompleted: Function;
+GetPatientAddressAsync(oCReqMsgGetPatientAddress:CReqMsgGetPatientAddress ) : void {
+  HelperService.Invoke<CReqMsgGetPatientAddress,CResMsgGetPatientAddress,GetPatientAddressCompletedEventArgs>("QueryPatientRecordWS.GetPatientAddress",oCReqMsgGetPatientAddress,this.GetPatientAddressCompleted,"IsActiveOnly",new GetPatientAddressCompletedEventArgs(), prototypeList);
+}
+
+GetPatAddressCompleted: Function;
+GetPatAddressAsync(oCReqMsgGetPatAddress:CReqMsgGetPatAddress ) : void {
+  HelperService.Invoke<CReqMsgGetPatAddress,CResMsgGetPatAddress,GetPatAddressCompletedEventArgs>("QueryPatientRecordWS.GetPatAddress",oCReqMsgGetPatAddress,this.GetPatAddressCompleted,"PatientID",new GetPatAddressCompletedEventArgs(), prototypeList);
+}
+
+GetPatCarerAddressCompleted: Function;
+GetPatCarerAddressAsync(oCReqMsgGetPatCarerAddress:CReqMsgGetPatCarerAddress ) : void {
+  HelperService.Invoke<CReqMsgGetPatCarerAddress,CResMsgGetPatCarerAddress,GetPatCarerAddressCompletedEventArgs>("QueryPatientRecordWS.GetPatCarerAddress",oCReqMsgGetPatCarerAddress,this.GetPatCarerAddressCompleted,"CarerOID",new GetPatCarerAddressCompletedEventArgs(), prototypeList);
+}
+
+GetPatientCommunicationAddressCompleted: Function;
+GetPatientCommunicationAddressAsync(oCReqMsgGetPatientCommunicationAddress:CReqMsgGetPatientCommunicationAddress ) : void {
+  HelperService.Invoke<CReqMsgGetPatientCommunicationAddress,CResMsgGetPatientCommunicationAddress,GetPatientCommunicationAddressCompletedEventArgs>("QueryPatientRecordWS.GetPatientCommunicationAddress",oCReqMsgGetPatientCommunicationAddress,this.GetPatientCommunicationAddressCompleted,"PatientID",new GetPatientCommunicationAddressCompletedEventArgs(), prototypeList);
+}
+
+GetPatientContactCompleted: Function;
+GetPatientContactAsync(oCReqMsgGetPatientContact:CReqMsgGetPatientContact ) : void {
+  HelperService.Invoke<CReqMsgGetPatientContact,CResMsgGetPatientContact,GetPatientContactCompletedEventArgs>("QueryPatientRecordWS.GetPatientContact",oCReqMsgGetPatientContact,this.GetPatientContactCompleted,"PatientID",new GetPatientContactCompletedEventArgs(), prototypeList);
+}
+
+GetPatientCarerContactCompleted: Function;
+GetPatientCarerContactAsync(oCReqMsgGetPatientCarerContact:CReqMsgGetPatientCarerContact ) : void {
+  HelperService.Invoke<CReqMsgGetPatientCarerContact,CResMsgGetPatientCarerContact,GetPatientCarerContactCompletedEventArgs>("QueryPatientRecordWS.GetPatientCarerContact",oCReqMsgGetPatientCarerContact,this.GetPatientCarerContactCompleted,"CarerOID",new GetPatientCarerContactCompletedEventArgs(), prototypeList);
+}
+
+GetGPPracticeIDCompleted: Function;
+GetGPPracticeIDAsync(oCReqMsgGetGPPracticeID:CReqMsgGetGPPracticeID ) : void {
+  HelperService.Invoke<CReqMsgGetGPPracticeID,CResMsgGetGPPracticeID,GetGPPracticeIDCompletedEventArgs>("QueryPatientRecordWS.GetGPPracticeID",oCReqMsgGetGPPracticeID,this.GetGPPracticeIDCompleted,"PatientID",new GetGPPracticeIDCompletedEventArgs(), prototypeList);
+}
+
+GetPatientAliasCompleted: Function;
+GetPatientAliasAsync(oCReqMsgGetPatientAlias:CReqMsgGetPatientAlias ) : void {
+  HelperService.Invoke<CReqMsgGetPatientAlias,CResMsgGetPatientAlias,GetPatientAliasCompletedEventArgs>("QueryPatientRecordWS.GetPatientAlias",oCReqMsgGetPatientAlias,this.GetPatientAliasCompleted,"PatientID",new GetPatientAliasCompletedEventArgs(), prototypeList);
+}
+
+GetPatientConsentCompleted: Function;
+GetPatientConsentAsync(oCReqMsgGetPatientConsent:CReqMsgGetPatientConsent ) : void {
+  HelperService.Invoke<CReqMsgGetPatientConsent,CResMsgGetPatientConsent,GetPatientConsentCompletedEventArgs>("QueryPatientRecordWS.GetPatientConsent",oCReqMsgGetPatientConsent,this.GetPatientConsentCompleted,"PatientID",new GetPatientConsentCompletedEventArgs(), prototypeList);
+}
+
+GetPatientGPCompleted: Function;
+GetPatientGPAsync(oCReqMsgGetPatientGP:CReqMsgGetPatientGP ) : void {
+  HelperService.Invoke<CReqMsgGetPatientGP,CResMsgGetPatientGP,GetPatientGPCompletedEventArgs>("QueryPatientRecordWS.GetPatientGP",oCReqMsgGetPatientGP,this.GetPatientGPCompleted,"PatientID",new GetPatientGPCompletedEventArgs(), prototypeList);
+}
+
+GetPatientCarerCompleted: Function;
+GetPatientCarerAsync(oCReqMsgGetPatientCarer:CReqMsgGetPatientCarer ) : void {
+  HelperService.Invoke<CReqMsgGetPatientCarer,CResMsgGetPatientCarer,GetPatientCarerCompletedEventArgs>("QueryPatientRecordWS.GetPatientCarer",oCReqMsgGetPatientCarer,this.GetPatientCarerCompleted,"PatientID",new GetPatientCarerCompletedEventArgs(), prototypeList);
+}
+
+GetCareProviderByRoleCompleted: Function;
+GetCareProviderByRoleAsync(oCReqMsgGetCareProviderByRole:CReqMsgGetCareProviderByRole ) : void {
+  HelperService.Invoke<CReqMsgGetCareProviderByRole,CResMsgGetCareProviderByRole,GetCareProviderByRoleCompletedEventArgs>("QueryPatientRecordWS.GetCareProviderByRole",oCReqMsgGetCareProviderByRole,this.GetCareProviderByRoleCompleted,"sEndDate",new GetCareProviderByRoleCompletedEventArgs(), prototypeList);
+}
+
+GetPatientIdCompleted: Function;
+GetPatientIdAsync(oCReqMsgGetPatientId:CReqMsgGetPatientId ) : void {
+  HelperService.Invoke<CReqMsgGetPatientId,CResMsgGetPatientId,GetPatientIdCompletedEventArgs>("QueryPatientRecordWS.GetPatientId",oCReqMsgGetPatientId,this.GetPatientIdCompleted,"PatientID",new GetPatientIdCompletedEventArgs(), prototypeList);
+}
+
+GetPatientIdForIntrayCompleted: Function;
+GetPatientIdForIntrayAsync(oCReqMsgGetPatientIdForIntray:CReqMsgGetPatientIdForIntray ) : void {
+  HelperService.Invoke<CReqMsgGetPatientIdForIntray,CResMsgGetPatientIdForIntray,GetPatientIdForIntrayCompletedEventArgs>("QueryPatientRecordWS.GetPatientIdForIntray",oCReqMsgGetPatientIdForIntray,this.GetPatientIdForIntrayCompleted,"sSITYPCode",new GetPatientIdForIntrayCompletedEventArgs(), prototypeList);
+}
+
+GetPatientIDForLoginHOCompleted: Function;
+GetPatientIDForLoginHOAsync(oCReqMsgGetPatientIDForLoginHO:CReqMsgGetPatientIDForLoginHO ) : void {
+  HelperService.Invoke<CReqMsgGetPatientIDForLoginHO,CResMsgGetPatientIDForLoginHO,GetPatientIDForLoginHOCompletedEventArgs>("QueryPatientRecordWS.GetPatientIDForLoginHO",oCReqMsgGetPatientIDForLoginHO,this.GetPatientIDForLoginHOCompleted,"objPatientLoginHO",new GetPatientIDForLoginHOCompletedEventArgs(), prototypeList);
+}
+
+GetPatientPersonalCarerCompleted: Function;
+GetPatientPersonalCarerAsync(oCReqMsgGetPatientPersonalCarer:CReqMsgGetPatientPersonalCarer ) : void {
+  HelperService.Invoke<CReqMsgGetPatientPersonalCarer,CResMsgGetPatientPersonalCarer,GetPatientPersonalCarerCompletedEventArgs>("QueryPatientRecordWS.GetPatientPersonalCarer",oCReqMsgGetPatientPersonalCarer,this.GetPatientPersonalCarerCompleted,"Current",new GetPatientPersonalCarerCompletedEventArgs(), prototypeList);
+}
+
+GetPatPersonalCarerAssessmentCompleted: Function;
+GetPatPersonalCarerAssessmentAsync(oCReqMsgGetPatPersonalCarerAssessment:CReqMsgGetPatPersonalCarerAssessment ) : void {
+  HelperService.Invoke<CReqMsgGetPatPersonalCarerAssessment,CResMsgGetPatPersonalCarerAssessment,GetPatPersonalCarerAssessmentCompletedEventArgs>("QueryPatientRecordWS.GetPatPersonalCarerAssessment",oCReqMsgGetPatPersonalCarerAssessment,this.GetPatPersonalCarerAssessmentCompleted,"PatientOID",new GetPatPersonalCarerAssessmentCompletedEventArgs(), prototypeList);
+}
+
+GetRelationshipDetailsCompleted: Function;
+GetRelationshipDetailsAsync(oCReqMsgGetRelationshipDetails:CReqMsgGetRelationshipDetails ) : void {
+  HelperService.Invoke<CReqMsgGetRelationshipDetails,CResMsgGetRelationshipDetails,GetRelationshipDetailsCompletedEventArgs>("QueryPatientRecordWS.GetRelationshipDetails",oCReqMsgGetRelationshipDetails,this.GetRelationshipDetailsCompleted,"oPatientPersonalCarer",new GetRelationshipDetailsCompletedEventArgs(), prototypeList);
+}
+
+GetPatientPersonalCarerNameCompleted: Function;
+GetPatientPersonalCarerNameAsync(oCReqMsgGetPatientPersonalCarerName:CReqMsgGetPatientPersonalCarerName ) : void {
+  HelperService.Invoke<CReqMsgGetPatientPersonalCarerName,CResMsgGetPatientPersonalCarerName,GetPatientPersonalCarerNameCompletedEventArgs>("QueryPatientRecordWS.GetPatientPersonalCarerName",oCReqMsgGetPatientPersonalCarerName,this.GetPatientPersonalCarerNameCompleted,"Current",new GetPatientPersonalCarerNameCompletedEventArgs(), prototypeList);
+}
+
+GetAllRelnDETailsCompleted: Function;
+GetAllRelnDETailsAsync(oCReqMsgGetAllRelnDETails:CReqMsgGetAllRelnDETails ) : void {
+  HelperService.Invoke<CReqMsgGetAllRelnDETails,CResMsgGetAllRelnDETails,GetAllRelnDETailsCompletedEventArgs>("QueryPatientRecordWS.GetAllRelnDETails",oCReqMsgGetAllRelnDETails,this.GetAllRelnDETailsCompleted,"Current",new GetAllRelnDETailsCompletedEventArgs(), prototypeList);
+}
+
+pGetRPDetailsForMaternityCompleted: Function;
+pGetRPDetailsForMaternityAsync(oCReqMsgpGetRPDetailsForMaternity:CReqMsgpGetRPDetailsForMaternity ) : void {
+  HelperService.Invoke<CReqMsgpGetRPDetailsForMaternity,CResMsgpGetRPDetailsForMaternity,pGetRPDetailsForMaternityCompletedEventArgs>("QueryPatientRecordWS.pGetRPDetailsForMaternity",oCReqMsgpGetRPDetailsForMaternity,this.pGetRPDetailsForMaternityCompleted,"RELATIONSHIP",new pGetRPDetailsForMaternityCompletedEventArgs(), prototypeList);
+}
+
+GetPersonalCareAddressCompleted: Function;
+GetPersonalCareAddressAsync(oCReqMsgGetPersonalCareAddress:CReqMsgGetPersonalCareAddress ) : void {
+  HelperService.Invoke<CReqMsgGetPersonalCareAddress,CResMsgGetPersonalCareAddress,GetPersonalCareAddressCompletedEventArgs>("QueryPatientRecordWS.GetPersonalCareAddress",oCReqMsgGetPersonalCareAddress,this.GetPersonalCareAddressCompleted,"PatientID",new GetPersonalCareAddressCompletedEventArgs(), prototypeList);
+}
+
+GetAllPersonalCareAddressCompleted: Function;
+GetAllPersonalCareAddressAsync(oCReqMsgGetAllPersonalCareAddress:CReqMsgGetAllPersonalCareAddress ) : void {
+  HelperService.Invoke<CReqMsgGetAllPersonalCareAddress,CResMsgGetAllPersonalCareAddress,GetAllPersonalCareAddressCompletedEventArgs>("QueryPatientRecordWS.GetAllPersonalCareAddress",oCReqMsgGetAllPersonalCareAddress,this.GetAllPersonalCareAddressCompleted,"PersonalCarerOID",new GetAllPersonalCareAddressCompletedEventArgs(), prototypeList);
+}
+
+GetPatientPreferenceCompleted: Function;
+GetPatientPreferenceAsync(oCReqMsgGetPatientPreference:CReqMsgGetPatientPreference ) : void {
+  HelperService.Invoke<CReqMsgGetPatientPreference,CResMsgGetPatientPreference,GetPatientPreferenceCompletedEventArgs>("QueryPatientRecordWS.GetPatientPreference",oCReqMsgGetPatientPreference,this.GetPatientPreferenceCompleted,"PatientID",new GetPatientPreferenceCompletedEventArgs(), prototypeList);
+}
+
+GetPrefForOtherCACompleted: Function;
+GetPrefForOtherCAAsync(oCReqMsgGetPrefForOtherCA:CReqMsgGetPrefForOtherCA ) : void {
+  HelperService.Invoke<CReqMsgGetPrefForOtherCA,CResMsgGetPrefForOtherCA,GetPrefForOtherCACompletedEventArgs>("QueryPatientRecordWS.GetPrefForOtherCA",oCReqMsgGetPrefForOtherCA,this.GetPrefForOtherCACompleted,"PatientID",new GetPrefForOtherCACompletedEventArgs(), prototypeList);
+}
+
+GetPatientStatusInfoCompleted: Function;
+GetPatientStatusInfoAsync(oCReqMsgGetPatientStatusInfo:CReqMsgGetPatientStatusInfo ) : void {
+  HelperService.Invoke<CReqMsgGetPatientStatusInfo,CResMsgGetPatientStatusInfo,GetPatientStatusInfoCompletedEventArgs>("QueryPatientRecordWS.GetPatientStatusInfo",oCReqMsgGetPatientStatusInfo,this.GetPatientStatusInfoCompleted,"objStatus",new GetPatientStatusInfoCompletedEventArgs(), prototypeList);
+}
+
+GetPatientOIDsByPatientIDsCompleted: Function;
+GetPatientOIDsByPatientIDsAsync(oCReqMsgGetPatientOIDsByPatientIDs:CReqMsgGetPatientOIDsByPatientIDs ) : void {
+  HelperService.Invoke<CReqMsgGetPatientOIDsByPatientIDs,CResMsgGetPatientOIDsByPatientIDs,GetPatientOIDsByPatientIDsCompletedEventArgs>("QueryPatientRecordWS.GetPatientOIDsByPatientIDs",oCReqMsgGetPatientOIDsByPatientIDs,this.GetPatientOIDsByPatientIDsCompleted,"sLoggedinHO",new GetPatientOIDsByPatientIDsCompletedEventArgs(), prototypeList);
+}
+
+GetRpMainVisitorCompleted: Function;
+GetRpMainVisitorAsync(oCReqMsgGetRpMainVisitor:CReqMsgGetRpMainVisitor ) : void {
+  HelperService.Invoke<CReqMsgGetRpMainVisitor,CResMsgGetRpMainVisitor,GetRpMainVisitorCompletedEventArgs>("QueryPatientRecordWS.GetRpMainVisitor",oCReqMsgGetRpMainVisitor,this.GetRpMainVisitorCompleted,"dtDateTime",new GetRpMainVisitorCompletedEventArgs(), prototypeList);
+}
+
+GetPatientSummaryInfoCompleted: Function;
+GetPatientSummaryInfoAsync(oCReqMsgGetPatientSummaryInfo:CReqMsgGetPatientSummaryInfo ) : void {
+  HelperService.Invoke<CReqMsgGetPatientSummaryInfo,CResMsgGetPatientSummaryInfo,GetPatientSummaryInfoCompletedEventArgs>("QueryPatientRecordWS.GetPatientSummaryInfo",oCReqMsgGetPatientSummaryInfo,this.GetPatientSummaryInfoCompleted,"PatientOID",new GetPatientSummaryInfoCompletedEventArgs(), prototypeList);
+}
+
+GetPatientEmailCompleted: Function;
+GetPatientEmailAsync(oCReqMsgGetPatientEmail:CReqMsgGetPatientEmail ) : void {
+  HelperService.Invoke<CReqMsgGetPatientEmail,CResMsgGetPatientEmail,GetPatientEmailCompletedEventArgs>("QueryPatientRecordWS.GetPatientEmail",oCReqMsgGetPatientEmail,this.GetPatientEmailCompleted,"PatientOID",new GetPatientEmailCompletedEventArgs(), prototypeList);
+}
+
+GetPatientLastModifiedDetailsCompleted: Function;
+GetPatientLastModifiedDetailsAsync(oCReqMsgGetPatientLastModifiedDetails:CReqMsgGetPatientLastModifiedDetails ) : void {
+  HelperService.Invoke<CReqMsgGetPatientLastModifiedDetails,CResMsgGetPatientLastModifiedDetails,GetPatientLastModifiedDetailsCompletedEventArgs>("QueryPatientRecordWS.GetPatientLastModifiedDetails",oCReqMsgGetPatientLastModifiedDetails,this.GetPatientLastModifiedDetailsCompleted,"lnPatientOID",new GetPatientLastModifiedDetailsCompletedEventArgs(), prototypeList);
+}
+
+GetPatInfoDetailsCompleted: Function;
+GetPatInfoDetailsAsync(oCReqMsgGetPatInfoDetails:CReqMsgGetPatInfoDetails ) : void {
+  HelperService.Invoke<CReqMsgGetPatInfoDetails,CResMsgGetPatInfoDetails,GetPatInfoDetailsCompletedEventArgs>("QueryPatientRecordWS.GetPatInfoDetails",oCReqMsgGetPatInfoDetails,this.GetPatInfoDetailsCompleted,"isCalledFrom",new GetPatInfoDetailsCompletedEventArgs(), prototypeList);
+}
+
+GetNokEduInfoCompleted: Function;
+GetNokEduInfoAsync(oCReqMsgGetNokEduInfo:CReqMsgGetNokEduInfo ) : void {
+  HelperService.Invoke<CReqMsgGetNokEduInfo,CResMsgGetNokEduInfo,GetNokEduInfoCompletedEventArgs>("QueryPatientRecordWS.GetNokEduInfo",oCReqMsgGetNokEduInfo,this.GetNokEduInfoCompleted,"lnPatientOID",new GetNokEduInfoCompletedEventArgs(), prototypeList);
+}
+
+GetPatFallbackDtlsCompleted: Function;
+GetPatFallbackDtlsAsync(oCReqMsgGetPatFallbackDtls:CReqMsgGetPatFallbackDtls ) : void {
+  HelperService.Invoke<CReqMsgGetPatFallbackDtls,CResMsgGetPatFallbackDtls,GetPatFallbackDtlsCompletedEventArgs>("QueryPatientRecordWS.GetPatFallbackDtls",oCReqMsgGetPatFallbackDtls,this.GetPatFallbackDtlsCompleted,"PatientOID",new GetPatFallbackDtlsCompletedEventArgs(), prototypeList);
+}
+
+GetPatientIdentifierCompleted: Function;
+GetPatientIdentifierAsync(oCReqMsgGetPatientIdentifier:CReqMsgGetPatientIdentifier ) : void {
+  HelperService.Invoke<CReqMsgGetPatientIdentifier,CResMsgGetPatientIdentifier,GetPatientIdentifierCompletedEventArgs>("QueryPatientRecordWS.GetPatientIdentifier",oCReqMsgGetPatientIdentifier,this.GetPatientIdentifierCompleted,"oReqCPatientIDInfo",new GetPatientIdentifierCompletedEventArgs(), prototypeList);
+}
+
+GetPatientIDMInfoCompleted: Function;
+GetPatientIDMInfoAsync(oCReqMsgGetPatientIDMInfo:CReqMsgGetPatientIDMInfo ) : void {
+  HelperService.Invoke<CReqMsgGetPatientIDMInfo,CResMsgGetPatientIDMInfo,GetPatientIDMInfoCompletedEventArgs>("QueryPatientRecordWS.GetPatientIDMInfo",oCReqMsgGetPatientIDMInfo,this.GetPatientIDMInfoCompleted,"oPatientIDMInput",new GetPatientIDMInfoCompletedEventArgs(), prototypeList);
+}
+
+GetPatientAddressAliasInfoCompleted: Function;
+GetPatientAddressAliasInfoAsync(oCReqMsgGetPatientAddressAliasInfo:CReqMsgGetPatientAddressAliasInfo ) : void {
+  HelperService.Invoke<CReqMsgGetPatientAddressAliasInfo,CResMsgGetPatientAddressAliasInfo,GetPatientAddressAliasInfoCompletedEventArgs>("QueryPatientRecordWS.GetPatientAddressAliasInfo",oCReqMsgGetPatientAddressAliasInfo,this.GetPatientAddressAliasInfoCompleted,"PatientID",new GetPatientAddressAliasInfoCompletedEventArgs(), prototypeList);
+}
+
+GetPatientMaternityRelationCompleted: Function;
+GetPatientMaternityRelationAsync(oCReqMsgGetPatientMaternityRelation:CReqMsgGetPatientMaternityRelation ) : void {
+  HelperService.Invoke<CReqMsgGetPatientMaternityRelation,CResMsgGetPatientMaternityRelation,GetPatientMaternityRelationCompletedEventArgs>("QueryPatientRecordWS.GetPatientMaternityRelation",oCReqMsgGetPatientMaternityRelation,this.GetPatientMaternityRelationCompleted,"BabyDateOFBirth",new GetPatientMaternityRelationCompletedEventArgs(), prototypeList);
+}
+
+GetPatientEnquirySearchDetailsCompleted: Function;
+GetPatientEnquirySearchDetailsAsync(oCReqMsgGetPatientEnquirySearchDetails:CReqMsgGetPatientEnquirySearchDetails ) : void {
+  HelperService.Invoke<CReqMsgGetPatientEnquirySearchDetails,CResMsgGetPatientEnquirySearchDetails,GetPatientEnquirySearchDetailsCompletedEventArgs>("QueryPatientRecordWS.GetPatientEnquirySearchDetails",oCReqMsgGetPatientEnquirySearchDetails,this.GetPatientEnquirySearchDetailsCompleted,"oPatientEnquirySearch",new GetPatientEnquirySearchDetailsCompletedEventArgs(), prototypeList);
+}
+
+GetPatPrefDetailsCompleted: Function;
+GetPatPrefDetailsAsync(oCReqMsgGetPatPrefDetails:CReqMsgGetPatPrefDetails ) : void {
+  HelperService.Invoke<CReqMsgGetPatPrefDetails,CResMsgGetPatPrefDetails,GetPatPrefDetailsCompletedEventArgs>("QueryPatientRecordWS.GetPatPrefDetails",oCReqMsgGetPatPrefDetails,this.GetPatPrefDetailsCompleted,"sPatientID",new GetPatPrefDetailsCompletedEventArgs(), prototypeList);
+}
+
+IsPreferenceExistCompleted: Function;
+IsPreferenceExistAsync(oCReqMsgIsPreferenceExist:CReqMsgIsPreferenceExist ) : void {
+  HelperService.Invoke<CReqMsgIsPreferenceExist,CResMsgIsPreferenceExist,IsPreferenceExistCompletedEventArgs>("QueryPatientRecordWS.IsPreferenceExist",oCReqMsgIsPreferenceExist,this.IsPreferenceExistCompleted,"sPatientID",new IsPreferenceExistCompletedEventArgs(), prototypeList);
+}
+
+GetPatientReminderDetailsCompleted: Function;
+GetPatientReminderDetailsAsync(oCReqMsgGetPatientReminderDetails:CReqMsgGetPatientReminderDetails ) : void {
+  HelperService.Invoke<CReqMsgGetPatientReminderDetails,CResMsgGetPatientReminderDetails,GetPatientReminderDetailsCompletedEventArgs>("QueryPatientRecordWS.GetPatientReminderDetails",oCReqMsgGetPatientReminderDetails,this.GetPatientReminderDetailsCompleted,"sUserOID",new GetPatientReminderDetailsCompletedEventArgs(), prototypeList);
+}
+
+GetPatientDemographicCompleted: Function;
+GetPatientDemographicAsync(oCReqMsgGetPatientDemographic:CReqMsgGetPatientDemographic ) : void {
+  HelperService.Invoke<CReqMsgGetPatientDemographic,CResMsgGetPatientDemographic,GetPatientDemographicCompletedEventArgs>("QueryPatientRecordWS.GetPatientDemographic",oCReqMsgGetPatientDemographic,this.GetPatientDemographicCompleted,"PatientID",new GetPatientDemographicCompletedEventArgs(), prototypeList);
+}
+
+GetPatientDemographicSummaryCompleted: Function;
+GetPatientDemographicSummaryAsync(oCReqMsgGetPatientDemographicSummary:CReqMsgGetPatientDemographicSummary ) : void {
+  HelperService.Invoke<CReqMsgGetPatientDemographicSummary,CResMsgGetPatientDemographicSummary,GetPatientDemographicSummaryCompletedEventArgs>("QueryPatientRecordWS.GetPatientDemographicSummary",oCReqMsgGetPatientDemographicSummary,this.GetPatientDemographicSummaryCompleted,"PatientID",new GetPatientDemographicSummaryCompletedEventArgs(), prototypeList);
+}
+
+GetPatientDetailsCompleted: Function;
+GetPatientDetailsAsync(oCReqMsgGetPatientDetails:CReqMsgGetPatientDetails ) : void {
+  HelperService.Invoke<CReqMsgGetPatientDetails,CResMsgGetPatientDetails,GetPatientDetailsCompletedEventArgs>("QueryPatientRecordWS.GetPatientDetails",oCReqMsgGetPatientDetails,this.GetPatientDetailsCompleted,"PatientID",new GetPatientDetailsCompletedEventArgs(), prototypeList);
+}
+
+GetPersonalcarerPatientDetailsCompleted: Function;
+GetPersonalcarerPatientDetailsAsync(oCReqMsgGetPersonalcarerPatientDetails:CReqMsgGetPersonalcarerPatientDetails ) : void {
+  HelperService.Invoke<CReqMsgGetPersonalcarerPatientDetails,CResMsgGetPersonalcarerPatientDetails,GetPersonalcarerPatientDetailsCompletedEventArgs>("QueryPatientRecordWS.GetPersonalcarerPatientDetails",oCReqMsgGetPersonalcarerPatientDetails,this.GetPersonalcarerPatientDetailsCompleted,"PatientID",new GetPersonalcarerPatientDetailsCompletedEventArgs(), prototypeList);
+}
+
+GetPatientCompleted: Function;
+GetPatientAsync(oCReqMsgGetPatient:CReqMsgGetPatient ) : void {
+  HelperService.Invoke<CReqMsgGetPatient,CResMsgGetPatient,GetPatientCompletedEventArgs>("QueryPatientRecordWS.GetPatient",oCReqMsgGetPatient,this.GetPatientCompleted,"PatientID",new GetPatientCompletedEventArgs(), prototypeList);
+}
+
+GetPatientRegOrgOIDCompleted: Function;
+GetPatientRegOrgOIDAsync(oCReqMsgGetPatientRegOrgOID:CReqMsgGetPatientRegOrgOID ) : void {
+  HelperService.Invoke<CReqMsgGetPatientRegOrgOID,CResMsgGetPatientRegOrgOID,GetPatientRegOrgOIDCompletedEventArgs>("QueryPatientRecordWS.GetPatientRegOrgOID",oCReqMsgGetPatientRegOrgOID,this.GetPatientRegOrgOIDCompleted,"PatientID",new GetPatientRegOrgOIDCompletedEventArgs(), prototypeList);
+}
+
+GetDuplicatePatientCompleted: Function;
+GetDuplicatePatientAsync(oCReqMsgGetDuplicatePatient:CReqMsgGetDuplicatePatient ) : void {
+  HelperService.Invoke<CReqMsgGetDuplicatePatient,CResMsgGetDuplicatePatient,GetDuplicatePatientCompletedEventArgs>("QueryPatientRecordWS.GetDuplicatePatient",oCReqMsgGetDuplicatePatient,this.GetDuplicatePatientCompleted,"oPatientSearch",new GetDuplicatePatientCompletedEventArgs(), prototypeList);
+}
+
+GetPatientByNHSCompleted: Function;
+GetPatientByNHSAsync(oCReqMsgGetPatientByNHS:CReqMsgGetPatientByNHS ) : void {
+  HelperService.Invoke<CReqMsgGetPatientByNHS,CResMsgGetPatientByNHS,GetPatientByNHSCompletedEventArgs>("QueryPatientRecordWS.GetPatientByNHS",oCReqMsgGetPatientByNHS,this.GetPatientByNHSCompleted,"NHSID",new GetPatientByNHSCompletedEventArgs(), prototypeList);
+}
+
+GetOccupationCompleted: Function;
+GetOccupationAsync(oCReqMsgGetOccupation:CReqMsgGetOccupation ) : void {
+  HelperService.Invoke<CReqMsgGetOccupation,CResMsgGetOccupation,GetOccupationCompletedEventArgs>("QueryPatientRecordWS.GetOccupation",oCReqMsgGetOccupation,this.GetOccupationCompleted,"OccupationName",new GetOccupationCompletedEventArgs(), prototypeList);
+}
+
+GetPatientGPSummaryCompleted: Function;
+GetPatientGPSummaryAsync(oCReqMsgGetPatientGPSummary:CReqMsgGetPatientGPSummary ) : void {
+  HelperService.Invoke<CReqMsgGetPatientGPSummary,CResMsgGetPatientGPSummary,GetPatientGPSummaryCompletedEventArgs>("QueryPatientRecordWS.GetPatientGPSummary",oCReqMsgGetPatientGPSummary,this.GetPatientGPSummaryCompleted,"PatientID",new GetPatientGPSummaryCompletedEventArgs(), prototypeList);
+}
+
+GetPatientSummaryCompleted: Function;
+GetPatientSummaryAsync(oCReqMsgGetPatientSummary:CReqMsgGetPatientSummary ) : void {
+  HelperService.Invoke<CReqMsgGetPatientSummary,CResMsgGetPatientSummary,GetPatientSummaryCompletedEventArgs>("QueryPatientRecordWS.GetPatientSummary",oCReqMsgGetPatientSummary,this.GetPatientSummaryCompleted,"PatientOID",new GetPatientSummaryCompletedEventArgs(), prototypeList);
+}
+
+IsNHSResponseCodeSeventeenCompleted: Function;
+IsNHSResponseCodeSeventeenAsync(oCReqMsgIsNHSResponseCodeSeventeen:CReqMsgIsNHSResponseCodeSeventeen ) : void {
+  HelperService.Invoke<CReqMsgIsNHSResponseCodeSeventeen,CResMsgIsNHSResponseCodeSeventeen,IsNHSResponseCodeSeventeenCompletedEventArgs>("QueryPatientRecordWS.IsNHSResponseCodeSeventeen",oCReqMsgIsNHSResponseCodeSeventeen,this.IsNHSResponseCodeSeventeenCompleted,"status",new IsNHSResponseCodeSeventeenCompletedEventArgs(), prototypeList);
+}
+
+GetPatientEducationCompleted: Function;
+GetPatientEducationAsync(oCReqMsgGetPatientEducation:CReqMsgGetPatientEducation ) : void {
+  HelperService.Invoke<CReqMsgGetPatientEducation,CResMsgGetPatientEducation,GetPatientEducationCompletedEventArgs>("QueryPatientRecordWS.GetPatientEducation",oCReqMsgGetPatientEducation,this.GetPatientEducationCompleted,"PatientID",new GetPatientEducationCompletedEventArgs(), prototypeList);
+}
+
+GetEducationForLoginHOCompleted: Function;
+GetEducationForLoginHOAsync(oCReqMsgGetEducationForLoginHO:CReqMsgGetEducationForLoginHO ) : void {
+  HelperService.Invoke<CReqMsgGetEducationForLoginHO,CResMsgGetEducationForLoginHO,GetEducationForLoginHOCompletedEventArgs>("QueryPatientRecordWS.GetEducationForLoginHO",oCReqMsgGetEducationForLoginHO,this.GetEducationForLoginHOCompleted,"objPatientLoginHO",new GetEducationForLoginHOCompletedEventArgs(), prototypeList);
+}
+
+GetPasIDSensitiveCompleted: Function;
+GetPasIDSensitiveAsync(oCReqMsgGetPasIDSensitive:CReqMsgGetPasIDSensitive ) : void {
+  HelperService.Invoke<CReqMsgGetPasIDSensitive,CResMsgGetPasIDSensitive,GetPasIDSensitiveCompletedEventArgs>("QueryPatientRecordWS.GetPasIDSensitive",oCReqMsgGetPasIDSensitive,this.GetPasIDSensitiveCompleted,"PatientID",new GetPasIDSensitiveCompletedEventArgs(), prototypeList);
+}
+
+GetPatientEmployerCompleted: Function;
+GetPatientEmployerAsync(oCReqMsgGetPatientEmployer:CReqMsgGetPatientEmployer ) : void {
+  HelperService.Invoke<CReqMsgGetPatientEmployer,CResMsgGetPatientEmployer,GetPatientEmployerCompletedEventArgs>("QueryPatientRecordWS.GetPatientEmployer",oCReqMsgGetPatientEmployer,this.GetPatientEmployerCompleted,"PatientID",new GetPatientEmployerCompletedEventArgs(), prototypeList);
+}
+
+GetEmployerForLoginHOCompleted: Function;
+GetEmployerForLoginHOAsync(oCReqMsgGetEmployerForLoginHO:CReqMsgGetEmployerForLoginHO ) : void {
+  HelperService.Invoke<CReqMsgGetEmployerForLoginHO,CResMsgGetEmployerForLoginHO,GetEmployerForLoginHOCompletedEventArgs>("QueryPatientRecordWS.GetEmployerForLoginHO",oCReqMsgGetEmployerForLoginHO,this.GetEmployerForLoginHOCompleted,"objPatientLoginHO",new GetEmployerForLoginHOCompletedEventArgs(), prototypeList);
+}
+
+GetPatientInsuranceExtendedCompleted: Function;
+GetPatientInsuranceExtendedAsync(oCReqMsgGetPatientInsuranceExtended:CReqMsgGetPatientInsuranceExtended ) : void {
+  HelperService.Invoke<CReqMsgGetPatientInsuranceExtended,CResMsgGetPatientInsuranceExtended,GetPatientInsuranceExtendedCompletedEventArgs>("QueryPatientRecordWS.GetPatientInsuranceExtended",oCReqMsgGetPatientInsuranceExtended,this.GetPatientInsuranceExtendedCompleted,"objPatInsuranceReq",new GetPatientInsuranceExtendedCompletedEventArgs(), prototypeList);
+}
+
+GetPatientInsuranceCompleted: Function;
+GetPatientInsuranceAsync(oCReqMsgGetPatientInsurance:CReqMsgGetPatientInsurance ) : void {
+  HelperService.Invoke<CReqMsgGetPatientInsurance,CResMsgGetPatientInsurance,GetPatientInsuranceCompletedEventArgs>("QueryPatientRecordWS.GetPatientInsurance",oCReqMsgGetPatientInsurance,this.GetPatientInsuranceCompleted,"PatientID",new GetPatientInsuranceCompletedEventArgs(), prototypeList);
+}
+
+GetInsuranceForLoginHOCompleted: Function;
+GetInsuranceForLoginHOAsync(oCReqMsgGetInsuranceForLoginHO:CReqMsgGetInsuranceForLoginHO ) : void {
+  HelperService.Invoke<CReqMsgGetInsuranceForLoginHO,CResMsgGetInsuranceForLoginHO,GetInsuranceForLoginHOCompletedEventArgs>("QueryPatientRecordWS.GetInsuranceForLoginHO",oCReqMsgGetInsuranceForLoginHO,this.GetInsuranceForLoginHOCompleted,"objPatientLoginHO",new GetInsuranceForLoginHOCompletedEventArgs(), prototypeList);
+}
+
+GetPatientSensitiveCompleted: Function;
+GetPatientSensitiveAsync(oCReqMsgGetPatientSensitive:CReqMsgGetPatientSensitive ) : void {
+  HelperService.Invoke<CReqMsgGetPatientSensitive,CResMsgGetPatientSensitive,GetPatientSensitiveCompletedEventArgs>("QueryPatientRecordWS.GetPatientSensitive",oCReqMsgGetPatientSensitive,this.GetPatientSensitiveCompleted,"sPatientID",new GetPatientSensitiveCompletedEventArgs(), prototypeList);
+}
+
+GetCarerDetailsCompleted: Function;
+GetCarerDetailsAsync(oCReqMsgGetCarerDetails:CReqMsgGetCarerDetails ) : void {
+  HelperService.Invoke<CReqMsgGetCarerDetails,CResMsgGetCarerDetails,GetCarerDetailsCompletedEventArgs>("QueryPatientRecordWS.GetCarerDetails",oCReqMsgGetCarerDetails,this.GetCarerDetailsCompleted,"PatientID",new GetCarerDetailsCompletedEventArgs(), prototypeList);
+}
+
+GetSortedPatientCompleted: Function;
+GetSortedPatientAsync(oCReqMsgGetSortedPatient:CReqMsgGetSortedPatient ) : void {
+  HelperService.Invoke<CReqMsgGetSortedPatient,CResMsgGetSortedPatient,GetSortedPatientCompletedEventArgs>("QueryPatientRecordWS.GetSortedPatient",oCReqMsgGetSortedPatient,this.GetSortedPatientCompleted,"sPatientOIDS",new GetSortedPatientCompletedEventArgs(), prototypeList);
+}
+
+GetCarerRoleDetailsCompleted: Function;
+GetCarerRoleDetailsAsync(oCReqMsgGetCarerRoleDetails:CReqMsgGetCarerRoleDetails ) : void {
+  HelperService.Invoke<CReqMsgGetCarerRoleDetails,CResMsgGetCarerRoleDetails,GetCarerRoleDetailsCompletedEventArgs>("QueryPatientRecordWS.GetCarerRoleDetails",oCReqMsgGetCarerRoleDetails,this.GetCarerRoleDetailsCompleted,"ActiveDate",new GetCarerRoleDetailsCompletedEventArgs(), prototypeList);
+}
+
+GetCarerAllDetailsCompleted: Function;
+GetCarerAllDetailsAsync(oCReqMsgGetCarerAllDetails:CReqMsgGetCarerAllDetails ) : void {
+  HelperService.Invoke<CReqMsgGetCarerAllDetails,CResMsgGetCarerAllDetails,GetCarerAllDetailsCompletedEventArgs>("QueryPatientRecordWS.GetCarerAllDetails",oCReqMsgGetCarerAllDetails,this.GetCarerAllDetailsCompleted,"SourceName",new GetCarerAllDetailsCompletedEventArgs(), prototypeList);
+}
+
+GetPatientAddrWTypeCompleted: Function;
+GetPatientAddrWTypeAsync(oCReqMsgGetPatientAddrWType:CReqMsgGetPatientAddrWType ) : void {
+  HelperService.Invoke<CReqMsgGetPatientAddrWType,CResMsgGetPatientAddrWType,GetPatientAddrWTypeCompletedEventArgs>("QueryPatientRecordWS.GetPatientAddrWType",oCReqMsgGetPatientAddrWType,this.GetPatientAddrWTypeCompleted,"CommFlag",new GetPatientAddrWTypeCompletedEventArgs(), prototypeList);
+}
+
+GetPITypCodeCompleted: Function;
+GetPITypCodeAsync(oCReqMsgGetPITypCode:CReqMsgGetPITypCode ) : void {
+  HelperService.Invoke<CReqMsgGetPITypCode,CResMsgGetPITypCode,GetPITypCodeCompletedEventArgs>("QueryPatientRecordWS.GetPITypCode",oCReqMsgGetPITypCode,this.GetPITypCodeCompleted,"objReqGetPITypCode",new GetPITypCodeCompletedEventArgs(), prototypeList);
+}
+
+GetPatMandatoryInfoCompleted: Function;
+GetPatMandatoryInfoAsync(oCReqMsgGetPatMandatoryInfo:CReqMsgGetPatMandatoryInfo ) : void {
+  HelperService.Invoke<CReqMsgGetPatMandatoryInfo,CResMsgGetPatMandatoryInfo,GetPatMandatoryInfoCompletedEventArgs>("QueryPatientRecordWS.GetPatMandatoryInfo",oCReqMsgGetPatMandatoryInfo,this.GetPatMandatoryInfoCompleted,"PatientID",new GetPatMandatoryInfoCompletedEventArgs(), prototypeList);
+}
+
+GetPatMandatoryInfoExistCompleted: Function;
+GetPatMandatoryInfoExistAsync(oCReqMsgGetPatMandatoryInfoExist:CReqMsgGetPatMandatoryInfoExist ) : void {
+  HelperService.Invoke<CReqMsgGetPatMandatoryInfoExist,CResMsgGetPatMandatoryInfoExist,GetPatMandatoryInfoExistCompletedEventArgs>("QueryPatientRecordWS.GetPatMandatoryInfoExist",oCReqMsgGetPatMandatoryInfoExist,this.GetPatMandatoryInfoExistCompleted,"PatientID",new GetPatMandatoryInfoExistCompletedEventArgs(), prototypeList);
+}
+
+GetDissentInfoExist_IDMCompleted: Function;
+GetDissentInfoExist_IDMAsync(oCReqMsgGetDissentInfoExist_IDM:CReqMsgGetDissentInfoExist_IDM ) : void {
+  HelperService.Invoke<CReqMsgGetDissentInfoExist_IDM,CResMsgGetDissentInfoExist_IDM,GetDissentInfoExist_IDMCompletedEventArgs>("QueryPatientRecordWS.GetDissentInfoExist_IDM",oCReqMsgGetDissentInfoExist_IDM,this.GetDissentInfoExist_IDMCompleted,"objPatientLoginHO",new GetDissentInfoExist_IDMCompletedEventArgs(), prototypeList);
+}
+
+GetPrimPatientOIDCompleted: Function;
+GetPrimPatientOIDAsync(oCReqMsgGetPrimPatientOID:CReqMsgGetPrimPatientOID ) : void {
+  HelperService.Invoke<CReqMsgGetPrimPatientOID,CResMsgGetPrimPatientOID,GetPrimPatientOIDCompletedEventArgs>("QueryPatientRecordWS.GetPrimPatientOID",oCReqMsgGetPrimPatientOID,this.GetPrimPatientOIDCompleted,"lnPatientID",new GetPrimPatientOIDCompletedEventArgs(), prototypeList);
+}
+
+GetPrefRelnInfoCompleted: Function;
+GetPrefRelnInfoAsync(oCReqMsgGetPrefRelnInfo:CReqMsgGetPrefRelnInfo ) : void {
+  HelperService.Invoke<CReqMsgGetPrefRelnInfo,CResMsgGetPrefRelnInfo,GetPrefRelnInfoCompletedEventArgs>("QueryPatientRecordWS.GetPrefRelnInfo",oCReqMsgGetPrefRelnInfo,this.GetPrefRelnInfoCompleted,"objReq",new GetPrefRelnInfoCompletedEventArgs(), prototypeList);
+}
+
+GetContactNoForSMSCompleted: Function;
+GetContactNoForSMSAsync(oCReqMsgGetContactNoForSMS:CReqMsgGetContactNoForSMS ) : void {
+  HelperService.Invoke<CReqMsgGetContactNoForSMS,CResMsgGetContactNoForSMS,GetContactNoForSMSCompletedEventArgs>("QueryPatientRecordWS.GetContactNoForSMS",oCReqMsgGetContactNoForSMS,this.GetContactNoForSMSCompleted,"PatientOID",new GetContactNoForSMSCompletedEventArgs(), prototypeList);
+}
+
+GetIsPrefIconExistsCompleted: Function;
+GetIsPrefIconExistsAsync(oCReqMsgGetIsPrefIconExists:CReqMsgGetIsPrefIconExists ) : void {
+  HelperService.Invoke<CReqMsgGetIsPrefIconExists,CResMsgGetIsPrefIconExists,GetIsPrefIconExistsCompletedEventArgs>("QueryPatientRecordWS.GetIsPrefIconExists",oCReqMsgGetIsPrefIconExists,this.GetIsPrefIconExistsCompleted,"PatientID",new GetIsPrefIconExistsCompletedEventArgs(), prototypeList);
+}
+
+GetIsPrefIconExistsEnhancedCompleted: Function;
+GetIsPrefIconExistsEnhancedAsync(oCReqMsgGetIsPrefIconExistsEnhanced:CReqMsgGetIsPrefIconExistsEnhanced ) : void {
+  HelperService.Invoke<CReqMsgGetIsPrefIconExistsEnhanced,CResMsgGetIsPrefIconExistsEnhanced,GetIsPrefIconExistsEnhancedCompletedEventArgs>("QueryPatientRecordWS.GetIsPrefIconExistsEnhanced",oCReqMsgGetIsPrefIconExistsEnhanced,this.GetIsPrefIconExistsEnhancedCompleted,"PatientID",new GetIsPrefIconExistsEnhancedCompletedEventArgs(), prototypeList);
+}
+
+GetAgeBandingDetailsCompleted: Function;
+GetAgeBandingDetailsAsync(oCReqMsgGetAgeBandingDetails:CReqMsgGetAgeBandingDetails ) : void {
+  HelperService.Invoke<CReqMsgGetAgeBandingDetails,CResMsgGetAgeBandingDetails,GetAgeBandingDetailsCompletedEventArgs>("QueryPatientRecordWS.GetAgeBandingDetails",oCReqMsgGetAgeBandingDetails,this.GetAgeBandingDetailsCompleted,"dDOB",new GetAgeBandingDetailsCompletedEventArgs(), prototypeList);
+}
+
+GetPatientPrimaryContactCompleted: Function;
+GetPatientPrimaryContactAsync(oCReqMsgGetPatientPrimaryContact:CReqMsgGetPatientPrimaryContact ) : void {
+  HelperService.Invoke<CReqMsgGetPatientPrimaryContact,CResMsgGetPatientPrimaryContact,GetPatientPrimaryContactCompletedEventArgs>("QueryPatientRecordWS.GetPatientPrimaryContact",oCReqMsgGetPatientPrimaryContact,this.GetPatientPrimaryContactCompleted,"objAddressSearch",new GetPatientPrimaryContactCompletedEventArgs(), prototypeList);
+}
+
+GetMotherRelationCompleted: Function;
+GetMotherRelationAsync(oCReqMsgGetMotherRelation:CReqMsgGetMotherRelation ) : void {
+  HelperService.Invoke<CReqMsgGetMotherRelation,CResMsgGetMotherRelation,GetMotherRelationCompletedEventArgs>("QueryPatientRecordWS.GetMotherRelation",oCReqMsgGetMotherRelation,this.GetMotherRelationCompleted,"sPatientOID",new GetMotherRelationCompletedEventArgs(), prototypeList);
+}
+
+GetPatientPhotoIDCompleted: Function;
+GetPatientPhotoIDAsync(oCReqMsgGetPatientPhotoID:CReqMsgGetPatientPhotoID ) : void {
+  HelperService.Invoke<CReqMsgGetPatientPhotoID,CResMsgGetPatientPhotoID,GetPatientPhotoIDCompletedEventArgs>("QueryPatientRecordWS.GetPatientPhotoID",oCReqMsgGetPatientPhotoID,this.GetPatientPhotoIDCompleted,"lnPatientOID",new GetPatientPhotoIDCompletedEventArgs(), prototypeList);
+}
+
+GetRecentQuickSearchIDCompleted: Function;
+GetRecentQuickSearchIDAsync(oCReqMsgGetRecentQuickSearchID:CReqMsgGetRecentQuickSearchID ) : void {
+  HelperService.Invoke<CReqMsgGetRecentQuickSearchID,CResMsgGetRecentQuickSearchID,GetRecentQuickSearchIDCompletedEventArgs>("QueryPatientRecordWS.GetRecentQuickSearchID",oCReqMsgGetRecentQuickSearchID,this.GetRecentQuickSearchIDCompleted,"IDTypes",new GetRecentQuickSearchIDCompletedEventArgs(), prototypeList);
+}
+
+GetPatPrefBookCompleted: Function;
+GetPatPrefBookAsync(oCReqMsgGetPatPrefBook:CReqMsgGetPatPrefBook ) : void {
+  HelperService.Invoke<CReqMsgGetPatPrefBook,CResMsgGetPatPrefBook,GetPatPrefBookCompletedEventArgs>("QueryPatientRecordWS.GetPatPrefBook",oCReqMsgGetPatPrefBook,this.GetPatPrefBookCompleted,"PatientID",new GetPatPrefBookCompletedEventArgs(), prototypeList);
+}
+
+GetPatientStatusCompleted: Function;
+GetPatientStatusAsync(oCReqMsgGetPatientStatus:CReqMsgGetPatientStatus ) : void {
+  HelperService.Invoke<CReqMsgGetPatientStatus,CResMsgGetPatientStatus,GetPatientStatusCompletedEventArgs>("QueryPatientRecordWS.GetPatientStatus",oCReqMsgGetPatientStatus,this.GetPatientStatusCompleted,"PatientID",new GetPatientStatusCompletedEventArgs(), prototypeList);
+}
+
+GetPatientStatusForLoginHOCompleted: Function;
+GetPatientStatusForLoginHOAsync(oCReqMsgGetPatientStatusForLoginHO:CReqMsgGetPatientStatusForLoginHO ) : void {
+  HelperService.Invoke<CReqMsgGetPatientStatusForLoginHO,CResMsgGetPatientStatusForLoginHO,GetPatientStatusForLoginHOCompletedEventArgs>("QueryPatientRecordWS.GetPatientStatusForLoginHO",oCReqMsgGetPatientStatusForLoginHO,this.GetPatientStatusForLoginHOCompleted,"objPatientLoginHO",new GetPatientStatusForLoginHOCompletedEventArgs(), prototypeList);
+}
+
+GetAddressCompleted: Function;
+GetAddressAsync(oCReqMsgGetAddress:CReqMsgGetAddress ) : void {
+  HelperService.Invoke<CReqMsgGetAddress,CResMsgGetAddress,GetAddressCompletedEventArgs>("QueryPatientRecordWS.GetAddress",oCReqMsgGetAddress,this.GetAddressCompleted,"EndDttm",new GetAddressCompletedEventArgs(), prototypeList);
+}
+
+GetPatientStatusMHAACompleted: Function;
+GetPatientStatusMHAAAsync(oCReqMsgGetPatientStatusMHAA:CReqMsgGetPatientStatusMHAA ) : void {
+  HelperService.Invoke<CReqMsgGetPatientStatusMHAA,CResMsgGetPatientStatusMHAA,GetPatientStatusMHAACompletedEventArgs>("QueryPatientRecordWS.GetPatientStatusMHAA",oCReqMsgGetPatientStatusMHAA,this.GetPatientStatusMHAACompleted,"ActiveOnDTTM",new GetPatientStatusMHAACompletedEventArgs(), prototypeList);
+}
+
+GetPatientSearchDetailsCompleted: Function;
+GetPatientSearchDetailsAsync(oCReqMsgGetPatientSearchDetails:CReqMsgGetPatientSearchDetails ) : void {
+  HelperService.Invoke<CReqMsgGetPatientSearchDetails,CResMsgGetPatientSearchDetails,GetPatientSearchDetailsCompletedEventArgs>("QueryPatientRecordWS.GetPatientSearchDetails",oCReqMsgGetPatientSearchDetails,this.GetPatientSearchDetailsCompleted,"pElement",new GetPatientSearchDetailsCompletedEventArgs(), prototypeList);
+}
+
+GetPatientQuickSearchDetailsCompleted: Function;
+GetPatientQuickSearchDetailsAsync(oCReqMsgGetPatientQuickSearchDetails:CReqMsgGetPatientQuickSearchDetails ) : void {
+  HelperService.Invoke<CReqMsgGetPatientQuickSearchDetails,CResMsgGetPatientQuickSearchDetails,GetPatientQuickSearchDetailsCompletedEventArgs>("QueryPatientRecordWS.GetPatientQuickSearchDetails",oCReqMsgGetPatientQuickSearchDetails,this.GetPatientQuickSearchDetailsCompleted,"pElement",new GetPatientQuickSearchDetailsCompletedEventArgs(), prototypeList);
+}
+
+GetRecentPatientSearchCompleted: Function;
+GetRecentPatientSearchAsync(oCReqMsgGetRecentPatientSearch:CReqMsgGetRecentPatientSearch ) : void {
+  HelperService.Invoke<CReqMsgGetRecentPatientSearch,CResMsgGetRecentPatientSearch,GetRecentPatientSearchCompletedEventArgs>("QueryPatientRecordWS.GetRecentPatientSearch",oCReqMsgGetRecentPatientSearch,this.GetRecentPatientSearchCompleted,"oPatientSearch",new GetRecentPatientSearchCompletedEventArgs(), prototypeList);
+}
+
+GetPatientFrequentSearchDetailsCompleted: Function;
+GetPatientFrequentSearchDetailsAsync(oCReqMsgGetPatientFrequentSearchDetails:CReqMsgGetPatientFrequentSearchDetails ) : void {
+  HelperService.Invoke<CReqMsgGetPatientFrequentSearchDetails,CResMsgGetPatientFrequentSearchDetails,GetPatientFrequentSearchDetailsCompletedEventArgs>("QueryPatientRecordWS.GetPatientFrequentSearchDetails",oCReqMsgGetPatientFrequentSearchDetails,this.GetPatientFrequentSearchDetailsCompleted,"oPatientSearch",new GetPatientFrequentSearchDetailsCompletedEventArgs(), prototypeList);
+}
+
+GetPatientEncounterSearchDetailsCompleted: Function;
+GetPatientEncounterSearchDetailsAsync(oCReqMsgGetPatientEncounterSearchDetails:CReqMsgGetPatientEncounterSearchDetails ) : void {
+  HelperService.Invoke<CReqMsgGetPatientEncounterSearchDetails,CResMsgGetPatientEncounterSearchDetails,GetPatientEncounterSearchDetailsCompletedEventArgs>("QueryPatientRecordWS.GetPatientEncounterSearchDetails",oCReqMsgGetPatientEncounterSearchDetails,this.GetPatientEncounterSearchDetailsCompleted,"oPatientSearch",new GetPatientEncounterSearchDetailsCompletedEventArgs(), prototypeList);
+}
+
+GetCompletePatientSearchDetailsCompleted: Function;
+GetCompletePatientSearchDetailsAsync(oCReqMsgGetCompletePatientSearchDetails:CReqMsgGetCompletePatientSearchDetails ) : void {
+  HelperService.Invoke<CReqMsgGetCompletePatientSearchDetails,CResMsgGetCompletePatientSearchDetails,GetCompletePatientSearchDetailsCompletedEventArgs>("QueryPatientRecordWS.GetCompletePatientSearchDetails",oCReqMsgGetCompletePatientSearchDetails,this.GetCompletePatientSearchDetailsCompleted,"pElement",new GetCompletePatientSearchDetailsCompletedEventArgs(), prototypeList);
+}
+
+GetPatientListCompleted: Function;
+GetPatientListAsync(oCReqMsgGetPatientList:CReqMsgGetPatientList ) : void {
+  HelperService.Invoke<CReqMsgGetPatientList,CResMsgGetPatientList,GetPatientListCompletedEventArgs>("QueryPatientRecordWS.GetPatientList",oCReqMsgGetPatientList,this.GetPatientListCompleted,"pageElement",new GetPatientListCompletedEventArgs(), prototypeList);
+}
+
+GetSmartListCompleted: Function;
+GetSmartListAsync(oCReqMsgGetSmartList:CReqMsgGetSmartList ) : void {
+  HelperService.Invoke<CReqMsgGetSmartList,CResMsgGetSmartList,GetSmartListCompletedEventArgs>("QueryPatientRecordWS.GetSmartList",oCReqMsgGetSmartList,this.GetSmartListCompleted,"pageElement",new GetSmartListCompletedEventArgs(), prototypeList);
+}
+
+GetStaticListCompleted: Function;
+GetStaticListAsync(oCReqMsgGetStaticList:CReqMsgGetStaticList ) : void {
+  HelperService.Invoke<CReqMsgGetStaticList,CResMsgGetStaticList,GetStaticListCompletedEventArgs>("QueryPatientRecordWS.GetStaticList",oCReqMsgGetStaticList,this.GetStaticListCompleted,"pageElement",new GetStaticListCompletedEventArgs(), prototypeList);
+}
+
+GetCriteriaBasedPatientListCompleted: Function;
+GetCriteriaBasedPatientListAsync(oCReqMsgGetCriteriaBasedPatientList:CReqMsgGetCriteriaBasedPatientList ) : void {
+  HelperService.Invoke<CReqMsgGetCriteriaBasedPatientList,CResMsgGetCriteriaBasedPatientList,GetCriteriaBasedPatientListCompletedEventArgs>("QueryPatientRecordWS.GetCriteriaBasedPatientList",oCReqMsgGetCriteriaBasedPatientList,this.GetCriteriaBasedPatientListCompleted,"pageElement",new GetCriteriaBasedPatientListCompletedEventArgs(), prototypeList);
+}
+
+GetCriteriaBasedXMLCompleted: Function;
+GetCriteriaBasedXMLAsync(oCReqMsgGetCriteriaBasedXML:CReqMsgGetCriteriaBasedXML ) : void {
+  HelperService.Invoke<CReqMsgGetCriteriaBasedXML,CResMsgGetCriteriaBasedXML,GetCriteriaBasedXMLCompletedEventArgs>("QueryPatientRecordWS.GetCriteriaBasedXML",oCReqMsgGetCriteriaBasedXML,this.GetCriteriaBasedXMLCompleted,"objReqPatientListContext",new GetCriteriaBasedXMLCompletedEventArgs(), prototypeList);
+}
+
+GetNewRequestCompleted: Function;
+GetNewRequestAsync(oCReqMsgGetNewRequest:CReqMsgGetNewRequest ) : void {
+  HelperService.Invoke<CReqMsgGetNewRequest,CResMsgGetNewRequest,GetNewRequestCompletedEventArgs>("QueryPatientRecordWS.GetNewRequest",oCReqMsgGetNewRequest,this.GetNewRequestCompleted,"objReqNewRequest",new GetNewRequestCompletedEventArgs(), prototypeList);
+}
+
+GetNewResultCompleted: Function;
+GetNewResultAsync(oCReqMsgGetNewResult:CReqMsgGetNewResult ) : void {
+  HelperService.Invoke<CReqMsgGetNewResult,CResMsgGetNewResult,GetNewResultCompletedEventArgs>("QueryPatientRecordWS.GetNewResult",oCReqMsgGetNewResult,this.GetNewResultCompleted,"objReqNewResult",new GetNewResultCompletedEventArgs(), prototypeList);
+}
+
+GetNewDocumentCompleted: Function;
+GetNewDocumentAsync(oCReqMsgGetNewDocument:CReqMsgGetNewDocument ) : void {
+  HelperService.Invoke<CReqMsgGetNewDocument,CResMsgGetNewDocument,GetNewDocumentCompletedEventArgs>("QueryPatientRecordWS.GetNewDocument",oCReqMsgGetNewDocument,this.GetNewDocumentCompleted,"objReqNewDocuments",new GetNewDocumentCompletedEventArgs(), prototypeList);
+}
+
+GetUnAcKnowledgeResultCompleted: Function;
+GetUnAcKnowledgeResultAsync(oCReqMsgGetUnAcKnowledgeResult:CReqMsgGetUnAcKnowledgeResult ) : void {
+  HelperService.Invoke<CReqMsgGetUnAcKnowledgeResult,CResMsgGetUnAcKnowledgeResult,GetUnAcKnowledgeResultCompletedEventArgs>("QueryPatientRecordWS.GetUnAcKnowledgeResult",oCReqMsgGetUnAcKnowledgeResult,this.GetUnAcKnowledgeResultCompleted,"objReqUnAcknowledgeResults",new GetUnAcKnowledgeResultCompletedEventArgs(), prototypeList);
+}
+
+GetCritBasedProblemsCompleted: Function;
+GetCritBasedProblemsAsync(oCReqMsgGetCritBasedProblems:CReqMsgGetCritBasedProblems ) : void {
+  HelperService.Invoke<CReqMsgGetCritBasedProblems,CResMsgGetCritBasedProblems,GetCritBasedProblemsCompletedEventArgs>("QueryPatientRecordWS.GetCritBasedProblems",oCReqMsgGetCritBasedProblems,this.GetCritBasedProblemsCompleted,"sLoggedInHO",new GetCritBasedProblemsCompletedEventArgs(), prototypeList);
+}
+
+GetProceduresForHOsCompleted: Function;
+GetProceduresForHOsAsync(oCReqMsgGetProceduresForHOs:CReqMsgGetProceduresForHOs ) : void {
+  HelperService.Invoke<CReqMsgGetProceduresForHOs,CResMsgGetProceduresForHOs,GetProceduresForHOsCompletedEventArgs>("QueryPatientRecordWS.GetProceduresForHOs",oCReqMsgGetProceduresForHOs,this.GetProceduresForHOsCompleted,"sLoggedInHO",new GetProceduresForHOsCompletedEventArgs(), prototypeList);
+}
+
+GetAllergiesForHOsCompleted: Function;
+GetAllergiesForHOsAsync(oCReqMsgGetAllergiesForHOs:CReqMsgGetAllergiesForHOs ) : void {
+  HelperService.Invoke<CReqMsgGetAllergiesForHOs,CResMsgGetAllergiesForHOs,GetAllergiesForHOsCompletedEventArgs>("QueryPatientRecordWS.GetAllergiesForHOs",oCReqMsgGetAllergiesForHOs,this.GetAllergiesForHOsCompleted,"sLoggedInHO",new GetAllergiesForHOsCompletedEventArgs(), prototypeList);
+}
+
+GetPatientDecActivityCompleted: Function;
+GetPatientDecActivityAsync(oCReqMsgGetPatientDecActivity:CReqMsgGetPatientDecActivity ) : void {
+  HelperService.Invoke<CReqMsgGetPatientDecActivity,CResMsgGetPatientDecActivity,GetPatientDecActivityCompletedEventArgs>("QueryPatientRecordWS.GetPatientDecActivity",oCReqMsgGetPatientDecActivity,this.GetPatientDecActivityCompleted,"sPatientDecOrgOID",new GetPatientDecActivityCompletedEventArgs(), prototypeList);
+}
+
+GetEPRRelationshipCompleted: Function;
+GetEPRRelationshipAsync(oCReqMsgGetEPRRelationship:CReqMsgGetEPRRelationship ) : void {
+  HelperService.Invoke<CReqMsgGetEPRRelationship,CResMsgGetEPRRelationship,GetEPRRelationshipCompletedEventArgs>("QueryPatientRecordWS.GetEPRRelationship",oCReqMsgGetEPRRelationship,this.GetEPRRelationshipCompleted,"PatientID",new GetEPRRelationshipCompletedEventArgs(), prototypeList);
+}
+
+IsDuplicateNHSCompleted: Function;
+IsDuplicateNHSAsync(oCReqMsgIsDuplicateNHS:CReqMsgIsDuplicateNHS ) : void {
+  HelperService.Invoke<CReqMsgIsDuplicateNHS,CResMsgIsDuplicateNHS,IsDuplicateNHSCompletedEventArgs>("QueryPatientRecordWS.IsDuplicateNHS",oCReqMsgIsDuplicateNHS,this.IsDuplicateNHSCompleted,"NHSNumber",new IsDuplicateNHSCompletedEventArgs(), prototypeList);
+}
+
+IsNHSResponseCodeCompleted: Function;
+IsNHSResponseCodeAsync(oCReqMsgIsNHSResponseCode:CReqMsgIsNHSResponseCode ) : void {
+  HelperService.Invoke<CReqMsgIsNHSResponseCode,CResMsgIsNHSResponseCode,IsNHSResponseCodeCompletedEventArgs>("QueryPatientRecordWS.IsNHSResponseCode",oCReqMsgIsNHSResponseCode,this.IsNHSResponseCodeCompleted,"Pasid",new IsNHSResponseCodeCompletedEventArgs(), prototypeList);
+}
+
+IsSynchReasgnTaskCompleted: Function;
+IsSynchReasgnTaskAsync(oCReqMsgIsSynchReasgnTask:CReqMsgIsSynchReasgnTask ) : void {
+  HelperService.Invoke<CReqMsgIsSynchReasgnTask,CResMsgIsSynchReasgnTask,IsSynchReasgnTaskCompletedEventArgs>("QueryPatientRecordWS.IsSynchReasgnTask",oCReqMsgIsSynchReasgnTask,this.IsSynchReasgnTaskCompleted,"objReqIsSynchReasgnTask",new IsSynchReasgnTaskCompletedEventArgs(), prototypeList);
+}
+}
+
+export class GetPatientInfoCompletedEventArgs {
+  public Result: CResMsgGetPatientInfo;
+  public Error: any;
+}
+export class GetPatientAddressCompletedEventArgs {
+  public Result: CResMsgGetPatientAddress;
+  public Error: any;
+}
+export class GetPatAddressCompletedEventArgs {
+  public Result: CResMsgGetPatAddress;
+  public Error: any;
+}
+export class GetPatCarerAddressCompletedEventArgs {
+  public Result: CResMsgGetPatCarerAddress;
+  public Error: any;
+}
+export class GetPatientCommunicationAddressCompletedEventArgs {
+  public Result: CResMsgGetPatientCommunicationAddress;
+  public Error: any;
+}
+export class GetPatientContactCompletedEventArgs {
+  public Result: CResMsgGetPatientContact;
+  public Error: any;
+}
+export class GetPatientCarerContactCompletedEventArgs {
+  public Result: CResMsgGetPatientCarerContact;
+  public Error: any;
+}
+export class GetGPPracticeIDCompletedEventArgs {
+  public Result: CResMsgGetGPPracticeID;
+  public Error: any;
+}
+export class GetPatientAliasCompletedEventArgs {
+  public Result: CResMsgGetPatientAlias;
+  public Error: any;
+}
+export class GetPatientConsentCompletedEventArgs {
+  public Result: CResMsgGetPatientConsent;
+  public Error: any;
+}
+export class GetPatientGPCompletedEventArgs {
+  public Result: CResMsgGetPatientGP;
+  public Error: any;
+}
+export class GetPatientCarerCompletedEventArgs {
+  public Result: CResMsgGetPatientCarer;
+  public Error: any;
+}
+export class GetCareProviderByRoleCompletedEventArgs {
+  public Result: CResMsgGetCareProviderByRole;
+  public Error: any;
+}
+export class GetPatientIdCompletedEventArgs {
+  public Result: CResMsgGetPatientId;
+  public Error: any;
+}
+export class GetPatientIdForIntrayCompletedEventArgs {
+  public Result: CResMsgGetPatientIdForIntray;
+  public Error: any;
+}
+export class GetPatientIDForLoginHOCompletedEventArgs {
+  public Result: CResMsgGetPatientIDForLoginHO;
+  public Error: any;
+}
+export class GetPatientPersonalCarerCompletedEventArgs {
+  public Result: CResMsgGetPatientPersonalCarer;
+  public Error: any;
+}
+export class GetPatPersonalCarerAssessmentCompletedEventArgs {
+  public Result: CResMsgGetPatPersonalCarerAssessment;
+  public Error: any;
+}
+export class GetRelationshipDetailsCompletedEventArgs {
+  public Result: CResMsgGetRelationshipDetails;
+  public Error: any;
+}
+export class GetPatientPersonalCarerNameCompletedEventArgs {
+  public Result: CResMsgGetPatientPersonalCarerName;
+  public Error: any;
+}
+export class GetAllRelnDETailsCompletedEventArgs {
+  public Result: CResMsgGetAllRelnDETails;
+  public Error: any;
+}
+export class pGetRPDetailsForMaternityCompletedEventArgs {
+  public Result: CResMsgpGetRPDetailsForMaternity;
+  public Error: any;
+}
+export class GetPersonalCareAddressCompletedEventArgs {
+  public Result: CResMsgGetPersonalCareAddress;
+  public Error: any;
+}
+export class GetAllPersonalCareAddressCompletedEventArgs {
+  public Result: CResMsgGetAllPersonalCareAddress;
+  public Error: any;
+}
+export class GetPatientPreferenceCompletedEventArgs {
+  public Result: CResMsgGetPatientPreference;
+  public Error: any;
+}
+export class GetPrefForOtherCACompletedEventArgs {
+  public Result: CResMsgGetPrefForOtherCA;
+  public Error: any;
+}
+export class GetPatientStatusInfoCompletedEventArgs {
+  public Result: CResMsgGetPatientStatusInfo;
+  public Error: any;
+}
+export class GetPatientOIDsByPatientIDsCompletedEventArgs {
+  public Result: CResMsgGetPatientOIDsByPatientIDs;
+  public Error: any;
+}
+export class GetRpMainVisitorCompletedEventArgs {
+  public Result: CResMsgGetRpMainVisitor;
+  public Error: any;
+}
+export class GetPatientSummaryInfoCompletedEventArgs {
+  public Result: CResMsgGetPatientSummaryInfo;
+  public Error: any;
+}
+export class GetPatientEmailCompletedEventArgs {
+  public Result: CResMsgGetPatientEmail;
+  public Error: any;
+}
+export class GetPatientLastModifiedDetailsCompletedEventArgs {
+  public Result: CResMsgGetPatientLastModifiedDetails;
+  public Error: any;
+}
+export class GetPatInfoDetailsCompletedEventArgs {
+  public Result: CResMsgGetPatInfoDetails;
+  public Error: any;
+}
+export class GetNokEduInfoCompletedEventArgs {
+  public Result: CResMsgGetNokEduInfo;
+  public Error: any;
+}
+export class GetPatFallbackDtlsCompletedEventArgs {
+  public Result: CResMsgGetPatFallbackDtls;
+  public Error: any;
+}
+export class GetPatientIdentifierCompletedEventArgs {
+  public Result: CResMsgGetPatientIdentifier;
+  public Error: any;
+}
+export class GetPatientIDMInfoCompletedEventArgs {
+  public Result: CResMsgGetPatientIDMInfo;
+  public Error: any;
+}
+export class GetPatientAddressAliasInfoCompletedEventArgs {
+  public Result: CResMsgGetPatientAddressAliasInfo;
+  public Error: any;
+}
+export class GetPatientMaternityRelationCompletedEventArgs {
+  public Result: CResMsgGetPatientMaternityRelation;
+  public Error: any;
+}
+export class GetPatientEnquirySearchDetailsCompletedEventArgs {
+  public Result: CResMsgGetPatientEnquirySearchDetails;
+  public Error: any;
+}
+export class GetPatPrefDetailsCompletedEventArgs {
+  public Result: CResMsgGetPatPrefDetails;
+  public Error: any;
+}
+export class IsPreferenceExistCompletedEventArgs {
+  public Result: CResMsgIsPreferenceExist;
+  public Error: any;
+}
+export class GetPatientReminderDetailsCompletedEventArgs {
+  public Result: CResMsgGetPatientReminderDetails;
+  public Error: any;
+}
+export class GetPatientDemographicCompletedEventArgs {
+  public Result: CResMsgGetPatientDemographic;
+  public Error: any;
+}
+export class GetPatientDemographicSummaryCompletedEventArgs {
+  public Result: CResMsgGetPatientDemographicSummary;
+  public Error: any;
+}
+export class GetPatientDetailsCompletedEventArgs {
+  public Result: CResMsgGetPatientDetails;
+  public Error: any;
+}
+export class GetPersonalcarerPatientDetailsCompletedEventArgs {
+  public Result: CResMsgGetPersonalcarerPatientDetails;
+  public Error: any;
+}
+export class GetPatientCompletedEventArgs {
+  public Result: CResMsgGetPatient;
+  public Error: any;
+}
+export class GetPatientRegOrgOIDCompletedEventArgs {
+  public Result: CResMsgGetPatientRegOrgOID;
+  public Error: any;
+}
+export class GetDuplicatePatientCompletedEventArgs {
+  public Result: CResMsgGetDuplicatePatient;
+  public Error: any;
+}
+export class GetPatientByNHSCompletedEventArgs {
+  public Result: CResMsgGetPatientByNHS;
+  public Error: any;
+}
+export class GetOccupationCompletedEventArgs {
+  public Result: CResMsgGetOccupation;
+  public Error: any;
+}
+export class GetPatientGPSummaryCompletedEventArgs {
+  public Result: CResMsgGetPatientGPSummary;
+  public Error: any;
+}
+export class GetPatientSummaryCompletedEventArgs {
+  public Result: CResMsgGetPatientSummary;
+  public Error: any;
+}
+export class IsNHSResponseCodeSeventeenCompletedEventArgs {
+  public Result: CResMsgIsNHSResponseCodeSeventeen;
+  public Error: any;
+}
+export class GetPatientEducationCompletedEventArgs {
+  public Result: CResMsgGetPatientEducation;
+  public Error: any;
+}
+export class GetEducationForLoginHOCompletedEventArgs {
+  public Result: CResMsgGetEducationForLoginHO;
+  public Error: any;
+}
+export class GetPasIDSensitiveCompletedEventArgs {
+  public Result: CResMsgGetPasIDSensitive;
+  public Error: any;
+}
+export class GetPatientEmployerCompletedEventArgs {
+  public Result: CResMsgGetPatientEmployer;
+  public Error: any;
+}
+export class GetEmployerForLoginHOCompletedEventArgs {
+  public Result: CResMsgGetEmployerForLoginHO;
+  public Error: any;
+}
+export class GetPatientInsuranceExtendedCompletedEventArgs {
+  public Result: CResMsgGetPatientInsuranceExtended;
+  public Error: any;
+}
+export class GetPatientInsuranceCompletedEventArgs {
+  public Result: CResMsgGetPatientInsurance;
+  public Error: any;
+}
+export class GetInsuranceForLoginHOCompletedEventArgs {
+  public Result: CResMsgGetInsuranceForLoginHO;
+  public Error: any;
+}
+export class GetPatientSensitiveCompletedEventArgs {
+  public Result: CResMsgGetPatientSensitive;
+  public Error: any;
+}
+export class GetCarerDetailsCompletedEventArgs {
+  public Result: CResMsgGetCarerDetails;
+  public Error: any;
+}
+export class GetSortedPatientCompletedEventArgs {
+  public Result: CResMsgGetSortedPatient;
+  public Error: any;
+}
+export class GetCarerRoleDetailsCompletedEventArgs {
+  public Result: CResMsgGetCarerRoleDetails;
+  public Error: any;
+}
+export class GetCarerAllDetailsCompletedEventArgs {
+  public Result: CResMsgGetCarerAllDetails;
+  public Error: any;
+}
+export class GetPatientAddrWTypeCompletedEventArgs {
+  public Result: CResMsgGetPatientAddrWType;
+  public Error: any;
+}
+export class GetPITypCodeCompletedEventArgs {
+  public Result: CResMsgGetPITypCode;
+  public Error: any;
+}
+export class GetPatMandatoryInfoCompletedEventArgs {
+  public Result: CResMsgGetPatMandatoryInfo;
+  public Error: any;
+}
+export class GetPatMandatoryInfoExistCompletedEventArgs {
+  public Result: CResMsgGetPatMandatoryInfoExist;
+  public Error: any;
+}
+export class GetDissentInfoExist_IDMCompletedEventArgs {
+  public Result: CResMsgGetDissentInfoExist_IDM;
+  public Error: any;
+}
+export class GetPrimPatientOIDCompletedEventArgs {
+  public Result: CResMsgGetPrimPatientOID;
+  public Error: any;
+}
+export class GetPrefRelnInfoCompletedEventArgs {
+  public Result: CResMsgGetPrefRelnInfo;
+  public Error: any;
+}
+export class GetContactNoForSMSCompletedEventArgs {
+  public Result: CResMsgGetContactNoForSMS;
+  public Error: any;
+}
+export class GetIsPrefIconExistsCompletedEventArgs {
+  public Result: CResMsgGetIsPrefIconExists;
+  public Error: any;
+}
+export class GetIsPrefIconExistsEnhancedCompletedEventArgs {
+  public Result: CResMsgGetIsPrefIconExistsEnhanced;
+  public Error: any;
+}
+export class GetAgeBandingDetailsCompletedEventArgs {
+  public Result: CResMsgGetAgeBandingDetails;
+  public Error: any;
+}
+export class GetPatientPrimaryContactCompletedEventArgs {
+  public Result: CResMsgGetPatientPrimaryContact;
+  public Error: any;
+}
+export class GetMotherRelationCompletedEventArgs {
+  public Result: CResMsgGetMotherRelation;
+  public Error: any;
+}
+export class GetPatientPhotoIDCompletedEventArgs {
+  public Result: CResMsgGetPatientPhotoID;
+  public Error: any;
+}
+export class GetRecentQuickSearchIDCompletedEventArgs {
+  public Result: CResMsgGetRecentQuickSearchID;
+  public Error: any;
+}
+export class GetPatPrefBookCompletedEventArgs {
+  public Result: CResMsgGetPatPrefBook;
+  public Error: any;
+}
+export class GetPatientStatusCompletedEventArgs {
+  public Result: CResMsgGetPatientStatus;
+  public Error: any;
+}
+export class GetPatientStatusForLoginHOCompletedEventArgs {
+  public Result: CResMsgGetPatientStatusForLoginHO;
+  public Error: any;
+}
+export class GetAddressCompletedEventArgs {
+  public Result: CResMsgGetAddress;
+  public Error: any;
+}
+export class GetPatientStatusMHAACompletedEventArgs {
+  public Result: CResMsgGetPatientStatusMHAA;
+  public Error: any;
+}
+export class GetPatientSearchDetailsCompletedEventArgs {
+  public Result: CResMsgGetPatientSearchDetails;
+  public Error: any;
+}
+export class GetPatientQuickSearchDetailsCompletedEventArgs {
+  public Result: CResMsgGetPatientQuickSearchDetails;
+  public Error: any;
+}
+export class GetRecentPatientSearchCompletedEventArgs {
+  public Result: CResMsgGetRecentPatientSearch;
+  public Error: any;
+}
+export class GetPatientFrequentSearchDetailsCompletedEventArgs {
+  public Result: CResMsgGetPatientFrequentSearchDetails;
+  public Error: any;
+}
+export class GetPatientEncounterSearchDetailsCompletedEventArgs {
+  public Result: CResMsgGetPatientEncounterSearchDetails;
+  public Error: any;
+}
+export class GetCompletePatientSearchDetailsCompletedEventArgs {
+  public Result: CResMsgGetCompletePatientSearchDetails;
+  public Error: any;
+}
+export class GetPatientListCompletedEventArgs {
+  public Result: CResMsgGetPatientList;
+  public Error: any;
+}
+export class GetSmartListCompletedEventArgs {
+  public Result: CResMsgGetSmartList;
+  public Error: any;
+}
+export class GetStaticListCompletedEventArgs {
+  public Result: CResMsgGetStaticList;
+  public Error: any;
+}
+export class GetCriteriaBasedPatientListCompletedEventArgs {
+  public Result: CResMsgGetCriteriaBasedPatientList;
+  public Error: any;
+}
+export class GetCriteriaBasedXMLCompletedEventArgs {
+  public Result: CResMsgGetCriteriaBasedXML;
+  public Error: any;
+}
+export class GetNewRequestCompletedEventArgs {
+  public Result: CResMsgGetNewRequest;
+  public Error: any;
+}
+export class GetNewResultCompletedEventArgs {
+  public Result: CResMsgGetNewResult;
+  public Error: any;
+}
+export class GetNewDocumentCompletedEventArgs {
+  public Result: CResMsgGetNewDocument;
+  public Error: any;
+}
+export class GetUnAcKnowledgeResultCompletedEventArgs {
+  public Result: CResMsgGetUnAcKnowledgeResult;
+  public Error: any;
+}
+export class GetCritBasedProblemsCompletedEventArgs {
+  public Result: CResMsgGetCritBasedProblems;
+  public Error: any;
+}
+export class GetProceduresForHOsCompletedEventArgs {
+  public Result: CResMsgGetProceduresForHOs;
+  public Error: any;
+}
+export class GetAllergiesForHOsCompletedEventArgs {
+  public Result: CResMsgGetAllergiesForHOs;
+  public Error: any;
+}
+export class GetPatientDecActivityCompletedEventArgs {
+  public Result: CResMsgGetPatientDecActivity;
+  public Error: any;
+}
+export class GetEPRRelationshipCompletedEventArgs {
+  public Result: CResMsgGetEPRRelationship;
+  public Error: any;
+}
+export class IsDuplicateNHSCompletedEventArgs {
+  public Result: CResMsgIsDuplicateNHS;
+  public Error: any;
+}
+export class IsNHSResponseCodeCompletedEventArgs {
+  public Result: CResMsgIsNHSResponseCode;
+  public Error: any;
+}
+export class IsSynchReasgnTaskCompletedEventArgs {
+  public Result: CResMsgIsSynchReasgnTask;
+  public Error: any;
+}
+export class CReqMsgGetPatPrefBook {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatPrefBook {
+  oContextInformation: CContextInformation;
+  oPatientPreference: ObservableCollection<PatientPreference>;
+}
+
+export class PatientPreference extends CLZOObject {
+  SuspendMode: string;
+  sPrefId: string;
+  PreferenceCodeType: string;
+  PreferenceDetails: string;
+  IsPrimaryInterpreterRequired: string;
+  Comments: string;
+  FromDate: DateTime;
+  ToDate: DateTime;
+  PreferredCommunicationLanguage: string;
+  PrimaryLanguage: string;
+  OtherLanguage: string;
+  DialectSupported: string;
+  ScopeType: string;
+  ScopeValue: string;
+  ScopeIdentifyingOID: string;
+  sMsgChk: boolean;
+  Status: string;
+  TempID: number;
+  PreferenceOID: string;
+  PatientOID: string;
+  IsCombo: string;
+  PREDTCode: string;
+  CreatedAt: DateTime;
+  Actionable: string;
+  GenUpdate: string;
+  sPDSValue: string;
+  sLorValue: string;
+  PDSUpdateStatus: string;
+  IsPDSSelect: string;
+  IsPDSchecked: boolean;
+  IsHistorical: boolean;
+  IsUIHistoric: boolean;
+  IsMatch: string;
+  ActiveTo: DateTime;
+  ActiveFrom: DateTime;
+  IsReqFromOtherWP: boolean;
+  IsInterpreterReqDeclined: boolean;
+}
+export class PatientStatus extends CLZOObject {
+  SuspendMode: string;
+  StatusIdentifier: string;
+  StatusTypeCode: string;
+  StatusValueCode: string;
+  Comments: string;
+  OwnerOrganisationOID: string;
+  sMsgChk: boolean;
+  bIsMHAASection: boolean;
+  PatientOID: string;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  CreatedAt: DateTime;
+  MHAASectionOID: string;
+  ParentMHAASectionOID: string;
+  PatientStatusHO: string;
+  IdentifyingType: string;
+  IdentifyingOID: string;
+}
+export class PatientLoginHO extends CLZOObject {
+  PatientOID: number;
+  LoginHO: number;
+}
+export class Address extends CLZOObject {
+  AddressIdentifier: string;
+  OverseasAddress: string;
+  sPreferedContactTime: string;
+  AddrRoleParentOID: string;
+  Comments: string;
+  PDSPatientAddressID: string;
+  PDSPatientAddressRoleID: string;
+  OwnerOrganisationOID: string;
+  AddressType: string;
+  RoleTypeCode: string;
+  AddressLine1: string;
+  AddressLine2: string;
+  AddressLine3: string;
+  AddressLine4: string;
+  PreferedContactTime: string;
+  PDSUpdateStatus: byte;
+  GenUpdate: string;
+  bRpAddNullDates: boolean;
+  OrgActiveFrom: DateTime;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  StateCode: string;
+  CountryCode: string;
+  PostalCode: string;
+  PrimaryContact: string;
+  Communication: string;
+  PrimaryAddress: string;
+  SecureAddress: string;
+  CityCode: string;
+  CountyCode: string;
+  AddressKey: string;
+  IsValidAddressKey: string;
+  AddressServiceName: string;
+  MRGSTATUS: string;
+  sMsgChk: string;
+  AddressLine5: string;
+  AddressTypeText: string;
+  CountryText: string;
+  GeoLocation: string;
+  Contract: ContractActivity;
+  sPDSValue: string;
+  sLORValue: string;
+  bPdsGenUpd: boolean;
+  IsRestrictedData: boolean;
+}
+export class ContractActivityMetaData extends CLZOObject {
+  Identifier: number;
+  IdentifyingType: string;
+  EntityType: string;
+  ActivityType: string;
+  ActivityID: string;
+  ActivityOID: number;
+  EncounterOID: number;
+  PatientOID: number;
+  PatientID: string;
+  PrimaryID: string;
+  SecondaryID: string;
+  AssignmentDate: DateTime;
+  AssignmentStatus: string;
+  AssignmentMethod: string;
+  ProcessingStatus: string;
+  AgreementSerialNumber: string;
+  AgreementLineRefNumber: string;
+  ResponsibleHOOID: number;
+  ResponsibleHOName: string;
+  IsAssignmentLocked: string;
+  CareProviderOID: number;
+  TreatmentFnOID: number;
+  ServicePointOID: number;
+  CallingCAMethod: string;
+  AltEntityTypeCode: string;
+}
+export class ContractActivity extends ContractActivityMetaData {
+  PatientIDType: string;
+  EffectiveDate: DateTime;
+  ActivityStartDate: DateTime;
+  ActivityEndDate: DateTime;
+  PurchaserCode: string;
+  PurchaserOID: number;
+  PurchaserName: string;
+  OwningProviderHOOID: number;
+  AgreementOID: number;
+  AgreementLineOID: number;
+  AgreementDescription: string;
+  OwningProviderHOName: string;
+  AgreementLineDescription: string;
+  IsClearAssignment: string;
+  Weighting: number;
+  OwnerOrganisationOID: number;
+  IsModified: string;
+  ParentActivityOID: number;
+  ParentActivityID: string;
+  ParentEntityType: string;
+  ParentStartDate: DateTime;
+  ParentEndDate: DateTime;
+  CareActivity: string;
+  TriggerAction: string;
+  TriggerOID: number;
+  RulesetOID: number;
+  ConditionLogicMode: EnumTriggerConditionLogic;
+  CondnEntityType: string;
+  IsEncounterUpdate: boolean;
+  EndDateMode: EnumTriggerEndDate;
+  AttributesList: string;
+  ReferralID: string;
+  ReferralOID: number;
+  LastUpdatedAt: DateTime;
+  IsSensitive: string;
+  GPDate: DateTime;
+  PostcodeDate: DateTime;
+  DOB: DateTime;
+  IsLocked: string;
+  oAssociatedEntities: ObservableCollection<AssociatedEntities>;
+  GroupByResult: ObservableCollection<GroupResult>;
+}
+export enum EnumTriggerConditionLogic {
+  NotApplicable,
+  OnTrue,
+  OnFalse,
+}
+export enum EnumTriggerEndDate {
+  NotApplicable,
+  NullEndDate,
+  EndDate,
+}
+export class AssociatedEntities {
+  EntityType: string;
+  ActivityOID: number;
+  EncounterOID: number;
+  IsEncounterUpdate: string;
+}
+export class GroupResult {
+  GroupValue: string;
+  Count: number;
+  DisplayValue: string;
+}
+export class PatientAddress extends Address {
+  AccommodationType: string;
+  CorrespondencePeriod: string;
+  Status: string;
+  IsPatientAideUser: boolean;
+  FormattedFromDate: string;
+  FormattedToDate: string;
+  PatientOID: string;
+  CreatedAt: DateTime;
+  IsValue: boolean;
+  SuspendMode: string;
+  GridRowStatus: string;
+  ISPDSSelect: boolean;
+  IsMatch: string;
+  IsPDSchecked: boolean;
+  IsUIHistoric: boolean;
+  IsGenUpdate: boolean;
+  LorActiveFrom: DateTime;
+  OPMode: string;
+  AccommodationTypeDTTM: DateTime;
+  PatientContact: ObservableCollection<Contact>;
+  PatientCommunication: ObservableCollection<PatientCommunication>;
+  DPatientContact: ObservableCollection<Contact>;
+}
+export class Contact extends CLZOObject {
+  SuspendMode: string;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  Comments: string;
+  OwnerOrganisationOID: string;
+  PatientOID: string;
+  PDSPatientAddressID: string;
+  PDSPatientAddressRoleID: string;
+  sMsgChk: string;
+  PreferedContactTime: string;
+  Status: string;
+  FormattedFromDate: string;
+  FormattedToDate: string;
+  IsEmailRegWithEncryptService: string;
+  IsRestrictedData: boolean;
+  AddressOID: string;
+  ContactIdentifier: string;
+  ContactType: string;
+  ContactRoleTypeCode: string;
+  ContactNumber: string;
+  Secure: boolean;
+  IsDefault: string;
+  oAuditInfo: AuditInfo;
+  AddrRoleParentOID: string;
+  UserNames: string;
+  Communication: string;
+  CreatedAt: DateTime;
+  PrimaryContact: string;
+  RegEncryptedEmailService: string;
+  PDSUpdateStatus: byte;
+  Extension: string;
+  GenUpdate: string;
+  IsPDSchecked: boolean;
+  IsMatch: string;
+  sPDSValue: string;
+  sLORValue: string;
+  IsUIHistoric: boolean;
+  bPdsGenUpd: boolean;
+  IsGenUpdate: boolean;
+  LorActiveFrom: DateTime;
+  OPMode: string;
+  IsValidContact: boolean;
+  ContactROTYPCode: string;
+  GridRowStatus: string;
+  oUserMobileNumber: ObservableCollection<UserMobileNumber>;
+}
+export class AuditInfo extends CLZOObject {
+  CreatedAt: DateTime;
+  CreatedBy: number;
+  ModifiedAt: DateTime;
+  ModifiedBy: number;
+  Status: string;
+  UserOID: number;
+  JobRoleOID: number;
+  JobRoleProfileOID: number;
+  PrevModifiedAt: DateTime;
+}
+export class UserMobileNumber extends CLZOObject {
+  UsersOID: string;
+  MobileNumber: string;
+  UserName: string;
+  oAuditInfo: AuditInfo;
+}
+export class PatientCommunication extends CLZOObject {
+  AddrRoleParentOID: string;
+  Comments: string;
+  SuspendMode: string;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  OwnerOrganisationOID: string;
+  PatientOID: string;
+  PDSPatientAddressID: string;
+  PDSPatientAddressRoleID: string;
+  sMsgChk: string;
+  PreferedContactTime: string;
+  Status: string;
+  FormattedFromDate: string;
+  FormattedToDate: string;
+  IsEmailRegWithEncryptService: string;
+  CountryCode: string;
+  AddressIdentifier: string;
+  StateCode: string;
+  AddressLine5: string;
+  AddressType: string;
+  RoleTypeCode: string;
+  oPatientAddress: PatientAddress;
+  PostalCode: string;
+  PrimaryContact: string;
+  Communication: string;
+  StartDttm: DateTime;
+  CreatedAt: DateTime;
+  EndDttm: DateTime;
+  PrimaryAddress: string;
+  SecureAddress: string;
+  CityCode: string;
+  CountyCode: string;
+  AddressKey: string;
+  IsValidAddressKey: string;
+  AddressServiceName: string;
+  MRGSTATUS: string;
+  AddressLine2: string;
+  AddressLine1: string;
+  AddressLine3: string;
+  AddressLine4: string;
+  IsRestrictedData: boolean;
+  AddressOID: string;
+  ContactIdentifier: string;
+  ContactType: string;
+  ContactRoleTypeCode: string;
+  ContactNumber: string;
+  Secure: boolean;
+  IsDefault: string;
+  oAuditInfo: AuditInfo;
+  UserNames: string;
+  RegEncryptedEmailService: string;
+  PDSUpdateStatus: byte;
+  Extension: string;
+  GenUpdate: string;
+  IsPDSchecked: boolean;
+  IsMatch: string;
+  sPDSValue: string;
+  sLORValue: string;
+  IsUIHistoric: boolean;
+  bPdsGenUpd: boolean;
+  IsGenUpdate: boolean;
+  LorActiveFrom: DateTime;
+  OPMode: string;
+  IsValidContact: boolean;
+  ContactROTYPCode: string;
+  GridRowStatus: string;
+  oUserMobileNumber: ObservableCollection<UserMobileNumber>;
+}
+export class PatientGP extends Address {
+  Titlecode: string;
+  Surname: string;
+  Forename: string;
+  OccupationCode: string;
+  CareProviderID: string;
+  PatientGPIdentifier: string;
+  CareProviderIdentifier: string;
+  OrganisationIdentifier: string;
+  SourceNameOID: number;
+  SourceName: string;
+  TeamOID: number;
+  TeamName: string;
+  UsersOID: number;
+  UsersIdentifier: string;
+  PatientCareproviderOID: number;
+  CareproviderType: string;
+  CareproviderOID: number;
+  CurrentGP: boolean;
+  PRTYPCode: string;
+  OrganisationType: string;
+  ORGTypeCode: string;
+  OrganisationCode: number;
+  RoleName: string;
+  CPROLCode: string;
+  PDSPatientCareProviderID: string;
+  PDSCarerType: string;
+  FormattedFromDate: string;
+  FormattedToDate: string;
+  PatientOID: string;
+  PractiseName: string;
+  PractiseCode: string;
+  GPPractiseAddress: HOAddress;
+  CareproviderName: string;
+  GPExist: string;
+  LorActiveFrom: DateTime;
+  PDSActiveFrom: DateTime;
+  CreatedAt: DateTime;
+  UsualGP: boolean;
+  IdentifyingOID: string;
+  DissociationCode: string;
+  GPAddress: HOAddress;
+  GPSalutation: string;
+  GPName: string;
+  CareServiceOID: number;
+  EmailAddressOID: number;
+  SAPExternalCareService: string;
+  EmailAddress: string;
+  CareService: string;
+  SuspendMode: string;
+  GridRowStatus: string;
+  TelephoneHome: string;
+  TelephoneWork: string;
+  Mobile: string;
+  GeneralPractioner: dpUser;
+  IsMatch: string;
+  IsPDSchecked: boolean;
+  objHo: HealthOrganisationDetail;
+}
+export class HOAddress extends Address {
+  HOIdentifier: number;
+  GLocation: string;
+  oAuditInfo: AuditInfo;
+  HOContact: ObservableCollection<Contact>;
+}
+export class Person extends CLZOObject {
+  Surname: string;
+  Forename: string;
+  MiddleName: string;
+  TitleCode: string;
+  SexCode: string;
+  IsDOBEstimation: string;
+  BirthDttm: DateTime;
+  BloodGroup: string;
+  DeathDttm: DateTime;
+  CountryCode: string;
+  Initials: string;
+  CreatedAt: DateTime;
+  ModifiedAt: DateTime;
+  CreatedBy: number;
+  ModifiedBy: number;
+  Status: string;
+}
+export class User extends Person {
+  RoleID: string;
+  RoleDescription: string;
+  OId: number;
+  CultureSetting: string;
+  Qualification: string;
+  QualificationType: string;
+  IsCareprovider: string;
+  Administrator: string;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  ActiveToOrig: DateTime;
+  MessagingIPdetails: string;
+  HealthOrganisation: string;
+  HealthOrganisationOId: number;
+  CareproviderOrganisationOId: number;
+  OccupationCode: string;
+  CPTYPOID: string;
+  oAuditInfo: AuditInfo;
+  OutOfHrs: number;
+  NATNLCode: string;
+  RELIGCode: string;
+  SPOKLCode: string;
+  ETHGRCode: string;
+  MARRYCode: string;
+  WardAvailablity: string;
+  IsAvailableOnHolidays: string;
+  IsInterpreter: string;
+  MainIdentifier: string;
+  ParentHOTYPCode: string;
+  ParentOrganisationCode: string;
+  SourceOID: string;
+  SourceType: string;
+  CULTCCode: string;
+  Comments: string;
+  IsNativeUser: string;
+  LoginName: string;
+  RoleProCode: string;
+  WorkGroupCode: string;
+  EnterpriseNoteOID: number;
+  ConstraintOIds: string;
+  ConstraintWrkGrpCodes: string;
+  RoleProfileOid: number;
+  UserType: string;
+  IsLoginableUser: string;
+  IsConflictChk: boolean;
+  EntObjAddDetOID: number;
+  MFNBatchStatus: string;
+  UITypeCode: string;
+  IsRestrictedData: boolean;
+}
+export class dpUser extends User {
+  oHealthOrganisation: HealthOrganisationDetail;
+  oRole: Role;
+  oUserAddress: UserAddress;
+  oUserID: ObservableCollection<UserID>;
+}
+export class HealthOrganisationDetail extends CLZOObject {
+  IsRestrictedData: boolean;
+  oHealthOrg: HealthOrganisation;
+  oAuditInfo: AuditInfo;
+  oHOStatus: HOStatus;
+  oOrgInsurer: ObservableCollection<HOInsurer>;
+  arrHealthOrg: ObservableCollection<HealthOrganisation>;
+  oOrgAddress: ObservableCollection<HOAddress>;
+  oOrgIDs: ObservableCollection<HOIdentifier>;
+  oOrgLocation: ObservableCollection<HOLocation>;
+  oOrgSpecialty: ObservableCollection<HOSpecialty>;
+  oOrgTeams: ObservableCollection<HOTeams>;
+  oOrgService: ObservableCollection<HOService>;
+  oOrgCareService: ObservableCollection<HOCareService>;
+  oFailedStatus: ObservableCollection<HOStatus>;
+  oHOStatusHistory: ObservableCollection<StatusHistory>;
+}
+export class HealthOrganisation extends CLZOObject {
+  IsRestrictedData: boolean;
+  OId: number;
+  Type: string;
+  Name: string;
+  Description: string;
+  LeadCareProvider: string;
+  MainID: string;
+  oParentOrganisation: ParentOrganisation;
+  External: boolean;
+  MainIDType: string;
+  UserMainID: string;
+  UserTitleCode: string;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  Active: boolean;
+  CulturalSetting: string;
+  oAuditInfo: AuditInfo;
+  LevelCode: string;
+  IsEASTrans: string;
+  ChildCount: string;
+  IsLegalEntity: string;
+  Organisationgroup: string;
+  Insurancetype: string;
+  Insurancerange: string;
+  Key: string;
+  GeographicalLoc: string;
+  PrevParHOOID: number;
+  Pagesize: number;
+  PageNumber: number;
+  MaxRows: number;
+  TotalRec: number;
+  MFNBatchStatus: string;
+}
+export class ParentOrganisation extends CLZOObject {
+  IsRestrictedData: boolean;
+  OId: number;
+  Type: string;
+  Name: string;
+  MainIDType: string;
+  MainID: string;
+  Relationship: string;
+  StartDTTM: DateTime;
+  EndDTTM: DateTime;
+  oAuditInfo: AuditInfo;
+}
+export class HOInsurer extends CLZOObject {
+  HOOid: string;
+  InsurerOid: string;
+  Insurertype: string;
+  Insurerrange: string;
+}
+export class ID extends CLZOObject {
+  SuspendMode: string;
+  IDType: string;
+  sIdentifierOID: string;
+  Identifier: string;
+  Comments: string;
+  AssigningAuthority: string;
+  AssigningFacility: string;
+  HealthOrgOID: string;
+  HealthOrgName: string;
+  PDSPatientID: string;
+  sMessageChk: string;
+  IsRestrictedData: boolean;
+  IDIdentifier: string;
+  MainID: boolean;
+  DefaultID: boolean;
+  MRGSTATUS: string;
+  sRegType: string;
+  ActiveFrom: DateTime;
+  CreatedAt: DateTime;
+  ActiveTo: DateTime;
+  MigrationFlag: string;
+}
+export class HOIdentifier extends ID {
+  HOUniqueOID: string;
+  oAuditInfo: AuditInfo;
+}
+export class PatientID extends ID {
+  PatientOID: string;
+  IsFromSummary: boolean;
+  PatientIdentifier: string;
+  IdentifierType: string;
+}
+export class UserID extends ID {
+  UserIdentifier: number;
+  ModifiedAt: DateTime;
+  CreatedBy: number;
+  ModifiedBy: number;
+  Status: string;
+  oAuditInfo: AuditInfo;
+}
+export class LocationIdentifier extends ID {
+  LocationOID: number;
+  oAuditInfo: AuditInfo;
+}
+export class Location extends CLZOObject {
+  LocationPosition: string;
+  LocationPositiontxt: string;
+  Boardingcharges: string;
+  IsRestrictedData: boolean;
+  OId: number;
+  Type: string;
+  Name: string;
+  Description: string;
+  HealthOrganisationOId: number;
+  HealthOrganisationName: string;
+  ParentLocationID: number;
+  RootParentLocationOID: number;
+  ParentLocationName: string;
+  ReferredToProviderLocationOID: number;
+  ReferredtoproviderName: string;
+  ParentLocType: string;
+  TRUSTPARENT: string;
+  MainIDType: string;
+  MainID: string;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  Active: boolean;
+  oAuditInfo: AuditInfo;
+  IsParent: string;
+  ParentLOCFrmdate: DateTime;
+  ParentLOCTodate: DateTime;
+  HealthOrganisationFrmDate: DateTime;
+  HealthOrganisationToDate: DateTime;
+  Typetxt: string;
+  CreatedByName: string;
+  IsOtherLocation: string;
+  HasChild: boolean;
+  BIsParentIdChange: boolean;
+  oLocationFeatures: ObservableCollection<LocationFeature>;
+  oLocationIdentifier: ObservableCollection<LocationIdentifier>;
+  oLocationStatushistory: ObservableCollection<StatusHistory>;
+  oMaskLocInfo: ObservableCollection<LocationMask>;
+  oLocationTracks: ObservableCollection<LocationTracking>;
+}
+export class HOLocation extends Location {
+}
+export class LocationFeature extends CLZOObject {
+  OID: number;
+  LocationOID: number;
+  LOCFTCode: string;
+  Locationtext: string;
+  CreatedBy: number;
+  CreatedAt: DateTime;
+  ModifiedBy: number;
+  ModifyAt: DateTime;
+  Status: string;
+  OwnerOrganisationOID: number;
+}
+export class StatusHistory extends CLZOObject {
+  Activity: string;
+  ActivityDate: DateTime;
+  Reason: string;
+  ReasonforOnbehalfof: string;
+  Remarks: string;
+  Status: string;
+  Status_Text: string;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  OnBehalfUserOId: number;
+  OnBehalfUserName: string;
+  OID: number;
+  Reasoncode: string;
+  ActivityDateText: string;
+}
+export class HOStatus extends StatusHistory {
+  IdentifyingOId: number;
+  IdentifyingType: string;
+  DASTSCode: string;
+  EnterpriseName: string;
+  EnterpriseDescription: string;
+  EnterpriseMainID: string;
+}
+export class ServicePointStatus extends StatusHistory {
+  IdentifyingOId: number;
+  IdentifyingType: string;
+  DASTSCode: string;
+  EnterpriseName: string;
+  EnterpriseDescription: string;
+  EnterpriseMainID: string;
+}
+export class LocationMask {
+  LocationOID: number;
+  ParentLocationOID: number;
+  Areaname: string;
+  MaskValue: string;
+  HiddenValue: string;
+  OperationMode: string;
+  Delete: string;
+  OID: number;
+  MaskInfo: ObservableCollection<MaskInfo>;
+}
+export class MaskInfo extends CLZOObject {
+  LocationOID: number;
+  ServiceOID: number;
+  DomainType: string;
+  DomainValue: string;
+  Case: string;
+  CaseValue: string;
+  Status: string;
+  MaskOID: number;
+}
+export class LocationTracking extends CLZOObject {
+  LocationOID: number;
+  LocationTrackingOID: number;
+  LocationTrackCode: string;
+  Status: string;
+  LocationTrackText: string;
+}
+export class Specialty extends CLZOObject {
+  IsRestrictedData: boolean;
+  Name: string;
+  Description: string;
+  SpecialtyType: string;
+  MainIdentifier: string;
+  Status: string;
+  HealthOrganisation: string;
+  OrganisationOIDs: string;
+  ActiveTo: DateTime;
+  SpecialtyOID: number;
+  ParentSpecialtyOID: number;
+  ActiveFrom: DateTime;
+  StatusFlag: string;
+  MainIDDesc: string;
+  SpecialtyFrom: DateTime;
+  SpecialtyTo: DateTime;
+  ParentSpecialtyName: string;
+  ParentSpecialtyType: string;
+  SourceType: string;
+  STFOID: number;
+  SpecialtyTypCode: string;
+  IsMain: string;
+  CPTIRCode: string;
+  TierOfService: string;
+}
+export class HOSpecialty extends Specialty {
+}
+export class Team extends CLZOObject {
+  OId: number;
+  AssignCaseload: string;
+  Type: string;
+  Name: string;
+  Identifier: string;
+  TeamOrganisation: ObjectInfo;
+  Remarks: string;
+  Status: string;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  HasDataFilter: string;
+  CAMHSTeamType: string;
+  CAMHSTierofService: string;
+}
+export class HOTeams extends Team {
+  OrganisationName: string;
+}
+export class ObjectInfo extends CLZOObject {
+  OID: number;
+  Name: string;
+  Code: string;
+  RoleProfileOID: number;
+  OwnerOrganisationOID: number;
+  SourceDataProviderType: string;
+}
+export class ServicePoint extends CLZOObject {
+  OID: number;
+  oServicePointType: SubServicePoint;
+  Description: string;
+  OwnedByuserOID: number;
+  HealthOrganisationOID: number;
+  ReferredToProviderLocationOID: number;
+  ReferredtoproviderName: string;
+  MainIDType: string;
+  MainID: string;
+  Schedulable: boolean;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  CareSettingType: string;
+  Active: boolean;
+  CreatedBy: number;
+  CreatedOn: DateTime;
+  ScheduleInstruction: string;
+  oServiceProfile: ServiceProfile;
+  Typetxt: string;
+  Name: string;
+  oServicePntdetail: ServicePointDetail;
+  CreatedByName: string;
+  EDTypCode: string;
+  oServiceLetters: ServiceLetters;
+  oServiceForms: ServiceForms;
+  Standarddischargetime: DateTime;
+  Standardadmissiontime: DateTime;
+  oServicePurpose: ObservableCollection<ServicePurpose>;
+  oEventStatusOptions: ObservableCollection<EventStatusOption>;
+}
+export class HOService extends ServicePoint {
+  Type: string;
+  OrganisationName: string;
+}
+export class ServicePurpose extends CLZOObject {
+  PurposeCodeTxt: string;
+  PurposeOId: number;
+  PurposeCode: string;
+  Status: string;
+}
+export class EventStatusOption extends CLZOObject {
+  EventStatusOID: string;
+  EventStatusServiceOID: string;
+  EventStatusCode: string;
+  Status: string;
+  SeenMandatoryFlds: string;
+  SeenMandatoryFldsPrev: string;
+  IsCaseNotePresent: boolean;
+  EventStatusName: string;
+  IsEnablePlaceOfSafety: boolean;
+  PdnaMandatoryFlds: string;
+  PdnaMandatoryFldsPrev: string;
+}
+export class SubServicePoint extends CLZOObject {
+  CompServOID: number;
+  Type: string;
+  Name: string;
+  oAuditInfo: AuditInfo;
+  ServiceOID: number;
+  MainID: string;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  OID: number;
+  OrgOID: number;
+}
+export class ServiceProfile extends CLZOObject {
+  ServiceProfileOId: number;
+  ServiceOId: number;
+  BRPAGCode: string;
+  INCLICode: string;
+  AGEGRCode: string;
+  PhysicalCapacity: number;
+  SexCode: string;
+}
+export class ServicePointDetail extends ServicePoint {
+  oEntWorkGroup: EnterpriseWorkgroup;
+  INLVLCode: string;
+  IsBoarderChargesApplicable: string;
+  IsWardAttendance: string;
+  IsWardInUse: string;
+  Context: string;
+  MajorIncidentOID: number;
+  PhysicalCapacity: number;
+  Stdadmtm: DateTime;
+  Stddistm: DateTime;
+  MajorIncident: string;
+  INCDLVLCode: string;
+  SPDStatusflag: string;
+  BRPGCode: string;
+  AGEGCode: string;
+  AccessCtrlWGName: string;
+  MembershipWGName: string;
+  IsAllowRetroBooking: string;
+  Session: SessionDetails;
+  MsgSerLocOID: number;
+  AnaestheticRoom: boolean;
+  RecoveryRoom: boolean;
+  Comments: string;
+  CarePoint: boolean;
+  InchargeCareProviderID: number;
+  InchargeCareproviderName: string;
+  SpecialtyOID: number;
+  SpecialtyDescription: string;
+  Purpose: string;
+  TheatreType: string;
+  TheatreSuite: string;
+  oSPStatus: ServicePointStatus;
+  WardType: string;
+  BedManagement: string;
+  TreatementRoom: string;
+  oHealthOrganisation: HealthOrganisation;
+  CareServiceOID: number;
+  CareServiceName: string;
+  TheatreOID: number;
+  WardOID: number;
+  PurposeOID: number;
+  CsServicePointOID: number;
+  ServiceIDOID: number;
+  IsPatientTracking: string;
+  TWStatusFlag: string;
+  WardAttendance: boolean;
+  Incidentlevel: string;
+  CCPEpisode: boolean;
+  IsCapacityCheck: string;
+  AugCarLocation: string;
+  IsCDSExcluded: boolean;
+  DataDeficitChk: boolean;
+  FwdWaitView: boolean;
+  PorterView: boolean;
+  BookedStatus: string;
+  CriticalCareUnitFunc: string;
+  ScheduleFlag: string;
+  CriticalCareUnitConfig: string;
+  INCLICode: string;
+  AGEGRCode: string;
+  IsCapacitychng: boolean;
+  Capacityfrmdt: DateTime;
+  Capacitytodt: DateTime;
+  ModCapacity: number;
+  LockSession: boolean;
+  IsAvailableOnHoliday: boolean;
+  WorkDays: string;
+  RemoveWorkDays: boolean;
+  EPrescribe: boolean;
+  IsQuickDischargeEnabled: boolean;
+  IsLeaveAndDischargeAllowed: boolean;
+  IsLocked: boolean;
+  IsCaseNotePresent: boolean;
+  IsEnablePlaceOfSafety: boolean;
+  ContactNumber: string;
+  ServiceLineCode: string;
+  ServiceCategoryCode: string;
+  IsSessionStarted: boolean;
+  IsEndDateChanged: boolean;
+  IFMFormCode: string;
+  TransferFormRequired: string;
+  IFMFormName: string;
+  oTransferOfCare: TransferOfCareConfigInfo;
+  oServiceProviderDetails: ObservableCollection<ServiceProviderDetails>;
+  EventStatusOptions: ObservableCollection<EventStatusOption>;
+  oLocation: ObservableCollection<Location>;
+  oLocationMask: ObservableCollection<LocationMask>;
+  arrServiceProfile: ObservableCollection<ServiceProfile>;
+  oPurpose: ObservableCollection<ServicePurpose>;
+  oAssociatedServicePoint: ObservableCollection<AssociatedServicePoint>;
+  oTheatreCritical: ObservableCollection<TheatreCrtical>;
+  TransportMode: ObservableCollection<TransportMode>;
+  ServiceExtension: ObservableCollection<ServiceExtension>;
+  MaskInfo: ObservableCollection<MaskInfo>;
+  TheatreDelayGain: ObservableCollection<DelayGain>;
+  CompatableServicePoint: ObservableCollection<SubServicePoint>;
+  ServiceLetterDetails: ObservableCollection<ServiceLetters>;
+  ServiceFormDetails: ObservableCollection<ServiceForms>;
+  oFPlan: ObservableCollection<FloorPlans>;
+  oFailedStatus: ObservableCollection<ServicePointStatus>;
+  oServicePointStatusHistory: ObservableCollection<StatusHistory>;
+  oEventStatusOpt: ObservableCollection<EventStatusOption>;
+}
+export class EnterpriseWorkgroup extends CLZOObject {
+  OId: number;
+  ArtefactOId: number;
+  ArtefactType: string;
+  MembershipWorkgroupOId: number;
+  MembershipWorkgroupCode: string;
+  MembershipWorkgroupName: string;
+  AccessCntlWorkgroupOId: number;
+  AccessCntlWorkgroupCode: string;
+  AccessCntlWorkgroupName: string;
+  OldMembershipWorkgroupCode: string;
+  Status: string;
+  oWorkgroupUser: LRWorkgroupUser;
+  OrganisationOId: number;
+}
+export class LRWorkgroupUser extends CLZOObject {
+  OID: number;
+  UserDetails: UserLoggedIn;
+  AuthorUserWorkgroupIdentifier: string;
+  AuthorUserRoleProfileIdentifier: string;
+  TargetuserRoleProfileIdentifier: string;
+  TargetuserObservationType: string;
+  TargetUserIdentifier: string;
+  TargetUserWorkgroupIdentifier: string;
+  RequestType: string;
+  AuthorUserIdentifier: string;
+  TeamOID: number;
+}
+export class UserLoggedIn extends CLZOObject {
+  RequestMsgID: string;
+  UserRoleProfileID: string;
+  UserID: string;
+  UserJobRoleCode: string;
+  OriginatorMachineID: string;
+  BusinessProcessQualifier: string;
+  BusinessProcessIdentifier: string;
+  LRComments: string;
+}
+export class ServiceProviderDetails extends CLZOObject {
+  ServiceProviderDetailsOId: number;
+  ServiceOId: number;
+  ServiceName: string;
+  CareProviderOId: number;
+  CareProviderName: string;
+  SpecialtyOId: number;
+  SpecialtyName: string;
+  TreatmentFnOId: number;
+  TreatmentFnName: string;
+  CPForeName: string;
+  CPSurName: string;
+  SpecialtyType: string;
+  CPRoleProfileOID: number;
+  CPRoleProfileName: string;
+  GridMode: string;
+  SerCPRoleOID: number;
+}
+export class SessionDetails extends CLZOObject {
+  SessionStartTime: string;
+  SessionEndTime: string;
+  DurationHours: number;
+  DurationMinutes: number;
+  EndHours: number;
+  EndMinutes: number;
+  StartHours: number;
+  StartMinutes: number;
+  SlotType: string;
+  SlotDuration: number;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  RestructurePerformDate: DateTime;
+  SessionStartDate: DateTime;
+  SessionEndDate: DateTime;
+  Horizon: number;
+  HorizonUOM: string;
+  RestructureDoneBy: string;
+  SessionName: string;
+  SessionID: number;
+  SessionType: string;
+  SessionIdentifier: string;
+}
+export class AssociatedServicePoint extends CLZOObject {
+  OID: number;
+  ServiceOID: number;
+  AssociatedServiceOID: number;
+  AssociatedServiceName: string;
+  AuditData: AuditInfo;
+  OwnerOrganisationOID: number;
+}
+export class TheatreCrtical extends CLZOObject {
+  OID: number;
+  ServiceOID: number;
+  CriticalCareType: string;
+  CriticalCareValue: string;
+  AuditData: AuditInfo;
+  OwnerOrganisationOID: number;
+}
+export class TransportMode extends CLZOObject {
+  TransportModeTxt: string;
+  OID: number;
+  TransportModeCC: string;
+  Status: string;
+}
+export class ServiceExtension extends CLZOObject {
+  LocationOID: number;
+  ServiceOID: number;
+  DomainType: string;
+  DomainValue: string;
+  Case: string;
+  Status: string;
+  MaskOID: number;
+  ParentLocationOID: number;
+  AreaName: string;
+}
+export class DelayGain extends CLZOObject {
+  SourceStatusCode: string;
+  TargetStatusCode: string;
+  OID: number;
+  Mandatory: string;
+  ThresholdDuration: number;
+  Status: string;
+}
+export class ServiceLetters extends CLZOObject {
+  CareActivityCode: string;
+  CareActivityName: string;
+  DocumentCode: string;
+  IdentifyingOID: number;
+  IdentiyingType: string;
+  IsDefault: string;
+  LetterTemplateType: string;
+  OID: number;
+  Status: string;
+  LetterTypeName: string;
+  LetterTemplateName: string;
+  TemplateOID: string;
+  FormOID: string;
+  EventStatusCode: string;
+}
+export class ServiceForms extends CLZOObject {
+  ModifiedBy: number;
+  ModifiedAt: DateTime;
+  CareActivityCode: string;
+  CareActivityName: string;
+  IdentifyingOID: number;
+  IdentiyingType: string;
+  IsDefault: string;
+  OID: number;
+  Status: string;
+  TemplateName: string;
+  TemplateOID: string;
+  FormOID: string;
+  EventStatusCode: string;
+}
+export class FloorPlans extends CLZOObject {
+  FloorOId: number;
+  FloorName: string;
+  FloorStatus: string;
+  FloorIsUsed: string;
+}
+export class TOCRequestinput extends CLZOObject {
+  TOCTYPE: string;
+  PatientOID: number;
+  EncounterOID: number;
+  EncounterType: string;
+  ServiceOID: number;
+  GPOID: number;
+  OrgOID: number;
+  MeshMailBoxID: string;
+  AlternateMeshMailBoxID: string;
+  SendingSystemMailBoxID: string;
+  MessageId: string;
+  WorkflowID: string;
+  DocumentOID: string;
+  TOCSummaryOID: string;
+  MESHLCode: string;
+  ACKMTCode: string;
+  ISFromMainApp: boolean;
+  EncounterID: string;
+  EncounterStatus: string;
+  sClinicalDocBinaryContent: ObservableCollection<byte>;
+  TOCStatus: string;
+  TOCSummaryHistoryOID: number;
+  TOCCompletedBy: number;
+  TOCIsSensitive: string;
+  TOCUserOverriddenPermission: string;
+  ReceivingOrgOID: number;
+  PASIdentifier: string;
+  PatientNHSNumber: string;
+  IsPatientGPAvailable: boolean;
+  CareSettingCode: string;
+  CareSettingTerm: string;
+  CareSettingVersion: string;
+  CareSettingCodingName: string;
+}
+export class TransferOfCareConfigInfo extends TOCRequestinput {
+  TOCSECConfigToDelete: string;
+  oTOCSectionDetails: ObservableCollection<TOCSectionDetails>;
+}
+export class TOCBaseObject extends CLZOObject {
+  IsAtributeCustmDisplyFRMT: boolean;
+  OID: number;
+  QualifiedName: string;
+  DisplayName: string;
+  SnomedCode: string;
+  DisplayOrder: number;
+  IsVisible: string;
+  IsMandatory: boolean;
+  MANDTCode: string;
+  MANDTDisplayName: string;
+  oTOCCustmAttribute: ObservableCollection<TOCBaseObject>;
+  DisplayValue: ObservableCollection<TOCDisplayDetails>;
+}
+export class TOCSectionDetails extends TOCBaseObject {
+  FNTYPCode: string;
+  FNTYPDisplayName: string;
+  FRMATCode: string;
+  FRMATDisplayName: string;
+  SECTYcode: string;
+  SECTYDisplayName: string;
+  IdentifyingType: string;
+  IdentifyingValue: string;
+  IdentifyingName: string;
+  IsValidSection: boolean;
+  IsSecMandatryAtributeFilled: boolean;
+  ServiceOID: number;
+  IsSectionTypeChangeable: string;
+  SectionDefinitionOID: number;
+  IFMFormORDataItemOID: number;
+  SectionContent: string;
+  oTOCAttribute: ObservableCollection<TOCBaseObject>;
+}
+export class TOCDisplayDetails extends CLZOObject {
+  Key: string;
+  Value: string;
+}
+export class CareService extends CLZOObject {
+  oEntWorkGroup: EnterpriseWorkgroup;
+  OId: number;
+  Type: string;
+  Name: string;
+  Description: string;
+  HealthOrganisationOId: number;
+  HealthOrgName: string;
+  MainIDType: string;
+  MainID: string;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  Active: boolean;
+  ChildCareService: string;
+  oParentCareService: ParentService;
+  oAuditInfo: AuditInfo;
+  CreatedByName: string;
+  PropertyType: string;
+  HealthOrganisationFrmDate: DateTime;
+  HealthOrganisationToDate: DateTime;
+}
+export class HOCareService extends CareService {
+}
+export class ParentService extends CLZOObject {
+  OId: number;
+  Type: string;
+  Name: string;
+  MainIDType: string;
+  MainID: string;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+}
+export class Role extends CLZOObject {
+  RoleOID: number;
+  IsRestrictedData: boolean;
+  Code: string;
+  Description: string;
+  Name: string;
+}
+export class UserAddress extends Address {
+  IdentifyingOID: number;
+  IdentifyingType: string;
+  PractitionerOIDs: string;
+  IsCommunicationAddress: string;
+  IsDefault: string;
+  UserAddressRoleID: number;
+  ROTYPCode: string;
+  AddressOID: number;
+  PrevModifiedat: DateTime;
+  UserContact: ObservableCollection<Contact>;
+}
+export class PersonalCarerAddress extends Address {
+  Status: string;
+  FormattedFromDate: string;
+  FormattedToDate: string;
+  PersonalCarerOID: string;
+  Surname: string;
+  Forename: string;
+  Suffix: string;
+  Titlecode: string;
+  Gender: string;
+  BirthDttm: DateTime;
+  LozStartDTTM: DateTime;
+  LozENDDTTM: DateTime;
+  IsPDSchecked: boolean;
+  IsMatch: string;
+  PersonalCarerContact: ObservableCollection<Contact>;
+}
+export class Patient extends CLZOObject {
+  PatientIdentifier: string;
+  NumberOfDependants: number;
+  PatientID: string;
+  NationalID: string;
+  UnFormatNHSNo: string;
+  Identfier1: string;
+  Identfier2: string;
+  IDType: string;
+  MessageStatus: string;
+  DOBEstimated: string;
+  DoNotMergeWithReason: string;
+  PateintDeceasedstatus: string;
+  OrganisationCode: number;
+  Comments: string;
+  NumberOfDependents: number;
+  OwnerOrganisationOID: string;
+  PDSSensitiveFlag: string;
+  IsNewRegistration: boolean;
+  Surname: string;
+  Prefix: string;
+  PartnerPrefix: string;
+  PartnerSurname: string;
+  PDisplayNHSNo: string;
+  LDisplayNHSNo: string;
+  bDOB: boolean;
+  bDOD: boolean;
+  PDisplayBirthDTTM: string;
+  LDisplayBirthDTTM: string;
+  PDisplayDeathDTTM: string;
+  LDisplayDeathDTTM: string;
+  PDisplayGender: string;
+  LDisplayGender: string;
+  SuffixName: string;
+  Forename: string;
+  MiddleName: string;
+  TitleText: string;
+  Title: string;
+  PatientName: string;
+  Alias: string;
+  Sex: string;
+  SexCode: string;
+  RegistrationDttm: DateTime;
+  bConTempPasid: boolean;
+  PACLSModifiedDttm: DateTime;
+  BirthDttm: DateTime;
+  DateOfBirthEstimated: boolean;
+  MultipleBirth: string;
+  BloodGroup: string;
+  InterpreterRequired: boolean;
+  Deceased: boolean;
+  IsConfirmDeceased: string;
+  IsDecouple: string;
+  IsDecoupleStaus: string;
+  bModifyMode: boolean;
+  PDSPatientAliasID: string;
+  PDSPatientAliasStatus: byte;
+  PlaceOfBirth: string;
+  MPlaceOfBirthText: string;
+  DeathDttm: DateTime;
+  PDSDeathDttmCopy: DateTime;
+  IsPartialDOD: string;
+  BirthDttmOpmode: string;
+  EventReasonCode: string;
+  GenUpdate: string;
+  iSFrSummCa: boolean;
+  bDecFrSync: boolean;
+  CountryCode: string;
+  OrganisationType: string;
+  RegistrationType: string;
+  RegType: string;
+  FacilityID: string;
+  Confidential: boolean;
+  Careprovider: string;
+  PatientStatus: string;
+  ConfidentialityReason: string;
+  Nationality: string;
+  Religion: string;
+  Ethnic: string;
+  ConsentReligion: string;
+  ConsentEthnic: string;
+  Occupation: string;
+  MaritalStatus: string;
+  EstimationOfBirth: string;
+  RecordNumber: number;
+  NYSIISForename: string;
+  NYSIISSurname: string;
+  IsActiveMerge: string;
+  IsLinked: string;
+  IsSensitive: string;
+  IsConsent: string;
+  Age: string;
+  DeathNotification: string;
+  TotRec: number;
+  TraceStatus: string;
+  SecondaryID: string;
+  PrimaryID: string;
+  MaxCount: number;
+  IsPDSSync: boolean;
+  Waitage: string;
+  BirthDttmFrom: DateTime;
+  SCNNumber: string;
+  bSamescn: boolean;
+  IsPDSTraced: string;
+  PTRSTCode: string;
+  Count: number;
+  RegiseteredHOOID: number;
+  RegiseteredHOName: string;
+  DoNotMergeWithPASIDs: string;
+  MessageChk: string;
+  Confidentialcode: string;
+  ageinyears: number;
+  bPDSDeceased: boolean;
+  bCancelDeceased: boolean;
+  IsRegType: string;
+  PDSGPPracCode: string;
+  PrevCnt: number;
+  IsUpdScnZero: boolean;
+  MigrationFlag: string;
+  CareProviderOrgCode: string;
+  IsMetaphone: string;
+  SocialEthnic: string;
+  SocialReligion: string;
+  bIsEmailReq: boolean;
+  MSHDatetime: string;
+  MSGPatientMainID: string;
+  bIsCopyLetter: string;
+  MaritalStatusCode: string;
+  EthnicityCode: string;
+  ReligionCode: string;
+  IsFromMaternity: boolean;
+  SexualOrientation: string;
+  IsEthinicityUpdfromSummary: boolean;
+  LocalSecure: string;
+  SpokenLanguage: ObservableCollection<SpokenLanguage>;
+  PatID: ObservableCollection<PatientID>;
+}
+export class SpokenLanguage extends CLZOObject {
+  LanguageIdentifier: string;
+  LanguageCode: string;
+}
+export class PatientAlias extends CLZOObject {
+  AliasIdentifier: string;
+  AliasType: string;
+  Comments: string;
+  OrganisationOID: string;
+  PDSPatientAliasID: string;
+  SuffixName: string;
+  NYSIISSurname: string;
+  NYSIISForename: string;
+  sMsgChk: string;
+  Status: string;
+  FormattedFromDate: string;
+  FormattedToDate: string;
+  PatientOID: string;
+  Surname: string;
+  Forename: string;
+  Middlename: string;
+  Suffixname: string;
+  Prefixname: string;
+  Partnerprefix: string;
+  Partnersurname: string;
+  Title: string;
+  ActiveFrom: DateTime;
+  CreatedAt: DateTime;
+  ActiveTo: DateTime;
+  GenUpdate: string;
+  PDSUpdateStatus: byte;
+  SuspendMode: string;
+  GridRowStatus: string;
+  sPDSValue: string;
+  sLorValue: string;
+  IsPDSExceed: boolean;
+  IsLorExceed: boolean;
+  LozStartDTTM: DateTime;
+  LozENDDTTM: DateTime;
+  IsPDSchecked: boolean;
+  IsMatch: string;
+  IsAliasUIHistoric: boolean;
+  bPdsGenUpd: boolean;
+  IsGenUpdate: boolean;
+  OPMode: string;
+  IsMetaphone: string;
+}
+export class PatientListContext extends CLZOObject {
+  bFromIndicator: boolean;
+  lIndicatorViewOID: number;
+  bMask: boolean;
+  CareProviderOID: string;
+  ServicePointOID: string;
+  ClinicalUnitOID: string;
+  ProblemOID: string;
+  TeamOID: string;
+  UsersOID: string;
+  PatientOID: string;
+  TotalNoRecords: number;
+  ListOID: number;
+  ListType: string;
+  SeparatorID: number;
+  PageLength: number;
+  NavMode: string;
+  SortByColumn: string;
+  DisplayDateDetails: string;
+  IsMerged: string;
+  LoggedinHO: number;
+  sXMLCriteria: string;
+  ENCOId: string;
+  LocationOID: string;
+  PatientConsent: string;
+  OrgIds: string;
+  sSmartListType: string;
+  RoleProfileOID: string;
+  PageIndex: number;
+  EncounterOids: string;
+  EncStatus: string;
+  PrimaryPatID: string;
+  SecondaryPatID: string;
+  EncClass: string;
+  IsIPPMADuOn: boolean;
+  DrugAdminDueThreshold: number;
+  IsRandRDUOn: boolean;
+  GroupByRowCount: number;
+  StartDate: DateTime;
+  EndDate: DateTime;
+  ModifiedAt: DateTime;
+  SpecialtyOID: string;
+  ExpectedDischargeDate: DateTime;
+  ActualDischargeDate: DateTime;
+  EncType: string;
+  patnames: string;
+  EncounterStartDate: DateTime;
+  EncounterEndDate: DateTime;
+}
+export class PatientList extends CLZOObject {
+  IndicatorViewCode: number;
+  TotalLeaveHours: number;
+  PatientIdentifier: string;
+  PatientID: string;
+  PrimaryPID: string;
+  PatientSecondaryID: string;
+  Surname: string;
+  Forename: string;
+  Title: string;
+  Sex: string;
+  BirthDttm: DateTime;
+  Age: number;
+  IsDuplicateSurName: boolean;
+  Deceased: boolean;
+  DeathDttm: DateTime;
+  CareproviderOID: string;
+  Careprovider: string;
+  ServicePointOID: string;
+  ServicePoint: string;
+  LocationOID: string;
+  Location: string;
+  ClinicalUnitOID: string;
+  ClinicalUnit: string;
+  NewResults: boolean;
+  NewRequest: boolean;
+  NewDocument: boolean;
+  IsAcknowledged: boolean;
+  DischargeDttm: DateTime;
+  PlannedDischargeDttm: DateTime;
+  AdmittedDttm: DateTime;
+  LastViewedDateTime: DateTime;
+  EncounterOID: string;
+  EncounterType: string;
+  EncounterStatus: string;
+  IsAbnormal: boolean;
+  IsTraced: string;
+  IsMerged: string;
+  PatientConsent: string;
+  DeceasedStatus: string;
+  DeceasedValue: string;
+  Organisation: string;
+  HOOID: string;
+  IsSensitive: string;
+  IsMultipleEnc: boolean;
+  IsRegType: string;
+  IsLinked: string;
+  DrugAdministration: string;
+  MiddleName: string;
+  SuffixName: string;
+  PrefixName: string;
+  TreatmentFnOID: string;
+  TreatmentFunction: string;
+  CareServiceOID: string;
+  CareService: string;
+  StartDTTM: DateTime;
+  ExpectedDischargeDTTM: DateTime;
+  ActualDischargeDTTM: DateTime;
+  BedLocationOID: string;
+  EventStatusCode: string;
+  BedLocationName: string;
+  ParentLocationType: string;
+  BedLocationType: string;
+  TrustSiteDetails: string;
+  Currentservicepointloc: string;
+  BedParentLocationOID: string;
+  BedParentLocationType: string;
+  BedParentLocationName: string;
+  EndDTTM: DateTime;
+  Patientdetails: string;
+  EncounterID: string;
+  ApptType: string;
+  APPSTCode: string;
+  ADMTYCode: string;
+  ProblemOID: string;
+  ServiceType: string;
+  Specialty: string;
+  SpecialtyOID: string;
+  AdmissionType: string;
+  EpisodeID: string;
+  AppointmentOID: string;
+  ActualAppointmentOID: string;
+  ActualRTTSTCode: string;
+  EpisodeIdentifier: string;
+  OutCome: string;
+  ReferralID: string;
+  inwardDuration: string;
+  outWardDuration: string;
+  IParentLocationOID: string;
+  IParentLocationType: string;
+  IParentLocationName: string;
+  LeastLocationOID: string;
+  LeastLocationType: string;
+  LeastLocationName: string;
+  LOCStartDTTM: DateTime;
+  LOCEndDTTM: DateTime;
+  EpisodeOID: string;
+  RecordedUserOID: string;
+  RecordedUserRoleOID: string;
+  RecordedUserName: string;
+  RecordedUserRoleName: string;
+  BedRequestReferralOID: string;
+  oIndicatorTracking: ObservableCollection<PatientIndicatorTracking>;
+  DynamicPaging: ObservableCollection<GroupResult>;
+  GroupByResultPaging: ObservableCollection<GroupResult>;
+}
+export class PatientIndicatorTracking extends CLZOObject {
+  PatientOID: number;
+  EncounterOID: number;
+  IdentifyingType: string;
+  IdentifyingOID: number;
+  IndicatorInitializedDTTM: DateTime;
+  IndicatorName: string;
+  IndicatorDomainCode: string;
+  IndicatorCriteriaCode: string;
+  OrganisationOID: number;
+  EncounterType: string;
+  AdmitType: string;
+  PatientTrackingStatus: string;
+  IsBatchProcessed: string;
+  PatientTrackingOID: number;
+  IsIndicatorTrackingRequired: string;
+  IsIndicatorHistoryRequired: string;
+  IndicatorViewOID: number;
+  IsPatientConfidential: string;
+  ServiceOID: number;
+  IsBatchTriggered: string;
+  MultipleEncounterOID: string;
+  IsRepeatableRule: string;
+  IsApplyRuleToEpisode: string;
+  IsRetrospective: string;
+  PreviousEncounterOID: number;
+  Status: string;
+  IndicatorRuleOID: number;
+}
+export class NewEvents extends CLZOObject {
+  OID: string;
+  UsersOID: number;
+  PatientOID: string;
+  ModifiedAt: DateTime;
+  Status: string;
+  IdentifyingOID: string;
+  IdentifyingType: string;
+  IsAbnormalFlag: string;
+  IsViewed: string;
+  EncounterOID: string;
+  OwnerOrganisationOID: number;
+  LoggedinHO: number;
+  IsConsent: string;
+  PageInfo: string;
+}
+export class NewRequests extends CLZOObject {
+  OID: string;
+  ResultItemName: string;
+  RequestedUserName: string;
+  RequestedDTTM: DateTime;
+  SpecialtyName: string;
+  Status: string;
+  Priority: string;
+  RequestType: string;
+  ToBePerformedDTTM: DateTime;
+  ResultRequiredDTTM: DateTime;
+  EncounterOID: string;
+  ConsentCount: string;
+  OriginalRequestItemOID: number;
+  OriginalRequestItemName: string;
+}
+export class NewResults extends CLZOObject {
+  OID: string;
+  RequestOID: string;
+  ResultItemName: string;
+  INTFLCode: string;
+  IdentifyingResultValue: string;
+  ReferenceRange: string;
+  UOM: string;
+  IsAbnormalFlag: string;
+  ConsentCount: string;
+  Status: string;
+  ReqDetOID: string;
+  ResultType: string;
+  ResultItemOID: string;
+  Requestitemname: string;
+  Specialtyname: string;
+  Collectiondate: DateTime;
+  RequestBy: string;
+  ResultStatus: string;
+  PageInfo: string;
+  ResEnteredBy: string;
+  IsConfidential: string;
+  OriginalRequestItemOID: number;
+  OriginalRequestItemName: string;
+}
+export class NewDocuments extends CLZOObject {
+  OID: string;
+  DocumentName: string;
+  DocumentType: string;
+  DocumentCategory: string;
+  IsConfidential: string;
+  IsSignificant: string;
+  LastModifiedDTTM: DateTime;
+  LastModifiedBy: string;
+  ConsentCount: string;
+  IsScanedDocument: string;
+  IsCanedDocument: string;
+}
+export class PatientPersonalCarer extends CLZOObject {
+  SuspendMode: string;
+  Status: string;
+  PatientPersonalCarerOID: string;
+  DisplayOnEPR: boolean;
+  NextOfKin: boolean;
+  OwnerOrganisationOID: string;
+  Comments: string;
+  DialectSupported: string;
+  Preferredlanguage: string;
+  InterpreterRequired: string;
+  GUID: string;
+  CommunicationMethod: string;
+  ContactMethod: string;
+  PreferredOrder: string;
+  sMsgChk: string;
+  Suffix: string;
+  IsGuarantor: string;
+  FormattedFromDate: string;
+  FormattedToDate: string;
+  IsFromNOK: boolean;
+  ActiveTabKey: string;
+  IsRowSel: boolean;
+  PersonalCarerOID: string;
+  PatientOID: string;
+  Title: string;
+  SurName: string;
+  ForeName: string;
+  Middlename: string;
+  sPDSValue: string;
+  sLorValue: string;
+  PersonalCarerType: string;
+  NHSType: string;
+  Sex: string;
+  BirthDttm: DateTime;
+  DeathDttm: DateTime;
+  ActiveFrom: DateTime;
+  CreatedAt: DateTime;
+  ActiveTo: DateTime;
+  Relationship: string;
+  PreferredContactTime: string;
+  ParentalResponsibility: string;
+  ResidencyStatus: string;
+  Historic: boolean;
+  DoNotContact: boolean;
+  IsUIHistoric: boolean;
+  IsGenUpdate: boolean;
+  bPdsGenUpd: boolean;
+  OPMode: string;
+  PersonalCarerSensitive: string;
+  UsePatientAddress: boolean;
+  Mainvisitor: string;
+  UsePatientContact: string;
+  UsePatientAddressValue: string;
+  PatientCorres: string;
+  PatientExtraCorres: string;
+  RelPatCarerAssemnt: RelPatCarerAssemnt;
+  Callcentercallback: string;
+  IsPatient: boolean;
+  RegislocallyOption: number;
+  RelationshipPatientOID: string;
+  RelatedPatientID: string;
+  PDSPerosnalCarerId: string;
+  GenUpdate: string;
+  PDSUpdateStatus: byte;
+  NHSNumber: string;
+  Reciprocate: boolean;
+  RPStatus: string;
+  Prefix: string;
+  PartnerPrefix: string;
+  PartnerSurName: string;
+  PCarerFullName: string;
+  LozStartDTTM: DateTime;
+  LozENDDTTM: DateTime;
+  IsPDSchecked: boolean;
+  IsMatch: string;
+  MSGVirtualStatus: boolean;
+  IsRestrictedData: boolean;
+  patid: ObservableCollection<PatientID>;
+  RelPatCarerAssessment: ObservableCollection<RelPatCarerAssemnt>;
+  PatientAddress: ObservableCollection<PatientAddress>;
+  PersonalCarerAddress: ObservableCollection<PersonalCarerAddress>;
+}
+export class RelPatCarerAssemnt extends CLZOObject {
+  Age: string;
+  PreferredName: string;
+  CurrentGP: string;
+  Nationality: string;
+  Ethinicity: string;
+  Religion: string;
+  Occupationstatus: string;
+  Occupation: string;
+  Disabililtystatus: string;
+  Disabilitydetails: string;
+  OID: string;
+  PatPersonalCarerOID: string;
+  RelPatCarerAssemntCDCForm: ObservableCollection<RelPatCarerAssemntCDCForm>;
+}
+export class RelPatCarerAssemntCDCForm {
+  CDCFormCreatedAt: DateTime;
+  OID: string;
+  Encounter: DateTime;
+  OperationMode: string;
+  CDCFormname: string;
+  CDCStatus: string;
+  RemovedCDCOID: string;
+  FormType: string;
+  IFMFormTemplateOID: string;
+  FormCode: string;
+  OwnerOrganisationOID: string;
+  OwnerOrganisationName: string;
+  ModifiedAt: DateTime;
+  ModifiedBy: string;
+  TemplateVersion: string;
+}
+export class PatientEducation extends CLZOObject {
+  EducationIdentifier: string;
+  EducationType: string;
+  OrganizationOid: number;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  Comments: string;
+  Estname: string;
+  Estaddress: string;
+  EstPhno: string;
+  EduCode: string;
+  OwnerOrganisationOID: string;
+  SuspendMode: string;
+  PatientIdentifier: string;
+  CreatedAt: DateTime;
+  objHealthOrganisationDetail: HealthOrganisationDetail;
+  IsRestrictedData: boolean;
+}
+export class PatientSensitiveDetails extends CLZOObject {
+  PatientOID: string;
+  PasID: string;
+}
+export class PatientEmployer extends CLZOObject {
+  EmployerIdentifier: string;
+  PatientIdentifier: string;
+  SuspendMode: string;
+  OccupationStatus: string;
+  Occupation: string;
+  OccupationType: string;
+  EmployerAddress: string;
+  Comments: string;
+  OwnerOrganisationOID: string;
+  EmployerName: string;
+  ActiveFrom: DateTime;
+  CreatedAt: DateTime;
+  ActiveTo: DateTime;
+  ReportedDTTM: DateTime;
+  IsRestrictedData: boolean;
+}
+export class PatientInsuranceRequest extends CLZOObject {
+  PatientID: string;
+  IncludeEndDatedRecords: boolean;
+}
+export class PatientInsurance extends CLZOObject {
+  InsuranceIdentifier: string;
+  PatientIdentifier: string;
+  PurchaserOid: number;
+  InsuranceDetails: string;
+  PolicyOid: number;
+  LevelOfCover: string;
+  PolicyNumber: string;
+  InstitutionNumber: string;
+  IdentificationNumber: string;
+  sInsuranceOID: string;
+  Comments: string;
+  OrganisationOID: number;
+  InsuranceType: string;
+  InsuranceClass: string;
+  sPolicyHolder: string;
+  OwnerOrganisationOID: string;
+  SuspendMode: string;
+  InsuranceName: string;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  CreatedAt: DateTime;
+  sMsgChk: string;
+  PurchaserTypeCode: string;
+}
+export class OrganisationPatIDProfile extends CLZOObject {
+  sIDCATCode: string;
+  lOID: number;
+  lOrganisationOID: number;
+  lOwnerOrganisationOID: number;
+  sPITYPCode: string;
+  sAction: string;
+}
+export class PatientMandatoryInfo extends CLZOObject {
+  PatientDetails: Patient;
+  IsEthnicityExist: boolean;
+  IsReligionExist: boolean;
+  IsDisabilityStatusExist: boolean;
+  IsHealthVisitorExist: boolean;
+  IsOverseasStatusExist: boolean;
+  PatientStatus: ObservableCollection<PatientStatus>;
+}
+export class GetPersonalCarerInfo extends CLZOObject {
+  lnPatientOID: number;
+  sRelationshipType: string;
+}
+export class PersonalCarerBasicInfo extends CLZOObject {
+  lnPatientPersonalCarerOID: number;
+  nPreferredOrder: number;
+  sRelationshipName: string;
+  SensitiveFlag: string;
+}
+export class PatientPreferenceBanner extends CLZOObject {
+  PreferenceType: string;
+  PreferenceDetails: string;
+  PreferenceDetailCode: string;
+  Actionable: string;
+}
+export class AddressSearchParams extends CLZOObject {
+  PatientOID: number;
+  ADTYPCode: string;
+  ROTYPCode: string;
+  IsIgnoreEMail: boolean;
+  IsPrimary: boolean;
+  IdentifyingType: string;
+  IdentifyingOID: number;
+}
+export class SearchPatientStatus extends CLZOObject {
+  PatientOID: number;
+  IdentifyingDomain: string;
+  IdentifyingValue: string;
+  StatusDTTM: DateTime;
+}
+export class PatientIDMInfo extends CLZOObject {
+  sCalledFrom: string;
+  DecoupleStatus: string;
+  PatientInfo1: PatientInfo1;
+  PatientInfo2: PatientInfo2;
+  PatientInfo3: PatientInfo3;
+  PatientInfo4: PatientInfo4;
+  PatientAddress: PatientAddress;
+  Religion: string;
+  Ethnicity: string;
+  sPatientIdentifier: string;
+  PatientContact: ObservableCollection<Contact>;
+  PatientStatus: ObservableCollection<PatientStatus>;
+  PatientRPInfo: ObservableCollection<PatientRPInfo>;
+}
+export class PatientInfo1 extends CLZOObject {
+  RegistrationType: string;
+  Surname: string;
+  Forename: string;
+  PatientID: string;
+  NationalID: string;
+  PatientStatus: string;
+  IsSensitive: string;
+}
+export class PatientInfo2 extends CLZOObject {
+  PateintDeceasedstatus: string;
+  IsPDSTraced: string;
+  RegistrationType: string;
+  IsSensitive: string;
+  PatientIdentifier: string;
+  BirthDttm: DateTime;
+}
+export class PatientInfo3 extends CLZOObject {
+  PASNumber: string;
+  NHSNumber: string;
+  PITYPCode: string;
+  isTraced: boolean;
+  isDecoupled: boolean;
+  PatientOID: number;
+  TraceCode: string;
+}
+export class PatientInfo4 extends CLZOObject {
+  Surname: string;
+  Forename: string;
+  Gender: string;
+  BirthDttm: DateTime;
+  Title: string;
+  Age: number;
+  DeathDttm: DateTime;
+  cDeceased: boolean;
+  PatientIdentityInfo: ObservableCollection<PatientIdTypeInfo>;
+}
+export class PatientIdTypeInfo extends CLZOObject {
+  Idenitfier: string;
+  IdentifierType: string;
+  isPrimary: boolean;
+  HealthOrgOID: string;
+}
+export class PatientRPInfo extends CLZOObject {
+  Title: string;
+  TitleText: string;
+  Surname: string;
+  Forename: string;
+  Gender: string;
+  Suffix: string;
+  Middlename: string;
+  PCPatientOID: string;
+  PersonalCarerOID: string;
+  IsPatient: boolean;
+  UsePatientAddress: boolean;
+  PatientAddress: PatientAddress;
+  PatientName: string;
+  RelatedPeopleName: string;
+}
+export class PatientIDMInput extends CLZOObject {
+  sCalledFrom: string;
+  lnPatientOID: number;
+  AddressType: string;
+}
+export class PatientDemographics extends CLZOObject {
+  PBR: string;
+  isSummary: boolean;
+  isSummaryMsgTrig: boolean;
+  CallingCA: string;
+  CareActivityCode: string;
+  sUserName: string;
+  sHOName: string;
+  sRoleName: string;
+  IsPreferenceUpdfromSummary: boolean;
+  IsStatusUpdfromSummary: boolean;
+  PurchaserOid: number;
+  PurchaserName: string;
+  PolicyNumber: string;
+  ActiveFrom: DateTime;
+  Count: number;
+  PDSTotalCount: number;
+  PDSConflictCount: number;
+  IsReceiveReminderChecked: boolean;
+  PrefContactMethodOID: string;
+  PreferredContactMethod: string;
+  OldPrefContactMethodOID: string;
+  IsSendRegistrationEmail: boolean;
+  PatientDetails: Patient;
+  Contract: ContractActivity;
+  PatBasedReg: PatientBasedRegistration;
+  ReferralProcessMode: string;
+  IsBlockLAATriggerEvent: boolean;
+  IsMessagingCall: boolean;
+  IsCABMessagingCall: boolean;
+  PIB: PatientIdentityBand;
+  BloodSpotCardLabel: BloodSpotCardLabel;
+  PreferenceOIDs: string;
+  IsSendPatientAideRegEmail: boolean;
+  IsPatientAideUser: boolean;
+  PatientAddress: ObservableCollection<PatientAddress>;
+  PatientAlias: ObservableCollection<PatientAlias>;
+  PatientID: ObservableCollection<PatientID>;
+  PatientPersonalCarer: ObservableCollection<PatientPersonalCarer>;
+  PatientCarer: ObservableCollection<PatientCarer>;
+  PatientGP: ObservableCollection<PatientGP>;
+  Preference: ObservableCollection<PatientPreference>;
+  OtherAdminPreference: ObservableCollection<PatientPreference>;
+  PatientStatus: ObservableCollection<PatientStatus>;
+  Education: ObservableCollection<PatientEducation>;
+  Employer: ObservableCollection<PatientEmployer>;
+  Insurance: ObservableCollection<PatientInsurance>;
+  PatientDeceased: ObservableCollection<PatientDeceased>;
+  PatientConsent: ObservableCollection<PatientConsent>;
+  DPatientAlias: ObservableCollection<PatientAlias>;
+  DPatientAddress: ObservableCollection<PatientAddress>;
+  DPatientPersonalCarer: ObservableCollection<PatientPersonalCarer>;
+  DPreference: ObservableCollection<PatientPreference>;
+  InterPreter: ObservableCollection<PatientPreference>;
+}
+export class PatientCarer extends CLZOObject {
+  PatientOID: string;
+  CarerType: string;
+  CarerIdentifier: string;
+  CarerName: string;
+  IsRestrictedData: boolean;
+  CarerOID: number;
+  SourceNameOID: number;
+  SourceName: string;
+  TeamOID: number;
+  TeamName: string;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  Comments: string;
+  CPROLCode: string;
+  RoleName: string;
+  User: dpUser;
+}
+export class PatientBasedRegistration extends CLZOObject {
+  SourcePatientID: string;
+  BirthType: string;
+  BirthCategory: string;
+  NewPatient: ObservableCollection<ClonePatient>;
+}
+export class ClonePatient extends CLZOObject {
+  RecordNumber: number;
+  Surname: string;
+  Forename: string;
+  MiddleName: string;
+  Sex: string;
+  BirthDttm: DateTime;
+  ApproxBirthReason: string;
+  MotherChildRelationship: string;
+  ChildMotherRelationship: string;
+  RelationshipStartDttm: DateTime;
+  CopyDetails: CopyDetails;
+  NYSIISForename: string;
+  NYSIISSurname: string;
+  IsDeceased: boolean;
+  StillBirthDet: PatientDeceased;
+  RegistrationDTTM: DateTime;
+  Title: string;
+  MultipleBirth: string;
+  bIsMotherChildNOK: boolean;
+  PatientPersonalCarerOID: string;
+  PersonalCarerOID: string;
+}
+export class CopyDetails {
+  bIsUsualGP: boolean;
+  bIsSurname: boolean;
+  bIsReligion: boolean;
+  bIsEthencity: boolean;
+  bIsLanguage: boolean;
+  bIsCurrentGP: boolean;
+  bIsHomeAddress: boolean;
+  bIsHomePhone: boolean;
+  bIsOVS: boolean;
+  bIsProfCarer: boolean;
+  bIsEthnOrigin: boolean;
+  bIsCounofBirth: boolean;
+  bIsinsurance: boolean;
+  bPreIsLanguage: boolean;
+}
+export class PatientDeceased extends CLZOObject {
+  PatientDeceasedOID: string;
+  PatientOID: string;
+  DeathDttm: DateTime;
+  PlaceOfDeath: string;
+  DeathReason: string;
+  NotifiedBy: string;
+  NotifiedDttm: DateTime;
+  NotifierOID: string;
+  NotifierDetails: string;
+  Confirmed: boolean;
+  Comments: string;
+  ConfirmComments: string;
+  IsDeathEstimated: boolean;
+  ApproximateReason: string;
+  IsStillBirth: boolean;
+  IsCancel: boolean;
+  IsOverNightProcessCompleted: boolean;
+  ConfirmDTTM: DateTime;
+  PDSUpdateStatus: byte;
+  CanDecReason: string;
+  CanDecCancelledBy: string;
+  CoronerInformed: string;
+  PostMortemIndicated: string;
+  ActionDate: DateTime;
+  Action: string;
+  PrevConfirmed: boolean;
+  UserName: string;
+  UserOID: string;
+  OrganizationName: string;
+  OrganizationOID: number;
+  GpInformed: string;
+  Peadiatrics: string;
+  OthersInformed: string;
+  ApproxiDTTM: DateTime;
+  bModifyDeceased: boolean;
+  ReasonForDifference: string;
+  PreferredPlaceOfDeath: string;
+  IsTraced: string;
+  IsModifyMode: boolean;
+  IsChkDeathMode: boolean;
+  CreatedAt: DateTime;
+  CreatedBy: number;
+  OrganisationOID: string;
+  IsBSD: boolean;
+  BSDFormOID: string;
+  CallingCA: string;
+  IsFromPDSSync: boolean;
+  Contract: ContractActivity;
+  GenUpdate: string;
+  IsPDSSelect: string;
+  sSensitive: string;
+  Cancellation: ObservableCollection<DeceasedCancellation>;
+}
+export class DeceasedCancellation {
+  OID: string;
+  PatientDeceasedOID: string;
+  Reason: string;
+  CancelDttm: DateTime;
+  CancelledBy: string;
+  Comments: string;
+  DeathNotification: string;
+}
+export class PatientConsent extends CLZOObject {
+  ConsentIdentifier: string;
+  ActiveFrom: DateTime;
+  ActiveTo: DateTime;
+  LZOEnddt: DateTime;
+  Comments: string;
+  OrganisationOID: string;
+  OrganisationName: string;
+  bTriggerStore: boolean;
+  PDSComments: string;
+  Surname: string;
+  Forename: string;
+  Identifier: string;
+  FormattedFromDate: string;
+  FormattedToDate: string;
+  bIsSilentSync: boolean;
+  PatientOID: string;
+  GenUpdate: string;
+  ConsentType: string;
+  OldConsentOID: string;
+  ConsentValue: string;
+  UserOid: string;
+  PDSUpdateStatus: byte;
+  EnteredByOID: string;
+  IsPDSchecked: boolean;
+  sPDSValue: string;
+  IsFuture: boolean;
+  sLORValue: string;
+  IsMatch: string;
+}
+export class PatientIdentityBand extends CLZOObject {
+  PIBStandard: string;
+  PIBBaby: string;
+}
+export class BloodSpotCardLabel extends CLZOObject {
+  lnPatientOID: number;
+  BarCodedNHSNumber: string;
+  NHSNumber: string;
+  Name: string;
+  BirthDTTM: DateTime;
+  Sex: string;
+  AddressLine1: string;
+  AddressLine2: string;
+  AddressLine3: string;
+  Postcode: string;
+  Ethnicity: string;
+  GPName: string;
+  GPPracticeCode: string;
+  lnCurrentGPOID: number;
+  IsYSensitive: boolean;
+  IsYSCSensitive: boolean;
+  lnMotherPatientOID: number;
+  MotherName: string;
+  MotherBirthDTTM: DateTime;
+  MotherNHSNumber: string;
+  BirthWeight: string;
+  Rank: string;
+  GestationLength: string;
+  DeliveryLocationName: string;
+}
+export class PatientMaternityRelation extends CLZOObject {
+  PatientIdentifier: string;
+  PatientID: string;
+}
+export class PatientPreferenceView extends CLZOObject {
+  PatientOID: string;
+  InputID: string;
+  PatientName: string;
+  PatientIDType: string;
+  PasID: string;
+  Location: string;
+  PatientPreferenceDetails: string;
+  RPPreferenceDetails: string;
+}
+export class NotificationReminderInfo extends CLZOObject {
+  UserOID: number;
+  PatientOID: number;
+  EncounterOID: number;
+  Comments: string;
+  ShowAfter: string;
+  ReminderSetDttm: DateTime;
+  OwnerOrganisationOID: string;
+  Status: string;
+  ReminderOID: number;
+}
+export class Occupation extends CLZOObject {
+  Name: string;
+  Code: string;
+}
+export class CReqMsgGetPatientStatus {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientStatus {
+  oContextInformation: CContextInformation;
+  oPatientStatus: ObservableCollection<PatientStatus>;
+}
+export class CReqMsgGetPatientStatusForLoginHO {
+  objPatientLoginHOBC: PatientLoginHO;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientStatusForLoginHO {
+  oContextInformation: CContextInformation;
+  oPatientStatus: ObservableCollection<PatientStatus>;
+}
+export class CReqMsgGetAddress {
+  nPatientIDBC: number;
+  sCANameBC: string;
+  StartDttmBC: DateTime;
+  EndDttmBC: DateTime;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetAddress {
+  objPatientAddress: PatientAddress;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatientStatusMHAA {
+  sPatientIDBC: string;
+  sIdentifyingDomainBC: string;
+  sIdentifyingValueBC: string;
+  ActiveOnDTTMBC: DateTime;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientStatusMHAA {
+  oContextInformation: CContextInformation;
+  oPatientStatus: ObservableCollection<PatientStatus>;
+}
+export class CReqMsgGetPatientSearchDetails {
+  oPatientSearchBC: PatientSearch;
+  pElementBC: PageElement;
+  oContextInformation: CContextInformation;
+}
+export class PatientSearch {
+  PatientIdentifier: string;
+  Careprovider: string;
+  Patient: Patient;
+  CurrentCACode: string;
+  PatientIdentifierType: string;
+  SurName: string;
+  ForeName: string;
+  Sex: string;
+  BirthDttmFrom: DateTime;
+  BirthDttmTo: DateTime;
+  CurrentDttm: DateTime;
+  ContactNumber: string;
+  PatientStatus: string;
+  EncounterType: string;
+  EncounterID: string;
+  EncounterIdentifier: string;
+  IsAlias: number;
+  AliasType: string;
+  IsReverse: number;
+  IsSoundsLike: number;
+  IsPartial: number;
+  IsDeceasedOnly: number;
+  IsDisassociated: number;
+  OrganisationOID: string;
+  IsAdvancedSearch: number;
+  SearchAlgorithm: string;
+  SearchType: string;
+  IncludeHistoric: string;
+  PatientAddress: PatientAddress;
+  IsCurrentAddress: number;
+  BloodGroup: string;
+  SpokenLanguage: string;
+  RegDttm: DateTime;
+  Title: string;
+  AssigningAuthority: string;
+  AssigningFacility: string;
+  TelephoneHome: string;
+  TelephoneWork: string;
+  Mobile: string;
+  Email: string;
+  DisplayType: string;
+  CurrentPageNo: number;
+  IsNextPageAvailable: boolean;
+  PageSize: number;
+  PageKey: string;
+  IsTrace: string;
+  IsMerged: number;
+  IsDOBEstimated: boolean;
+  NextPageNo: number;
+  PotMatSrchMainValue: string;
+  PotMatDispDupValue: string;
+  IsvaildTrace: boolean;
+  MaxCount: number;
+  PrimIDType: string;
+  SecIDType: string;
+  SearchCriteria: string;
+  DeceasedValue: string;
+  DisplayTypeValue: string;
+  CareproviderName: string;
+  AgeDOBSelector: string;
+  AgeUnitFrom: string;
+  AgeUnitTo: string;
+  AgeUnit: string;
+  TracedCount: number;
+  NonTracedCount: number;
+  sSrchReqFrom: string;
+  AddressType: string;
+  oPatSrchResults: ObservableCollection<PatSrchResults>;
+}
+export class PatSrchResults {
+  PatientOID: number;
+  PartKey: number;
+  TracedRecordCount: number;
+}
+export class PageElement {
+  PageSize: number;
+  FirstElement: PageRowElement;
+  LastElement: PageRowElement;
+  PageIndex: number;
+  RecordCount: number;
+  CurrentFilterByID: number;
+  CurrentPageOperation: PageOperation;
+  CurrentFilterBy: FilterBy;
+  SeperatorIDFieldName: string;
+  SeperatorDTTMFieldName: string;
+  SeperatorIDFieldNameOrdinal: number;
+  SeperatorDTTMFieldNameOrdinal: number;
+  CanReadDttm: boolean;
+  GroupByColumn: string;
+  GroupByText: string;
+  Separator: SeparatorType;
+  ReverseResult: boolean;
+}
+export class PageRowElement {
+  SeperatorString: string;
+  SeparatorID: number;
+  SeparatorDTTM: DateTime;
+}
+export enum PageOperation {
+  SinglePage,
+  FirstPage,
+  NextPage,
+  PreivousPage,
+  LastPage,
+}
+export enum FilterBy {
+  ListMetaphoreID,
+  XML,
+  None,
+}
+export enum SeparatorType {
+  StringID,
+  GuidWithDateTime,
+  Int64WithDateTime,
+  Int64,
+}
+export class CResMsgGetPatientSearchDetails {
+  CurrentPageElement: PageElement;
+  oContextInformation: CContextInformation;
+  oPatient: ObservableCollection<PatientDisplayDetails>;
+}
+export class PatientDisplayDetails {
+  Patient: Patient;
+  PatientAddress: PatientAddress;
+  PatientAlias: PatientAlias;
+  PatientID: PatientID;
+  PatientEncounter: PatientEncounter;
+  PatientCurrentGp: string;
+  PatientGPPractice: string;
+  isNextPageAvailable: number;
+  PatientGP: PatientGP;
+  TracedRecordsCount: number;
+  oPatSrchResults: ObservableCollection<PatSrchResults>;
+}
+export class PatientEncounter {
+  MainIdentifier: string;
+  EncounterOID: string;
+  EncounterType: string;
+  LocationName: string;
+  TempLocationName: string;
+  CurrentLocationName: string;
+  CareProviderName: string;
+  SpecialtyName: string;
+  ExpectedDischargeDTTM: DateTime;
+  EndDTTM: DateTime;
+  MedicalDischargeDttm: DateTime;
+  StartDTTM: DateTime;
+  Status: string;
+}
+export class CReqMsgGetPatientQuickSearchDetails {
+  oPatientSearchBC: PatientQuickSearch;
+  pElementBC: PageElement;
+  oContextInformation: CContextInformation;
+}
+export class PatientQuickSearch {
+  PatientIdentifier: string;
+  PatientIdentifierType: string;
+  PatientStatus: string;
+  PatientAddress: PatientAddress;
+  CurrentPageNo: number;
+  IsNextPageAvailable: boolean;
+  PageSize: number;
+  PageKey: string;
+  IsTrace: string;
+  IsPerformPDSTrace: boolean;
+  PrimIDType: string;
+  SecIDType: string;
+  pElement: PagingDynamicSQL;
+}
+export class PagingDynamicSQL {
+  PageSize: number;
+  PageIndex: number;
+  PageCount: number;
+  RecFrm: number;
+  RecTo: number;
+  FindPageCount: boolean;
+  ChildPagination: boolean;
+  FilterBy: Filter;
+  GroupBy: Group;
+  FilterByColumn: string;
+  SortingColumns: string;
+  FilterByXML: string;
+  SPSortingColumns: string;
+  CustomFilterXML: string;
+  SelectedDate: DateTime;
+}
+export class Filter {
+  Type: FilterByType;
+  ListMetaphoreOID: number;
+  Serialize: string;
+}
+export enum FilterByType {
+  None,
+  XML,
+  ListMetaphoreID,
+}
+export class Group {
+  Type: GroupByType;
+  ColumnName: string;
+  ParentValue: string;
+  Text: string;
+  Serialize: string;
+}
+export enum GroupByType {
+  None,
+  Grouped,
+  Expanded,
+}
+export class CResMsgGetPatientQuickSearchDetails {
+  CurrentPageElement: PageElement;
+  oContextInformation: CContextInformation;
+  oPatient: ObservableCollection<PatientDisplayDetails>;
+}
+export class CReqMsgGetRecentPatientSearch {
+  oPatientSearchBC: PatientQuickSearch;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetRecentPatientSearch {
+  oContextInformation: CContextInformation;
+  oPatient: ObservableCollection<PatientDisplayDetails>;
+}
+export class CReqMsgGetPatientFrequentSearchDetails {
+  oPatientSearchBC: PatientFrequentSearch;
+  oContextInformation: CContextInformation;
+}
+export class PatientFrequentSearch {
+  SurName: string;
+  ForeName: string;
+  Sex: string;
+  PatientStatus: string;
+  BirthDttmFrom: DateTime;
+  BirthDttmTo: DateTime;
+  PatientAddress: PatientAddress;
+  CurrentPageNo: number;
+  IsNextPageAvailable: boolean;
+  PageSize: number;
+  PageKey: string;
+  IsTrace: string;
+  PrimIDType: string;
+  SecIDType: string;
+}
+export class CResMsgGetPatientFrequentSearchDetails {
+  oContextInformation: CContextInformation;
+  oPatient: ObservableCollection<PatientDisplayDetails>;
+}
+export class CReqMsgGetPatientEncounterSearchDetails {
+  oPatientSearchBC: PatientEncounterSearch;
+  oContextInformation: CContextInformation;
+}
+export class PatientEncounterSearch {
+  EncounterType: string;
+  EncounterIdentifier: string;
+  PatientStatus: string;
+  PatientAddress: PatientAddress;
+  CurrentPageNo: number;
+  IsNextPageAvailable: boolean;
+  PageSize: number;
+  PageKey: string;
+  IsTrace: string;
+  PrimIDType: string;
+  SecIDType: string;
+}
+export class CResMsgGetPatientEncounterSearchDetails {
+  oContextInformation: CContextInformation;
+  oPatient: ObservableCollection<PatientDisplayDetails>;
+}
+export class CReqMsgGetCompletePatientSearchDetails {
+  oPatientSearchBC: PatientSearch;
+  pElementBC: PagingDynamicSQL;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetCompletePatientSearchDetails {
+  PageCount: number;
+  oContextInformation: CContextInformation;
+  oPatient: ObservableCollection<PatientDisplayDetails>;
+}
+export class CReqMsgGetPatientList {
+  objReqPatientListContextBC: PatientListContext;
+  pageElementBC: PagingDynamicSQL;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientList {
+  oContextInformation: CContextInformation;
+  objResPatientList: ObservableCollection<PatientList>;
+}
+export class CReqMsgGetSmartList {
+  objReqPatientListContextBC: PatientListContext;
+  pageElementBC: PagingDynamicSQL;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetSmartList {
+  oContextInformation: CContextInformation;
+  objResPatientList: ObservableCollection<PatientList>;
+}
+export class CReqMsgGetStaticList {
+  objReqPatientListContextBC: PatientListContext;
+  pageElementBC: PagingDynamicSQL;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetStaticList {
+  oContextInformation: CContextInformation;
+  objResPatientList: ObservableCollection<PatientList>;
+}
+export class CReqMsgGetCriteriaBasedPatientList {
+  objReqPatientListContextBC: PatientListContext;
+  pageElementBC: PagingDynamicSQL;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetCriteriaBasedPatientList {
+  oContextInformation: CContextInformation;
+  objResPatientList: ObservableCollection<PatientList>;
+}
+export class CReqMsgGetCriteriaBasedXML {
+  objReqPatientListContextBC: PatientListContext;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetCriteriaBasedXML {
+  sCriteriaXML: string;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetNewRequest {
+  objReqNewRequestBC: NewEvents;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetNewRequest {
+  sConsentCount: string;
+  oContextInformation: CContextInformation;
+  objResNewRequests: ObservableCollection<NewRequests>;
+}
+export class CReqMsgGetNewResult {
+  objReqNewResultBC: NewEvents;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetNewResult {
+  sConsentCount: string;
+  oContextInformation: CContextInformation;
+  objResNewResult: ObservableCollection<NewResults>;
+}
+export class CReqMsgGetNewDocument {
+  objReqNewDocumentsBC: NewEvents;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetNewDocument {
+  sConsentCount: string;
+  oContextInformation: CContextInformation;
+  objResNewDocuments: ObservableCollection<NewDocuments>;
+}
+export class CReqMsgGetUnAcKnowledgeResult {
+  objReqUnAcknowledgeResultsBC: NewEvents;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetUnAcKnowledgeResult {
+  oContextInformation: CContextInformation;
+  objResUnAcknowledgeResults: ObservableCollection<NewRequests>;
+}
+export class CReqMsgGetCritBasedProblems {
+  sLoggedInHOBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetCritBasedProblems {
+  sProblemCodes: string;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetProceduresForHOs {
+  sLoggedInHOBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetProceduresForHOs {
+  sProcedureCodes: string;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetAllergiesForHOs {
+  sLoggedInHOBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetAllergiesForHOs {
+  sAllergyCodes: string;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatientDecActivity {
+  sPatientDecOrgOIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientDecActivity {
+  oContextInformation: CContextInformation;
+  oPatientDeceased: ObservableCollection<PatientDeceasedActivity>;
+}
+export class PatientDeceasedActivity {
+  PatientActivityOID: string;
+  PatientDeceasedOrgOID: string;
+  IdentifyingOID: string;
+  IdentifyingType: string;
+  ATNAMCode: string;
+  ActivityDTTM: DateTime;
+  ActivityDetail: string;
+  IsReOpened: string;
+  Reason: string;
+}
+export class CReqMsgGetEPRRelationship {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetEPRRelationship {
+  oContextInformation: CContextInformation;
+  oEPRRelationship: ObservableCollection<PatientPersonalCarer>;
+}
+export class CReqMsgIsDuplicateNHS {
+  NHSNumberBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgIsDuplicateNHS {
+  bIsDuplicate: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgIsNHSResponseCode {
+  PasidBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgIsNHSResponseCode {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgIsSynchReasgnTask {
+  oContextInformation: CContextInformation;
+}
+export class CResMsgIsSynchReasgnTask {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgIsNHSResponseCodeSeventeen {
+  statusBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgIsNHSResponseCodeSeventeen {
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatientEducation {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientEducation {
+  oContextInformation: CContextInformation;
+  oPatientEducation: ObservableCollection<PatientEducation>;
+}
+export class CReqMsgGetEducationForLoginHO {
+  objPatientLoginHOBC: PatientLoginHO;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetEducationForLoginHO {
+  oContextInformation: CContextInformation;
+  oPatientEducation: ObservableCollection<PatientEducation>;
+}
+export class CReqMsgGetPasIDSensitive {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPasIDSensitive {
+  oContextInformation: CContextInformation;
+  PatSensitiveDetails: ObservableCollection<PatientSensitiveDetails>;
+}
+export class CReqMsgGetPatientEmployer {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientEmployer {
+  oContextInformation: CContextInformation;
+  oPatientEmployer: ObservableCollection<PatientEmployer>;
+}
+export class CReqMsgGetEmployerForLoginHO {
+  objPatientLoginHOBC: PatientLoginHO;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetEmployerForLoginHO {
+  oContextInformation: CContextInformation;
+  oPatientEmployer: ObservableCollection<PatientEmployer>;
+}
+export class CReqMsgGetPatientInsuranceExtended {
+  objPatInsuranceReqBC: PatientInsuranceRequest;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientInsuranceExtended {
+  oContextInformation: CContextInformation;
+  oPatientInsurance: ObservableCollection<PatientInsurance>;
+}
+export class CReqMsgGetPatientInsurance {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientInsurance {
+  oContextInformation: CContextInformation;
+  oPatientInsurance: ObservableCollection<PatientInsurance>;
+}
+export class CReqMsgGetInsuranceForLoginHO {
+  objPatientLoginHOBC: PatientLoginHO;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetInsuranceForLoginHO {
+  oContextInformation: CContextInformation;
+  oPatientInsurance: ObservableCollection<PatientInsurance>;
+}
+export class CReqMsgGetPatientSensitive {
+  sPatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientSensitive {
+  sIsSensitive: string;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetCarerDetails {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetCarerDetails {
+  oContextInformation: CContextInformation;
+  oPersonalCarer: ObservableCollection<PatientPersonalCarer>;
+}
+export class CReqMsgGetSortedPatient {
+  sPatientOIDSBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetSortedPatient {
+  sPatOIDS: string;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetCarerRoleDetails {
+  PatientIDBC: string;
+  RoleCodeBC: string;
+  ActiveDateBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetCarerRoleDetails {
+  oContextInformation: CContextInformation;
+  oPatientGP: ObservableCollection<PatientGP>;
+}
+export class CReqMsgGetCarerAllDetails {
+  SourceNameOIDBC: string;
+  PatientOIDBC: number;
+  SourceNameBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetCarerAllDetails {
+  oContextInformation: CContextInformation;
+  oPatientGP: ObservableCollection<PatientGP>;
+}
+export class CReqMsgGetPatientAddrWType {
+  PatientIDBC: string;
+  AddressTypeBC: string;
+  CommFlagBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientAddrWType {
+  oContextInformation: CContextInformation;
+  oAddress: ObservableCollection<PatientAddress>;
+}
+export class CReqMsgGetPITypCode {
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPITypCode {
+  oPatientIDType: OrganisationPatIDProfile;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatMandatoryInfo {
+  PatientIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatMandatoryInfo {
+  oPatientMandatoryInfo: PatientMandatoryInfo;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatMandatoryInfoExist {
+  PatientIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatMandatoryInfoExist {
+  oPatientMandatoryInfo: PatientMandatoryInfo;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetDissentInfoExist_IDM {
+  objPatientLoginHOBC: PatientLoginHO;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetDissentInfoExist_IDM {
+  IDMInfoExist: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPrimPatientOID {
+  lnPatientIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPrimPatientOID {
+  lnPrimPatientOID: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPrefRelnInfo {
+  objReqBC: GetPersonalCarerInfo;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPrefRelnInfo {
+  objRpBasicInfo: PersonalCarerBasicInfo;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetContactNoForSMS {
+  PatientOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetContactNoForSMS {
+  oContextInformation: CContextInformation;
+  sMobileNumbers: ObservableCollection<string>;
+}
+export class CReqMsgGetIsPrefIconExists {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetIsPrefIconExists {
+  sPatPrefTypes: string;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetIsPrefIconExistsEnhanced {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetIsPrefIconExistsEnhanced {
+  oContextInformation: CContextInformation;
+  objPatientPreferenceBanner: ObservableCollection<PatientPreferenceBanner>;
+}
+export class CReqMsgGetAgeBandingDetails {
+  nPatientOidBC: number;
+  dDOBBC: DateTime;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetAgeBandingDetails {
+  bNok: boolean;
+  bEdu: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatientPrimaryContact {
+  objAddressSearchBC: AddressSearchParams;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientPrimaryContact {
+  oContextInformation: CContextInformation;
+  objAddress: ObservableCollection<PatientAddress>;
+}
+export class CReqMsgGetMotherRelation {
+  sPatientOIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetMotherRelation {
+  oContextInformation: CContextInformation;
+  objRpBasicInfo: ObservableCollection<PersonalCarerBasicInfo>;
+}
+export class CReqMsgGetPatientPhotoID {
+  lnPatientOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientPhotoID {
+  CompressedImageID: string;
+  OriginalImageID: string;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetRecentQuickSearchID {
+  IDTypesBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetRecentQuickSearchID {
+  oContextInformation: CContextInformation;
+  PatientID: ObservableCollection<PatientID>;
+}
+export class CReqMsgGetPatientStatusInfo {
+  objStatusBC: SearchPatientStatus;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientStatusInfo {
+  oContextInformation: CContextInformation;
+  objPatientStatus: ObservableCollection<PatientStatus>;
+}
+export class CReqMsgGetPatientOIDsByPatientIDs {
+  sPatientIDsBC: string;
+  sPatientPITYPCodeBC: string;
+  sLoggedinHOBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientOIDsByPatientIDs {
+  oContextInformation: CContextInformation;
+  oPatient: ObservableCollection<Patient>;
+}
+export class CReqMsgGetRpMainVisitor {
+  lnPatientOIDBC: number;
+  dtDateTimeBC: DateTime;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetRpMainVisitor {
+  IsMainvisitorExists: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatientSummaryInfo {
+  PatientOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientSummaryInfo {
+  oPatientSummary: PatientSummary;
+  oContextInformation: CContextInformation;
+}
+export class PatientSummary {
+  PurchaserOid: number;
+  PurchaserName: string;
+  PolicyNumber: string;
+  ActiveFrom: DateTime;
+  PreferredContactMethod: string;
+  Communicationlanguage: string;
+  Interpreterlanguage: string;
+  OverseasVisitorStatus: string;
+  AccommodationStatus: string;
+  EducationDetails: string;
+  IsPatientAideUser: boolean;
+  oPatient: Patient;
+  MergeCount: number;
+  IsDODKnown: string;
+  AliasSurname: string;
+  AliasForename: string;
+  AliasMiddlename: string;
+  CareProviderName: string;
+  CareProviderOID: number;
+  CareProviderOrgOID: number;
+  oPatientAddress: PatientAddress;
+  IsAddressValid: string;
+  IsNHSNoAllocated: string;
+  DoNotMergeWithPASIDs: string;
+  EmailID: string;
+  PrimaryTelephone: string;
+  DisplayAddress: string;
+  oPatientID: ObservableCollection<PatientID>;
+  oContact: ObservableCollection<Contact>;
+}
+export class CReqMsgGetPatientEmail {
+  PatientOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientEmail {
+  oPatientEmail: PatientEmail;
+  oContextInformation: CContextInformation;
+}
+export class PatientEmail {
+  DefaultPreference: string;
+  Email: ObservableCollection<string>;
+  ValueSet: ObservableCollection<EmailValueSet>;
+}
+export class EmailValueSet {
+  cbIsDefault: boolean;
+  ConceptCode: string;
+  DisplayText: string;
+}
+export class CReqMsgGetPatientLastModifiedDetails {
+  lnPatientOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientLastModifiedDetails {
+  lnLastModifiedBy: number;
+  sLastModifiedAt: DateTime;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatInfoDetails {
+  PatientIDBC: string;
+  isCalledFromBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatInfoDetails {
+  oPatientIDMInfo: PatientIDMInfo;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetNokEduInfo {
+  lnPatientOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetNokEduInfo {
+  oPatientNokEduInfo: PatientNokEduInfo;
+  oContextInformation: CContextInformation;
+}
+export class PatientNokEduInfo {
+  PatientIdentifier: number;
+  BirthDttm: DateTime;
+  PateintDeceasedstatus: string;
+  PaclsCode: string;
+  IsSensitive: string;
+  RegistrationType: string;
+  IsPDSTraced: string;
+}
+export class CReqMsgGetPatFallbackDtls {
+  PatientOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatFallbackDtls {
+  oPatientSummary: PatientSummary;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatientIdentifier {
+  oReqCPatientIDInfoBC: CPatientIDInfo;
+  oContextInformation: CContextInformation;
+}
+export class CPatientIDInfo {
+  IDType: string;
+  PatientOID: number;
+  IDValue: string;
+  FormattedIDValue: string;
+}
+export class CResMsgGetPatientIdentifier {
+  oResCPatientIDInfo: CPatientIDInfo;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatientIDMInfo {
+  oPatientIDMInputBC: PatientIDMInput;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientIDMInfo {
+  oPatientIDMInfo: PatientIDMInfo;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatientAddressAliasInfo {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientAddressAliasInfo {
+  oDemographicsChkResponse: PatientDemographics;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatientMaternityRelation {
+  lnPatientIDBC: number;
+  BabyDateOFBirthBC: DateTime;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientMaternityRelation {
+  oContextInformation: CContextInformation;
+  arrPatient: ObservableCollection<PatientMaternityRelation>;
+}
+export class CReqMsgGetPatientEnquirySearchDetails {
+  oPatientEnquirySearchBC: PatientEnquirySearch;
+  oContextInformation: CContextInformation;
+}
+export class PatientEnquirySearch {
+  PrimaryIdType: string;
+  SecondaryIdType: string;
+  PatientOID: string;
+  PatientIdType: string;
+  PatientId: string;
+  SurName: string;
+  ForeName: string;
+  DOBFromDTTM: DateTime;
+  DOBToDTTM: DateTime;
+  Sex: string;
+}
+export class CResMsgGetPatientEnquirySearchDetails {
+  oPatEnqSrchResults: PatEnqSrchResults;
+  oContextInformation: CContextInformation;
+}
+export class PatEnqSrchResults {
+  oPatientDisplayDetails: PatientDisplayDetails;
+  ResultCount: number;
+}
+export class CReqMsgGetPatPrefDetails {
+  sPatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatPrefDetails {
+  oContextInformation: CContextInformation;
+  objPatientPreferenceView: ObservableCollection<PatientPreferenceView>;
+}
+export class CReqMsgIsPreferenceExist {
+  sPatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgIsPreferenceExist {
+  lnIsPreferenceExist: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatientReminderDetails {
+  sPatientIDBC: number;
+  sUserOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientReminderDetails {
+  oReminderInfo: NotificationReminderInfo;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatientDemographic {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientDemographic {
+  oDemographic: PatientDemographics;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatientDemographicSummary {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientDemographicSummary {
+  oDemographic: PatientDemographics;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatientDetails {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientDetails {
+  oPatient: Patient;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPersonalcarerPatientDetails {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPersonalcarerPatientDetails {
+  oPatient: Patient;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatient {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatient {
+  oPatient: Patient;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatientRegOrgOID {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientRegOrgOID {
+  PatRegOrgOID: number;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetDuplicatePatient {
+  oPatientSearchBC: PatientSearch;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetDuplicatePatient {
+  oContextInformation: CContextInformation;
+  oPatient: ObservableCollection<Patient>;
+}
+export class CReqMsgGetPatientByNHS {
+  NHSIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientByNHS {
+  oPatient: Patient;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetOccupation {
+  OccupationNameBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetOccupation {
+  oContextInformation: CContextInformation;
+  oOccupation: ObservableCollection<Occupation>;
+}
+export class CReqMsgGetPatientGPSummary {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientGPSummary {
+  oContextInformation: CContextInformation;
+  oPatientGP: ObservableCollection<PatientGP>;
+}
+export class CReqMsgGetPatientSummary {
+  PatientOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientSummary {
+  oPatientSummary: PatientSummary;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatientInfo {
+  PatientOIDBC: number;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientInfo {
+  oPatientBasicInfo: PatientBasicInfo;
+  oContextInformation: CContextInformation;
+}
+export class PatientBasicInfo {
+  Surname: string;
+  Middlename: string;
+  Forename: string;
+  SuffixName: string;
+  Title: string;
+  Sex: string;
+  DOB: DateTime;
+  IsDeceasedFlag: string;
+  Age: number;
+  DeathDTTM: DateTime;
+  IsEthnicity: boolean;
+  IsSensitive: string;
+}
+export class CReqMsgGetPatientAddress {
+  PatientIDBC: string;
+  IsActiveOnlyBC: boolean;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientAddress {
+  oContextInformation: CContextInformation;
+  oAddress: ObservableCollection<PatientAddress>;
+}
+export class CReqMsgGetPatAddress {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatAddress {
+  oContextInformation: CContextInformation;
+  oAddress: ObservableCollection<PatientAddress>;
+}
+export class CReqMsgGetPatCarerAddress {
+  PatientIDBC: string;
+  CarerOIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatCarerAddress {
+  oContextInformation: CContextInformation;
+  oAddress: ObservableCollection<PatientAddress>;
+}
+export class CReqMsgGetPatientCommunicationAddress {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientCommunicationAddress {
+  oContextInformation: CContextInformation;
+  oAddress: ObservableCollection<PatientAddress>;
+}
+export class CReqMsgGetPatientContact {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientContact {
+  oContextInformation: CContextInformation;
+  oContact: ObservableCollection<Contact>;
+}
+export class CReqMsgGetPatientCarerContact {
+  PatientIDBC: string;
+  CarerOIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientCarerContact {
+  oContextInformation: CContextInformation;
+  oContact: ObservableCollection<Contact>;
+}
+export class CReqMsgGetGPPracticeID {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetGPPracticeID {
+  oPatientGP: PatientGP;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetPatientAlias {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientAlias {
+  oContextInformation: CContextInformation;
+  oAlias: ObservableCollection<PatientAlias>;
+}
+export class CReqMsgGetPatientConsent {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientConsent {
+  oContextInformation: CContextInformation;
+  oConsent: ObservableCollection<PatientConsent>;
+}
+export class CReqMsgGetPatientGP {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientGP {
+  oContextInformation: CContextInformation;
+  oPatientGP: ObservableCollection<PatientGP>;
+}
+export class CReqMsgGetPatientCarer {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientCarer {
+  oContextInformation: CContextInformation;
+  oPatientGP: ObservableCollection<PatientGP>;
+}
+export class CReqMsgGetCareProviderByRole {
+  PatientIDBC: string;
+  sStartDateBC: string;
+  sEndDateBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetCareProviderByRole {
+  oContextInformation: CContextInformation;
+  oPatientGP: ObservableCollection<PatientGP>;
+}
+export class CReqMsgGetPatientId {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientId {
+  oContextInformation: CContextInformation;
+  oPatientID: ObservableCollection<PatientID>;
+}
+export class CReqMsgGetPatientIdForIntray {
+  PatientIDBC: string;
+  sPITYPCodeBC: string;
+  sSITYPCodeBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientIdForIntray {
+  oContextInformation: CContextInformation;
+  oPatientID: ObservableCollection<PatientID>;
+}
+export class CReqMsgGetPatientIDForLoginHO {
+  objPatientLoginHOBC: PatientLoginHO;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientIDForLoginHO {
+  oContextInformation: CContextInformation;
+  oPatientID: ObservableCollection<PatientID>;
+}
+export class CReqMsgGetPatientPersonalCarer {
+  PatientIDBC: string;
+  CurrentBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientPersonalCarer {
+  oContextInformation: CContextInformation;
+  oPersonalCarer: ObservableCollection<PatientPersonalCarer>;
+}
+export class CReqMsgGetPatPersonalCarerAssessment {
+  PatPersonalCarerOIDBC: string;
+  PatientOIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatPersonalCarerAssessment {
+  oRelPatCarerAssemnt: RelPatCarerAssemnt;
+  oContextInformation: CContextInformation;
+}
+export class CReqMsgGetRelationshipDetails {
+  oPatientPersonalCarerBC: PatientPersonalCarer;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetRelationshipDetails {
+  oContextInformation: CContextInformation;
+  arrPatientPersonalCarer: ObservableCollection<PatientPersonalCarer>;
+}
+export class CReqMsgGetPatientPersonalCarerName {
+  PatientIDBC: string;
+  CurrentBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientPersonalCarerName {
+  oContextInformation: CContextInformation;
+  oPersonalCarer: ObservableCollection<PatientPersonalCarer>;
+}
+export class CReqMsgGetAllRelnDETails {
+  PatientIDBC: string;
+  CurrentBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetAllRelnDETails {
+  oContextInformation: CContextInformation;
+  oPersonalCarer: ObservableCollection<PatientPersonalCarer>;
+}
+export class CReqMsgpGetRPDetailsForMaternity {
+  PatientIDBC: string;
+  RELATIONSHIPBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgpGetRPDetailsForMaternity {
+  oContextInformation: CContextInformation;
+  oPersonalCarer: ObservableCollection<PatientPersonalCarer>;
+}
+export class CReqMsgGetPersonalCareAddress {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPersonalCareAddress {
+  oContextInformation: CContextInformation;
+  oPersonalCarerAddress: ObservableCollection<PersonalCarerAddress>;
+}
+export class CReqMsgGetAllPersonalCareAddress {
+  PatientOIDBC: string;
+  PersonalCarerOIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetAllPersonalCareAddress {
+  oContextInformation: CContextInformation;
+  oPersonalCarerAddress: ObservableCollection<PersonalCarerAddress>;
+}
+export class CReqMsgGetPatientPreference {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPatientPreference {
+  oContextInformation: CContextInformation;
+  oPatientPreference: ObservableCollection<PatientPreference>;
+}
+export class CReqMsgGetPrefForOtherCA {
+  PatientIDBC: string;
+  oContextInformation: CContextInformation;
+}
+export class CResMsgGetPrefForOtherCA {
+  oContextInformation: CContextInformation;
+  oPatientPreference: ObservableCollection<PatientPreference>;
+}
+
+ const prototypeList = {"QueryPatientRecordWS.GetPatientInfo":CResMsgGetPatientInfo.prototype ,
+"QueryPatientRecordWS.GetPatientAddress":CResMsgGetPatientAddress.prototype ,
+"QueryPatientRecordWS.GetPatAddress":CResMsgGetPatAddress.prototype ,
+"QueryPatientRecordWS.GetPatCarerAddress":CResMsgGetPatCarerAddress.prototype ,
+"QueryPatientRecordWS.GetPatientCommunicationAddress":CResMsgGetPatientCommunicationAddress.prototype ,
+"QueryPatientRecordWS.GetPatientContact":CResMsgGetPatientContact.prototype ,
+"QueryPatientRecordWS.GetPatientCarerContact":CResMsgGetPatientCarerContact.prototype ,
+"QueryPatientRecordWS.GetGPPracticeID":CResMsgGetGPPracticeID.prototype ,
+"QueryPatientRecordWS.GetPatientAlias":CResMsgGetPatientAlias.prototype ,
+"QueryPatientRecordWS.GetPatientConsent":CResMsgGetPatientConsent.prototype ,
+"QueryPatientRecordWS.GetPatientGP":CResMsgGetPatientGP.prototype ,
+"QueryPatientRecordWS.GetPatientCarer":CResMsgGetPatientCarer.prototype ,
+"QueryPatientRecordWS.GetCareProviderByRole":CResMsgGetCareProviderByRole.prototype ,
+"QueryPatientRecordWS.GetPatientId":CResMsgGetPatientId.prototype ,
+"QueryPatientRecordWS.GetPatientIdForIntray":CResMsgGetPatientIdForIntray.prototype ,
+"QueryPatientRecordWS.GetPatientIDForLoginHO":CResMsgGetPatientIDForLoginHO.prototype ,
+"QueryPatientRecordWS.GetPatientPersonalCarer":CResMsgGetPatientPersonalCarer.prototype ,
+"QueryPatientRecordWS.GetPatPersonalCarerAssessment":CResMsgGetPatPersonalCarerAssessment.prototype ,
+"QueryPatientRecordWS.GetRelationshipDetails":CResMsgGetRelationshipDetails.prototype ,
+"QueryPatientRecordWS.GetPatientPersonalCarerName":CResMsgGetPatientPersonalCarerName.prototype ,
+"QueryPatientRecordWS.GetAllRelnDETails":CResMsgGetAllRelnDETails.prototype ,
+"QueryPatientRecordWS.pGetRPDetailsForMaternity":CResMsgpGetRPDetailsForMaternity.prototype ,
+"QueryPatientRecordWS.GetPersonalCareAddress":CResMsgGetPersonalCareAddress.prototype ,
+"QueryPatientRecordWS.GetAllPersonalCareAddress":CResMsgGetAllPersonalCareAddress.prototype ,
+"QueryPatientRecordWS.GetPatientPreference":CResMsgGetPatientPreference.prototype ,
+"QueryPatientRecordWS.GetPrefForOtherCA":CResMsgGetPrefForOtherCA.prototype ,
+"QueryPatientRecordWS.GetPatientStatusInfo":CResMsgGetPatientStatusInfo.prototype ,
+"QueryPatientRecordWS.GetPatientOIDsByPatientIDs":CResMsgGetPatientOIDsByPatientIDs.prototype ,
+"QueryPatientRecordWS.GetRpMainVisitor":CResMsgGetRpMainVisitor.prototype ,
+"QueryPatientRecordWS.GetPatientSummaryInfo":CResMsgGetPatientSummaryInfo.prototype ,
+"QueryPatientRecordWS.GetPatientEmail":CResMsgGetPatientEmail.prototype ,
+"QueryPatientRecordWS.GetPatientLastModifiedDetails":CResMsgGetPatientLastModifiedDetails.prototype ,
+"QueryPatientRecordWS.GetPatInfoDetails":CResMsgGetPatInfoDetails.prototype ,
+"QueryPatientRecordWS.GetNokEduInfo":CResMsgGetNokEduInfo.prototype ,
+"QueryPatientRecordWS.GetPatFallbackDtls":CResMsgGetPatFallbackDtls.prototype ,
+"QueryPatientRecordWS.GetPatientIdentifier":CResMsgGetPatientIdentifier.prototype ,
+"QueryPatientRecordWS.GetPatientIDMInfo":CResMsgGetPatientIDMInfo.prototype ,
+"QueryPatientRecordWS.GetPatientAddressAliasInfo":CResMsgGetPatientAddressAliasInfo.prototype ,
+"QueryPatientRecordWS.GetPatientMaternityRelation":CResMsgGetPatientMaternityRelation.prototype ,
+"QueryPatientRecordWS.GetPatientEnquirySearchDetails":CResMsgGetPatientEnquirySearchDetails.prototype ,
+"QueryPatientRecordWS.GetPatPrefDetails":CResMsgGetPatPrefDetails.prototype ,
+"QueryPatientRecordWS.IsPreferenceExist":CResMsgIsPreferenceExist.prototype ,
+"QueryPatientRecordWS.GetPatientReminderDetails":CResMsgGetPatientReminderDetails.prototype ,
+"QueryPatientRecordWS.GetPatientDemographic":CResMsgGetPatientDemographic.prototype ,
+"QueryPatientRecordWS.GetPatientDemographicSummary":CResMsgGetPatientDemographicSummary.prototype ,
+"QueryPatientRecordWS.GetPatientDetails":CResMsgGetPatientDetails.prototype ,
+"QueryPatientRecordWS.GetPersonalcarerPatientDetails":CResMsgGetPersonalcarerPatientDetails.prototype ,
+"QueryPatientRecordWS.GetPatient":CResMsgGetPatient.prototype ,
+"QueryPatientRecordWS.GetPatientRegOrgOID":CResMsgGetPatientRegOrgOID.prototype ,
+"QueryPatientRecordWS.GetDuplicatePatient":CResMsgGetDuplicatePatient.prototype ,
+"QueryPatientRecordWS.GetPatientByNHS":CResMsgGetPatientByNHS.prototype ,
+"QueryPatientRecordWS.GetOccupation":CResMsgGetOccupation.prototype ,
+"QueryPatientRecordWS.GetPatientGPSummary":CResMsgGetPatientGPSummary.prototype ,
+"QueryPatientRecordWS.GetPatientSummary":CResMsgGetPatientSummary.prototype ,
+"QueryPatientRecordWS.IsNHSResponseCodeSeventeen":CResMsgIsNHSResponseCodeSeventeen.prototype ,
+"QueryPatientRecordWS.GetPatientEducation":CResMsgGetPatientEducation.prototype ,
+"QueryPatientRecordWS.GetEducationForLoginHO":CResMsgGetEducationForLoginHO.prototype ,
+"QueryPatientRecordWS.GetPasIDSensitive":CResMsgGetPasIDSensitive.prototype ,
+"QueryPatientRecordWS.GetPatientEmployer":CResMsgGetPatientEmployer.prototype ,
+"QueryPatientRecordWS.GetEmployerForLoginHO":CResMsgGetEmployerForLoginHO.prototype ,
+"QueryPatientRecordWS.GetPatientInsuranceExtended":CResMsgGetPatientInsuranceExtended.prototype ,
+"QueryPatientRecordWS.GetPatientInsurance":CResMsgGetPatientInsurance.prototype ,
+"QueryPatientRecordWS.GetInsuranceForLoginHO":CResMsgGetInsuranceForLoginHO.prototype ,
+"QueryPatientRecordWS.GetPatientSensitive":CResMsgGetPatientSensitive.prototype ,
+"QueryPatientRecordWS.GetCarerDetails":CResMsgGetCarerDetails.prototype ,
+"QueryPatientRecordWS.GetSortedPatient":CResMsgGetSortedPatient.prototype ,
+"QueryPatientRecordWS.GetCarerRoleDetails":CResMsgGetCarerRoleDetails.prototype ,
+"QueryPatientRecordWS.GetCarerAllDetails":CResMsgGetCarerAllDetails.prototype ,
+"QueryPatientRecordWS.GetPatientAddrWType":CResMsgGetPatientAddrWType.prototype ,
+"QueryPatientRecordWS.GetPITypCode":CResMsgGetPITypCode.prototype ,
+"QueryPatientRecordWS.GetPatMandatoryInfo":CResMsgGetPatMandatoryInfo.prototype ,
+"QueryPatientRecordWS.GetPatMandatoryInfoExist":CResMsgGetPatMandatoryInfoExist.prototype ,
+"QueryPatientRecordWS.GetDissentInfoExist_IDM":CResMsgGetDissentInfoExist_IDM.prototype ,
+"QueryPatientRecordWS.GetPrimPatientOID":CResMsgGetPrimPatientOID.prototype ,
+"QueryPatientRecordWS.GetPrefRelnInfo":CResMsgGetPrefRelnInfo.prototype ,
+"QueryPatientRecordWS.GetContactNoForSMS":CResMsgGetContactNoForSMS.prototype ,
+"QueryPatientRecordWS.GetIsPrefIconExists":CResMsgGetIsPrefIconExists.prototype ,
+"QueryPatientRecordWS.GetIsPrefIconExistsEnhanced":CResMsgGetIsPrefIconExistsEnhanced.prototype ,
+"QueryPatientRecordWS.GetAgeBandingDetails":CResMsgGetAgeBandingDetails.prototype ,
+"QueryPatientRecordWS.GetPatientPrimaryContact":CResMsgGetPatientPrimaryContact.prototype ,
+"QueryPatientRecordWS.GetMotherRelation":CResMsgGetMotherRelation.prototype ,
+"QueryPatientRecordWS.GetPatientPhotoID":CResMsgGetPatientPhotoID.prototype ,
+"QueryPatientRecordWS.GetRecentQuickSearchID":CResMsgGetRecentQuickSearchID.prototype ,
+"QueryPatientRecordWS.GetPatPrefBook":CResMsgGetPatPrefBook.prototype ,
+"QueryPatientRecordWS.GetPatientStatus":CResMsgGetPatientStatus.prototype ,
+"QueryPatientRecordWS.GetPatientStatusForLoginHO":CResMsgGetPatientStatusForLoginHO.prototype ,
+"QueryPatientRecordWS.GetAddress":CResMsgGetAddress.prototype ,
+"QueryPatientRecordWS.GetPatientStatusMHAA":CResMsgGetPatientStatusMHAA.prototype ,
+"QueryPatientRecordWS.GetPatientSearchDetails":CResMsgGetPatientSearchDetails.prototype ,
+"QueryPatientRecordWS.GetPatientQuickSearchDetails":CResMsgGetPatientQuickSearchDetails.prototype ,
+"QueryPatientRecordWS.GetRecentPatientSearch":CResMsgGetRecentPatientSearch.prototype ,
+"QueryPatientRecordWS.GetPatientFrequentSearchDetails":CResMsgGetPatientFrequentSearchDetails.prototype ,
+"QueryPatientRecordWS.GetPatientEncounterSearchDetails":CResMsgGetPatientEncounterSearchDetails.prototype ,
+"QueryPatientRecordWS.GetCompletePatientSearchDetails":CResMsgGetCompletePatientSearchDetails.prototype ,
+"QueryPatientRecordWS.GetPatientList":CResMsgGetPatientList.prototype ,
+"QueryPatientRecordWS.GetSmartList":CResMsgGetSmartList.prototype ,
+"QueryPatientRecordWS.GetStaticList":CResMsgGetStaticList.prototype ,
+"QueryPatientRecordWS.GetCriteriaBasedPatientList":CResMsgGetCriteriaBasedPatientList.prototype ,
+"QueryPatientRecordWS.GetCriteriaBasedXML":CResMsgGetCriteriaBasedXML.prototype ,
+"QueryPatientRecordWS.GetNewRequest":CResMsgGetNewRequest.prototype ,
+"QueryPatientRecordWS.GetNewResult":CResMsgGetNewResult.prototype ,
+"QueryPatientRecordWS.GetNewDocument":CResMsgGetNewDocument.prototype ,
+"QueryPatientRecordWS.GetUnAcKnowledgeResult":CResMsgGetUnAcKnowledgeResult.prototype ,
+"QueryPatientRecordWS.GetCritBasedProblems":CResMsgGetCritBasedProblems.prototype ,
+"QueryPatientRecordWS.GetProceduresForHOs":CResMsgGetProceduresForHOs.prototype ,
+"QueryPatientRecordWS.GetAllergiesForHOs":CResMsgGetAllergiesForHOs.prototype ,
+"QueryPatientRecordWS.GetPatientDecActivity":CResMsgGetPatientDecActivity.prototype ,
+"QueryPatientRecordWS.GetEPRRelationship":CResMsgGetEPRRelationship.prototype ,
+"QueryPatientRecordWS.IsDuplicateNHS":CResMsgIsDuplicateNHS.prototype ,
+"QueryPatientRecordWS.IsNHSResponseCode":CResMsgIsNHSResponseCode.prototype ,
+"QueryPatientRecordWS.IsSynchReasgnTask":CResMsgIsSynchReasgnTask.prototype ,
+
+CReqMsgGetPatPrefBook : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatPrefBook : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientPreference:PatientPreference.prototype ,
+
+ },Address : { 
+Contract:ContractActivity.prototype ,
+
+ },ContractActivity : { 
+oAssociatedEntities:AssociatedEntities.prototype ,
+GroupByResult:GroupResult.prototype ,
+
+ },PatientAddress : { 
+PatientContact:Contact.prototype ,
+PatientCommunication:PatientCommunication.prototype ,
+DPatientContact:Contact.prototype ,
+
+ },Contact : { 
+oAuditInfo:AuditInfo.prototype ,
+oUserMobileNumber:UserMobileNumber.prototype ,
+
+ },UserMobileNumber : { 
+oAuditInfo:AuditInfo.prototype ,
+
+ },PatientCommunication : { 
+oPatientAddress:PatientAddress.prototype ,
+oAuditInfo:AuditInfo.prototype ,
+oUserMobileNumber:UserMobileNumber.prototype ,
+
+ },PatientGP : { 
+GPPractiseAddress:HOAddress.prototype ,
+GPAddress:HOAddress.prototype ,
+GeneralPractioner:dpUser.prototype ,
+objHo:HealthOrganisationDetail.prototype ,
+
+ },HOAddress : { 
+oAuditInfo:AuditInfo.prototype ,
+HOContact:Contact.prototype ,
+
+ },User : { 
+oAuditInfo:AuditInfo.prototype ,
+
+ },dpUser : { 
+oHealthOrganisation:HealthOrganisationDetail.prototype ,
+oRole:Role.prototype ,
+oUserAddress:UserAddress.prototype ,
+oUserID:UserID.prototype ,
+
+ },HealthOrganisationDetail : { 
+oHealthOrg:HealthOrganisation.prototype ,
+oAuditInfo:AuditInfo.prototype ,
+oHOStatus:HOStatus.prototype ,
+oOrgInsurer:HOInsurer.prototype ,
+arrHealthOrg:HealthOrganisation.prototype ,
+oOrgAddress:HOAddress.prototype ,
+oOrgIDs:HOIdentifier.prototype ,
+oOrgLocation:HOLocation.prototype ,
+oOrgSpecialty:HOSpecialty.prototype ,
+oOrgTeams:HOTeams.prototype ,
+oOrgService:HOService.prototype ,
+oOrgCareService:HOCareService.prototype ,
+oFailedStatus:HOStatus.prototype ,
+oHOStatusHistory:StatusHistory.prototype ,
+
+ },HealthOrganisation : { 
+oParentOrganisation:ParentOrganisation.prototype ,
+oAuditInfo:AuditInfo.prototype ,
+
+ },ParentOrganisation : { 
+oAuditInfo:AuditInfo.prototype ,
+
+ },HOIdentifier : { 
+oAuditInfo:AuditInfo.prototype ,
+
+ },UserID : { 
+oAuditInfo:AuditInfo.prototype ,
+
+ },LocationIdentifier : { 
+oAuditInfo:AuditInfo.prototype ,
+
+ },Location : { 
+oAuditInfo:AuditInfo.prototype ,
+oLocationFeatures:LocationFeature.prototype ,
+oLocationIdentifier:LocationIdentifier.prototype ,
+oLocationStatushistory:StatusHistory.prototype ,
+oMaskLocInfo:LocationMask.prototype ,
+oLocationTracks:LocationTracking.prototype ,
+
+ },LocationMask : { 
+MaskInfo:MaskInfo.prototype ,
+
+ },Team : { 
+TeamOrganisation:ObjectInfo.prototype ,
+
+ },ServicePoint : { 
+oServicePointType:SubServicePoint.prototype ,
+oServiceProfile:ServiceProfile.prototype ,
+oServicePntdetail:ServicePointDetail.prototype ,
+oServiceLetters:ServiceLetters.prototype ,
+oServiceForms:ServiceForms.prototype ,
+oServicePurpose:ServicePurpose.prototype ,
+oEventStatusOptions:EventStatusOption.prototype ,
+
+ },SubServicePoint : { 
+oAuditInfo:AuditInfo.prototype ,
+
+ },ServicePointDetail : { 
+oEntWorkGroup:EnterpriseWorkgroup.prototype ,
+Session:SessionDetails.prototype ,
+oSPStatus:ServicePointStatus.prototype ,
+oHealthOrganisation:HealthOrganisation.prototype ,
+oTransferOfCare:TransferOfCareConfigInfo.prototype ,
+oServiceProviderDetails:ServiceProviderDetails.prototype ,
+EventStatusOptions:EventStatusOption.prototype ,
+oLocation:Location.prototype ,
+oLocationMask:LocationMask.prototype ,
+arrServiceProfile:ServiceProfile.prototype ,
+oPurpose:ServicePurpose.prototype ,
+oAssociatedServicePoint:AssociatedServicePoint.prototype ,
+oTheatreCritical:TheatreCrtical.prototype ,
+TransportMode:TransportMode.prototype ,
+ServiceExtension:ServiceExtension.prototype ,
+MaskInfo:MaskInfo.prototype ,
+TheatreDelayGain:DelayGain.prototype ,
+CompatableServicePoint:SubServicePoint.prototype ,
+ServiceLetterDetails:ServiceLetters.prototype ,
+ServiceFormDetails:ServiceForms.prototype ,
+oFPlan:FloorPlans.prototype ,
+oFailedStatus:ServicePointStatus.prototype ,
+oServicePointStatusHistory:StatusHistory.prototype ,
+oEventStatusOpt:EventStatusOption.prototype ,
+
+ },EnterpriseWorkgroup : { 
+oWorkgroupUser:LRWorkgroupUser.prototype ,
+
+ },LRWorkgroupUser : { 
+UserDetails:UserLoggedIn.prototype ,
+
+ },AssociatedServicePoint : { 
+AuditData:AuditInfo.prototype ,
+
+ },TheatreCrtical : { 
+AuditData:AuditInfo.prototype ,
+
+ },TransferOfCareConfigInfo : { 
+oTOCSectionDetails:TOCSectionDetails.prototype ,
+
+ },TOCBaseObject : { 
+oTOCCustmAttribute:TOCBaseObject.prototype ,
+DisplayValue:TOCDisplayDetails.prototype ,
+
+ },TOCSectionDetails : { 
+oTOCAttribute:TOCBaseObject.prototype ,
+
+ },CareService : { 
+oEntWorkGroup:EnterpriseWorkgroup.prototype ,
+oParentCareService:ParentService.prototype ,
+oAuditInfo:AuditInfo.prototype ,
+
+ },UserAddress : { 
+UserContact:Contact.prototype ,
+
+ },PersonalCarerAddress : { 
+PersonalCarerContact:Contact.prototype ,
+
+ },Patient : { 
+SpokenLanguage:SpokenLanguage.prototype ,
+PatID:PatientID.prototype ,
+
+ },PatientList : { 
+oIndicatorTracking:PatientIndicatorTracking.prototype ,
+DynamicPaging:GroupResult.prototype ,
+GroupByResultPaging:GroupResult.prototype ,
+
+ },PatientPersonalCarer : { 
+RelPatCarerAssemnt:RelPatCarerAssemnt.prototype ,
+patid:PatientID.prototype ,
+RelPatCarerAssessment:RelPatCarerAssemnt.prototype ,
+PatientAddress:PatientAddress.prototype ,
+PersonalCarerAddress:PersonalCarerAddress.prototype ,
+
+ },RelPatCarerAssemnt : { 
+RelPatCarerAssemntCDCForm:RelPatCarerAssemntCDCForm.prototype ,
+
+ },PatientEducation : { 
+objHealthOrganisationDetail:HealthOrganisationDetail.prototype ,
+
+ },PatientMandatoryInfo : { 
+PatientDetails:Patient.prototype ,
+PatientStatus:PatientStatus.prototype ,
+
+ },PatientIDMInfo : { 
+PatientInfo1:PatientInfo1.prototype ,
+PatientInfo2:PatientInfo2.prototype ,
+PatientInfo3:PatientInfo3.prototype ,
+PatientInfo4:PatientInfo4.prototype ,
+PatientAddress:PatientAddress.prototype ,
+PatientContact:Contact.prototype ,
+PatientStatus:PatientStatus.prototype ,
+PatientRPInfo:PatientRPInfo.prototype ,
+
+ },PatientInfo4 : { 
+PatientIdentityInfo:PatientIdTypeInfo.prototype ,
+
+ },PatientRPInfo : { 
+PatientAddress:PatientAddress.prototype ,
+
+ },PatientDemographics : { 
+PatientDetails:Patient.prototype ,
+Contract:ContractActivity.prototype ,
+PatBasedReg:PatientBasedRegistration.prototype ,
+PIB:PatientIdentityBand.prototype ,
+BloodSpotCardLabel:BloodSpotCardLabel.prototype ,
+PatientAddress:PatientAddress.prototype ,
+PatientAlias:PatientAlias.prototype ,
+PatientID:PatientID.prototype ,
+PatientPersonalCarer:PatientPersonalCarer.prototype ,
+PatientCarer:PatientCarer.prototype ,
+PatientGP:PatientGP.prototype ,
+Preference:PatientPreference.prototype ,
+OtherAdminPreference:PatientPreference.prototype ,
+PatientStatus:PatientStatus.prototype ,
+Education:PatientEducation.prototype ,
+Employer:PatientEmployer.prototype ,
+Insurance:PatientInsurance.prototype ,
+PatientDeceased:PatientDeceased.prototype ,
+PatientConsent:PatientConsent.prototype ,
+DPatientAlias:PatientAlias.prototype ,
+DPatientAddress:PatientAddress.prototype ,
+DPatientPersonalCarer:PatientPersonalCarer.prototype ,
+DPreference:PatientPreference.prototype ,
+InterPreter:PatientPreference.prototype ,
+
+ },PatientCarer : { 
+User:dpUser.prototype ,
+
+ },PatientBasedRegistration : { 
+NewPatient:ClonePatient.prototype ,
+
+ },ClonePatient : { 
+CopyDetails:CopyDetails.prototype ,
+StillBirthDet:PatientDeceased.prototype ,
+
+ },PatientDeceased : { 
+Contract:ContractActivity.prototype ,
+Cancellation:DeceasedCancellation.prototype ,
+
+ },CReqMsgGetPatientStatus : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientStatus : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientStatus:PatientStatus.prototype ,
+
+ },CReqMsgGetPatientStatusForLoginHO : { 
+objPatientLoginHOBC:PatientLoginHO.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientStatusForLoginHO : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientStatus:PatientStatus.prototype ,
+
+ },CReqMsgGetAddress : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetAddress : { 
+objPatientAddress:PatientAddress.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatientStatusMHAA : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientStatusMHAA : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientStatus:PatientStatus.prototype ,
+
+ },CReqMsgGetPatientSearchDetails : { 
+oPatientSearchBC:PatientSearch.prototype ,
+pElementBC:PageElement.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },PatientSearch : { 
+Patient:Patient.prototype ,
+PatientAddress:PatientAddress.prototype ,
+oPatSrchResults:PatSrchResults.prototype ,
+
+ },PageElement : { 
+FirstElement:PageRowElement.prototype ,
+LastElement:PageRowElement.prototype ,
+
+ },CResMsgGetPatientSearchDetails : { 
+CurrentPageElement:PageElement.prototype ,
+oContextInformation:CContextInformation.prototype ,
+oPatient:PatientDisplayDetails.prototype ,
+
+ },PatientDisplayDetails : { 
+Patient:Patient.prototype ,
+PatientAddress:PatientAddress.prototype ,
+PatientAlias:PatientAlias.prototype ,
+PatientID:PatientID.prototype ,
+PatientEncounter:PatientEncounter.prototype ,
+PatientGP:PatientGP.prototype ,
+oPatSrchResults:PatSrchResults.prototype ,
+
+ },CReqMsgGetPatientQuickSearchDetails : { 
+oPatientSearchBC:PatientQuickSearch.prototype ,
+pElementBC:PageElement.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },PatientQuickSearch : { 
+PatientAddress:PatientAddress.prototype ,
+pElement:PagingDynamicSQL.prototype ,
+
+ },PagingDynamicSQL : { 
+FilterBy:Filter.prototype ,
+GroupBy:Group.prototype ,
+
+ },CResMsgGetPatientQuickSearchDetails : { 
+CurrentPageElement:PageElement.prototype ,
+oContextInformation:CContextInformation.prototype ,
+oPatient:PatientDisplayDetails.prototype ,
+
+ },CReqMsgGetRecentPatientSearch : { 
+oPatientSearchBC:PatientQuickSearch.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRecentPatientSearch : { 
+oContextInformation:CContextInformation.prototype ,
+oPatient:PatientDisplayDetails.prototype ,
+
+ },CReqMsgGetPatientFrequentSearchDetails : { 
+oPatientSearchBC:PatientFrequentSearch.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },PatientFrequentSearch : { 
+PatientAddress:PatientAddress.prototype ,
+
+ },CResMsgGetPatientFrequentSearchDetails : { 
+oContextInformation:CContextInformation.prototype ,
+oPatient:PatientDisplayDetails.prototype ,
+
+ },CReqMsgGetPatientEncounterSearchDetails : { 
+oPatientSearchBC:PatientEncounterSearch.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },PatientEncounterSearch : { 
+PatientAddress:PatientAddress.prototype ,
+
+ },CResMsgGetPatientEncounterSearchDetails : { 
+oContextInformation:CContextInformation.prototype ,
+oPatient:PatientDisplayDetails.prototype ,
+
+ },CReqMsgGetCompletePatientSearchDetails : { 
+oPatientSearchBC:PatientSearch.prototype ,
+pElementBC:PagingDynamicSQL.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetCompletePatientSearchDetails : { 
+oContextInformation:CContextInformation.prototype ,
+oPatient:PatientDisplayDetails.prototype ,
+
+ },CReqMsgGetPatientList : { 
+objReqPatientListContextBC:PatientListContext.prototype ,
+pageElementBC:PagingDynamicSQL.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientList : { 
+oContextInformation:CContextInformation.prototype ,
+objResPatientList:PatientList.prototype ,
+
+ },CReqMsgGetSmartList : { 
+objReqPatientListContextBC:PatientListContext.prototype ,
+pageElementBC:PagingDynamicSQL.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetSmartList : { 
+oContextInformation:CContextInformation.prototype ,
+objResPatientList:PatientList.prototype ,
+
+ },CReqMsgGetStaticList : { 
+objReqPatientListContextBC:PatientListContext.prototype ,
+pageElementBC:PagingDynamicSQL.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetStaticList : { 
+oContextInformation:CContextInformation.prototype ,
+objResPatientList:PatientList.prototype ,
+
+ },CReqMsgGetCriteriaBasedPatientList : { 
+objReqPatientListContextBC:PatientListContext.prototype ,
+pageElementBC:PagingDynamicSQL.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetCriteriaBasedPatientList : { 
+oContextInformation:CContextInformation.prototype ,
+objResPatientList:PatientList.prototype ,
+
+ },CReqMsgGetCriteriaBasedXML : { 
+objReqPatientListContextBC:PatientListContext.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetCriteriaBasedXML : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetNewRequest : { 
+objReqNewRequestBC:NewEvents.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetNewRequest : { 
+oContextInformation:CContextInformation.prototype ,
+objResNewRequests:NewRequests.prototype ,
+
+ },CReqMsgGetNewResult : { 
+objReqNewResultBC:NewEvents.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetNewResult : { 
+oContextInformation:CContextInformation.prototype ,
+objResNewResult:NewResults.prototype ,
+
+ },CReqMsgGetNewDocument : { 
+objReqNewDocumentsBC:NewEvents.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetNewDocument : { 
+oContextInformation:CContextInformation.prototype ,
+objResNewDocuments:NewDocuments.prototype ,
+
+ },CReqMsgGetUnAcKnowledgeResult : { 
+objReqUnAcknowledgeResultsBC:NewEvents.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetUnAcKnowledgeResult : { 
+oContextInformation:CContextInformation.prototype ,
+objResUnAcknowledgeResults:NewRequests.prototype ,
+
+ },CReqMsgGetCritBasedProblems : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetCritBasedProblems : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetProceduresForHOs : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetProceduresForHOs : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetAllergiesForHOs : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetAllergiesForHOs : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatientDecActivity : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientDecActivity : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientDeceased:PatientDeceasedActivity.prototype ,
+
+ },CReqMsgGetEPRRelationship : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetEPRRelationship : { 
+oContextInformation:CContextInformation.prototype ,
+oEPRRelationship:PatientPersonalCarer.prototype ,
+
+ },CReqMsgIsDuplicateNHS : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgIsDuplicateNHS : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgIsNHSResponseCode : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgIsNHSResponseCode : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgIsSynchReasgnTask : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgIsSynchReasgnTask : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgIsNHSResponseCodeSeventeen : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgIsNHSResponseCodeSeventeen : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatientEducation : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientEducation : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientEducation:PatientEducation.prototype ,
+
+ },CReqMsgGetEducationForLoginHO : { 
+objPatientLoginHOBC:PatientLoginHO.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetEducationForLoginHO : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientEducation:PatientEducation.prototype ,
+
+ },CReqMsgGetPasIDSensitive : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPasIDSensitive : { 
+oContextInformation:CContextInformation.prototype ,
+PatSensitiveDetails:PatientSensitiveDetails.prototype ,
+
+ },CReqMsgGetPatientEmployer : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientEmployer : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientEmployer:PatientEmployer.prototype ,
+
+ },CReqMsgGetEmployerForLoginHO : { 
+objPatientLoginHOBC:PatientLoginHO.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetEmployerForLoginHO : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientEmployer:PatientEmployer.prototype ,
+
+ },CReqMsgGetPatientInsuranceExtended : { 
+objPatInsuranceReqBC:PatientInsuranceRequest.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientInsuranceExtended : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientInsurance:PatientInsurance.prototype ,
+
+ },CReqMsgGetPatientInsurance : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientInsurance : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientInsurance:PatientInsurance.prototype ,
+
+ },CReqMsgGetInsuranceForLoginHO : { 
+objPatientLoginHOBC:PatientLoginHO.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetInsuranceForLoginHO : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientInsurance:PatientInsurance.prototype ,
+
+ },CReqMsgGetPatientSensitive : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientSensitive : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetCarerDetails : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetCarerDetails : { 
+oContextInformation:CContextInformation.prototype ,
+oPersonalCarer:PatientPersonalCarer.prototype ,
+
+ },CReqMsgGetSortedPatient : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetSortedPatient : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetCarerRoleDetails : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetCarerRoleDetails : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientGP:PatientGP.prototype ,
+
+ },CReqMsgGetCarerAllDetails : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetCarerAllDetails : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientGP:PatientGP.prototype ,
+
+ },CReqMsgGetPatientAddrWType : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientAddrWType : { 
+oContextInformation:CContextInformation.prototype ,
+oAddress:PatientAddress.prototype ,
+
+ },CReqMsgGetPITypCode : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPITypCode : { 
+oPatientIDType:OrganisationPatIDProfile.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatMandatoryInfo : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatMandatoryInfo : { 
+oPatientMandatoryInfo:PatientMandatoryInfo.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatMandatoryInfoExist : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatMandatoryInfoExist : { 
+oPatientMandatoryInfo:PatientMandatoryInfo.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetDissentInfoExist_IDM : { 
+objPatientLoginHOBC:PatientLoginHO.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetDissentInfoExist_IDM : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPrimPatientOID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPrimPatientOID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPrefRelnInfo : { 
+objReqBC:GetPersonalCarerInfo.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPrefRelnInfo : { 
+objRpBasicInfo:PersonalCarerBasicInfo.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetContactNoForSMS : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetContactNoForSMS : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetIsPrefIconExists : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetIsPrefIconExists : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetIsPrefIconExistsEnhanced : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetIsPrefIconExistsEnhanced : { 
+oContextInformation:CContextInformation.prototype ,
+objPatientPreferenceBanner:PatientPreferenceBanner.prototype ,
+
+ },CReqMsgGetAgeBandingDetails : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetAgeBandingDetails : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatientPrimaryContact : { 
+objAddressSearchBC:AddressSearchParams.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientPrimaryContact : { 
+oContextInformation:CContextInformation.prototype ,
+objAddress:PatientAddress.prototype ,
+
+ },CReqMsgGetMotherRelation : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetMotherRelation : { 
+oContextInformation:CContextInformation.prototype ,
+objRpBasicInfo:PersonalCarerBasicInfo.prototype ,
+
+ },CReqMsgGetPatientPhotoID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientPhotoID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetRecentQuickSearchID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRecentQuickSearchID : { 
+oContextInformation:CContextInformation.prototype ,
+PatientID:PatientID.prototype ,
+
+ },CReqMsgGetPatientStatusInfo : { 
+objStatusBC:SearchPatientStatus.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientStatusInfo : { 
+oContextInformation:CContextInformation.prototype ,
+objPatientStatus:PatientStatus.prototype ,
+
+ },CReqMsgGetPatientOIDsByPatientIDs : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientOIDsByPatientIDs : { 
+oContextInformation:CContextInformation.prototype ,
+oPatient:Patient.prototype ,
+
+ },CReqMsgGetRpMainVisitor : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRpMainVisitor : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatientSummaryInfo : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientSummaryInfo : { 
+oPatientSummary:PatientSummary.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },PatientSummary : { 
+oPatient:Patient.prototype ,
+oPatientAddress:PatientAddress.prototype ,
+oPatientID:PatientID.prototype ,
+oContact:Contact.prototype ,
+
+ },CReqMsgGetPatientEmail : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientEmail : { 
+oPatientEmail:PatientEmail.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },PatientEmail : { 
+ValueSet:EmailValueSet.prototype ,
+
+ },CReqMsgGetPatientLastModifiedDetails : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientLastModifiedDetails : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatInfoDetails : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatInfoDetails : { 
+oPatientIDMInfo:PatientIDMInfo.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetNokEduInfo : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetNokEduInfo : { 
+oPatientNokEduInfo:PatientNokEduInfo.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatFallbackDtls : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatFallbackDtls : { 
+oPatientSummary:PatientSummary.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatientIdentifier : { 
+oReqCPatientIDInfoBC:CPatientIDInfo.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientIdentifier : { 
+oResCPatientIDInfo:CPatientIDInfo.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatientIDMInfo : { 
+oPatientIDMInputBC:PatientIDMInput.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientIDMInfo : { 
+oPatientIDMInfo:PatientIDMInfo.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatientAddressAliasInfo : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientAddressAliasInfo : { 
+oDemographicsChkResponse:PatientDemographics.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatientMaternityRelation : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientMaternityRelation : { 
+oContextInformation:CContextInformation.prototype ,
+arrPatient:PatientMaternityRelation.prototype ,
+
+ },CReqMsgGetPatientEnquirySearchDetails : { 
+oPatientEnquirySearchBC:PatientEnquirySearch.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientEnquirySearchDetails : { 
+oPatEnqSrchResults:PatEnqSrchResults.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },PatEnqSrchResults : { 
+oPatientDisplayDetails:PatientDisplayDetails.prototype ,
+
+ },CReqMsgGetPatPrefDetails : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatPrefDetails : { 
+oContextInformation:CContextInformation.prototype ,
+objPatientPreferenceView:PatientPreferenceView.prototype ,
+
+ },CReqMsgIsPreferenceExist : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgIsPreferenceExist : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatientReminderDetails : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientReminderDetails : { 
+oReminderInfo:NotificationReminderInfo.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatientDemographic : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientDemographic : { 
+oDemographic:PatientDemographics.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatientDemographicSummary : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientDemographicSummary : { 
+oDemographic:PatientDemographics.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatientDetails : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientDetails : { 
+oPatient:Patient.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPersonalcarerPatientDetails : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPersonalcarerPatientDetails : { 
+oPatient:Patient.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatient : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatient : { 
+oPatient:Patient.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatientRegOrgOID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientRegOrgOID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetDuplicatePatient : { 
+oPatientSearchBC:PatientSearch.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetDuplicatePatient : { 
+oContextInformation:CContextInformation.prototype ,
+oPatient:Patient.prototype ,
+
+ },CReqMsgGetPatientByNHS : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientByNHS : { 
+oPatient:Patient.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetOccupation : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetOccupation : { 
+oContextInformation:CContextInformation.prototype ,
+oOccupation:Occupation.prototype ,
+
+ },CReqMsgGetPatientGPSummary : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientGPSummary : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientGP:PatientGP.prototype ,
+
+ },CReqMsgGetPatientSummary : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientSummary : { 
+oPatientSummary:PatientSummary.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatientInfo : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientInfo : { 
+oPatientBasicInfo:PatientBasicInfo.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatientAddress : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientAddress : { 
+oContextInformation:CContextInformation.prototype ,
+oAddress:PatientAddress.prototype ,
+
+ },CReqMsgGetPatAddress : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatAddress : { 
+oContextInformation:CContextInformation.prototype ,
+oAddress:PatientAddress.prototype ,
+
+ },CReqMsgGetPatCarerAddress : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatCarerAddress : { 
+oContextInformation:CContextInformation.prototype ,
+oAddress:PatientAddress.prototype ,
+
+ },CReqMsgGetPatientCommunicationAddress : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientCommunicationAddress : { 
+oContextInformation:CContextInformation.prototype ,
+oAddress:PatientAddress.prototype ,
+
+ },CReqMsgGetPatientContact : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientContact : { 
+oContextInformation:CContextInformation.prototype ,
+oContact:Contact.prototype ,
+
+ },CReqMsgGetPatientCarerContact : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientCarerContact : { 
+oContextInformation:CContextInformation.prototype ,
+oContact:Contact.prototype ,
+
+ },CReqMsgGetGPPracticeID : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetGPPracticeID : { 
+oPatientGP:PatientGP.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetPatientAlias : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientAlias : { 
+oContextInformation:CContextInformation.prototype ,
+oAlias:PatientAlias.prototype ,
+
+ },CReqMsgGetPatientConsent : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientConsent : { 
+oContextInformation:CContextInformation.prototype ,
+oConsent:PatientConsent.prototype ,
+
+ },CReqMsgGetPatientGP : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientGP : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientGP:PatientGP.prototype ,
+
+ },CReqMsgGetPatientCarer : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientCarer : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientGP:PatientGP.prototype ,
+
+ },CReqMsgGetCareProviderByRole : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetCareProviderByRole : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientGP:PatientGP.prototype ,
+
+ },CReqMsgGetPatientId : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientId : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientID:PatientID.prototype ,
+
+ },CReqMsgGetPatientIdForIntray : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientIdForIntray : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientID:PatientID.prototype ,
+
+ },CReqMsgGetPatientIDForLoginHO : { 
+objPatientLoginHOBC:PatientLoginHO.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientIDForLoginHO : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientID:PatientID.prototype ,
+
+ },CReqMsgGetPatientPersonalCarer : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientPersonalCarer : { 
+oContextInformation:CContextInformation.prototype ,
+oPersonalCarer:PatientPersonalCarer.prototype ,
+
+ },CReqMsgGetPatPersonalCarerAssessment : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatPersonalCarerAssessment : { 
+oRelPatCarerAssemnt:RelPatCarerAssemnt.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CReqMsgGetRelationshipDetails : { 
+oPatientPersonalCarerBC:PatientPersonalCarer.prototype ,
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetRelationshipDetails : { 
+oContextInformation:CContextInformation.prototype ,
+arrPatientPersonalCarer:PatientPersonalCarer.prototype ,
+
+ },CReqMsgGetPatientPersonalCarerName : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientPersonalCarerName : { 
+oContextInformation:CContextInformation.prototype ,
+oPersonalCarer:PatientPersonalCarer.prototype ,
+
+ },CReqMsgGetAllRelnDETails : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetAllRelnDETails : { 
+oContextInformation:CContextInformation.prototype ,
+oPersonalCarer:PatientPersonalCarer.prototype ,
+
+ },CReqMsgpGetRPDetailsForMaternity : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgpGetRPDetailsForMaternity : { 
+oContextInformation:CContextInformation.prototype ,
+oPersonalCarer:PatientPersonalCarer.prototype ,
+
+ },CReqMsgGetPersonalCareAddress : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPersonalCareAddress : { 
+oContextInformation:CContextInformation.prototype ,
+oPersonalCarerAddress:PersonalCarerAddress.prototype ,
+
+ },CReqMsgGetAllPersonalCareAddress : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetAllPersonalCareAddress : { 
+oContextInformation:CContextInformation.prototype ,
+oPersonalCarerAddress:PersonalCarerAddress.prototype ,
+
+ },CReqMsgGetPatientPreference : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPatientPreference : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientPreference:PatientPreference.prototype ,
+
+ },CReqMsgGetPrefForOtherCA : { 
+oContextInformation:CContextInformation.prototype ,
+
+ },CResMsgGetPrefForOtherCA : { 
+oContextInformation:CContextInformation.prototype ,
+oPatientPreference:PatientPreference.prototype ,
+
+ },CContextInformation : { 
+Current:CContextInformation.prototype ,
+
+ },
+ }
+ 
+const charPropertyLookup = [
+'IsAssignmentLocked',
+'IsClearAssignment','IsModified','IsLocked',
+'IsEncounterUpdate',
+'IsEmailRegWithEncryptService',
+'MFNBatchStatus',
+'IsLegalEntity',
+'MigrationFlag',
+'IsWardAttendance','IsWardInUse','TransferFormRequired',
+'IsVisible',
+'IsSectionTypeChangeable',
+'IsMetaphone',
+'Status',
+'Mainvisitor',
+'OthersInformed',
+'IsReOpened',
+'IsDODKnown','IsAddressValid','IsNHSNoAllocated',
+'IsDeceasedFlag','IsSensitive',]
+ 

@@ -1,0 +1,33 @@
+.div-position{
+    bottom: 3px;
+    position: relative;
+}
+.display-inline
+{
+    display: inline-block;
+    flex-direction: row;
+}
+.marginLeft{
+    margin-left: 21px;
+}
+.padding-top{
+    padding-top: 7px !important;
+}
+.display-inline-flex{
+    display: inline-flex !important;
+
+}
+.set-width{
+    width: 54px !important;
+}
+.margin-grdnotgiven{
+    margin-top:7px !important;
+    margin-bottom: 5px !important;
+}
+.center-align{
+    top:2px;
+    position:relative;
+}
+fieldset {
+    font-weight: 500 !important;
+}

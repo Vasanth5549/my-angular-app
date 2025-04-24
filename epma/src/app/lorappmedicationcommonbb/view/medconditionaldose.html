@@ -1,0 +1,83 @@
+<div class="grid-layout-container" name="LayoutRoot" >
+    <kendo-gridlayout [name]="Conditionaldose"
+        [rows]="[ { height: 25}, { height: 25}, { height: 150}]"
+        [cols]="[ { width: 'auto'},{ width: 'auto'}]" style="cursor: default;" > 
+        
+        <Border Height="30" Margin="0,0,5,0" VerticalAlignment="Top" [row]='2' [col]='2' Visibility="Collapsed"></Border>
+        
+        <Border [iStyle]="Styles.whiteBorder" Margin="7,0,0,0" [row]='2' [col]='1' [colSpan]='2' Visibility="Collapsed"></Border>
+        
+        <Border [iStyle]="Styles.whiteBorder" Margin="7,0,0,0" [row]='3' [col]='1' [colSpan]='2'></Border>
+        <kendo-gridlayout-item [row]='1' [col]='1'>
+            <div containerStyle style="margin-top: -10px">
+                <iLabel #lblConditionalDoseTempRef Name="lblConditionalDose"
+                    [Text]="steppeddose.ConditionalDose_Text" FontWeight="Bold" HorizontalAlignment="Left"
+                    VerticalAlignment="Center" Width="Auto" Margin="-5,5,5,5"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='2' [col]='1'>
+            <div containerStyle>
+                <iLabel #lblMonitaringperdTempRef Name="lblMonitaringperd"
+                    [Text]="steppeddose.MonitaringPerid_Text" Visibility="Collapsed"
+                    HorizontalAlignment="Left" VerticalAlignment="Center" Width="Auto" Margin="10,5,5,5"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='2' [col]='2'>
+            <div containerStyle>
+                <iLabel #lblMonitaringperd1TempRef Name="lblMonitaringperd1" [Text]="DataContext.MonitorigPerid"
+                    Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,5,5,5">
+                </iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='grdConditionalDoseRow' [col]='1' [colSpan]="2" style="margin-left: -5px;">
+            <kendo-grid #grdConditionalDoseRef  style="position: sticky; top: 0; width: auto; line-height: 1.2;"  [style.margin.px]="0" [reorderable]="true"
+                [sortable]="true" 
+                [data]="grdConditionalDose.ItemsSource?.array" class="extraspace" [resizeable]="false">
+                <ng-template kendoGridNoRecordsTemplate>{{ ddkey.NoRecordsText_Text }}
+                </ng-template>
+                <kendo-grid-column UniqueName="ValueRange" field="ValueRange" [filterable]="false" [width]="2">
+                <ng-template kendoGridHeaderTemplate>
+                    <ControlTemplate>
+                        <iLabel #lblObservationResultTempRef Name="lblObservationResult" Margin="0,2,5,2"
+                        [Text]="DataContext.ObservationResult"
+                        [Tooltip]="DataContext.ObservationResult" HorizontalAlignment="Stretch"
+                        IsWordwrap="True"></iLabel>
+                    </ControlTemplate>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate
+                        #temp                    
+                        [dataItem]="dataItem"                    
+                        [index]="rowIndex"                    
+                        [colindex] = "columnIndex"                    
+                        [gridHelper]="grdConditionalDose"
+                        (RowLoaded)="rowLoaded($event)"                                                      
+                        ><span  [attr.title]="dataItem.ValueRange">{{dataItem.ValueRange}}</span>
+                        </DataTemplate>
+                    </ng-template>                      
+                </kendo-grid-column>
+                <kendo-grid-column UniqueName="grdDoseinstruction" field="DoseInstruction" [title]="steppeddose.DoseInstruction_Header" [filterable]="false" [width]="3">
+                     <ng-template kendoGridHeaderTemplate let-column>  
+                        <span [title]="steppeddose.DoseInstruction_Header">{{ column.title }}</span>
+                      </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                <DataTemplate
+                    #temp                    
+                    [dataItem]="dataItem"                    
+                    [index]="rowIndex"                    
+                    [colindex] = "columnIndex"                    
+                    [gridHelper]="grdConditionalDose" >
+                    <span  [attr.title]="dataItem.DoseInstruction" class="DoseInstruction_warp">{{dataItem.DoseInstruction}}</span>
+                </DataTemplate> 
+                </ng-template>
+                </kendo-grid-column>
+            </kendo-grid>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='7' [col]='2'>
+            <div containerStyle>
+                <iLabel #lblConditionNameTempRef Name="lblConditionName" Visibility="Collapsed"
+                    [Text]="DataContext.ObservationResult"></iLabel>
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

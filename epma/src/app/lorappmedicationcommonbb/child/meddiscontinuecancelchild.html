@@ -1,0 +1,124 @@
+<kendo-gridlayout Name="LayoutRoot" Background="#E0EFF1FF" [rows]="[{ height: 323},{ height:30}]"
+    [cols]="[{ width: 'auto'}]">
+    <kendo-gridlayout-item [row]='1' [col]="1">
+        <kendo-grid #grdDisCancelDataTempRef [selectable]="{checkboxOnly: true, mode: 'multiple'}" kendoGridSelectBy
+            [(selectedKeys)]="grdDisCancelData.selectedRowsIndex" [height]="300" [editable]="false"
+            [GridColumnProperties]="grdDisCancelData" VerticalContentAlignment="Stretch" [filterable]="false"
+            [sortable]="false" [resizable]="false" Margin="10,10,10,10"
+            (selectionChange)="grdDisCancelData.selectionChange($event)" [reorderable]="false"
+            [data]="grdDisCancelData.ItemsSource.array" (contentScroll)="ContentScrollEvent($event)">
+            <ng-template kendoGridNoRecordsTemplate> No records to show </ng-template>
+            <kendo-grid-checkbox-column [style]="{ 'text-align': 'center' }" field="CheckBoxColumn" [width]="40">
+                <ng-template kendoGridCellTemplate let-dataItem let-idx="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate #temp [dataItem]="dataItem" [index]="idx" [colindex]="columnIndex"
+                        [gridHelper]="grdDisCancelData">
+                        <iCheckBox #SelectCheckboxTempRef name="SelectCheckbox" *ngIf="!dataItem.IsGroupHeader"
+                            [kendoGridSelectionCheckbox]="idx">
+                        </iCheckBox>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-checkbox-column>
+            <kendo-grid-column UniqueName="PrescriptionItemOID" [hidden]="true"
+                [title]="dccl.PrescriptionItemOID_Header"></kendo-grid-column>
+            <kendo-grid-column UniqueName="PrescriptionItemName" [title]="dccl.IdentifyingName_Header"
+                [GridColumnProperties]="grdDisCancelData" [editable]="false" ngfor="300">
+                <ng-template kendoGridHeaderTemplate let-column>  
+                    <span [title]="dccl.IdentifyingName_Header">{{ column.title }}</span>                
+                  </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate>
+                        <StackPanel>
+                            <iLabel [Text]="dataItem.PrescriptionItemName" HorizontalAlignment="Stretch"
+                                Background="Transparent" VerticalAlignment="Stretch" MaxWidth="280" IsWordwrap="True"
+                                Height="Auto" Tooltip="Drug to be discontinued/Cancelled"></iLabel>
+                            <Image #ImgMCITempRef Name="ImgMCI" Source="~/../assets/Images/multicomponent item.png"
+                                Width="auto" Height="15" Cursor="Hand" [(Visibility)]="dataItem.IsMciEnable"
+                                [(Tooltip)]="dataItem.strMciTooltip" VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"></Image>
+                        </StackPanel>
+                    </DataTemplate>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <CellStyle #CellTemplateStyle Property="fontWeight" Value="bold"
+                        columnName="{{ dccl.IdentifyingName_Header }}">
+                        {{dataItem.PrescriptionItemName}}
+                    </CellStyle>
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column UniqueName="Reason" [title]="dccl.Reason_Header" [reorderable]="false" Width="235"
+                [sortable]="true" [filterable]="false">
+                <ng-template kendoGridHeaderTemplate let-column>  
+                    <span [title]="dccl.Reason_Header">{{ column.title }}</span>                
+                  </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-colIndex="columnIndex">
+                    <DataTemplate [dataItem]="dataItem" [index]="rowIndex" [colindex]="colIndex"
+                        [gridHelper]="grdDisCancelData">
+                        <GridCellTemplate [isEditable]="true" [columnNumber]="0" [cell]="'cell0'" [dataItem]="dataItem">
+                            <!--[EditableControlRef]="cboReasonTempRef" // removed - refer changeset 20381 for issueid 50576-->
+                            <StackPanel>
+                                <iLabel #lblReasonTempRef HorizontalAlignment="Stretch" class="ReasonWrap"
+                                    [Mandatory]="dataItem.ReasonMandatory" Name="lblReason" Cursor="Hand"
+                                    Tooltip="Reason for cancellation/Discontinuation" VerticalAlignment="Center"
+                                    [(Text)]="dataItem.strReason" TextDecorations="Underline"
+                                    [FontSize]="dataItem.ReasonFontSize" [FontWeight]="dataItem.ReasonFontWeight" (click)="onLastItemClicked(rowIndex)">
+                                </iLabel>
+                                <iLabel #lblReasonstarTempRef Name="lblReasonstar" HorizontalAlignment="Left"
+                                    VerticalAlignment="Center" [Mandatory]="dataItem.ReasonMandatory" Text="*"
+                                    Cursor="Hand" [FontSize]="dataItem.ReasonFontSize"
+                                    [FontWeight]="dataItem.ReasonFontWeight"
+                                    [Visibility]="dataItem.IsMandatoryStarVisible" [(Tooltip)]="dataItem.strReason">
+                                </iLabel>
+                            </StackPanel>
+                        </GridCellTemplate>
+                        <GridCellEditTemplate *ngIf="dataItem['cell0']" [cell]="'cell0'" [dataItem]="dataItem">
+                            <iComboBox #cboReasonTempRef HorizontalAlignment="Stretch" Name="cboReason"
+                                VerticalAlignment="Center" ColumnCellIndex="cell0" [DataContext]="dataItem"
+                                [(ItemsSource)]="dataItem.Reason" [(SelectedValue)]="dataItem.SelectedReason"
+                                Width="auto" IsDropDownOpen="True" [isGlobalEnabled]="IsEnabled"
+                                IsDropDownStretch="True" (blur)="dataItem['cell0'] = false" [FocusToggle]="'True'" (kendoComboInstance)="getCombo($event)">
+                            </iComboBox>
+                        </GridCellEditTemplate>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column UniqueName="Action" [title]="dccl.Action_Header" [editable]="false" Width="143"
+                field="Action">
+                <ng-template kendoGridHeaderTemplate let-column>  
+                    <span [title]="dccl.Action_Header">{{ column.title }}</span>                
+                  </ng-template>
+                  <ng-template kendoGridCellTemplate let-dataItem>
+                            <iLabel [Text]="dataItem.Action" Tooltip="Action to be performed on the drug"></iLabel>                    
+                </ng-template>
+            </kendo-grid-column>
+        </kendo-grid>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='2' [col]="1">
+        <kendo-gridlayout [rows]="[{ height:'auto'}]" [cols]="[{ width: 520},{ width: 'auto'}]">
+            <kendo-gridlayout-item [row]='1' [col]="1">
+                <iButton #cmdOnbehalfOfTempRef [Text]="dccl.cmdOnbehalfOf_Text" Name="cmdOnbehalfOf"
+                    [Click]="cmdOnbehalfOf_Click_Func" VerticalAlignment="Bottom" Height="33"
+                    [Tooltip]="dccl.cmdOnbehalfOf_Tooltip" DisabledImageSource="~/../assets/Images/iArrowDIS5x10.png"
+                    ActiveImageSource="~/../assets/Images/iArrowsHOT5x10.png"
+                    ImageSource="~/../assets/Images/iArrowNOR5x10.png" ImageHeight="12" ImageWidth="5"
+                    IsEnabled="False">
+                </iButton>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [row]='1' [col]="2">
+                <StackPanel [GridProperties]="LayoutRoot" VerticalAlignment="Stretch" Margin="0,11,0,4" height="30">
+                    <iLabel Text="*" Height="25" VerticalAlignment="Center" Margin="10,5,0,0" TextAlignment="Center"
+                        FontSize="16" FontWeight="ExtraBold" FontStretch="Normal" Foreground="Blue"></iLabel>
+                    <iLabel [Text]="dccl.MandatoryLegend_Text" Height="25" VerticalAlignment="Center" Margin="2,5,7,0"
+                        TextAlignment="Center"></iLabel>
+                    <iButton #cmdRemoveTempRef VerticalAlignment="Top" Height="27" [Text]="dccl.cmdRemove_Text"
+                        Name="cmdRemove" (click)="cmdRemove_Click({},{})" IsEnabled="False" Margin="0,-5,0,13"
+                        [Tooltip]="dccl.cmdRemove_Tooltip" ImageSource="~/../assets/Images/iNewDelete.png"
+                        DisabledImageSource="~/../assets/Images/iNewDeleteDis.png"
+                        ActiveImageSource="~/../assets/Images/iNewDeleteHot.png"
+                        ImageWidth="15" ImageHeight="15">
+                    </iButton>
+                </StackPanel>
+            </kendo-gridlayout-item>
+        </kendo-gridlayout>
+    </kendo-gridlayout-item>
+</kendo-gridlayout>

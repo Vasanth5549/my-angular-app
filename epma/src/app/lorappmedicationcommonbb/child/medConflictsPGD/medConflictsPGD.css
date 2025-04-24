@@ -1,0 +1,29 @@
+medfrmconflictsCA ::ng-deep .medfrmconflictsCA .k-grid-header{
+    padding: 0px 23px 0px 0px !important;
+}
+
+medfrmconflictsCA ::ng-deep .medfrmconflictsCA .k-grid-content{
+    overflow-y: scroll !important;
+}
+
+@media screen and (max-width: 1400px) {
+    medfrmconflictsCA ::ng-deep kendo-grid.medfrmconflictsCA{
+        height: 340px !important;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    medfrmconflictsCA ::ng-deep kendo-grid.medfrmconflictsCA{
+        /* height: 580 !important; 580 */
+        height: 580px !important;
+    }
+    medfrmconflictsCA ::ng-deep kendo-grid.medfrmconflictsCA1{
+        /* height: 580 !important; 580 */
+        height: 444px !important;
+    }
+}
+
+
+medfrmconflictsCA ::ng-deep .medfrmconflictsCA .control-spacing ::ng-deep label.checkbox-required-label{
+    vertical-align: middle !important
+  }

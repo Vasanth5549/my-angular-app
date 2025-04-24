@@ -1,0 +1,124 @@
+<ScrollViewer #svwFormViewerTempRef Name="svwFormViewer" VerticalScrollBarVisibility="Auto" MaxWidth="955"
+  HorizontalAlignment="Stretch" MaxHeight="450" BorderThickness="0" Width="955">
+<kendo-gridlayout name="LayoutRoot" #LayoutRootTempRef [Background]="Styles.LzoPageBG" VerticalAlignment="Stretch"
+    HorizontalAlignment="Stretch" [rows]="[{height:10},{height:'1fr'},{height:30}]"
+    [cols]="[{width:10},{width:895},{width:10}]" style="overflow: auto;">
+    <kendo-gridlayout-item [row]='2' [col]='1'>
+        <div containerStyle>
+            <!-- iGrid --> 
+            <kendo-grid #grdsequentialPrescriptionTempRef Name="grdsequentialPrescription" [reorderable]="false"
+                [editable]="false" [data]="grdsequentialPrescription.ItemsSource.array"
+                (cellClick)="grdsequentialPrescription.cellClick($event)" kendoGridSelectBy
+                [(selectedKeys)]="grdsequentialPrescription.selectedRowsIndex"
+                [selectable]="{ checkboxOnly: false, mode: 'single' }" [height]="200" [MaxWidth.px]="895" [style.width.px]="895">
+                <ng-template kendoGridNoRecordsTemplate>
+                    There are no records to show
+                </ng-template>
+                <!-- rowLoaded shifted from here --> 
+                <kendo-grid-column field="PrescriptionItem" UniqueName="PrescriptionItem" [width]="370"
+                    [filterable]="false" [editable]="false" [GridColumnProperties]="grdsequentialPrescription"
+                    [title]="presdrugs.PrescriptionItem_Header" TextWrapping="Wrap" [resizable]="false">
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdsequentialPrescription" (RowLoaded)="rowLoaded($event)">
+                            <ContentPresenter [Content]="dataItem.PrescriptionItem| MedLineDisplay: '' : '400'"
+                                Margin="[2,10,10,10]">
+                            </ContentPresenter>
+                          
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+                <!-- till here -->
+
+                <kendo-grid-column UniqueName="Otherinformation" field="Otherinformation" [width]="170"
+                    [filterable]="false" [editable]="false" [GridColumnProperties]="grdsequentialPrescription"
+                    [title]="presdrugs.Otherinformation_Header" TextWrapping="Wrap" [resizable]="false">
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdsequentialPrescription">
+                            <ContentPresenter [Content]="dataItem.PrescriptionItem| MedOtherDisplay: '' : '170'">
+                            </ContentPresenter>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+                <!-- till here -->
+
+                <kendo-grid-column UniqueName="HiddenColumn" field="HiddenColumn"
+                    [title]="presdrugs.HiddenColumn_Header" [width]="170" [filterbale]="false" [editable]="false"
+                    [hidden]="true">
+                </kendo-grid-column>
+                <!-- 4 StartDTTM_Header-->
+
+                <kendo-grid-column [title]="presdrugs.StartDTTM_Header" UniqueName="StartDTTMVWR" field="Binding"
+                    [width]="162" [filterable]="false" [editable]="false" [hidden]="true">
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <data-template #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdsequentialPrescription">
+                            <iLabel #lbStartDTTMTempRef Name="lbStartDTTM" Mandatory="False"
+                                HorizontalAlignment="Stretch" Margin="0" IsWordwrap="True" Width="Auto"
+                                VerticalAlignment="Center"
+                                [Text]="dataItem.PrescriptionItem.FormViewerDetails.BasicDetails.StartDTTMText"
+                                [Tooltip]="dataItem.PrescriptionItem.FormViewerDetails.BasicDetails.StartDTTMText">
+                            </iLabel>
+                        </data-template>
+                    </ng-template>
+                </kendo-grid-column>
+                <!-- till here -->
+
+                <kendo-grid-column UniqueName="SeqAdminStartDateTime" field="Binding"
+                    [title]="presdrugs.AdminStartDTTM_Header" [width]="152" [IsHeaderWordWrap]="true"
+                    [filterbale]="false" [editable]="false">
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <data-template #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdsequentialPrescription">
+                            <StackPanel Orientation="Horizontal">
+                                <iLabel #lblSeqAdminStartDateTimeTempRef Name="lblSeqAdminStartDateTime"
+                                    Mandatory="False" HorizontalAlignment="Stretch" Margin="0" IsWordwrap="True"
+                                    Width="Auto" VerticalAlignment="Center" 
+                                    [Text]="dataItem.AdminStartDTTM | date: 'dd-MMM-yyyy HH:mm'" 
+                                    [Tooltip]="dataItem.AdminStartDTTM | date: 'dd-MMM-yyyy HH:mm'"></iLabel>
+                                <iLabel Mandatory="False" Margin="0,0,0,10" IsWordwrap="True" Width="Auto"
+                                    VerticalAlignment="Center" Text="*" [Visibility]=" dataItem.IsEstimated">
+                                </iLabel>
+                                <!-- | BoolToVisibility pipe is throwing error -->
+
+
+                            </StackPanel>
+                        </data-template>
+                    </ng-template>
+
+                </kendo-grid-column>
+                <!-- till here -->
+
+
+                <kendo-grid-column [title]="presdrugs.AdminStatus_Header" [IsHeaderWordWrap]="true"
+                    UniqueName="SeqAdminState" field="Binding" [width]="185" [filterable]="false" [editable]="false"
+                    [hidden]="true" [hidden]="true">
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <data-template #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                            [gridHelper]="grdsequentialPrescription">
+                            <iLabel #lblSeqAdminStateTempRef Name="lblSeqAdminState" Mandatory="False"
+                                HorizontalAlignment="Stretch" Margin="0" IsWordwrap="True" Width="Auto"
+                                VerticalAlignment="Center" [Text]="dataItem.AdminStatus"
+                                [Tooltip]="dataItem.AdminStatus"></iLabel>
+                        </data-template>
+                    </ng-template>
+                </kendo-grid-column>
+                <!-- till here -->
+            </kendo-grid>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='3' [col]='2'>
+        <div class="disclaimeralignment">
+            <iLabel #lblDisclaimerTempRef Name="lblDisclaimer" IsWordwrap="True" HorizontalAlignment="Stretch"
+                Height="30" Mandatory="False" VerticalAlignment="Center"
+                [Text]="presdrugs.InfusionStartTime_Disclaimer"></iLabel>
+        </div>
+    </kendo-gridlayout-item>
+</kendo-gridlayout>
+</ScrollViewer>

@@ -1,0 +1,76 @@
+.medTechnicalDetails ::ng-deep .k-grid-content {
+    overflow-x: auto !important;
+}
+
+.medTechnicalDetails ::ng-deep .k-grid-content td {
+    white-space: normal !important;
+}
+
+::ng-deep .textWrap ilabel {
+    white-space: break-spaces;
+}
+
+.padright ::ng-deep div div {
+    padding-right: 1px !important;
+}
+
+.scroll ::ng-deep .k-grid-content {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+}
+
+/*
+:host ::ng-deep .k-i-plus::before,
+:host ::ng-deep .k-i-minus::before {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: "WebComponentsIcons";
+}
+
+:host ::ng-deep .k-i-plus::before {
+    content: " \002B";
+}
+
+:host ::ng-deep .k-i-minus::before {
+    content: " \2212";
+}*/
+
+:host ::ng-deep .grdSupplydetails tr.GroupHeader:hover {
+    background-color: #74b9c3 !important;
+}
+
+:host ::ng-deep .k-grid .k-grid-content td {
+    padding-top: 0px !important;
+}
+
+.ArrowAlign ::ng-deep {
+    margin-left: 11px;
+}
+
+:host ::ng-deep .k-i-plus::before,
+:host ::ng-deep .k-i-minus::before {
+    content: '';
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 13px;
+    height: 13px;
+}
+
+:host ::ng-deep .k-i-plus::before {
+    background-image: url(../../../assets/images/hgchildclose.gif);
+}
+
+:host ::ng-deep .k-i-minus::before {
+    background-image: url(../../../assets/images/hgchildopen.gif);
+}
+
+:host ::ng-deep .k-i-plus:hover,
+:host ::ng-deep .k-i-minus:hover {
+    font-family: "WebComponentsIcons";
+    font-size: 16px;
+}
+
+.Arrow ::ng-deep {
+    position: absolute !important;
+    margin-top: -5px !important;
+}

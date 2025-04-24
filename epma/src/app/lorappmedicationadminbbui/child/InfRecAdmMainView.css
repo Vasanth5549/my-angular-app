@@ -1,0 +1,90 @@
+
+
+fieldset {
+  font-weight: normal;
+}
+
+.not-allowed{
+  cursor: not-allowed! important;
+  pointer-events: none;
+  opacity: 0.7;
+  }
+
+ .filedset{
+  border:2px solid #800000;
+  border-radius: 2px;
+  margin-top: -10px;
+  padding-left: 0px;
+ }
+ .ihyperlink-btn{
+  position:absolute;
+  left:148px;
+  margin-top: 1px;
+ }
+ fieldset.notgiven{
+  background-color: #ffffff;
+ }
+
+.retro {
+  height: 220px;
+}
+
+.notRetro {
+  height: 320px;
+}
+
+@media screen and (max-width: 1400px) {
+  .changeHeightClass{
+    height: 358px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .changeHeightClass{
+    height: auto;
+  }
+  .infStoppedDtls{
+    margin: 70px 0px 10px 5px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .heightChange{
+    height: 172px;
+  }
+  .infStoppedDtls{
+    margin: 220px 0px 10px 5px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .heightChange{
+    height: 327px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .heightChange1{
+    height: 172px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .heightChange1{
+    height: 320px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .heightChangeInfRecAdmContResume{
+    height: 170px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .heightChangeInfRecAdmContResume{
+    height: 320px;
+  }
+}

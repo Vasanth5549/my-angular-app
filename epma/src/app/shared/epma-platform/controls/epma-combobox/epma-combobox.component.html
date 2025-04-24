@@ -1,0 +1,38 @@
+<div kendoTooltip showOn="none" [tooltipClass]="ControlTooltipClass">
+    <div #ToolTipTempRef [title]="ToolTip" [style.width]="style.width" [style.display]="style.display"> </div>
+    <kendo-combobox *ngIf="!IsHierarchical" #kendoComboBoxInstance [ngStyle]="style"
+        (mouseenter)="mouseevent(ToolTipTempRef,true)" (mouseleave)="mouseevent(ToolTipTempRef,false)"
+        (click)="mouseevent(ToolTipTempRef,false)" [disabled]="!IsEnabled" [readonly]="_IsReadOnly"
+        [data]="ItemsSource?.array" (keydown)="KeyDownEventNew($event)" (keyup)="KeyUpEventNew($event)"
+        [ngModel]="SelectedItem" (ngModelChange)="SelectedItemModelChange($event)" Name="Name" (opened)="isOpened()"
+        (closed)="isClosed()" textField="DisplayText" valueField="Value" [filterable]="false" [suggest]="true"
+        (blur)="onblur()" [allowCustom]="_AllowInputText" [valueNormalizer]="valueNormalizer"
+        (filterChange)="handleFilter($event)" [popupSettings]="popUpPropertyObj" [listHeight]="250"
+        class="combo-custom-styles" spellcheck=false>
+        <ng-template kendoComboBoxNoDataTemplate>
+        </ng-template>
+        <ng-template kendoComboBoxItemTemplate let-dataItem>
+            <span *ngIf="!ToolTipClass" [title]="dataItem.DisplayText">{{dataItem.DisplayText}}</span>
+            <span *ngIf="ToolTipClass" [ngClass]="TextTrimming ? 'wordwrap-class':''" kendoTooltip
+                [tooltipClass]="ToolTipClass"
+                [position]="ToolTipClass && ToolTipClass == 'Wordwrap-tooltip-bottom' ? 'bottom':'top'"
+                [title]="dataItem.DisplayText">{{dataItem.DisplayText}}</span>
+        </ng-template>
+    </kendo-combobox>
+</div>
+
+<kendo-combobox *ngIf="IsHierarchical" [title]="ToolTip" [ngStyle]="style" [disabled]="!IsEnabled"
+    [(ngModel)]="SelectedItem" [data]="ItemsSource?.array" (keydown)="KeyDownEvent($event)"
+    [itemDisabled]="itemDisabled" (keyup)="KeyUpEvent($event)" Name="Name" [allowCustom]="_AllowInputText"
+    [valueNormalizer]="valueNormalizer" textField="DisplayText" valueField="Value" [suggest]="true"
+    (valueChange)="SelectionChangedValue($event)" (blur)="onblur()" [popupSettings]="popUpPropertyObj"
+    class="combo-custom-styles">
+    <ng-template *ngIf="ItemsSource?.array else nodata" kendoComboBoxItemTemplate let-dataItem>
+        <span [title]="dataItem.DisplayText"
+            [ngClass]="{'comboParent':dataItem.Level==0,'comboChild':dataItem.Level==1,'spClass':dataItem.Level==0}">
+            {{ dataItem.DisplayText }}
+        </span>
+    </ng-template>
+    <ng-template #nodata kendoComboBoxNoDataTemplate>
+    </ng-template>
+</kendo-combobox>

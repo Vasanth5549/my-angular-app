@@ -1,0 +1,32 @@
+/* :host ::ng-deep .medConflicts-wrapper {
+  min-height: 400px;
+  max-height: 600px;
+} */
+
+:host ::ng-deep .horizontal-alignment-right {
+  justify-content: right;
+}
+
+:host ::ng-deep .k-grid .k-grid-content td {
+  white-space: normal;
+  padding: 4px 8px;
+}
+
+.horizontal-class-stretch{
+width: 925px;
+}
+:host::ng-deep .k-column-title{
+  font-size: 12px;
+}
+
+:host ::ng-deep .k-grid.ShowHorizontalScrollBar .k-grid-content {
+  overflow-x: scroll !important;
+}
+
+:host ::ng-deep .k-grid.HideHorizontalScrollBar .k-grid-content {
+  overflow-x: hidden !important;
+}
+
+:host ::ng-deep td gridcelltemplate > div.MakeFullHeight {   
+  position: unset;
+}

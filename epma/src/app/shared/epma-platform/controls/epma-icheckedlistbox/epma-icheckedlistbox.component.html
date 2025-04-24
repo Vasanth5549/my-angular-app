@@ -1,0 +1,16 @@
+<!-- [disabled]="!IsEnabled" -->
+<kendo-listbox kendoListBoxDataBinding [data]="ItemsSource?.array" [ngStyle]="style"
+  [toolbar]="false" (selectionChange)="handleActionClick($event)">
+  <ng-template kendoListBoxItemTemplate let-dataItem>
+    <ng-container *ngIf="SelectionMode==='single'">
+      <span>{{ dataItem.DisplayText }}</span>
+    </ng-container>
+    <ng-container *ngIf="SelectionMode==='multiple'">
+      <div kendoTooltip [title]="dataItem.DisplayText" position="top">
+        <iCheckBox [Text]="dataItem.DisplayText" EllipsisStyle="true" value="coding" class="userSelect"
+          [IsChecked]="dataItem.IsSelected">
+        </iCheckBox>
+      </div>
+    </ng-container>
+  </ng-template>
+</kendo-listbox>

@@ -1,0 +1,114 @@
+<div>
+    <kendo-gridlayout Name="LayoutRoot" #LayoutRootTempRef VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+        [Background]="Styles.LzoPageBG" [rows]="[{height:'auto'},{height:'auto'},{height:'auto'}]">
+        <!-- {height:'.05fr'},{height:'.15fr'},{height:'1fr'} -->
+        <!-- label 
+     <iSOFT:iLabel HorizontalAlignment="Left" 
+     Name="lblHeaderText" 
+     VerticalAlignment="Center"
+      Margin="10,5" 
+      Text="{Binding Source={StaticResource resKey}, Path=SelectText_Message}" 
+        Grid.Column="0" Grid.Row="1" IsWordwrap="True"></iSOFT:iLabel>
+    -->
+        <kendo-gridlayout-item [row]='2' [col]='1'>
+            <div containerStyle>
+                <iLabel #lblHeaderTextTempRef HorizontalAlignment="Left" Name="lblHeaderText" VerticalAlignment="Center"
+                    Margin="10,5" [Text]="resKey.SelectText_Message" IsWordwrap="True">
+                </iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <!-- till here label -->
+
+        <!-- iGrid -->
+        <kendo-gridlayout-item [row]="3" [col]="1">
+            <div containerStyle>
+                <kendo-grid #grdPresSelectTempRef Name="grdPresSelect" [data]="grdPresSelect.ItemsSource.array"
+                    tabindex="1" [GridProperties]="grdPresSelect" [selectable]="{checkboxOnly: true, mode: 'multiple'}"
+                    kendoGridSelectBy [(selectedKeys)]="grdPresSelect.selectedRowsIndex"
+                    RowIndicatorVisibility="Visible" [ScrollBarViewer]="{horizontal:'Hidden'}"
+                    (selectionChange)="grdPresSelect_SelectionChanged({},$event)" HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch" [filterable]="false" [resizable]="false" [reorderable]="false"
+                    [navigable]="false" [sortable]="false" Margin="10" [height]="300">
+
+
+
+                    <!--1) no records -->
+                    <ng-template kendoGridNoRecordsTemplate>{{ DataContext?.RepresResolve?.NoDataMessage}}
+                    </ng-template>
+                    <!-- till here -->
+
+                    <!--2) row indicator -->
+                    <kendo-grid-column *ngIf="grdPresSelect.RowIndicatorVisibility == 0 ? true : false"
+                        UniqueName="rowindicator" field="rowindicator" title="" [width]="40">
+                        <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+                            <Image alt="" *ngIf="grdPresSelect.selectedRowsIndex.length > 0 ? grdPresSelect.selectedRowsIndex == 
+                             rowIndex : false" Source="~/../assets/Images/iarrownor5x10.png">
+                            </Image>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <!-- till here -->
+                    <!-- checkbox implementation -->
+                    <kendo-grid-checkbox-column class="chkboxcolumn" [style]="{ 'text-align': 'center' }"
+                        field="CheckBoxColumn" [width]="30" [showSelectAll]="true">
+                        <ng-template kendoGridHeaderTemplate let-dataItem>
+                            <iCheckBox class="CheckBoxAlign" #chkGridHeaderSelectionRef Name="chkGridSelections"
+                                [OnChange]="GridHeaderCheckboxChange_Func"> </iCheckBox>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem let-idx="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="idx" [colindex]="columnIndex"
+                                [gridHelper]="grdPresSelect" (RowLoaded)="rowLoaded($event)">
+                                <iCheckBox *ngIf="!dataItem.IsGroupHeader" [kendoGridSelectionCheckbox]="idx" [GridRowIndex]="idx"
+                                    #chkGridSelectionRef Name="chkGridSelection" [OnChange]="GridRowCheckboxChange_Func">
+                                </iCheckBox>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-checkbox-column>
+                    <!-- till here -->
+                    <!--3) Med Line Display -->
+                    <kendo-grid-column field="IdentifyingName" UniqueName="PrescriptionItem" [width]="340"
+                        [filterable]="false" [GridColumnProperties]="grdPresSelect"
+                        [title]="resKey.PrescriptionItem_Header" TextWrapping="Wrap" [editable]="false">
+                        <ng-template kendoGridHeaderTemplate let-column>
+                            <span [title]="resKey.PrescriptionItem_Header">{{ column.title }}</span>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem="dataItem" let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                [gridHelper]="grdPresSelect" (RowLoaded)="rowLoaded($event)">
+                                <ContentPresenter [Content]="dataItem | MedLineDisplay: '' : '0'">
+                                </ContentPresenter>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <!-- till here -->
+
+                    <!--4) ClinicalReasonDesc -->
+                    <kendo-grid-column UniqueName="ClinicalReasonDesc" field="ClinicalReasonDesc" [hidden]="false"
+                        [resizable]="false" [width]="170" [filterable]="false" [GridColumnProperties]="grdPresSelect"
+                        [title]="resKey.ClinicalReason_Header " TextWrapping="Wrap" [editable]="false">
+                        <ng-template kendoGridHeaderTemplate let-column>
+                            <span [title]="resKey.ClinicalReason_Header">{{ column.title }}</span>
+                        </ng-template>
+                        <ng-template kendoGridCellTemplate let-dataItem="dataItem" let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                [gridHelper]="grdPresSelect">
+                                <iLabel #lblOrdersentenceDescTempRef Name="lblOrdersentenceDesc" IsWordwrap="True"
+                                    TextWrapping="Wrap"
+                                    [Text]="dataItem.FormViewerDetails.BasicDetails.DiscontinueReason"
+                                    [Tooltip]="dataItem.FormViewerDetails.BasicDetails.DiscontinueReason">
+
+                                    <!-- <ToolTipService.ToolTip TextWrapping="Wrap"
+                                [Text]="DataContext.FormViewerDetails.BasicDetails.DiscontinueReason">
+                            </ToolTipService.ToolTip> -->
+                                </iLabel>
+                            </DataTemplate>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <!-- till here -->
+                </kendo-grid>
+            </div>
+        </kendo-gridlayout-item>
+
+    </kendo-gridlayout>

@@ -1,0 +1,45 @@
+.grid-layout-container {
+    /* Revisit Required */
+    height: auto;
+  }
+  
+  .vertical-class-stretch {
+    height: 100%;
+  }
+  
+  .horizontal-class-stretch {
+    display: grid;
+  }
+  
+  #detailsColumn {
+    width: calc(100% - 85px);
+  }
+
+  ::ng-deep .medsAdminPRN .k-grid-layout k-justify-items-stretch k-align-items-stretch{   
+    display: flex;  
+    flex-direction: row;  
+    justify-content: space-between;  
+    align-items: center;  
+  }
+
+  :host ::ng-deep .medsAdminPRN .k-grid .ng-star-inserted .k-grid-layout{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 3px 4px 0px;
+  }
+
+  :host ::ng-deep .medsAdminPRN .k-grid-content tr > td .k-grid-layout, 
+  .k-grid-content-locked tr > td .k-grid-layout{
+    margin: 0px 0px -3px 0px;
+  }
+  :host ::ng-deep .medsAdminPRN .k-grid-content tr:last-child > td .k-grid-layout, 
+  .k-grid-content-locked tr:last-child > td .k-grid-layout{
+    justify-content: end;
+    margin: 0px 2px 0px 0px;
+  }
+  :host ::ng-deep .medsAdminPRN contentpresenter image img{
+    position: relative !important;
+  }
+  

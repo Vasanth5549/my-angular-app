@@ -1,0 +1,52 @@
+::ng-deep.k-input {
+    font-size: 11px;
+    color: #000000;
+    width: -webkit-fill-available !important;
+}
+Border.BorderFrame {
+    border-width : 1px;
+    border-style: solid;
+    border-color:#77b3b4;
+    border-radius:2px;
+}
+
+Border.BorderFrameForAdditionalOptions {
+    border-radius: 2px;
+    border-width : 1px;
+    border-style: solid;
+    border-color: #000000;
+}
+.brandClearRow{
+    text-align: right;
+}
+.brandContainer{
+    padding-bottom: 12px; 
+}
+
+.prninstructions
+{
+    margin-top: 10px;
+}
+.borders ::ng-deep kendo-label {
+  border: none !important;
+}
+
+.BrandBtnAlignment{
+    margin-top: -3px;
+}
+.ratehifen{
+    padding-left: 7px;;
+}
+.hifenlbel{
+    padding-left: 9px;
+}
+.compdate{
+    padding-left: 10px;
+}
+.duration{
+    margin-left: 5px;
+    margin-right:5px;;
+}
+.paddingRight6{
+    padding-right: 6px;
+}

@@ -1,0 +1,14 @@
+.grid-layout-container {
+    /* Revisit Required */
+    height: auto;
+}
+.div-bg-whiteborder {
+    border-top: 2px solid white;
+    background-color: #c2e2e3;
+}
+.div-bg {
+    background-color: #c2e2e3;
+}
+.div-whiteborder {
+    border-top: 2px solid white;
+}

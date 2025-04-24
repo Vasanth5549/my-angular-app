@@ -1,0 +1,56 @@
+<kendo-gridlayout-item [row]='1' [col]='1'>
+    <div containerStyle style="padding-top:10px;margin-left: -4px;">
+        <!-- Margin="0,10,0,5" -->
+        <kendo-label Margin="-4,10,0,5" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Mandatory="False"
+            FontWeight="Bold">Diagnosis name/Code
+        </kendo-label>
+    </div>
+</kendo-gridlayout-item>
+
+<div [ngClass]="controlclass" class="text-align">
+    <div [ngStyle]="style">
+	
+		 <Border [row]='1' [col]='1' [Background]="Styles.InnerBG" Margin="10,0,10,0"></Border>
+        <kendo-gridlayout-item [row]='1' [col]='1'>		
+            <!-- <kendo-textbox *ngIf="!isSearchdisabled" [title]="ToolTip" [disabled]="!IsEnabled" [maxlength]="MaxLength"
+                [readonly]="IsReadOnly" [(ngModel)]="Text">
+            </kendo-textbox> -->
+            <kendo-autocomplete #ac class="txtWidth" [title]="ToolTip" [disabled]="(isSearchdisabled||(SelectedText?true:false))"
+            [data]="ItemsSource?.array" (click)="ac.toggle()" [suggest]="false" [maxlength]="MaxLength"
+            [(ngModel)]="Text" valueField="DisplayText" spellcheck=false
+            (keyup)="KeyUpEvent($event)" (input)="KeyUpEvent($event)" [readonly]="IsReadOnly" (valueChange)="getEnteredText($event)">
+            <ng-template kendoAutoCompleteItemTemplate let-dataItem>
+                <div [title]="dataItem.DisplayText">{{ dataItem.DisplayText }}</div>
+            </ng-template>
+            <ng-template kendoAutoCompleteNoDataTemplate></ng-template>
+            </kendo-autocomplete>	
+	    </kendo-gridlayout-item>
+
+        <!-- <kendo-label *ngIf="isSearchdisabled" class="text-align" [title]="Text!==''?Text:ToolTip">{{Text}}</kendo-label> -->
+        <kendo-label *ngIf="!isSearchdisabled" class="text-align-label" title="Not Selected"></kendo-label>
+    </div>
+    <div class="btn-align">
+        <kendo-gridlayout-item [row]='1' [col]='1'>
+            <kendo-gridlayout [rows]="[ {height:'auto'}]" [cols]="[{ width: 70 },{width: 190 }]">
+                <Border [row]='1' [col]='2' [Background]="Styles.InnerBG" Margin="10,0,10,0"></Border>
+                <kendo-gridlayout-item [row]='1' [col]='1'>
+                    <button kendoButton Name="btnSearch" (click)="SearchButton()"
+                        imageUrl="assets/Images/EPR_PrintPreview_HOT.png" kendoTooltip title="Find">
+                    </button>
+                    <button [disabled]="(!isSearchdisabled&&!clearBtn)" kendoButton Name="btnDelete" (click)="deleteButton()" 
+                imageUrl="assets/Images/iclearNor16.png" kendoTooltip title="Clear">
+                </button>
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [row]='1' [col]='2'>
+                    <iCheckBox Name="Widens earch"  Margin="5,6,2,7" HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch" Tooltip="Please select to search the problem from wider list." (click)="iTermCheckedValue($event)" >                        
+                    </iCheckBox>
+                    <kendo-label>Widen search</kendo-label>
+                </kendo-gridlayout-item>
+            </kendo-gridlayout>
+        </kendo-gridlayout-item>
+    </div>
+</div>
+
+
+

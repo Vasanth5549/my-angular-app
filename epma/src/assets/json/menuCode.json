@@ -1,0 +1,17 @@
+[
+	{
+        "code": "MN_MED_VALIDATE_S_P2",
+        "description": "medTechvalidateCA",
+        "Name": "MedTechvalidateCA"
+    },
+	{
+        "code": "MN_RSLV_CONFLICTS",
+        "description": "medfrmconflictsCA",
+        "Name": "MedfrmconflictsCA"
+    },
+	{
+        "code": "MN_SUPINSTR_P2",
+        "description": "medsupplydispensinginstructionstab",
+        "Name": "Medsupplydispensinginstructionstab"
+    }
+]

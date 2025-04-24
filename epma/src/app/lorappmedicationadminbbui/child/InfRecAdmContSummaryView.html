@@ -1,0 +1,430 @@
+<div name="LayoutRoot" Height="auto" margin="0,10,0,0">
+  <kendo-gridlayout class="grid_layout_container" GridLayout [Background]="Styles.LzoPageBG"
+    [rows]="[{ height : 'auto'}]">
+
+    <kendo-gridlayout-item [row]="1">
+      <div containerStyle>
+        <kendo-gridlayout Margin="5" VerticalAlignment="Top" CommonGridLayout [Background]="Styles.LzoPageBG"
+          [cols]="[{ width: '2fr' }, { width: '3fr' }]">
+          <kendo-gridlayout-item [row]='1' [col]='1' [colSpan]='2'>
+            <div containerStyle>
+              <StackPanel HorizontalAlignment="Stretch" Margin="5,5,0,0" Height="Auto">
+
+                <!-- <Border Name="brdcurrentstatus" BorderBrush="Gray" BorderThickness="1" CornerRadius="2" Height="Auto"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"> -->
+                <kendo-gridlayout HorizontalAlignment="Stretch" [rows]="[{ height: '15'}, { height: 'auto'}]">
+                  <fieldset>
+                    <legend style="padding-bottom: 5px;">
+
+                      <kendo-gridlayout-item [row]='1'>
+                        <div containerStyle>
+                          <Border Background="#FFE0EFF1" Margin="10,-15,-10,0" VerticalAlignment="Center" Width="95"
+                            HorizontalAlignment="Left">
+                            <iLabel #lblBordercurrentstatusTempRef Name="lblBordercurrentstatus"
+                              HorizontalAlignment="Center" Text="Current status"
+                              [Tooltip]="objRecordAdmin.txtmediAction_tooltip" Foreground="#0000C8" Width="Auto">
+                            </iLabel>
+                          </Border>
+                        </div>
+                      </kendo-gridlayout-item>
+                    </legend>
+
+                    <kendo-gridlayout-item [row]="4">
+                      <div containerStyle style="margin-bottom: 2px;">
+                        <kendo-gridlayout VerticalAlignment="Top" Margin="10,0,10,5" CommonGridLayout
+                          [Background]="Styles.LzoPageBG" [rows]="[{ height: 'auto'}]"
+                          [cols]="[{ width: '8fr' },{ width: '0.5fr' }, { width: '8fr' }]">
+
+                          <kendo-gridlayout-item [row]="3" [col]="1">
+                            <div containerStyle>
+                              <kendo-gridlayout HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="auto"
+                                Margin="10,0,5,15" CommonGridLayout [Background]="Styles.LzoPageBG"
+                                [rows]="[{ height: '31'},{ height: '31'},{ height: '31'},{ height: '31'},{ height: 'auto'},{ height: '31'},{ height: '31'},{ height: 'auto'},{ height: '31'},{ height: '31'},{ height: '5'}]"
+                                [cols]="[{ width: '3fr' }, { width: '5fr' }]">
+
+                                <Border [row]='1' [col]='2' [rowSpan]='10' [Background]="Styles.InnerBG"></Border>
+                                <Border [row]='1' [col]='2' [rowSpan]='6' [Background]="Styles.InnerBG"></Border>
+                                <Border [row]='2' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='3' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='4' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='5' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='6' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='7' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='8' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='9' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='10' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='11' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <kendo-gridlayout-item [row]='1' [col]='1'>
+                                  <div containerStyle class="givenHeight">
+                                    <iLabel #lbllastactionTempRef HorizontalAlignment="Stretch" Name="lbllastaction"
+                                      VerticalAlignment="Center" [Text]="objRecordAdmin.lbllastaction_text"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]='1' [col]='2'>
+                                  <div containerStyle>
+                                    <StackPanel HorizontalAlignment="Stretch" Margin="0,5,5,5" Orientation="Horizontal" 
+                                      Height="Auto">
+
+                                      <iLabel #lbllastactionvalueTempRef HorizontalAlignment="Left"
+                                        Name="lbllastactionvalue" VerticalAlignment="Center" 
+                                        [Text]="DataContext.PrevInfusionAction" Margin="5,5,5,5" IsWordwrap="True"
+                                        Width="120"></iLabel>
+
+                                      <iButton #cmdStrikethroadminTempRef Name="cmdStrikethroadmin"
+                                        HorizontalAlignment="Right" TextDecorations="Underline" Cursor="Hand"
+                                        Foreground="#0000C8" Text="Strikethrough"
+                                        Tooltip="Select to strikethrough last action" Height="23" Margin="0,0,8,0"
+                                        ImageHeight="12" ImageWidth="5" [Command]="DataContext.StrikeThroughCmd"
+                                        [IsEnabled]="DataContext.IsStrikeThruEnable"
+                                        [Visibility]="DataContext.IsStrikeThruVisible"></iButton>
+                                    </StackPanel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="2" [col]="1">
+                                  <div containerStyle class="givenHeight">
+                                    <iLabel #lbldatetimeTempRef HorizontalAlignment="Stretch" Name="lbldatetime"
+                                      VerticalAlignment="Center" [Text]="objRecordAdmin.lbldatetime_text"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]="2" [col]="2">
+                                  <div containerStyle>
+                                    <iLabel #lbldatetimevalueTempRef HorizontalAlignment="Left" Name="lbldatetimevalue"
+                                      VerticalAlignment="Center" [Text]="DataContext.GivenDateTime" Margin="5,5,5,5"
+                                      IsWordwrap="True" Width="210" MinHeight=""></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="3" [col]="1">
+                                  <div containerStyle class="givenHeight">
+                                    <iLabel #lblrecordedatTempRef HorizontalAlignment="Stretch" Name="lblrecordedat"
+                                      VerticalAlignment="Center" [Text]="objRecordAdmin.lblrecordedat_text"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="3" [col]="2">
+                                  <div containerStyle>
+                                    <iLabel #lblrecordedatvalueTempRef HorizontalAlignment="Left"
+                                      Name="lblrecordedatvalue" VerticalAlignment="Center"
+                                      [Text]="DataContext.RecordedAtValue" MinHeight="15" Margin="5,5,5,5"
+                                      IsWordwrap="True" Width="210"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="4" [col]="1">
+                                  <div containerStyle class="givenHeight">
+                                    <iLabel #lblrecordedbyTempRef HorizontalAlignment="Stretch" Name="lblrecordedby"
+                                      VerticalAlignment="Center" [Text]="objRecordAdmin.lblrecordedby_text"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="4" [col]="2">
+                                  <div containerStyle>
+                                    <iLabel #lblrecordedbyvalueTempRef HorizontalAlignment="Left"
+                                      Name="lblrecordedbyvalue" VerticalAlignment="Center"
+                                      [Text]="DataContext.RecordedByValue" Margin="5,5,5,5" MinHeight="15"
+                                      IsWordwrap="True" Width="210"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="5" [col]="1">
+                                  <div containerStyle class="givenHeight">
+                                    <iLabel #lbldoseTempRef HorizontalAlignment="Stretch" Name="lbldose"
+                                      VerticalAlignment="Center" [Text]="objRecordAdmin.lblDose_text"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="5" [col]="2">
+                                  <div containerStyle>
+                                    <iLabel #lbldosevalueTempRef HorizontalAlignment="Left" Name="lbldosevalue"
+                                      VerticalAlignment="Center" [Text]="DataContext.DoseValue" Margin="5,5,5,5"
+                                      MinHeight="15" IsWordwrap="True" MinHeight="20" Width="210"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="6" [col]="1">
+                                  <div containerStyle class="givenHeight">
+                                    <iLabel #lblInfusionrateTempRef HorizontalAlignment="Stretch" Name="lblInfusionrate"
+                                      VerticalAlignment="Center" [Text]="objRecordAdmin.lblinfusrate_text"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="6" [col]="2">
+                                  <div containerStyle>
+                                    <iLabel #lblInfusionratevalueTempRef HorizontalAlignment="Left"
+                                      Name="lblInfusionratevalue" VerticalAlignment="Center"
+                                      [Text]="DataContext.InfusionRateValue" Margin="5,5,5,5" MinHeight="15"
+                                      IsWordwrap="True" Width="210"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="7" [col]="1">
+                                  <div containerStyle class="givenHeight">
+                                    <iLabel #lbldrprateTempRef HorizontalAlignment="Stretch" Name="lbldrprate"
+                                      VerticalAlignment="Center" [Text]="objRecordAdmin.lbldriprate_text"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="7" [col]="2">
+                                  <div containerStyle>
+                                    <iLabel #lbldripratevalueTempRef HorizontalAlignment="Left" Name="lbldripratevalue"
+                                      VerticalAlignment="Center" [Text]="DataContext.DripRateValue" Margin="5,5,5,5"
+                                      MinHeight="15" IsWordwrap="True" Width="210"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="8" [col]="1">
+                                  <div containerStyle class="givenHeight">
+                                    <iLabel #lblConcentrationTempRef HorizontalAlignment="Stretch"
+                                      Name="lblConcentration" VerticalAlignment="Center"
+                                      [Text]="objRecordAdmin.lblConcentration_text"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="8" [col]="2">
+                                  <div containerStyle>
+                                    <iLabel #lblConcentrationvalueTempRef HorizontalAlignment="Left"
+                                      Name="lblConcentrationvalue" VerticalAlignment="Center"
+                                      [Text]="DataContext.PreviousConcentration" Margin="5,5,5,5" MinHeight="15"
+                                      IsWordwrap="True" MinHeight="20" Width="210"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="9" [col]="1">
+                                  <div containerStyle class="givenHeight">
+                                    <iLabel #lblInfperiodTempRef HorizontalAlignment="Stretch" Name="lblInfperiod"
+                                      VerticalAlignment="Center" [Text]="objRecordAdmin.lblInfusionperiod_text">
+                                    </iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                               
+                                <kendo-gridlayout-item [row]="9" [col]="2">
+                                  <div containerStyle>
+                                    <iLabel #lblInfperiodvalueTempRef HorizontalAlignment="Left"
+                                      Name="lblInfperiodvalue" VerticalAlignment="Center"
+                                      [Text]="DataContext.InfusionPeriodMedAdminSummary" Margin="5,5,5,5" MinHeight="15"
+                                      IsWordwrap="True" Width="210"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="10" [col]="1">
+                                  <div containerStyle class="givenHeight">
+                                    <iLabel #lblSiteTempRef HorizontalAlignment="Stretch" Name="lblSite"
+                                      VerticalAlignment="Center" [Text]="objRecordAdmin.lblSite_text"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="10" [col]="2">
+                                  <div containerStyle>
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="30" BorderThickness="0"
+                                      HorizontalAlignment="Left">
+                                     
+                                      <iLabel #lblSiteValTempRef HorizontalAlignment="Left" Name="lblSiteVal"
+                                        VerticalAlignment="Center" [Text]="DataContext.SummaryviewSite" Margin="5,5,5,5"
+                                        MinHeight="15" IsWordwrap="True"></iLabel>
+                                    </ScrollViewer>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                              </kendo-gridlayout>
+                            </div>
+                          </kendo-gridlayout-item>
+                          <kendo-gridlayout-item [row]="3" [col]="3">
+                            <div containerStyle>
+                              <kendo-gridlayout HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="auto"
+                                Margin="10,0,10,15" CommonGridLayout [Background]="Styles.LzoPageBG"
+                                [rows]="[{ height: '30'},{ height: '30'},{ height: '30'},{ height: '30'},{ height: '30'},{ height: '30'},{ height: '30'},{ height: '30'},{ height: '60'},{ height: '5'}]"
+                                [cols]="[{ width: '3fr' }, { width: '5fr' }]">
+
+                                <Border [row]='1' [col]='2' [rowSpan]='9' [Background]="Styles.InnerBG"></Border>
+                                <Border [row]='2' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='3' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='4' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='5' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='6' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='7' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='8' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='9' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='10' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+
+
+                                <kendo-gridlayout-item [row]="1" [col]="1">
+                                  <div containerStyle class="givenHeight">
+                                    <iLabel #lblRouteTempRef HorizontalAlignment="Stretch" Name="lblRoute"
+                                      VerticalAlignment="Center" [Text]="objRecordAdmin.lblRoute_text"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <!--iLabel-->
+                                <kendo-gridlayout-item [row]="1" [col]="2">
+                                  <div containerStyle>
+                                    <iLabel #lblRoutevalueTempRef HorizontalAlignment="Left" Name="lblRoutevalue"
+                                      VerticalAlignment="Center" [Text]="DataContext.summaryviewRoute" Margin="5,5,5,5"
+                                      MinHeight="15" IsWordwrap="True" Width="210"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+                             
+                                <kendo-gridlayout-item [row]="2" [col]="1">
+                                  <div containerStyle  class="givenHeight">
+                                    <iLabel #lbLumenTempRef HorizontalAlignment="Stretch" Name="lbLumen"
+                                      VerticalAlignment="Center" [Text]="objRecordAdmin.lbLumen_text"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="2" [col]="2">
+                                  <div containerStyle>
+                                    <ScrollViewer
+                                      [VerticalScrollBarVisibility]="DataContext.SummaryviewLumen?'Visible':'hidden'"
+                                      MaxHeight="30" BorderThickness="0" HorizontalAlignment="Left">
+                                   
+                                      <iLabel #lblLumenValTempRef HorizontalAlignment="Left" Name="lblLumenVal"
+                                       VerticalAlignment="Center" [Text]="DataContext.SummaryviewLumen"
+                                        Margin="5,5,5,5" MinHeight="15" IsWordwrap="True"></iLabel>
+                                    </ScrollViewer>
+                                  </div>
+                                </kendo-gridlayout-item>
+                            
+                                <kendo-gridlayout-item [row]="3" [col]="1">
+                                  <div containerStyle  class="givenHeight">
+                                    <iLabel #lblDeliveryDeviceTempRef HorizontalAlignment="Stretch"
+                                      Name="lblDeliveryDevice" VerticalAlignment="Center"
+                                      [Text]="objRecordAdmin.lblDeliveryDevice_text"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="3" [col]="2">
+                                  <div containerStyle>
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="30" BorderThickness="0"
+                                      HorizontalAlignment="Left">
+                                     
+                                      <iLabel #lblDeliveryDeviceValTempRef HorizontalAlignment="Left"
+                                        Name="lblDeliveryDeviceVal" VerticalAlignment="Center"
+                                        [Text]="DataContext.SummaryViewDeliverydevice" Margin="5,5,5,5" MinHeight="15"
+                                        IsWordwrap="True"></iLabel>
+                                    </ScrollViewer>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="4" [col]="1">
+                                  <div containerStyle class="givenHeight">
+                                    <iLabel #lbltotvolinfTempRef HorizontalAlignment="Stretch" Name="lbltotvolinf"
+                                      VerticalAlignment="Center" [Text]="objRecordAdmin.lbltotvolinf_text"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="4" [col]="2">
+                                  <div containerStyle>
+                                    <iLabel #lbltotvolinfvalueTempRef HorizontalAlignment="Left"
+                                      Name="lbltotvolinfvalue" VerticalAlignment="Center"
+                                      [Text]="DataContext.InfusedVolumeValue" Margin="5,5,5,5" MinHeight="15"
+                                      IsWordwrap="True" Width="210"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="5" [col]="1">
+                                  <div containerStyle  class="givenHeight">
+                                    <iLabel #lblcurrentbagvolTempRef HorizontalAlignment="Stretch"
+                                      Name="lblcurrentbagvol" VerticalAlignment="Center"
+                                      [Text]="objRecordAdmin.lblcurrentbagvol_text"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="5" [col]="2">
+                                  <div containerStyle>
+                                    <iLabel #lblcurrentbagvoltvalueTempRef HorizontalAlignment="Left"
+                                      Name="lblcurrentbagvoltvalue" VerticalAlignment="Center"
+                                      [Text]="DataContext.CurrentBagValue" Margin="5,5,5,5" MinHeight="15"
+                                      IsWordwrap="True" Width="210"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="6" [col]="1">
+                                  <div containerStyle  class="givenHeight">
+                                    <iLabel #lblAdministeredbyTempRef HorizontalAlignment="Stretch"
+                                      Name="lblAdministeredby" VerticalAlignment="Center"
+                                      [Text]="objRecordAdmin.lblAdministeredby_text"
+                                      [Tooltip]="objRecordAdmin.lblAdministeredby_tooltip"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="6" [col]="2">
+                                  <div containerStyle >
+                                    <iLabel #lblAdministeredbyvalueTempRef HorizontalAlignment="Left"
+                                      Name="lblAdministeredbyvalue" VerticalAlignment="Center"
+                                      [Text]="DataContext.SummaryViewAdministeredBy" Margin="5,5,0,5" MinHeight="15"
+                                      IsWordwrap="True" Width="210"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="7" [col]="1">
+                                  <div containerStyle  class="givenHeight">
+                                    <iLabel #lblwitnesedbyTempRef HorizontalAlignment="Stretch" Name="lblwitnesedby"
+                                      VerticalAlignment="Center" [Text]="objRecordAdmin.lblWitnessedby_text"
+                                      [Tooltip]="objRecordAdmin.lblWitnessedby_tooltip"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="7" [col]="2">
+                                  <div containerStyle>
+                                    <iLabel #lblwitnesedbyvalueTempRef HorizontalAlignment="Left"
+                                      Name="lblwitnesedbyvalue" VerticalAlignment="Center"
+                                      [Text]="DataContext.WitnessBy" Margin="5,5,5,5" MinHeight="15" IsWordwrap="True"
+                                      Width="210"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="8" [col]="1">
+                                  <div containerStyle  class="givenHeight">
+                                    <iLabel #lblreasonTempRef HorizontalAlignment="Stretch" Name="lblreason"
+                                      VerticalAlignment="Center" [Text]="objRecordAdmin.lblreason_text"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="8" [col]="2">
+                                  <div containerStyle class="givenHeight">
+                                    <iLabel #lblreasonvalueTempRef HorizontalAlignment="Left" Name="lblreasonvalue"
+                                      VerticalAlignment="Center" [Text]="DataContext.ReasonValue" Margin="5,5,5,5"
+                                      MinHeight="15" IsWordwrap="True"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+                                <kendo-gridlayout-item [row]="9" [col]="1">
+                                  <div containerStyle>
+                                    <iLabel #lblcomentsTempRef HorizontalAlignment="Stretch" Name="lblcoments"
+                                      VerticalAlignment="Center" [Text]="objRecordAdmin.lblComments_text"
+                                      IsWordwrap="True"></iLabel>
+                                  </div>
+                                </kendo-gridlayout-item>
+                                
+                                <kendo-gridlayout-item [row]="9" [col]="2">
+                                  <div containerStyle >
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="60" BorderThickness="0"
+                                      Margin="0,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                   
+                                      <iLabel #lblcomentsvalueTempRef HorizontalAlignment="Left" Name="lblcomentsvalue"
+                                      VerticalAlignment="Center" [Text]="DataContext.CommentsValue" Margin="5,5,5,5"
+                                        MinHeight="25" IsWordwrap="True"></iLabel>
+                                    </ScrollViewer>
+                                  </div>
+                                </kendo-gridlayout-item>
+
+
+                              </kendo-gridlayout>
+                            </div>
+                          </kendo-gridlayout-item>
+                        </kendo-gridlayout>
+                      </div>
+                    </kendo-gridlayout-item>
+                  </fieldset>
+                </kendo-gridlayout>
+              </StackPanel>
+            </div>
+          </kendo-gridlayout-item>
+        </kendo-gridlayout>
+      </div>
+    </kendo-gridlayout-item>
+
+
+  </kendo-gridlayout>
+</div>

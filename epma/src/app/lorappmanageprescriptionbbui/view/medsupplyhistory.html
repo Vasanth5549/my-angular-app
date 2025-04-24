@@ -1,0 +1,103 @@
+<div>
+    <kendo-gridlayout id="medsupplyhistory" [rows]="[{height:'auto'},{height:'auto'},{height:'auto'},{height:'auto'}]" class="medupplyhistyLayout"
+        [cols]="[{width:'auto'}]">
+        <kendo-gridlayout-item [row]="1" [col]="1" [colSpan]="2" Margin="5,5,0,5" [Visibility]="DataContext?.MedlineVisibility"
+        [rows]="[{height: 'auto'}]" [cols]="[{width:830}]" style="overflow-y: auto; max-height: 68px;">
+                    <kendo-gridlayout-item [row]="1" [col]="1" [colSpan]="2">
+                <div containerStyle>
+                    <StackPanel Margin="5,5,0,5" [Visibility]="DataContext?.MedlineVisibility">
+                        <ContentPresenter #MedLineDisplayTempRef Name="MedLineDisplay"
+                        [Content]="DataContext.oPrescriptionItemVM | MedLineDisplay : 0 : '220'"></ContentPresenter>
+                    </StackPanel>
+                </div>
+            </kendo-gridlayout-item>
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item  [row]="2" [col]="1" *ngIf="DrugVisibility  == 0 ? true : false">
+            <div containerStyle>
+                <kendo-gridlayout GridLayout Margin="5,5,0,5" [rows]="[{height: 'auto'}]" [cols]="[{width: 'max-content'}, {width: 'auto'}]">
+                    <kendo-gridlayout-item [row]="1" [col]="1">
+                        <div containerStyle>
+                            <StackPanel HorizontalAlignment="Right" [Visibility]="DataContext.DrugVisibility">
+                                <iLabel #lblDrugNameTempRef HorizontalAlignment="Stretch" Name="lblDrugName"
+								    FontWeight="Bold" MaxWidth="724"
+                                    IsWordwrap="True" [(Text)]="DataContext.sDrugName"></iLabel>
+                            </StackPanel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="1" [col]="2">
+                        <div containerStyle class="imgalign">
+                            <StackPanel #DrugIconsTempRef Orientation="Horizontal" Name="DrugIcons"
+                                HorizontalAlignment="Left" [Visibility]="DataContext.DrugVisibility"></StackPanel>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item [row]="3" [col]="1">
+            <div containerStyle>
+                <StackPanel Margin="5,5,0,5" [Visibility]="DataContext.ProductVisibility">
+                    <iLabel #lblpropductTempRef Name="lblpropduct" [Text]="DataContext.ProductName"
+                        HorizontalAlignment="Left" Margin="5,5,5,5" IsWordwrap="True"></iLabel>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item [row]="4" [col]="1" [colSpan]="2">
+            <div containerStyle>
+                <StackPanel>
+                    <kendo-gridlayout [rows]="[{height:'auto'},{height:'auto'}]" [cols]="[{width:0}]">
+                        <kendo-gridlayout-item [colSpan]="2">
+                            <div containerStyle>
+                                <!-- pending -->
+                                <!-- ItemsSource="{Binding WardStockPresItemDetailsList}" -->
+                                <kendo-grid #grdWardStockTempRef Name="grdWardStock" class="vertical-class-top"
+                                    [selectable]="{ checkboxOnly: false, mode: 'single' }" Margin="15,15,0,0"
+                                    [style.height.px]="maxGridHeight" [width]="831"
+                                    [data]="grdWardStock?.ItemsSource?.array">
+                                    <ng-template kendoGridNoRecordsTemplate>There are no records to show
+                                    </ng-template>
+                                    <kendo-grid-column field="PrescriptionItem" title="Prescription item"
+                                        [filterable]="false" [editable]="false" [width]="500">
+                                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                            let-columnIndex="columnIndex">
+                                            <DataTemplate #tempGrdWardStock [dataItem]="dataItem" [index]="rowIndex"
+                                                [colindex]="columnIndex" (RowLoaded)="rowLoaded($event)"
+                                                [gridHelper]="grdWardStock">
+                                                <iLabel Name="lblPrescriptionItem" [Text]="dataItem.PrescriptionItem"
+                                                    [ToolTip]="dataItem.PrescriptionItem"></iLabel>
+                                            </DataTemplate>
+                                        </ng-template>
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="WardStock" title="Ward stock level" [filterable]="false"
+                                        [editable]="false" [width]="178">
+                                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                            let-columnIndex="columnIndex">
+                                            <DataTemplate #tempGrdWardStock [dataItem]="dataItem" [index]="rowIndex"
+                                                [colindex]="columnIndex" [gridHelper]="grdWardStock">
+                                                <iLabel Name="lblWardStock" [Text]="dataItem.StockLevel"
+                                                    [ToolTip]="dataItem.StockLevel"></iLabel>
+                                            </DataTemplate>
+                                        </ng-template>
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="PackSize" title="Pack size" [filterable]="false"
+                                        [editable]="false" [width]="148">
+                                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                            let-columnIndex="columnIndex">
+                                            <DataTemplate #tempGrdWardStock [dataItem]="dataItem" [index]="rowIndex"
+                                                [colindex]="columnIndex" [gridHelper]="grdWardStock">
+                                                <iLabel Name="lblPackSize" [Text]="dataItem.PackSize"
+                                                    [ToolTip]="dataItem.PackSize"></iLabel>
+                                            </DataTemplate>
+                                        </ng-template>
+                                    </kendo-grid-column>
+                                </kendo-grid>
+                            </div>
+                        </kendo-gridlayout-item>
+                    </kendo-gridlayout>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

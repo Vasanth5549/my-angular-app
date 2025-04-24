@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body style="
+height: 100% !important;
+background: lightblue !important;
+">
+    <div style="text-align: center;">
+        <button onclick="OpenWindow()">Launch Wizard</button>
+    </div>
+    <script>
+        // const menuArray = [
+        //     {
+        //         "code": "MN_MED_VALIDATE_S_P2",
+        //         "description": "medTechvalidateCA",
+        //         "Name": "MedTechvalidateCA"
+        //     },
+        //     {
+        //         "code": "MN_RSLV_CONFLICTS",
+        //         "description": "medfrmconflictsCA",
+        //         "Name": "MedfrmconflictsCA"
+        //     },
+        //     {
+        //         "code": "MN_SUPINSTR_P2",
+        //         "description": "medsupplydispensinginstructionstab",
+        //         "Name": "Medsupplydispensinginstructionstab"
+        //     }
+        // ];
+
+
+        // function embedElements() {
+        //     console.log(menuArray);
+        //     menuArray.forEach(el => {
+        //         document.getElementById('result').innerHTML += `<div>
+        //     <button onclick="OpenWindow(event)">${el.Name}</button>
+        //     </div><br />`;
+        //     });
+        //     console.log(menuArray);
+        // };
+        function OpenWindow() {
+            // console.log(el.target.textContent);
+            // console.log(menuArray);
+            // let menucodeobj = menuArray.filter(x => x.Name == el.target.textContent);
+            // console.log(menucodeobj);
+            // let menucode = menucodeobj[0].code;
+            // console.log(menucode);
+            // window.open(`http://localhost:4200/${menucode}`);
+            let filepath = 'wizard.html'
+            let winName = "APPWIZ"
+            let sFeatures = "titlebar=no,resizable=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,width=1430 ,height=1000,top=100,left=100";
+            window.open(filepath, winName, sFeatures);
+        }
+
+    </script>
+
+
+</body>
+
+</html>

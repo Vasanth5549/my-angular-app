@@ -1,0 +1,14 @@
+<div [ngStyle]="style" id={{id}}>
+  <ng-content></ng-content>
+  <ng-container *ngIf="Content?.constructor?.name == 'iLabel'">
+    <iLabel
+      [IsDynamicControlText]="Content?.IsDynamicControlText"
+      [Text]="Content.Text"
+      [style]="Content?.style"
+      [iLabelInLineElements]="Content?.iLabelInLineElements"
+      [Tooltip]="Content?.Tooltip"
+      [isGlobalEnabled]="Content?.isGlobalEnabled"
+      [BindingObjects]="Content?.BindingObjects"
+    ></iLabel>
+  </ng-container>
+</div>

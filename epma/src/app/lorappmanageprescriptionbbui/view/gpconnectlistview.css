@@ -1,0 +1,39 @@
+/* :host ::ng-deep span:hover {
+    cursor: none;
+} */
+
+
+:host ::ng-deep .k-grid .k-grid-content td {
+    padding:2px !important;
+   
+    }
+
+kendo-grid {
+	height:100%;
+}
+
+/* header and column alignment */
+:host ::ng-deep .gpconnectlistview-grid .k-grid-header,.k-header,th.k-header,.k-grid td,.k-grid-footer {
+    border: 0px;
+}
+
+
+
+  @media screen and (min-device-width: 1600px) {
+    .gpconnectlistview-grid{
+        height: calc(720px - 129px) ;
+      }
+      /* .gpconnectlistview-grid {
+        height: calc(720px - 298px);
+       
+    } */
+  }
+  
+  @media screen and (min-device-width : 1400px) and (max-device-width: 1550px) {
+    .gpconnectListViewGridChildHeight{
+        height: calc(729px - 350px) !important;
+    }
+    .gpconnectlistview-grid{
+      height: calc(720px - 308px) ;
+    }
+  }

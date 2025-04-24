@@ -1,0 +1,15 @@
+<span [ngStyle]="style" [ngClass]="{'controlclass': true, 'checkbox-display-flex': EllipsisStyle}">
+    <input CommonDirective [title]="ToolTip" [ngStyle]="style" type="checkbox" name="Name"
+        [disabled]="!IsEnabled" [value]="Text" [required]="Mandatory" (blur)="onblur()" [readonly]="_IsReadOnly"
+        [ngModel]="IsChecked" (ngModelChange)="ngModelChangeEvent($event)" Command="BtnObservationClick"
+        (keydown)="KeyDownEvent($event)" (keyup)="KeyUpEvent($event)" class="checkbox" (click)="checkBoxClick($event)"
+        (change)="OnChangeEvent($event)" [focus]="isFocus" kendoCheckBox #checkBox />
+    <label *ngIf="Mandatory && (Mandatory == true || Mandatory == 'true')" Class="checkbox-required-label"
+        [for]="checkBox" [title]="ToolTip">*</label>
+    <kendo-label *ngIf="Text && Text != '*' && Text != 'DST'"
+        [ngClass]="{'showEllipsesClass' : EllipsisStyle, 'checkbox-padding-left-4px': EllipsisStyle}"
+        [hidden]="!_visible" [for]="checkBox" [text]=Text [title]="ToolTip"></kendo-label>
+    <kendo-label *ngIf="Text && Text != '*' && Text == 'DST'" style="font-size: 12px;"
+        [ngClass]="{'showEllipsesClass' : EllipsisStyle, 'checkbox-padding-left-4px': EllipsisStyle}"
+        [hidden]="!_visible" [for]="checkBox" [text]=Text [title]="ToolTip"></kendo-label>
+</span>

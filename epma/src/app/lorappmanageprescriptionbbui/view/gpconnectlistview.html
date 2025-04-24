@@ -1,0 +1,169 @@
+<div Name="LayoutRoot"  Background="{StaticResource LzoPageBG}"  >
+
+  <div style="display:flex; flex-flow: column;"  [style.height.px] = "maxLayoutHeight">
+
+  <div style="flex: 1;overflow:hidden">
+  <kendo-grid 
+  #grdDataTempRef 
+  class="gpconnectlistview-grid"
+  [style.height.px]="maxGridHeight" 
+  (cellClick)="onCellClick()"
+  [rowClass]="rowCallback"
+  [data]="grdData.ItemsSource.array" [class.gpconnectListViewGridChildHeight]="isChildWizard"
+  kendoGridSelectBy [(selectedKeys)]="grdData.selectedRowsIndex"
+  [navigable]="true"
+(keyup)="grdData.GridSelectionKeyUp($event)" 
+    (keydown)="grdData.GridSelectionKeyDown($event)"
+  (selectionChange)="rowSelectionChanged($event)"
+ [width]="470"
+>
+  <ng-template kendoGridNoRecordsTemplate>{{oVM.GPConnectGridNoRecordsText}}</ng-template>
+  <kendo-grid-column field="Reorder" [width]="4">
+    <ng-template kendoGridHeaderTemplate>
+      <ControlTemplate TargetType="telerikGridView:GridViewHeaderCell">
+        <GridBorder #ControlTemplateBordrerStyle BorderThickness="0,0,1,1" BorderBrush="#7BB0AF">
+          <Image class="center-alignment" Source="./assets/images/icopyacrossnor24.png" Width="15" Height="15"
+            [Tooltip]="mldetails.Reorder_ImgTooltip">
+          </Image>
+        </GridBorder>
+      </ControlTemplate>
+    </ng-template>
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+      <DataTemplate
+        #temp
+        [dataItem]="dataItem"
+        [index]="rowIndex"
+        [colindex] = "columnIndex"
+        [gridHelper]="grdData"
+      >
+        <kendo-gridlayout>
+          <kendo-gridlayout-item [row]="1" [col]="1">
+            <Image Source="./assets/images/icopyacrossdis24.png" Width="15" Height="15" [Visibility]="false"
+              [Tooltip]="mldetails.Reorder_ImgTooltip">
+            </Image>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [row]="1" [col]="2">
+            <Image *ngIf="!dataItem.IsGroupheader" Cursor="Hand"[DataContext]="dataItem" Source="./assets/images/icopyacrossnor24.png" Width="15" Height="15"
+            [Tooltip]="mldetails.Reorder_ImgTooltip" [MouseLeftButtonUp]=" ReorderImage_MouseLeftButtonUp_Func">
+          </Image>
+           
+          </kendo-gridlayout-item>
+        </kendo-gridlayout>
+      </DataTemplate>
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column  field="MedicationItem"  [width]="104" >
+    <ng-template kendoGridHeaderTemplate>
+      <span kendoTooltip title="{{mldetails.MedicationItem_Header }}"> {{mldetails.MedicationItem_Header }}
+      </span>
+    </ng-template>
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+      <DataTemplate
+        #temp
+      [dataItem]="dataItem"
+      [index]="rowIndex"
+      [colindex] = "columnIndex"
+        [gridHelper]="grdData"
+        (RowLoaded)="rowLoaded($event)"
+      >
+      <span kendoTooltip title="{{ dataItem.IsGroupheader ? dataItem.GroupName : '' }}">{{ dataItem.IsGroupheader ? dataItem.GroupName : '' }}
+      </span>
+        <ContentPresenter
+          *ngIf="!dataItem.IsGroupheader"
+          [Content]="dataItem | GPConnectLineDisplay: '' : 0"
+        ></ContentPresenter>
+      </DataTemplate>
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="Quantity" [width]="18">
+    <ng-template kendoGridHeaderTemplate>
+      <span kendoTooltip title="{{mldetails.Quantity_Header }}"> {{mldetails.Quantity_Header }}
+      </span>
+    </ng-template>
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+      <DataTemplate
+        #temp
+        [dataItem]="dataItem"
+        [index]="rowIndex"
+        [colindex] = "columnIndex"
+        [gridHelper]="grdData"
+      >
+        <kendo-gridlayout
+          *ngIf="!dataItem.IsGroupheader"
+          [cols]="[{ width: 80 }, { width: 5 }, { width: 15 }]"
+        >
+          <kendo-gridlayout-item [row]="1" [col]="1" [style.marginLeft.px]="5">
+            <iLabel name="lbLastIssued" [Text]="dataItem.Quantity" [Tooltip]="dataItem.Quantity"></iLabel>
+          </kendo-gridlayout-item>
+        </kendo-gridlayout>
+      </DataTemplate>
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="AddlDtl" [width]="4">
+    <ng-template kendoGridHeaderTemplate>
+      <ControlTemplate TargetType="telerikGridView:GridViewHeaderCell">
+        <GridBorder #ControlTemplateBordrerStyle Padding="0" Margin="0" BorderThickness="0,0,1,1" BorderBrush="#7BB0AF">
+          <Image class="center-alignment" Source="./assets/images/More_details.png" Width="15" Height="15"
+            [Tooltip]="mldetails.Additionaldetails_Tooltip">
+          </Image>
+        </GridBorder>
+      </ControlTemplate>
+    </ng-template>
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+      <DataTemplate #temp [index]="rowIndex" [colindex]="columnIndex" [gridHelper]="grdData">
+        <Image class="center-alignment" *ngIf="!dataItem.IsGroupheader" Source="./assets/images/More_details.png"
+          Width="15" Height="15" [Tooltip]="mldetails.Additionaldetails_Tooltip" [MouseLeftButtonUp]="AddDtls_MouseLeftButtonUp_Func"
+          [DataContext]="dataItem"  >
+        </Image>
+      </DataTemplate>
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="StartDateIco" [width]="18">
+    <ng-template kendoGridHeaderTemplate>
+      <span kendoTooltip title="{{mldetails.LastIssued_Header }}"> {{mldetails.LastIssued_Header }}
+      </span>
+    </ng-template>
+
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+      <DataTemplate
+        #temp
+        [dataItem]="dataItem"
+        [index]="rowIndex"
+        [colindex] = "columnIndex"
+        [gridHelper]="grdData"
+      >
+        <kendo-gridlayout
+          *ngIf="!dataItem.IsGroupheader"
+          [cols]="[{ width: 80 }, { width: 5 }, { width: 15 }]"
+        >
+          <kendo-gridlayout-item [row]="1" [col]="1">
+            <!-- replace with iSoftLabel -->
+            <iLabel
+              Name="lbLastIssued"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Center"
+              Margin="0"
+              IsWordwrap="True"
+              [Text]="dataItem.LastIssuedText"
+              [ToolTip]="dataItem.LastIssuedText"
+            ></iLabel>
+          </kendo-gridlayout-item>
+        </kendo-gridlayout>
+      </DataTemplate>
+    </ng-template>
+  </kendo-grid-column>
+  </kendo-grid>
+  </div>
+
+      <div style="white-space: pre-line;">
+      <TextBlock #lblGPCDisclaimerTempRef Name="lblGPCDisclaimer" [Text]="DataContext.GPConnectWarningText"
+        [Visibility]="DataContext.GpConnectWarningVisible" MouseEnter="lblGPCDisclaimer_MouseEnter_1"
+        MouseLeave="lblGPCDisclaimer_MouseLeave_1" Foreground="Brown" HorizontalAlignment="Left" FontWeight="Bold"
+        TextWrapping="NoWrap">
+      </TextBlock>
+    </div>
+
+  </div>
+
+  </div>
+

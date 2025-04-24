@@ -1,0 +1,126 @@
+.child-2 {
+    background-image: url("src/assets/icon/icon/iholdhot16.png");
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+
+.child-1{
+    max-width: 80%;
+    width: auto;
+    padding-top: 5px;
+    padding-bottom: 3px;
+}
+
+.title {
+  background-color: red;  
+}
+
+.MC-Icon {
+    background-image: url("src\assets\images\multicomponent item.png");
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+}
+
+.OrderSet-Icon {
+    background-image: url("src\assets\images\group_medicines_nor16.png");
+    height: 16px;
+    width: 16px;
+    display: inline-block;   
+
+}
+
+.FNote-Icon {
+    background-image: url("src\assets\images\iwarninginfo16.png");
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+}
+
+.HighRisk-Icon {
+    background-image: url("src\assets\images\ihighrisknor16.png");
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+
+.UnLicensed-Icon {
+    background-image: url("src\assets\images\iunlicenseddrugnor16.png");
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+
+.NamedPatient-Icon {
+    background-image: url("src\assets\images\inamedpatientdrugnor16.png");
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+
+.ControlledDrug-Icon {
+    background-image: url("src\assets\images\icontrolleddrugnor16.png");
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+
+.NewlyMarketed-Icon {
+    background-image: url("src\assets\images\inewlymarketeddrugnor16.png");
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+
+.Notes-Icon {
+    background-image: url("src\assets\images\iCareEventsNOR16.png");
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+.link-Icon {
+    background-image: url("src\assets\images\ilinkarrow16.png");
+    height: 16px;
+    width: 16px;
+    display: block;
+    position: absolute;
+    right: 15px;
+    /* background-image:-o-repeating-linear-gradient(); */
+}
+
+.mat-menu-item{
+    white-space: normal;
+    line-height: 32px;
+    height: 20vh;
+    overflow-y: auto;
+}
+
+.k-popover {  
+    max-height: 30vh;
+    overflow-y: auto;
+}
+
+.k-popover-callout{
+    top: 50%!important;
+}
+
+.k-popover-header {
+    border-color: rgba(250, 247, 247, 0.08)!important;
+}
+.kleft{
+  left: 260.469px!important;
+}
+/* .k-tooltip-wrapper{
+  left:294px!important;
+} */
+.padlength{
+   margin-top: 5px;
+}
+.k-i-window-minimize {
+    display: none!important;
+}
+.k-i-window{
+    display: none!important;
+}
+

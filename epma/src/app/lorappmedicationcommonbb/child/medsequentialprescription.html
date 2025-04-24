@@ -1,0 +1,156 @@
+<div>
+	<kendo-gridlayout Name="LayoutRoot" HorizontalAlignment="Stretch" Background="{StaticResource LzoPageBG}" [rows]="[
+	{height:8},
+	{height:'1fr'},
+	{height:30},
+	]" [cols]="[
+	{width:10},
+	{width:730},
+	{width:10}]">
+
+		<kendo-gridlayout-item [row]='2' [col]='2'>
+			<div containerStyle>
+				<kendo-grid #grdsequentialPrescriptionTempRef [GridProperties]="grdsequentialPrescription"
+					[style.background]="'#FFE0EFF1'" [style.marginLeft.px]="0" [style.marginTop.px]="0"
+					[style.marginRight.px]="0" [style.marginBottom.px]="15" [style.width.px]="810"
+					[data]="grdsequentialPrescription.ItemsSource.array" [style.height.px]="220" [MaxHeight.px]="290"
+					[MaxWidth.px]="800" [reorderable]="false" [sortable]="false" [ScrollBarViewer]="{horizontal:'Auto'}"
+					[ScrollBarViewer]="{vertical:'Auto'}" [rowClass]="rowCallback">
+					<ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+						let-columnIndex="columnIndex">
+						<DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+							 [gridHelper]="grdsequentialPrescription">
+							No records to show
+						</DataTemplate>
+					</ng-template>
+
+					<kendo-grid-column UniqueName="PrescriptionItem" [title]="presdrugs.PrescriptionItem_Header"
+						field="Prescription item" [GridColumnProperties]="grdsequentialPrescription" TextWrapping="Wrap"
+						[width]="350" [filterable]="false" [editable]="false" [resizable]="false">
+						<ng-template kendoGridHeaderTemplate>
+							<span kendoTooltip title="{{presdrugs.PrescriptionItem_Header}}">
+								{{presdrugs.PrescriptionItem_Header}}
+							</span>
+						</ng-template>
+						<ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+							<DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+								[gridHelper]="grdsequentialPrescription" style="white-space: normal;" (RowLoaded)="rowLoaded($event)">
+								<ContentPresenter [Content]="dataItem.PrescriptionItem | MedLineDisplay : '' : 400"
+									Margin="2,10,10,10">
+								</ContentPresenter>
+							</DataTemplate>
+						</ng-template>
+					</kendo-grid-column>
+
+					<kendo-grid-column UniqueName="Otherinformation" [title]="presdrugs.Otherinformation_Header"
+						field="Other information" [GridColumnProperties]="grdsequentialPrescription" TextWrapping="Wrap"
+						[width]="170" [filterable]="false" [editable]="false" [resizable]="false">
+						<ng-template kendoGridHeaderTemplate>
+							<span kendoTooltip title="{{presdrugs.Otherinformation_Header}}">
+								{{presdrugs.Otherinformation_Header}}
+							</span>
+						</ng-template>
+						<ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+							let-columnIndex="columnIndex">
+							<DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+								[gridHelper]="grdsequentialPrescription">
+								<ContentPresenter [Content]="dataItem.PrescriptionItem | MedOtherDisplay : '' : 170">
+								</ContentPresenter>
+							</DataTemplate>
+						</ng-template>
+					</kendo-grid-column>
+
+					<kendo-grid-column UniqueName="HiddenColumn" [title]="presdrugs.HiddenColumn_Header"
+						[GridColumnProperties]="grdsequentialPrescription" [filterable]="false" [editable]="false"
+						[hidden]="true">
+					</kendo-grid-column>
+
+					<kendo-grid-column UniqueName="StartDTTMVWR" [title]="presdrugs.StartDTTM_Header"
+						[GridColumnProperties]="grdsequentialPrescription" [filterable]="false" [editable]="false"
+						[width]="150" [resizable]="false" [hidden]="true">
+						<ng-template kendoGridHeaderTemplate>
+							<span kendoTooltip title="{{presdrugs.StartDTTM_Header}}">
+								{{presdrugs.StartDTTM_Header}}
+							</span>
+						</ng-template>
+						<ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+							let-columnIndex="columnIndex">
+							<DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+								[gridHelper]="grdsequentialPrescription">
+								<div containerStyle>
+									<iLabel #lbStartDTTMTempRef Name="lbStartDTTM" Mandatory="False"
+										HorizontalAlignment="Stretch" Margin="0" IsWordwrap="True" Width="Auto"
+										VerticalAlignment="Center" [Tooltip]="dataItem.StartDTTMText"
+										[DateTimeValue]="dataItem.StartDTTMText"></iLabel>
+								</div>
+							</DataTemplate>
+						</ng-template>
+					</kendo-grid-column>
+
+					<kendo-grid-column UniqueName="SeqAdminStartDateTime" [title]="presdrugs.AdminStartDTTM_Header"
+						[GridColumnProperties]="grdsequentialPrescription" [filterable]="false" [editable]="false"
+						[width]="134" [resizable]="false">
+						<ng-template kendoGridHeaderTemplate>
+							<span kendoTooltip title="{{presdrugs.AdminStartDTTM_Header}}">
+								{{presdrugs.AdminStartDTTM_Header}}
+							</span>
+						</ng-template>
+						<ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+							let-columnIndex="columnIndex">
+							<DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+								[gridHelper]="grdsequentialPrescription">
+								<StackPanel Orientation="Horizontal">
+									<div containerStyle>
+										<iLabel #lblSeqAdminStartDateTimeTempRef Name="lblSeqAdminStartDateTime"
+											Mandatory="False" HorizontalAlignment="Stretch" Margin="0" IsWordwrap="True"
+											Width="Auto" VerticalAlignment="Center"
+											[Text]="dataItem.AdminStartDTTM | date: 'dd-MMM-yyyy HH:mm'"
+											[Tooltip]="dataItem.AdminStartDTTM | date: 'dd-MMM-yyyy HH:mm'">
+										</iLabel>
+									</div>
+									<div containerStyle>
+										<iLabel Mandatory="False" Margin="0,0,0,0" IsWordwrap="True" Width="Auto"
+											VerticalAlignment="Center" Text="*" [Visibility]="dataItem.IsEstimated">
+										</iLabel>
+									</div>
+								</StackPanel>
+							</DataTemplate>
+						</ng-template>
+					</kendo-grid-column>
+
+					<kendo-grid-column UniqueName="SeqAdminState" [title]="presdrugs.AdminStatus_Header"
+						[GridColumnProperties]="grdsequentialPrescription" [filterable]="false" [editable]="false"
+						[width]="140" [hidden]="false" [resizable]="false">
+						<ng-template kendoGridHeaderTemplate>
+							<span kendoTooltip title="{{presdrugs.AdminStatus_Header}}">
+								{{presdrugs.AdminStatus_Header}}
+							</span>
+						</ng-template>
+						<ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+							let-columnIndex="columnIndex">
+							<DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+								[gridHelper]="grdsequentialPrescription">
+								<div containerStyle>
+									<iLabel #lblSeqAdminStateTempRef Name="lblSeqAdminState" Mandatory="False"
+										HorizontalAlignment="Stretch" Margin="0" IsWordwrap="True" Width="Auto"
+										VerticalAlignment="Center" [Text]="dataItem.AdminStatus"
+										[Tooltip]="dataItem.AdminStatus">
+									</iLabel>
+								</div>
+							</DataTemplate>
+						</ng-template>
+					</kendo-grid-column>
+				</kendo-grid>
+			</div>
+		</kendo-gridlayout-item>
+
+		<kendo-gridlayout-item [row]='3' [col]='2'>
+			<div container>
+				<iLabel #lblDisclaimerTempRef Name="lblDisclaimer" IsWordwrap="True" HorizontalAlignment="Stretch"
+					Margin="0,0,0,0" Mandatory="False" VerticalAlignment="Center"
+					[Text]="presdrugs.InfusionStartTime_Disclaimer">
+				</iLabel>
+			</div>
+		</kendo-gridlayout-item>
+	</kendo-gridlayout>
+</div>

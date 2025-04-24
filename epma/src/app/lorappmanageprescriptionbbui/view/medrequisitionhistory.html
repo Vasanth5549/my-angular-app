@@ -1,0 +1,106 @@
+<div>
+    <kendo-gridlayout Name="LayoutRoot" id="medrequisitionHistory" [rows]="[{height: 'auto'}, {height: 'auto'}, {height: 'auto'}, {height: 'auto'}]"
+                      [cols]="[{width: 'auto'}, {width: 'auto'}]" class="medrequisitionHsty">
+
+        <kendo-gridlayout-item [row]='1' [col]='1' [colSpan]='2' Margin="5,5,0,5" [Visibility]="DataContext?.MedlineVisibility"
+                               [rows]="[{height: 'auto'}]" [cols]="[{width:830}]" style="overflow-y: auto; max-height: 68px;">
+            <kendo-gridlayout-item [row]='1' [col]='1' [colSpan]='2'>
+                <div containerStyle>
+                    <StackPanel Margin="5,5,0,5" [Visibility]="DataContext?.MedlineVisibility">
+                        <ContentPresenter #MedLineDisplayTempRef Name="MedLineDisplay"
+                        [Content]="DataContext?.oPrescriptionItemVM | MedLineDisplay : 0 : '220'"></ContentPresenter>
+                    </StackPanel>
+                </div>
+            </kendo-gridlayout-item>
+        </kendo-gridlayout-item>
+		<kendo-gridlayout-item [col]="1" [row]="2">
+			<div containerStyle>
+        <kendo-gridlayout GridLayout Margin="5,5,0,5" [Visibility]="DataContext?.DrugVisibility"
+                               [rows]="[{height: 'auto'}]" [cols]="[{width: 'max-content'}, {width: 'auto'}]">
+            <!--lblDrugName-->
+            <kendo-gridlayout-item [row]='1' [col]='1'>
+                <div containerStyle>
+                    <StackPanel HorizontalAlignment="Right" [Visibility]="DataContext?.DrugVisibility">
+                        <iLabel #lblDrugNameTempRef HorizontalAlignment="Stretch" Name="lblDrugName" FontWeight="Bold"  
+                                 MaxWidth="724" IsWordwrap="True" [Text]="DataContext?.sDrugName"></iLabel>
+                    </StackPanel>
+                </div>
+            </kendo-gridlayout-item>
+
+            <!--DrugIcons-->
+            <kendo-gridlayout-item [row]='1' [col]='2'>
+                <div containerStyle class="imgalign">
+                    <StackPanel #DrugIconsTempRef Orientation="Horizontal" Name="DrugIcons" HorizontalAlignment="Left"
+                                [Visibility]="DataContext?.DrugVisibility"></StackPanel>
+                </div>
+            </kendo-gridlayout-item>
+			</kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+
+        <!--lblpropduct-->
+        <kendo-gridlayout-item [row]='3' [col]='1'>
+            <div containerStyle>
+                <StackPanel Margin="5,5,0,5" [Visibility]="DataContext?.ProductVisibility">
+                    <iLabel #lblpropductTempRef Name="lblpropduct" [Text]="DataContext?.ProductName" HorizontalAlignment="Left"
+                            Margin="5,5,5,5" MaxWidth="724" IsWordwrap="True"></iLabel>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+
+        <!--grdRequisitionHistory-->
+        <kendo-gridlayout-item [row]='4' [col]='1' [colSpan]='2'>
+            <div containerStyle>
+                <StackPanel>
+
+                    <kendo-grid #grdRequisitionHistoryTempRef [selectable]="{checkboxOnly: true, mode: 'single'}" class="History"
+                                kendoGridSelectBy [(selectedKeys)]="grdRequisitionHistory.selectedRowsIndex"
+                                [style.height.px]="maxGridHeight" [style.width.px]="831"
+                                [GridProperties]="grdRequisitionHistory" VerticalContentAlignment="Stretch"
+                                Visibility="Visible" [navigable]="false" [sortable]="false" [resizable]="true"
+                                [style.marginLeft.px]="5" [style.marginTop.px]="10" [style.marginRight.px]="5"
+                                [style.marginBottom.px]="0" [reorderable]="false" [data]="grdRequisitionHistory?.ItemsSource?.array">
+
+                        <ng-template kendoGridNoRecordsTemplate>
+                            There are no records to show
+                        </ng-template>
+
+                        <kendo-grid-column UniqueName="Status" title="Status" field="RequestStatus" [width]="100"
+                            TextWrapping="Wrap" [filterable]="false" [editable]="false" [resizable]="false">
+                            <ng-template kendoGridHeaderTemplate let-column>
+                                <span title="Status">{{ column.title }}</span>
+                            </ng-template>
+                        </kendo-grid-column>
+                        <kendo-grid-column UniqueName="ReqCanBy" title="Requested/Cancelled by"
+                            field="RequestedCancelledBy" TextWrapping="Wrap" [width]="200" [filterable]="false"
+                            [editable]="false" [resizable]="false">
+                            <ng-template kendoGridHeaderTemplate let-column>
+                                <span title="Requested/Cancelled by">{{ column.title }}</span>
+                            </ng-template>
+                        </kendo-grid-column>
+                        <kendo-grid-column UniqueName="Role" title="Role" field="RoleName" TextWrapping="Wrap"
+                            [width]="150" [filterable]="false" [editable]="false" [resizable]="false">
+                            <ng-template kendoGridHeaderTemplate let-column>
+                                <span title="Role">{{ column.title }}</span>
+                            </ng-template>
+                        </kendo-grid-column>
+                        <kendo-grid-column UniqueName="Location" title="Location" field="LocationName"
+                            [filterable]="false" TextWrapping="Wrap" [width]="100" [editable]="false" [resizable]="false">
+                            <ng-template kendoGridHeaderTemplate let-column>
+                                <span title="Location">{{ column.title }}</span>
+                            </ng-template>
+                        </kendo-grid-column>
+                        <kendo-grid-column UniqueName="ServicePoint" title="Service point" field="ServicePointName"
+                            TextWrapping="Wrap" [width]="100" [filterable]="false" [editable]="false" [resizable]="false">
+                            <ng-template kendoGridHeaderTemplate let-column>
+                                <span title="Service point">{{ column.title }}</span>
+                            </ng-template>
+                        </kendo-grid-column>
+                    </kendo-grid>
+
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+
+    </kendo-gridlayout>
+</div>

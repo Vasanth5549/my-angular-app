@@ -1,0 +1,17 @@
+.ReasonWrap::ng-deep kendo-label{
+    text-wrap:nowrap;
+}
+
+.CheckBoxAlign {
+    padding-left: 7px;
+}
+:host ::ng-deep .commentsStyle kendo-label:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+@media screen and (max-device-width: 1400px) {
+    ::ng-deep .k-list-content {
+        max-height: 200px !important;
+    }
+  }
+

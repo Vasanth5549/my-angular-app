@@ -1,0 +1,125 @@
+[
+    {
+        "Prescriptionitem":"INVESTIGATION DELAYS",
+        "displayCheckBox":false,
+        "subHeading": "SUB-HEADING",
+        "icon":false
+     
+    },
+    {
+        "Prescriptionitem":"mci check",
+        "Prescriptiontitle":"-tablet-",
+        "dailyDose":"Dose",
+        "doseQuantity" : "5ml/kg/day",
+        "PrescriptionDes":"- oral - at night- fp10 generic v1",
+        "Otherinformation":"submitted",
+        "Startdate":"01-Dec-2021",
+        "displayCheckBox":true,
+        "icon":false
+     
+    },
+    {
+        "Prescriptionitem":"vinorelbine ",
+        "Prescriptiontitle":"- capsule -",
+        "dailyDose":"Dose",
+        "doseQuantity" : "conditional",
+        "PrescriptionDes":"- oral - twice aday -fp10 genericv1 -",
+        "Date_time":"02-Dec-2021 10:37",
+        "Otherinformation":"submitted",
+        "Startdate":"02-Dec-2021",
+        "displayCheckBox":true,
+        "icon":true
+     
+    },
+    {
+        "Prescriptionitem":"STAT/ONCE ONLY",
+        "displayCheckBox":false,
+        "subHeading": "SUB-HEADING",
+        "icon":false
+     
+    },
+    {
+        "Prescriptionitem":"gliclazide ",
+        "Prescriptiontitle":"-tablet-",
+        "dailyDose":"Dose",
+        "doseQuantity" : "60 mg",
+        "PrescriptionDes":" - oral - stat -fp10 generic v1",
+        "Otherinformation":"auto verified",
+        "Startdate":"27-Apr-2021",
+        "displayCheckBox":true,
+        "icon":false
+     
+    },
+    {
+        "Prescriptionitem":"REGULAR",
+        "displayCheckBox":false,
+        "subHeading": "SUB-HEADING",
+        "icon":false
+
+     
+    },
+    {
+        "Prescriptionitem":"beclometasone ",
+        "Prescriptiontitle":"- intravenous infusion - fp10 generic v1 ",
+        "doseQuantity" : "- 12 - 34 MG/MINUTE - CONTINUOUS",
+        "Otherinformation":"submitted",
+        "Startdate":"01-Dec-2021",
+        "displayCheckBox":true,
+        "icon":false
+     
+    },
+    {
+        "Prescriptionitem":"enoxaparin - clexane ",
+        "Prescriptiontitle":"- injection -",
+        "strength":"Strength",
+        "strengthQuantity":"80mg/0.8ml",
+        "dailyDose":"Dose",
+        "doseQuantity" : "2mg",
+        "PrescriptionDes":" - subcutaneous injection - three times a day local - fp10 generic v1",
+        "Otherinformation":"submitted",
+        "Startdate":"01-Dec-2021",
+        "displayCheckBox":true,
+        "icon":false
+     
+    },
+    {
+        "Prescriptionitem":"enoxaparin - clexane ",
+        "Prescriptiontitle":"- injection -",
+        "strength":"Strength",
+        "strengthQuantity":"300mg/3ml",
+        "dailyDose":"Dose",
+        "doseQuantity" : "2mg",
+        "PrescriptionDes":"- subcutaneous injection -at night - fp10 generic v1 ",
+        "Otherinformation":"submitted",
+        "Startdate":"01-Dec-2021",
+        "displayCheckBox":true,
+        "icon":false
+     
+    },
+    {
+        "Prescriptionitem":"enoxaparin - clexane ",
+        "Prescriptiontitle":"- injection -",
+        "strength":"Strength",
+        "strengthQuantity":"150mg/1ml",
+        "dailyDose":"Dose",
+        "doseQuantity" : "2mg",
+        "PrescriptionDes":"subcutaneous injection - three times a day local - fp10 generic v1",
+        "Otherinformation":"submitted",
+        "Startdate":"01-Dec-2021",
+        "displayCheckBox":true,
+        "icon":false
+     
+    },
+    {
+        "Prescriptionitem":"mci calcium & sodium ",
+        "Prescriptiontitle":" -infusion -",
+        "PrescriptionDetail":"epidural infusion - fp10 generic v1-",
+        "doseQuantity" : "5 HOUR - 10ML/HOUR - CONTINUOUS",
+        "Otherinformation":"submitted",
+        "Startdate":"01-Dec-2021",
+        "displayCheckBox":true,
+        "icon":false
+
+     
+    }
+]

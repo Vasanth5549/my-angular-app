@@ -1,0 +1,14 @@
+<div tabindex="-1" class="fitDivContent" (blur)="onblur()" kendoTooltip showOn="none" tooltipClass="newMultLineClass">
+  <div #ToolTipTempRef [title]="tooltipText"> </div>
+  <kendo-multiselect #multiselect [popupSettings]="{ height: 300, width: 250}"
+    (mouseenter)="mouseevent(ToolTipTempRef,true)" (mouseleave)="mouseevent(ToolTipTempRef,false)"
+    (click)="mouseevent(ToolTipTempRef,false)" [ngStyle]="style" [data]="ItemsSource?.array" [disabled]="!IsEnabled"
+    name="Name" textField="DisplayText" valueField="Value" [checkboxes]="true" [autoClose]="false"
+    [ngModel]="SelectedItems?.array" (keydown)="TriggerKeyDownEvent($event)"
+    (ngModelChange)="ngModelChangeEvent($event)" [clearButton]="false" (open)="onOpen($event)" (close)="onClose()">
+  </kendo-multiselect>
+  <span class="k-select" *ngIf="style.display == ''" unselectable="off" [ngClass]="{'multiselect-enableflag': !IsEnabled}" (click)="onDropDownArrowClick(multiselect)">
+    <span *ngIf="!isDropdown" class="k-icon k-i-arrow-s"> </span>
+    <span *ngIf="isDropdown" class="k-icon k-i-arrow-60-up"> </span>
+  </span>
+</div>

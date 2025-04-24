@@ -1,0 +1,14 @@
+<div *ngIf="!dataItem[cell] && !Content?.Child" [ngClass]="{'GridCellTemplateComp': true, 'MakeFullHeight': MakeFullHeight, 'DisabledTemplate': IsDisabled}" (click)="toggleEditable(dataItem, isEditable, columnNumber, EditableControlRef, column, IsEnabled, AutoFocusOnlyControl, GridHelper, RowIndex)">
+  <ng-content *ngIf="!dataItem[cell]"></ng-content>
+</div>
+<div *ngIf="!dataItem[cell] && Content?.Child" [ngClass]="{'GridCellTemplateComp': true, 'MakeFullHeight': CellHeightCollection[0]?.height, 'DisabledTemplate': IsDisabled}" kendoTooltip [title]="ToolTip" (click)="toggleEditable(dataItem, isEditable, columnNumber, EditableControlRef, column, IsEnabled, AutoFocusOnlyControl, GridHelper, RowIndex)">
+  <ng-container *ngIf="!dataItem[cell] && Content?.Child?.constructor?.name == 'StackPanel'">
+    <DC-StackPanel [ChildrenElementArray]="Content?.Child?.ChildrenElementArray"
+      [DataContext]="dataItem"></DC-StackPanel>
+  </ng-container>
+  <ng-container *ngIf="!dataItem[cell] && Content?.Child?.constructor?.name == 'Grid'">
+    <Grid [ChildrenArr]="Content?.Child?.ChildrenArr" [RowDefinitionsArr]="Content?.Child?.RowDefinitionsArr"
+      [ColumnDefinitionsArr]="Content?.Child?.ColumnDefinitionsArr" [ColWidth]="Content?.Child?.ColWidth"
+      [RowHeight]="Content?.Child?.RowHeight" [cell]="cell" [DataContext]="DataContext"></Grid>
+  </ng-container>
+</div>

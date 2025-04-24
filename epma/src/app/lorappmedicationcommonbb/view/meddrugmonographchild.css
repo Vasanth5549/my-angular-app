@@ -1,0 +1,70 @@
+
+.underline-text{
+    text-decoration: underline;
+    cursor: pointer;
+
+}
+.lblpadding{
+    padding-right: 10px;
+}
+.cbmboxpadding{
+   padding: 5px;
+}
+
+::ng-deep .k-pager-wrap .k-link.k-selected,
+::ng-deep .k-pager-wrap .k-link.k-state-selected {
+  color: #000 !important;
+  background-color: #fff !important;
+  border: 1px solid #000 !important;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) !important;
+}
+
+::ng-deep .kendo-pager-numeric-buttons .k-link {
+    color: black !important;
+  }
+
+  ::ng-deep .k-pager-wrap .k-link:hover {
+    background-color:#fff  !important;
+  }
+  
+  ::ng-deep .k-pager-numbers .k-link {
+    color: black !important;
+  }
+
+  ::ng-deep .k-pager-numbers .k-current-page {
+    background-color: #000!important;
+  }
+
+
+::ng-deep .k-i-arrow-w  ,.k-i-arrow-e  , .k-i-seek-e , .k-icon ,.k-i-seek-w
+{
+color : #10336c !important;
+}
+
+
+  .kendopageinfo{
+    right: 10px;
+    position: absolute;
+  }
+  @media screen and (max-device-width: 1400px) {
+    .meddrugChildGrpLayout{
+      position: absolute;
+    }
+    .grpChildGrid{
+      height: 345px;
+    }
+  }
+  @media screen and (min-device-width: 1500px) {
+    .grpChildGrid{
+      height: 380px;
+    }
+  }
+
+
+  
+
+
+
+
+
+

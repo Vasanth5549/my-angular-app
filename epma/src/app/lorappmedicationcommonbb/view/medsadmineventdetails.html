@@ -1,0 +1,573 @@
+<ScrollViewer #scrollbarTempRef Name="scrollbar" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch"
+    VerticalAlignment="Top" BorderThickness="0">
+    <kendo-gridlayout GridLayout class="grid-layout-container" name="LayoutRootLabel" [row]="2" Width="880"
+        Margin="0,0,0,0" [style.height.px]="maxGridHeight">
+        <div containerStyle>
+            <kendo-gridlayout GridLayout [cols]="[ { width: 437},{ width: 10},{ width: 437}]"
+                [rows]="[ { height: 250}]">
+
+                <kendo-gridlayout-item GridLayout class="grid-layout-container" name="innerleft"
+                    HorizontalAlignment="Left" [col]="1" Width="440">
+                    <div containerStyle>
+                        <kendo-gridlayout GridLayout [cols]="[ { width: 195},{ width: 235}]" [rows]="[ { height: 'auto'}, { height: 'auto'},{ height: 'auto'},
+                     { height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: 'auto'},
+                     { height: 'auto'},{ height: 'auto'},{ height: 0},{ height: 'auto'},
+                     { height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: 'auto'},
+                     { height: 'auto'},{ height: 5}]" style="margin: 5px 5px 45px 10px;">
+
+                            <Border GridLayout [Background]="Styles.InnerBG" [row]='1' [col]='2' [rowSpan]='1'></Border>
+                            <Border GridLayout [Background]="Styles.InnerBG" [row]='2' [col]='2' [rowSpan]='1'></Border>
+
+                            <Border GridLayout #bgdinfdoseTempRef Name="bgdinfdose" [Background]="Styles.InnerBG"
+                                [row]="3" [col]="2" [rowSpan]="1">
+                            </Border>
+                            <Border GridLayout #bgdinfconcentrationTempRef Name="bgdinfconcentration"
+                                [Background]="Styles.InnerBG" [row]='4' [col]='2' [rowSpan]='1'>
+                            </Border>
+                            <Border GridLayout #bgdinfperiodTempRef Name="bgdinfperiod" [Background]="Styles.InnerBG"
+                                [row]='5' [col]='2' [rowSpan]='1'></Border>
+
+                            <Border GridLayout [Background]="Styles.InnerBG" [row]='6' [col]='2' [rowSpan]='1'></Border>
+
+                            <Border GridLayout #bgdlumenTempRef Name="bgdlumen" [Background]="Styles.InnerBG" [row]='7'
+                                [col]='2' [rowSpan]='1'>
+                            </Border>
+                            <Border GridLayout #bgddeldeviceTempRef Name="bgddeldevice" [Background]="Styles.InnerBG"
+                                [row]='8' [col]='2' [rowSpan]='1'></Border>
+                            <Border GridLayout #bgdvolinfTempRef Name="bgdvolinf" [Background]="Styles.InnerBG"
+                                [row]='9' [col]='2' [rowSpan]='1'>
+                            </Border>
+                            <Border GridLayout #bgdadminbyTempRef Name="bgdadminby" [Background]="Styles.InnerBG"
+                                [row]='10' [col]='2' [rowSpan]='1'>
+                            </Border>
+                            <Border GridLayout [Background]="Styles.InnerBG" [row]='11' [col]='2' [rowSpan]='1'>
+                            </Border>
+                            <Border GridLayout [Background]="Styles.InnerBG" [row]='12' [col]='2' [rowSpan]='1'>
+                            </Border>
+                            <Border GridLayout [Background]="Styles.InnerBG" [row]='13' [col]='2' [rowSpan]='1'>
+                            </Border>
+                            <Border GridLayout [Background]="Styles.InnerBG" [row]='14' [col]='2' [rowSpan]='1'>
+                            </Border>
+                            <Border GridLayout [Background]="Styles.InnerBG" [row]='15' [col]='2' [rowSpan]='1'>
+                            </Border>
+
+                            <Border GridLayout [iStyle]="Styles.whiteBorder" [row]='2' [col]='1' [colSpan]='3'></Border>
+
+                            <Border GridLayout #brdinfdoseTempRef Name="brdinfdose" [iStyle]="Styles.whiteBorder"
+                                [row]='3' [col]='1' [colSpan]='3'>
+                            </Border>
+                            <Border GridLayout #brdinfconcentrationTempRef Name="brdinfconcentration"
+                                [iStyle]="Styles.whiteBorder" [row]='4' [col]='1' [colSpan]='3'>
+                            </Border>
+                            <Border GridLayout #brdinfperiodTempRef Name="brdinfperiod" [iStyle]="Styles.whiteBorder"
+                                [row]='5' [col]='1' [colSpan]='3'></Border>
+                            <Border GridLayout #brdSiteTempRef Name="brdSite" [iStyle]="Styles.whiteBorder" [row]='6'
+                                [col]='1' [colSpan]='3'></Border>
+                            <Border GridLayout #brdlumenTempRef Name="brdlumen" [iStyle]="Styles.whiteBorder" [row]='7'
+                                [col]='1' [colSpan]='3'>
+                            </Border>
+                            <Border GridLayout #brddeldeviceTempRef Name="brddeldevice" [iStyle]="Styles.whiteBorder"
+                                [row]='8' [col]='1' [colSpan]='3'></Border>
+                            <Border GridLayout #brdvolinfTempRef Name="brdvolinf" [iStyle]="Styles.whiteBorder"
+                                [row]='9' [col]='1' [colSpan]='3'>
+                            </Border>
+                            <Border GridLayout #brdadminbyTempRef Name="brdadminby" [iStyle]="Styles.whiteBorder"
+                                [row]='10' [col]='1' [colSpan]='3'>
+                            </Border>
+
+                            <Border GridLayout [iStyle]="Styles.whiteBorder" [row]='11' [col]='1' [colSpan]='3'>
+                            </Border>
+                            <Border GridLayout [iStyle]="Styles.whiteBorder" [row]='12' [col]='1' [colSpan]='3'>
+                            </Border>
+                            <Border GridLayout [iStyle]="Styles.whiteBorder" [row]='13' [col]='1' [colSpan]='3'>
+                            </Border>
+                            <Border GridLayout [iStyle]="Styles.whiteBorder" [row]='14' [col]='1' [colSpan]='3'>
+                            </Border>
+                            <Border GridLayout [iStyle]="Styles.whiteBorder" [row]='15' [col]='1' [colSpan]='3'>
+                            </Border>
+
+                            <ng-container *ngIf="lblaction.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='1' [col]='1' [colSpan]="2"
+                                    style="height: 27px;">
+                                    <iLabel #lblactionTempRef Name="lblaction" Text="Action" HorizontalAlignment="Left"
+                                        VerticalAlignment="Center" IsWordwrap="True" Height="21" Margin="0,5,5,5">
+                                    </iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+                            <ng-container *ngIf="lblactionData.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='1' [col]='2'>
+                                    <iLabel #lblactionDataTempRef Name="lblactionData" [Text]="DataContext.ActionCode"
+                                        [Tooltip]="DataContext.ActionCode" IsWordwrap="True" HorizontalAlignment="Left"
+                                        VerticalAlignment="Top" Height="21" Margin="5,5,5,5">
+                                    </iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+
+                            <kendo-gridlayout-item GridLayout [row]='2' [col]='1' [colSpan]="2" style="height: 30px;">
+                                <iLabel #lblRouteAdminsteredTempRef Name="lblRouteAdminstered" Text="Route administered"
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="21"
+                                    IsWordwrap="True" Margin="0,5,5,5">
+                                </iLabel>
+                            </kendo-gridlayout-item>
+                            <kendo-gridlayout-item GridLayout [row]='2' [col]='2'>
+                                <ScrollViewer VerticalScrollBarVisibility="Auto" BorderThickness="0" MaxWidth="196"
+                                    HorizontalAlignment="Left" Width="196">
+                                    <kendo-gridlayout-item GridLayout [col]='3'>
+                                        <iLabel #lblRouteAdminsteredDataTempRef Name="lblRouteAdminsteredData"
+                                            [Text]="DataContext.Route" [Tooltip]="DataContext.Route" IsWordwrap="True"
+                                            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5"></iLabel>
+                                    </kendo-gridlayout-item>
+                                </ScrollViewer>
+                            </kendo-gridlayout-item>
+
+                            <ng-container *ngIf="lblinfusiondose.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='3' [col]='1' [colSpan]='2'
+                                    style="height: 30px;">
+                                    <iLabel #lblinfusiondoseTempRef Name="lblinfusiondose" Text="Infusion dose"
+                                        IsWordwrap="True" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                                        Height="21" Margin="0,5,5,5" class="test"></iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+                            <ng-container *ngIf="lblinfusiondosedata.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='3' [col]='2'>
+                                    <iLabel #lblinfusiondosedataTempRef Name="lblinfusiondosedata"
+                                        [Text]="DataContext.InfusionDoseValue" [Tooltip]="DataContext.VolumeInfused"
+                                        IsWordwrap="True" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                                        Height="21" Margin="5" class="test"></iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+
+                            <ng-container *ngIf="lblinfConcentration.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='4' [col]='1' [colSpan]='2'
+                                    style="height: 30px;">
+                                    <iLabel #lblinfConcentrationTempRef Name="" Text="Concentration"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap Height="21"
+                                        Margin="0,5,5,5" class="test"></iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+                            <ng-container *ngIf="lblinfConcentrationdata.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='4' [col]='2'>
+                                    <iLabel #lblinfConcentrationdataTempRef Name="lblinfConcentrationdata"
+                                        [Text]="DataContext.ConcentrationValue" [Tooltip]="DataContext.VolumeInfused"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                        Height="21" Margin="5" class="test"></iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+
+                            <ng-container *ngIf="lblinfusionperiod.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='5' [col]='1' [colSpan]='2'
+                                    style="height: 30px;">
+                                    <iLabel #lblinfusionperiodTempRef Name="lblinfusionperiod" Text="Infusion period"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                        Height="21" Margin="0,5,5,5" class="test"></iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+                            <ng-container *ngIf="lblinfusionperioddata.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='5' [col]='2'>
+                                    <iLabel #lblinfusionperioddataTempRef Name="lblinfusionperioddata"
+                                        [Text]="DataContext.InfusionPeriodValue" [Tooltip]="DataContext.VolumeInfused"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                        Height="21" Margin="5" class="test"></iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+
+                            <kendo-gridlayout-item GridLayout [row]='6' [col]='1' [colSpan]='2'>
+                                <iLabel #lblSiteAdministeredTempRef Name="lblSiteAdministered" Text="Site administered"
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                    Height="21" Margin="0,5,5,5">
+                                </iLabel>
+                            </kendo-gridlayout-item>
+                            <kendo-gridlayout-item GridLayout [row]='6' [col]='2'>
+                                <iLabel #lblSiteAdministereddataTempRef Name="lblSiteAdministereddata"
+                                    [Text]="DataContext.SiteName" [Tooltip]="DataContext.SiteName"
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Top" IsWordwrap="True"
+                                    Height="27" Margin="3"></iLabel>
+                            </kendo-gridlayout-item>
+
+                            <ng-container *ngIf="lbllumen.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='7' [col]='1' [colSpan]='2'
+                                    style="height: 30px;">
+                                    <iLabel #lbllumenTempRef Name="lbllumen" Text="Lumen" HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center" Height="21" IsWordwrap="True" Margin="0,5,5,5" class="test">
+                                    </iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+                            <ng-container *ngIf="lbllumendata.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='7' [col]='2' style="margin-top: 2px;">
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="30" BorderThickness="0"
+                                        HorizontalAlignment="Stretch">
+                                        <kendo-gridlayout-item GridLayout [row]='7' [col]='2'>
+                                            <iLabel #lbllumendataTempRef Name="lbllumendata"
+                                                [Text]="DataContext.LumenValue" [Tooltip]="DataContext.LumenValue"
+                                                HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                                                IsWordwrap="True" Margin="5" class="test">
+                                            </iLabel>
+                                        </kendo-gridlayout-item>
+                                    </ScrollViewer>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+
+                            <ng-container *ngIf="lblDeldevice.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='8' [col]='1' [colSpan]='2'
+                                    style="height: 30px;">
+                                    <iLabel #lblDeldeviceTempRef Name="lblDeldevice" Text="Delivery device"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                        Height="21" Margin="0,5,5,5" class="test"></iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+
+                            <ng-container *ngIf="lblDeldevicedata.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='8' [col]='2' style="margin-top: 2px;">
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="30" BorderThickness="0"
+                                        HorizontalAlignment="Stretch">
+                                        <kendo-gridlayout-item GridLayout [row]='8' [col]='2'>
+                                            <iLabel #lblDeldevicedataTempRef Name="lblDeldevicedata"
+                                                [Text]="DataContext.DelDeviceValue" HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Center" IsWordwrap="True" Margin="5" class="test"></iLabel>
+                                        </kendo-gridlayout-item>
+                                    </ScrollViewer>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+
+                            <ng-container *ngIf="lblVolinfused.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='9' [col]='1' [colSpan]='2'
+                                    style="height: 30px;">
+                                    <iLabel #lblVolinfusedTempRef Name="lblVolinfused" Text="Volume infused"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                        Height="21" Margin="0,5,5,5" class="test">
+                                    </iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+
+                            <ng-container *ngIf="lblVolinfusedata.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='9' [col]='2'>
+                                    <iLabel #lblVolinfusedataTempRef Name="lblVolinfusedata"
+                                        [Text]="DataContext.VolumeInfused" [Tooltip]="DataContext.VolumeInfused"
+                                        IsWordwrap="True" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                                        Height="21" Margin="5" class="test"></iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+
+                            <ng-container *ngIf="lblAdminby.Visibility == 0" style="height: 30px;">
+                                <kendo-gridlayout-item GridLayout [row]='10' [col]='1'>
+                                    <iLabel #lblAdminbyTempRef Name="lblAdminby" Text="Administered by"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                        Margin="0,5,5,5">
+                                    </iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+                            <ng-container *ngIf="lbladminbyData.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='10' [col]='2'>
+                                    <iLabel #lbladminbyDataTempRef Name="lbladminbyData"
+                                        [Text]="DataContext.AdministeredBy" [Tooltip]="DataContext.AdministeredBy"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                        Height="21" Margin="5">
+                                    </iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+
+                            <kendo-gridlayout-item GridLayout [row]='11' [col]='1' [colSpan]='2'>
+                                <iLabel #lblWitnessedByTempRef Name="lblWitnessedBy" Text="Witnessed by"
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                    Height="21" Margin="0,5,5,5">
+                                </iLabel>
+                            </kendo-gridlayout-item>
+                            <kendo-gridlayout-item GridLayout [row]='11' [col]='2'>
+                                <iLabel #lblWitnessedByDataTempRef Name="lblWitnessedByData"
+                                    [Text]="DataContext.WitnessedBy" [Tooltip]="DataContext.WitnessedBy"
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                    Height="21" Margin="5"></iLabel>
+                            </kendo-gridlayout-item>
+
+                            <kendo-gridlayout-item GridLayout [row]='12' [col]='1' [colSpan]='2'>
+                                <iLabel #lblRecordedAtTempRef Name="lblRecordedAt" Text="Recorded at"
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                    Height="21" Margin="0,5,5,5">
+                                </iLabel>
+                            </kendo-gridlayout-item>
+                            <kendo-gridlayout-item GridLayout [row]='12' [col]='2'>
+                                <iLabel #lblRecordedAtDataTempRef Name="lblRecordedAtData"
+                                    [Text]="DataContext.RecordedAtValue" [Tooltip]="DataContext.RecordedAtValue"
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                    Height="21" Margin="5">
+                                </iLabel>
+                            </kendo-gridlayout-item>
+
+                            <kendo-gridlayout-item GridLayout [row]='13' [col]='1' [colSpan]='2'>
+                                <iLabel #lblRecordedByTempRef Name="lblRecordedBy" Text="Recorded by"
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="27"
+                                    IsWordwrap="True" Margin="0,5,5,5">
+                                </iLabel>
+                            </kendo-gridlayout-item>
+                            <kendo-gridlayout-item GridLayout [row]='13' [col]='2'>
+                                <iLabel #lblRecordedByDataTempRef Name="lblRecordedByData"
+                                    [Text]="DataContext.RecordedByValue" [Tooltip]="DataContext.RecordedByValue"
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                    Height="27" Margin="5"></iLabel>
+                            </kendo-gridlayout-item>
+
+                            <kendo-gridlayout-item GridLayout [row]='14' [col]='1' [colSpan]='1'>
+                                <iLabel #lblAdministeredByTempRef Name="lblAdministeredBy" Text="Administered by"
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="27"
+                                    IsWordwrap="True" Margin="0,5,5,5">
+                                </iLabel>
+                            </kendo-gridlayout-item>
+                            <kendo-gridlayout-item GridLayout [row]='14' [col]='2'>
+                                <iLabel #lblAdministeredByDataTempRef Name="lblAdministeredByData"
+                                    [Text]="DataContext.AdministeredByValue" [Tooltip]="DataContext.AdministeredByValue"
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                    Height="27" Margin="5"></iLabel>
+                            </kendo-gridlayout-item>
+
+                            <kendo-gridlayout-item GridLayout [row]='15' [col]='1' [colSpan]='1'>
+                                <iLabel #lblRelationTempRef Name="lblRelation" Text="Relationship to Patient"
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="21"
+                                    IsWordwrap="True" Margin="0,5,5,5">
+                                </iLabel>
+                            </kendo-gridlayout-item>
+                            <kendo-gridlayout-item GridLayout [row]='15' [col]='2'>
+                                <iLabel #lblRelationDataTempRef Name="lblRelationData"
+                                    [Text]="DataContext.RelationValue" [Tooltip]="DataContext.RelationValue"
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                    Height="21" Margin="5"></iLabel>
+                            </kendo-gridlayout-item>
+                        </kendo-gridlayout>
+                    </div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item GridLayout Name="innerRight" HorizontalAlignment="Left"
+                    VerticalAlignment="Stretch" [col]="3" Margin="0,-10,10,0" Width="440">
+                    <div containerStyle>
+                        <kendo-gridlayout GridLayout [cols]="[ { width: 200},{ width: 230}]" [rows]="[ { height: 'auto'}, { height: 'auto'}, { height: 'auto'}, { height: 'auto'}, 
+                     { height: 'auto'}, { height: 'auto'}, { height: 'auto'}, { height: 30}, { height: 'auto'},
+                     { height: 'auto'}, { height: 40}, { height: 5}]" style="height: 234px; margin: 5px 0px 0px 0px;">
+
+                            <Border GridLayout #bgdhumidificationTempRef Name="bgdhumidification"
+                                [Background]="Styles.InnerBG" [row]='1' [col]='2'></Border>
+                            <Border GridLayout #bgdbagvolTempRef Name="bgdbagvol" [Background]="Styles.InnerBG"
+                                [row]='2' [col]='2'>
+                            </Border>
+                            <Border GridLayout #bgdinfrateTempRef Name="bgdinfrate" [Background]="Styles.InnerBG"
+                                [row]='3' [col]='2'>
+                            </Border>
+                            <Border GridLayout #bgddriprateTempRef Name="bgddriprate" [Background]="Styles.InnerBG"
+                                [row]='4' [col]='2'></Border>
+                            <Border GridLayout [Background]="Styles.InnerBG" [row]='4' [col]='2'></Border>
+                            <Border GridLayout [Background]="Styles.InnerBG" [row]='5' [col]='2'></Border>
+                            <Border GridLayout [Background]="Styles.InnerBG" [row]='6' [col]='2'></Border>
+                            <Border GridLayout [Background]="Styles.InnerBG" [row]='7' [col]='2' [rowSpan]='2'></Border>
+                            <Border GridLayout [Background]="Styles.InnerBG" [row]='9' [col]='2'></Border>
+                            <Border GridLayout [Background]="Styles.InnerBG" [row]='10' [col]='2'></Border>
+
+                            <Border GridLayout #brdHumidificationTempRef Name="brdHumidification"
+                                [iStyle]="Styles.whiteBorder" Margin="5,0,0,0" [row]='2' [col]='1' [colSpan]='3'>
+                            </Border>
+                            <Border GridLayout #brdbagvolTempRef Name="brdbagvol" [iStyle]="Styles.whiteBorder"
+                                Margin="5,0,0,0" [row]='3' [col]='1' [colSpan]='3'></Border>
+                            <Border GridLayout #brdinfrateTempRef Name="brdinfrate" [iStyle]="Styles.whiteBorder"
+                                Margin="5,0,0,0" [row]='4' [col]='1' [colSpan]='3'></Border>
+                            <Border GridLayout #brddriprateTempRef Name="brddriprate" [iStyle]="Styles.whiteBorder"
+                                Margin="5,0,0,0" [row]='5' [col]='1' [colSpan]='3'></Border>
+                            <Border GridLayout [iStyle]="Styles.whiteBorder" Margin="5,0,0,0" [row]='6' [col]='1'
+                                [colSpan]='2'>
+                            </Border>
+                            <Border GridLayout #brdDoseDiscrepancyReasonTempRef Name="brdDoseDiscrepancyReason"
+                                [iStyle]="Styles.whiteBorder" Margin="5,0,0,0" [row]='7' [col]='1' [colSpan]='2'>
+                            </Border>
+                            <Border GridLayout [iStyle]="Styles.whiteBorder" Margin="5,0,0,0" [row]='8' [col]='1'
+                                [colSpan]='2'>
+                            </Border>
+                            <Border GridLayout [iStyle]="Styles.whiteBorder" Margin="5,0,0,0" [row]='9' [col]='1'
+                                [colSpan]='2'>
+                            </Border>
+                            <Border GridLayout [iStyle]="Styles.whiteBorder" Margin="5,0,0,0" [row]='10' [col]='1'
+                                [colSpan]='2'>
+                            </Border>
+                            <Border GridLayout [iStyle]="Styles.whiteBorder" Margin="5,0,0,0" [row]='11' [col]='1'>
+                            </Border>
+
+                            <ng-container *ngIf="lblHumidification.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='1' [col]='1' [colSpan]="2"
+                                style="height: 27px;">
+                                    <iLabel #lblHumidificationTempRef Name="lblHumidification" Text="Humidification" HorizontalAlignment="Left"
+                                        VerticalAlignment="Center" IsWordwrap="True" Height="21" Margin="5">
+                                    </iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+                            <ng-container *ngIf="lblHumidificationData.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='1' [col]='2'>
+                                    <iLabel #lblHumidificationDataTempRef Name="lblHumidificationData" [Text]="DataContext.Humidification"
+                                        [Tooltip]="DataContext.Humidification" IsWordwrap="True" HorizontalAlignment="Left"
+                                        VerticalAlignment="Top" Height="21" Margin="5">
+                                    </iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+
+                            <kendo-gridlayout-item GridLayout [row]='5' [col]='1'>
+                                <iLabel #lblBatchNumberTempRef Name="lblBatchNumber" Text="Batch number"
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Top" IsWordwrap="True" Height="20"
+                                    Margin="5">
+                                </iLabel>
+                            </kendo-gridlayout-item>
+
+                            <kendo-gridlayout-item GridLayout [row]='5' [col]='2' style="margin-top: 2px;">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto" BorderThickness="0" MaxHeight="28"
+                                    HorizontalAlignment="Left">
+                                    <kendo-gridlayout-item GridLayout [row]='5' [col]='2'>
+                                        <iLabel #lblBatchNumberDataTempRef Name="lblBatchNumberData"
+                                            [Text]="DataContext.BatchNumber" [Tooltip]="DataContext.BatchNumber"
+                                            IsWordwrap="True" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                                            Margin="5">
+                                        </iLabel>
+                                    </kendo-gridlayout-item>
+                                </ScrollViewer>
+                            </kendo-gridlayout-item>
+
+                            <ng-container *ngIf="lblbagvolume.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='2' [col]='1' style="height: 27px;">
+                                    <iLabel #lblbagvolumeTempRef Name="lblbagvolume" Text="Bag volume"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                        Height="21" Margin="5" class="test">
+                                    </iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+
+                            <ng-container *ngIf="lblbagvolumeData.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='2' [col]='2'>
+                                    <iLabel #lblbagvolumeDataTempRef Name="lblbagvolumeData"
+                                        [Text]="DataContext.Bagvolume" [Tooltip]="DataContext.Bagvolume" Margin="5"
+                                        IsWordwrap="True" HorizontalAlignment="Left" VerticalAlignment="Center" class="test">
+                                    </iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+
+                            <ng-container *ngIf="lblinfusionrate.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='3' [col]='1' [colSpan]='2'
+                                    style="height: 30px;">
+                                    <iLabel #lblinfusionrateTempRef Name="lblinfusionrate" Text="Infusion rate"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                        Height="21" Margin="5,5,5,5" class="test"></iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+
+                            <ng-container *ngIf="lblinfusionratedata.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='3' [col]='2'>
+                                    <iLabel #lblinfusionratedataTempRef Name="lblinfusionratedata"
+                                        [Text]="DataContext.InfusionRateValue" [Tooltip]="DataContext.InfusionRateValue"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                        Height="21" Margin="5,5,40,5" class="test">
+                                    </iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+
+                            <ng-container *ngIf="lbldriprate.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='4' [col]='1' [colSpan]='2'
+                                    style="height: 30px;">
+                                    <iLabel #lbldriprateTempRef Name="lbldriprate" Text="Drip rate"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                        Height="21" Margin="5,5,5,5" class="test">
+                                    </iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+
+                            <ng-container *ngIf="lbldripratedata.Visibility == 0">
+                                <kendo-gridlayout-item GridLayout [row]='4' [col]='2'>
+                                    <iLabel #lbldripratedataTempRef Name="lbldripratedata"
+                                        [Text]="DataContext.DripRateValue" [Tooltip]="DataContext.DripRateValue"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                        Height="21" Margin="5" class="test">
+                                    </iLabel>
+                                </kendo-gridlayout-item>
+                            </ng-container>
+
+                            <kendo-gridlayout-item GridLayout [row]='6' [col]='1'>
+                                <iLabel #lblExpiryDateTempRef Name="lblExpiryDate" Text="Expiry date"
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                    Height="21" Margin="5"></iLabel>
+                            </kendo-gridlayout-item>
+
+                            <kendo-gridlayout-item GridLayout [row]='6' [col]='2'>
+                                <iLabel #lblExpiryDateDataTempRef Name="lblExpiryDateData"
+                                    [Text]="DataContext.ExpiryDate" [Tooltip]="DataContext.ExpiryDate"
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                    Margin="5"></iLabel>
+                            </kendo-gridlayout-item>
+
+                            <kendo-gridlayout-item GridLayout [row]='7' [col]='1'>
+                                <iLabel #lblDoseDiscrepancyReasonTempRef Name="lblDoseDiscrepancyReason"
+                                    Text="Dose discrepancy reason" HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center" IsWordwrap="True" Height="23" Margin="5"></iLabel>
+                            </kendo-gridlayout-item>
+
+                            <kendo-gridlayout-item GridLayout [row]='7' [col]='2'>
+                                <iLabel #lblDoseDiscrepancyReasonDataTempRef Name="lblDoseDiscrepancyReasonData"
+                                    [Text]="DataContext.DoseDiscReasonCode" [Tooltip]="DataContext.DoseDiscReasonCode"
+                                    HorizontalAlignment="Stretch" VerticalAlignment="Center" IsWordwrap="True"
+                                    Margin="5">
+                                </iLabel>
+                            </kendo-gridlayout-item>
+
+                            <kendo-gridlayout-item GridLayout [row]='8' [col]='1'>
+                                <iLabel #lblReasonTempRef Name="lblReason" Text="Reason" HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center" IsWordwrap="True" Height="21" Margin="5">
+                                </iLabel>
+                            </kendo-gridlayout-item>
+
+                            <kendo-gridlayout-item GridLayout [row]='8' [col]='2'>
+                                <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="35" BorderThickness="0"
+                                    HorizontalAlignment="Left" Width="230" Height="30">
+                                    <kendo-gridlayout-item GridLayout [row]='8' [col]='2'>
+                                        <iLabel #lblReasonDataTempRef Name="lblReasonData"
+                                            [Text]="DataContext.AdminReasonCode" [Tooltip]="DataContext.AdminReasonCode"
+                                            IsWordwrap="True" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                            Margin="2"></iLabel>
+                                    </kendo-gridlayout-item>
+                                </ScrollViewer>
+                            </kendo-gridlayout-item>
+
+                            <kendo-gridlayout-item GridLayout [row]='9' [col]='1'>
+                                <iLabel #lblCommentsTempRef Name="lblComments" Height="28" VerticalAlignment="Center"
+                                    IsWordwrap="True" Text="Comments" HorizontalAlignment="Stretch" Margin="5"></iLabel>
+                            </kendo-gridlayout-item>
+                            <kendo-gridlayout-item GridLayout [row]='9' [col]='2' style="margin-top: 2px;">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="35" BorderThickness="0"
+                                    HorizontalAlignment="Left" Width="230" Height="34">
+                                    <iLabel #lblCommentsDataTempRef Name="lblCommentsData" Margin="2" IsWordwrap="True"
+                                        [Text]="DataContext.AdminComments" HorizontalAlignment="Left"
+                                        VerticalAlignment="Top" Margin="5"></iLabel>
+                                </ScrollViewer>
+                            </kendo-gridlayout-item>
+
+                            <kendo-gridlayout-item GridLayout [row]='10' [col]='1'>
+                                <iLabel #lbldosediscCommentsTempRef Name="lbldosediscComments" IsWordwrap="True"
+                                    Height="27" Width="94" VerticalAlignment="Top" Text="Dose discrepancy comments"
+                                    HorizontalAlignment="Stretch" Margin="5">
+                                </iLabel>
+                            </kendo-gridlayout-item>
+                            <kendo-gridlayout-item GridLayout [row]='10' [col]='2' style="margin-top: 3px;">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="36" BorderThickness="0"
+                                    HorizontalAlignment="Left">
+                                    <iLabel #lbldosediscCommentsDataTempRef Name="lbldosediscCommentsData" Margin="2"
+                                        IsWordwrap="True" [Text]="DataContext.DoseDiscComments"
+                                        HorizontalAlignment="Left" VerticalAlignment="Top"></iLabel>
+                                </ScrollViewer>
+                            </kendo-gridlayout-item>
+
+                            <kendo-gridlayout-item GridLayout [row]='11' [col]='1' [colSpan]='2'>
+                                <div containerStyle style="padding-right: 50px;">
+                                    <iLabel #lblviewrecordmedicationTempRef Name="lblviewrecordmedication"
+                                        Text="View scanned/Recorded medication" Height="25" HorizontalAlignment="right"
+                                        VerticalAlignment="Top"
+                                        [MouseLeftButtonUp]="lblviewrecordmedication_MouseLeftButtonUp_Func"
+                                        Cursor="Hand" Margin="0,0,0,0" Width="Auto" TextDecorations="Underline"
+                                        Foreground="Blue" [(Visibility)]="DataContext.IsViewRecMedLinkExists">
+                                    </iLabel>
+                                </div>
+                            </kendo-gridlayout-item>
+                        </kendo-gridlayout>
+                    </div>
+                </kendo-gridlayout-item>
+            </kendo-gridlayout>
+        </div>
+    </kendo-gridlayout>
+</ScrollViewer>

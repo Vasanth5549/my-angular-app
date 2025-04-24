@@ -1,0 +1,28 @@
+.brandClearRow{
+    text-align: right;
+}
+.BrandBtnAlignment{
+    margin-top: -3px;
+}
+.ratehifen{
+    padding-left: 7px;;
+}
+.hifenlbel{
+    padding-left: 9px;
+}
+.compdate{
+    padding-left: 10px;
+}
+.paddingRight6{
+    padding-right: 6px;
+}
+.MarginLeft1{
+    margin-left: 5px;
+    margin-top: 2px;
+}
+.enabledClass{
+    pointer-events:all;
+}
+.disabledClass{
+    pointer-events:none;
+}

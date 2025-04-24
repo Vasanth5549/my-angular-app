@@ -1,0 +1,29 @@
+TextBlock.DrugName,
+TextBlock .DrugName {
+  font-family: verdana;
+  color: black;
+  font-size: 13px;
+}
+TextBlock.DrugInfusionType,
+TextBlock .DrugInfusionType {
+  font-family: verdana;
+  color: black;
+  font-size: 13px;
+}
+TextBlock.DrugFluidName,
+TextBlock .DrugFluidName {
+  font-weight: bold;
+  font-family: verdana;
+  color: black;
+  font-size: 13px;
+}
+TextBlock.DrugNonInflbl,
+TextBlock .DrugNonInflbl {
+  font-weight: bold;
+  color: #006dec;
+  font-size: 13px;
+}
+TextBlock.DrugNonInfValue,
+TextBlock .DrugNonInfValue {
+  font-size: 13px;
+}

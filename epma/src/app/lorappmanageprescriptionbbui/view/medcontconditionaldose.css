@@ -1,0 +1,84 @@
+.condition-treeview{
+    margin: 5px;
+    margin-top: 6px;
+    background: white;
+    border: solid 1px #87a7ae;
+}
+.condition-treeview ::ng-deep .k-treeview-leaf.k-selected{
+    background-color: #0e6ce1 !important;
+    background-image: none !important;
+}
+.enable-tree ::ng-deep .k-treeview-leaf.k-selected span{
+    color: white !important;
+}
+.condition-treeview ::ng-deep .k-treeview-md .k-treeview-leaf{
+    padding: 3px 8px !important;
+}
+.condition-treeview ::ng-deep .k-treeview{
+    height: 100px;
+    max-height: 150px;
+}
+.condition-treeview ::ng-deep .k-treeview-group{
+    position:unset;
+}
+.condition-treeview ::ng-deep .k-treeview-lines{
+    position:relative;
+}
+kendo-grid ::ng-deep .k-grid-content{
+    overflow-y: auto !important;
+    overflow-x: hidden;
+}
+kendo-grid ::ng-deep .k-grid-header{
+    padding: 0px !important
+}
+.disable-tree ::ng-deep .k-treeview{
+    pointer-events: none;
+    opacity: 0.5;
+}
+.disable-tree ::ng-deep .k-treeview-leaf.k-selected{
+    background-color: rgb(232 229 229) !important;
+    border: none;
+    box-shadow: none;
+}
+.enable-tree ::ng-deep .k-treeview{
+    pointer-events:initial;
+    opacity: 1;
+}
+.range-val ::ng-deep .k-input-md .k-input-inner{
+    padding: 4px 0px 4px 4px;
+}
+.range-val ::ng-deep .k-button-md.k-icon-button{
+    margin-right: 0px;
+    width:15px;
+}
+.uom ::ng-deep .k-input-md .k-input-inner{
+    padding: 4px 0px 4px 4px;
+}
+.uom ::ng-deep .k-button-md.k-icon-button{
+    margin-right: 0px;
+    width:20px;
+}
+.grd-condition{
+    /*margin: 10px 0px 0px;*/
+    /* height: 100px; */
+    min-height: 100px;
+    max-height: 212px;
+}
+.condition-label{
+    padding-top: 3px;
+    align-items: start;
+    display: grid;
+    height: 100%;
+}
+.CheckBoxAlign {
+    padding-left: 8px;
+}
+
+::ng-deep .k-treeview {  
+    width: 324px;
+}
+.CheckBoxAlign1{
+    display: flex;
+    justify-content: center;
+    padding: 0px 0px 5px 0px;
+}

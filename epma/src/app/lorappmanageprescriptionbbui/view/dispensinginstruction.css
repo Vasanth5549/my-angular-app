@@ -1,0 +1,65 @@
+.border {
+  border: 1px solid seagreen;
+  border-radius: 2px;
+  font-weight: normal;
+  padding: 0 2px 8px;
+}
+
+.stkpnlBackground {
+  background: #c2e2e3 !important;
+  width: 330px !important;
+  margin-bottom: 0.8rem !important;
+}
+.labelTop{
+  display: flex !important;
+  flex-direction: column;
+}
+
+.stkpnlWidth {
+  width: 500px !important;
+}
+
+.margin-top {
+  margin-top: 0.7rem !important;
+}
+#grdPrescrib ::ng-deep .k-grid-content{
+  overflow-y: auto !important;
+}
+.k-grid,
+Meddispensinginstructions,
+body,
+html {
+  height: 21rem !important;
+  background-color: #d1e6fd !important;
+  width :99%;
+}
+:host::ng-deep.showEllipsesClass{
+  white-space: nowrap;
+  overflow: hidden;
+  width: 262px;
+  text-overflow: ellipsis;
+  display: inline;    
+}
+#grdPrescrib ::ng-deep.k-grid-header{
+  padding: 0px !important;
+} 
+.posRel{
+  position:relative; 
+  top:-5px;
+}
+::ng-deep .k-window-content,
+.k-prompt-container {
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 1400px) {
+  .heightChange{
+    height: 300px;
+  }
+}
+
+/* @media screen and (min-width: 1500px) {
+  .heightChange{
+    height: auto;
+  }
+} */

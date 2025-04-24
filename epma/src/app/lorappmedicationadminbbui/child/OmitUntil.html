@@ -1,0 +1,167 @@
+ <StackPanel HorizontalAlignment="Stretch" Height="250" Width="390" Margin="0,0,-9,0">
+    <!-- <div class="grid-layout-container"> -->
+        <kendo-gridlayout #grdHeaderTempRef Name="LayoutRoot" GridLayout Width="390" Background="LzoPageBG"
+            [rows]="[{height:'41fr'},{height: '58fr'},{height:'52fr'}]">
+            <kendo-gridlayout-item [row]='2' [col]="1">
+                <!-- containerStyle -->
+                <div >
+                   
+                        <kendo-gridlayout CommonGridLayout [Background]="Styles.LzoPageBG"
+                            [cols]="[{width: '100fr'},{width:'200fr'},{width: '10fr'},{width:'130fr'}]">
+                            <Border name="omitFrom" 
+                            [row]="1" [col]='2' 
+                            [colSpan]='3' 
+                            [Background]="Styles.InnerBG"
+                            [Height]="28"
+                            style="margin-left:15px !important; margin-right: 8px !important;"
+                            ></Border>
+                            <kendo-gridlayout-item [row]="1" [col]='1'>
+                                <div containerStyle>
+                                    <iLabel #lblOmitFromTempRef Name="lblOmitFrom" Mandatory="true" Margin="15,0,0,0"
+                                        [Text]="objOmitSlots.lblOmitFrom_Text" Width="100"></iLabel>
+                                </div>
+                            </kendo-gridlayout-item>
+                            <kendo-gridlayout-item [row]="1" [col]='2'>
+                                <!-- [style]="{'left':'12px'}" 
+                                                         Margin="26,0,0,0" Width="160" Height="21"-->
+                                <div containerStyle>
+                                    <iDateTimePicker #dpOmitFromTempRef [style]="{'height':'22px','width':'170px','left':'18px'}" Name="dpOmitFrom"
+                                        EnableCultureSupport="False"  Margin="0,0,0,0" DatePickerMode="DATEPICKER"
+                                        DateTimeFormat="Custom" CustomFormat="dd-MMM-yyyy" [(SelectedDateTime)]="uOmitSlotsVM.OmitFromDate"
+                                        TabIndex="5" HorizontalAlignment="Center"></iDateTimePicker>
+                                </div>
+                            </kendo-gridlayout-item>
+                            <kendo-gridlayout-item [row]="1" [col]='4'>
+                                <!-- [style]="{'left':'16px'}" -->
+                                <div containerStyle>
+                                    <iTimeBox #iOFTimeTempRef name="iOFTime" EnableDST="True" Width="80" IsEditable="True" HorizontalAlignment="Stretch"
+                                        Name="iOFTime" TimeFormat="HHMM" VerticalAlignment="Center" Height="22" Margin="24,0,0,0"
+                                        [(Value)]="uOmitSlotsVM.OmittedFromDateTime" TabIndex="6" IsTabStop="True"
+                                        SLAccessKeyProperties.AccessKey="T">
+                                    </iTimeBox>
+                                </div>
+                            </kendo-gridlayout-item>
+                        </kendo-gridlayout>
+
+                    <!-- </StackPanel> -->
+                </div>
+            </kendo-gridlayout-item>
+            <!-- <kendo-gridlayout-item [row]='3'  [col]='1' >
+                <div containerStyle [style.margin-top.px]="30">
+                </div>
+            </kendo-gridlayout-item> -->
+            <kendo-gridlayout-item [row]='4' [col]="1">
+                <div containerStyle>
+                    <kendo-gridlayout
+                        [rows]="[ {height: '2fr'},{height:'30fr'},{height: '2fr'},{height: '30fr'},{height:'6fr'}]"
+                        [cols]="[{width:'100fr'},{width:'1fr'}]">
+                        <kendo-gridlayout-item [row]='2' [col]='1'>
+                            <div containerStyle>
+                                <iLabel #lblDurationTempRef Name="lblDuration" Margin="15,0,0,0"
+                                    [Text]="objOmitSlots.lblDuration_Text" Width="100"></iLabel>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]='4' [col]='1'>
+                            <div containerStyle>
+                                <iLabel #lblEndDateTempRef Name="lblEndDate" Margin="15,0,0,0"
+                                    [Text]="objOmitSlots.lblEndDate_Text" Width="100"></iLabel>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]='3' [col]="1">
+                            <div containerStyle>
+                                <Border [iStyle]="Styles.whiteBorder"></Border>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]='2' [col]="2">
+                            <div containerStyle>
+                                <kendo-gridlayout>
+                                    <!-- <kendo-gridlayout-item [cols]="[{width:'150fr'},{width:'40fr'},{width:'150fr'}]">
+                                        <div containerStyle> -->
+                                            <!-- [Background]="InnerBG" Margin="-5,0,5,0"-->
+                                            <Border name="duration"  [row]="1" [col]="1" [colSpan]='3'  [Background]="Styles.InnerBG" [Height]="34"
+                                            style="margin-left:25px !important; margin-right: 7px !important;"></Border>
+                                        <!-- </div>
+                                    </kendo-gridlayout-item> -->
+                                    <!-- [row]="1"  Height="23" Width="130" -->
+                                    <kendo-gridlayout-item [row]="1" [col]='1'>
+                                        <div containerStyle>
+                                            <iUpDownBox #udDurationTempRef Name="udDuration" Margin="0,0,0,0"
+                                                [style]="{'height':'23px','width':'130px','left':'29px'}"
+                                                [Tooltip]="objOmitSlots.udDuration_ToolTip"
+                                                [(Value)]="uOmitSlotsVM.DurationValue" IsEnabled="True" TabIndex="7"
+                                                IsTabStop="True" Minimum="1" Maximum="100"></iUpDownBox>
+                                        </div>
+                                    </kendo-gridlayout-item>
+                                    <kendo-gridlayout-item [row]="1" [col]='2'>
+                                        <div containerStyle>
+                                            <iLabel #lblUOMTempRef Name="lblUOM" Margin="37,0,0,0"
+                                                [Text]="objOmitSlots.lblUOM_Text" Width="44"></iLabel>
+                                        </div>
+                                    </kendo-gridlayout-item>
+                                    <kendo-gridlayout-item [row]="1" [col]='3'>
+                                        <div containerStyle>
+                                            <!--  (SelectionChanged_Func)="SetDurationUOM($event)" 'left':'20px'-->
+                                            <iComboBox #cboDurationTempRef Name="cboDuration" IsDropDownStretch="True"
+                                                IsEditable="False" Margin="0,0,58,0"
+                                                [style]="{'height':'23px','width':'90px'}"
+                                                [Tooltip]="objOmitSlots.cboDuration_ToolTip"
+                                                [(SelectedValue)]="uOmitSlotsVM.DurationUOMValue"
+                                                [(ItemsSource)]="uOmitSlotsVM.DurationUOM" IsTypeAHead="True"
+                                                IsTextSearchEnabled="True" HorizontalAlignment="Right"
+                                                VerticalAlignment="Center"  IsEnabled="True"
+                                                TabIndex="8"></iComboBox>
+                                        </div>
+                                    </kendo-gridlayout-item>
+
+                                </kendo-gridlayout>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]='3' [col]='2'>
+                            <div containerStyle>
+                                <Border [iStyle]="Styles.whiteBorder"
+                                style="margin-right: 2px;"></Border>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]='4' [col]="2">
+                            <div containerStyle>
+                                <kendo-gridlayout [cols]="[{width:'200fr'},{width:'10fr'},{width:'130fr'}]" CommonGridLayout [Background]="Styles.LzoPageBG">
+                                    <!-- <kendo-gridlayout-item >
+                                        <div containerStyle> -->
+                                            <!-- [Background]="Styles" -->
+                                            <Border name="endDate" Margin="6,0,20,0" [row]="1" [col]="1"  [colSpan]='3' [Background]="Styles.InnerBG"  [Height]="30"
+                                            style="margin-left:25px !important; margin-right: 7px !important;"></Border>
+                                        <!-- </div>
+                                    </kendo-gridlayout-item> 
+                                Margin="11,0,11,0"  Width="170"  Height="21"-->
+                                    <kendo-gridlayout-item [row]="1" [col]='1'>
+                                        <div containerStyle>
+                                            <iDateTimePicker #dpEndDateTempRef Name="dpEndDate" 
+                                            [style]="{'height':'22px','width':'170px','margin':'0px 11px','left':'19px'}"
+                                                EnableCultureSupport="False"
+                                                [(SelectedDateTime)]="uOmitSlotsVM.EndDateValue"
+                                                DatePickerMode="DATEPICKER" DateTimeFormat="Custom"
+                                                CustomFormat="dd-MMM-yyyy" TabIndex="9" HorizontalAlignment="Center">
+                                            </iDateTimePicker>
+                                        </div>
+                                    </kendo-gridlayout-item>
+                                    <kendo-gridlayout-item [row]="1" [col]='3'>
+                                        <div containerStyle>
+                                            <!-- Height="21" Width="80" Margin="0,0,40,0"-->
+                                           
+                                            <iTimeBox #tbEndTimeTempRef EnableDST="True" IsEditable="True" name="tbEndTime"
+                                            [style]="{'height':'22px','width':'80px','margin':'0px 40px 0px 0px','left':'31px'}"
+                                                 HorizontalAlignment="Stretch" Name="tbEndTime"
+                                                TimeFormat="HHMM" VerticalAlignment="Center" 
+                                                [(Value)]="uOmitSlotsVM.EndDateTime" SLAccessKeyProperties.AccessKey="T"
+                                                TabIndex="11" IsTabStop="True"></iTimeBox>
+                                        </div>
+                                    </kendo-gridlayout-item>
+                                </kendo-gridlayout>
+                            </div>
+                        </kendo-gridlayout-item>
+                    </kendo-gridlayout>
+                </div>
+            </kendo-gridlayout-item>
+        </kendo-gridlayout>
+    <!-- </div> -->
+</StackPanel>

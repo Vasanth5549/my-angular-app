@@ -1,0 +1,126 @@
+<kendo-gridlayout #LayoutRootTempRef id="Medform" Name="LayoutRoot" Background="Styles.LzoPage" [cols]="[{width: 'Auto'}]"
+    [rows]="[{height: 'auto'}, {height: 'auto'},{height: 'auto'}, {height: 'auto'},{height: 'auto'}, {height: '1fr'}]" class="medfrmviwLayout">
+    <kendo-gridlayout-item [row]="1" [col]='1' style="width: 964px;">
+    <ScrollViewer #brdHeaderTempRef Name="brdHeader" VerticalScrollBarVisibility="Auto" VerticalAlignment="Stretch"
+        BorderBrush="#77b3b4" BorderThickness="0" height="auto"  Margin="0,0,0,-8" Background="#E0EFF1FF">
+        
+            <kendo-gridlayout #LabelLayoutTempRef Name="LabelLayout" [rows]="[{height: 'auto'}]"
+                [cols]="[{width: 'max-content'},{width:'auto'},{width:'auto'},{width:'max-content'}]">
+
+                <kendo-gridlayout-item [row]='1' [col]='1' style="position:relative; bottom:18px;right: 10px;">
+                    <div containerStyle style="padding-top:5px;">
+                        <iLabel #lblDrugNameTempRef HorizontalAlignment="Stretch" Name="lblDrugName" FontWeight="Bold"
+                            Margin="15,11,0,0" VerticalAlignment="Stretch"
+                            width="auto" IsWordwrap="True"
+                            [(Text)]="DataContext.FormViewerDetails.BasicDetails.IndentifyingDrugName" MaxWidth="500">
+                        </iLabel>
+                    </div>
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [row]='1' [col]='2' style="position:relative;bottom: 7px;">
+                    <div containerStyle style="margin-left: -10px;padding-top:5px;">
+                        <StackPanel #spDrugDetailsTempRef Orientation="Horizontal" Name="spDrugDetails"
+                            VerticalAlignment="Center"></StackPanel>
+                    </div>
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [row]='1' [col]='4'>
+                    <kendo-gridlayout [rows]="[{height: 'auto'},{height: 'auto'}]" [cols]="[{width:'auto'}]"
+                        width="auto" HorizontalAlignment="Right" style="margin-right: 22px;" [gap]="5">
+
+                        <kendo-gridlayout-item [row]='1' [col]='1'>
+                            <div containerStyle>
+                                <StackPanel Orientation="Horizontal" width="auto" HorizontalAlignment="Right"
+                                    Margin="0,0,15,-10" style="padding-left: 55px;"> 
+                                    <iActivityConsideration #PrescribingConsiderationTempRef
+                                        Name="PrescribingConsideration" [ACSection]="ActivityData"
+                                        ActivityConsiderationCaption="Prescribing considerations">
+                                    </iActivityConsideration>
+                                </StackPanel>
+                            </div>
+                        </kendo-gridlayout-item>
+                        <kendo-gridlayout-item [row]='2' [col]='1' [style.marginTop]="'0px'"> <!-- edited -->
+                            <kendo-gridlayout [rows]="[{height: 'auto'},{height: 'auto'}]"
+                                [cols]="[{width:'95px'},{width:'110px'}]"
+                                [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsDRCDosetypeVisible"
+                                Margin="0,0,21,0" style="margin-left:35px">
+
+                                <kendo-gridlayout-item [row]='1' [col]='1'>
+                                    <div containerStyle>
+                                        <iLabel #lblDRCdosetypeTempRef Margin="5,5" Name="lblDRCdosetype"  [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsDRCDosetypeVisible"
+                                            VerticalAlignment="Center" MaxWidth="90" IsWordwrap="True"
+                                            HorizontalAlignment="Left" Text="DRC dose type:"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='1' [col]='2'>
+                                    <div containerStyle class="dropdown-button">
+                                        <iComboBox #cboDRCDosetypeTempRef Name="cboDRCDosetype" IsEditable="false"  [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsDRCDosetypeVisible"
+                                            IsTypeAHead="false" IsTextSearchEnabled="false" VerticalAlignment="Center"
+                                            HorizontalAlignment="Stretch" IsTabStop="True"
+                                            [(ItemsSource)]="DataContext.FormViewerDetails.BasicDetails.DefaultDetails.DRCDoseTypes"
+                                            [(SelectedValue)]="DataContext.FormViewerDetails.BasicDetails.DRCDosetype"
+                                            MaxWidth="130"
+                                            [(Tooltip)]="DataContext.FormViewerDetails.BasicDetails.IsSelectedDRCDoseTypeToolTip"
+                                            ControlTooltipClass="DRC-dose-type-tooltip"
+                                            [(IsEnabled)]="DataContext.FormViewerDetails.BasicDetails.IsEnableDRCDoseType">
+                                        </iComboBox>
+                                    </div>
+                                </kendo-gridlayout-item>
+
+                            </kendo-gridlayout>
+                        </kendo-gridlayout-item>
+
+                    </kendo-gridlayout>
+                </kendo-gridlayout-item>
+
+            </kendo-gridlayout>        
+    </ScrollViewer>
+</kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='2' [col]='1'>
+        <div containerStyle>
+            <iLabel #lblHighRiskMsgTempRef HorizontalAlignment="Left" Margin="4,0,0,0" Name="lblHighRiskMsg"
+                VerticalAlignment="Top" MaxWidth="800" FontWeight="Bold" IsWordwrap="True"
+                [Visibility]="DataContext.FormViewerDetails.BasicDetails.HighRiskMsg?true:false"
+                [Text]="DataContext.FormViewerDetails.BasicDetails.HighRiskMsg"></iLabel>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='3' [col]='1' style="position:relative; right: 10px;">
+        <div containerStyle>
+            <iLabel #lblIngredientWarningTempRef HorizontalAlignment="Left" Margin="15,0,0,0"
+                Name="lblIngredientWarning" VerticalAlignment="Top" MaxWidth="800" FontWeight="Bold" IsWordwrap="True"
+                [Visibility]="DataContext.FormViewerDetails.BasicDetails.IngredientWarning?true:false"
+                [Text]="DataContext.FormViewerDetails.BasicDetails.IngredientWarning"></iLabel>
+        </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='4' [col]='1' style="position:relative; right: 10px;">
+        <StackPanel Orientation="Horizontal" Width="695" HorizontalAlignment="Left" Margin="15,0,0,10">
+                <iImage #R_NameTempRef Name="R_Name" isbasicImgTooltip="True"
+                    isToolTip="True"
+                    [Source]="DataContext.FormViewerDetails.BasicDetails.NoteIconSource"                
+                    [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.IsPrescribingNoteIconVisible"
+                    VerticalAlignment="Top" width="16" MaxWidth="16" height="16"
+                    [ToolTip]="DataContext.FormViewerDetails.BasicDetails.PrescribingNote"></iImage>
+    
+                <iLabel #lblPrescribingNoteTempRef class="showEllipsesClass" HorizontalAlignment="Left" Margin="0" Name="lblPrescribingNote"
+                    VerticalAlignment="Top" width="700" MaxWidth="700" height="15" MaxHeight="15" IsWordwrap="False"
+                    IsStrike="False" FontWeight="Bold" 
+                    Text="{{ DataContext.FormViewerDetails.BasicDetails.PrescribingNote | PrescribingNote : 0 : '' }}"
+                    [Tooltip]="DataContext.FormViewerDetails.BasicDetails.PrescribingNote"></iLabel>
+        </StackPanel>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='5' [col]='1' style="padding-bottom: 3px; padding-left: 7px;">
+        <kendo-gridlayout Margin="20,5,10,5" HorizontalAlignment="Stretch" *ngIf="DataContext.GpConnectMedicationItem != null">
+            <ContentPresenter #spGPItemDetailTempRef Name="spGPItemDetail"
+                [Content]="DataContext.GpConnectMedicationItem | GPConnectItemDisplay : 0 : ''"
+                [(Visibility)]="DataContext.FormViewerDetails.BasicDetails.GPItemDetailVisible" class="gpsize"></ContentPresenter>
+        </kendo-gridlayout>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='6' [col]='1'>
+        <div containerStyle>
+            <iTab #ftbFormViewDetailsTempRef HorizontalAlignment="Stretch" Name="ftbFormViewDetails" [defaultOnTabselect]="true"
+                [SelectionChanged]="ftbFormViewDetails_SelectionChanged_Func" VerticalAlignment="Stretch" [KeepTabContent]="keepTabContent"
+                [style.margin.px]="3" [style.margin-top.px]="0" [style.margin-right.px]="7" [style.margin-bottom.px]="10" (referenceChanged)="OnReferenceChanged($event)"
+                [SelectionChangedOnTabClick]="true" [ScrollContentEnabled]="true" [MaxScrollHeight]="formviewerHeight"
+                ></iTab>
+        </div>
+    </kendo-gridlayout-item>
+
+</kendo-gridlayout>

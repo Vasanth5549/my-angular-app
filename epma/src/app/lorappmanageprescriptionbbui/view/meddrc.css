@@ -1,0 +1,39 @@
+ ::ng-deep .k-expander {
+  border-color: #424242;
+  color: #424242;
+  background-color: #74b9c3 !important;
+  border-radius: 5px;
+  border-top: 2px solid;
+}
+
+::ng-deep image{
+  vertical-align: middle;
+ } 
+
+.drcConflictsItems ::ng-deep .k-grid td{
+  white-space: normal !important;
+}
+.drcConflictsItems ::ng-deep .k-expander-content{
+  padding: 16px 16px 16px;
+}
+.conflicts-grid-layout{  
+  border: 1px solid #a09c9c;
+  padding: 0px 5px;
+  margin: 5px 0px 5px; 
+}
+.items-start{
+  align-items: start !important;
+}
+ :host::ng-deep.overflow1 .\!k-overflow-y-auto{
+  overflow-y: scroll !important;
+  height: 60px;
+}
+.drcConflictsItems::ng-deep .k-expander-header{
+  padding: 1px 16px;
+ 
+}
+
+.grid-layout{ 
+  overflow-y: auto;   
+  /* height: 310px; */
+}

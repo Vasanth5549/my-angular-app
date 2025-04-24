@@ -1,0 +1,64 @@
+
+<div>
+  <div fxLayout="row" #hoverName (mouseenter)="MouseEnter(hoverName)" (mouseleave)="MouseLeave(hoverName)" fxLayout.xs="column wrap" fxLayoutGap="5px" class="padlength" >
+    <div class="k-overlay" *ngIf="opened"></div> 
+    <div class="child-1" (click)="TextBlock_MouseLeftButtonDown(ListSearchRowObject)" [ngStyle]="{'color': ApplySearchStyleList('FColor'), 'font-weight': ApplySearchStyleList('FBold') , 
+    'font-style': ApplySearchStyleList('FItalic'),  'text-transform': ApplySearchStyleList('TextCase')}">
+    {{(textFlag === 'Lower' || textFlag === 'Upper'  ? (textFlag === 'Lower'? ListSearchRowObject.Text.toLowerCase() :
+    ListSearchRowObject.Text.toUpperCase()) : ListSearchRowObject.Text)}}
+
+
+    <div  kendoTooltip [ngClass]="[iconFlag ? 'MC-Icon' : 'OrderSet-Icon']" position="bottom" *ngIf="ListSearchRowObject.MCIcon === true"  title={{ListSearchRowObject.MCIconTooltip}} class="d-inline-block ml-2"></div>
+    <div kendoTooltip  position="bottom" showOn="hover" #tooltip="kendoTooltip" #first  [tooltipWidth]="200" *ngIf="ListSearchRowObject.FNoteIcon === true" class="FNote-Icon" title={{ListSearchRowObject.FNoteIconTooltip}}  class="d-inline-block ml-2"></div>
+
+    <div kendoTooltip  position="bottom" showOn="hover" #tooltip="kendoTooltip" #first  [tooltipWidth]="200" *ngIf="ListSearchRowObject.HighRiskIcon === true"  title={{ListSearchRowObject.HighRiskIconTooltip}} class="d-inline-block">
+      <div (click)="open()"  (click)="tooltip.toggle(first)" class="HighRisk-Icon" ></div>
+    </div>
+    
+    <div kendoTooltip  position="bottom" showOn="hover" #tooltip="kendoTooltip" #first  [tooltipWidth]="200"  *ngIf="ListSearchRowObject.UnlicensedIcon === true"  title={{ListSearchRowObject.UnlicensedIconTooltip}} class="d-inline-block ml-2" >
+      <div (click)="open()"  (click)="tooltip.toggle(first)" class="UnLicensed-Icon" ></div>
+    </div>
+    
+    <div kendoTooltip  position="bottom" showOn="hover" #tooltip="kendoTooltip" #first  [tooltipWidth]="200" *ngIf="ListSearchRowObject.NamedPatientIcon === true"  title={{ListSearchRowObject.NamedPatientIconTooltip}} class="d-inline-block ml-2">
+      <div (click)="open()"  (click)="tooltip.toggle(first)" class="NamedPatient-Icon" ></div>
+    </div>
+    
+    <div kendoTooltip  position="bottom" showOn="hover" #tooltip="kendoTooltip" #first  [tooltipWidth]="200" *ngIf="ListSearchRowObject.ControlledDrugIcon === true"  title={{ListSearchRowObject.ControlledDrugIconTooltip}} class="d-inline-block ml-2">
+      <div (click)="open()"  (click)="tooltip.toggle(first)" class="ControlledDrug-Icon" ></div>
+    </div>
+    
+    <div kendoTooltip  position="bottom" showOn="hover" #tooltip="kendoTooltip" #first  [tooltipWidth]="200" *ngIf="ListSearchRowObject.NewlyMarketedIcon === true"  title={{ListSearchRowObject.NewlyMarketedIconTooltip}}  class="d-inline-block ml-2">
+      <div (click)="open()"  (click)="tooltip.toggle(first)" class="NewlyMarketed-Icon" ></div>
+    </div>
+    <div kendoTooltip #tooltip="kendoTooltip"  #first position="bottom" showOn="hover"  [tooltipWidth]="200" *ngIf="ListSearchRowObject.NotesIcon === true"  title={{ListSearchRowObject.NotesToolTip}} class="d-inline-block ml-2">     
+      <div kendoPopoverAnchor (click)="tooltip.toggle(first)" [popover]="myPopover"  class="Notes-Icon" ></div>
+    </div> 
+  </div>
+   
+    
+    
+  
+    <div class="example-wrapper">          
+      <kendo-window title="Please provide additional data" *ngIf="opened" (close)="close()" [minWidth]="250" [width]="450">
+       <div>{{ListSearchRowObject.NotesData}}</div>
+       <br>
+       <button kendoButton type="button" (click)="close()">Close</button>
+      </kendo-window>     
+    </div>
+    
+    
+    <kendo-popover #myPopover  [width]="300"  position="bottom" class="k-popover kleft" >
+      <ng-template kendoPopoverTitleTemplate >
+          <div class="popover-title" >
+              {{ListSearchRowObject.NotesData}}
+          </div>
+      </ng-template>   
+    </kendo-popover>
+
+    <div *ngIf="ListSearchRowObject.ShowLinkIcon === true"  fxFlexAlign="end end" class="link-Icon" title='link' ></div>
+  </div>
+
+
+
+
+ 

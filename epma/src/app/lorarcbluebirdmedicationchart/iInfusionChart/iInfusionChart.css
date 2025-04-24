@@ -1,0 +1,137 @@
+.float-right {
+  float: right;
+}
+
+.padding-0 {
+  padding: 0px;
+}
+
+:host ::ng-deep #grid td:not(:first-child) {
+  padding: 0px 0px 0px 0px !important;
+}
+
+:host ::ng-deep #grid td:first-child {
+  padding: 0px 0px 0px 2px !important;
+}
+
+.text-wrap {
+  white-space: normal;
+}
+
+.margin-left {
+  margin-left: -5px;
+}
+
+.inlineuicontainer {
+  display: inline-block;
+}
+
+:host ::ng-deep #grid .k-grid-header .k-header {
+  background-color: white !important;
+}
+
+:host ::ng-deep #grid .k-grid-header th.k-header {
+  border-right-color: rgb(220, 236, 250) !important;
+  border-bottom-color: rgb(220, 236, 250) !important;
+}
+
+:host ::ng-deep #grid .k-grid-content {
+  background-color: #ffffff !important;
+}
+
+:host ::ng-deep #grid .k-grid tr {
+  border-bottom: 1px solid #E7E6ED;
+}
+
+:host ::ng-deep #grid .k-grid-content td {
+  border: 1px solid #E7E6ED;
+}
+
+.right-align-icon {
+  float: right;
+}
+
+.colon-align {
+  margin-left: 21px;
+}
+
+.display-align {
+  margin-right: 20px;
+}
+
+
+.grid-visibility {
+  visibility: hidden !important;
+}
+
+.div-display {
+  display: none !important;
+}
+
+.HeaderCellStyle {
+  display: flex;
+  justify-content: center;
+}
+
+.margin-10 {
+  margin: 0px 10px 0px 0px;
+}
+
+.display-alignment {
+  display: block;
+}
+
+.display-textbox-alignment {
+  display: flex;
+}
+
+@media screen and (max-width: 1450px) {
+  .defaultInfusionGridHeight {
+    height: 90%;
+  }
+
+  .changedInfusionGridHeight {
+    height: 296px;
+  }
+
+  .div-heightDefault {
+    height: 330px !important;
+  }
+
+  .div-height {
+    height: 350px !important;
+    margin-top: -8px;
+  }
+}
+
+@media screen and (min-device-width : 1400px) and (max-device-width: 1550px) {
+  .defaultInfusionGridHeight {
+    height: 435px;
+  }
+
+  .div-heightDefault {
+    height: 466px !important;
+  }
+  .changedInfusionGridHeight {
+    height: 400px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .defaultInfusionGridHeight {
+    height: 655px;
+  }
+
+  .changedInfusionGridHeight {
+    height: 633px;
+  }
+
+  .div-heightDefault {
+    height: 655px !important;
+  }
+
+  .div-height {
+    height: 605px !important;
+    margin-top: -8px;
+  }
+}

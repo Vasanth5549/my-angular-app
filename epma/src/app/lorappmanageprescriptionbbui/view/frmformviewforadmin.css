@@ -1,0 +1,39 @@
+Border.BorderFrame {
+    border-width : 1px;
+    border-style: solid;
+    border-color:#77b3b4;
+    border-radius:2px;
+}
+:host ::ng-deep .k-input-md .k-input-inner, .k-picker-md .k-input-inner  {
+    padding: 4px 3px !important;
+}
+
+
+Border.BorderFrameForAdditionalOptions {
+    border-radius: 2px;
+    border-width : 1px;
+    border-style: solid;
+    border-color: #000000;
+}
+.brandClearRow{
+    text-align: right;
+}
+.brandContainer{
+    padding-bottom: 12px; 
+}
+
+
+
+
+
+.prninstructions
+{
+    margin-top: 10px;
+}
+.borders ::ng-deep kendo-label {
+  border: none !important;
+}
+
+.BorderColor ::ng-deep kendo-numerictextbox {
+    border-color: #aaa6a5 !important;
+}

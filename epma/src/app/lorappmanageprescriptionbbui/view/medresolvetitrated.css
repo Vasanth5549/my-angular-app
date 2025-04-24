@@ -1,0 +1,24 @@
+/* ::ng-deep .k-numerictextbox {
+    width: 43px;
+} */
+:host ::ng-deep .k-grid.grd-medresolve-titrated.HorizontalScrollBarVisibility .k-grid-content {
+    overflow-x: auto !important;
+}
+.grd-medresolve-titrated {
+    overflow: auto !important;
+    min-height: 70px;
+    max-height: 170px;
+}
+::ng-deep .k-grid .k-grid-content td.grdTitratedDoseColumn {
+     position: relative;
+     }
+::ng-deep .grd-medresolve-titrated .k-grid-header .k-header{
+    padding-left: 15px !important;
+}
+::ng-deep .clearImg .k-button img {
+    width: 18px;
+}
+/* ::ng-deep .k-grid .k-grid-content td{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+} */

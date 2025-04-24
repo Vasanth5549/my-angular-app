@@ -1,0 +1,145 @@
+<div>
+   
+    <kendo-gridlayout Name="LayoutRoot" class="grid-layout-container" [Background]="Styles.LzoPageBG" GridLayout [rows]="[{ height: '200' }]"
+        [cols]="[{ width: '690' }]"  VerticalAlignment="Top" HorizontalAlignment="Center">
+        <kendo-gridlayout-item [row]="3" [col]="1">
+            <div containerStyle>
+                <kendo-grid #grdbagdetailsTempRef HorizontalAlignment="Stretch" VerticalAlignment="Stretch" id="gridBag" [style.width.px]="isRx == true ? 880 : 750"
+                    [GridProperties]="grdbagdetails" Margin="0,7,5,0"
+                    [selectable]="{checkboxOnly: true, mode: 'single'}" kendoGridSelectBy
+                    [(selectedKeys)]="grdbagdetails.selectedRowsIndex" [data]="grdbagdetails.ItemsSource.array"
+                    [resizable]="false" [sortable]="false" [reorderable]="false" [filterable]="false"
+                    class="medbagDtl">
+                    <ng-template kendoGridNoRecordsTemplate>
+                        There are no records to show
+                    </ng-template>
+
+                    <kendo-grid-column 
+                    UniqueName="Bagvolume" 
+                    [editable]="false" 
+                    title="Bag volume" 
+                    [resizable]="false"
+                    [sortable]="false" 
+                    [filterable]="false" 
+                    [width]="97" 
+                    field="BagVolume">
+                    <ng-template kendoGridCellTemplate let-dataItem>
+                      <span class="baggridClass" kendoTooltip [title]="dataItem.BagVolume">{{dataItem.BagVolume}}</span>
+                     
+                    </ng-template>
+                    <ng-template kendoGridHeaderTemplate let-column let-columnIndex="columnIndex">
+                        <span class="baggridHeaderClass" title="Bag volume">{{ column.title }}</span>
+                      </ng-template>
+                    </kendo-grid-column>
+                   
+                    <kendo-grid-column 
+                    UniqueName="BatchNumber" 
+                    [editable]="false" 
+                    title="Batch no" 
+                    [resizable]="true"
+                    [filterable]="false" 
+                    [width]="83" 
+                    field="BatchNumber">
+                    <ng-template kendoGridCellTemplate let-dataItem>
+                      <span class="baggridClass" kendoTooltip [title]="dataItem.BatchNumber">{{dataItem.BatchNumber}}</span>
+                    </ng-template>
+                    <ng-template kendoGridHeaderTemplate let-column let-columnIndex="columnIndex">
+                      <span class="baggridHeaderClass" title="Batch no">{{ column.title }}</span>
+                      </ng-template>
+                    </kendo-grid-column>
+                    <!-- pending DataMemberBinding="{Binding ExpiryDate, Converter={StaticResource BagDTTMDisplay},ConverterParameter=dd-MMM-yyyy ,ConverterCulture=en-GB}"  -->
+                    <!-- "ExpiryDate | BagDTTMDisplay : 0 : 'dd-MMM-yyyy'" -->
+                    <kendo-grid-column 
+                    UniqueName="ExpiryDate" 
+                    [editable]="false" 
+                    title="Expiry date" 
+                    [resizable]="true"
+                    [filterable]="false" 
+                    [width]="150" 
+                   >
+                   <ng-template kendoGridCellTemplate let-dataItem>
+                    <span class="baggridClass" kendoTooltip [title]="ExpiryDateDisplayValue(dataItem.ExpiryDate)"> {{ExpiryDateDisplayValue(dataItem.ExpiryDate)}}</span>
+                </ng-template>
+                    <ng-template kendoGridHeaderTemplate let-column let-columnIndex="columnIndex">
+                      <span class="baggridHeaderClass" title="Expiry date">{{ column.title }}</span>
+                      </ng-template>
+                    </kendo-grid-column>
+                    <!-- DataMemberBinding="{Binding AdminStartTime,
+                        Converter={StaticResource BagDTTMDisplay},
+                        ConverterParameter=dd-MMM-yyyy HH:mm, ConverterCulture=en-GB}"  
+                    "AdminStartTime | BagDTTMDisplay : 0 : 'dd-MMM-yyyy HH:mm'"
+                    -->
+                    <kendo-grid-column 
+                    UniqueName="AdminStartTime" 
+                    [editable]="false" 
+                    title="Start date" 
+                    [resizable]="true"
+                    [filterable]="false" 
+                    [width]="150" 
+                    field="AdminStartTime">
+                    <ng-template kendoGridCellTemplate let-dataItem>
+                      <span class="baggridClass" kendoTooltip [title]="dataItem.AdminStartTime | date: 'dd-MMM-yyyy HH:mm'"> {{dataItem.AdminStartTime | date: 'dd-MMM-yyyy HH:mm'}}</span>
+                    </ng-template>
+                    <ng-template kendoGridHeaderTemplate let-column let-columnIndex="columnIndex">
+                      <span class="baggridHeaderClass" title="Start date">{{ column.title }}</span>
+                      </ng-template>
+                    </kendo-grid-column>
+
+                    <kendo-grid-column 
+                    UniqueName="AdministeredBy" 
+                    [editable]="false" 
+                    title="Administered by" 
+                    [resizable]="true"
+                    [filterable]="false" 
+                    [width]="132" 
+                    field="AdministeredBy.Name">
+                    <ng-template kendoGridCellTemplate let-dataItem>
+                      <span class="bagAdmbyClass" kendoTooltip [title]="dataItem.AdministeredBy.Name">{{dataItem.AdministeredBy.Name}}</span>
+                    </ng-template>
+                    <ng-template kendoGridHeaderTemplate let-column let-columnIndex="columnIndex">
+                      <span class="baggridHeaderClass" title="Administered by">{{ column.title }}</span>
+                      </ng-template>
+                    </kendo-grid-column>
+
+                    <kendo-grid-column 
+                    UniqueName="InfusedVolume" 
+                    [editable]="false" 
+                    title="Volume infused" 
+                    [resizable]="true"
+                    [filterable]="false" 
+                    [width]="145" 
+                    field="InfusedVolume">
+                    <ng-template kendoGridCellTemplate let-dataItem>
+                      <span class="bagpreClass" kendoTooltip [title]="dataItem.InfusedVolume">{{dataItem.InfusedVolume}}</span>
+                    </ng-template>
+                    <ng-template kendoGridHeaderTemplate let-column let-columnIndex="columnIndex">
+                      <span class="baggridHeaderClass" title="Volume infused">{{ column.title }}</span>
+                      </ng-template>
+                    </kendo-grid-column>
+                    <!-- DataMemberBinding="{Binding AdminEndTime, Converter={StaticResource BagDTTMDisplay},ConverterParameter=dd-MMM-yyyy HH:mm, ConverterCulture=en-GB}" 
+                    AdminEndTime | BagDTTMDisplay : 0 : 'dd-MMM-yyyy HH:mm'
+                    -->
+                    <kendo-grid-column 
+                    UniqueName="AdminEndTime" 
+                    [editable]="false" 
+                    title="End date" 
+                    [resizable]="true"
+                    [filterable]="false" 
+                    [width]="150" 
+                   >
+                   <ng-template kendoGridCellTemplate let-dataItem>
+                    <span class="baggridClass" kendoTooltip  [title]="EndDateDisplayValue(dataItem.AdminEndTime)">{{EndDateDisplayValue(dataItem.AdminEndTime)}}</span>
+                    
+                </ng-template>
+                    <ng-template kendoGridHeaderTemplate let-column let-columnIndex="columnIndex">
+                      <span class="baggridHeaderClass" title="End date">{{ column.title }}</span>
+                      </ng-template>
+                    </kendo-grid-column>
+                     
+                </kendo-grid>
+               
+            </div>
+        </kendo-gridlayout-item>
+
+    </kendo-gridlayout>
+</div>

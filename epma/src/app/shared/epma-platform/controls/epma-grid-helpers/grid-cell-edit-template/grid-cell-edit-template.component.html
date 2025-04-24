@@ -1,0 +1,14 @@
+<div class="cell-edit-template-alignment">
+  <ng-content *ngIf="dataItem[cell]"> </ng-content>
+</div>
+<div kendoTooltip [title]="ToolTip">
+  <ng-container *ngIf="dataItem[cell] && Content?.Child?.constructor?.name == 'StackPanel'">
+    <DC-StackPanel [ChildrenElementArray]="Content.Child?.ChildrenElementArray"
+      [DataContext]="DataContext"></DC-StackPanel>
+  </ng-container>
+  <ng-container *ngIf="dataItem[cell] && Content?.Child?.constructor?.name == 'Grid'">
+    <Grid [ChildrenArr]="Content?.Child?.ChildrenArr" [RowDefinitionsArr]="Content?.Child?.RowDefinitionsArr"
+      [ColumnDefinitionsArr]="Content?.Child?.ColumnDefinitionsArr" [ColWidth]="Content?.Child?.ColWidth"
+      [RowHeight]="Content?.Child?.RowHeight" [cell]="cell" [DataContext]="DataContext" [GridHelper]="GridHelper" [GridColumn]="GridColumn" [DynamicControlFocus]="DynamicControlFocus"></Grid>
+  </ng-container>
+</div>

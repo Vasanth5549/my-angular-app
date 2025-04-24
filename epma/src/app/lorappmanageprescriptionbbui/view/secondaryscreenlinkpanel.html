@@ -1,0 +1,26 @@
+<div class="cmdPrescribingOptionsTempRef">
+<kendo-gridlayout #grdLinksTempRef [Name]="grdLinks" HorizontalAlignment="Left" Background="Styles.LzoPageBG">
+    <kendo-gridlayout-item>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" width="720">
+            <iButton #cmdPrescribingOptionsTempRef Name="cmdPrescribingOptions" HorizontalAlignment="Left" Width="Auto"
+                [Text]="objResMedSecondaryTab.cmdPrescribingOptions_Text"
+                [Tooltip]="objResMedSecondaryTab.cmdPrescribingOptions_Tooltip" Margin="5" Height="23"
+                DisabledImageSource="assets/images/iArrowDIS5x10.png" ActiveImageSource="assets/images/iArrowsHOT5x10.png"
+                ImageSource="assets/images/iArrowNOR5x10.png" ImageHeight="12" ImageWidth="5"
+                [(IsEnabled)]="DataContext.PrescribingOptionsIsEnabled"></iButton>
+            <iButton #cmdPackOptionsTempRef Name="cmdPackOptions" HorizontalAlignment="Left" Width="Auto"
+                [Text]="objResMedSecondaryTab.cmdPackOptions_Text" Height="23" Margin="5"
+                [Tooltip]="objResMedSecondaryTab.cmdPackOptions_Tooltip"
+                DisabledImageSource="assets/images/iArrowDIS5x10.png" ActiveImageSource="assets/images/iArrowsHOT5x10.png"
+                ImageSource="assets/images/iArrowNOR5x10.png" ImageHeight="12" ImageWidth="5"
+                [(IsEnabled)]="DataContext.PackOptionsIsEnabled"></iButton>
+            <iButton #cmdLinksTempRef Name="cmdLinks" Width="Auto" HorizontalAlignment="Left"
+                [Text]="objResMedSecondaryTab.cmdLinks_Text" Height="23" Margin="5"
+                [Tooltip]="objResMedSecondaryTab.cmdLinks_Tooltip"
+                DisabledImageSource="assets/images/iArrowDIS5x10.png" ActiveImageSource="assets/images/iArrowsHOT5x10.png"
+                ImageSource="assets/images/iArrowNOR5x10.png" ImageHeight="12" ImageWidth="5"
+                [(IsEnabled)]="DataContext.LinksIsEnabled"></iButton>
+        </StackPanel>
+    </kendo-gridlayout-item>
+</kendo-gridlayout>
+</div>

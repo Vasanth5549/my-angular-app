@@ -1,0 +1,182 @@
+<div class="grid-layout-container">
+  <kendo-gridlayout [rows]="[
+              { height: 31},
+              { height: 31},
+              { height: 5},
+              { height: 31},
+              { height: 30},
+              { height: 30},
+              { height: '1fr'}]" [cols]="[
+              { width: 110},
+              { width: '1.5fr'},
+              { width: '3fr'},
+              { width: '4.5fr'}]">
+
+
+
+    <Border Background="#aacfd159" [col]="2" [row]="1" [colSpan]="3"></Border>
+
+    <Border Background="#aacfd159" [col]="2" [row]="2" class="borderHeight" [colSpan]="3"></Border>
+
+    <Border Background="#aacfd159" [col]="2" [row]="3" [colSpan]="3"></Border>
+
+
+
+    <Border [col]="1" [row]="2" [colSpan]="4" [Style]="{'border-top': '1px solid white'}"></Border>
+
+    <Border [col]="1" [row]="4" [colSpan]="4" [Style]="{'border-top': '1px solid white'}"></Border>
+
+    <Border [col]="1" [row]="5" [colSpan]="4" [Style]="{'border-top': '1px solid white'}"></Border>
+
+    <Border [col]="1" [row]="6" [colSpan]="4" [Style]="{'border-top': '1px solid white'}"></Border>
+    <!-- [Style]="{'border': 'whiteBorder'}" -->
+
+
+
+
+    <kendo-gridlayout-item [col]="1" [row]="1" class="lable1">
+      <iLabel #lblQuickLinksTempRef HorizontalAlignment="Left" Name="lblQuickLinks" VerticalAlignment="Center"
+        Width="auto" [Mandatory]="false" [Text]="objResMedearch?.lblQuickLinks_Text" Margin="0,0,0,5"></iLabel>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [col]="2" [row]="1" [colSpan]="3" class="empcombo">
+      <iComboBox #cboQuickLinksTempRef HorizontalAlignment="Left" Height="21" Name="cboQuickLinks" [isValueChanged]="true"
+        VerticalAlignment="Center" IsEditable="false"
+        [SelectionChanged]="cboQuickLinks_SelectionChanged_Func" IsHierarchical="True" Width="360" Margin="2,0,2,5"
+        TabIndex="1" [Tooltip]="objResMedearch?.cboQuickLinks_Tooltip"></iComboBox>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [col]="1" [row]="2" class="apply">
+      <iLabel #lblSearchTempRef HorizontalAlignment="Left" Name="lblSearch" VerticalAlignment="Center" Width="auto"
+        [Mandatory]="false" [Text]="objResMedearch?.lblSearch_Text" Margin="0,0,0,5"></iLabel>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]="2" [col]="2" [colSpan]="2" class="txtbox">
+
+      <!-- <input type="text" Name="txtSearch" #txtSearchTempRef placeholder="txtSearch" class="label"
+        (keyup)="custom_keyup($event)" /> -->
+
+      <!-- <iTextBox #txtSearchTempRef HorizontalAlignment="Stretch" Name="txtSearch" VerticalAlignment="Center"
+        Margin="2,2,2,5" Width="auto" TabIndex="2" Height="22" [TextChanged]="iTextBox_TextChanged_Func">
+      </iTextBox> -->
+
+      <iTextBox #txtSearchTempRef HorizontalAlignment="Stretch" Name="txtSearch" VerticalAlignment="Center" Width="auto" class="ipt"
+        Margin="2,2,5,2" TabIndex="2" Height="22" [TextChanged]="iTextBox_TextChanged_Func" (keyup)="KeyUpEvent($event)"
+        [Tooltip]="objResMedearch?.txtSearch_Tooltip" [iSpecialCharNotAllowed]=true>
+      </iTextBox>
+
+      <!-- <Activity:DelayedTextbox HorizontalAlignment="Stretch" Margin="5,2,2,2" Name="txtSearch"
+        ToolTipService.ToolTip="{Binding Source={StaticResource objResMedearch}, Path=txtSearch_Tooltip}"
+        VerticalAlignment="Center" Width="auto" Grid.Row="1" Grid.Column="1" TabIndex="2" Height="22"
+        Grid.ColumnSpan="2" DelayTextChanged="DelayedTextbox_DelayTextChanged" /> -->
+
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]="5" [col]="1" class="margintop" [class.isChildWizardAdjustMCIButton]="isChildWizard">
+      <iButton #cmdMCITempRef Name="cmdMCI" Margin="0,0,0,5" VerticalAlignment="Center" Width="auto"
+        Text="Create multiple component item" DisabledImageSource="~/../assets/Images/iarrowdis5x10.png"
+        ActiveImageSource="~/../assets/Images/iarrowshot5x10.png" HorizontalAlignment="Left"
+        ImageSource="~/../assets/Images/iarrownor5x10.png" ImageHeight="12" ImageWidth="6" TabIndex="8"
+        (Click_Func)="cmdMCI_Click_Func({},$event)" ToolTip="Select to create an ad-hoc multiple component item">
+      </iButton>
+    </kendo-gridlayout-item>
+
+
+    <kendo-gridlayout-item [row]="5" [col]="4">
+      <TextBlock #lblTeamNameTempRef Text="" VerticalAlignment="Center" Margin="0,5,0,0"
+        TextTrimming="WordEllipsis"></TextBlock>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]="2" [col]="4">
+      <kendo-gridlayout [cols]="[{ width: 'auto'}]" [rows]="[{ height: 21}]">
+        <kendo-gridlayout-item [col]="1" [row]="1">
+          <iButton #cmdClearTempRef Name="cmdClear" Text="" HorizontalAlignment="Left" IsBackgroundVisible="True"
+            [Click]="cmdClear_Click_Func" ImageSource="~/../assets/Images/iClearNOR24.png"
+            [ToolTip]="objResMedearch?.cmdClear_ToolTip" DisabledImageSource="~/../assets/Images/iClearDIS24.png"
+            ActiveImageSource="~/../assets/Images/iClearHOT24.png" TabIndex="3" Height="21" Margin="0,0,0,20"
+            ImageHeight="17">
+          </iButton>
+          <iButton #cmdSearchCatTempRef HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,5,0,30" class="cmd-search-cat" Name="cmdSearchCat" Foreground="Black" Width="auto"
+            [Text]="objResMedearch?.cmdSearchCat_Text" Height="21" [Click]="cmdSearchCat_Click_Func" TabIndex="7">
+          </iButton>
+        </kendo-gridlayout-item>
+        <!-- <kendo-gridlayout-item [col]="1" [row]="1">
+          <iButton #cmdClearTempRef Name="cmdClear" Text="" HorizontalAlignment="Left" IsBackgroundVisible="True"
+            Click="cmdClear_Click" ImageSource="../Images/iClearNOR24.png"
+            DisabledImageSource="../Images/iClearDIS24.png" ActiveImageSource="../Images/iClearHOT24.png" TabIndex="3"
+            Height="21" Margin="10,0,0,0">
+          </iButton>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [col]="1" [row]="1">
+          <iButton #cmdSearchCatTempRef HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,5,0"
+            Name="cmdSearchCat" Foreground="Black" Width="auto" [Text]="objResMedearch?.cmdSearchCat_Text" Height="21"
+            Click="cmdSearchCat_Click" TabIndex="7">
+          </iButton>
+        </kendo-gridlayout-item> -->
+
+      </kendo-gridlayout>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [col]="3" [row]="4" [colSpan]="3">
+      <div containerStyle>
+        <StackPanel #spSearchOptionTempRef Orientation="Horizontal" Name="spSearchOption" VerticalAlignment="Center"
+        HorizontalAlignment="Left" Margin="5,0,0,0">
+    <!--  <div #spSearchOptionTempRef x:Name="spSearchOption" Orientation="Horizontal" VerticalAlignment="Center"
+        HorizontalAlignment="Left" Margin="0,0,0,5">-->
+        <!-- <button (click)="btn_click()">Show</button> -->
+        <iCheckBox #ichkBoxSearchOrderSetTempRef [Text]="objResMedearch?.chkOrderSet_Text" Height="16"
+          ToolTip="Select to search for order sets" Name="ichkBoxSearchOrderSet" VerticalAlignment="Center"
+          [IsChecked]="_objMedSearch?.IsSupplyRequestInitiated" HorizontalAlignment="left" MinWidth="80" Width="auto"
+          Margin="0,0,2,0" TabIndex="4">
+        </iCheckBox>
+        <!-- [IsChecked]="objResMedearch?.IsSupplyRequestInitiated" -->
+        <!-- <label>Search Order Sets</label> -->
+
+        <iRadioButton kendoTooltip #optBeginsWithTempRef [Text]="objResMedearch?.optBeginsWith_Text" Height="21"
+          title="Begins with" ToolTip="Begins with" HorizontalAlignment="Center" Name="optBeginsWith"
+          VerticalAlignment="Center" GroupName="SerchType" [IsChecked]="optBeginsWith?.IsChecked" MinWidth="80"
+          Width="auto" Margin="0,0,6,0" [Click]="optBeginsWith_Click_Func" TabIndex="5">
+        </iRadioButton>
+        <!-- <label>Begins with</label> -->
+
+        <iRadioButton kendoTooltip #optAnyWordTempRef [Text]="objResMedearch?.optAnyWord_Text" Height="21"
+          title="Any word" ToolTip="Any word" HorizontalAlignment="Center" Name="optAnyWord" VerticalAlignment="Center"
+          GroupName="SerchType" Width="auto" Margin="0,0,5,0" [Click]="optAnyWord_Click_Func" TabIndex="6">
+        </iRadioButton>
+        <!-- <label>Any word</label> -->
+</StackPanel>
+
+      </div>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [col]="1" [row]="6" [colSpan]="4">
+      <iLabel #lblQLinkNameTempRef HorizontalAlignment="Stretch" Name="lblQLinkName" VerticalAlignment="Top"
+        [Mandatory]="false" Text="" FontWeight="Bold">
+      </iLabel>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]="7" [col]="1" [colSpan]="4" [class.childWizardMedquickSelectTreeView]="isChildWizard" [style.height.px]="maxLayoutHeight"
+      [class.tree-list]="tvwMedFavourites?.Visibility" [class.display-none]="!tvwMedFavourites?.Visibility">
+      <iTreeView #tvwMedFavouritesTempRef [IsHyperLink]="true" Cursor="Hand" Background="White"
+        HorizontalAlignment="Stretch" Margin="0,5,0,0" Name="tvwMedFavourites" [allowNodeClick]="false" [Expanded]="tvwMedFavourites_Expanded_Func" class="quickLinksTreeView" [restrictNodeExpand] = "true"
+        IsExpandOnSingleClickEnabled="True" VerticalAlignment="Stretch" normalNotesToolTip="True"
+        [OnHyperLinkClick]="tvwMedFavourites_OnHyperLinkClick_Func" MouseLeftButtonUp="tvwMedFavourites_MouseLeftButtonUp">
+      </iTreeView>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]="7" [col]="1" [colSpan]="4" [class.childWizardMedquickSelectTreeView]="isChildWizard" [style.height.px]="maxLayoutHeight"
+      [class.tree-list]="tvwMedFromulary?.Visibility" [class.display-none]="!tvwMedFromulary?.Visibility">
+      <iTreeView #tvwMedFromularyTempRef Cursor="Hand" HorizontalAlignment="Stretch" Margin="0,5,0,0" Background="White" [restrictNodeExpand] = "true" class="quickLinksTreeView" 
+        Name="tvwMedFromulary" VerticalAlignment="Stretch" [Expanded]="tvwMedFromulary_Expanded_Func"
+        MouseLeftButtonUp="tvwMedFromulary_MouseLeftButtonUp" IsExpandOnSingleClickEnabled="True"
+        [OnHyperLinkClick]="tvwMedFromulary_MouseLeftButtonUp_Func"></iTreeView>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [col]="1" [row]="6" [rowSpan]="2" [colSpan]="4" [class.power-search-list]="ladSearch?.Visibility" [style.height.px]="searchHeight"
+      [class.display-none]="!ladSearch?.Visibility" [class.childWizardMedquickSelect]="isChildWizard">
+      <iSOFT:iPowerSearch #ladSearchTempRef Name="ladSearch" Caption="Search results"
+        [LineItemCollection]="objSearch?.LstLineItem" [StyleItemCollection]="objSearch?.LstStyleItem" TabIndex="9">
+
+      </iSOFT:iPowerSearch>
+    </kendo-gridlayout-item>
+
+  </kendo-gridlayout>
+</div>

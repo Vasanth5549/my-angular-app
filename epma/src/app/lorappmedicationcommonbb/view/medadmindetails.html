@@ -1,0 +1,254 @@
+<div>
+    <kendo-gridlayout Name="LayoutRoot" Background="#FFE0EFF1" [rows]="[{height: '60fr'}, {height: '90fr'}]" class="hideoverf" [style.height.px]="fullHeight">
+
+        <!-- grdAdminList -->
+        <kendo-gridlayout-item [row]='1' [col]='1' >
+            <div containerStyle>
+                <StackPanel>
+                    <kendo-grid #grdAdminListTempRef [selectable]="{checkboxOnly: false, mode: 'single'}" [style.width.px]="900"
+                        kendoGridSelectBy [(selectedKeys)]="grdAdminList.selectedRowsIndex"
+                        [GridProperties]="grdAdminList" [editable]="false" [tabIndex]="1" [height]="maxGridHeight-20"
+                        [filterable]="false" [sortable]="false" [resizable]="false"
+                        [reorderable]="false" (selectionChange)="grdAdminList.selectionChange($event)"
+                        [data]="grdAdminList?.ItemsSource?.array" (cellClick)="grdAdminList.cellClick($event)"
+                        (detailExpand)="grdAdminList.RowIsExpandedChanged($event)"
+                        (detailCollapse)="grdAdminList.RowIsExpandedChanged($event)"
+                        [kendoGridExpandDetailsBy]="grdAdminList.expandDetailsBy"
+                        [(expandedDetailKeys)]="grdAdminList.expandedDetailKeys" tabindex="0"
+                        (focus)="grdAdminList.onFocus()" [style.marginLeft.px]="0" [style.marginTop.px]="10"
+                        [style.marginBottom.px]="0">
+
+                        <ng-template kendoGridNoRecordsTemplate>
+                            No records to show
+                        </ng-template>
+
+                        <kendo-grid-column *ngIf="grdAdminList.RowIndicatorVisibility == 0 ? true : false"
+                            UniqueName="rowindicator" field="rowindicator" title="" [width]="34">
+                            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                let-columnIndex="columnIndex">
+                                <div (click)="GridRowSelect(rowIndex)" style="padding-top: 5px;padding-bottom: 5px;">
+                                <DataTemplate #tempAdminList [dataItem]="dataItem" [index]="rowIndex" 
+                                    [colindex]="columnIndex" (RowLoaded)="rowLoaded($event)"
+                                    [gridHelper]="grdAdminList">
+                                    <Image
+                                        *ngIf="grdAdminList.selectedRowsIndex.length > 0 ? grdAdminList.selectedRowsIndex == rowIndex : false"
+                                        Source="./assets/Images/iarrownor5x10.png" class="ArrowAlign"></Image>
+                                </DataTemplate>
+                                
+                            </div>
+                            </ng-template> 
+                        </kendo-grid-column>
+
+                        <!--HISTORY ICON-->
+                        <kendo-grid-column UniqueName="historyicon" [GridColumnProperties]="grdAdminList" [width]="35"
+                            [resizable]="false" [style]="{ 'text-align': 'center' }">
+                            <ng-template kendoGridHeaderTemplate>
+                                <ControlTemplate TargetType="telerikGridView:GridViewHeaderCell">
+                                    <GridBorder #ControlTemplateBordrerStyle Padding="0" Margin="0,0,0,0"
+                                        BorderThickness="0,0,1,1" BorderBrush="#7BB0AF" columnName="historyicon">
+                                        <Image Source="./assets/images/iHistoryNOR16.png" Stretch="None"
+                                            class="center-alignment"
+                                            [Tooltip]="medsadmindetailsToolTip.HistoryIconHeaderTooltip">
+                                        </Image>
+                                    </GridBorder>
+                                </ControlTemplate>
+                            </ng-template>
+
+                            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                let-columnIndex="columnIndex">
+                                <DataTemplate #tempAdminList [dataItem]="dataItem" [index]="rowIndex"
+                                    [colindex]="columnIndex" (RowLoaded)="rowLoaded($event)"
+                                    [gridHelper]="grdAdminList">
+                                    <Image Source="./assets/images/iHistoryNOR16.png" Stretch="None"
+                                        [Tooltip]="medsadmindetailsToolTip.HistoryIcon"
+                                        [(Visibility)]="dataItem.IsVisible" class="center-alignment ImgAlign">
+                                    </Image>
+                                </DataTemplate>
+                            </ng-template>
+                        </kendo-grid-column>
+
+                        <!--DUE AT-->
+                        <kendo-grid-column UniqueName="Dueat" [GridColumnProperties]="grdAdminList" [width]="145"
+                            [resizable]="false" title="Due at" TextWrapping="Wrap">
+                            <ng-template kendoGridHeaderTemplate>
+                                <span title="Due at">Due at</span>
+                            </ng-template>
+                            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                let-columnIndex="columnIndex">
+                                <DataTemplate #tempAdminList [dataItem]="dataItem" [index]="rowIndex"
+                                    [colindex]="columnIndex" [gridHelper]="grdAdminList">
+                                    <iLabel #lblDueAtTempRef Name="lblDueAt" HorizontalAlignment="Left"
+                                        [Tooltip]="dataItem.ScheduleDTTM | DischargeLeaveDTTMConvertor : 0 : 'dd-MMM-yyyy HH:mm' : 'en-GB'"
+                                        Text="{{dataItem.ScheduleDTTM | DischargeLeaveDTTMConvertor : 0 : 'dd-MMM-yyyy HH:mm' : 'en-GB'}}">
+                                    </iLabel>
+                                </DataTemplate>
+                            </ng-template>
+                        </kendo-grid-column>
+
+                        <!--DATETIME GIVEN-->
+                        <kendo-grid-column UniqueName="Datetimegiven" [GridColumnProperties]="grdAdminList"
+                            [width]="165" [resizable]="false" title="Date time given" TextWrapping="Wrap">
+                            <ng-template kendoGridHeaderTemplate>
+                                <span title="Date time given">Date time given</span>
+                            </ng-template>
+                            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                let-columnIndex="columnIndex">
+                                <DataTemplate #tempAdminList [dataItem]="dataItem" [index]="rowIndex"
+                                    [colindex]="columnIndex" [gridHelper]="grdAdminList">
+                                    <StackPanel Orientation="Horizontal">
+                                        <iLabel #lblDatetimegivenTempRef Name="lblDatetimegiven"
+                                            [(Tooltip)]="dataItem.DateTimeGiven" [(Text)]="dataItem.DateTimeGiven"
+                                            IsWordwrap="True" HorizontalAlignment="Left">
+                                        </iLabel>
+                                        <!-- <ContentControl [Content]="dataItem | SetAdministeredIcon" HorizontalAlignment="Left"></ContentControl> -->
+                                        <ContentPresenter class="custom-content-presenter"
+                                            [Content]="dataItem | SetAdministeredIcon : '' : 'DateTimeGiven'"
+                                            HorizontalAlignment="Left">
+                                        </ContentPresenter>
+                                        <!-- IsEarlyAdministeredModeVisibility -->
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ng-template>
+                        </kendo-grid-column>
+
+                        <!--DOSE GIVEN-->
+                        <kendo-grid-column UniqueName="Dosegiven" [GridColumnProperties]="grdAdminList" [width]="105"
+                            [resizable]="false" title="Dose given" TextWrapping="Wrap">
+                            <ng-template kendoGridHeaderTemplate>
+                                <span title="Dose given">Dose given</span>
+                            </ng-template>
+                            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                let-columnIndex="columnIndex">
+                                <DataTemplate #tempAdminList [dataItem]="dataItem" [index]="rowIndex"
+                                    [colindex]="columnIndex" [gridHelper]="grdAdminList">
+                                    <StackPanel Orientation="Horizontal" width="110">
+                                        <iLabel #lblDoseGivenTempRef Name="lblDoseGiven" IsWordwrap="True" Width="80"
+                                            [Tooltip]="dataItem.Dose" [(Text)]="dataItem.Dose"
+                                            HorizontalAlignment="Left">
+                                        </iLabel>
+                                        <Image Source="./assets/images/dose discrepancy.png" Width="15" Height="15"
+                                            [Visibility]="dataItem?.DoseDiscrepancyVisibility"
+                                            [ToolTip]="medsadmindetailsToolTip.DoseDiscrepancyIcon"></Image>
+                                        <!--  -->
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ng-template>
+                        </kendo-grid-column>
+
+                        <!--ADMINISTERED BY-->
+                        <kendo-grid-column UniqueName="Administeredby" [GridColumnProperties]="grdAdminList"
+                            [width]="160" [resizable]="false" title="Administered by" TextWrapping="Wrap">
+                            <ng-template kendoGridHeaderTemplate>
+                                <span title="Administered by">Administered by</span>
+                            </ng-template>
+                            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                let-columnIndex="columnIndex">
+                                <DataTemplate #tempAdminList [dataItem]="dataItem" [index]="rowIndex"
+                                    [colindex]="columnIndex" [gridHelper]="grdAdminList">
+                                    <iLabel #lblAdministeredbyTempRef Name="lblAdministeredby"
+                                        [(Tooltip)]="dataItem.AdministeredBy" [(Text)]="dataItem.AdministeredBy"
+                                        HorizontalAlignment="Left" IsWordwrap="True"></iLabel>
+                                </DataTemplate>
+                            </ng-template>
+                        </kendo-grid-column>
+
+                        <!--STATUS-->
+                        <kendo-grid-column UniqueName="Status" [GridColumnProperties]="grdAdminList" [width]="150"
+                            [resizable]="false" title="Status" TextWrapping="Wrap">
+                            <ng-template kendoGridHeaderTemplate>
+                                <span title="Status">Status</span>
+                            </ng-template>
+                            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                let-columnIndex="columnIndex">
+                                <DataTemplate #tempAdminList [dataItem]="dataItem" [index]="rowIndex"
+                                    [colindex]="columnIndex" [gridHelper]="grdAdminList">
+                                    <iLabel #lblStatusTempRef Name="lblStatus" [(Tooltip)]="dataItem.SlotStatus"
+                                        [(Text)]="dataItem.SlotStatus" HorizontalAlignment="Left" IsWordwrap="True">
+                                    </iLabel>
+                                </DataTemplate>
+                            </ng-template>
+                        </kendo-grid-column>
+
+                        <ng-template [kendoGridDetailTemplateShowIf]="displayHierarchicalBtn" kendoGridDetailTemplate
+                            let-dataItemChild="dataItem" let-parentRowIndex="rowIndex">
+
+                            <kendo-grid #grdinfuactchldTempRef [GridProperties]="dataItemChild.ChildGridExtension"
+                                [ChildCollectionProp]="'infuactchldDet'" [ParentRow]="dataItemChild"
+                                [data]="dataItemChild?.infuactchldDet?.array"
+                                class="vertical-class-stretch grdinfuactchld"
+                                (cellClick)="dataItemChild.ChildGridExtension.cellClick($event)" kendoGridSelectBy
+                                [(selectedKeys)]="dataItemChild.ChildGridExtension.selectedRowsIndex"
+                                [selectable]="{ checkboxOnly: false, mode: 'single' }"
+                                (selectionChange)="dataItemChild.ChildGridExtension.selectionChange($event)"
+                               class="ScrollFix" style="margin-left: 30px;">
+                                
+                                <ng-template kendoGridNoRecordsTemplate>
+                                    There are no records to show
+                                </ng-template>
+
+                                <kendo-grid-column class="HorizontalTextAlignCenter" title="" field="rowindicator"
+                                    UniqueName="rowindicator" [width]="12">
+                                    <ng-template kendoGridCellTemplate let-rowIndex="rowIndex" let-dataItem>
+                                        <Image
+                                            *ngIf="dataItemChild.ChildGridExtension.selectedRowsIndex.length > 0 
+                                            && !dataItem.IsGroupHeader ? dataItemChild.ChildGridExtension.selectedRowsIndex == rowIndex : false"
+                                            Source="./assets/images/iarrownor5x10.png" class="ArrowAlign2"></Image>
+                                    </ng-template>
+                                </kendo-grid-column>
+
+                                <kendo-grid-column UniqueName="Action1" [resizable]="false"
+                                    [GridColumnProperties]="grdinfuactchld" TextWrapping="Wrap" title="Action"
+                                    field="Action" [sortable]="false" [width]="53" [filterable]="false">
+                                    <ng-template kendoGridHeaderTemplate>
+                                        <span title="Action">Action</span>
+                                    </ng-template>
+                                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                        let-columnIndex="columnIndex">
+                                        <DataTemplate #grdinfuactchldDTTempRef [dataItem]="dataItem" [index]="rowIndex"
+                                            [colindex]="columnIndex" (RowLoaded)="rowLoadedChild($event, dataItemChild)"
+                                            [ParentRowIndex]="parentRowIndex"
+                                            [gridHelper]="dataItemChild.ChildGridExtension">
+                                            <iLabel Name="Action" Mandatory="False"
+                                                HorizontalAlignment="Stretch" IsWordwrap="True"
+                                                VerticalAlignment="Center" [Text]="dataItem?.ActionCode"
+                                                [Tooltip]="dataItem?.ActionCode"></iLabel>
+                                        </DataTemplate>
+                                    </ng-template>
+                                </kendo-grid-column>
+
+                                <kendo-grid-column UniqueName="Date/time1" [resizable]="false"
+                                    [GridColumnProperties]="grdinfuactchld" TextWrapping="Wrap" title="Date/Time"
+                                    field="Date/Time" [sortable]="false" [width]="200" [filterable]="false">
+                                    <ng-template kendoGridHeaderTemplate>
+                                        <span title="Date/Time">Date/Time</span>
+                                    </ng-template>
+                                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                        let-columnIndex="columnIndex">
+                                        <DataTemplate #grdinfuactchldDTTempRef [dataItem]="dataItem" [index]="rowIndex"
+                                            [colindex]="columnIndex" [ParentRowIndex]="parentRowIndex"
+                                            [gridHelper]="dataItemChild.ChildGridExtension">
+                                            <iLabel Name="Date/Time" Mandatory="False"
+                                                field="Date/Time" HorizontalAlignment="Stretch" Margin="0"
+                                                IsWordwrap="True" [Text]="dataItem?.AdministeredDate"
+                                                [Tooltip]="dataItem?.AdministeredDate" VerticalAlignment="Center">
+                                            </iLabel>
+                                        </DataTemplate>
+                                    </ng-template>
+                                </kendo-grid-column>
+                            </kendo-grid>
+                        </ng-template>
+                    </kendo-grid>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item [row]='2'>
+            <div containerStyle style="margin-right: 5px">
+                <iTab #ftbMedsAdminTabsTempRef Name="ftbMedsAdminTabs" HorizontalAlignment="Stretch" [style.height.px]="maxGridHeight"
+                    VerticalAlignment="Stretch" Margin="0,0,0,0" [defaultOnTabselect]="true" [KeepTabContent]="true"
+                    (SelectionChanged)="grdAdminList_SelectionChanged_Func"></iTab>
+            </div>
+        </kendo-gridlayout-item>
+
+    </kendo-gridlayout>
+</div>

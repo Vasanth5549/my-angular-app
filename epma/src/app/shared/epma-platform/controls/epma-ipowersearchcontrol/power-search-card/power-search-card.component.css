@@ -1,0 +1,168 @@
+.child-2 {
+    background-image: url("src\assets\Images\icon\iholdhot16.png");
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+
+.child-1{
+    max-width: 80%;
+    width: auto;
+    padding-top: 5px;
+    padding-bottom: 3px;
+}
+
+.title {
+  background-color: red;  
+}
+
+.MC-Icon {
+    background-image: url("src\assets\Images\multicomponent item.png");
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+}
+
+.OrderSet-Icon {
+    background-image: url("src\assets\Images\group_medicines_nor16.png");
+    height: 16px;
+    width: 16px;
+    display: inline-block;   
+
+}
+
+.FNote-Icon {
+    /* Sai icon changed */
+    background-image: url("src\assets\Images\iwarninginfonor16.png");
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+}
+
+.HighRisk-Icon {
+    background-image: url("src\assets\Images\ihighrisknor16.png");
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+
+.UnLicensed-Icon {
+    background-image: url("src\assets\Images\iunlicenseddrugnor16.png");
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+
+.NamedPatient-Icon {
+    background-image: url("src\assets\Images\inamedpatientdrugnor16.png");
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+
+.ControlledDrug-Icon {
+    background-image: url("src\assets\Images\icontrolleddrugnor16.png");
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+
+.NewlyMarketed-Icon {
+    background-image: url("src\assets\Images\inewlymarketeddrugnor16.png");
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+
+.Notes-Icon {
+    background-image: url("src\assets\Images\iCareEventsNOR16.png");
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+.link-Icon {
+    background-image: url("src\assets\Images\ilinkarrow16.png");
+    height: 16px;
+    width: 16px;
+   float: right;
+    right: 25px;
+    /* background-image:-o-repeating-linear-gradient(); */
+}
+
+.mat-menu-item{
+    white-space: normal;
+    line-height: 32px;
+    height: 20vh;
+    overflow-y: auto;
+}
+
+::ng-deep .k-popover {  
+    max-height: 190px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+::ng-deep .k-popover-callout{
+    top: 50%!important;
+    white-space: pre;
+    z-index: -1;
+}
+.myPopover{
+    white-space: pre;
+    z-index: -1;
+}
+.k-popover-header {
+    border-color: rgba(250, 247, 247, 0.08)!important;
+}
+.kleft{
+  left: 260.469px!important;
+}
+/* .k-tooltip-wrapper{
+  left:294px!important;
+} */
+.padlength{
+   margin-top: 5px;
+}
+.k-i-window-minimize {
+    display: none!important;
+}
+.k-i-window{
+    display: none!important;
+}
+
+.cardStyle{
+    padding: 5px !important;
+}
+span {
+    display: inline-block;
+}
+.pointer-cursor{
+    cursor: pointer;
+}
+.icon-margin-left{
+    margin-left:0.5rem !important;
+}
+.align-items{
+    display: flex;
+    align-items: center;
+}
+.selecteditem{
+    outline: 1px solid #74B9C3;
+    background-color: rgba(170, 207, 209, 0.35) !important;
+}
+
+  
+  ::ng-deep .newPwSrchLineClass * {
+   
+    width: auto !important;
+    white-space: pre-line;
+    position: relative;   
+    z-index: -1;
+  }
+  ::ng-deep .newPwSrchLineClass .k-callout {
+    display: none
+  }
+  ::ng-deep .newPwSrchLineClass.k-animation-container {
+    position: absolute;
+  }
+  

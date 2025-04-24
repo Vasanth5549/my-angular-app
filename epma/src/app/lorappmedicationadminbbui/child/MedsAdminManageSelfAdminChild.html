@@ -1,0 +1,110 @@
+﻿<div Name="LayoutRoot" id="self" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{StaticResource LzoPageBG}">
+    <kendo-gridlayout [rows]=[{height:500}] [cols]=[{width:620}]>
+        <kendo-grid   class="grdManageSelfAdminCA" #grdManageSelfAdminTempRef row="0" col="0" [style.margin.px]="1"
+            RowIndicatorVisibility="Collapsed" [height]="maxScrollHeight" [style.background]="'#FFE0EFF1'" [reorderable]="false"
+            ScrollViewer.VerticalScrollBarVisibility="auto" ScrollViewer.HorizontalScrollBarVisibility="auto"
+            VerticalAlignment="Stretch" HorizontalAlignment="Center" CanUserFreezeColumns="False"
+            [GridProperties]="grdManageSelfAdmin" [selectable]="{ checkboxOnly: false, mode: 'single' }"
+            kendoGridSelectBy [(selectedKeys)]="grdManageSelfAdmin.selectedRowsIndex" 
+            (cellClick)="grdManageSelfAdmin.cellClick($event)" [data]="grdManageSelfAdmin.ItemsSource.array" 
+           [rowClass]="rowCallback">
+
+
+            <kendo-grid-column UniqueName="SlctColumn"  [width]="30"
+                filterbale="false" [editable]="false" [sortable]="false" [resizable]="false" [style]="{ 'text-align': 'center' }">
+                <ng-template kendoGridHeaderTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <ControlTemplate TargetType="telerikGridView:GridViewHeaderCell">
+                        <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex"
+                        [colindex]="columnIndex"  [gridHelper]="grdManageSelfAdmin">
+                            <GridBorder #ControlTemplateBordrerStyle Padding="0" Margin="0" BorderThickness="0,0,1,1"
+                                BorderBrush="#FFB3B3B3" columnName="Reorder">
+                                <Image Source="./assets/images/ipatientmedicationhot16.png" Stretch="None"
+                                    HorizontalAlignment="Center" 
+                                    [Tooltip]="objManageSelfAdministration.Rxicon">
+                                </Image>
+                            </GridBorder>
+                        </DataTemplate>
+                    </ControlTemplate>
+                </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex"
+                        [colindex]="columnIndex" (RowLoaded)="rowLoaded($event)" [gridHelper]="grdManageSelfAdmin">
+                        <Image Source="./assets/images/ipatientmedicationhot16.png" HorizontalAlignment="Center"
+                            Cursor="Hand" [Width]="15" [Height]="15" 
+                               [Tooltip]="objManageSelfAdministration.Rxicon">
+                        </Image>
+                    </DataTemplate>
+                </ng-template>              
+            </kendo-grid-column>
+
+            <kendo-grid-column UniqueName="PrescribableItem" field="PrescribableItem" [width]="285" filterbale="false"
+                [editable]="true" [sortable]="false" [resizable]="false" TextWrapping="Wrap" Width="auto"
+                [title]="objManageSelfAdministration.grdHeaderPrescriptionitem_Text">
+                <ng-template kendoGridHeaderTemplate >
+                    <span title="Prescription item">Prescription item</span>
+                    </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex"
+                        [colindex]="columnIndex" [gridHelper]="grdManageSelfAdmin">
+                        <ContentPresenter [Content]="dataItem | MedAdminLineDisplay : '' : 110">
+                        </ContentPresenter>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column UniqueName="SelfAdminister" field="SelfAdminister"
+                [title]="objManageSelfAdministration.grdHeaderSelfadminister_Text" [width]="110" filterbale="false"
+                [editable]="false" [resizable]="false">
+                <ng-template kendoGridHeaderTemplate >
+                    <span title="Self administer">Self administer</span>
+                    </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex"
+                        [colindex]="columnIndex" [gridHelper]="grdManageSelfAdmin">
+                        <GridBorder HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0,0,1,0"
+                            BorderBrush="White">
+                            <iCheckBox #chkSelfAdministerTempRef HorizontalAlignment="Center" Name="chkSelfAdminister"
+                                VerticalAlignment="Center" [OnChange]="chkSelfAdminister_Checked_Func"
+                                [(IsChecked)]="dataItem.IsSelfAdministered"
+                                [GridRowIndex]="rowIndex"
+                                [Tooltip]="objManageSelfAdministration.grdSelfadminister_ToolTip"
+                                >
+                            </iCheckBox>
+                        </GridBorder>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column field="Comments" UniqueName="Comments" class="Comments"
+                [title]="objManageSelfAdministration.grdHeaderComments_Text" filterbale="false"
+                [editable]="DataContext.IsSelfAdministered" [resizable]="false" IsWordWrap="True" Width="1fr">
+                <ng-template kendoGridHeaderTemplate >
+                    <span title="Comments">Comments</span>
+                    </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                    <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex"
+                        [colindex]="columnIndex" [gridHelper]="grdManageSelfAdmin">
+                        <GridCellTemplate [EditableControlRef]="txtCommentsTempRef" [columnNumber]="4" [cell]="'cell4'" [dataItem]="dataItem" [isEditable]="true">
+                            <iLabel #lblCommentsTempRef Name="lblComments" Margin="5,2"
+                                [(Text)]="dataItem.SelfAdminComments"
+                                HorizontalAlignment="Left" VerticalAlignment="Center" IsWordwrap="True" >
+                            </iLabel>
+                        </GridCellTemplate>
+                        <GridCellEditTemplate [cell]="'cell4'" [dataItem]="dataItem">
+                                <iTextBox #txtCommentsTempRef AcceptsReturn="True" Margin="5" Width="145" Height="25" Background="Transparent" Name="txtComments"
+                                    HorizontalAlignment="Left" VerticalAlignment="Center" MaxLength="255" Minimum="0"
+                                    ColumnCellIndex="cell4" [DataContext]="dataItem"
+                                    [(Text)]="dataItem.SelfAdminComments" [TextRows]="1"
+                                    [Tooltip]="objManageSelfAdministration.grdHeaderComments_ToolTip"
+                                    [IsEnabled]="dataItem.IsSelfAdministered"
+                                    [isGlobalEnabled]="IsEnabled"
+									[Visibility]="dataItem.IsSelfAdministered"
+                                    IsDelayBlurForGrid="True">
+                                </iTextBox>
+                        </GridCellEditTemplate>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+        </kendo-grid>
+    </kendo-gridlayout>
+</div>

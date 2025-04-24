@@ -1,0 +1,95 @@
+<StackPanel #LayoutRootTempRef Name="LayoutRoot" Margin="0,6,0,0" Background="{StaticResource LzoPageBG}">
+    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Horizontal">
+        <div Margin="0, 5, 0, 5" Width="110">
+            <kendo-gridlayout [rows]="[{height:'31'}]" [cols]="[{width:'2fr'}]">
+                <!-- <kendo-gridlayout-item [row]='2' [col]='1'>
+                </kendo-gridlayout-item> -->
+                <kendo-gridlayout-item [row]='1' [col]='1'>
+                    <div containerStyle class="div-bg">
+                        <iLabel #lblMedicationViewTempRef Margin="4,4,15,4" Name="lblMedicationView"
+                            [Text]="SortFilterOptions.lblMedicationView_Text" IsTabStop="False">
+                        </iLabel>
+                    </div>
+                </kendo-gridlayout-item>
+            </kendo-gridlayout>
+        </div>
+        <div Margin="0, 5, 0, 5" Background="#C2E2E3">
+            <kendo-gridlayout [rows]="[{height:'31'},{height:'5'}]" [cols]="[{width:'235'}]">
+                <kendo-gridlayout-item [row]='2' [col]='1'>
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [row]='1' [col]='1'>
+                    <div containerStyle>
+                        <iLabel #lblMedicationViewTextTempRef Margin="4,-19,104,4" Name="lblMedicationViewText"
+                            [Text]="SortFilterOptions.lblMedicationViewText_Text" IsTabStop="False" Visibility="Collapsed">
+                        </iLabel>
+                    </div>
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [row]='1' [col]='1'>
+                    <div containerStyle class="div-bg-whiteborder">
+                        <iComboBox #cboMedViewTempRef Name="cboMedView" [(ItemsSource)]="DataContext.MedViewOptionList"
+                            IsEditable="True" [Width]="200"
+                            Tooltip="Select medication view type"
+                            Height="25" Margin="4, 7, 37, 4" HorizontalAlignment="Left"
+                            [SelectionChanged]="cboMedView_SelectionChanged_Func" 
+                            [(SelectedValue)]="DataContext.MedViewOptionValue"
+                            TabIndex="1" Visibility="Collapsed"
+							 IsEditable="False">
+                        </iComboBox>
+                    </div>
+                </kendo-gridlayout-item>
+            </kendo-gridlayout>
+        </div>
+    </StackPanel>
+
+
+    <StackPanel HorizontalAlignment="Stretch" Height="Auto">
+        <kendo-gridlayout-item [row]="2" [col]="1">
+            <div Background="#FFE0EFF1" Width="Auto" HorizontalAlignment="Left" Margin="5">
+                <kendo-gridlayout [rows]="[{height:'2'},{height:'1fr'}]" [cols]="[{width:'auto'}]">
+                    <kendo-gridlayout-item [col]='1'>
+                        <div containerStyle>
+                            <Border GridLayout #brdFilterTempRef Name="brdFilter" [iStyle]="Styles.BorderFrame"
+                                Height="68" CornerRadius="2" Width="Auto" Margin="-2,19,-3,10" BorderBrush="Gray"
+                                BorderThickness="1" HorizontalAlignment="Stretch">
+                                <StackPanel Margin="7,-11,256,9" Background="#E0EFF1FF" HorizontalAlignment="Left"
+                                    Orientation="Vertical">
+                                    <iLabel #lblFilterbyTempRef Name="lblFilterby"
+                                        [Text]="SortFilterOptions.lblFilterby_Text" Padding="3,0,3,3" Foreground="Black"
+                                        FontWeight="Bold"></iLabel>
+                                </StackPanel>
+                                <kendo-gridlayout-item [row]='2' [colSpan]='3'>
+                                    <div containerStyle>
+                                        <kendo-gridlayout-item [row]='2' [col]='1'>
+                                            <div containerStyle class="div-bg">
+                                                <iLabel #lblFromTempRef Name="lblFrom"
+                                                    [Text]="SortFilterOptions.lblFrom_Text" Padding="3,0,3,10" IsTabStop="False">
+                                                </iLabel>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                        <kendo-gridlayout-item [row]='2' [col]='2'>
+                                            <div containerStyle class="div-bg-whiteborder">
+                                                <iDateTimePicker #dtpFromdateTempRef Name="dtpFromdate"
+                                                    EnableCultureSupport="False" [Width]="210" IsConstrainEntry="True"
+                                                    DatePickerMode="DATEPICKER" DateTimeFormat="Custom"
+                                                    CustomFormat="dd-MMM-yyyy" Margin="4, 7, -33, 4" Height="25"
+                                                    [Tooltip]="SortFilterOptions.dtpFromdate_Tooltip"
+                                                    [(SelectedDateTime)]="DataContext.ValidateDate"
+                                                    OnDateValueChanged="dtpFromdate_OnDateValueChanged_Func"
+                                                    [RangeStartDate]="DataContext.SortRangeStartDate"
+                                                    [RangeEndDate]="DataContext.SortRangeEndDate"
+                                                    (LostFocus)="dtpFromdate_LostFocus_Func($event)" HorizontalAlignment="Left"
+                                                    TabIndex="3"
+                                                    AccessKey="t">
+                                                </iDateTimePicker>
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                    </div>
+                                </kendo-gridlayout-item>
+                            </Border>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+    </StackPanel>
+</StackPanel>

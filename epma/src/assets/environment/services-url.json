@@ -1,0 +1,92 @@
+[
+  {
+    "service": "IPPMAManagePrescriptionWS",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/IPPMAManagePrescription_P2.asmx/",
+    "relativeURL": true
+  },
+  {
+    "service": "ManagePrescriptionWS",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/ManagePrescription_P2.asmx/",
+    "relativeURL": true
+  },
+  {
+    "service": "MedicationAdministrationWS",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/MedicationAdministration_P2.asmx/",
+    "relativeURL": true
+  },
+  {
+    "service": "CSecurityManagementServiceWS",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/CSecurityManagementService.asmx/",
+    "relativeURL": true
+  },
+  {
+    "service": "CSecurityAuthenticationServiceWS",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/CSecurityAuthenticationService.asmx/",
+    "relativeURL": true
+  },
+  {
+    "service": "MedicationMgmtWS",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/MedicationMgmt_P2.asmx/",
+    "relativeURL": true
+  },
+  {
+    "service": "EncounterWS",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/QueryCareEvents.asmx/",
+    "relativeURL": true
+  },
+  {
+    "service": "QueryPatientRecordWS",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/QueryPatientRecord.asmx/",
+    "relativeURL": true
+  },
+  {
+    "service": "IPPMAPrescribableDefnWS",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/IPPMAPrescribableDefn_P2.asmx/",
+    "relativeURL": true
+  },
+  {
+    "service": "QueryInpatientWS",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/QueryInpatient.asmx/",
+    "relativeURL": true
+  },
+  {
+    "service": "CBCFormsWS",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/CBCForms.asmx/",
+    "relativeURL": true
+  },
+   {
+    "service": "ManageProblemWS",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/ManageProblem.asmx/",
+    "relativeURL": true
+  },
+  {
+    "service": "ManageAllergyWS",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/ManageAllergy.asmx/",
+    "relativeURL": true
+  },
+  {
+    "service": "ResultManagementWS",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/ResultManagement.asmx/",
+    "relativeURL": true
+  },
+    {
+    "service": "CBCDataitemsWS",
+    "baseUrl": "http://dhhappchne6041.cscidp.net",
+    "extendedUrl": "/appserver/CBCDataitems.asmx/",
+    "relativeURL": true
+  }
+]

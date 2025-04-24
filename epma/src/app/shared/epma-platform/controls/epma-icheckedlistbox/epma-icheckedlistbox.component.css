@@ -1,0 +1,24 @@
+.k-list-item.k-selected,
+.k-selected.k-list-optionlabel {
+  color: white;
+  background-color: lightskyblue !important;
+}
+
+.k-checkbox:checked,
+.k-checkbox.k-checked {
+  border-color: white;
+  color: white;
+  background-color: white !important;
+}
+
+.userSelect {
+  user-select: none;
+  pointer-events: none;
+}
+
+ ::ng-deep li.focuscheckbox{
+  border: 2px dotted #000000 !important;
+}
+::ng-deep .k-list-item.k-selected {
+  padding-left: 6px;
+} 

@@ -1,0 +1,7985 @@
+[
+
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetCDRegisterView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetCDRegisterItemPackDetailView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetCDWardView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetCDTransaction",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetVerifiedCDTransaction",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "AddStock",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "ManageTransaction",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "OrderStock",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "SupplyStock",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "HOPharmacyAssociation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetCDRegisteItems",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetQtyandUOMListByLzoID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetPharmacyHOAssociation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetOrders",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetOrderDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetRegisterItemForOrderItemDetail",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetRegisterOIDForService",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetCurrStockByRegItemOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "VerifyStock",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetPendingUpdatesTransactions",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "UpdatePendingTransaction",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetPatientStock",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetPatientMezzanineDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetPatientStockDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetSupplyDetailsWithPackByOrderOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetPharmacyOnOrderCount",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "GetPharmacyForSPType",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CDRegisterServiceWS",
+    "id": "PatientStockHandOver",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetAllValueDomains",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetValueDomainByDomainCode",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetAllReferenceCodesByDomain",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetLinkedValueSetsForDomain",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetConceptDescriptionByID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetRefCodesByDomain",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetDefRefCodesByDomain",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetAllConceptCodesByPropDomain",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetAllReferenceCodes",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetLinkedDomainsForDomain",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetValueDomainByDomainCodeRC",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetReferenceRelationDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetValueDomainBySFS",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetValueSetBySFS",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetAllHealthOrganisations",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetLinkedValueSetsForDomainRC",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetValuesByDomains",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetHierarchicalValuesByDomains",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetAllValuesByDomains",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetLinkedValues",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetValueSetByCriteria",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetAssociatedDataFilters",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "IsExistsDataFilter",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "IsExistsVersionedValueSet",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CReferenceWSWS",
+    "id": "GetValuesByText",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "ManageUserPIN",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "ValidateUserPIN",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "LockLoginAccount",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "ChangePassword",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "ChangePasswordByLoginType",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "SSOChangePassword",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "Authenticate",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "ADAuthenticate",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "ReAuthenticate",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "ValidateSession",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "GetSessionDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "GetRoleProfilesForLogin",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "GetRoleProfileForLoginDetail",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "GetRoleProfileForLoginDetailWithWA",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "GetRoleProfileForUser",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "UpdateSessionForRoleProfile",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "UpdateWAOIDForRoleProfile",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "UpdateSessionForRoleProfileEntObj",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "InvalidateSessionWithReason",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "InvalidateSession",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "ResetPassword",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "LoginQuestionValid",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "LoginNameIsUnique",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "LoginNameIsUniqueByLoginType",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "GetLoginQuestion",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "AuthenticateUserwithRole",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "IsValidSessionExists",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "UpdateSecSessionMI",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "IsUserAllowedToAccess",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityAuthenticationServiceWS",
+    "id": "GetDIContextData",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "ValidateLogin",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "CreatePermission",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "ModifyPermission",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetPermission",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetPermissionByPage",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetPermissionByCategory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetPermForSecurityGrpByPage",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "RemoveAllUserAccessConfig",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "CreateWorkingAreaEnterpriseObject",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetAllWorkingArea",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetWorkingAreaDtlByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetWorkingAreaByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "ModifyWorkingArea",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetWorkingAreaByCrit",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetWorkingAreaForRoleProfileOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "ValidateUser",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetNativeLoginsForUsers",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "CreateLoginAccount",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "ModifyLogin",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "ModifyLogins",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetLoginAccounts",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "IsLoginIDValid",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetLoginByPage",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetOrganisationForLogin",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetUserForLogin",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetUserForLoginByPage",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetADUSers",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetUser",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetUsersByRole",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetLoginNameByUserOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetUserLoginAccounts",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GeneratePassword",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetSecretQuestion",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetLoginSecretQuestions",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRandomQuestion",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetSpecialty",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetService",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetTeam",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetJobRole",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetAllJobRole",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "CreateEnterpriseObjectSecurityGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "ModifyEnterpriseObjectSecurityGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetSecurityGroupForEnterpriseObject",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetPermissionForEntObjSecGrpOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetPermsForSecurityGrpByPage",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetSecurityMappingInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "AssignSecurityGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "AssignEntObjSecurityGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetAdditionalSecurityGroupByRPCode",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetAdditionalSecurityGroupByRPOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetSecurityMappingInfoByPage",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetSecurityMappingForEntObjects",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetEntObjForSecGrpByPage",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetSecGroupsByEntObjSecGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetSecGrpsBySecGrpPermCat",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "CreateRoleprofileEnterpriseObject",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "ModifyRoleProfileEnterpriseObject",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRoleProfileEnterpriseObject",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "CreateDependentPermission",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "ModifyDependentPermission",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetDependentPermission",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetUserAccessConfig",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "UpdateUserAccessConfig",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "CreateRoleProfile",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "ModifyRoleProfile",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRoleProfile",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRoleProfileByOrganisation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRoleProfileforOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRoleProfileByEnt",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRoleProfileForUserOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRoleProfileSharGroupForUserOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRoleProfileByEntObj",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRoleProfileByEOPermCrit",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetEODetailsForRPOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRoleProfileByOrgID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "CreateUserRoleProfile",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "ModifyUserRoleProfile",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "IsRoleProfileInUse",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRoleProfileForLogin",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetAllLoginRoleprofiles",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "CreateSecurityPolicy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "ModifySecurityPolicy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetSecurityPolicy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "IsAutoUserCreationEnabled",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "CreateResource",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "ModifyResource",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetResoures",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "AssignResourcePermisison",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetAllProfilesByPermission",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "InvalidateSessionForLogin",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetActiveSessions",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetActiveSessionByPage",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "CreatePermissionCategory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "ModifyPermissionCategory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetPermissionCategory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetPermissionCategoryById",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetAllRootPermCatgry",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "CreateSecurityGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "ModifySecurityGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetSecurityGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetSecurityGroupByPage",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetPermForSecurityGrp",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetSecurityGroupByRPOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetSecGroupsforEntObj",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetEntObjBySecurityGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetSecurityGroupByEO",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "CreateRole",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "ModifyRole",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRole",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRolesByPage",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRolesDetailsByPage",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRoleById",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRoleByIds",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetAllRoles",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "CreateRoleSecGrp",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRolesByName",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetRoleByUserOId",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "GetUserRole",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "CreateSecurityGroupPermission",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CSecurityManagementServiceWS",
+    "id": "ModifySecurityGroupPermission",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetUsrTeamByRoleProfile",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetTMIsUsed",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "ChkTeamMemberCL",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetMemberDtl",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetTeamMembersDtl",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "ChkIsCAMHSTeam",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "ChkIsCAMHSTeamMultiple",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "ChkIsCPActiveOnActvityAlocate",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetTeamOIDByUserOid",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetTeamsInfoForTheatre",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetTeamMembersBySurname",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "CreateTeam",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "ModifyTeam",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "DeactivateTeam",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "CancelTeamDeactivation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "ReinstateTeam",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "VoidTeam",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "SearchTeam",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetTeamDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetChildTeams",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetTeamStatusHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "IsTeamInUse",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetTeamMembers",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "UpdateTeamMembers",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "IsParentCyclic",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetUserTeams",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetAllTeams",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetTeamMembersByRole",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "ManageConstraints",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetTMDataFilterStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetParentTeamsByOrg",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetAllChildTeams",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetTeamMemberHistoryDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "RequestTeamAccess",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetUserTmDtls",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "ChkDuplicateTMName",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetTeamClinicalUnitByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetTeamForCPORGOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CTeamManagementWS",
+    "id": "GetTeamName",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetBrandOptions",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetTeamMembersWithPermission",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetResolveDetail",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "VerifyDrug",
+    "verb": "POST",
+    "contentType": "XML"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetPatientMedicationHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetRelatedOptions",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetIPPDrugDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetIPPTechValDrugs",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "UpdateIVAlertShownForItem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetMedicationConfilictConfig",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetLastCreatedPrescTypeForEnc",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetPrescriptionView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetIPPDecisionSupport",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetIPPFavouritesDefaultFolder",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetMCpresitem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "AuthoriseDrugs",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetAdministrationTimes",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "IsPreviousDueOverdueSlotExists",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetPatientMedicationList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetSequencePrescriptionItemStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetIPPPatientMedicationCount",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetDrugDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetAdditionalDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetSupDispInstDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetIPPPrescriptionDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "DummyMethod",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetDrugSites",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "IsDrugAdminStarted",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetFormViewDefaultParams",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetSnomedForPrescribedItem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetMedicationsForInpatient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "CheckPrescribeRule",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetNonReconciledItems",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetDosageFormType",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetProcessingOptions",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "SearchProcessingOptionsByIndications",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetFavouritesDrugItem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetResolveDefault",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetPrescriptionItemDoseInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetIPPPrescriptionItemDoseInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetIPPPrescribableItemDoseInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetTitratedDoseInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetIPPFrequency",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetSysFormViewerSpecificDefaultValues",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "InvokeDRCConflict",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetDRCConflicts",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetUnresolvedConflicts",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "IsUnresolvedConflictsExist",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetLeastDCalDTTM",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "UpdatePresItemConflicts",
+    "verb": "POST",
+    "contentType": "XML"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetTitratedDoseScheduleInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetRequestMedicationDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetMultiRoutes",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetReviewHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetScheduleTimeAndFreq",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "ManageReviewAfterPeriod",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetDoseUOMDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "UpdateDueOverStatusForClinicalIndicator",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "IsAnyParacetamolAdministration",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetPatientHomeLeaveDetail",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetTransformConversion",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetNonIVSubseqentItemsReqDataForSequence",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetMedCheckMinorClicEnctr",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "ChkPatientTransferActivity",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetWarningCategories",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetOmittedItemsList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "SubmitClerkMedDrugs",
+    "verb": "POST",
+    "contentType": "XML"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "SubmitDrugs",
+    "verb": "POST",
+    "contentType": "XML"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetPresItemUpdateHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetGPConnectAdministration",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetGPConnectAdditionalDetail",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "CancelDrugs",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetWardStockPresItemsDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetDispensinginstDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetRequisitionHistoryDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetSupplyHistoryDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetSupplyDispenseDetail",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetClinicalVerificationDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetOnBehalfOfDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "UpdateIsSupplyAlertShown",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "SubmitTechValidationItems",
+    "verb": "POST",
+    "contentType": "XML"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "SubmitSupplyItems",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetIPPPrescriptionItems",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetPrescriptionItembyEncounter",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetAdhocMciRule",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetMciProductRule",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetIPPTechnicalDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetIPPProcessingOptionIndications",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "IsDeactivatedAttributeExists",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetIPPMAMedicationFavouritesGroupItemsList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetIPPMAOrderSetItemsList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetIPPMAOrderSetAssociatedItemsList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetOrderSetStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "UpdateRvwAlertShownForItem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetSelectProduct",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetPackDetByEANCode",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetPatientMedDisContItems",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetClinicalEncountersDetail",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetPrescriptionPrintStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAManagePrescriptionWS",
+    "id": "GetSysFormViewerDefaultValues",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetMediItmDeactivation"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetControlledDrugs"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetAwaitingPrescriptionsReports"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetAdministeredSpecificDrug"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetAdministeredEventByUser"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetMedAdminExceptionReports"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetHistoricalMedAdminDets"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetDrugintGrpLocalReports"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetDiscontinuedMedication"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetPatientMedication"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetUnverifiedPrescription"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetPrescriptionItem"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetFormularyItem"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetMedicationItemList"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetFreeTextPrescribing"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetMedItemDetail"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetReplaceMedication"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetMedicationReportDet"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetUnverprelistReportData"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetDrugIndicationOverride"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetMedicationLocalisation"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetPrintSupplyReqSheet"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetMedicationAlerts"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetMedicationListShared"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetFormularyIDName"
+  },
+  {
+    "Service": "IPPMAMedicationReportsWS",
+    "id": "GetMedItemsAdded"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetPGDList"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetPGDListByOID"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "CheckDuplicatePGD"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ModifyPGDlist"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetPGDListAssociation"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetOIDBYFREQUENCY"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GETSPROLEASSCN"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetIPPInfRateComboValues_P2"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetDRCdoseTypes"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "IsAnyDrugContainGivenIngredient"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetSysMultiRoutes"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetMedBarCodeConfig"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ManageMedBarcode"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetIngCustDetails"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "CreateDrugRoundProfile"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "CopyFromExistingProfile"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "AssociatedServicePoint"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "IsDuplicateProfileName"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetTypeBasedFrequency"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetDrugprofile"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetWitnessCriteria"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "CreateFrequency"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ModifyFrequency"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ManageWitnessCriteria"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "IsWitnessRequired"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetIngredientWarning"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "DrugRoundManageActivePeriods"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetDrugRoundProfielByOID"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ModifyDrugRoundProfile"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetItemFrequency"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetServicePoint"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "PGDManageActivePeriods"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GETPGDOBJECTBYOID"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetPGDListView"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "CreatePGDList"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ModifyStockRegister"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "CheckDuplicateDrugReg"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "SearchStockRegister"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetWardList"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetStockItems"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetStockDetails"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "StkRegManageActivePeriods"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetSupplyPackUOM"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "CreateOrderSet"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ModifyOrderSet"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "SearchOrderSet"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetOrderSetDetails"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetOrderSetItem"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetOSHeaderByOID"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetOrderSetList"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetBasicSearchOrderSets"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "CheckOrderSetDuplicate"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetFavouritesTreeHierarchy"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetOrderSetDetsByOID"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "OrderSetManageActivePeriods"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "CheckIsInfusionRoute"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "HOCustomisePresItem"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetHOCustomisePresItem"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetDRCIndication"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetDRCDetails"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ChkRouteAssocAnyDOS"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetDosageFormType"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetProductForVM"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetFormularyDetails"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "CheckDuplicateFormulary"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "CheckDuplicateMainFormulary"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "CreateFormulary"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ManageFormulary"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetGPConnectConfiguration"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ManageGPConnectConfiguration"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetIsDefaultValues"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ChkDupItemlist"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetFormularyItemDetails"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetPrescribableItemListSFS"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "CreateIngredient"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ManageIngredient"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetIngredient"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "CheckIngredientIsLinked"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "SearchIngredient"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "SearchIngredientSFS"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetProductPack"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ManageEANCode"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "IsEANCodeExist"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetIPPMAProcessingDetails"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetIPPMAIsDefaultValues"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetItemUOM"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetMultiComponentList"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetMultiComponent"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GenerateConflictsForMulticomponent"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetIPPFrmlyComboValues"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetCompatibleComponentDet"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "CreateStockRegister"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetDosageForm"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ManageDosageForm"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ManageFavourites"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetDrugFavouriteGroupCriteria"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetFavouritesGroupItemsIPPMA"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetFavouritesDrugItem"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ValidateMedType"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "CreateMedicationType"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ModifyMedicationType"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetMedicationTypeByOID"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetMedicationType"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetMedicationTypeDetail"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetIPPMAFrmlyComboValues"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetDataItem"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "CreatePrescibableItem"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ModifyPrescribableItem"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetPresItemModifyDetails"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetCustomiseParentFlag"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetBasicDetails"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetAdditionalDetails"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetPrescribableItemDetailIPPMA"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetAllDoseUOMSFS"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "ManageRouteFormPair"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetMedication"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetRouteFormPair"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetMappedLorenzoObjects"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "GetRouteFormPairSFS"
+  },
+  {
+    "Service": "IPPMAPrescribableDefnWS",
+    "id": "CopyFormulary"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "ManageAllergies",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "RecordAllergy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "ModifyAllergy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "CloseAllergy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "ReopenAllergy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "StrikeoutAllergy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "AllergyChecked",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "GetPatientAllergies",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "GetAllergyHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "GetAllergyStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "GetAllergyCheckedDesc",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "GetPatientAllergy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "GetPatientAllergysByOids",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "GetPatBannerAllergyDesc",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "GetPatBannerAllergyNameAndDescription",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "GetPatBannerAllergyNames",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "GetPatBannerAllergyNamesForTheatres",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "CheckDuplicateAllergy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "AllergyCheckedHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "CheckActiveAllergies",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "SendAuthoriseAllergy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "GetAllergyListByOIDs",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "AuthoriseAllergy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "GetUsersByRoleOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "GetAllergiesExists",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "pGetPatALGSByPatientOIDWS",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "GetADRstatusExists",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageAllergyWS",
+    "id": "GetGPConnectSaved",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetDispIns",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetFavouritesGroupItemsList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetPatientMergeConflicts",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetFavouritesDefaultFolder",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetLifeViewPrintDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "InsUpPerscriptionMedClerk",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetMedclerkPrompt",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetDoseCalcDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetAllOptions",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetIsItemAuthorise",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetFormViewControls",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetProblem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetDischargeDate",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetDrugRoute",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetStationaryItemByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetItemStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetPrescriptionItems",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "NotifyFYI",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetPrescDrugStationaryID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetFormularyHierarchy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetHierarchyFormularyItems",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetTechnicalDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetDrugDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "UpdatePrintStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "CheckAccess",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetResultsView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetRequestId",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "ChkResultAssociation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetPatientMedicationList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetPatientMedicationHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetDeactivateAttributes",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetFormLorenzoID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetItemStrengthInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetDocTemplatesPolicyType",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetPatientMedicationCount",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetMedClerkingSource",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetDrugBasicInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "SubmitDrugs",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetNonReconciledItems",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "VerifyDrug",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "AuthoriseDrug",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetProcessingOptionIndications",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "SearchProcessingOptionsByIndications",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetCurrentMedication",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetSearchDrugs",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetCompatibleComponents",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetResolveDefault",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetResolveDetail",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "SubmitTechValidationDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetDoseDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetPrescriptionItemDoseInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetValidationsDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetAdditionalDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetPrescriptionView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetDecisionSupport",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetReplacementDrugs",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetAlternateOptions",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetProductPackOptions",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetRelatedOptions",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetProductOptions",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetProcessingOptions",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetItemMongraph",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetPrescriptionDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManagePrescriptionWS",
+    "id": "GetMonographInformation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemByLink",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemByEpisode",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemForSummaryView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetPOMREncounterEpisode",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetScopeDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemContextDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetPatientScopeDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemBodySite",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemInfoByPatEnc",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "CheckProblemAssociate",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemCodingView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "CheckDuplicateFetusPrb",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemDetailsByFetalOid",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "SendAuthoriseProblem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "AuthoriseProblem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemListByOIDs",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemCPPView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetHealthIssueCodeGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetPOMRProblemsInPages",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetPOMRListView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "POMRLinkProblem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "POMRLinkWorkinglistProblem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "InsertScopeDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "UpdateScopeDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "InsertScopeHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetWorkingProblemDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "CheckProblemModified",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "ListProblemProcedures",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetEpisodeDetailsForEncLE",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetUnMergeProblemConflict",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "ProblemManagementAdapter",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "RecordProblem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "RecordProblem_LE",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "ModifyProblem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "ModifyProblem_LE",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "LinkProblem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "LinkProblem_LE",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "DistributeProblem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "DistributeProblem_LE",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "CloseProblem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "CloseProblem_LE",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "ReopenProblem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "ReopenProblem_LE",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "StrikeoutProblem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "StrikeoutProblem_LE",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "CheckDuplicateProblem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "CheckDuplicateProblem_LE",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemInfo_LE",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemByCriteria",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemByCriteria_LE",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemMultiValues",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemLinks",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemLinks_LE",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetPrcSFSProblems",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemBiLinks",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemDistributionList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemStatuses",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageProblemWS",
+    "id": "GetProblemEncounter",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ManageSecurityWS",
+    "id": "GetSecurityGroupDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetPreviousSeqItemActive",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetIsMedBarCodeConfigMandatory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "InsertMedBarcodeScanLog",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetMedicationScanDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetIsClinicalEncExists",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetMedScanBatchExpiryDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "ModifyAdministration",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetActiveMedications",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetRecordAdministionDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "OmitSlots",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "ReinstateSlots",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "UpdateTitratedDose",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetIngredientAdminstrationCount",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetConditionalDoseRegime",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "MatchDrugEANCode",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetLatestObservation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetAdminListForObservationChart",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetLifeviewPrintIPPMA",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "RecordInfusionAdministration",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetCompatibleComponentDet",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetItemDispVolandDoseUOMDet",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetUOMTypeList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetAllBagDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "DrugPrepMatchEANCode",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "StrikeThroughInfusionAdmin",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetAllinfuactchldDetl",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetAllstrikethrdtl",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetStrikeinfchldDetl",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetInfRecAdminDefaultValues",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetLatestObsOrResultDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "SubmitMedRequests",
+    "verb": "POST",
+    "contentType": "XML"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetPresItemParentChildDetail",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "WhenOmitLaunch",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "ListHardCodedLzoIdMapping",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetPrintMedicationAdminReport",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetMedicationChart",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetMedChartInfoByPatOrEnc",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetEncounterDetailsForMedChart",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetLockedUsersDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "UpdateLockingStatusToDeactivated",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetMedicationChartForPrint",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetMedicationChartOverview",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetPrescriptionChart",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetInfusionChart",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetIsInfusionChartAlertExists",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "UpdateMedChartForHomeLeave",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "StrikethroughAdmin",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetAdminMultiSlot",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetDrugroundView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "IsPGDListsAvailable",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetAssociatedPGDListItem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "RecordPGD",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetSlotInfoByOid",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetAmendedPresDetail",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetTitratedDoseDetail",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetAdministrationList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetAdministrationListDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetAdminHistoryList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetAdminHistoryListDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "RecordAdministration",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "DummyMethod",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "GetSelfAdminDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationAdministrationWS",
+    "id": "ManageSelfAdmin",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFormularyByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFavouritesByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFormViewParmByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetItemFreqByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetROAByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetAdminInstruction",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CreateRoute",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CheckItemExists",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFrequencies",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFrequencyByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetBaseFrequencies",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CheckFrequencyIsLinked",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ChkFreqCustomised",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetMedicationCode",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CreateFrequency",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ModifyFrequency",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFormNames",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ManagePrescriptionForms",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CheckValidDate",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetDoseDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "IngManageActivePeriods",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "HiManageActivePeriods",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "PreManageActivePeriods",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ForManageActivePeriods",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "IntManageActivePeriods",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "SenManageActivePeriods",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "MedManageActivePeriods",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "FvpManageActivePeriods",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ItmFreqManageActivePeriods",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ROAManageActivePeriods",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetIngredientByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetInteractionGrpByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetSensitivityGrpByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetHierarchyByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetPrescribableItemByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "IsGroupDetailsExists",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ManageMonograph",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetMonographContent",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetDrugXMLInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetMonographDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetStrengthOrderDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "Managestrengthorder",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetConflictWarningCategory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetUserFavouritesChildGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetUserFavouritesGroupItems",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetProcessingItemDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFavouritesSearch",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetDrugSite",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetPrsItemDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetPresItemModifyDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetSteppedVariableDoseDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "NotifyNewversion",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ValiadteSentVersion",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetStationaryItem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetStationaryItems",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "lnCheckExistPresItem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "lnCheckExistDrugFavourites",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CreateFormViewParameters",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ModifyFormViewParameters",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "SelectFormViewParameters",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetMedFormDetailsByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFrmVwrAttributes",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetAssociatedAttributes",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetPresItems",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetHierarchy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetLeafNodes",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetPrescribingTeamsAndMedHierarchy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "SubmitMedMapHierarchy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetHierarchyDup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CheckItemHrchyAssociation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CreateHierarchy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ManageHierarchy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetDrugCategoryDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetMedication",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetPrescribableItemListSFS",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CreatePrescibableItem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ModifyPrescribableItem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetRoute",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetRouteSFS",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetDosageForm",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetSite",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetForm",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetAllUOM",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetAllPackageUOM",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetAllPackageUOMSFS",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetAllLegalCategory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetDoseUOM",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFrequency",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetManufacturers",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetBasicDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "HOCGetPresItemDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetDataFilterDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetConflictDetailsByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetConflictsByItemOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetContraIndicationByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetPrecautionByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetWarningByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ViewRelatedConditionDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetPrsItmOIDbyCatitmOid",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ManageConflictconfiguration",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetMedicationConfilictConfig",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetManageCatalogueconfiguration",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetBulletinDetail",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetVerDuplicate",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetVerConfigHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ManageCatalogueconfiguration",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetChkConfltCatConfigLnkEnable",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ChkYearAndMonthDataLoad",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CheckMonthlyLoadStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFlryProcDoseDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetPresItemDetailByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "IsDeactiveItem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetSysDrugProperty",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CreateIngredient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ManageIngredient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetIngredient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CheckIngredientIsLinked",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "SearchIngredient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "SearchIngredientSFS",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFavouriteSearchResults",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CheckDuplicateMainFormulary",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CreateInteractiveGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetInteractiveGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetInteractiveGroupDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetDrugUnderHierarchy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetIntractItemDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetInteractiveGroupbyName",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetLinkedIntrGrpDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetCustomisedIntrGrpDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ModifyInteractionGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetIntrGroupFilterby",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetItemSearchCriteriaResults",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetPolicyInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ManageFavourites",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFavouritesParentGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFavouritesChildGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFavouritesGroupItems",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFavouritesDrugItem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFavAssociation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ManageUserFavourites",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetUserFavouritesParentGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ModifyRoute",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetRouteByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetRoutes",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CheckRouteIsLinked",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetConflictSearchResults",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ManageConflicts",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ChkConflictsAssociation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "DuplicateConflictCheck",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetAdditionalDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetAlternateDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetAssociateDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetMultiComponentDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetValidationDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetProcessingDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetPolicyDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetAdminMethod",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetParentPrescriptionItemList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetChildPrescriptionItemList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CreateCrossReactiveGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ModifyCrossReactiveGroup",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetReactiveGroups",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetReactiveGroupDetail",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetCrossActItemDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetCrossRctGroupFilterby",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CreateFormulary",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CopyFormulary",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ManageFormulary",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFormularyList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "SearchFormularyList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFormularyItemDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFormularyDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetIsDefaultValues",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "GetFrmlyComboValues",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "CheckDuplicateFormulary",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ChkDupItemlist",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "MedicationMgmtWS",
+    "id": "ChkDupIntractSenGrpItem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetPatientEncountersforType",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetPatientEncountersforRange",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetReferralforPatient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetPatientEncountersforReferral",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetProblemsforPatient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetPatientProblem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetEpisodesByPatOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "CheckEncExistForPatient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "CheckEncExistCNS",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetEpisodesForRefType",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "pGetEncountersForTheatrePatient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetEpiEncDetailsByPatOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetTrtmntFunDetByPatOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetPatientEnquiryDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetPatientPatAPPSUMRYDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetEpisodesPaging",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetEncountersPaging",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetCareEventsPaging",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetEncountersForDMWPatient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetEpisodeDetailsForEnc",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetEpisode",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetPatEpisodePathwayDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetEncountersForPatient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetEncountersForEpisode",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetEncounter",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetEncounterForCareEvents",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetSealEncounter",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetEncounterHOForPatient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "CheckEncExist",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "CheckCABExist",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetCareEvenForEnc",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetCareEventsForPatient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetCareEventsForPatientbyEventOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetCareEvents",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetCareEventsDetail",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "EpisodeSearchFilter",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "EncounterSearchFilter",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "EventSearchFilter",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetInPatientAMBST",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetOutPatientAMBST",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetAdmission",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "RetrieveDischarge",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "EncounterWS",
+    "id": "GetEncounterTypesforPatient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "IsBookingExistsEPR",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetSection17Form",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPatientSection17Form",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetOccasionalLeaveDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPatRPAdmission",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPatientLeaveReturn",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetEventCancelledStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetEventReturnedStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetEventDischStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetEncounterByPatOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetCareProviderEvent",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetCurrentCareproviderEvent",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetActiveCareProviderRequest",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetCareproviderEventCancel",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetLocationEvent",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetCurrentLocationEvent",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetActiveLocationEvent",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetLocationEventCancel",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPatientCategoryTransfer",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetActivePatientCategoryEvent",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetCurPatCatEvent",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPatCatergoryCancel",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPatientTransfer",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPatientLeaveForm18",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPatientLeave",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPatientLeaveByPatDet",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPatientLeaveEventCancel",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPatientLeaveSec17",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPatientLeaveWF",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetLeaveDetailsByEnc",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "RetrieveDischarge",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "RetrieveMedDischarge",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "RetrieveMedDischEndDTTM",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetDischargeEventCancel",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetActiveEvents",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetActiveEventsCancel",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "IsBookingExists",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "IsBookExistsForService",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetSeenPagingDetail",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetSeenDetailsBySeenOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetSeenModDetailsBySeenOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetLatestPatBKGDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPrePostCPEvt",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetModDateForLocking",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetIPDirectAdmitReqDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetIPLocTranReqDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetScheduleOIDByWardOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetIPEncounterSummaryDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetTemporaryBedStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "pGetAdmDischargeDtlsbyPatEncOIDs",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetResevedBookingOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetRefOIDByEncOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetAdmission",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetAdmissionCG",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetAdmForCancel",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetSpecificAdmissionDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPreAdmission",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPatientAdmission",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetActivePatientAdmission",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetActiveAdmission",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetAdmissionEventCancel",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "IsOpenEncounterExist",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "IsEventExistForAdmit",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetOverlappingAdmission",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetAdmissionForDischarge",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetAdmissionForADT",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPatCurrentLocationIDandName",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetDischargeDetailChangeHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetBoarderEventDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetBoarderEventDetByOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetHorizonScheduleCapacity",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetLastModifiedDttm",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetCCPeriodonOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetCCPonMultipleEncounter",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetDailyAssesments",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "CheckAndReturnCCPeriod",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetServiceCCPUnit",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPatientCCPs",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPatientCareDetailsForCCP",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetOverlappingCCP",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPatientClassification",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetEncAndWardOIDByPatOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "ISPatLeaveNotreturn",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetLastSTAPatient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPostEvtDtlsforADM",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPostLocCPEvtDtlsforTrns",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetPreLocCPEvtDtlsforTrns",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "pGetEnquiryView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetCategoryTransHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetSessionBlockEDTByServiceOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetWardDtlsforADT",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetWardDtlsbyServiceOIDs",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetModificationHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetNxtActiveEvtForCanLnk",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryInpatientWS",
+    "id": "GetSeenDetail",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientAddress",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatAddress",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatCarerAddress",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientCommunicationAddress",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientContact",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientCarerContact",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetGPPracticeID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientAlias",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientConsent",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientGP",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientCarer",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetCareProviderByRole",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientId",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientIdForIntray",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientIDForLoginHO",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientPersonalCarer",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatPersonalCarerAssessment",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetRelationshipDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientPersonalCarerName",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetAllRelnDETails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "pGetRPDetailsForMaternity",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPersonalCareAddress",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetAllPersonalCareAddress",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientPreference",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPrefForOtherCA",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientStatusInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientOIDsByPatientIDs",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetRpMainVisitor",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientSummaryInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientEmail",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientLastModifiedDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatInfoDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetNokEduInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatFallbackDtls",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientIdentifier",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientIDMInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientAddressAliasInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientMaternityRelation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientEnquirySearchDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatPrefDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "IsPreferenceExist",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientReminderDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientDemographic",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientDemographicSummary",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPersonalcarerPatientDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientRegOrgOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetDuplicatePatient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientByNHS",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetOccupation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientGPSummary",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientSummary",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "IsNHSResponseCodeSeventeen",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientEducation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetEducationForLoginHO",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPasIDSensitive",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientEmployer",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetEmployerForLoginHO",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientInsuranceExtended",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientInsurance",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetInsuranceForLoginHO",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientSensitive",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetCarerDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetSortedPatient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetCarerRoleDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetCarerAllDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientAddrWType",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPITypCode",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatMandatoryInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatMandatoryInfoExist",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetDissentInfoExist_IDM",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPrimPatientOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPrefRelnInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetContactNoForSMS",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetIsPrefIconExists",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetIsPrefIconExistsEnhanced",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetAgeBandingDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientPrimaryContact",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetMotherRelation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientPhotoID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetRecentQuickSearchID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatPrefBook",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientStatusForLoginHO",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetAddress",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientStatusMHAA",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientSearchDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientQuickSearchDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetRecentPatientSearch",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientFrequentSearchDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientEncounterSearchDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetCompletePatientSearchDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetSmartList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetStaticList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetCriteriaBasedPatientList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetCriteriaBasedXML",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetNewRequest",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetNewResult",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetNewDocument",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetUnAcKnowledgeResult",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetCritBasedProblems",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetProceduresForHOs",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetAllergiesForHOs",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetPatientDecActivity",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "GetEPRRelationship",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "IsDuplicateNHS",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "IsNHSResponseCode",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "QueryPatientRecordWS",
+    "id": "IsSynchReasgnTask",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "PrintResults",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetApplyAllResult",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "ManageAcknowledgestatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetSeenResultReport",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultAcknowledgedReport",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultUnAcknowledgedReport",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultsListViewByRequestDetailOIDs",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetRequestDetailsView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultByResultItemID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "ClearUnseenResults",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "MarkResultsAsSeen",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResHisDate",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetRequestIntrayForm",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetRMResDtsHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResConfidential",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetDataFilterForRequestItem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetContextDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetAccessRights",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultDetailsForCDC",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResults",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetBubbleResultInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "EnterResults",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetFormDefinition",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetAllResultItem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetRequestItemByResultItemID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultItemDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultItemDefinition",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetCDCDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetNotificationList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "ManageResults",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "AcknowledgeResult",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "AcknowledgeResults",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "AuthorizeResult",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "CancelResult",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetCIBubbleResultInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetDIRnRParamValues",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "getResultDtls",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "getResultDtlsPatMerge",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetSVRequests",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetSVResults",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultsListView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultComponent",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetModifiedRequests",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetRequests",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "ModifyRecipientList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetViewSpecStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetWarnDet",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetAddDet",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetAltDet",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetWarnLink",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultModificationHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetStatusHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetGraphView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultReport",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultsCodingGrouping",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetGroupRequestsDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultsTabularView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultsHistoryView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultFilterByForTabularView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultsTabularViewFilter",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultFilterBy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultsListviewFilter",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetRequestItemNameFiltr",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "ServiceRequest",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultAndReqItmDF",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultForPrescription",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultDetailsByPatOrEncOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "ReassignAcknowledgementTask",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetRequestComments",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetMyRequestView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetViewMyRequestList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetMyRequestChildView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetUnsolicitedAdocResults",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetPatUnsolicitedAdocResults",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "ModAckHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultItemTextDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetSamplePerformedDTTM",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultByResultHisID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "EncounterAvailCheck",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetUnSeenResultList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultStatusCode",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetLRSUsersOrTeams",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetCombinedSpecimenCollection",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetPatientFlags",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetNewRequests",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetNewResults",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetPendingResults",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetUnseenResults",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetResultDIAppName",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "ResultManagementWS",
+    "id": "GetImageOnlyResults",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormPolicy",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormWorkingStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFrmStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "ClinicalFlag",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFSTaskMgmtStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormWS",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormStatusHistoryDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "ContinueFormSet",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "UpdateFormPatient",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "RetrieveFormbyFilter",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFSChildList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFSChildListNFE",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetInitiateRightsForUser",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "Read",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "RetrieveFormSetRules",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "RetrieveObsoleteFormData",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetAssesedDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetUserCPRole",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetTSDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetRDLTemplate",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "RetrieveFMOIDByTask",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormDataItemImage",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormDIImageTemp",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormDocAssociation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormBasicDet",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormDetailsFromIntray",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetAuthObserver",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormObsView",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetObservedSTDT",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormAuthorisation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormComments",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormContext",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormContextbyType",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormContextByOIDs",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "SendContinueFormSetCA",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetHiMChanges",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormSetCode",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetPatientObservationIndicatorWithHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "ManageDataItemIndicator",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "UpdateFormOutCome",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetHiMReferences",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GroupByCTX",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormByCTX",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormForCTXNone",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormassessment",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "IFMFormTemplateMandChk",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetPrintFormDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormPrintPlcyCode",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "CheckIsInsertedForm",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetInsertedFormSetRules",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetLatestFormByObservation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "SendIntrayAlertForOverrided",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "SaveFormDistributionDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetDistributedFormDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "InstantiateForm",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "SendFormsToIntray",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "UpdateFormNA",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "UpdateFormStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "SaveDocAssociation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "ManageFormDocAssociation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "DeleteFormDocAssociation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "PendingAuthorisation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "SendForAuthorisation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "InsertForm",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "InsertMandFormObs",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "SaveHiMReferences",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "SaveHiMRefIdentifier",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormsDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "Save",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetLatestFormOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "CustomSave",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "TemporarySave",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "DeleteTemporaryForm",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "ReadBulkAuthorise",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetModifiedDataitemsValues",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetDIHistoryValues",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetDataitemHistoryValues",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetSectionHistoryValues",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetDataitemLatestValues",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetLatestDataitemValues",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetGVDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormBasicdetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "IsLCVEnabled",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "IsViewChangesEnabled",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormProperties",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "ListSearch",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormBasicByFormOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormByFormOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "RetrieveUsersSearch",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "RetrieveUsersSearchByCode",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetAllFormChilds",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetChildFormDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetAllFormChildsForADHOCCheck",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormData",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormAsso",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormObservationDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormDataNFE",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "RetrieveFormData",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetLatestFormData",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormDataByOIDs",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormDataByOIDNFE",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetUserAccessedForm",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "PatientFormDefaultSet",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "PatientFormInstCount",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "PatientChildFormDefaultSet",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetFormDisturbutionList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "RetrieveCustomList",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "ManageContext",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "BulkUpdateTreatmentFnFrmCxt",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetCareCoordinator",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "UpdatePTA",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "ManageFormStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetLatestForm",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "GetLatestFormByDT",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "FormSuspendDefer",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "UpdateStatusHistoryTaskOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "AuthorizeForm",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCFormsWS",
+    "id": "InFormUser",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "ReadAndVerifyImportDI",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "UpdateURN",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "GetObservationSetRequiresUpdate",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "UpdateComposite",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "SaveDIHistory",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "SearchNumericDI",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "SaveReferenceScoreRange",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "SaveRAGGColorForEnum",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "FindDataItem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "SaveDataitem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "RetriveChildDataitemDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "RetriveChildDataitemDetailsNew",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "IsDICompositeChild",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "GetDataItemsInfo",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "Read",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "ReadImport",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "ManageStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "ManageWorkingStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "GetDtDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "BulkManageStatus",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "UpdateCurrentPropRange",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "UpdateCurrentEnumItem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "DuplicateCheck",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "SnomedDuplicateCheck",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "ListSearch",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "FormListSearch",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "GetDataItemDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "ListSearch_paging",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "ReadReferenceOID",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "SelectSearch",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "GetCompositedetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "GetNestedCompDIDetails",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "UpdateDataitem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "BulkDIUpdate",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "GetFormDataitem",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "UpdateGRPDIAssociation",
+    "verb": "POST",
+    "contentType": "JSON"
+  },
+  {
+    "Service": "CBCDataitemsWS",
+    "id": "ReadImportNFE",
+    "verb": "POST",
+    "contentType": "JSON"
+  }
+]

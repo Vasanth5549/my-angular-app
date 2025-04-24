@@ -1,0 +1,15 @@
+.dislablDrug {
+  display: none;
+}
+
+@media screen and (max-device-width: 1400px) {
+  .Chndosefooterpadding {
+    padding-left: 158vh;
+  }
+}
+
+@media screen and (min-device-width: 1400px) {
+  .Chndosefooterpadding {
+    padding-left: 97vh;
+  }
+}

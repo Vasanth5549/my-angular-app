@@ -1,0 +1,152 @@
+::ng-deep .gridTechValidateCA .k-grid-content td {
+    white-space: normal !important;
+    word-break: break-all !important;
+    padding: 4px 6px !important;
+    
+}
+
+@media screen and (max-width: 1350px) {
+    .gridTechValidateCA{
+       height: 395px;
+       width: 1329px;
+    }
+    ::ng-deep .gridTechValidateCA .k-grid-content {
+        overflow-x: auto !important;
+    }
+}
+
+@media screen and (min-width: 1351px) and (max-width: 1400px) {
+    .gridTechValidateCA{
+       height: 395px;
+       width: 1343px;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .gridTechValidateCA{
+      /* height: 670px; */
+      width: auto;
+    }
+    .medtechvalidateCA{
+        height: 735px;
+    }
+    .medtechvalidateCA1{
+        height: 680px;
+    }
+}
+
+::ng-deep .gridTechValidateCA .k-grid-content td.SupplyComments,
+::ng-deep .grdTecValItmChld .k-grid-content td.SupplyCommentsChild {
+    position: relative;
+}
+
+::ng-deep .medtechvalidateCABorder {
+    border: 1px solid seagreen;
+    border-radius: 2px;
+    font-weight: normal;
+    padding: 0 3px;
+}
+
+::ng-deep .LegendPopup .k-popup {
+    height: 225px;
+    width: 430px;
+}
+
+.SupplyInstrLbl {
+    cursor: pointer;
+ & kendo-label {
+    color: #0000c8 !important;
+  }
+}
+
+
+:host ::ng-deep .k-i-plus::before, 
+:host ::ng-deep .k-i-minus::before {
+    content: '';
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 13px;
+    height: 13px;
+}
+:host ::ng-deep .k-i-plus:hover,
+:host ::ng-deep .k-i-minus:hover {
+    font-family: "WebComponentsIcons";
+    font-size: 16px;
+}
+:host ::ng-deep .k-i-plus::before {
+    background-image: url(../../../assets/Images/hgchildclose.gif);
+}
+
+:host ::ng-deep .k-i-minus::before {
+    background-image: url(../../../assets/Images/hgchildopen.gif);
+}
+
+:host ::ng-deep .gridTechValidateCA tr.GroupHeader:hover {
+    background-color: #74b9c3 !important;
+}
+
+.Alignleft{
+    margin-left: -2px;
+}
+
+:host ::ng-deep .gridTechValidateCA .DeactivatedDrug {
+    opacity: 0.5;
+    pointer-events: none;
+    user-select: none;
+}
+
+.add-supply-instruction-button ::ng-deep kendo-label:hover{
+    font-weight: 900 !important;
+    text-decoration: underline blue;
+}
+/* added for spacing 31-10 */
+.MarginClass {
+  margin-left: 3px !important;
+}
+/* till here */
+
+/* header and column alignment */
+:host ::ng-deep .gridTechValidateCA .k-grid-header,.k-header,th.k-header,.k-grid td,.k-grid-footer {
+    border: 0px;
+}
+/* .btnpos{
+    padding-top: 35px;
+} */
+
+::ng-deep .gridTechValidateCA .k-grid-content td .fullHeightTD,
+::ng-deep .grdTecValItmChld .k-grid-content td .fullHeightTD {
+    height: calc(100% - 8px);
+    padding: 4px 6px !important;
+    display: flex;
+    align-items: center;
+}
+
+::ng-deep .gridTechValidateCA .k-grid-content td .AlignCenter,
+::ng-deep .grdTecValItmChld .k-grid-content td .AlignCenter {
+    justify-content: center;
+}
+
+::ng-deep .gridTechValidateCA .k-grid-content td.NoPaddingTD,
+::ng-deep .grdTecValItmChld .k-grid-content td.NoPaddingTD {
+    height: 1px;
+    padding: 0 !important;
+}
+
+.center { 
+    text-align-last: center;
+}
+
+.right{
+    text-align-last: right;
+    margin-right: 5px;
+}
+
+.background-border{
+    background: #E0EFF1;
+    border-top: none;
+}
+
+.custom-dialog-actions-tvca {
+    background: #e0eff1 0% 0% no-repeat padding-box !important;
+    border: 0px;
+}

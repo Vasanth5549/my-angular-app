@@ -1,0 +1,74 @@
+::ng-deep .k-grid .k-grid-content td {
+  white-space: normal !important;
+}
+
+::ng-deep .k-column-title {
+  white-space: normal !important;
+}
+
+.lblLineBreak {
+  white-space: break-spaces;
+}
+
+.lblDisplayInline {
+  display: block !important;
+  width: 100px;
+  height: 20px;
+}
+
+:host ::ng-deep .k-grid .k-grid-content td.Requestcomments {
+  position: relative;
+}
+@media screen and (max-width: 1450px) {
+  .medReqAdminBorderStyle {
+    height: 492px;
+    overflow-y: auto;
+    border: 1px solid rgb(5, 41, 5);
+    border-radius: 3px;
+    padding: 4px 4px 15px 4px;
+    margin: 4px
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .medReqAdminBorderStyle {
+    height: 680px;
+    overflow-y: auto;
+    border: 1px solid rgb(5, 41, 5);
+    border-radius: 3px;
+    padding: 4px 4px 15px 4px;
+    margin: 4px
+  }
+}
+
+
+
+:host ::ng-deep .k-i-plus::before, 
+:host ::ng-deep .k-i-minus::before {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: "WebComponentsIcons";
+}
+:host ::ng-deep .k-i-plus::before {
+    content: " \002B";
+}
+
+:host ::ng-deep .k-i-minus::before {
+    content: " \2212";
+}
+
+::ng-deep .grdRequestMedicationCA .k-grid-content td.Requestcomments
+/* ,
+::ng-deep .grdTecValItmChld .k-grid-content td.SupplyCommentsChild  */
+{
+    position: relative;
+}
+
+::ng-deep .grdRequestMedicationCA{
+  height: 460px !important;
+}
+@media screen and (min-device-width : 1400px) and (max-device-width: 1550px) {
+  ::ng-deep .grdRequestMedicationCA{
+    height: 595px !important;
+  }
+}

@@ -1,0 +1,31 @@
+<div #borderId (mousedown)="MouseLeftButtonDownEvent($event)"  [ngStyle]="_Height" [title]="ToolTip"  >
+  <div *ngIf="isControlRendered">
+    <ng-container *ngIf="Child?.constructor?.name == 'Image'">
+        <Image Name="Child?.Name" [style]="Child?.style" [ToolTip]="Child?.ToolTip" [Tag]="Child?.Tag" [TooltipPosition]="Child?.TooltipPosition"  [Source]="Child?.Source" [MouseLeftButtonDown]="Child?.MouseLeftButtonDown" Cursor="Hand" [DataContext]="Child?.DataContext"></Image>
+    </ng-container>
+
+    <ng-container *ngIf="Child?.constructor?.name == 'Canvas'">
+        <epmaCanvas  [Height]="Child.Height" [Width]="Child.Width" [_Children]="Child._Children"></epmaCanvas>
+    </ng-container>
+    <ng-container *ngIf="Child?.constructor?.name == 'TextBlock'">
+        <TextBlock  [Text]="Child?.Text"></TextBlock>
+      </ng-container>
+    <ng-container *ngIf="Child?.constructor?.name == 'Grid'">
+        <Grid [style]="Child?.style" [Tooltip]="Child?.Tooltip" [ChildrenArr]="Child?.ChildrenArr"  [RowDefinitionsArr]="Child?.RowDefinitionsArr" [ColumnDefinitionsArr]="Child?.ColumnDefinitionsArr" [ColWidth]="Child?.ColWidth" [RowHeight]="Child?.RowHeight"></Grid>
+      </ng-container>
+    <ng-content></ng-content>
+      <ng-container *ngIf="Child?.constructor?.name == 'DataTemplate'">
+        <DataTemplate [Content]="Child?.Content"></DataTemplate>
+    </ng-container>
+    <ng-container *ngIf="Child?.constructor?.name == 'ChartIcon'">
+      <Image Name="Child?.Key" [style]="Child?.style" [ToolTip]="Child?.Tooltip" [MouseLeftButtonDown]="Child?.MouseLeftButtonDown"
+      [Tag]="Child" [Source]="Child?.UriString" Cursor="Hand" [DataContext]="DataContext"></Image>
+  </ng-container>
+  <ng-container *ngIf="Child?.constructor?.name == 'iLabel'">
+    <iLabel [Text]="Child?.Text" [style]="Child?.style" [iLabelInLineElements]="Child?.iLabelInLineElements"></iLabel>
+  </ng-container>
+</div>
+  <div *ngIf="!isControlRendered" >
+      <div class="slot-not-loaded"  ></div>
+  </div>
+</div>

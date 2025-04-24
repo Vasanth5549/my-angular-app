@@ -1,0 +1,243 @@
+<div style="padding-right: 5px;" Width="Auto" HorizontalAlignment="Stretch">
+    <kendo-gridlayout [rows]="[ { height: 200},{ height: 200}]" [cols]="[ { width:'1fr'}]" class="pgdLayout">
+        <Border [col]='1' [row]='1' Background="#E0EFF1FF" CornerRadius="2" Width="Auto"
+            Margin="0,20,0,10" BorderThickness="1" Padding="4" BorderBrush="#75b3b4" Height="Auto">
+            <div Width="Auto" HorizontalAlignment="Left">
+                <kendo-gridlayout [rows]="[ { height: 2},{ height: '1fr'}]" [cols]="[ { width:'1fr'}]">
+                    <Border [col]='1' [row]='1' HorizontalAlignment="Left" Background="#E0EFF1FF" Margin="5,-13,0,0" Width="Auto" Height="Auto">
+                        <StackPanel>
+                            <iLabel #lblPrescDetailsTempRef Name="lblPrescDetails" FontWeight="Bold" Padding="10"
+                                [Text]="DataContext.AdditionalDetails.PrescriptionText" Foreground="#000000">
+                            </iLabel>
+                        </StackPanel>
+                    </Border>
+                    <kendo-gridlayout-item [row]='2' [col]='1' name="LayoutRoot"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto" Height="500" Width="880" Margin="5,2">
+                        <div>
+                            <kendo-gridlayout
+                                [rows]="[ { height:35},{ height:35},{ height:35},{ height:35},{ height:5}]"
+                                [cols]="[ { width:200},{ width:235},{ width:20},{ width:200},{ width:235}]">
+                                <Border [row]='1' [col]='2' [rowSpan]='6' [Background]="Styles.InnerBG"></Border>
+                                <Border [row]='1' [col]='5' [rowSpan]='1' [Background]="Styles.InnerBG"></Border>
+                                <!-- <Border [row]='2' [col]='5' [Background]="Styles.InnerBG" Height="5" VerticalAlignment="Top"> -->
+                                <!-- </Border> -->
+                                <Border [row]='2' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='3' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='4' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='5' [col]='1' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <Border [row]='2' [col]='4' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                                <kendo-gridlayout-item [row]='1' [col]='1'>
+                                    <div containerStyle>
+                                        <iLabel #lblPrescribedByTempRef Name="lblPrescribedBy"
+                                            [Text]="DataContext.AdditionalDetails.PrescribedByText"
+                                            HorizontalAlignment="Left" VerticalAlignment="Center" IsWordwrap="True">
+                                        </iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='1' [col]='2'>
+                                    <div containerStyle>
+                                        <iLabel #lblPrescribedByTxtTempRef Name="lblPrescribedByTxt"
+                                            [Text]="DataContext.AdditionalDetails.PrescribedBy" Width="180"
+                                            Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"  style="overflow: hidden; text-overflow: ellipsis; padding: 5px;"
+                                            [Tooltip]="DataContext.AdditionalDetails.PrescribedBy"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='2' [col]='1'>
+                                    <div containerStyle>
+                                        <iLabel #lblPrescribedOnTempRef Name="lblPrescribedOn"
+                                            [Text]="DataContext.AdditionalDetails.PrescribedOnText"
+                                            HorizontalAlignment="Left" VerticalAlignment="Center" IsWordwrap="True">
+                                        </iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='2' [col]='2'>
+                                    <div containerStyle>
+                                        <iLabel #lblPrescribedOnTxtTempRef Name="lblPrescribedOnTxt"
+                                            [Text]="DataContext.AdditionalDetails.PrescribedOn"
+                                            HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center">
+                                        </iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='3' [col]='1'>
+                                    <div containerStyle>
+                                        <iLabel #lblStartDateNameTempRef Name="lblStartDateName"
+                                            [Text]="DataContext.DrugDetails.StartDateText " HorizontalAlignment="Left"
+                                            VerticalAlignment="Center" IsWordwrap="True"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='3' [col]='2'>
+                                    <div containerStyle>
+                                        <iLabel #lblStartDateTempRef Name="lblStartDate" Margin="5,0,0,0"
+                                            [Text]="DataContext.DrugDetails.StartDate" HorizontalAlignment="Left"
+                                            VerticalAlignment="Center" IsWordwrap="True"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='4' [col]='1'>
+                                    <div containerStyle>
+                                        <iLabel #lblStatusNameTempRef Name="lblStatusName"
+                                            [Text]="ddkey.lblStatusName_Text" HorizontalAlignment="Left"
+                                            VerticalAlignment="Center" IsWordwrap="True"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='4' [col]='2'>
+                                    <div containerStyle>
+                                        <iLabel #lblStatusTempRef Name="lblStatus" Margin="5,0,0,0"
+                                            [Text]="DataContext.DrugDetails.Status" HorizontalAlignment="Left"
+                                            VerticalAlignment="Center" IsWordwrap="True"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='1' [col]='4'>
+                                    <div containerStyle>
+                                        <iLabel #lblAddCommentsTempRef Name="lblAddComments"
+                                            [Text]="ddkey.lblAdditionalName_Text" HorizontalAlignment="Left"
+                                            VerticalAlignment="Center" IsWordwrap="True"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <kendo-gridlayout-item [row]='1' [col]='5'>
+                                    <div containerStyle>
+                                        <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="34" MaxWidth="235"
+                                            BorderThickness="0" HorizontalAlignment="Left" Width="235">
+                                            <kendo-gridlayout-item [row]='1' [col]='4'>
+                                                <div containerStyle>
+                                                    <iLabel #lblAddCommentsValTempRef Name="lblAddCommentsVal"
+                                                        Margin="5,0,0,0" [Text]="DataContext.DrugDetails.Addition"
+                                                        HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                        IsWordwrap="True"
+                                                        ScrollViewer.VerticalScrollBarVisibility="Auto">
+                                                    </iLabel>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                       </ScrollViewer>
+                                    </div>
+                                </kendo-gridlayout-item>
+                            </kendo-gridlayout>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </div>
+        </Border>
+
+        <Border [row]='2' [col]='1' Background="#E0EFF1FF" CornerRadius="2" Width="Auto" class="medpgdLayout"
+            HorizontalAlignment="Stretch" Margin="0,10,0,10" BorderThickness="1" Padding="4" BorderBrush="#75b3b4"  Height="Auto" >
+            <div Width="Auto" HorizontalAlignment="Stretch">
+                <kendo-gridlayout [rows]="[ { height: '1fr'}]" [cols]="[ { width:'1fr'}]">
+                    <Border [col]='1' [row]='1' HorizontalAlignment="Left" Background="#E0EFF1FF" Margin="5,-13,0,0" Width="Auto" Height="Auto">
+                        <StackPanel>
+                            <iLabel #lblModificationTempRef Name="lblModification" FontWeight="Bold" Padding="10"
+                                Text="Modification details" Foreground="#000000"></iLabel>
+                        </StackPanel>
+                    </Border>
+                    <kendo-gridlayout-item [row]='1' [col]='1' name="ModificationDetails"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
+                        <div>
+                            <kendo-gridlayout [rows]="[ { height:170},{ height:'1fr'}]">
+                                <Border Background="#E0EFF1FF" CornerRadius="2" Margin="10" Width="Auto"
+                                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto" class="medcancellation"
+                                    BorderThickness="1" Padding="4" BorderBrush="#75b3b4">
+
+                                    <div Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                        <kendo-gridlayout [rows]="[ { height:2},{ height:'1fr'}]"
+                                            [cols]="[ { width:'1fr'}]">
+
+                                            <Border [col]='1' [row]='1' HorizontalAlignment="Left"
+                                                Background="#E0EFF1FF" Margin="5,-13,0,0" class="medpgdheader" Width="Auto" Height="Auto">
+                                                <StackPanel>
+                                                    <iLabel #lblCancellationTempRef Name="lblCancellation"
+                                                        FontWeight="Bold" Padding="10"
+                                                        [Text]="DataContext.AdditionalDetails.CancelDisconText"
+                                                        Foreground="#000000"></iLabel>
+                                                </StackPanel>
+                                            </Border>
+                                            <kendo-gridlayout-item [row]="2"
+                                                [col]="1" name="Cancellation"
+                                                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                                                <div>
+                                                    <kendo-gridlayout
+                                                        [rows]="[ { height:35},{ height:35},{ height:35},{ height:5}]"
+                                                        [cols]="[ { width:185},{ width:234}]">
+                                                        <Border [col]='2' [row]='1' [rowSpan]='5'
+                                                            [Background]="Styles.InnerBG">
+                                                        </Border>
+                                                        <Border [row]='2' [col]='1' [colSpan]='2'
+                                                            [iStyle]="Styles.whiteBorder">
+                                                        </Border>
+                                                        <Border [row]='3' [col]='1' [colSpan]='2'
+                                                            [iStyle]="Styles.whiteBorder">
+                                                        </Border>
+                                                        <Border [row]='4' [col]='1' [colSpan]='2'
+                                                            [iStyle]="Styles.whiteBorder">
+                                                        </Border>
+                                                        <kendo-gridlayout-item [row]='1' [col]='1'>
+                                                            <div containerStyle>
+                                                                <iLabel #lblCancelByTempRef Name="lblCancelBy"
+                                                                    [Text]="ddkey.lblBy_Text"
+                                                                    HorizontalAlignment="Left"
+                                                                    VerticalAlignment="Center" IsWordwrap="True">
+                                                                </iLabel>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+                                                        <kendo-gridlayout-item [row]='1' [col]='2'>
+                                                            <div containerStyle>
+                                                                <iLabel #lblCancelByValTempRef
+                                                                    Name="lblCancelByVal" Margin="5,0,0,0"
+                                                                    [Text]="DataContext.AdditionalDetails.CancelBy"
+                                                                    HorizontalAlignment="Left"
+                                                                    VerticalAlignment="Center">
+                                                                </iLabel>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+                                                        <kendo-gridlayout-item [row]='2' [col]='1'>
+                                                            <div containerStyle>
+                                                                <iLabel #lblCancelDttmTempRef Name="lblCancelDttm"
+                                                                    [Text]="ddkey.lblDateTime_Text"
+                                                                    HorizontalAlignment="Left"
+                                                                    VerticalAlignment="Center" IsWordwrap="True">
+                                                                </iLabel>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+                                                        <kendo-gridlayout-item [row]='2' [col]='2'>
+                                                            <div containerStyle>
+                                                                <iLabel #lblCancelDttmValTempRef Name="lblCancelDttmVal"
+                                                                    Margin="5,0,0,0"
+                                                                    [Text]="DataContext.AdditionalDetails.CancelDate"
+                                                                    HorizontalAlignment="Left"
+                                                                    VerticalAlignment="Center">
+                                                                </iLabel>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+                                                        <kendo-gridlayout-item [row]='3' [col]='1'>
+                                                            <div containerStyle>
+                                                                <iLabel #lblCancelRsnTempRef Name="lblCancelRsn"
+                                                                    [Text]="ddkey.lblReason_Text"
+                                                                    HorizontalAlignment="Left"
+                                                                    VerticalAlignment="Center" IsWordwrap="True">
+                                                                </iLabel>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+                                                        <kendo-gridlayout-item [row]='3' [col]='2'>
+                                                            <div containerStyle>
+                                                                <iLabel #lblCancelRsnValTempRef Name="lblCancelRsnVal"
+                                                                    Margin="5,0,0,0"
+                                                                    [Text]="DataContext.AdditionalDetails.CancelReason"
+                                                                    HorizontalAlignment="Left"
+                                                                    VerticalAlignment="Center"
+                                                                    [Tooltip]="DataContext.AdditionalDetails.CancelReason">
+                                                                </iLabel>
+                                                            </div>
+                                                        </kendo-gridlayout-item>
+                                                    </kendo-gridlayout>
+                                                </div>
+                                            </kendo-gridlayout-item>
+                                        </kendo-gridlayout>
+                                    </div>
+                                </Border>
+                            </kendo-gridlayout>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </div>
+        </Border>
+    </kendo-gridlayout>
+</div>

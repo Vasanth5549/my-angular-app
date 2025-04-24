@@ -1,0 +1,15 @@
+::ng-deep .textareahe .k-input-md .k-input-inner,
+.k-picker-md .k-input-inner {
+    height: 80px !important;
+}
+
+::ng-deep .lblReviewRequestCommentsText kendo-label {
+    width: 230px !important;
+}
+
+@media screen and (max-width: 1400px) {
+    .reviewoutcmLayout {
+        position: absolute;
+        max-height: 358px;
+    }
+}

@@ -1,0 +1,79 @@
+:host ::ng-deep .disable_drc_message .ng-star-inserted {
+    display: block;
+}
+.datetimepickerposition{
+    position: relative;      
+    right: 9px;
+}
+.BorderSytle {
+    border: 1px solid #205860;
+}
+
+.drcrow-extend {
+   height: 84px;
+}
+
+.grid-extend {
+    height: 515px
+}
+
+.grid-shrink {
+    max-height: 400px;
+    height: 400px;
+}
+
+.BackGrdColor ::ng-deep button {
+    color: rgb(55 55 58) !important;
+    margin: 7px 0px 6px 935px !important;
+    background-color: #b9dcdc !important;
+}
+
+:host ::ng-deep .k-grid .k-grid-content td {
+    padding-bottom: 8px !important;
+}
+
+
+.DisplayGuidanceStyle{
+    width: 1000px;
+    min-height: 25px;
+    margin: 5px 10px;
+    white-space: pre-wrap;
+}
+
+.drcrow-visibile{
+    height: 50px;
+    display: grid;
+    align-items: center;
+}
+.timeadjustalign{
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (min-device-width : 1400px) and (max-device-width: 1550px) {
+   ::ng-deep .k-time-list-wrapper{
+    height: 177px !important;
+}
+  }
+  @media screen and (max-device-width : 1400px){
+   ::ng-deep .k-time-list-wrapper{
+    height: 130px !important;
+}
+.ordersetMezzanineLayout{
+        position: absolute;
+        overflow-y: auto;
+        overflow-y: auto;
+        height: 376px;
+        width: 98.5%;
+}
+.ordersetMezzanineLayout1{
+    position: absolute;
+    overflow-y: auto;
+    overflow-y: auto;
+    width: 98.5%;
+    height: 336px;
+}
+.ordersetDetails{
+    width: 98%;
+}
+  }

@@ -1,0 +1,154 @@
+::ng-deep kendo-pager span:not(th span).k-link{
+
+  background-color: #e1e6ed !important; 
+ border-radius: 2px !important;
+ border-color: #b7b9c3 !important;
+ padding: 2px !important;
+ margin: 0px 2px 0px 0px;
+ 
+}
+
+
+::ng-deep  kendo-pager span:not(th span).k-link:hover{
+background-color: #a3cbe9 !important;  
+border-radius: 2px !important;
+border-color:#768d9d !important;
+padding: 2px !important;
+margin: 0px 2px 0px 0px;
+}
+
+ .Hgtfull
+{
+ height: 100% !important;
+}
+
+.HgtPlus
+{
+ height: 108% !important;
+}
+
+/* .HgtFullNoFooter   
+{
+ height: 120% !important;
+} */
+
+.HgtPlusNoFooter
+{
+ height: 128% !important;
+}
+
+.heightChange{
+  height: 228px;
+}
+
+.noHeightChange{
+  height: 195px;
+}
+
+.HgtNone
+{
+ height: 100% !important;
+}
+ 
+.innerHgtNone
+{
+ height: 194px !important;
+
+}
+.InnerHgtfull
+{
+ height: 194px !important;
+}
+
+.InnerHgtPlus
+{
+ height: 200px !important;
+}
+
+.InnerHgtfullNofooter
+{
+ height: 235px !important;
+}
+
+.InnerHgtPlusNoFooter
+{
+ height: 240px !important;
+}
+
+
+
+  
+.k-i-arrow-w  ,.k-i-arrow-e  , .k-i-seek-e , .k-icon ,.k-i-seek-w
+{
+color : #10336c !important;
+}
+.kendogridpageinfo ::ng-deep .k-pager-wrap{
+  padding: 0px !important;
+}
+
+.kendopagerinput {
+  width: 15%;
+}
+.WarningMsg ::ng-deep kendo-label{
+  padding-left: 50px;
+}
+
+@media screen and (min-device-width: 1500px) {
+.scrollheight{
+  overflow-y: auto;
+  /* height: 440px; */
+}
+.setGridHeight{
+  height: 235px;
+  overflow-y: auto;
+  margin-top: -20px;
+}
+.setGridHeight1{
+  height: 190px;
+  overflow-y: auto;
+}
+.dateandTimeLabel1{
+  margin-top: -7px;
+}
+.dateandTimeLabel{
+  margin-top: -20px;
+}
+.scheduleDoseGrid{
+  height: 230px;
+}
+.scheduleDoseGrid1{
+  height: 86%;
+}
+.noteDetails{
+  margin-bottom: 50px;
+}
+.noteDetails1{
+  margin-top: 50px;
+}
+}
+
+@media screen and (max-device-width: 1400px) {
+.scrollheight1{
+  overflow-y: auto;
+  /* height: 395px ; */
+  position: absolute;
+}
+.scheduleDoseGrid1{
+  height: 86%;
+}
+.noteDetails{
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+.setGridHeight1{
+  height: 190px;
+  overflow-y: auto;
+}
+.scheduleDoseGrid{
+  height: 190px;
+}
+.setGridHeight{
+  height: 190px;
+  overflow-y: auto;
+}
+}

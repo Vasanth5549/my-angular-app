@@ -1,0 +1,137 @@
+<div Name="LayoutRoot">
+    <kendo-gridlayout Margin="10" Background="LzoPageBG" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+        Width="420" Height="Auto" [rows]="[{height:'auto'},{height:'100'},{height:'50'},{height:'100'}]"
+        [cols]="[{width:'400'}]">
+        <!-- Stack Panel for drugheader starts-->
+        <kendo-gridlayout-item [row]='1' [col]='1'>
+            <div containerStyle>
+                <!-- <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto" Background="White"> -->
+                <drugheader #objDrugHeaderTempRef Name="objDrugHeader" Height="Auto" Margin="5,0,5,5"
+                    [DataContext]="this.objDrugHeader.DataContext">
+                </drugheader>
+                <!-- </StackPanel> -->
+            </div>
+        </kendo-gridlayout-item>
+        <!-- Stack Panel for drugheader End-->
+
+        <!-- Border starts-->
+        <kendo-gridlayout-item [row]='2' [col]='1'>
+            <div containerStyle>
+                <Border #brdSTATempRef Margin="0,10,0,0" Name="brdSTA" [iStyle]="Styles.BorderFrame" Width="400"
+                    Height="80">
+
+                    <!-- grid starts-->
+                    <kendo-gridlayout-item>
+                        <div containerStyle>
+                            <kendo-gridlayout [rows]="[{height:'10'},{height:'30'},{height:'30'}]"
+                                [cols]="[{width:'auto'},{width:'305'}]">
+                                <!-- Border starts-->
+                                <kendo-gridlayout-item [col]='1'>
+                                    <div containerStyle>
+                                        <Border Background="#e0eff1" Margin="12,-12,0,11" Padding="2,0,0,0" Width="70">
+                                            <!-- StackPanel starts--> 
+                                            <StackPanel VerticalAlignment="Center">
+                                                <iLabel #lblBorderTempRef Name="lblBorder"
+                                                    [Text]="objTitratedDose.lblBorder_Text" Foreground="#000000"
+                                                    Margin="0,0,0,2"></iLabel>
+                                            </StackPanel>
+                                            <!-- StackPanel End-->
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+                                <!-- Border End-->
+                                <Border [col]='2' [row]="2" [Background]="Styles.InnerBG" style="width: 305px !important;"></Border>
+                                <Border [col]='2' [row]="3" [Background]="Styles.InnerBG" style="width: 305px !important;"></Border>
+                                <Border [col]='1' [colSpan]="3" [row]="2" [iStyle]="Styles.whiteBorderBottom"></Border>
+                                <Border [col]='1' [colSpan]="3" [row]="3" [iStyle]="Styles.whiteBorderBottom"></Border>
+                                <kendo-gridlayout-item [row]='2' [col]='1' style="height: 30px !important;">
+                                    <div containerStyle >
+                                        <iLabel #lbldateTempRef Name="lbldate" [Text]="objTitratedDose.lbldate_Text"
+                                            VerticalAlignment="Center" Margin="10,0,0,0"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item> 
+                                <kendo-gridlayout-item [row]='2' [col]='2' style="height: 30px !important;">
+                                    <div containerStyle>
+                                        <iLabel #lbldatedataTempRef Name="lbldatedata" Text="SlotDttm" Width="100"
+                                            HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center"
+                                            [Text]="DataContext.SlotDttm"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item> 
+                                <kendo-gridlayout-item [row]='3' [col]='1'style="height: 30px !important;">
+                                    <div containerStyle>
+                                        <iLabel #lbltimeTempRef Name="lbltime" [Text]="objTitratedDose.lbltime_Text"
+                                            Margin="10,0,0,10" VerticalAlignment="Center"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item> 
+                                <kendo-gridlayout-item [row]='3' [col]='2' style="height: 30px !important;">
+                                    <div containerStyle >
+                                        <iLabel #lbltimedataTempRef Name="lbltimedata" EnableDST="True" Text="SlotTime"
+                                            Width="100" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center"
+                                            [Text]="DataContext.SlotTime"></iLabel>
+                                    </div>
+                                </kendo-gridlayout-item>
+                            </kendo-gridlayout>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <!-- grid starts-->
+
+                </Border>
+            </div>
+        </kendo-gridlayout-item>
+        <!-- Border End-->
+
+        <!-- grid starts-->
+        <kendo-gridlayout-item [col]="1" [row]="3" style="height: 70px !important;">
+            <div containerStyle>
+                <kendo-gridlayout Width="400" Height="30"
+                    [cols]="[{width:'100'},{width:'100'},{width:'80'},{width:'140'}]">
+                    <Border [col]="2" [colSpan]="4" [row]="1" [Background]="Styles.InnerBG" style="margin: 0 0 0 -18px !important;"></Border>
+                    <Border [col]="1" [colSpan]="5" [row]="1" [iStyle]="Styles.whiteBorderBottom"></Border>
+                    <kendo-gridlayout-item [row]='1' [col]='1' style="height: 32px !important; width: 60px;">
+                        <div containerStyle>
+                            <iLabel #lbldoseTempRef Name="lbldose" Mandatory="True" Margin="10,0,0,0"
+                                [Text]="objTitratedDose.lbldose_Text" Width="60" HorizontalAlignment="Left"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item> <kendo-gridlayout-item [row]='1' [col]='2'>
+                        <div containerStyle>
+                            <iTextBox #txtDoseTempRef Name="txtDose" Margin="-10,0,0,0" Type="AlphaNumeric" Scale="7"
+                                MaxLength="11" Precision="3" [(Text)]="DataContext.Dose" TextWrapping="NoWrap"
+                                [Tooltip]="objTitratedDose.txtDose_ToolTip" Height="23" Width="110" AcceptsReturn="False"
+                                TabIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                [KeyUp]="txtDose_KeyUp_Func" [KeyDown]="txtDose_KeyDown_Func"></iTextBox>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='1' [col]='3'>
+                        <div containerStyle>
+                            <iLabel #lblUoMTempRef Name="lblUoM" Mandatory="True" Margin="-10,0,0,0"
+                                [Text]="objTitratedDose.lblUoM_Text" Width="Auto"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item> <kendo-gridlayout-item [row]='1' [col]='4'>
+                        <div containerStyle>
+                            <iComboBox #cboUoMTempRef Name="cboUoM" IsEditable="True"
+                                [Tooltip]="objTitratedDose.cboUoM_ToolTip" IsTypeAHead="True" IsTextSearchEnabled="True"
+                                HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="140"
+                                IsEnabled="True" Margin="-30,0,-35,0" TabIndex="2" [(SelectedValue)]="DataContext.DoseUOM" [(ItemsSource)]="DataContext.DefaultDetails.Uoms">
+                            </iComboBox> <!-- [(ItemsSource)]="DataContext.DefaultDetails.Uoms" -->
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+        <!-- grid starts-->
+        <kendo-gridlayout-item [row]='4' [col]='1'>
+            <div containerStyle>
+                <StackPanel Orientation="Horizontal" Margin="0, 20, 0, 0" VerticalAlignment="Top" Height="60" Width="400">
+                    <iButton #cmdObservationsResultsTempRef HorizontalAlignment="Left" Name="cmdObservationsResults"
+                        Margin="10,2,5,2" TextDecorations="Underline" Cursor="Hand" Foreground="#0000C8"
+                        [Text]="CondRes.lblObservationsResults_Text" [Tooltip]="CondRes.lblObservationsResults_ToolTip"
+                        Height="23" DisabledImageSource="assets/Images/iarrowdis5x10.png"
+                        ActiveImageSource="assets/Images/iarrowshot5x10.png"
+                        ImageSource="assets/Images/iarrownor5x10.png" ImageHeight="12" ImageWidth="5"
+                        (click)="cmdObservationsResults_Click()"></iButton>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+
+    </kendo-gridlayout>
+</div>

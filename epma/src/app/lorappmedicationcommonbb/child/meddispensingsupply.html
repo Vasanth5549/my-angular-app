@@ -1,0 +1,29 @@
+<div class="grid-layout-container">
+    <kendo-gridlayout #DrugprepdetailsTempRef Background="#FFE0EFF1" [GridProperties]="Drugprepdetails"
+        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" [rows]="[ { height: 300}]" [cols]="[{width:600}]">
+        <kendo-gridlayout-item [row]='1' [col]="1">
+            <kendo-grid #grdDrugprepdetailsTempRef Background="#FFE0EFF1" [GridProperties]="grdDrugprepdetails"  style="line-height:24px"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" [data]="grdDrugprepdetails.ItemsSource.array"
+                [selectable]="{checkboxOnly: true, mode: 'single'}" kendoGridSelectBy
+                [(selectedKeys)]="grdDrugprepdetails.selectedRowsIndex" [height]="277">  <!--[height]="290"-->
+                <kendo-grid-column UniqueName="grdComponentname" [GridColumnProperties]="grdDrugprepdetails"
+                    TextWrapping="Wrap"  field="Componentname" [width]="294"
+                    [filterbale]="false">
+                    <ng-template kendoGridHeaderTemplate>
+                        <span class="textsize" kendoTooltip title="{{dccl.Componentname_Header}}">
+                          {{dccl.Componentname_Header}}
+                        </span>
+                    </ng-template></kendo-grid-column>
+                <kendo-grid-column UniqueName="grdSupplyInstruction" [GridColumnProperties]="grdDrugprepdetails"
+                    TextWrapping="Wrap"  field="SupplyInstruction" [width]="282"
+                    [filterbale]="false">
+                    <ng-template kendoGridHeaderTemplate>
+                        <span class="textsize" kendoTooltip title="{{dccl.Supplyinstructions_Header}}">
+                          {{dccl.Supplyinstructions_Header}}
+                        </span>
+                    </ng-template>
+                </kendo-grid-column>
+            </kendo-grid>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

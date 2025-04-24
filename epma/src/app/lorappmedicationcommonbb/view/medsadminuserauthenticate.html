@@ -1,0 +1,58 @@
+<div name="LayoutRoot">
+    <kendo-gridlayout class="grid-layout-container" GridLayout [rows]="[{height: '25fr'}, {height: '75fr'}]">
+        <kendo-gridlayout-item [row]="1" [col]="1">
+            <div containerStyle class="div-dark-bg" HorizontalAlignment="Stretch" Margin="10">
+                <iLabel Name="tbWitnessedBy" Margin="10" FontWeight="Bold"
+                    [Text]="GetResourceString('lblWitnessedby_text')"
+                    FontSize="15" Foreground="White">
+                </iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]="2" [col]="1">
+            <div containerStyle>
+                <kendo-gridlayout class="grid-layout-container" GridLayout
+                    [rows]="[{height: '40fr'}, {height: '40fr'}, {height: '40fr'}]"
+                    [cols]="[{width: '33fr'}, {width: '67fr'}]">
+                    <kendo-gridlayout-item [row]="1" [col]="1">
+                        <div containerStyle>
+                            <iLabel [Text]="GetResourceString('lblUser_text')">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="1" [col]="2">
+                        <div containerStyle class="div-bg">
+                            <iLabel #lblLoginNameTempRef Name="lblLoginName" class="styleLabel" [Text]="DataContext.UserName" Canvas.Left="150"
+                                Margin="0,5,10,0">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="2" [col]="1">
+                        <div containerStyle class="div-whiteborder">
+                            <iLabel [Text]="GetResourceString('lblPIN_text')" FontSize="11" Mandatory="True" AccessKey="W">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="2" [col]="2">
+                        <div containerStyle class="div-bg-whiteborder">
+                            <input id="pbxPassword"  type="text" [(value)]="DataContext.PasswordText" class="pin numeric-password"
+                                Canvas.Top="2" [title]="GetResourceString('lblPIN_tooltip')" [style.margin.px]="5"
+                                HorizontalAlignment="Left" [style.width.px]="208" [style.height.px]="25"
+                                (focusout)="pbxPassword_onFocusOut()" autocomplete="one-time-code" aria-autocomplete="none">
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="3" [col]="1">
+                        <div containerStyle class="div-whiteborder">
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]="3" [col]="2">
+                        <div containerStyle class="div-whiteborder">
+                            <iLabel #lblPasswordMessageTempRef Name="lblPasswordMessage" IsWordwrap="True" Foreground="Red"
+                                [Text]="DataContext.ErrorMessage" [Visibility]="DataContext.PasswordMandShow" Margin="0,0,0,0">
+                            </iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+                </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

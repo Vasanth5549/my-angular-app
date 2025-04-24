@@ -1,0 +1,1445 @@
+<!-- <epmaCanvas #SeedCanvasTempRef Name="SeedCanvas" Visibility="Collapsed" width="200" height="200"> -->
+<kendo-popup class="LegendPopup" #popupTempRef *ngIf="showLegendPopup" [animate]="animate" [offset]="offset" [anchor]="showIconTempRef.searchElement" Name="popup" Opened="popup_Opened" Closed="popup_Closed"  MouseLeftButtonDown="popup_MouseLeftButtonDown">
+<Border
+  #BrdTempRef
+  Name="Brd"
+  BorderBrush="Black"
+  BorderThickness="1"
+  Background="White"
+>
+  <div
+    name="LayoutRoot1"
+    ScrollViewer.VerticalScrollBarVisibility="Auto"
+    Visibility="Visible"
+    Background="White"
+  >
+    <kendo-gridlayout
+      [rows]="[{height:'auto'}]"
+      [cols]="[{width:220},{width:230}]"
+    >
+      <kendo-gridlayout-item [row]="1" [col]="1">
+        <div containerStyle>
+          <StackPanel class="Legend" Margin="15">
+            <iButton
+              #cmdClinicalVerifyTempRef
+              Name="cmdClinicalVerify"
+              HorizontalAlignment="Left"
+              IsTabStop="False"
+              TabIndex="-1"
+              Text="Clinically verified"
+              Cursor="Arrow"
+              Margin="2, 2, 2, 20"
+              ActiveImageSource="./assets/images/INewYes.png"
+              ImageSource="./assets/images/INewYes.png"
+              ImageHeight="14"
+              ImageWidth="14"
+            >
+            </iButton>
+            <iButton
+              #cmdamendmentTempRef
+              Name="cmdamendment"
+              HorizontalAlignment="Left"
+              IsTabStop="False"
+              TabIndex="-1"
+              Text=" Created due to amendment"
+              Cursor="Arrow"
+              Margin="2, 2, 2, 20"
+              ActiveImageSource="./assets/images/icommenthot16.png"
+              ImageSource="./assets/images/icommenthot16.png"
+              ImageHeight="14"
+              ImageWidth="14"
+            >
+            </iButton>
+            <iButton
+              #cmdDosingTempRef
+              Name="cmdDosing"
+              HorizontalAlignment="Left"
+              IsTabStop="False"
+              TabIndex="-1"
+              Text=" Dosing information"
+              Cursor="Arrow"
+              Margin="2, 2, 2, 20"
+              ActiveImageSource="./assets/images/idosetypenor16.png"
+              ImageSource="./assets/images/idosetypenor16.png"
+              ImageHeight="14"
+              ImageWidth="14"
+            >
+            </iButton>
+            <iButton
+              #cmdSupplyInstructionsTempRef
+              Name="cmdSupplyInstructions"
+              HorizontalAlignment="Left"
+              IsTabStop="False"
+              TabIndex="-1"
+              Text=" Supply instructions"
+              Cursor="Arrow"
+              Margin="2, 2, 2, 20"
+              ActiveImageSource="./assets/images/icon/iholdnor16.png"
+              ImageSource="./assets/images/icon/iholdnor16.png"
+              ImageHeight="14"
+              ImageWidth="14"
+            >
+            </iButton>
+            <iButton
+              #cmdCommentsTempRef
+              Name="cmdComments"
+              HorizontalAlignment="Left"
+              IsTabStop="False"
+              TabIndex="-1"
+              Text=" Comments"
+              Cursor="Arrow"
+              Margin="2, 2, 2, 20"
+              ActiveImageSource="./assets/images/iinfonor16.png"
+              ImageSource="./assets/images/iinfonor16.png"
+              ImageHeight="14"
+              ImageWidth="14"
+            >
+            </iButton>
+          </StackPanel>
+        </div>
+      </kendo-gridlayout-item>
+
+      <kendo-gridlayout-item [row]="1" [col]="2">
+        <div containerStyle>
+          <StackPanel class="LegendBottom">
+            <iButton
+              #cmdHighUrgencySuppReqTempRef
+              Name="cmdHighUrgencySuppReq"
+              HorizontalAlignment="Left"
+              IsTabStop="False"
+              TabIndex="-1"
+              Text=" High urgency supply request"
+              Cursor="Arrow"
+              Margin="2, 2, 2, 20"
+              ActiveImageSource="./assets/images/IndicatorHIGH16.png"
+              ImageSource="./assets/images/IndicatorHIGH16.png"
+              ImageHeight="14"
+              ImageWidth="14"
+            >
+            </iButton>
+            <iButton
+              #cmdMediumUrgencySuppReqTempRef
+              Name="cmdMediumUrgencySuppReq"
+              HorizontalAlignment="Left"
+              IsTabStop="False"
+              TabIndex="-1"
+              Text=" Medium urgency supply request"
+              Cursor="Arrow"
+              Margin="2, 2, 2, 20"
+              ActiveImageSource="./assets/images/IndicatorMedium16.png"
+              ImageSource="./assets/images/IndicatorMedium16.png"
+              ImageHeight="14"
+              ImageWidth="14"
+            >
+            </iButton>
+            <iButton
+              #cmdLowUrgencySuppReqTempRef
+              Name="cmdLowUrgencySuppReq"
+              HorizontalAlignment="Left"
+              IsTabStop="False"
+              TabIndex="-1"
+              Text=" Low urgency supply request"
+              Cursor="Arrow"
+              Margin="2, 2, 2, 20"
+              ActiveImageSource="./assets/images/IndicatorLOW16.png"
+              ImageSource="./assets/images/IndicatorLOW16.png"
+              ImageHeight="14"
+              ImageWidth="14"
+            >
+            </iButton>
+            <iButton
+              #cmdNonUrgentSupplyRequestTempRef
+              Name="cmdNonUrgentSupplyRequest"
+              HorizontalAlignment="Left"
+              IsTabStop="False"
+              TabIndex="-1"
+              Text=" Non urgent supply request"
+              Cursor="Arrow"
+              Margin="2, 2, 2, 20"
+              ActiveImageSource="./assets/images/Supply Flag_NOR16.png"
+              ImageSource="./assets/images/Supply Flag_NOR16.png"
+              ImageHeight="14"
+              ImageWidth="14"
+            >
+            </iButton>
+          </StackPanel>
+        </div>
+      </kendo-gridlayout-item>
+    </kendo-gridlayout>
+  </div>
+</Border>
+</kendo-popup>
+<!-- </epmaCanvas> -->
+<div>
+  <kendo-gridlayout
+    #LayoutRootTempRef
+    name="LayoutRoot" Background="#E0EFF1FF"
+    [rows]="[{height:'auto'},{height:'1fr'}]"
+    [cols]="[{width:'auto'}]"
+  >
+  <!-- <kendo-gridlayout-item [row]="1">
+   
+  </kendo-gridlayout-item> -->
+
+    <kendo-gridlayout-item [row]="1" [col]="1">
+      <div containerStyle>
+        <!-- [iStyle]="whiteBorder" -->
+        <!-- <Border
+          GridLayout
+          #brcd1TempRef
+          Name="brcd1"
+          BorderBrush="SeaGreen"
+          CornerRadius="2"
+          BorderThickness="1"
+          Width="Auto"
+          Margin="5,10,5,5"
+          HorizontalAlignment="Stretch"
+        > -->
+        <fieldset class="medtechvalidateCABorder">
+          <legend style="font-weight: bold">{{DataContext.PrescriptionType}}</legend>
+          <div name="GrdMain" Width="Auto">
+            <kendo-gridlayout [rows]="[{height:'auto'},{height:'98fr'}]" [cols]="[{width: 'auto'}]">
+              <!-- <kendo-gridlayout-item [row]="1" [col]="1">
+                <div containerStyle>
+                  <StackPanel
+                    Margin="10,-20,0,-5"
+                    Background="#E0EFF1FF"
+                    HorizontalAlignment="Left"
+                    Orientation="Vertical"
+                  >
+                    <iLabel
+                      #lblBorderitemsTempRef
+                      Name="lblBorderitems"
+                      Padding="5,0,5,0"
+                      Foreground="Black"
+                      FontWeight="Bold"
+                      Margin="2,10,2,0"
+                      Visibility="Visible"
+                      [Text]="DataContext.PrescriptionType"
+                    ></iLabel>
+                  </StackPanel>
+                </div>
+              </kendo-gridlayout-item> -->
+
+              <kendo-gridlayout-item [row]="1" [col]="1">
+                <div containerStyle *ngIf="DataContext.FormViewerDetails.TechvalidateCADetails.IsVisibleHWIndicator == 0 ? true : false">
+                  <iButton
+                    #btnHeightweightPopUpTempRef
+                    Name="btnHeightweightPopUp"
+                   [Text]="DataContext.FormViewerDetails.TechvalidateCADetails.HeightWeightIndText"
+                    Cursor="Arrow"
+                    Foreground="Brown"
+                    FontWeight="Bold"
+                    Margin="600,0,0,0"
+                    DisabledImageSource="./assets/images/idissentinfonor16_A.png"
+                    ActiveImageSource="./assets/images/idissentinfonor16_A.png"
+                    ImageSource="./assets/images/idissentinfonor16_A.png"
+                    [(Visibility)]="DataContext.FormViewerDetails.TechvalidateCADetails.IsVisibleHWIndicator"
+                  >
+                  </iButton>
+                </div>
+              </kendo-gridlayout-item>
+              <kendo-gridlayout-item [row]="2" [col]="1">
+                <kendo-grid
+                  class="gridTechValidateCA"
+                  [class]="maxGridHeight ?'medtechvalidateCA' : 'medtechvalidateCA1'"
+                  #grdTechValItemTempRef
+                  [GridProperties]="grdTechValItem"
+                  [rowClass]="rowCallback"
+                  [rowHeight]="20"
+                  scrollable="virtual"
+                  Margin="5, 5, 5, 5"
+                  VerticalAlignment="Stretch"
+                  [skip]="skip"
+                  [pageSize]="pageSize"
+                  kendoGridSelectBy
+                  [(selectedKeys)]="grdTechValItem.selectedRowsIndex"
+                  [selectable]="{ checkboxOnly: false, mode: 'single' }"
+                  [data]="gridView"
+                  (selectionChange)="grdTechValItem.selectionChange($event)"
+                  (detailExpand)="grdTechValItem.RowIsExpandedChanged($event)"
+                  (detailCollapse)="grdTechValItem.RowIsExpandedChanged($event)"
+                  [kendoGridExpandDetailsBy]="grdTechValItem.expandDetailsBy"
+                  [(expandedDetailKeys)]="grdTechValItem.expandedDetailKeys"
+                  (keyup)="grdTechValItem.GridSelectionKeyUp($event)"
+                  (keydown)="grdTechValItem.GridSelectionKeyDown($event)"
+                  (pageChange)="VirtualRowChange($event)"
+                  (contentScroll)="scrollEvent($event)"
+                  >
+                  <!-- (cellClick)="grdTechValItem.cellClick($event)" -->
+                  <!-- [isDetailExpanded]="expandChildGrid" -->
+                  <ng-template kendoGridNoRecordsTemplate>{{TechValidate.ResolveGridNoRecordsText}}</ng-template>
+
+                  <!-- <kendo-grid-column
+                    class="HorizontalTextAlignCenter" 
+                    title="" 
+                    field="rowindicator"
+                    UniqueName="rowindicator"
+                    [width]="30"
+                  >
+                    <ng-template kendoGridCellTemplate let-rowIndex="rowIndex" let-dataItem>
+                      <Image
+                        *ngIf="grdTechValItem.selectedRowsIndex.length > 0 && !dataItem.IsGroupHeader ? grdTechValItem.selectedRowsIndex == rowIndex : false" 
+                        Source="./assets/images/iarrownor5x10.png"
+                      ></Image>
+                    </ng-template>
+                  </kendo-grid-column> -->
+
+                  <kendo-grid-column
+                    [style]="{'justify-content': 'center'}"
+                    UniqueName="ConflictIcon"
+                    [GridColumnProperties]="grdTechValItem"
+                    [width]="40"
+                    TextWrapping="Wrap"
+                    [filterable]="false"
+                    [editable]="false"
+                    class="NoPaddingTD"
+                    >
+                    <ng-template kendoGridHeaderTemplate>
+                      <ControlTemplate>
+                        <GridBorder
+                          #ControlTemplateBordrerStyle
+                          Padding="0"
+                          Margin="0"
+                          BorderThickness="0,0,1,1"
+                          BorderBrush="#7BB0AF"
+                          columnName="ConflictIcon"
+                        >
+                          <Image
+                          class="center-alignment"
+                            Source="./assets/images/istatusdetailsnor16.png"
+                            Stretch="None"
+                            HorizontalAlignment="Center"
+                            Tooltip="Alert/Status details"
+                          >
+                          </Image>
+                        </GridBorder>
+                      </ControlTemplate>
+                    </ng-template>
+
+                    <ng-template
+                      kendoGridCellTemplate
+                      let-dataItem
+                      let-rowIndex="rowIndex"
+                      let-columnIndex="columnIndex"
+                    >
+                      <DataTemplate
+                        #grdTechValItemDTTempRef
+                        [dataItem]="dataItem"
+                        [index]="rowIndex"
+                        [colindex]="columnIndex"
+                        (RowLoaded)="grdTechValItemRowLoaded($event)"
+                        [gridHelper]="grdTechValItem"
+                        class="fullHeightTD AlignCenter"
+                        (click)="SelectRow(rowIndex, dataItem, true)"
+                      >
+                        <ContentPresenter [Content]="dataItem | InfoIconKey:'':'TechCA'" ToolTip="Alert/Status details"></ContentPresenter>
+                      </DataTemplate>
+                    </ng-template>
+                  </kendo-grid-column>
+
+                  <kendo-grid-column
+                    [style]="{'justify-content': 'center'}"
+                    UniqueName="ViewDetails"
+                    [GridColumnProperties]="grdTechValItem"
+                    HeaderTextAlignment="Center"
+                    [width]="40"
+                    [filterable]="false"
+                    [editable]="false"
+                    class="NoPaddingTD"
+                  >
+                    <ng-template kendoGridHeaderTemplate>
+                      <ControlTemplate>
+                        <GridBorder
+                          #ControlTemplateBordrerStyle
+                          Padding="0"
+                          Margin="0"
+                          BorderThickness="0,0,1,1"
+                          BorderBrush="#7BB0AF"
+                          columnName="ViewDetails"
+                        >
+                          <Image
+                            class="center-alignment"
+                            Source="./assets/images/ipatientmedicationhot16.png"
+                            Stretch="None"
+                            HorizontalAlignment="Center"
+                            Tooltip="Select to view details"
+                          >
+                          </Image>
+                        </GridBorder>
+                      </ControlTemplate>
+                    </ng-template>
+
+                    <ng-template
+                      kendoGridCellTemplate
+                      let-dataItem
+                      let-rowIndex="rowIndex"
+                      let-columnIndex="columnIndex"
+                    >
+                      <div (click)="SelectRow(rowIndex, dataItem, true); CustomSupplyInstructionClick(dataItem, rowIndex, columnIndex, grdTechValItem, $event, true)" class="fullHeightTD AlignCenter">
+                        <DataTemplate
+                          #grdTechValItemDTTempRef
+                          [dataItem]="dataItem"
+                          [index]="rowIndex"
+                          [colindex]="columnIndex"
+                          [gridHelper]="grdTechValItem"
+                        >
+                          <kendo-gridlayout [cols]="[{width: 'auto'}]" [rows]="[{height: 'auto'}]">
+                            <kendo-gridlayout-item [row]="1" [col]="1">
+                              <Image
+                                class="center-alignment"
+                                Source="./assets/images/ipatientmedicationhot16.png"
+                                Cursor="Hand"
+                                Stretch="None"
+                                ToolTip="Select to view details"
+                                [(Visibility)]="dataItem.IsFormViewerIconVisible"
+                              ></Image>
+                            </kendo-gridlayout-item>
+                          </kendo-gridlayout>
+                        </DataTemplate>
+                      </div>
+                    </ng-template>
+                  </kendo-grid-column>
+
+                  <kendo-grid-column
+                    UniqueName="PrescriptionItem" 
+                    [title]="TechValidate.PrescriptionItem_Header"
+                    TextWrapping="Wrap" 
+                    [filterable]="false"
+                    [editable]="false"
+                    [width]="350"
+                    [resizable]="false"
+                    class="NoPaddingTD"
+                  >
+                  <ng-template
+                   kendoGridHeaderTemplate let-column>  
+                   <span 
+                    [title]="TechValidate.PrescriptionItem_Header">
+                    {{ column.title }}
+                   </span>                
+                  </ng-template>
+
+                    <ng-template
+                      kendoGridCellTemplate
+                      let-dataItem
+                      let-rowIndex="rowIndex"
+                      let-columnIndex="columnIndex"
+                    >
+                      <div (click)="SelectRow(rowIndex, dataItem, true)" class="fullHeightTD">
+                        <DataTemplate
+                          #grdTechValItemDTTempRef
+                          [dataItem]="dataItem"
+                          [index]="rowIndex"
+                          [colindex]="columnIndex"
+                          [gridHelper]="grdTechValItem"
+                        >
+                          <ContentPresenter [Content]="oTechValCAVM.MedLineDisplay | MedLineDisplayTVCA : '' : '220' : dataItem"></ContentPresenter>
+                        </DataTemplate>
+                      </div>
+                    </ng-template>
+                  </kendo-grid-column>
+
+                  <kendo-grid-column
+                    UniqueName="Otherinformation"
+                    [title]="TechValidate.Otherinformation_Header"
+                    [filterable]="false"
+                    [editable]="false"
+                    [GridColumnProperties]="grdTechValItem"
+                    [width]="200"
+                    IsHeaderWordWrap="True"
+                    [resizable]="false"
+                    class="NoPaddingTD"
+                  >
+                  <ng-template 
+                    kendoGridHeaderTemplate let-column>
+                   <span 
+                    [title]="TechValidate.Otherinformation_Header">
+                    {{ column.title }}
+                   </span> 
+                  </ng-template>
+
+                    <ng-template
+                      kendoGridCellTemplate
+                      let-dataItem
+                      let-rowIndex="rowIndex"
+                      let-columnIndex="columnIndex"
+                    >
+                      <div (click)="SelectRow(rowIndex, dataItem, true)" class="fullHeightTD">
+                        <DataTemplate
+                          #grdTechValItemDTTempRef
+                          [dataItem]="dataItem"
+                          [index]="rowIndex"
+                          [colindex]="columnIndex"
+                          [gridHelper]="grdTechValItem"
+                        >
+                        
+                            <ContentPresenter *ngIf="!dataItem.IsGroupHeader && dataItem.mode == 'new'" [Content]="oTechValCAVM.MedLineDisplay | MedOtherDisplayTVCA : '' : '75' : dataItem"></ContentPresenter>
+                            <ContentPresenter *ngIf="!dataItem.IsGroupHeader && dataItem.mode != 'new'" [Content]="dataItem.MedOtherDisplay"></ContentPresenter>
+                            <!-- <ContentPresenter [Content]="oTechValCAVM.MedLineDisplay | MedOtherDisplayTVCA : '' : '75' : dataItem"></ContentPresenter> -->
+
+                        </DataTemplate>
+                      </div>
+                    </ng-template>
+                  </kendo-grid-column>
+
+                  <!-- Not used -->
+                  <!-- <kendo-grid-column UniqueName="HiddenColumn" [GridColumnProperties]="grdTechValItem" [title]="TechValidate.HiddenColumn_Header" [filterable]="false" [hidden]="true" [editable]="false"></kendo-grid-column> -->
+
+                  <kendo-grid-column
+                    UniqueName="StartDTTMVWR"
+                    [GridColumnProperties]="grdTechValItem"
+                    [title]="TechValidate.StartDTTM_Header"
+                    [width]="100"
+                    [filterable]="false"
+                    [editable]="false"
+                    IsHeaderWordWrap="True"
+                    [resizable]="false"
+                  >
+                  <ng-template
+                   kendoGridHeaderTemplate let-column>  
+                    <span 
+                    [title]="TechValidate.StartDTTM_Header">
+                    {{ column.title }}
+                  </span>  
+                  </ng-template>
+
+                    <ng-template
+                      kendoGridCellTemplate
+                      let-dataItem
+                      let-rowIndex="rowIndex"
+                      let-columnIndex="columnIndex"
+                    >
+                      <DataTemplate
+                        #grdTechValItemDTTempRef
+                        [dataItem]="dataItem"
+                        [index]="rowIndex"
+                        [colindex]="columnIndex"
+                        [gridHelper]="grdTechValItem"
+                      >
+                        <kendo-gridlayout [cols]="[{width:'78px'}, {width:'0px'}, {width:'15px'}]" [rows]="[{height: 'auto'}]">
+                          <kendo-gridlayout-item [row]="1" [col]="1">
+                            <iLabel
+                              Name="lbStartDTTM"
+                              Mandatory="False"
+                              HorizontalAlignment="Stretch"
+                              Margin="0"
+                              IsWordwrap="True"
+                              VerticalAlignment="Center"
+                              [Text]="dataItem.FormViewerDetails.BasicDetails.StartDTTMText"
+                              [ToolTip]="dataItem.FormViewerDetails.BasicDetails.StartDTTMText"
+                            ></iLabel>
+                          </kendo-gridlayout-item>
+                          <kendo-gridlayout-item [row]="1" [col]="2">
+                            <Image
+                              Source="./assets/images/iOnadmissionNOR16.png"
+                              HorizontalAlignment="Right"
+                              VerticalAlignment="Top"
+                              Stretch="None"
+                              ToolTip="On admission - (This medication dose was being taken at home)"
+                              [(Visibility)]="dataItem.FormViewerDetails.BasicDetails.IsDispalyOnadmission"
+                            ></Image>
+                          </kendo-gridlayout-item>
+                        </kendo-gridlayout>
+                      </DataTemplate>
+                    </ng-template>
+                  </kendo-grid-column>
+
+                  <kendo-grid-column
+                    UniqueName="colInitiateSupplyRequest"
+                    [GridColumnProperties]="grdTechValItem"
+                    [reorderable]="false"
+                    field="SupplyreqDisplay"
+                    title="Supply status"
+                    [filterable]="false"
+                    [width]="120"
+                    TextWrapping="Wrap" 
+                    IsHeaderWordWrap="True"
+                  >
+                  <ng-template 
+                    kendoGridHeaderTemplate let-column>
+                    <span 
+                    [title]="column.title">
+                    {{ column.title }}
+                    </span> 
+                 </ng-template>
+
+                    <ng-template
+                      kendoGridCellTemplate
+                      let-dataItem
+                      let-rowIndex="rowIndex"
+                      let-columnIndex="columnIndex"
+                    >
+                      <DataTemplate 
+                        #grdTechValItemDTTempRef
+                        [dataItem]="dataItem"
+                        [index]="rowIndex"
+                        [colindex]="columnIndex"
+                        [gridHelper]="grdTechValItem"
+                      >
+                        <GridCellTemplate *ngIf="!dataItem.IsGroupHeader" [isEditable]="true" [columnNumber]="6" cell="cell6" [dataItem]="dataItem" [IsEnabled]="dataItem.EnableParentMCIItem" [AutoFocusOnlyControl]="true" [IsDisabled]="dataItem.IsDeactivate == 'Y' ? true : false" (emitEditableClick)="RowSelectionChanged($event)" [GridHelper]="grdTechValItem" [RowIndex]="rowIndex">
+                          <iLabel [Text]="dataItem.SupplyreqDisplay" [IsEnabled]="dataItem.EnableParentMCIItem" [ngClass]="{'DeactivatedDrug': dataItem.IsDeactivate == 'Y'}"></iLabel>
+                        </GridCellTemplate>
+                        <GridCellEditTemplate cell="cell6" [dataItem]="dataItem" *ngIf="dataItem['cell6']">
+                          <iComboBox
+                            #icombBoxSupplyReqTempRef
+                            HorizontalAlignment="Stretch"
+                            Name="icombBoxSupplyReq"
+                            VerticalAlignment="Center"
+                            [(ItemsSource)]="dataItem.iSSupplyrequest"
+                            [(SelectedValue)]="dataItem.SelectedSupplyreq"
+                            [(IsEnabled)]="dataItem.EnableParentMCIItem"
+                            Width="auto"
+                            IsDropDownOpen="False"
+                            ColumnCellIndex="cell6"
+                            [DataContext]="dataItem"
+                            [AutoFocus]="true"
+                          ></iComboBox
+                        ></GridCellEditTemplate>
+                      </DataTemplate>
+                    </ng-template>
+                  </kendo-grid-column>
+
+                  <kendo-grid-column
+                    UniqueName="Comments"
+                    [GridColumnProperties]="grdTechValItem"
+                    TextWrapping="Wrap" 
+                    [width]="300"
+                    field="Comments"
+                    [title]="TechValidate.SupplyDispChild_Header"
+                    MaxWidth="340"
+                    [editable]="false"
+                    [resizable]="false"
+                    IsHeaderWordWrap="False"
+                  >
+                  <ng-template 
+                    kendoGridHeaderTemplate let-column>                               
+                    <span 
+                    [title]="TechValidate.SupplyDispChild_Header">
+                    {{ column.title }}
+                  </span>  
+                  </ng-template>
+
+                    <ng-template
+                      kendoGridCellTemplate
+                      let-dataItem
+                      let-rowIndex="rowIndex"
+                      let-columnIndex="columnIndex"
+                    >
+                      <div (click)="CustomSupplyInstructionClick(dataItem, rowIndex, columnIndex, grdTechValItem, $event, true)">
+                        <DataTemplate
+                          #grdTechValItemDTTempRef
+                          [dataItem]="dataItem"
+                          [index]="rowIndex"
+                          [colindex]="columnIndex"
+                          [gridHelper]="grdTechValItem"
+                        >
+                          <iLabel
+                            class="SupplyInstrLbl add-supply-instruction-button"
+                            *ngIf="!dataItem.IsGroupHeader"
+                            Name="SupplyInstr"
+                            [IsEnabled]="dataItem.EnableParentMCIItem"
+                            [ngClass]="{'DeactivatedDrug': dataItem.IsDeactivate == 'Y'}"
+                            [Text]="dataItem.SupDisText"
+                            [ToolTip]="dataItem.supToolTipDisText | ToolTipDisplayNew">
+                          </iLabel>
+                        </DataTemplate>
+                      </div>
+                    </ng-template>
+                  </kendo-grid-column>
+
+                  <kendo-grid-column
+                    UniqueName="SupplyComments"
+                    class="SupplyComments"
+                    [GridColumnProperties]="grdTechValItem"
+                    [title]="TechValidate.SuppCom_Header"
+                    [reorderable]="false"
+                    field="Supplycomments"
+                    [width]="200"
+                    TextWrapping="Wrap"
+                    IsHeaderWordWrap="True"
+                    [sortable]="true"
+                    [filterable]="false"
+                    [ToolTip]="DataContext.SuppCom_Header"
+                  >
+
+                  <ng-template 
+                    kendoGridHeaderTemplate let-column> 
+                    <span
+                     [title]="TechValidate.SuppCom_Header">
+                     {{ column.title }}
+                    </span>  
+                  </ng-template>
+
+                    <ng-template
+                      kendoGridCellTemplate
+                      let-dataItem
+                      let-rowIndex="rowIndex"
+                      let-columnIndex="columnIndex"
+                    >
+                      <DataTemplate
+                        #grdTechValItemDTTempRef
+                        [dataItem]="dataItem"
+                        [index]="rowIndex"
+                        [colindex]="columnIndex"
+                        [gridHelper]="grdTechValItem"
+                      >
+                      <GridCellTemplate
+                        *ngIf="!dataItem.IsGroupHeader"
+                        [isEditable]="true"
+                        [columnNumber]="8"
+                        cell="cell8"
+                        [dataItem]="dataItem"
+                        [IsEnabled]="dataItem.EnableParentMCIItem"
+                        [EditableControlRef]="txtSupComTempRef1"
+                        [IsDisabled]="dataItem.IsDeactivate == 'Y' ? true : false"
+						(emitEditableClick)="RowSelectionChanged($event)"
+                        [GridHelper]="grdTechValItem" 
+                        [RowIndex]="rowIndex"
+                        [IsTechValidate]="true"
+                        >
+                          <!-- <span *ngIf="!dataItem.FormViewerDetails.BasicDetails.Supplycomments" style="visibility: hidden;">this is sample</span> -->
+                          <iLabel [(Text)]="dataItem.FormViewerDetails.BasicDetails.Supplycomments" [IsEnabled]="dataItem.EnableParentMCIItem" [ToolTip]="dataItem.FormViewerDetails.BasicDetails.Supplycomments" [ngClass]="{'DeactivatedDrug': dataItem.IsDeactivate == 'Y'}"></iLabel>
+                        </GridCellTemplate>
+                        <GridCellEditTemplate [cell]="'cell8'" [dataItem]="dataItem" class="Alignleft">
+                          <iTextBox 
+                            #txtSupComTempRef1
+                            Name="txtSupCom"  
+                            Width="200" 
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center" 
+                            MaxLength="255" 
+                            Minimum="0" 
+                            ColumnCellIndex="cell8"
+                            [DataContext]="dataItem" 
+                            Width="200"
+                            [(Text)]="dataItem.FormViewerDetails.BasicDetails.Supplycomments"
+                            [ToolTip]="dataItem.FormViewerDetails.BasicDetails.Supplycomments"
+                            [isGlobalEnabled]="IsEnabled" 
+                            [(IsEnabled)]="dataItem.EnableParentMCIItem"   
+                            IsDelayBlurForGrid="True"                        
+                          >
+                          </iTextBox>
+                        </GridCellEditTemplate>
+                      </DataTemplate>
+                    </ng-template>
+                  </kendo-grid-column>
+
+                  <kendo-grid-column
+                    UniqueName="SupplyByDate"
+                    [GridColumnProperties]="grdTechValItem"
+                    [title]="TechValidate.SupplyBy"
+                    [filterable]="false"
+                    [editable]="false"
+                    [resizable]="false"
+                    [width]="150"
+                    IsHeaderWordWrap="True"
+                    class="NoPaddingTD"
+                  >
+                  <ng-template
+                   kendoGridHeaderTemplate let-column> 
+                    <span
+                     [title]="TechValidate.SupplyBy">
+                     {{ column.title }}
+                    </span>                    
+                  </ng-template>
+
+                    <ng-template
+                      kendoGridCellTemplate
+                      let-dataItem
+                      let-rowIndex="rowIndex"
+                      let-columnIndex="columnIndex"
+                    >
+                      <div (click)="SelectRow(rowIndex, dataItem, true)" class="fullHeightTD AlignCenter">
+                        <DataTemplate
+                          #grdTechValItemDTTempRef
+                          [dataItem]="dataItem"
+                          [index]="rowIndex"
+                          [colindex]="columnIndex"
+                          [gridHelper]="grdTechValItem"
+                        >
+                          <kendo-gridlayout [cols]="[{width:'15px'}, {width:'85px'}]">
+                            <kendo-gridlayout-item [col]="1">
+                              <Image
+                                Name="WardStockIcon"
+                                Source="./assets/images/Wardstockitem16.PNG"
+                                ToolTip="Item is stocked at this location"
+                                [(Visibility)]="dataItem.FormViewerDetails.BasicDetails.IsWardStockIconVisible"
+                                [ngClass]="{'DeactivatedDrug': dataItem.IsDeactivate == 'Y'}"
+                                Margin="0"
+                              ></Image>
+                            </kendo-gridlayout-item>
+                            <kendo-gridlayout-item [col]="2">
+                            <!--  Margin="0" -->
+                              <iLabel
+                                Name="lbSupplyBy"
+                                Mandatory="False"
+                                HorizontalAlignment="Stretch"
+                              class="MarginClass"
+                                IsWordwrap="True"
+                                VerticalAlignment="Center"
+                                [ngClass]="{'DeactivatedDrug': dataItem.IsDeactivate == 'Y'}"
+                                [Text]="dataItem.FormViewerDetails.BasicDetails.TechSupplyBy"
+                                [ToolTip]="dataItem.FormViewerDetails.BasicDetails.TechSupplyBy"
+                              ></iLabel>
+                            </kendo-gridlayout-item>
+                          </kendo-gridlayout>
+                        </DataTemplate>
+                      </div>
+                    </ng-template>
+                  </kendo-grid-column>
+
+                  <kendo-grid-column
+                    UniqueName="Nextsupply"
+                    [GridColumnProperties]="grdTechValItem"
+                    [title]="TechValidate.NextSupp_Header"
+                    [reorderable]="false"
+                    [width]="150"
+                    TextWrapping="Wrap" 
+                    IsHeaderWordWrap="True" 
+                    IsWordWrap="True"
+                    [hidden]="false"
+                  >
+                  <ng-template
+                   kendoGridHeaderTemplate let-column>  
+                    <span 
+                    [title]="TechValidate.NextSupp_Header">
+                    {{ column.title }}
+                  </span>                    
+                  </ng-template>
+                  
+                    <ng-template
+                      kendoGridCellTemplate
+                      let-dataItem
+                      let-rowIndex="rowIndex"
+                      let-columnIndex="columnIndex"
+                    >
+                      <!-- <CellStyle>
+                      <ControlTemplate TargetType="telerikGridView:GridViewCell">
+                      <Border
+                        Padding="5,3,5,3"
+                        BorderThickness="0,0,1,1"
+                        BorderBrush="#7EA9D4"
+                      > -->
+                          <DataTemplate
+                            #grdTechValItemDTTempRef
+                            [dataItem]="dataItem"
+                            [index]="rowIndex"
+                            [colindex]="columnIndex"
+                            [gridHelper]="grdTechValItem"
+                          >
+                            <iDateTimePicker
+                              *ngIf="!dataItem.IsGroupHeader"
+                              HorizontalAlignment="Left"
+                              Width="110"
+                              DatePickerMode="DATEPICKER"
+                              Name="dtpNextSupplyDate"
+                              Height="21"
+                              Margin="0,0,0,0"
+                              DateTimeFormat="Custom"
+                              CustomFormat="dd-MMM-yyyy"
+                              EnableCultureSupport="False"
+                              [(SelectedDateTime)]="dataItem.FormViewerDetails.BasicDetails.NextSupplyDate"
+                              [IsEnabled]="dataItem.EnableParentMCIItem"
+                              [OnBlurChange]="dtpDate_OnDateChange_Func"
+                              [OnDateValueChanged]="dtpDate_OnDateValueChgParent_Func"
+                              [ToolTip]="TechValidate.NextSupply_ToolTip"
+                              [DataContext]="dataItem"
+                              [ngClass]="{'DeactivatedDrug': dataItem.IsDeactivate == 'Y'}"
+                            ></iDateTimePicker>
+                            </DataTemplate>
+                          <!-- </Border>
+                        </ControlTemplate>
+                      </CellStyle> -->
+                    </ng-template>
+                  </kendo-grid-column>
+
+                  <ng-template
+                    [kendoGridDetailTemplateShowIf]="displayHierarchicalBtn"
+                    kendoGridDetailTemplate
+                    let-dataItemChild="dataItem"
+                    let-parentRowIndex="rowIndex"
+                  >
+                  <!-- kendoGridSelectBy
+                  
+                   -->
+                  <!-- (cellClick)="dataItemChild.ChildGridExtension.cellClick($event)" -->
+                    <kendo-grid
+                      #grdTecValItmChldTempRef
+                      [GridProperties]="dataItemChild.ChildGridExtension"
+                      [ChildCollectionProp]="'PresTechValidatedItemsChild'"
+                      [ParentRow]="dataItemChild"
+                      kendoGridSelectBy
+                      [(selectedKeys)]="dataItemChild.ChildGridExtension.selectedRowsIndex"
+                      [selectable]="{ checkboxOnly: false, mode: 'single' }"
+                      [data]="dataItemChild?.PresTechValidatedItemsChild?.array"
+                      class="vertical-class-stretch grdTecValItmChld"
+                      (keyup)="dataItemChild.ChildGridExtension.GridSelectionKeyUp($event, dataItemChild?.PresTechValidatedItemsChild, true)"
+                      (keydown)="dataItemChild.ChildGridExtension.GridSelectionKeyDown($event, dataItemChild?.PresTechValidatedItemsChild, true)"
+                      >
+                      <!-- (selectionChange)="dataItemChild.ChildGridExtension.selectionChange($event)" -->
+                      <!-- (click)="ClickEventHandler($event, dataItemChild.ChildGridExtension, dataItemChild?.PresTechValidatedItemsChild?.array.length)" -->
+
+                      <ng-template kendoGridNoRecordsTemplate>{{TechValidate.ResolveGridNoRecordsText}}</ng-template>
+
+                      <!-- *ngIf="dataItemChild.ChildGridExtension.RowIndicatorVisibility == 0 ? true : false" -->
+                      <kendo-grid-column 
+                        class="HorizontalTextAlignCenter NoPaddingTD"
+                        title="" 
+                        field="rowindicator"
+                        UniqueName="rowindicator" 
+                        [width]="30"
+                      >
+                        <ng-template kendoGridCellTemplate let-rowIndex="rowIndex" let-dataItem>
+                          <div (click)="SelectRow(rowIndex, dataItemChild, false)" class="fullHeightTD AlignCenter">
+                          <Image style="padding-top: 1px;"
+                            *ngIf="dataItemChild.ChildGridExtension.selectedRowsIndex.length > 0 && !dataItem.IsGroupHeader ? dataItemChild.ChildGridExtension.selectedRowsIndex == rowIndex : false" 
+                            Source="./assets/images/iarrownor5x10.png"
+                          ></Image>
+                        </div>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column
+                        title="Component name"
+                        UniqueName="PrescriptionItem1"
+                        [filterable]="false"
+                        [editable]="false"
+                        [width]="291"
+                        [resizable]="false"
+                        class="NoPaddingTD"
+                      >
+                        <ng-template
+                          kendoGridCellTemplate
+                          let-dataItem
+                          let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex"
+                        >
+                        <div (click)="SelectRow(rowIndex, dataItemChild, false)" class="fullHeightTD">
+                          <DataTemplate
+                            #grdTecValItmChldDTTempRef
+                            [dataItem]="dataItem"
+                            [index]="rowIndex"
+                            [colindex]="columnIndex"
+                            (RowLoaded)="grdTecValItmChldRowLoaded($event, dataItemChild)"
+                            [gridHelper]="dataItemChild.ChildGridExtension"
+                            [ParentRowIndex]="parentRowIndex"
+                          >
+                            <ContentPresenter [Content]="dataItem | MCItemDisplay:'':'IdentifyingName'"></ContentPresenter>
+                          </DataTemplate>
+                        </div>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column
+                        [title]="TechValidate.Otherinformation_Header"
+                        UniqueName="Otherinformation"
+                        [filterable]="false"
+                        [editable]="false"
+                        [resizable]="false"
+                        [width]="163"
+                        class="NoPaddingTD"
+                      >
+                        <ng-template
+                          kendoGridCellTemplate
+                          let-dataItem
+                          let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex"
+                        >
+                        <div (click)="SelectRow(rowIndex, dataItemChild, false)" class="fullHeightTD">
+                          <DataTemplate
+                            #grdTecValItmChldDTTempRef
+                            [dataItem]="dataItem"
+                            [index]="rowIndex"
+                            [colindex]="columnIndex"
+                            [gridHelper]="dataItemChild.ChildGridExtension"
+                            [ParentRowIndex]="parentRowIndex"
+                          >
+                          <ContentPresenter *ngIf="!dataItem.IsGroupHeader && dataItem.mode == 'new'" [Content]="oTechValCAVM.MedLineDisplay | MedMCIOtherDisplayChildTVCA : '' : '75' : dataItem"></ContentPresenter>
+                          <ContentPresenter *ngIf="!dataItem.IsGroupHeader && dataItem.mode != 'new'" [Content]="dataItem.MedOtherDisplay"></ContentPresenter>
+                          </DataTemplate>
+                        </div>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <!-- Not in use -->
+                      <!-- <kendo-grid-column [title]="TechValidate.HiddenColumn_Header" field="HiddenColumn" [filterable]="false" [hidden]="true" [editable]="false" ></kendo-grid-column> -->
+
+                      <kendo-grid-column
+                        [editable]="false"
+                        UniqueName="colInitiateSupplyRequest"
+                        [width]="25"
+                        [hidden]="true"
+                      >
+                        <ng-template kendoGridHeaderTemplate>
+                          <ControlTemplate>
+                            <Border
+                              Padding="0"
+                              Margin="0"
+                              BorderThickness="0,0,1,1"
+                              BorderBrush="#7BB0AF"
+                            >
+                              <Image Source="./assets/images/Supply Flag_NOR16.png" Stretch="None"></Image>
+                            </Border>
+                          </ControlTemplate>
+                        </ng-template>
+                        <ng-template 
+                          kendoGridCellTemplate
+                          let-dataItem
+                          let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex">
+                          <!-- <CellStyle>
+                            <ControlTemplate
+                              TargetType="telerikGridView:GridViewCell"
+                            >
+                              <Border
+                                Padding="5,0,5,0"
+                                BorderThickness="0,0,1,1"
+                                BorderBrush="#7EA9D4"
+                              > -->
+                              <DataTemplate
+                                #grdTecValItmChldDTTempRef
+                                [dataItem]="dataItem"
+                                [index]="rowIndex"
+                                [colindex]="columnIndex"
+                                [gridHelper]="dataItemChild.ChildGridExtension"
+                                [ParentRowIndex]="parentRowIndex"
+                              >
+                                <iCheckBox
+                                  #ichkBoxSupplyReqTempRef
+                                  Name="ichkBoxSupplyReq"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  ToolTip="Select to supply item from pharmacy"
+                                  [IsChecked]="dataItem.IsSupplyRequested"
+                                  [IsEnabled]="dataItem.IsSupplyRequestedEnable"
+                                >
+                                </iCheckBox>
+                              </DataTemplate>
+                              <!-- </Border>
+                            </ControlTemplate>
+                          </CellStyle> -->
+                          </ng-template
+                        >
+                      </kendo-grid-column>
+
+                      <kendo-grid-column
+                        UniqueName="colInitiateSupplyRequest"
+                        [width]="110"
+                        title="Supply status"
+                        [filterable]="false"
+                        [reorderable]="false"
+                        [hidden]="false"
+                      >
+                        <ng-template 
+                          kendoGridCellTemplate 
+                          let-dataItem 
+                          kendoGridCellTemplate
+                          let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex"
+                        >
+                          <DataTemplate
+                            #grdTecValItmChldDTTempRef
+                            [dataItem]="dataItem"
+                            [index]="rowIndex"
+                            [colindex]="columnIndex"
+                            [gridHelper]="dataItemChild.ChildGridExtension"
+                            [ParentRowIndex]="parentRowIndex"
+                          >
+                            <GridCellTemplate [RowIndex]="rowIndex" [GridHelper]="dataItemChild.ChildGridExtension" [isEditable]="true" [columnNumber]="4" cell="cell4" [dataItem]="dataItem" [IsEnabled]="dataItem.EnableChildMCIComp" [AutoFocusOnlyControl]="true" (emitEditableClick)="RowSelectionChanged($event, dataItemChild)">
+                              <iLabel [Text]="dataItem.SupplyreqDisplay" [IsEnabled]="dataItem.EnableChildMCIComp"></iLabel>
+                            </GridCellTemplate>
+                            <GridCellEditTemplate [cell]="'cell4'" [dataItem]="dataItem" *ngIf="dataItem['cell4']">
+                              <iComboBox
+                                #icombBoxSupplyReqTempRef1
+                                Name="icombBoxSupplyReq"
+                                Width="auto"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                IsDropDownOpen="false"
+                                [(IsEnabled)]="dataItem.EnableChildMCIComp"
+                                [(ItemsSource)]="dataItem.iSSupplyrequest"
+                                [(SelectedValue)]="dataItem.SelectedSupplyreq"
+                                ColumnCellIndex="cell4"
+                                [DataContext]="dataItem"
+                                [AutoFocus]="true"
+                              ></iComboBox>
+                            </GridCellEditTemplate> </DataTemplate
+                        ></ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column
+                        UniqueName="Comments"
+                        [title]="TechValidate.SupplyDispChild_Header"
+                        [width]="260"
+                        [editable]="false"
+                        [resizable]="false"
+                      >
+                        <ng-template
+                          kendoGridCellTemplate
+                          let-dataItem
+                          let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex"
+                        >
+                        <div (click)="CustomSupplyInstructionClick(dataItem, rowIndex, columnIndex, dataItemChild.ChildGridExtension, $event, false)">
+                          <DataTemplate
+                            #grdTecValItmChldDTTempRef
+                            [dataItem]="dataItem"
+                            [index]="rowIndex"
+                            [colindex]="columnIndex"
+                            [gridHelper]="dataItemChild.ChildGridExtension"
+                            [ParentRowIndex]="parentRowIndex"
+                          >
+                            <iLabel
+                              class="SupplyInstrLbl add-supply-instruction-button"
+                              *ngIf="!dataItem.IsGroupHeader"
+                              Name="SupplyInstr"
+                              [(IsEnabled)]="dataItem.EnableChildMCIComp"
+                              [Text]="dataItem.SupDisText"
+                              [ToolTip]="dataItem.supToolTipDisText | ToolTipDisplayNew">
+                            </iLabel>
+                          </DataTemplate>
+                        </div>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      
+                      <kendo-grid-column
+                        [width]="188"
+                        [title]="TechValidate.SuppCom_Header"
+                        [filterable]="false"
+                        [reorderable]="false"
+                        [sortable]="true"
+                        [ToolTip]="TechValidate.SuppCom_Header"
+                        UniqueName="SupplyComments"
+                        class="SupplyCommentsChild"
+                      >
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                          <DataTemplate
+                            #grdTecValItmChldDTTempRef
+                            [dataItem]="dataItem"
+                            [index]="rowIndex"
+                            [colindex]="columnIndex"
+                            [gridHelper]="dataItemChild.ChildGridExtension"
+                            [ParentRowIndex]="parentRowIndex"
+                          >
+                          <GridCellTemplate
+                            *ngIf="!dataItem.IsGroupHeader"
+                            [isEditable]="true"
+                            [columnNumber]="5"
+                            cell="cell5"
+                            [dataItem]="dataItem"
+                            [IsEnabled]="dataItem.EnableChildMCIComp"
+                            [EditableControlRef]="txtSupComTempRef"
+                            [IsTechValidate]="true"
+                            [RowIndex]="rowIndex"
+                            [GridHelper]="dataItemChild.ChildGridExtension"
+                            (emitEditableClick)="RowSelectionChanged($event, dataItemChild)"
+                          >
+                              <!-- <span *ngIf="!dataItem.FormViewerDetails.BasicDetails.Supplycomments" style="visibility: hidden;">this is sample</span> -->
+                              <iLabel [Text]="dataItem.FormViewerDetails.BasicDetails.Supplycomments" [IsEnabled]="dataItem.EnableChildMCIComp"></iLabel>
+                            </GridCellTemplate>
+                            <GridCellEditTemplate
+                              [cell]="'cell5'"
+                              [dataItem]="dataItem"
+                            >
+                              <iTextBox
+                                #txtSupComTempRef
+                                Name="txtSupCom"
+                                Width="200"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                [IsEnabled]="dataItem.EnableChildMCIComp"
+                                MaxLength="220"
+                                Minimum="0"
+                                [(Text)]="dataItem.FormViewerDetails.BasicDetails.Supplycomments"
+                                [ToolTip]="dataItem.SuppCom_Header"
+                                ColumnCellIndex="cell5"
+                                [DataContext]="dataItem"
+                                IsDelayBlurForGrid="True"
+                                ></iTextBox>
+                            </GridCellEditTemplate> </DataTemplate
+                        ></ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column
+                        [title]="TechValidate.SupplyBy"
+                        UniqueName="SupplyByDateChild"
+                        [filterable]="false"
+                        [editable]="false"
+                        [resizable]="false"
+                        [width]="135"
+                        class="NoPaddingTD"
+                      >
+                        <ng-template
+                          kendoGridCellTemplate
+                          let-dataItem
+                          let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex"
+                        >
+                        <div (click)="SelectRow(rowIndex, dataItemChild, false)" class="fullHeightTD">
+                          <DataTemplate
+                            #grdTecValItmChldDTTempRef
+                            [dataItem]="dataItem"
+                            [index]="rowIndex"
+                            [colindex]="columnIndex"
+                            [gridHelper]="dataItemChild.ChildGridExtension"
+                            [ParentRowIndex]="parentRowIndex"
+                          >
+                            <ContentPresenter [Content]="dataItem|MCItemDisplay:'':'LatestSupply'"></ContentPresenter>
+                          </DataTemplate>
+                        </div>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column
+                        UniqueName="EditedOption"
+                        title="to check edited item"
+                        [width]="150"
+                        [editable]="false"
+                        [hidden]="true"
+                        [resizable]="false"
+                      >
+                        <ng-template
+                          kendoGridCellTemplate
+                          let-dataItem
+                          let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex"
+                        >
+                          <DataTemplate
+                            #grdTecValItmChldDTTempRef
+                            [dataItem]="dataItem"
+                            [index]="rowIndex"
+                            [colindex]="columnIndex"
+                            [gridHelper]="dataItemChild.ChildGridExtension"
+                            [ParentRowIndex]="parentRowIndex"
+                          >
+                            <iLabel
+                              Name="lbleditedoption"
+                              Padding="5,0,5,0"
+                              Foreground="Black"
+                              FontWeight="Bold"
+                              Margin="2,0,2,0"
+                              Visibility="Collapsed"
+                              [Text]="dataItem.EditedGridID"
+                            ></iLabel>
+                          </DataTemplate>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column
+                        UniqueName="PreviousComments"
+                        title="to check edited item"
+                        [width]="150"
+                        [editable]="false"
+                        [hidden]="true"
+                        [resizable]="false"
+                      >
+                        <ng-template
+                          kendoGridCellTemplate
+                          let-dataItem
+                          let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex"
+                        >
+                          <DataTemplate
+                            #grdTecValItmChldDTTempRef
+                            [dataItem]="dataItem"
+                            [index]="rowIndex"
+                            [colindex]="columnIndex"
+                            [gridHelper]="dataItemChild.ChildGridExtension"
+                            [ParentRowIndex]="parentRowIndex"
+                          >
+                            <iLabel
+                              Name="lblPreviousComments"
+                              Padding="5,0,5,0"
+                              Foreground="Black"
+                              FontWeight="Bold"
+                              Margin="2,0,2,0"
+                              Visibility="Collapsed"
+                              [Text]="dataItem.FormViewerDetails.BasicDetails.PreviousComments">
+                            </iLabel>
+                          </DataTemplate>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column
+                        [title]="TechValidate.NextSupp_Header"
+                        [reorderable]="false"
+                        UniqueName="Nextsupplychild"
+                        [width]="120"
+                        [hidden]="false"
+                      >
+                        <ng-template
+                          kendoGridCellTemplate
+                          let-dataItem
+                          let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex"
+                        >
+                          <!-- <CellStyle #CellTemplateStyle>
+                            <ControlTemplate
+                              TargetType="telerikGridView:GridViewCell"
+                            >
+                              <Border
+                                Padding="5,3,5,3"
+                                BorderThickness="0,0,1,1"
+                                BorderBrush="#7EA9D4"
+                              > -->
+                              <DataTemplate
+                                #grdTecValItmChldDTTempRef
+                                [dataItem]="dataItem"
+                                [index]="rowIndex"
+                                [colindex]="columnIndex"
+                                [gridHelper]="dataItemChild.ChildGridExtension"
+                                [ParentRowIndex]="parentRowIndex"
+                              >
+                                <iDateTimePicker
+                                  HorizontalAlignment="Left"
+                                  Width="110"
+                                  DatePickerMode="DATEPICKER"
+                                  Name="dtpChildNextSupplyDate"
+                                  Height="21"
+                                  Margin="0,0,0,0"
+                                  DateTimeFormat="Custom"
+                                  CustomFormat="dd-MMM-yyyy"
+                                  EnableCultureSupport="False"
+                                  [SelectedDateTime]="dataItem.FormViewerDetails.BasicDetails.NextSupplyDate"
+                                  [IsEnabled]="dataItem.EnableChildMCIComp"
+                                  (OnDateChange)="dtpDate_OnDateChange_Func"
+                                  (OnDateValueChanged)="dtpDate_OnDateValueChgChild_Func"
+                                  [ToolTip]="TechValidate.NextSupply_ToolTip"
+                                ></iDateTimePicker>
+                              </DataTemplate>
+                              <!-- </Border> </ControlTemplate
+                          ></CellStyle> -->
+                        </ng-template>
+                      </kendo-grid-column>
+
+                      <kendo-grid-column
+                        UniqueName="PreviousNextSupplyDate"
+                        field="PreviousNextSupplyDate"
+                        title="to check edited item"
+                        [width]="150"
+                        [editable]="false"
+                        [hidden]="true"
+                        [resizable]="false"
+                      >
+                        <ng-template
+                          kendoGridCellTemplate
+                          let-dataItem
+                          let-rowIndex="rowIndex"
+                          let-columnIndex="columnIndex"
+                        >
+                          <DataTemplate
+                            #grdTecValItmChldDTTempRef
+                            [dataItem]="dataItem"
+                            [index]="rowIndex"
+                            [colindex]="columnIndex"
+                            [gridHelper]="dataItemChild.ChildGridExtension"
+                            [ParentRowIndex]="parentRowIndex"
+                          >
+                            <iLabel
+                              Name="lblPreviousNextSupplyDate"
+                              Padding="5,0,5,0"
+                              Foreground="Black"
+                              FontWeight="Bold"
+                              Margin="2,0,2,0"
+                              Visibility="Collapsed"
+                              [Text]="dataItem.FormViewerDetails.BasicDetails.PreviousNextSupplyDate">
+                            </iLabel>
+                          </DataTemplate>
+                        </ng-template>
+                      </kendo-grid-column>
+
+                    </kendo-grid>
+                  </ng-template>
+                </kendo-grid>
+              </kendo-gridlayout-item>
+            </kendo-gridlayout>
+          </div>
+        <!-- </Border> -->
+      </fieldset>
+      </div>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]="2" [col]="1">
+      <div containerStyle>
+        <StackPanel
+          Orientation="Horizontal"
+          HorizontalAlignment="Left"
+          VerticalAlignment="Bottom"
+          Margin="5,10,0,0" class="btnpos"
+        >
+          <iButton
+            #cmdDispensingInstrTempRef
+            Name="cmdDispensingInstr"
+            Width="200"
+            Text="Dispensing instructions"
+            Tooltip="Select to enter Dispensing instructions"
+            Height="20"
+            (Click_Func)="cmdDispensingInstr_Click(this, $event)"
+            DisabledImageSource="./assets/images/iArrowDIS5x10.png"
+            ActiveImageSource="./assets/images/iArrowsHOT5x10.png"
+            ImageSource="./assets/images/iArrowNOR5x10.png"
+            ImageHeight="12"
+            ImageWidth="5"
+            Margin="0,4"
+          >
+          </iButton>
+          <iButton
+            #cmdMedAdminTempRef
+            Name="cmdMedAdmin"
+            HorizontalAlignment="Left"
+            Width="174"
+            [Text]="TechValidate.cmdMedAdmin_Text"
+            [Tooltip]="TechValidate.cmdMedAdmin_Tooltip"
+            Height="20"
+            (Click_Func)="cmdMedAdmin_Click(this, $event)"
+            DisabledImageSource="./assets/images/iArrowDIS5x10.png"
+            ActiveImageSource="./assets/images/iArrowsHOT5x10.png"
+            ImageSource="./assets/images/iArrowNOR5x10.png"
+            ImageHeight="12"
+            ImageWidth="5"
+            Margin="0,4"
+          >
+          </iButton>
+          <iButton
+            #showIconTempRef
+            Name="showIcon"
+            Margin="35,0,4,4"
+            Text="Show legend"
+            Tooltip="Show legend"
+			      Height="20"
+            ImageWidth="5"
+            ImageHeight="12"
+            Visibility="Visible"
+            [Click]="showIcon_Click_Func"
+            DisabledImageSource="./assets/images/iarrowdis5x10.png"
+            ActiveImageSource="./assets/images/iarrowshot5x10.png"
+            ImageSource="./assets/images/iarrownor5x10.png"
+          >
+          </iButton>
+        </StackPanel>
+      </div>
+    </kendo-gridlayout-item>
+  </kendo-gridlayout>
+</div>
+
+
+<ng-template #dialogActions class="dialog-tvca">
+  <!-- <kendo-dialog-actions class="center background-border custom-dialog-actions-tvca"> -->
+    <div class="right custom-dialog-actions-tvca">
+        <span (click)="showResult('Ok')" kendoTooltip position="bottom" title="Ok">                
+            <ng-container *ngIf="displayButton['button1Enable']"><img  class="buttons" [src]="image1Enabled"> &nbsp; </ng-container>
+            <ng-container  *ngIf="!displayButton['button1Enable']"><img  class="buttons" [src]="image1Disabled"> &nbsp; </ng-container>  
+            <button class="img-ok_symbol button" kendoButton kendoTooltip>Ok</button>
+        </span>
+        &nbsp; 
+        <span (click)="showResult('Cancel')" kendoTooltip position="bottom" title="Cancel">                
+          <ng-container *ngIf="displayButton['button2Enable']"><img  class="buttons" [src]="image2Enabled"> &nbsp; </ng-container>
+          <ng-container  *ngIf="!displayButton['button2Enable']"><img  class="buttons" [src]="image2Disabled"> &nbsp; </ng-container>  
+          <button class="img-ok_symbol button" kendoButton kendoTooltip>Cancel</button>
+        </span>
+        &nbsp; 
+    </div>
+  <!-- </kendo-dialog-actions> -->
+</ng-template>
+

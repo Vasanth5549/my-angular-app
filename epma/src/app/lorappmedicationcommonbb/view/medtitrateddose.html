@@ -1,0 +1,101 @@
+ <div name="Titrateddose" Background="#E0EFF1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+        ShowGridLines="False">
+        <kendo-gridlayout [rows]="[ { height: '1fr'}]" [cols]="[ { width: 480}]">
+            <kendo-gridlayout-item [row]='1' [col]='1'>
+                <div containerStyle>
+                    <Border Background="#e0eff1" CornerRadius="2" HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch" Margin="-5" Width="456" Height="257" BorderThickness="1" Padding="5" BorderBrush="#75b3b4" [isContent]="true" style="cursor: default;"> 
+                        <div HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <kendo-gridlayout [rows]="[ { height: '1fr'}]">
+                                <Border HorizontalAlignment="Left" Background="#e0eff1" Margin="5,-13,0,11"
+                                    Width="85" [isContent]="true">
+                                    <StackPanel>
+                                        <iLabel #lblTitrateddoseTempRef Name="lblTitrateddose" FontWeight="Bold"
+                                            Padding="5,0,5,0" Text="Titrated dose" Foreground="#000000" Height="18"
+                                            Width="Auto"></iLabel>
+                                    </StackPanel>
+                                </Border>
+                            
+                                <kendo-grid #grdTitratedDoseTempRef [ngClass]="ScrollN"
+                                        [style.background]="'#E0EFF1'"
+                                        [data]="grdTitratedDose.ItemsSource?.array"                                          
+                                        [reorderable]="false"  
+                                        [sortable]="true" [navigable]="true"
+                                        [style.marginLeft.px]="4"
+                                        [style.marginRight.px]="3"
+                                        [style.marginTop.px]="-8"
+                                        [style.marginBottom.px]="1"
+                                        [style.width.px]= "435"
+                                        [style.height.px]="237"
+                                        scrollable="scrollable" [sortable]="{allowUnsort: false, mode: 'single'}" [sort]="grdTitratedDose.sort">
+                                    <ng-template kendoGridNoRecordsTemplate> There are no records to show
+                                    </ng-template>
+
+                                    <kendo-grid-column [headerStyle]="{ 'background-color': '#287b7f' }" [title]="steppeddose.Times_Header"                                        
+                                        [filterable]="false"
+                                        [editable]="false" 
+                                        field="ScheduleTime"
+                                        [width] = "grdTitratedDose.dColumns.Count == 1 ? 43 : 69">
+                                        <ng-template kendoGridHeaderTemplate let-column>  
+                                            <span kendoTooltip [title]="steppeddose.Times_Header">{{ column.title }}</span>                
+                                        </ng-template>
+                                    </kendo-grid-column>
+
+                                    <kendo-grid-column 
+                                        [title]="steppeddose.Date_Header"                                         
+                                        [filterable]="false"
+                                        [editable]="true"
+                                        [width]="grdTitratedDose.dColumns.Count > 0 ? 90 : 300" 
+                                        [style]="{  'word-break': 'break-word' }" >
+
+                                        <ng-template  kendoGridHeaderTemplate let-column>
+                                            <span kendoTooltip [title]="column.title">{{ column.title }}</span>                
+                                        </ng-template>
+                                       
+                                        <ng-template kendoGridCellTemplate let-dataItem>
+                                            <DataTemplate #temp>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <iLabel #lblDoseValueTempRef Name="lblDoseValue" VerticalAlignment="Center" [Text]="dataItem.ScheduleDoseValue[0]"
+                                                        [Tooltip]="dataItem.ScheduleDoseValue[0]" Width="auto">
+                                                    </iLabel>
+                                                    <iLabel #lblDoseUOMTempRef HorizontalAlignment="Stretch" Name="lblDoseUOM" VerticalAlignment="Center"
+                                                        [Text]="dataItem.ScheduleDoseUOMs[0]" [Tooltip]="dataItem.ScheduleDoseUOM" Width="auto">
+                                                    </iLabel>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ng-template>
+                                    </kendo-grid-column>
+
+                                    <ng-container *ngIf="grdTitratedDose.dColumns.Count > 0">
+                                        <kendo-grid-column *ngFor="let column of grdTitratedDose.dColumns.array"
+                                        [title]="column.Header"
+                                        [hidden]="column.IsVisible ? false : true"
+                                        [editable]="column.IsReadOnly ? false : true"
+                                        [filterable]="column.IsFilterable ? true : false"
+                                        [width]="90"
+                                        [style]="{  'word-break': 'break-word' }"
+                                        class="medtitrateddoseColumn"
+                                        >          
+                                        <ng-template  kendoGridHeaderTemplate let-column>
+                                            <span kendoTooltip [title]="column.title">{{ column.title }}</span>                
+                                        </ng-template>                              
+                                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                        let-colIndex="columnIndex">
+                                            <GridCellTemplate [isEditable]="false" [dataItem]="dataItem"
+                                            [columnNumber]="colIndex" [cell]="'cell'+colIndex"
+                                            [Content]="column.CellTemplate" [DataContext]="dataItem">
+                                            </GridCellTemplate>                                                                              
+                                        </ng-template>                                        
+                                        </kendo-grid-column>
+                                    </ng-container>
+                                        <!-- <GridDataTemplate [Content]="column.CellTemplate" [DataContext]="dataItem">
+                                        </GridDataTemplate> -->
+                                </kendo-grid>
+
+                            </kendo-gridlayout>
+                        </div>
+                    </Border>
+                </div>
+            </kendo-gridlayout-item>
+        </kendo-gridlayout>
+    </div>

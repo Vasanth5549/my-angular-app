@@ -1,0 +1,140 @@
+<div class='parentdiv'>
+    <kendo-gridlayout Name="LayoutRoot" Loaded="LayoutRoot_Loaded" VerticalAlignment="Stretch"
+                      HorizontalAlignment="Stretch" [cols]="[{width:'auto'} ]">
+        <ng-template #DRCConflictTemp>
+            <DataTemplate>
+                <div containerStyle>
+                    <kendo-grid #grdConflictDtlsTempRef [selectable]="{checkboxOnly: true, mode: 'single'}"
+                                kendoGridSelectBy [(selectedKeys)]="grdConflictDtls.selectedRowsIndex" [editable]="false"
+                                [resizable]="false" [filterable]="false" [sortable]="false" Margin="10" [reorderable]="false"
+                                [data]="DRCConflictDetail" VerticalContentAlignment="Stretch">
+                        <!-- 1st colum -->
+                        <kendo-grid-column *ngIf="grdConflictDtls.RowIndicatorVisibility == 0 ? true : false"
+                                           UniqueName="rowindicator" field="rowindicator" title="" [width]="40">
+                            <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+                                <Image *ngIf="grdConflictDtls.selectedRowsIndex.length > 0 ? true : false"
+                                       Source="../assets/images/iarrownor5x10.png"></Image>
+                            </ng-template>
+                        </kendo-grid-column>
+                        <!-- 2nd colum -->
+                        <kendo-grid-column UniqueName="ErrorCode" title="Error code" field="ErrorCode" [width]="150"
+                                           TextWrapping="Wrap">
+                                           <ng-template kendoGridHeaderTemplate let-column>  <!-- 38620 -->
+
+                                            <span title="Error code">{{ column.title }}</span>                
+            
+                                          </ng-template>
+                        </kendo-grid-column>
+                        <kendo-grid-column UniqueName="ErrorMessage" title="Error message" field="ErrorMessage"
+                                           [width]="500" TextWrapping="Wrap" IsWordWrap="True">
+                                           <ng-template kendoGridHeaderTemplate let-column>  <!-- 38620 -->
+
+                                            <span title="Error message">{{ column.title }}</span>                
+            
+                                          </ng-template>
+                        </kendo-grid-column>
+                    </kendo-grid>
+                </div>
+            </DataTemplate>
+        </ng-template>
+        <!-- svwDRCConflict -->
+        <kendo-gridlayout-item [col]='1' class="grdconflictgrid" [style.height.px]="maxGridHeight">
+            <kendo-gridlayout [rows]="[{height:75},{height:75},{height:75},{height:75}]">
+                <div containerStyle>
+                    <ScrollViewer name="svwDRCConflict" HorizontalScrollBarVisibility="Disabled" #svwDRCConflictTempRef
+                                  VerticalScrollBarVisibility="Visible" [style.height.px]="maxGridHeight">
+                        <kendo-gridlayout-item [row]='1' [col]='1'>
+                            <div containerStyle>
+                                <StackPanel #DRCConflictItemsTempRef name="DRCConflictItems" class="drcConflictsItems" Width="Auto"[style.height.px]="maxGridHeight-3"
+                                            [Background]="Styles.LzoPageBG">
+                                </StackPanel>
+                            </div>
+                        </kendo-gridlayout-item>
+                    </ScrollViewer>
+                </div>
+            </kendo-gridlayout>
+        </kendo-gridlayout-item>
+        <!-- AcknowldgeRSN -->
+        <kendo-gridlayout-item name="AcknowldgeRSN" HorizontalAlignment="left" [row]='3' [col]='1' [colSpan]='1'
+                               HorizontalAlignment="left" VerticalAlignment="Stretch">
+            <kendo-gridlayout [cols]="[{width:360},{width:380}]">
+                <Border [row]='2' [col]='1' [colSpan]="3" [iStyle]="Styles.whiteBorder"></Border>
+                <Border [row]='3' [col]='2' [Background]="Styles.InnerBG"></Border>
+                <kendo-gridlayout-item [row]='3' [col]='1' class="acknowldgereason">
+                    <div class="acknowldgereason">
+                        <iLabel #ilblAcknowldgeRSNTempRef HorizontalAlignment="Left" Name="ilblAcknowldgeRSN"
+                                class="acknowldgereason" VerticalAlignment="Center" Text="Acknowledgement reason"
+                                IsEnabled="True"></iLabel>
+                    </div>
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [row]='3' [col]='2' class="acknowldgereason">
+                    <div class="acknowldgereason">
+                        <iLabel #lblAcknowledgementRsnTempRef Name="lblAcknowledgementRsn" class="acknowldgereason"
+                                VerticalAlignment="Center" Width="auto" Height="21" HorizontalAlignment="Stretch"
+                                Margin="10,5">
+                        </iLabel>
+                    </div>
+                </kendo-gridlayout-item>
+            </kendo-gridlayout>
+        </kendo-gridlayout-item>
+        <!-- Acknowldge -->
+        <kendo-gridlayout-item name="Acknowldge" HorizontalAlignment="left" [row]='4' [col]='1'
+                               VerticalAlignment="Stretch">
+            <kendo-gridlayout [cols]="[{width:360},{width:380}]">
+                <Border [row]='1' [col]='1' [iStyle]="Styles.whiteBorder"></Border>
+                <Border [row]='1' [col]='2' [Background]="Styles.InnerBG"></Border>
+                <Border [row]='5' [col]='1' [iStyle]="Styles.whiteBorder"></Border>
+                <Border [row]='1' [col]='2' [iStyle]="Styles.whiteBorder"></Border>
+                <Border [row]='5' [col]='2' [iStyle]="Styles.whiteBorder"></Border>
+                <kendo-gridlayout-item [row]='1' [col]='1'>
+                    <div containerStyle>
+                        <iLabel #ilblDRCkAcknowldgeMsgTempRef HorizontalAlignment="Left" IsWordwrap="True"
+                                Name="ilblDRCkAcknowldgeMsg" VerticalAlignment="Center" Mandatory="False"
+                                Text="I have confirmed that I have reviewed all dose range check warnings and I confirm I wish to continue with the dose that I have entered">
+                        </iLabel>
+                    </div>
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [row]='1' [col]='2'>
+                    <div containerStyle>
+                        <iCheckBox #chcDRCkAcknowldgeTempRef IsReadOnly="True" Name="chcDRCkAcknowldge"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5,5" Width="auto"
+                                   IsEnabled="false" ></iCheckBox>
+                    </div>
+                </kendo-gridlayout-item>
+            </kendo-gridlayout>
+        </kendo-gridlayout-item>
+        <!-- Comments -->
+        <kendo-gridlayout-item HorizontalAlignment="left" [row]="5" [col]='1' VerticalAlignment="Stretch">
+            <kendo-gridlayout [cols]="[{width:360},{width:370}]" [rows]="[{height:64}]">
+                <kendo-gridlayout-item [col]='1'>
+                    <div containerStyle>
+                        <iLabel #lblCommentsTempRef HorizontalAlignment="Left" Name="lblComments"
+                                VerticalAlignment="center" Text="Comments" IsWordwrap="True" Margin="0,11,0,41" Width="368">
+                        </iLabel>
+                    </div>
+                </kendo-gridlayout-item>
+                <kendo-gridlayout-item [row]='1' [col]='2'>
+                    <div containerStyle>
+                        <StackPanel #CommentsTextTempRef Orientation="Horizontal" Name="CommentsText"
+                                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Border [Background]="Styles.InnerBG">
+                                <kendo-gridlayout-item [row]='5' [col]='2'>
+                                    <div containerStyle style="margin-left:10px">
+                                        <ScrollViewer BorderThickness='0'
+                                                      HorizontalScrollBarVisibility="Disabled" Width="370"
+                                                      VerticalScrollBarVisibility="auto" Height="65">
+                                            <iLabel #txtCommentsTempRef Height="auto" HorizontalAlignment="Stretch"
+                                                    Name="txtComments" VerticalAlignment="Center" Width="auto" Margin="0,10"
+                                                    IsWordwrap="True" RenderTransformOrigin="0.513,-0.017"></iLabel>
+                                        </ScrollViewer>
+                                    </div>
+                                </kendo-gridlayout-item>
+                            </Border>
+                        </StackPanel>
+                    </div>
+                </kendo-gridlayout-item>
+                <Border #BorComments [row]='5' [colSpan]='2' [col]='1' [iStyle]="Styles.whiteBorder" style="margin-right: -10px;"></Border>
+            </kendo-gridlayout>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

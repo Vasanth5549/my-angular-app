@@ -1,0 +1,19 @@
+:host {
+    display: block;
+}
+
+::ng-deep td gridcelltemplate > div.MakeFullHeight {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+  }
+
+::ng-deep .DisabledTemplate {
+    pointer-events: none;
+}

@@ -1,0 +1,18 @@
+.vertical-class-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+.vertical-class-top {
+  display: flex;
+  align-items: flex-start;
+}
+::ng-deep .WastageField > div{
+  display: flex !important;
+  flex-direction: row !important;
+}
+::ng-deep .wastageUOM {
+  margin-top: 5px !important;
+}

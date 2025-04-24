@@ -1,0 +1,28 @@
+.display-none {
+  display: none;
+}
+
+.power-search-list {
+  width: 100%;
+  background: white;
+  border: 1px solid black;
+  overflow-y: auto !important;
+  display: inline-block;
+}
+
+:host ::ng-deep .fluidsearch .link-Icon{
+  background-image: none;
+}
+@media screen and (max-device-width: 1400px) {
+  .MedFuildSearchLayout{
+    position: absolute;
+  }
+  .power-search-list{
+   height: 290px; 
+  }
+}
+@media screen and (min-device-width : 1500px) {
+  .power-search-list{
+  height: 325px;
+  }
+}

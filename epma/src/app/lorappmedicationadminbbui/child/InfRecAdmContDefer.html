@@ -1,0 +1,137 @@
+<div  name="LayoutRoot" Margin="10,10,5,5" Height="Auto">
+
+  <kendo-gridlayout class="grid_layout_container" GridLayout [Background]="Styles.LzoPageBG" [rows]="[{ height: 'auto'}]"
+ >
+    <kendo-gridlayout-item [row]='1'>
+      <div containerStyle>
+
+          <kendo-gridlayout style="width:790px;" #grdnotgivenTempRef [rows]="[{ height: 'auto'}]" VerticalAlignment="Top"
+                      [cols]="[{ width: '8fr'},{ width: '20'}, { width: '8fr'}]" Margin="10,10,0,10" CommonGridLayout [Background]="Styles.LzoPageBG">
+
+            <kendo-gridlayout-item [row]='1' [col]='1'>
+
+              <div style="width:400px; margin-left: 15px;" containerStyle>
+
+                  <kendo-gridlayout  HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="auto" Margin="5,10,0,10"
+                    [rows]="[{ height: 'auto'},{ height: 'auto'},{ height: 'auto'},{ height: '5'}]"
+                    [cols]="[{ width: '3fr'}, { width: '5fr'}]" CommonGridLayout [Background]="Styles.LzoPageBG">
+
+                    <Border #bgddatetimeTempRef Name="bgddatetime" [col]='2' [row]='1' [Background]="Styles.InnerBG">
+                    </Border>
+                    <Border #bgdreasonTempRef Name="bgdreason" [col]='2' [row]='2' [Background]="Styles.InnerBG">
+                    </Border>
+                    <Border #bgdcommentsTempRef Name="bgdcomments" [col]='2' [row]='3' [Background]="Styles.InnerBG">
+                    </Border>
+                    <Border #bgdheightfiveTempRef Name="bgdheightfive" [col]='2' [row]="4" [Background]="Styles.InnerBG"></Border>
+                    <Border #brdreasonTempRef Name="brdreason" [col]='1' [row]='2' [colSpan]='2' [iStyle]="Styles.whiteBorder"></Border>
+                    <Border #brdcommentsTempRef Name="brdcomments" [col]='1' [row]='3' [colSpan]='2'
+                      [iStyle]="Styles.whiteBorder"></Border>
+                    <Border #brdTempRef Name="brd" [col]='1' [row]='4' [colSpan]='2' [iStyle]="Styles.whiteBorder">
+                    </Border>
+
+                    <kendo-gridlayout-item [row]='1' [col]='1'>
+                      <div containerStyle>
+                        <iLabel #lbldateTimeTempRef HorizontalAlignment="Stretch" IsWordwrap="True" Name="lbldateTime"
+                          VerticalAlignment="Center" Text="" Mandatory="True" SLAccessKeyProperties.AccessKey="T">
+                        </iLabel>
+                      </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='1' [col]='2'>
+                      <div containerStyle>
+                        <Border #bgddatetimeTempRef Name="bgddatetime">
+                          <StackPanel Orientation="Horizontal">
+                            <iDateTimePicker #dtpDateTempRef HorizontalAlignment="Stretch"
+                              [(RangeStartDate)]="DataContext.RangeStartDate"
+                              [(RangeEndDate)]="DataContext.RangeEndDate" DatePickerMode="DATEPICKER"
+                              [(SelectedDateTime)]="DataContext.AdministeredDate" Tooltip="Select resumed date"
+                              Name="dtpDate" Height="21" Margin="5,5" Width="137" DateTimeFormat="Custom"
+                              CustomFormat="dd-MMM-yyyy" IsConstrainEntry="True"
+                              (OnDateChange)="dtpDateTimeGivenText_OnDateChange" SLAccessKeyProperties.AccessKey="T">
+                            </iDateTimePicker>
+                            <iTimeBox #idatetimeTempRef EnableDST="True" [(Value)]="DataContext.AdministeredDateTime"
+                              IsEditable="True"  Name="idatetime" TimeFormat="HHMM"
+                               Height="21" Margin="5,5" Width="Auto"
+                              Tooltip="Select resumed time" SLAccessKeyProperties.AccessKey="T"></iTimeBox>
+                          </StackPanel>
+                        </Border>
+                      </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='2' [col]='1'>
+                      <div containerStyle>
+
+                          <iLabel #lblReasonTempRef Name="lblReason" Text="Reason for Defer"
+                            [Tooltip]="oMedAdministrator.lblResNotGiven_tooltip" Mandatory="True"
+                            SLAccessKeyProperties.AccessKey="R"></iLabel>
+
+                      </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='2' [col]='2'>
+                      <!-- <div containerStyle>
+                       <iComboBox #cboreasonTempRef Name="cboreason" Width="auto" HorizontalAlignment="Stretch"
+                            Margin="5" [Tooltip]="oMedAdministrator.txtResMedicationNotGiven_tooltip" Height="21"
+                            [(ItemsSource)]="DataContext.ReasonForNotDefers"
+                            [(SelectedValue)]="DataContext.ReasonForNotDefer" SLAccessKeyProperties.AccessKey="R">
+                          </iComboBox>
+
+                      </div> -->
+
+                      <div containerStyle *ngIf="valueUsed == 'defer'">
+                        <iComboBox #cboreasonTempRef Name="cboreason" Width="auto" HorizontalAlignment="Stretch"
+                             Margin="5" [Tooltip]="oMedAdministrator.txtReasonFordefer_tooltip" Height="21"
+                             [(ItemsSource)]="DataContext.ReasonForNotDefers"
+                             [(SelectedValue)]="DataContext.ReasonForNotDefer" SLAccessKeyProperties.AccessKey="R">
+                           </iComboBox>
+                       </div>
+ 
+                       <div containerStyle *ngIf="valueUsed == 'notgiven'">
+                         <iComboBox #cboreasonTempRef Name="cboreason" Width="auto" HorizontalAlignment="Stretch"
+                              Margin="5" [Tooltip]="oMedAdministrator.txtResMedicationNotGiven_tooltip" Height="21"
+                              [(ItemsSource)]="DataContext.ReasonNotGivens"
+                              [(SelectedValue)]="DataContext.ReasonNotGiven" SLAccessKeyProperties.AccessKey="R">
+                            </iComboBox>
+                        </div>
+ 
+                        <div containerStyle *ngIf="valueUsed == 'pause'">
+                         <iComboBox #cboreasonTempRef Name="cboreason" Width="auto" HorizontalAlignment="Stretch"
+                              Margin="5" [Tooltip]="oMedAdministrator.txtPauseReason_tooltip" Height="21"
+                              [(ItemsSource)]="DataContext.ReasonforPauselist"
+                              [(SelectedValue)]="DataContext.ReasonforPause" SLAccessKeyProperties.AccessKey="R">
+                            </iComboBox>
+                        </div>
+                        <div containerStyle *ngIf="valueUsed == 'resume'">
+                          <iComboBox #cboreasonTempRef Name="cboreason" Width="auto" HorizontalAlignment="Stretch"
+                               Margin="5" [Tooltip]="oMedAdministrator.drpRoute_tooltip" Height="21"
+                               [(ItemsSource)]="DataContext.PrescribedRoutes"
+                               [(SelectedValue)]="DataContext.SelectedRoute" SLAccessKeyProperties.AccessKey="R">
+                             </iComboBox>
+                         </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='3' [col]='1'>
+                      <div containerStyle>
+                       <iLabel #lblCommentsTempRef HorizontalAlignment="Stretch" Name="lblComments"
+                            VerticalAlignment="Center" [Text]="oMedAdministrator.lblComments_text"
+                            [(Mandatory)]="DataContext.IsClinicalRSNMand"></iLabel>
+
+                      </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='3' [col]='2'>
+                      <div containerStyle>
+                      <iTextBox #txtCommentsTempRef MaxLength="255" Height="52"
+                            [Tooltip]="oMedAdministrator.txtComments_tooltip" HorizontalAlignment="Stretch"
+                            AcceptsReturn="True" TextWrapping="Wrap" Name="txtComments" VerticalAlignment="Bottom"
+                            VerticalScrollBarVisibility="Visible" Width="auto" [(Text)]="DataContext.Comments"
+                            Margin="5,5,5,5" TextRows="3"></iTextBox>
+
+                      </div>
+                    </kendo-gridlayout-item>
+                  </kendo-gridlayout>
+
+              </div>
+            </kendo-gridlayout-item>
+
+          </kendo-gridlayout>
+
+      </div>
+    </kendo-gridlayout-item>
+  </kendo-gridlayout>
+</div>

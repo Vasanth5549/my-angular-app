@@ -1,0 +1,90 @@
+/* :host ::ng-deep .k-grid .k-grid-content {
+    overflow-x: auto !important;
+ } */
+
+.hideoverf {
+    overflow: hidden;
+}
+
+:host ::ng-deep .custom-content-presenter img {
+    top: 0px;
+    vertical-align: middle;
+}
+
+/* :host ::ng-deep .k-i-plus::before,
+:host ::ng-deep .k-i-minus::before {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: "WebComponentsIcons";
+} */
+
+:host ::ng-deep .k-i-plus::before,
+:host ::ng-deep .k-i-minus::before {
+    content: '';
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 13px;
+    height: 13px;
+}
+
+:host ::ng-deep .k-i-plus::before {
+    background-image: url(../../../assets/images/hgchildclose.gif);
+}
+
+:host ::ng-deep .k-i-minus::before {
+    background-image: url(../../../assets/images/hgchildopen.gif);
+}
+
+:host ::ng-deep .k-i-plus:hover,
+:host ::ng-deep .k-i-minus:hover {
+    font-family: "WebComponentsIcons";
+    font-size: 16px;
+}
+
+:host ::ng-deep a.k-i-plus,
+:host ::ng-deep a.k-i-minus {
+    padding: 0 !important;
+}
+
+/* :host ::ng-deep .k-i-plus::before {
+    content: " \002B";
+}
+
+:host ::ng-deep .k-i-minus::before {
+    content: " \2212";
+} */
+
+.ScrollFix ::ng-deep .k-grid-content {
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+}
+
+.ImgAlign ::ng-deep {
+    margin-left: 8px;
+}
+
+.ArrowAlign ::ng-deep {
+    margin-left: 11px;
+    position: absolute;
+    margin-top: -6px;
+}
+
+.ArrowAlign2 {
+    margin-left: 3px;
+    position: absolute;
+    margin-top: -6px;
+}
+
+:host ::ng-deep .k-grid .k-grid-content td {
+    padding-top: 2px !important;
+    padding-bottom: 5px !important;
+}
+
+:host ::ng-deep .ScrollFix>td {
+    padding-top: 10px !important;
+}
+
+/*
+:host ::ng-deep .k-grid-header{
+    padding: 0px 0px 0px 0px !important;
+}*/

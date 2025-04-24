@@ -1,0 +1,120 @@
+<div name="LayoutRoot" Background="#FFE0EFF1">
+    <kendo-gridlayout #LayoutRoot [rows]="[{ height: 'auto' },{ height: 'auto' }]" [cols]="[{ width: 'auto' }]">
+        <kendo-gridlayout-item [row]='2' [col]="1">
+            <div containerStyle>
+                <StackPanel>
+                    <!-- EnableColumnVirtualization,CanUserFreezeColumns,IsSynchronizedWithCurrentItem,IsReadOnly(NR), Margin="100,0,100,0"-->
+                    <kendo-grid #grdOnBehalfListTempRef [selectable]="{checkboxOnly: true, mode: 'single'}"
+                        kendoGridSelectBy [(selectedKeys)]="grdOnBehalfList.selectedRowsIndex" [Width]="713" [height]="270"
+                        [filterable]="false" [navigable]="false" [sortable]="false" [style.marginLeft.px]="-11" [style.marginTop.px]="-12" [resizable]="false"
+                        [selectable]="{checkboxOnly: false, mode: 'single'}"
+                        [reorderable]="false" [data]="grdOnBehalfList.ItemsSource.array" tabindex="1"
+                        [GridProperties]="grdOnBehalfList"  [GridColumnProperties]="grdOnBehalfList"
+                        VerticalAlignment="Stretch">
+                        <ng-template kendoGridNoRecordsTemplate> No records to show </ng-template>
+                        <kendo-grid-column 
+                            UniqueName="rowindicator" field="rowindicator" title="" [width]="40">
+                            <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+                                <div style="display: flex; justify-content: center;">
+                                  <Image *ngIf="grdOnBehalfList.selectedRowsIndex.length > 0 && grdOnBehalfList.selectedRowsIndex == rowIndex"
+                                         Source="~/../assets/images/iarrownor5x10.png">
+                                  </Image>
+                                </div>
+                              </ng-template>
+                        </kendo-grid-column>
+
+                        <!-- IsWordWrap,(NR)--IsHeaderWordWrap(not in excel) -->
+                        <kendo-grid-column UniqueName="OnBehalfDateTime" [title]="onbof.onbehalfdttm_Text"
+                            [filterbale]="false" [resizable]="false" [GridColumnProperties]="grdOnBehalfList"
+                            TextWrapping="Wrap" [editable]="false" [width]="120">
+
+                            <ng-template kendoGridHeaderTemplate let-column>  <!-- 38620 -->
+                                <div style="padding: 5px;">
+                                <span [title]="onbof.onbehalfdttm_Text">{{ column.title }}</span>   
+                            </div>              
+                              </ng-template>
+
+                            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                                let-columnIndex="columnIndex">
+                                <DataTemplate>
+                                    <iLabel #lblOnbehalfdatetimeTempRef Name="lblOnbehalfdatetime"
+                                        VerticalAlignment="Center" IsWordwrap="True"
+                                        [Tooltip]="dataItem.OnBehalfDTTM | DischargeLeaveDTTMConvertor : 0 : 'dd-MMM-yyyy HH:mm' :' ConverterCulture=en-GB'"
+                                        Text="{{dataItem.OnBehalfDTTM | DischargeLeaveDTTMConvertor : 0 : 'dd-MMM-yyyy HH:mm' : 'ConverterCulture=en-GB'}}">
+                                    </iLabel>
+                                </DataTemplate>
+                            </ng-template>
+                        </kendo-grid-column>
+                        <!-- EnableToolTip,IsWordWrap(NR)--IsHeaderWordWrap(not in excel) -->
+                        <kendo-grid-column [title]="onbof.onbehalfof_text" field="OnBehalfOf"
+                            [GridColumnProperties]="grdOnBehalfList" TextWrapping="Wrap" UniqueName="OnBehalfOf"
+                            [filterbale]="false" [resizable]="false" [editable]="false"
+                            [width]="110">
+                            <ng-template kendoGridHeaderTemplate let-column> 
+                                <span style="padding-left: 5px;" [title]="onbof.onbehalfof_text">{{ column.title }}</span>                 
+                              </ng-template>
+                              <ng-template kendoGridCellTemplate let-dataItem>
+                                <span [title]="dataItem.OnBehalfOf">{{ dataItem.OnBehalfOf }}</span>
+                                </ng-template>
+                        </kendo-grid-column>
+
+                        <kendo-grid-column [title]="onbof.onbehlfrsn_text" UniqueName="Onbehalfreason"
+                            field="OnBehalfReason" [editable]="false" [GridColumnProperties]="grdOnBehalfList"
+                            [Width]="127" [resizable]="false" TextWrapping="Wrap" >
+                             <ng-template kendoGridHeaderTemplate let-column>  
+                                <div style="padding: 5px;">
+                                  <span [title]="onbof.onbehlfrsn_text">{{ column.title }}</span>
+                                </div>
+                              </ng-template>
+                              <ng-template kendoGridCellTemplate let-dataItem>
+                                <span  [title]="dataItem.OnBehalfReason">{{ dataItem.OnBehalfReason}}</span>
+                              </ng-template>
+                        </kendo-grid-column>
+                        <!-- ToolTipService.ToolTip(pending in excel) -->
+                        <kendo-grid-column [title]="onbof.commnmode_text" UniqueName="Communicationmode"
+                            field="CommunicationMode" [editable]="false" [GridColumnProperties]="grdOnBehalfList"
+                             [Width]="127" [resizable]="false">
+                            <ng-template kendoGridHeaderTemplate let-column>  
+                                <div style="padding: 5px;">
+                                <span [title]="onbof.commnmode_text">{{ column.title }}</span>
+                               </div>                 
+                              </ng-template>
+                              <ng-template kendoGridCellTemplate let-dataItem>
+                                <span style="white-space: nowrap;" [title]="dataItem.CommunicationMode">{{ dataItem.CommunicationMode }}</span>
+                                </ng-template>  
+                        </kendo-grid-column>
+
+                        <kendo-grid-column [title]="onbof.Users_Text" UniqueName="Users" field="Users"
+                            [editable]="false" [GridColumnProperties]="grdOnBehalfList" TextWrapping="Wrap" [Width]="85"
+                            [resizable]="false">
+                            <ng-template kendoGridHeaderTemplate let-column>  
+                                <span style="padding-left: 5px;" [title]="onbof.Users_Text">{{ column.title }}</span>                 
+                              </ng-template>
+                              <ng-template kendoGridCellTemplate let-dataItem>
+                                <span [title]="dataItem.Users">{{ dataItem.Users}}</span>
+                                </ng-template>   
+                        </kendo-grid-column>
+
+                        <kendo-grid-column [title]="onbof.Action_text" UniqueName="Actions" field="Action"
+                            [editable]="false" [GridColumnProperties]="grdOnBehalfList" TextWrapping="Wrap"
+                            [Width]="115" [resizable]="false">
+                            <ng-template kendoGridHeaderTemplate let-column>  
+                                <span style="padding-left: 5px;" [title]="onbof.Action_text">{{ column.title }}</span>                 
+                              </ng-template>
+                              <ng-template kendoGridCellTemplate let-dataItem>
+                                <span [title]="dataItem.Action">{{ dataItem.Action }}</span>
+                              </ng-template>
+                        </kendo-grid-column>
+
+
+                    </kendo-grid>
+
+
+
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+
+    </kendo-gridlayout>
+
+</div>

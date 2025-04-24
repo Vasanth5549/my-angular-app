@@ -1,0 +1,182 @@
+<div name="LayoutRoot" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" style="height: 100%;" >
+<kendo-gridlayout GridLayout [rows]="[ { height:'5'}, { height: 'auto'},{ height:'1fr'}]" style="height: 100%;grid-template-rows: auto auto 1fr" 
+    [cols]="[{ width: 'auto'}]">
+    <kendo-gridlayout-item [row]='1'  [col]="1">
+
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item [row]='2'  [col]="1">
+        <div containerStyle class="includenonformitem" style="padding-bottom:10px">
+            <iCheckBox 
+                #chkInclNonForTempRef 
+                Name="chkInclNonFor" 
+                Margin="0,0,0,0"
+                HorizontalAlignment="Right"  
+                FontStretch="Normal"
+                Width="auto"
+                 
+                IsWordWrap="True"
+                [Tooltip]="objResMedAlternateOption.nonFormularyitem"
+                Text="Include non-formulary items"
+                [(IsChecked)]="DataContext.IsFormularyChecked"   
+                FontSize="10"
+                Height="Auto">
+                <!--  Height="15" -->
+            </iCheckBox>
+        </div>
+    </kendo-gridlayout-item>
+
+<kendo-gridlayout-item [row]='3' [col]="1" style="flex:1">
+    <div containerStyle #divGrid>
+        <kendo-grid 
+            #grdPrescribeTempRef 
+            [editable]="true" 
+            [reorderable]="false"
+            [style.margin.px]="0"
+            [style.alignSelf]="'self-start'"
+            [data]="grdPrescribe.ItemsSource.array"
+            [navigable]="true"
+            (cellClick)="grdPrescribe.cellClick($event)" [height]="calcHeight"
+            kendoGridSelectBy
+            [selectable]="{checkboxOnly: false, mode: 'single'}"
+            [(selectedKeys)]="grdPrescribe.selectedRowsIndex"
+            (keyup)="grdPrescribe.GridSelectionKeyUp($event)" 
+            (keydown)="grdPrescribe.GridSelectionKeyDown($event)"
+            [sortable]="true"
+            [sort]="grdPrescribe.sort"
+            (sortChange)="grdPrescribe.sortChange($event)"
+          >
+            <kendo-grid-column UniqueName="SelectColumn" [filterable]="false" [width]="25">
+                <ng-template kendoGridHeaderTemplate>
+                    <ControlTemplate TargetType="telerikGridView:GridViewHeaderCell">
+                        <GridBorder Padding="0" Margin="0" BorderThickness="0,0,1,1" BorderBrush="#7BB0AF">
+                            <Image class="center-alignment" Source="assets/images/icopyacrossnor24.png" Width="15" Height="15"
+                                Tooltip="Select to copy across"></Image>
+                        </GridBorder>
+                    </ControlTemplate>
+                </ng-template>
+                <ng-template kendoGridCellTemplate>
+                    <DataTemplate #temp>
+                        <Image class="center-alignment" Source="assets/images/icopyacrossnor24.png" Width="15" Height="15"
+                            Tooltip="Select to copy across"></Image>
+                    </DataTemplate>
+                </ng-template>
+
+            </kendo-grid-column>
+            <kendo-grid-column UniqueName="FormularyNote" [width]="45" [filterable]="false" [editable]=false>
+                <ng-template kendoGridHeaderTemplate>
+                    <ControlTemplate TargetType="telerikGridView:GridViewHeaderCell" style="DISPLAY: FLEX;justify-content: center;">
+                        <GridBorder Padding="0" Margin="0" BorderThickness="0,0,1,1" BorderBrush="#7BB0AF">
+                            <Image Source="assets/images/iwarninginfonor16.png" Stretch="None" 
+                                [Tooltip]="objResMedPrescribedOption.formularynote"></Image>
+                        </GridBorder>
+                    </ControlTemplate>
+                </ng-template>
+                <ng-template kendoGridCellTemplate 
+                let-dataItem
+                let-rowIndex="rowIndex"
+                let-columnIndex="columnIndex">
+                    <DataTemplate #temp
+                    [dataItem]="dataItem"
+                    [index]="rowIndex"
+                    [colindex] = "columnIndex"
+                    [gridHelper]="grdPrescribe">
+                        <StackPanel Orientation="Horizontal">
+                                <Image #imgFormularyTempRef Name="imgFormulary" Source="assets/images/iwarninginfonor16.png" Stretch="None"
+                                [Tooltip]="dataItem.FormularyNote | CCWrapToolTip:'':'300'"
+                                [Visibility]="dataItem.IsIconVisible"
+                               ></Image>
+                                <Image #imgExclamTempRef Name="imgExclam" Source="assets/images/exclam.png" Stretch="None"
+                                [Tooltip]="dataItem.DrugPropertyNote | CCWrapToolTip:'':'300'"
+                                [Visibility]="dataItem.IsDrugPropertyIconVisible"
+                                 >
+                                </Image>
+                        </StackPanel>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+            
+            <kendo-grid-column UniqueName="PrescriptionItem"   [width]="315" [filterable]="false"
+                [editable]="false">
+                <ng-template kendoGridHeaderTemplate>
+                    <span class="only-show-on-hover textsize" kendoTooltip title="{{objResMedPrescribedOption.prescriptionitem}}">
+                      {{objResMedPrescribedOption.prescriptionitem}}
+                    </span>
+                </ng-template>
+                <ng-template 
+                    kendoGridCellTemplate 
+                    let-dataItem
+                    let-rowIndex="rowIndex"
+                    let-columnIndex="columnIndex"
+                    >
+                    <DataTemplate 
+                    #temp
+                    [dataItem]="dataItem"
+                    [index]="rowIndex"
+                    [colindex] = "columnIndex"
+                    [gridHelper]="grdPrescribe">
+                    <ContentPresenter 
+                        [Content]="dataItem | MedLineDisplay : '' : 'SECONDARYSCREEN'"
+                        >
+                    </ContentPresenter>
+                   
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column UniqueName="Otherinformation"
+                [filterable]="false"  [editable]="false" >
+                <ng-template kendoGridHeaderTemplate>
+                    <span  class="only-show-on-hover textsize"  kendoTooltip title="{{objResMedPrescribedOption.otherinformation}}">
+                      {{objResMedPrescribedOption.otherinformation}}
+                    </span>
+                  </ng-template>
+                <ng-template kendoGridCellTemplate 
+                let-dataItem
+                let-rowIndex="rowIndex"
+                let-columnIndex="columnIndex">
+                    <DataTemplate #temp
+                    [dataItem]="dataItem"
+                    [index]="rowIndex"
+                    [colindex] = "columnIndex"
+                    [gridHelper]="grdPrescribe">
+                        
+                        <ContentPresenter [Content]="dataItem | MedOtherDisplay : '' : 200">
+                        </ContentPresenter>
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column 
+                UniqueName="FormViewerDetails.BasicDetails.OrderSentenceDesc"   [filterable]="false" [editable]="false"
+                [width]="202" field="FormViewerDetails.BasicDetails.OrderSentenceDesc">
+                <ng-template kendoGridHeaderTemplate>
+                    <span  class="only-show-on-hover textsize"  kendoTooltip title="{{objResMedPrescribedOption.OrderSentenceDesc_Text}}">
+                      {{objResMedPrescribedOption.OrderSentenceDesc_Text}}
+                    </span>
+                  </ng-template>
+                <ng-template kendoGridCellTemplate let-dataItem
+                let-rowIndex="rowIndex"
+                let-columnIndex="columnIndex">
+                    <DataTemplate #temp  [dataItem]="dataItem"
+                    [index]="rowIndex"
+                    [colindex] = "columnIndex"
+                    [gridHelper]="grdPrescribe">
+                        <!-- <iLabel #lblOrdersentenceDescTempRef Name="lblOrdersentenceDesc"
+                            [Text]="dataItem?.FormViewerDetails?.BasicDetails?.OrderSentenceDesc" MinHeight="10"
+                            MaxHeight="39" IsWordwrap="True"  [Tooltip]="dataItem?.FormViewerDetails?.BasicDetails?.OrderSentenceDesc" > -->
+                           
+                            <TextBlock TextWrapping="Wrap"
+                                [Text]="dataItem?.FormViewerDetails?.BasicDetails?.OrderSentenceDesc" MinHeight="10"
+                                MaxHeight="172" MinWidth="10" MaxWidth="170" 
+                                [Tooltip]="dataItem?.FormViewerDetails?.BasicDetails?.OrderSentenceDesc">
+                            </TextBlock>
+                          
+                        <!-- </iLabel> -->
+                    </DataTemplate>
+                </ng-template>
+            </kendo-grid-column>
+        </kendo-grid>
+    </div>
+</kendo-gridlayout-item>
+</kendo-gridlayout>
+</div>

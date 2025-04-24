@@ -1,0 +1,44 @@
+    <kendo-gridlayout name="LayoutRoot" style="height:100%;" 
+        [rows]="[{height:'auto'},{height:'auto'},{height:'1fr'}]" [cols]="[{width:'1fr'}]" class="medsectab"
+       >
+        <kendo-gridlayout-item [row]='1' [col]='1'>
+            <div containerStyle >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+                    <kendo-gridlayout-item [row]='1'>
+                        <div containerStyle>
+                            <iLabel #lblDrugtitleTempRef Name="lblDrugtitle" HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center" FontWeight="Bold" Padding="0,0,10,0" MaxWidth="800" 
+                                IsWordwrap="True"></iLabel>
+                        </div>
+                    </kendo-gridlayout-item>
+
+                    <kendo-gridlayout-item [row]='1' style="margin-top: -10px;">
+                        <div containerStyle >
+                            <Image #ImgMCITempRef Name="ImgMCI" Source="assets/images/multicomponent item.png" Width="auto"
+                                Height="15" Cursor="Hand" Visibility="Collapsed"></Image>
+                        </div>
+                    </kendo-gridlayout-item>
+                    <kendo-gridlayout-item [row]='1' >
+                        <div containerStyle style="margin-top: -2px; margin-left: 7px;">
+                            <iImage #R_NameTempRef Name="R_Name" Width="16" Height="16"
+                                [Source]="DataContext?.FormViewerDetails?.BasicDetails?.NoteIconSource"
+                                [Visibility]="DataContext?.FormViewerDetails?.BasicDetails?.IsPrescribingNoteIconVisible"
+                                [ToolTip]="DataContext?.FormViewerDetails?.BasicDetails?.PrescribingNote_ToolTip"></iImage>
+                        </div>
+                    </kendo-gridlayout-item>
+                </StackPanel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='2' Margin="10,5,0,5" [col]="1">
+            <div containerStyle>
+                <ContentPresenter #spGPItemDetailTempRef Name="spGPItemDetail"
+                    [Content]="DataContext | GPConnectItemDisplay:'':'0'"></ContentPresenter>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='3' [col]="1">
+            <div containerStyle  style="margin-bottom: 10px;">
+                <iTab #iSecondaryTabTempRef HorizontalAlignment="Stretch" Name="iSecondaryTab" VerticalAlignment="Stretch"
+                    Background="#FFE0EFF1" [SelectionChanged]="iSecondaryTab_SelectionChanged_func"  Margin="0,0,0,0" class="tabnamefontsz faxtabsize"></iTab>
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>

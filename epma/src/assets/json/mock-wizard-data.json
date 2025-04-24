@@ -1,0 +1,137 @@
+[
+    {
+        "menuCode": "MN_MED_VALIDATE_S_P2"  ,
+        "contextData": [
+            {
+                "contextCode": 1,
+                "name": "user",
+                "context": {
+                    "UserID": "1003001"
+                },
+                "source": "webclient"
+            },
+            {
+                "contextCode": 2,
+                "name": "patient",
+                "context": {
+                    "PatientID": "1000000015439"
+                },
+                "source": "webclient"
+            },
+            {
+                "contextCode": 3,
+                "name": "security",
+                "context": {
+                    "SecurityKey": "lvi2te1izoxrmwuinr4yyxy4#638127530726817022"
+                },
+                "source": "webclient"
+            },
+            {
+                "contextCode": 4,
+                "name": "organization",
+                "context": {
+                    "OrganizationID": "600000161691"
+                },
+                "source": "webclient"
+            },
+            {
+                "contextCode": 5,
+                "name": "CAParameters",
+                "context": {
+                    "CAParameters": "ContextData=~|WIZ_TaskOID|~0~|WIZ_InstanceOID|~~|WIZ_CAOID|~490000157065~|WIZ_CACode|~~|WIZ_TaskStatus|~~|MENUCODE|~MN_MEDINPATSL_P2~|ENCID|~1000000011644~|ENCTYPE|~Inpatient~|ENCCODE|~CC_INPAT~|EncDefOID|~1000000011644~|EncSDate|~03-Sep-2012~|EncSDateTime|~03-Sep-2012%2012:31:33~|EncSpecName|~ADULT%20MENTAL%20ILLNESS~|EncCPName|~Silpa%20Ragupathi~|EncStatus|~CC_ENCOPEN~|MedCount|~True~|CLRKSRC|~~|IsLaunched|~~|MedchartLaunchLoc|~MedicationEPR~|RequestLockOID|~600000003668~|GPCConsentStatus|~0~|IsOpenReadOnly|~True~|WIZ_Size|~0~|WIZ_TaskCode|~MN_MEDINPATSL_P2&GenTaskOID=&InstanceOID=&TaskOID=490000157065&CACode=&MenuCode=MN_MEDINPATSL_P2&TaskCode=&AlreadyCachedData=null"
+                },
+                "source": "webclient"
+            }
+        ]
+    },
+    {
+        "menuCode": "MN_RSLV_CONFLICTS",
+        "contextData": [
+            {
+                "contextCode": 1,
+                "name": "user",
+                "context": {
+                    "UserID": "1003001"
+                },
+                "source": "webclient"
+            },
+            {
+                "contextCode": 2,
+                "name": "patient",
+                "context": {
+                    "PatientID": "1000000015439"
+                },
+                "source": "webclient"
+            },
+            {
+                "contextCode": 3,
+                "name": "security",
+                "context": {
+                    "SecurityKey": "lvi2te1izoxrmwuinr4yyxy4#638127530726817022"
+                },
+                "source": "webclient"
+            },
+            {
+                "contextCode": 4,
+                "name": "organization",
+                "context": {
+                    "OrganizationID": "600000161691"
+                },
+                "source": "webclient"
+            },
+            {
+                "contextCode": 5,
+                "name": "CAParameters",
+                "context": {
+                    "CAParameters": "ContextData=~|WIZ_TaskOID|~0~|WIZ_InstanceOID|~~|WIZ_CAOID|~490000157065~|WIZ_CACode|~~|WIZ_TaskStatus|~~|MENUCODE|~MN_MEDINPATSL_P2~|ENCID|~1000000011644~|ENCTYPE|~Inpatient~|ENCCODE|~CC_INPAT~|EncDefOID|~1000000011644~|EncSDate|~03-Sep-2012~|EncSDateTime|~03-Sep-2012%2012:31:33~|EncSpecName|~ADULT%20MENTAL%20ILLNESS~|EncCPName|~Silpa%20Ragupathi~|EncStatus|~CC_ENCOPEN~|MedCount|~True~|CLRKSRC|~~|IsLaunched|~~|MedchartLaunchLoc|~MedicationEPR~|RequestLockOID|~600000003668~|GPCConsentStatus|~0~|IsOpenReadOnly|~True~|WIZ_Size|~0~|WIZ_TaskCode|~MN_MEDINPATSL_P2&GenTaskOID=&InstanceOID=&TaskOID=490000157065&CACode=&MenuCode=MN_MEDINPATSL_P2&TaskCode=&AlreadyCachedData=null"
+                },
+                "source": "webclient"
+            }
+        ]
+    },
+    {
+        "menuCode": "MN_SUPINSTR_P2",
+        "contextData": [
+            {
+                "contextCode": 1,
+                "name": "user",
+                "context": {
+                    "UserID": "1003001"
+                },
+                "source": "webclient"
+            },
+            {
+                "contextCode": 2,
+                "name": "patient",
+                "context": {
+                    "PatientID": "1000000015439"
+                },
+                "source": "webclient"
+            },
+            {
+                "contextCode": 3,
+                "name": "security",
+                "context": {
+                    "SecurityKey": "lvi2te1izoxrmwuinr4yyxy4#638127530726817022"
+                },
+                "source": "webclient"
+            },
+            {
+                "contextCode": 4,
+                "name": "organization",
+                "context": {
+                    "OrganizationID": "600000161691"
+                },
+                "source": "webclient"
+            },
+            {
+                "contextCode": 5,
+                "name": "CAParameters",
+                "context": {
+                    "CAParameters": "ContextData=~|WIZ_TaskOID|~0~|WIZ_InstanceOID|~~|WIZ_CAOID|~490000157065~|WIZ_CACode|~~|WIZ_TaskStatus|~~|MENUCODE|~MN_MEDINPATSL_P2~|ENCID|~1000000011644~|ENCTYPE|~Inpatient~|ENCCODE|~CC_INPAT~|EncDefOID|~1000000011644~|EncSDate|~03-Sep-2012~|EncSDateTime|~03-Sep-2012%2012:31:33~|EncSpecName|~ADULT%20MENTAL%20ILLNESS~|EncCPName|~Silpa%20Ragupathi~|EncStatus|~CC_ENCOPEN~|MedCount|~True~|CLRKSRC|~~|IsLaunched|~~|MedchartLaunchLoc|~MedicationEPR~|RequestLockOID|~600000003668~|GPCConsentStatus|~0~|IsOpenReadOnly|~True~|WIZ_Size|~0~|WIZ_TaskCode|~MN_MEDINPATSL_P2&GenTaskOID=&InstanceOID=&TaskOID=490000157065&CACode=&MenuCode=MN_MEDINPATSL_P2&TaskCode=&AlreadyCachedData=null"
+                },
+                "source": "webclient"
+            }
+        ]
+    }
+]

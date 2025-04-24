@@ -1,0 +1,18 @@
+.brandClearRow{
+    text-align: right;
+} 
+
+.leftAlignment:first-child {
+    padding-left: 0.4rem;
+}
+:host ::ng-deep .k-input-md .k-input-inner, .k-picker-md .k-input-inner  {
+    padding: 4px 3px !important;
+}
+.SupplyInscroll
+{
+  overflow: auto; line-height: 1.5;
+}
+.SupplyVis
+{
+    display:none;
+}

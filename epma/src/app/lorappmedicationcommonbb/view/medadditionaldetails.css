@@ -1,0 +1,38 @@
+.container1{
+    display: flex;
+    }
+.buttonAling ::ng-deep .k-button{
+    padding-bottom: 2px;
+    opacity: 10;
+}
+.lbl{
+    display: grid;
+}
+.context ::ng-deep kendo-label{
+    white-space: nowrap;
+    width: 95% !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+.SupplyInstructionLink{
+    margin-left: -15px;
+    display: flex !important;
+}
+::ng-deep .img-pointer {
+    filter: grayscale(1);
+}
+::ng-deep .SupplyInstructionLink:hover .img-pointer {
+    filter: grayscale(0);
+}
+::ng-deep .buttonAling {
+    color: #0000C8;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+/* @media screen and (max-width: 1400px) {
+    .medadditionaldtl{
+      height: 319px;
+    }
+  } */
+   

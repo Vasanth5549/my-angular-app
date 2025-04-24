@@ -1,0 +1,3 @@
+.ReasonWrap::ng-deep kendo-label{
+    text-wrap:nowrap;
+}

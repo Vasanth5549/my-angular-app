@@ -1,0 +1,258 @@
+ <div class="grid-layout-container" [class.medprescribedrugsGridChildTabHeight]="isChildWizard" name="LayoutRoot" Height="Auto" Width="Auto" [style.height.px] = "maxLayoutHeight" style="overflow-y: hidden;" id="medtabs"> 
+  <kendo-gridlayout
+    [rows]="[{ height: 'auto'},{ height: 'auto'}, { height: '1fr'}]"
+  >
+    <kendo-gridlayout-item [row]="1">
+      <div containerStyle>
+        <iLabel
+          [Text]="DataContext.EncounterLabelDetails"
+          [Foreground]="DataContext.EncounterLHSColorSet"
+          #lblEncounterTempRef
+          Name="lblEncounter"
+          Margin="10,5,0,5"
+          HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch"
+          FontWeight="Bold"
+          IsWordwrap="True"
+        ></iLabel>
+      </div>
+    </kendo-gridlayout-item>
+
+    <!-- Revisit Required: ngif default false added -->
+    <kendo-gridlayout-item [row]="2" *ngIf="DataContext.GPCStopCompTxtVisibility == 0 ? true : false">
+      <div containerStyle>
+        <iLabel
+          [Text]="mldetails.lblGPCStopComp_Text"
+          [Tooltip]="mldetails.lblGPCStopComp_Text"
+          [Visibility]="DataContext.GPCStopCompTxtVisibility"
+          #lblGPCStopCompTempRef
+          Name="lblGPCStopComp"
+          HorizontalAlignment="Right"
+          Mandatory="False"
+          Margin="10,15,5,5"
+          FontWeight="Bold"
+          IsWordwrap="True"
+        >
+        </iLabel>
+      </div>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]="2" [colSpan]="2">
+      <div containerStyle>
+        <kendo-gridlayout
+          name="checkgrid"
+          Margin="0"
+          [rows]="[ { height: IsGpConnectTab ? 'auto' : 26},{ height: IsGpConnectTab ? 20 : 26},{ height: IsGpConnectTab ? 20 : 26}]"
+          [cols]="[ { width: '32fr'},{ width: '70fr'}]" style="justify-items: right;"
+        >
+          <kendo-gridlayout-item [row]="1" [col]="2">
+            <div containerStyle>
+              <iCheckBox
+                #chkViewDiscontinueCancelTempRef
+                Margin="2,0,0,0"
+                Height="Auto"
+                HorizontalAlignment="Right"
+                FontStretch="Normal"
+                Width="Auto"
+                Name="chkViewDiscontinueCancel"
+                id="chkViewDiscontinueCancel"
+                VerticalAlignment="Top"
+                IsWordWrap="True"
+                [Tooltip]="DataContext.ViewDiscontinuedDrugtooltip"
+                [Text]="DataContext.ViewDiscontinuedDrugText"
+                [(IsChecked)]="DataContext.IsSearchDisCanChecked"
+                (KeyUp)="chkViewDiscontinueCancel_KeyDown"
+              ></iCheckBox>
+              <!-- Background="Gray" -->
+            </div>
+          </kendo-gridlayout-item>
+
+          <kendo-gridlayout-item [row]="2" [col]="2">
+            <div containerStyle>
+              <iCheckBox
+                #chkViewDiscontinueCompleteTempRef
+                Height="Auto"
+                HorizontalAlignment="Right"
+                FontStretch="Normal"
+                Width="Auto"
+                Name="chkViewDiscontinueComplete"
+                id="chkViewDiscontinueComplete"
+                VerticalAlignment="Top"
+                Margin="2,0,0,0"
+                IsWordWrap="True"
+                [Text]="DataContext.ViewCompletedDrugText"
+                [Tooltip]="DataContext.ViewCompletedDrugtooltip"
+                [(IsChecked)]="DataContext.IsSearchDisCompletedChecked"
+                (KeyUp)="chkViewDiscontinueComplete_KeyDown"
+              ></iCheckBox>
+            </div>
+          </kendo-gridlayout-item>
+
+          <kendo-gridlayout-item [row]="3" [colSpan]="3">
+            <div containerStyle>
+              <iLabel
+                #lblDisCompTempRef
+                class="align"
+                Name="lblDisComp"
+                HorizontalAlignment="Right"
+                Mandatory="False"
+                Margin="-2,3,2,0"
+                Width="Auto"
+                FontWeight="Bold"
+                IsWordwrap="True"
+                [Text]="DataContext.ViewDisComp72HRsLHS"
+                [Tooltip]="DataContext.ViewDisComp72HRsLHS"
+              ></iLabel>
+            </div>
+          </kendo-gridlayout-item>
+        </kendo-gridlayout>
+      </div>
+    </kendo-gridlayout-item>
+
+    <kendo-gridlayout-item [row]="3">
+      <div containerStyle>
+        <kendo-gridlayout [cols]="[ { width: '8px'}, { width: '1fr'}]">
+          <kendo-gridlayout-item [col]="1">
+            <div containerStyle style="background-color: #52b2bf;">
+                <button
+                  VerticalAlignment="Top"
+                  kendoButton
+                  #anchor
+                  [title]="mldetails.DOCKER_Tooltip"
+                  class="epma-med-tabs-docker-button"
+                  imageUrl="assets/Images/iarrownor5x10.png"
+                  (click)="DockPanel_OnExpand()"
+                ></button>
+              <div [hidden]="show">
+                <kendo-popup
+                  [offset]="offset"
+                  (mouseleave)="mouseLeave('true')"
+                  [animate]="animate"
+                  (anchorViewportLeave)="show = true"
+                  class="epma-med-tabs-popup-content"
+                >
+                  <div class="content">
+                    <kendo-card-header
+                      class="epma-med-tabs-popup-content-header"
+                      >Encounters</kendo-card-header
+                    >
+                    <kendo-card-body>
+                      <div class="pane-content">
+                        <kendo-grid
+                        class="encounter-grid-height"
+                          #grdEncTempRef
+                          [data]="gridView"
+                          [pageSize]="pageSize"
+                          [skip]="skip"
+                          [pageable]="true"
+                          [data]="grdEnc.ItemsSource.array"
+                          (cellClick)="onCellClick()"
+                          [selectable]="{ checkboxOnly: false, mode: 'single' }"
+                          [reorderable]="true"
+                          [resizable]="true"
+                          [sortable]="true"
+                          (selectionChange)="grdEnc_SelectionChanged($event)"
+                          tabindex="1"
+                          [navigable]="true"
+                          [filterable]="false"
+                          [selectable]="true"
+                          (pageChange)="pageChange($event)"
+                          kendoGridSelectBy
+                          (selectedKeysChange)="getSelectedItems($event)"
+                          [style.width.px]="229"[style.height.px]="maxGridHeight"
+                          [(selectedKeys)]="grdEnc.selectedRowsIndex"
+                        >
+                          <ng-template kendoGridNoRecordsTemplate
+                            >No encounters recorded</ng-template
+                          >
+                          <kendo-grid-column [width]="25"
+                          *ngIf="grdEnc.RowIndicatorVisibility == 0? true : false"
+                          title="" 
+                          field="rowindicator"
+                          UniqueName="rowindicator"
+                          Width="5"
+                          Height="12"
+                        >
+                          <ng-template kendoGridCellTemplate let-rowIndex="rowIndex" let-dataItem>
+                            <Image class="arrowalign"
+                            *ngIf="grdEnc.selectedRowsIndex.length > 0 && !dataItem.IsGroupHeader ? grdEnc.selectedRowsIndex == rowIndex : false" 
+                              Source="./assets/images/iarrownor5x10.png"
+                            ></Image>
+                          </ng-template>
+                        </kendo-grid-column>
+
+                          <kendo-grid-column
+                            field="Encounter"
+                            [filterable]="false"
+                            [title]="mldetails.Encounter_Header"
+                            [style]="_cellStyle['Encounter']"
+                          >
+                            <ng-template kendoGridCellTemplate let-dataItem>
+                              <CellStyle
+                                #CellTemplateStyle
+                                Property="fontWeight"
+                                Value="bold"
+                                columnName="{{ mldetails.Encounter_Header }}"
+                                style="font-weight: bold !important;"
+                              >
+                                {{dataItem.Encounter}}
+                              </CellStyle>
+                            </ng-template>
+                          </kendo-grid-column>
+                          <kendo-grid-column
+                            field="EncounterID"
+                            [title]="mldetails.EncounterID_Header"
+                            [hidden]="true"
+                            [filterable]="false"
+                          >
+                          </kendo-grid-column>
+                          <kendo-grid-column
+                            field="EncounterType"
+                            [title]="mldetails.EncounterType_Header"
+                            [hidden]="true"
+                          >
+                          </kendo-grid-column>
+                          <kendo-grid-column
+                            field="EncounterStatus"
+                            [title]="mldetails.EncounterType_Header"
+                            [hidden]="true"
+                          >
+                          </kendo-grid-column>
+                          <ng-template
+                          kendoPagerTemplate
+                          let-currentPage="currentPage"
+                          >
+                          <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
+                          <kendo-pager-input ></kendo-pager-input>
+                          <kendo-pager-info></kendo-pager-info> 
+                          <kendo-pager-next-buttons></kendo-pager-next-buttons>                                                        
+                          </ng-template>
+                        </kendo-grid>
+                      </div>
+                    </kendo-card-body>
+                  </div>
+                </kendo-popup>
+              </div>
+            </div>
+          </kendo-gridlayout-item>
+          <kendo-gridlayout-item [col]="2">
+            <div containerStyle>
+              <iTab
+                #tabLstVwTempRef
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Name="tabLstVw"
+                Height="Auto"
+                [defaultOnTabselect] = true
+                [SelectionChanged]="tabLstVw_SelectionChanged_func"
+                [ItemsSource]="DataContext.MedTabList"
+              >
+              </iTab>
+            </div>
+          </kendo-gridlayout-item>
+        </kendo-gridlayout>
+      </div>
+    </kendo-gridlayout-item>
+  </kendo-gridlayout>
+</div>
+<!-- <button (click)="getSelectedKey()">Get Selected Key</button> -->

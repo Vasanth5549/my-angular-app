@@ -1,0 +1,637 @@
+<ScrollViewer Name="brdHeader" VerticalScrollBarVisibility="Auto" VerticalAlignment="Stretch" BorderBrush="#77b3b4" BorderThickness="0" Height="auto" Background="#E0EFF1FF" Margin="0" style="margin-top: 2px;" >
+<div>
+    <kendo-gridlayout #LayoutRootTempRef Name="LayoutRoot" Background="#77b3b4"
+        [rows]="[{height: 'auto'}, {height: 'auto'},{ height: 'auto'},{ height:'fr'}]" 
+        [cols]="[{width: 606}]" VerticalAlignment="Top">
+
+        <!-- First grid layout -->
+        <kendo-gridlayout-item class="Topspace" [row]="1" [col]="1" >
+            <div>
+                <kendo-gridlayout ShowGridLines="False" 
+                    [rows]="[{height: 'auto'}, {height: 'auto'}]"   
+                    [cols]= "[{width: '70fr'},{width: '15fr'},{width: '11fr'},{width: '4fr'}]"
+                    style="background-color:#76b3b4 ;" VerticalAlignment="Top">
+                    <kendo-gridlayout-item [row]='1' [col]='1' [colSpan]='3' Background="#76b3b4" >
+                        <div containerStyle >
+                          <iLabel
+                            #lblDrugNameTempRef
+                            Name="lblDrugName"
+                            Margin="5,5,5,5"
+                            IsWordwrap="True"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            [Text]="DataContext.DrugName"
+                            [Tooltip]="DataContext.DrugName"
+                            Foreground="#ffffff"
+                            FontWeight="Bold"
+                            ></iLabel>
+                        </div>
+                      </kendo-gridlayout-item> 
+                      <kendo-gridlayout-item [row]='1' [col]='5'  >
+                        <div containerStyle>
+                          <iLabel
+                            #lblSnomedInfoTempRef
+                            Name="lblSnomedInfo"
+                            Margin="5,5,5,5"
+                            IsWordwrap="True"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            Text="&#9432;"
+                            [Tooltip]="DataContext.SnomedCode"
+                            Foreground="#ffffff"
+                            FontSize="15"
+                            FontWeight="Bold"
+                            ></iLabel>
+                        </div>
+                      </kendo-gridlayout-item> 
+                      <kendo-gridlayout-item [row]='2' [col]='1'  >
+                        <div containerStyle>
+                          <iLabel
+                            #lblDosageTextTempRef
+                            Name="lblDosageText"
+                            Margin="5,5,5,5"
+                            IsWordwrap="True"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            [Text]="DataContext.DosageText"
+                            [Tooltip]="DataContext.DosageText"
+                            Foreground="#ffffff"
+                            ></iLabel>
+                        </div>
+                      </kendo-gridlayout-item> 
+                      <kendo-gridlayout-item [row]='2' [col]='2'  >
+                        <div containerStyle>
+                          <iLabel
+                            #lblLastIssueTempRef
+                            Name="lblLastIssue"
+                            Margin="5,5,5,5"
+                            IsWordwrap="True"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            [Text]="mldetails.LastIssued_Header"
+                            [Tooltip]="mldetails.LastIssued_Header"
+                            Foreground="#ffffff"
+                            ></iLabel>
+                        </div>
+                      </kendo-gridlayout-item> 
+                      <kendo-gridlayout-item [row]='2' [col]='3' [colSpan]='2' >
+                        <div containerStyle>
+                          <iLabel
+                            #lblLastIssuedDateTempRef
+                            Name="lblLastIssuedDate"
+                            Margin="5,5,5,5"
+                            IsWordwrap="True"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            [Text]="DataContext.LastIssuedDateText"
+                            [Tooltip]="DataContext.LastIssuedDateText"
+                            Foreground="#ffffff"
+                            ></iLabel>
+                        </div>
+                      </kendo-gridlayout-item> 
+                   <!-- </Border> -->
+                </kendo-gridlayout>        
+              </div>
+        </kendo-gridlayout-item>
+        <!-- Second grid layout -->
+        <kendo-gridlayout-item class="lblCareSetting_space" [row]="2" [col]="1">
+            <div>
+                <kendo-gridlayout ShowGridLines="False"
+                    [rows]="[{height: 'auto'}, {height: 'auto'}]"   
+                    [cols]= "[{width: '14fr'},{width: '43fr'},{width: '9fr'},{width: '10fr'},{width: '10fr'},{width: '12fr'}]">
+                   
+                    <kendo-gridlayout-item [row]='1' [col]='1'  >
+                        <div containerStyle>
+                          <iLabel
+                            #lblCareSettingTempRef
+                            Name="lblCareSetting"
+                            Margin="5,5,5,5"
+                            IsWordwrap="True"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            [Text]="mldetails.GPConnAddlDtl_Caresetting"
+                            [Tooltip]="mldetails.GPConnAddlDtl_Caresetting"
+                            Foreground="#859695"
+                            ></iLabel>
+                        </div>
+                      </kendo-gridlayout-item> 
+                      <kendo-gridlayout-item [row]='1' [col]='2' [colSpan]='3' >
+                        <div containerStyle>
+                          <iLabel
+                            #lblCareSettingNameTempRef
+                            Name="lblCareSettingName"
+                            Margin="5,5"
+                            IsWordwrap="True"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            [Text]="DataContext.CareSettingName"
+                            [Tooltip]="DataContext.CareSettingName"
+                            ></iLabel>
+                        </div>
+                      </kendo-gridlayout-item> 
+                        <!-- stackpanel-->
+                            <kendo-gridlayout-item class="ellStatus_space" [row]='1' [col]='4' [colSpan]='3'>
+                                <div containerStyle>
+                                    <StackPanel Orientation="Horizontal">
+                                    
+                                        <Ellipse class="Button_height" #ellStatusTempRef Name="ellStatus" Fill="LightGreen" HorizontalAlignment="Right" Height="12" VerticalAlignment="Center" Width="12" Stroke="White" [Visibility]="DataContext.StatusVisibility"></Ellipse>
+                                        <kendo-gridlayout-item [row]='1' [col]='4'>
+                                            <div containerStyle>
+                                                <iLabel
+                                                #lblStatusTempRef
+                                                Name="lblStatus"
+                                                Margin="5,0,0,0"
+                                                IsWordwrap="True"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                [Text]="DataContext.Status"
+                                                [Tooltip]="DataContext.Status"
+                                                [Visibility]="DataContext.StatusVisibility"
+                                                ></iLabel> 
+                                            </div>
+                                        </kendo-gridlayout-item>
+                                    </StackPanel>
+                                </div>
+                            </kendo-gridlayout-item>
+                            <kendo-gridlayout-item [row]='2' [col]='1'  >
+                                <div containerStyle>
+                                <iLabel
+                                    #lblEncounterTempRef
+                                    Name="lblEncounter"
+                                    Margin="5,5,5,5"
+                                    IsWordwrap="True"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    [Text]="mldetails.GPConnAddlDtl_Encounter"
+                                    [Tooltip]="mldetails.GPConnAddlDtl_Encounter"
+                                    Foreground="#859695"
+                                    ></iLabel>
+                                </div>
+                            </kendo-gridlayout-item> 
+                            <kendo-gridlayout-item [row]='2' [col]='2'  >
+                                <div containerStyle>
+                                <iLabel
+                                    #lblEncounterNameTempRef
+                                    Name="lblEncounterName"
+                                    Margin="5,5,5,5"
+                                    IsWordwrap="True"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    [Text]="DataContext.EncounterName"
+                                    [Tooltip]="DataContext.EncounterName"
+                                    ></iLabel>
+                                </div>
+                            </kendo-gridlayout-item> 
+                            <kendo-gridlayout-item [row]='2' [col]='3'  >
+                                <div containerStyle>
+                                <iLabel
+                                    #lblIntentTempRef
+                                    Name="lblIntent"
+                                    Margin="5,5,5,5"
+                                    IsWordwrap="True"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    [Text]="mldetails.GPConnAddlDtl_Intent"
+                                    [Tooltip]="mldetails.GPConnAddlDtl_Intent"
+                                    Foreground="#859695"
+                                    ></iLabel>
+                                </div>
+                            </kendo-gridlayout-item> 
+                            <kendo-gridlayout-item [row]='2' [col]='4'  >
+                                <div containerStyle>
+                                <iLabel
+                                    #lblIntentNameTempRef
+                                    Name="lblIntentName"
+                                    Margin="5,5,5,5"
+                                    IsWordwrap="True"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    [Text]="DataContext.Intent"
+                                    [Tooltip]="DataContext.Intent"
+                                    ></iLabel>
+                                </div>
+                            </kendo-gridlayout-item> <kendo-gridlayout-item [row]='2' [col]='5'>
+                                <div containerStyle>
+                                  <iLabel
+                                    #lblQuantityTempRef
+                                    Name="lblQuantity"
+                                    Margin="5,5,5,5"
+                                    IsWordwrap="True"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    [Text]="mldetails.GPConnAddlDtl_Quantity"
+                                    [Tooltip]="mldetails.GPConnAddlDtl_Quantity"
+                                    Foreground="#859695"
+                                    ></iLabel>
+                                </div>
+                              </kendo-gridlayout-item> 
+                              <kendo-gridlayout-item [row]='2' [col]='6'  >
+                                <div containerStyle>
+                                  <iLabel
+                                    #lblQuantityValTempRef
+                                    Name="lblQuantityVal"
+                                    Margin="5,5,5,5"
+                                    IsWordwrap="True"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    [Text]="DataContext.Quantity"
+                                    [Tooltip]="DataContext.Quantity"
+                                    ></iLabel>
+                                </div>
+                              </kendo-gridlayout-item> 
+                  </kendo-gridlayout>
+            </div>
+        </kendo-gridlayout-item>
+        <!-- 3rd grid layout-->
+        <kendo-gridlayout-item [row]="3" [col]="1">
+             <div>
+              <!--<Grid Grid.Row="2" ShowGridLines="False" Background="#c3e2e4" Margin="10,10,10,0">-->
+                
+                <kendo-gridlayout ShowGridLines="False" Margin="10,10,10,0" style="background-color: #c3e2e4;"
+                    [rows]="[{height: 'auto'}, {height: 'auto'}, {height: 'auto'}, {height: 'auto'}, {height: 'auto'}]"   
+                    [cols]= "[{width: '14fr'},{width: '7fr'},{width: '25fr'},{width: '10fr'},{width: '10fr'},{width: '25fr'}]">
+                   
+                    <kendo-gridlayout-item [row]='1' [col]='1' [colSpan]='6' >
+                      <div containerStyle>
+                        <iLabel
+                          #lblPlanDetailsTempRef
+                          Name="lblPlanDetails"
+                          Margin="5,5,5,5"
+                          IsWordwrap="True"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          [Text]="mldetails.GPConnAddlDtl_PlanDetails"
+                          [Tooltip]="mldetails.GPConnAddlDtl_PlanDetails"
+                          FontWeight="Bold"
+                          ></iLabel>
+                      </div>
+                    </kendo-gridlayout-item> 
+                    <kendo-gridlayout-item [row]='1' [col]='4' [colSpan]='3' >
+                      <div containerStyle>
+                        <iLabel
+                          #lblStatusDetailsTempRef
+                          Name="lblStatusDetails"
+                          Margin="5,5,5,5"
+                          IsWordwrap="True"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          [Text]="DataContext.StatusChangeDetails"
+                          [Tooltip]="DataContext.StatusChangeDetails"
+                          FontWeight="Bold"
+                          ></iLabel>
+                      </div>
+                    </kendo-gridlayout-item> 
+                    <kendo-gridlayout-item [row]='2' [col]='1'  >
+                      <div containerStyle>
+                        <iLabel
+                          #lblLastDosageTempRef
+                          Name="lblLastDosage"
+                          Margin="5,5,5,5"
+                          IsWordwrap="True"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          Text="Dosage last changed"
+                          Tooltip="Dosage last changed"
+                          Foreground="#859695"
+                          ></iLabel>
+                      </div>
+                    </kendo-gridlayout-item> 
+                    <kendo-gridlayout-item [row]='2' [col]='2' [colSpan]='5' >
+                      <div containerStyle>
+                        <iLabel
+                          #lblLastDosageChangedTempRef
+                          Name="lblLastDosageChanged"
+                          Margin="5,5,5,5"
+                          IsWordwrap="True"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          [Text]="DataContext.DosageLastChangedText"
+                          [Tooltip]="DataContext.DosageLastChangedText"
+                          ></iLabel>
+                      </div>
+                    </kendo-gridlayout-item> 
+                    <kendo-gridlayout-item [row]='2' [col]='4' [colSpan]='3' >
+                      <div containerStyle>
+                        <iLabel
+                          #lblRepeatNameTempRef
+                          Name="lblRepeatName"
+                          Margin="5,5,5,5"
+                          IsWordwrap="True"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          [Text]="DataContext.RepeatStartAndEnd"
+                          [Tooltip]="DataContext.RepeatStartAndEnd"
+                          ></iLabel>
+                      </div>
+                    </kendo-gridlayout-item> 
+                    <kendo-gridlayout-item [row]='3' [col]='1'  >
+                      <div containerStyle>
+                        <iLabel
+                          #lblDosageTempRef
+                          Name="lblDosage"
+                          Margin="5,5,5,5"
+                          IsWordwrap="True"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          [Text]="mldetails.GPConnAddlDtl_Dosage"
+                          [Tooltip]="mldetails.GPConnAddlDtl_Dosage"
+                          Foreground="#859695"
+                          ></iLabel>
+                      </div>
+                    </kendo-gridlayout-item> 
+                    <kendo-gridlayout-item [row]='3' [col]='2' [colSpan]='5' >
+                      <div containerStyle>
+                        <iLabel
+                          #lblDosageNameTempRef
+                          Name="lblDosageName"
+                          Margin="5,5,5,5"
+                          IsWordwrap="True"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          [Text]="DataContext.Dosage"
+                          [Tooltip]="DataContext.Dosage"
+                          ></iLabel>
+                      </div>
+                    </kendo-gridlayout-item> 
+                    <kendo-gridlayout-item [row]='4' [col]='1'  >
+                      <div containerStyle>
+                        <iLabel
+                          #lblInstructionsTempRef
+                          Name="lblInstructions"
+                          Margin="5,5,5,5"
+                          IsWordwrap="True"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          [Text]="mldetails.GPConnAddlDtl_Instructions"
+                          [Tooltip]="mldetails.GPConnAddlDtl_Instructions"
+                          Foreground="#859695"
+                          ></iLabel>
+                      </div>
+                    </kendo-gridlayout-item> 
+                    <kendo-gridlayout-item [row]='4' [col]='2' [colSpan]='5' >
+                      <div containerStyle>
+                        <iLabel
+                          #lblInstructionsNameTempRef
+                          Name="lblInstructionsName"
+                          Margin="5,5,5,5"
+                          IsWordwrap="True"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          [Text]="DataContext.PatientInstructions"
+                          [Tooltip]="DataContext.PatientInstructions"
+                          ></iLabel>
+                      </div>
+                    </kendo-gridlayout-item> 
+                    <kendo-gridlayout-item [row]='5' [col]='1' [colSpan]='2' >
+                      <div containerStyle>
+                        <iLabel
+                          #lblNoOfRepAllowedTempRef
+                          Name="lblNoOfRepAllowed"
+                          Margin="5,5,5,5"
+                          IsWordwrap="True"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          [Text]="mldetails.GPConnAddlDtl_Noofrepeatsallowed"
+                          [Tooltip]="mldetails.GPConnAddlDtl_Noofrepeatsallowed"
+                          Foreground="#859695"
+                          ></iLabel>
+                      </div>
+                    </kendo-gridlayout-item> 
+                    <kendo-gridlayout-item [row]='5' [col]='3'  >
+                      <div containerStyle>
+                        <iLabel
+                          #lblNoOfRepAllowedValTempRef
+                          Name="lblNoOfRepAllowedVal"
+                          Margin="5,5,5,5"
+                          IsWordwrap="True"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          [Text]="DataContext.NoOfRepeatsAllowed"
+                          [Tooltip]="DataContext.NoOfRepeatsAllowed"
+                          ></iLabel>
+                      </div>
+                    </kendo-gridlayout-item> 
+                    <kendo-gridlayout-item [row]='5' [col]='4' [colSpan]='2' >
+                      <div containerStyle>
+                        <iLabel
+                          #lblNoOfRepIssuedTempRef
+                          Name="lblNoOfRepIssued"
+                          Margin="5,5,5,5"
+                          IsWordwrap="True"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          [Text]="mldetails.GPConnAddlDtl_Noofrepeatsissued"
+                          [Tooltip]="mldetails.GPConnAddlDtl_Noofrepeatsissued"
+                          Foreground="#859695"
+                          ></iLabel>
+                      </div>
+                    </kendo-gridlayout-item> 
+                    <kendo-gridlayout-item [row]='5' [col]='6'  >
+                      <div containerStyle>
+                        <iLabel
+                          #lblNoOfRepIssuedValTempRef
+                          Name="lblNoOfRepIssuedVal"
+                          Margin="5,5,5,5"
+                          IsWordwrap="True"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          [Text]="DataContext.NoOfRepeatsIssued"
+                          [Tooltip]="DataContext.NoOfRepeatsIssued"
+                          ></iLabel>
+                      </div>
+                    </kendo-gridlayout-item> 
+                    
+                </kendo-gridlayout>
+              
+            </div>
+          
+        </kendo-gridlayout-item>
+        <!-- 4th grid layout-->
+        <kendo-gridlayout-item [row]="4" [col]="1">
+          <div>
+              <kendo-gridlayout ShowGridLines="False" Margin="10,10,10,10"
+                  [rows]="[{height: 30}]"   
+                  [cols]= "[{width: 'auto'}]">
+                  <Border class="Issuedetails_topspace" Background="#76b3b4">
+                    <kendo-gridlayout-item [row]='1' [col]='1'  >
+                      <div containerStyle>
+                        <iLabel
+                          #lblIssueDetailsTempRef
+                          Name="lblIssueDetails"
+                          Margin="5,0,0,0"
+                          IsWordwrap="True"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          [Text]="mldetails.GPConnAddlDtl_IssueDetails"
+                          [Tooltip]="mldetails.GPConnAddlDtl_IssueDetails"
+                          FontWeight="Bold"
+                          ></iLabel>
+                      </div>
+                    </kendo-gridlayout-item> 
+                  </Border>
+              </kendo-gridlayout>
+          </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]="5" [col]="1">
+          <kendo-grid #grdDataTempRef [GridProperties]="grdData" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,1,0,2"
+          [selectable]="{checkboxOnly: false, mode: 'single'}" kendoGridSelectBy [(selectedKeys)]="grdData.selectedRowsIndex"
+          [sortable]="false" [reorderable]="false" Width=605 [style.height.px]="245" [MinHeight]=150 [MaxHeight]=280 [navigable]="true"
+          [data]="grdData.ItemsSource.array" 
+          (keyup)="grdData.GridSelectionKeyUp($event)" 
+                    (keydown)="grdData.GridSelectionKeyDown($event)"
+          >
+          <!--TODO <ng-template kendoGridNoRecordsTemplate>{ DataContext.grdDataNoRecordsText }-->
+            <!-- xaml NoRecordsText="{Binding Source={StaticResource mldetails},Path=NoRecordsText} - to discuss on static resource binding???"-->
+             <ng-template kendoGridNoRecordsTemplate>
+                There are no records to show
+              </ng-template>  
+              <kendo-grid-column *ngIf="grdData.RowIndicatorVisibility == 0 ? true : false" 
+              UniqueName="rowindicator" field="rowindicator" title="" [width]="40"
+              >
+                  <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+                  <Image
+                  *ngIf="grdData.selectedRowsIndex.length > 0 ? grdData.selectedRowsIndex == 
+                  rowIndex : false"
+                  Source="./assets/Images/iarrownor5x10.png"
+                  ></Image>
+                  </ng-template>
+              </kendo-grid-column>
+              <kendo-grid-column UniqueName="StartDate" [title]="mldetails.GPConnAddlDtl_Startdate"
+                          [GridColumnProperties]="grdData" [width]="190" [filterable]="false" [editable]="false" [hidden]="false"
+                          > 
+                          <ng-template kendoGridHeaderTemplate>
+                            <span kendoTooltip title="{{mldetails.GPConnAddlDtl_Startdate }}"> 
+                               {{mldetails.GPConnAddlDtl_Startdate }}
+                            </span>
+                          </ng-template>    
+                  <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                  <DataTemplate>
+                      <iLabel #lblStartDateTempRef
+                          Name="lblStartDate"
+                          Mandatory="False"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Center"
+                          FontWeight="Normal"
+                          Margin="0"
+                          IsWordwrap="True"
+                          [Text]="dataItem.StartDate | date: 'dd-MMM-yyyy'"
+                          [Tooltip]="dataItem.StartDate | date: 'dd-MMM-yyyy'"
+                      ></iLabel> 
+                  </DataTemplate>
+                  </ng-template>
+              </kendo-grid-column>
+              <kendo-grid-column
+                          UniqueName="EndDate"
+                          [title]="mldetails.GPConnAddlDtl_Enddate"
+                          [GridColumnProperties]="grdData"
+                          [width]="190"
+                          [filterable]="false"
+                          [editable]="false"
+                          [hidden]="false"
+                        > 
+                        <ng-template kendoGridHeaderTemplate>
+                          <span kendoTooltip title="{{mldetails.GPConnAddlDtl_Enddate }}"> 
+                             {{mldetails.GPConnAddlDtl_Enddate }}
+                          </span>
+                        </ng-template>
+
+                  <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                  <DataTemplate>
+                      <iLabel
+                          #lblEndDateTempRef
+                          Name="lblEndDate"
+                          Mandatory="False"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Center"
+                          FontWeight="Normal"
+                          Margin="0"
+                          IsWordwrap="True"
+                          [Text]="dataItem.EndDate | date: 'dd-MMM-yyyy'"
+                          [Tooltip]="dataItem.EndDate | date: 'dd-MMM-yyyy'"
+                      ></iLabel> 
+                  </DataTemplate>
+                  </ng-template>
+              </kendo-grid-column>
+              <kendo-grid-column
+                          UniqueName="Quantity"
+                          [title]="mldetails.GPConnAddlDtl_Quantity"
+                          [GridColumnProperties]="grdData"
+                          [width]="165"
+                          [filterable]="false"
+                          [editable]="false"
+                          [hidden]="false"
+                        > 
+                        <ng-template kendoGridHeaderTemplate>
+                          <span kendoTooltip title="{{mldetails.GPConnAddlDtl_Quantity }}"> 
+                            {{mldetails.GPConnAddlDtl_Quantity }} 
+                          </span>
+                        </ng-template>
+
+                  <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-columnIndex="columnIndex">
+                  <DataTemplate>
+                      <iLabel
+                          #lblQuantityTempRef
+                          Name="lblQuantity"
+                          Mandatory="False"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Center"
+                          FontWeight="Normal"
+                          Margin="0"
+                          IsWordwrap="True"
+                          [Text]="dataItem.Quantity"
+                          [Tooltip]="dataItem.Quantity"
+                      ></iLabel> 
+                  </DataTemplate>
+                  </ng-template>
+              </kendo-grid-column>
+              <kendo-grid-column
+                UniqueName="AddlDtl"
+                [GridColumnProperties]="grdData"
+                [filterable]="false"
+                [editable]="false"
+                [resizable]="false"
+              > 
+              <ng-template kendoGridHeaderTemplate>
+                <ControlTemplate>
+                  <GridBorder
+                    #ControlTemplateBordererStyles
+                    Padding="0"
+                    Margin="0"
+                    BorderThickness="0,0,1,1"
+                    BorderBrush="#7BB0AF"
+                  >
+                    <Image
+                      Source="./assets/images/Medsdetails_icon.png"
+                      Width="15"
+                      Height="15"
+                      Tooltip="Dosage"
+                      HorizontalAlignment="Center"
+                      Cursor="Hand"
+                    >
+                    </Image>
+                  </GridBorder>
+                </ControlTemplate>
+              </ng-template>
+              <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                            let-columnIndex="columnIndex">
+                            <DataTemplate #temp [dataItem]="dataItem" [index]="rowIndex" [colindex]="columnIndex"
+                                [gridHelper]="grdData">
+                                <Image #imgmultipletxtblocktooltip
+                                  Source="./assets/images/Medsdetails_icon.png"
+                                  Cursor="Hand"
+                                  Stretch="None"
+                                  HorizontalAlignment="Center"
+                                  >
+                                <!--TODO PENDING ON Tooltip.service having 2 rows with TextBlock to embed here-->
+                                </Image>
+                                
+
+                            </DataTemplate>
+                        </ng-template>
+              </kendo-grid-column>
+        </kendo-grid>
+       </kendo-gridlayout-item>
+
+    </kendo-gridlayout>
+</div>
+</ScrollViewer>

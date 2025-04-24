@@ -1,0 +1,50 @@
+
+  .content.popup {
+    background-color: white;
+    
+    padding: 4px;
+    font-size: 11px ;
+    margin-left:30px;
+    border:1px solid rgb(172, 168, 168);
+    
+  }
+
+  /* #gridBag .k-grid .k-grid-content td {
+    padding-left: 8px !important;
+  } */
+
+  ::ng-deep #gridBag tr td{
+    padding-left: 8px !important; 
+  }
+
+.baggridClass{
+  white-space: normal ;
+}
+.bagAdmbyClass{
+  white-space: pre-line;
+}
+
+.baggridHeaderClass{
+  padding-left: 10px;
+}
+
+:host ::ng-deep .k-grid .k-grid-content {
+
+  overflow-x: auto !important;
+
+}
+
+.bagpreClass{
+  white-space: pre-wrap ;
+}
+
+@media screen and (max-device-width: 1400px) {
+  .medbagDtl{
+    height: 113px;
+  }
+}
+@media screen and (min-device-width: 1500px) {
+  .medbagDtl{
+    height: 175px;
+  }
+}

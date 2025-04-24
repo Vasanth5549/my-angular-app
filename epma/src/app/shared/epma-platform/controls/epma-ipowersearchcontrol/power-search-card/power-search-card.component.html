@@ -1,0 +1,197 @@
+<ng-template #ControlledDrugIconTooltip>
+  <span>
+    {{ListSearchRowObject.ControlledDrugIconTooltip}}
+  </span>
+</ng-template>
+<ng-template #MCIconTooltip>
+  <span>
+    {{ListSearchRowObject.MCIconTooltip}}
+  </span>
+</ng-template>
+<ng-template #FNoteIconTooltip>
+  <span>
+    {{ListSearchRowObject.FNoteIconTooltip}}
+  </span>
+</ng-template>
+<ng-template #HighRiskIconTooltip>
+  <span>
+    {{ListSearchRowObject.HighRiskIconTooltip}} 
+  </span>
+</ng-template>
+<ng-template #NamedPatientIconTooltip>
+  <span>
+    Named Patient Drug
+  </span>
+</ng-template>
+<ng-template #UnlicensedIconTooltip>
+  <span>
+    {{ListSearchRowObject.UnlicensedIconTooltip}}
+  </span>
+</ng-template>
+<ng-template #NewlyMarketedIconTooltip>
+  <span>
+    {{ListSearchRowObject.NewlyMarketedIconTooltip}}
+  </span>
+</ng-template>
+<ng-template #NotesToolTip>
+  <div *ngIf="!ListSearchRowObject.NotesToolTip;else nodesdata;" class="notes-data">
+    {{ListSearchRowObject.NotesData}}
+  </div>
+</ng-template>
+<ng-template #nodesdata>
+  {{ListSearchRowObject.NotesToolTip}}
+</ng-template>
+<div #hoverName class="grid-layout-container cardStyle" [ngClass]="isSelected?'selecteditem':''">
+<!-- kendoPopoverAnchor [popover]="myPopover" -->
+
+  <kendo-gridlayout [align]="{vertical:middleAlign}" [cols]="[{ width: 'fr' }, { width: 'auto' }]">
+    <kendo-gridlayout-item [row]="1" [col]="1">
+      <kendo-gridlayout [align]="{vertical:middleAlign}" [cols]="[{ width: 'auto' }, { width: 'fr' }]">
+
+        <kendo-gridlayout-item [row]="1" [col]="1">
+          <kendo-gridlayout [align]="{vertical:middleAlign}" [cols]="[{ width: 'auto' }, { width: 'fr' }]">
+
+            <!-- <local:UIAPowerSearch x:Name="UISecondaryIcon" MaxHeight="16"
+            IsTabStop="False" Tag="{Binding OnSelectParams}"
+            Content="{Binding SearchImages.ImageSecondary, Converter={StaticResource imageConverter}}"
+            Visibility="{Binding SearchImages, Converter={StaticResource VisibleSecondaryImageConverter}}" 
+            AltString="{Binding AltSecondaryIcon}">
+            <ToolTipService.ToolTip>
+              <ToolTip VerticalOffset="5">
+                <ToolTip.Content>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding SecondaryTooltip}" MinWidth="0" MaxWidth="{Binding TooltipMaxWidth}"/>
+                </ToolTip.Content>
+              </ToolTip>
+            </ToolTipService.ToolTip>
+         </local:UIAPowerSearch> -->
+
+            <kendo-gridlayout-item [col]="1" [row]="1" FlowDirection="LeftToRight" class="align-items">
+              <div class="k-overlay" *ngIf="opened"></div>
+              <!-- <local:iPowerSearchLabel   x:Name="powerSearchLabel" Grid.Row="0" HorizontalAlignment="Left" Padding="0,1,0,1" Grid.Column="1" 
+              MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" Cursor="Hand" 
+              MouseLeave="TextBlock_MouseLeave" MouseEnter="TextBlock_MouseEnter" 
+              Foreground="{Binding SearchStyles, Converter={StaticResource ForeColorConverter}}" 
+              FontWeight="{Binding SearchStyles, Converter={StaticResource BoldConverter}}" 
+              FontStyle="{Binding SearchStyles, Converter={StaticResource ItalicConverter}}" 
+              Tag="{Binding OnSelectParams}" Text="{Binding Text}">
+              <local:iPowerSearchLabel.InLines> -->
+              <span (mouseenter)="TextBlock_MouseEnter(hoverName)" (mouseleave)="TextBlock_MouseLeave(hoverName)"
+                (click)="TextBlock_MouseLeftButtonDown(ListSearchRowObject)" [ngStyle]="RowStyle" class="pointer-cursor"
+                >
+                {{ListSearchRowObject.Text}}</span>
+
+              <span kendoTooltip [epmaMargin]="ListSearchRowObject.MCIconMargin" class="pointer-cursor icon-margin-left"
+                (mouseenter)="TextBlock_MouseEnter(hoverName)" (mouseleave)="TextBlock_MouseLeave(hoverName)"
+                [ngClass]="[iconFlag ? 'MC-Icon' : 'OrderSet-Icon']" position="bottom"
+                [showOn]="ShowTooltip ? showPopup : dontShowPopup" disabled="ShowTooltip"
+                *ngIf="ListSearchRowObject.MCIcon === true" title="" [tooltipTemplate]="MCIconTooltip"
+                ></span>
+
+              <span kendoTooltip (mouseenter)="TextBlock_MouseEnter(hoverName)"
+                (mouseleave)="TextBlock_MouseLeave(hoverName)" position="bottom"
+                [showOn]="ShowTooltip ? showPopup : dontShowPopup" disabled="ShowTooltip" #tooltip="kendoTooltip" #first
+                [tooltipWidth]="200" *ngIf="ListSearchRowObject.FNoteIcon === true " class="FNote-Icon pointer-cursor icon-margin-left"
+                title="" [tooltipTemplate]="FNoteIconTooltip" [epmaMargin]="ListSearchRowObject.FNoteIconMargin"
+                ></span>
+
+              <span kendoTooltip (mouseenter)="TextBlock_MouseEnter(hoverName)"
+                (mouseleave)="TextBlock_MouseLeave(hoverName)" position="bottom"
+                [showOn]="ShowTooltip ? showPopup : dontShowPopup" disabled="ShowTooltip" #tooltip="kendoTooltip" #first
+                [tooltipWidth]="200" *ngIf="ListSearchRowObject.HighRiskIcon === true"
+                title="" [tooltipTemplate]="HighRiskIconTooltip" >
+                <div (click)="tooltip.toggle(first)" [epmaMargin]="ListSearchRowObject.HighRiskIconMargin"
+                  class="HighRisk-Icon pointer-cursor icon-margin-left"></div>
+              </span>
+
+              <span kendoTooltip (mouseenter)="TextBlock_MouseEnter(hoverName)"
+                (mouseleave)="TextBlock_MouseLeave(hoverName)" position="bottom"
+                [showOn]="ShowTooltip ? showPopup : dontShowPopup" disabled="ShowTooltip" #tooltip="kendoTooltip" #first
+                [tooltipWidth]="200" *ngIf="ListSearchRowObject.UnlicensedIcon === true"
+                title="" [tooltipTemplate]="UnlicensedIconTooltip">
+                <div (click)="tooltip.toggle(first)" [epmaMargin]="ListSearchRowObject.UnlicensedIconMargin"
+                  class="UnLicensed-Icon pointer-cursor icon-margin-left"></div>
+            </span>
+
+              <span kendoTooltip (mouseenter)="TextBlock_MouseEnter(hoverName)"
+                (mouseleave)="TextBlock_MouseLeave(hoverName)" position="bottom"
+                [showOn]="ShowTooltip ? showPopup : dontShowPopup" disabled="ShowTooltip" #tooltip="kendoTooltip" #first
+                [tooltipWidth]="200" *ngIf="ListSearchRowObject.NamedPatientIcon === true"
+                title="" [tooltipTemplate]="NamedPatientIconTooltip">
+                <div (click)="tooltip.toggle(first)" [epmaMargin]="ListSearchRowObject.NamedPatientIconMargin"
+                  class="NamedPatient-Icon pointer-cursor icon-margin-left"></div>
+            </span>
+
+              <span kendoTooltip (mouseenter)="TextBlock_MouseEnter(hoverName)"
+                (mouseleave)="TextBlock_MouseLeave(hoverName)" position="bottom"
+                [showOn]="ShowTooltip ? showPopup : dontShowPopup" disabled="ShowTooltip" #tooltip="kendoTooltip" #first
+                [tooltipWidth]="200" *ngIf="ListSearchRowObject.ControlledDrugIcon === true"
+                title="" [tooltipTemplate]="ControlledDrugIconTooltip">
+                <div (click)="tooltip.toggle(first)" [epmaMargin]="ListSearchRowObject.ControlledDrugIconMargin"
+                  class="ControlledDrug-Icon pointer-cursor icon-margin-left"></div>
+            </span>
+
+              <span kendoTooltip (mouseenter)="TextBlock_MouseEnter(hoverName)"
+                (mouseleave)="TextBlock_MouseLeave(hoverName)" position="bottom"
+                [showOn]="ShowTooltip ? showPopup : dontShowPopup" disabled="ShowTooltip" #tooltip="kendoTooltip" #first
+                [tooltipWidth]="200" *ngIf="ListSearchRowObject.NewlyMarketedIcon === true"
+                title="" [tooltipTemplate]="NewlyMarketedIconTooltip">
+                <div (click)="tooltip.toggle(first)" [epmaMargin]="ListSearchRowObject.NewlyMarketedIconMargin"
+                  class="NewlyMarketed-Icon pointer-cursor icon-margin-left"></div>
+            </span>
+              <span kendoTooltip (mouseenter)="TextBlock_MouseEnter(hoverName)"
+                (mouseleave)="TextBlock_MouseLeave(hoverName)" #tooltip="kendoTooltip" #first position="bottom"
+                [showOn]="ShowTooltip ? showPopup : dontShowPopup" disabled="ShowTooltip" [tooltipWidth]="200"
+                *ngIf="ListSearchRowObject.NotesIcon === true" title="" tooltipClass="newLineClass"
+                [tooltipTemplate]="NotesToolTip"
+                class="">
+                <div [epmaMargin]="ListSearchRowObject.NotesIconMargin"
+                  (click)="tooltip.toggle(first)" class="Notes-Icon pointer-cursor icon-margin-left"  tooltipClass="newLineClass" kendoPopoverAnchor [popover]="myPopover" ></div>
+            </span>
+
+            </kendo-gridlayout-item>
+          </kendo-gridlayout>
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item [col]="2">
+          <div (mouseenter)="TextBlock_MouseEnter(hoverName)" (mouseleave)="TextBlock_MouseLeave(hoverName)"
+            >
+            <div (click)="OnSecondaryIconClick(ListSearchRowObject)" *ngIf="ListSearchRowObject.ShowLinkIcon === true"
+              class="link-Icon pointer-cursor" title='Select item'></div>
+          </div>
+        </kendo-gridlayout-item>
+
+      </kendo-gridlayout>
+    </kendo-gridlayout-item>
+  </kendo-gridlayout>
+
+  <!-- <StackPanel Orientation="Horizontal" Tag="{Binding OnSelectParams}">
+        <local:UIAPowerSearch x:Name="UIWarningIcon" Tag="{Binding OnSelectParams}"
+                              Click="OnIconClick"  Cursor="Hand"  MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"
+                              IsTabStop="False" AltString="{Binding AltWarningIcon}"
+                              Content="{Binding SearchImages.WarningImage, Converter={StaticResource imageConverter}}"/>
+        <TextBlock Loaded="TextBlock_Loaded_Warning" MouseEnter="TextBlock_MouseEnter"  Cursor="Hand" 
+                        MouseLeave="TextBlock_MouseLeave" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" 
+                        TextWrapping="Wrap" Text="{Binding WarningText}"   
+                        Tag="{Binding OnSelectParams}" 
+                        FontWeight="{Binding SearchStyles, Converter={StaticResource BoldConverter}}" 
+                        Foreground="{Binding SearchStyles, Converter={StaticResource ForeColorConverter}}" 
+                        FontStyle="{Binding SearchStyles, Converter={StaticResource ItalicConverter}}" 
+                        ToolTipService.ToolTip="{Binding WarningText}"/>
+    </StackPanel> -->
+
+  <!-- <div class="example-wrapper">          
+        <kendo-window title="Please provide additional data" *ngIf="opened" (close)="close()" [minWidth]="250" [width]="450">
+         <div>{{ListSearchRowObject.NotesData}}</div>
+         <br>
+         <button kendoButton type="button" (click)="close()">Close</button>
+        </kendo-window>     
+      </div>      -->
+
+  <kendo-popover #myPopover [width]="300" height="auto" position="bottom" class=" kleft">
+    <ng-template kendoPopoverTitleTemplate>
+      <div class="popover-title">
+        {{ListSearchRowObject.NotesData}}
+      </div>
+    </ng-template>
+  </kendo-popover>
+</div>

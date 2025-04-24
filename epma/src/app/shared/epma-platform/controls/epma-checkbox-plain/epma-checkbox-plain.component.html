@@ -1,0 +1,8 @@
+<!-- <input type="checkbox" [disabled]="!IsEnabled" kendoCheckBox [attr.name]="Name"  (keydown)="ckdwn($event)" /> -->
+
+<input [ngStyle]="style" type="checkbox" name="Name"  [disabled]="!IsEnabled" [(ngModel)]="IsChecked"
+(keydown)="KeyDownEvent($event)" (keyup)="KeyUpEvent($event)" kendoCheckBox /> {{Text}}
+
+<!-- <input type="checkbox" name="Name" 
+ [checked]="IsChecked" (change)="IsChecked = !IsChecked"
+[disabled]="!IsEnabled"  width="Width" /> -->

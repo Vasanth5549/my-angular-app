@@ -1,0 +1,45 @@
+<ng-template #tooltip>
+    <span *ngIf="Tooltip != '' && hasTooltipString">
+      {{Tooltip}}
+    </span>
+    <ng-content select="[ToolTipServiceTooltip]"></ng-content>
+
+    <ng-container *ngIf="Tooltip.constructor?.name == 'iLabel'">
+      <kendo-label [ngStyle]="Tooltip?.style">{{Tooltip.Text}}</kendo-label>
+    </ng-container>
+    <ng-container *ngIf="Tooltip.constructor?.name == 'TextBlock'">
+        <div [ngStyle]="Tooltip.style">
+            <ng-container *ngIf="Tooltip.InlinesElements && Tooltip.InlinesElements.length > 0">
+                <ng-container *ngFor="let elem of Tooltip.InlinesElements">
+                    <span [ngStyle]="elem.style" *ngIf="elem.constructor?.name == 'Run'">
+                        {{elem.Text}}
+                    </span>
+               </ng-container>
+            </ng-container>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="Tooltip.constructor?.name == 'TextBlock'">
+        <TextBlock [Text]="Tooltip?.['Text']" [style]="Tooltip?.style"></TextBlock>
+    </ng-container>
+</ng-template>
+<div *ngIf="!canvas" kendoTooltip [tooltipTemplate]="tooltip" [position]="TooltipPosition" title="" tooltipClass="newTxtBlockLineClass" [showOn]="Tooltip == '' || Tooltip == null ? 'none': 'hover'"  [ngStyle]="style" [ngClass]="classObj" (mouseleave)="txtblockMouseLeave()" (mouseenter)="txtblockMouseEnter()" (click)="MouseLeftButtonUpEvent($event)" >
+    <span *ngIf="!_newLine" [ngStyle]="style">{{Text}} </span>
+    <span *ngIf="_newLine" [ngStyle]="style" [innerHTML]="Text"></span>
+    <!-- <span *ngIf="Text && Text != 'undefined'" style="color: red">{{Text}}</span> -->
+    <ng-container *ngIf="InlinesElements && InlinesElements.length > 0">
+        <ng-container *ngFor="let elem of InlinesElements">
+            <span [ngStyle]="elem.style" *ngIf="elem.constructor?.name == 'Run'">
+                {{elem.Text}}
+            </span>
+            <span *ngIf="elem.constructor?.name == 'LineBreak'">
+               <br>
+            </span>
+       </ng-container>
+    </ng-container>
+</div>
+
+
+
+    
+
+ 

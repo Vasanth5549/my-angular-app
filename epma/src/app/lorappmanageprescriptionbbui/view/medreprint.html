@@ -1,0 +1,70 @@
+<div class="grid-layout-container">
+    <kendo-gridlayout #LayoutRootTempRef Background="StaticResource LzoPageBG" [Name]="LayoutRoot"
+        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+        [rows]="[ { height: 30},{ height: '1fr'},{ height: 100}]">
+        <kendo-gridlayout-item [row]='1' [col]="1" [Background]="Styles.InnerBG">
+            <div containerStyle>
+                <iLabel #lblstationaryTempRef Name="lblstationary" Text="Stationery type" HorizontalAlignment="Left"
+                    VerticalAlignment="Center" FontWeight="Bold">
+                </iLabel>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='2' [col]="1">
+            <kendo-grid #grid2TempRef [selectable]="{checkboxOnly: true, mode: 'single'}" kendoGridSelectBy
+                [(selectedKeys)]="grid2.selectedRowsIndex" [GridColumnProperties]="grid2"
+                VerticalContentAlignment="Top" [GridProperties]="grid2" HorizontalAlignment="Left"
+                 VerticalAlignment="Top" [reorderable]="false" [sortable]="false"
+                [data]="grid2.ItemsSource.array" [height]="335" [width]="870">
+                <!-- Row Indicator Visibility -->
+                <kendo-grid-column *ngIf="grid2.RowIndicatorVisibility == 0 ? true : false" UniqueName="rowindicator"
+                    field="rowindicator" title="" [width]="40">
+                    <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+                        <Image [style.marginLeft.px]="10" [style.marginRight.px]="10"
+                            *ngIf="grid2.selectedRowsIndex.length > 0 ? grid2.selectedRowsIndex == rowIndex : false"
+                            Source="~/../assets/Images/iarrownor5x10.png">
+                        </Image>
+                    </ng-template>
+                </kendo-grid-column>
+                <!-- NoRecordsText="There are no records to show"-->
+                <ng-template kendoGridNoRecordsTemplate>
+                    There are no records to show
+                </ng-template>
+                <kendo-grid-column UniqueName="PrescriptionItem" title="Prescription item" [filterable]="false"
+                    [width]="550" [sortable]="false">
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                        <DataTemplate>
+                            <ContentPresenter [Content]="dataItem | MedLineDisplay : '' : '200'">
+                            </ContentPresenter>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column UniqueName="StationeryType" title="Stationery type" [filterable]="false"
+                    [width]="300" [sortable]="false" [resizable]="false">
+
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" let-colIndex="columnIndex">
+                        <DataTemplate [dataItem]="dataItem" [index]="rowIndex" [colindex]="colIndex"
+                            [gridHelper]="grid2">
+                            <GridCellTemplate [isEditable]="true" [columnNumber]="0" [cell]="'cell0'" [EditableControlRef]="cboStaTypeTempRef"
+                                [dataItem]="dataItem">
+                                <iLabel HorizontalAlignment="Stretch" #lblDefStaTypeTempRef Name="lblDefStaType"
+                                    VerticalAlignment="Center"
+                                    [(Text)]="dataItem.FormViewerDetails.BasicDetails.PrintStationaryType.DisplayText">
+                                </iLabel>
+                            </GridCellTemplate>
+                            <GridCellEditTemplate [cell]="'cell0'" [dataItem]="dataItem">
+                                <iComboBox HorizontalAlignment="Stretch" #cboStaTypeTempRef Name="cboStaType"
+                                    VerticalAlignment="Center" Width="auto" ColumnCellIndex="cell0"
+                                    [DataContext]="dataItem" [ItemsSource]="dataItem.StationaryCodes"
+                                    IsDropDownOpen="True" IsEditable="false"
+                                    [(SelectedValue)]="dataItem.FormViewerDetails.BasicDetails.PrintStationaryType"
+                                    [(ItemsSource)]="dataItem.FormViewerDetails.BasicDetails.DefaultDetails.Stationarys">
+                                </iComboBox>
+                            </GridCellEditTemplate>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+            </kendo-grid>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>

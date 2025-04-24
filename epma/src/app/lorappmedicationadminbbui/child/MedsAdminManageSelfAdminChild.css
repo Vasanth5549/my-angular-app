@@ -1,0 +1,21 @@
+
+.vertical-class-stretch{
+  height: 100%;
+}
+.horizontal-class-stretch{
+  display: grid;
+}
+::ng-deep #self .k-grid .k-grid-content td {
+  white-space: normal !important;
+}
+::ng-deep #self .k-grid-content tr:last-child > td, 
+.k-grid-content-locked tr:last-child > td {
+  border-bottom-width: 2px;
+}
+::ng-deep #self .k-checkbox {
+    margin: 0px 25px 0px 35px !important;
+}
+
+::ng-deep .grdManageSelfAdminCA .k-grid-content td.Comments {
+  position: relative;
+}

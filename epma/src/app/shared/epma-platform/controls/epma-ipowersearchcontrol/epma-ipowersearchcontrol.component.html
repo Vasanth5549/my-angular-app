@@ -1,0 +1,6 @@
+<ng-container *ngFor="let rowObject of LineItemCollection?.array;let i = index">
+    <app-power-search-card (ladSearch_OnSelect)="ladSearch_OnSelect($event)"
+    [ngClass]="{'setContentCollapse': !_visible, 'setContentVisible' : _visible }"
+        [ListSearchRowObject]="rowObject" [ListSearchStyleObject]="StyleItemCollection?.array"
+        (click)="onselcted(i)" [isSelected]="isSelected(i)"></app-power-search-card>
+</ng-container>

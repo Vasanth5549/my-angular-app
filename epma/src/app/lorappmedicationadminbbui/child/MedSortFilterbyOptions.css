@@ -1,0 +1,14 @@
+.div-bg-whiteborder {
+    border-bottom: 2px solid white;
+    background-color: #c2e2e3;
+}
+.div-bg {
+    border-bottom: 2px solid white;
+    height: 38px !important;
+}
+.div-whiteborder {
+    border-bottom: 2px solid white;
+}
+.k-window-content, .k-prompt-container {
+    padding: 10px 26px;
+}

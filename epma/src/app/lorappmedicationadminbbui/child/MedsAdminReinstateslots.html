@@ -1,0 +1,125 @@
+<!-- <StackPanel #LayoutRootTempRef Name="LayoutRoot" [Background]="Styles.LzoPageBG" Height="Auto" VerticalAlignment="Top"> -->
+
+<!-- <StackPanel HorizontalAlignment="Stretch" Height="Auto" Background="White">
+        <drugheader #objDrugHeaderTempRef Name="objDrugHeader" HorizontalAlignment="Stretch" Height="Auto" Margin="5,0,5,5"
+            [DataContext]="objDrugHeader._DataContext">
+        </drugheader>
+    </StackPanel> -->
+<kendo-gridlayout #LayoutRootTempRef Name="LayoutRoot" VerticalAlignment="Top" class="layoutMargin" [style.height.px]="maxScrollHeight" style="overflow-y: auto;">
+    <!--DrugHeader starts-->
+    <kendo-gridlayout-item [row]="1" [col]="1">
+        <div containerStyle>
+            <drugheader #objDrugHeaderTempRef Name="objDrugHeader" [DataContext]="objDrugHeader._DataContext"
+                Margin="5,0,5,5">
+            </drugheader>
+        </div>
+    </kendo-gridlayout-item>
+    <!--DrugHeader ends-->
+    <kendo-gridlayout [rows]="[{ height: 'auto'}]" [cols]="[{ width: 'auto'}]">
+        <kendo-gridlayout-item [row]='1' [col]='1'>
+            <div containerStyle>
+                <Border #brdSTATempRef class="borderbrdSTA" Name="brdSTA" [iStyle]="Styles.BorderFrame"  Height="290"
+                    CornerRadius="2" Margin="5,15,0,3">
+                        <StackPanel Margin="5,-12,229,0" Background="#E0EFF1FF" HorizontalAlignment="Left"
+                        Orientation="Vertical">
+                        <iLabel #lblBorderTempRef Name="lblBorder" HorizontalAlignment="Center"
+                            [Text]="GetResourceString('lblBorder_Text')" Foreground="#000000" Width="Auto" Height="15"
+                            Padding="3,0,3,0" Margin="0,3,0,0">
+                        </iLabel>
+                    </StackPanel>
+                    <div Background="#FFE0EFF1" Width="auto" HorizontalAlignment="Left">
+                        <kendo-gridlayout class="grid-layout-container" GridLayout
+                            [rows]="[ {height: '2'}, {height: '1fr'}]" [cols]="[ {width: 'auto'}]">
+                            <kendo-gridlayout-item [col]='1'>
+                                <kendo-gridlayout-item #lblBorderTempRef Background="#FFE0EF" Margin="5,-12,0,0"
+                                    Name="lblBorder" Foreground="#000000" Margin="0,0,0,2"></kendo-gridlayout-item>
+                                <kendo-gridlayout-item [col]='1'>
+                                    <div containerStyle>
+                                        <Border #lblBorderTempRef class="lblBorderMargin" Background="#FFFFFF" Name="lblBorder"#stpTV,tvwReinstateslotsTempRef Name="stpTV"
+                                        Orientation="Horizontal" Margin="5"  Height="270"  Width="374"
+                                        
+                                            [Text]="GetResourceString('lblBorder_Text')" Foreground="#000000"
+                                             BorderBrush="blue" BorderThickness="1">
+                                            <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="250"
+                                                MaxWidth="370" BorderThickness="0" HorizontalScrollBarVisibility="Disabled"
+                                            HorizontalAlignment="Left">
+                                            <StackPanel #stpTVTempRef Name="stpTV" Orientation="Horizontal" 
+                                                > 
+                                               
+                                                    <!-- <StackPanel #stpTV,tvwReinstateslotsTempRef Name="stpTV"
+                                                        Orientation="Horizontal" Margin="0" Background="Transparent"
+                                                        Height="Auto" Width="Auto" Height="264" Width="355"
+                                                        HorizontalAlignment="Stretch" Margin="0,0,0,5"> -->
+
+                                                        <iTreeView #tvwReinstateslotsTempRef HorizontalAlignment="Stretch"
+                                                            Margin="0,0,0,0" TabIndex="1"
+                                                        IsExpandOnSingleClickEnabled="True" Name="tvwReinstateslots"
+                                                        VerticalAlignment="Stretch" Height="185" MaxHeight="185"
+                                                        Width="367" Tooltip="Selected slots for omission">
+                                                    </iTreeView>
+                                                    <!-- </StackPanel> -->
+                                             
+                                        </StackPanel>
+                                    </ScrollViewer>
+                                        </Border>
+                                    </div>
+                                </kendo-gridlayout-item>
+                            </kendo-gridlayout-item>
+                        </kendo-gridlayout>
+                    </div>
+                </Border>
+                <div containerStyle class="checkboxcontainer">
+                <iCheckBox #chkReinstateAllTempRef Name="chkReinstateAll" HorizontalAlignment="Left" Width="auto"
+                    Margin="5,5,5,5" [(IsChecked)]="DataContext.IsChkReinstateAll"
+                    [Text]="GetResourceString('chkReinstateAll_text')"
+                    [Tooltip]="GetResourceString('chkReinstateAll_tooltipSource')" Height="21"
+                    Checked="chkReinstateAll_Checked" Unchecked="chkReinstateAll_UnChecked"
+                    [(IsEnabled)]="DataContext.IsReinstateAllEnable"></iCheckBox>
+                    </div>
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+
+    <div Height="Auto" Width="404">
+        <kendo-gridlayout class="grid-layout-container" GridLayout
+            [rows]="[{height: '85'}, {height: '25'}, {height: '5'}, {height: '5'}, {height: '50'}]"
+            [cols]="[{width: '100'},{width: '285'}]">
+            <iLabel #lblReinstatereasonTempRef Name="lblReinstatereason" Mandatory="True"
+                [Text]="GetResourceString('lblReinstatereason_Text')" Margin="0,10,0,-5" VerticalAlignment="Top"
+                Width="61" IsWordwrap="True" HorizontalAlignment="Left"></iLabel>
+            <!-- <kendo-gridlayout-item #txtReinstatereasonTempRef BorderBrush="#C2E2E3" BorderThickness="5" Height="Auto"
+                Width="286" HorizontalAlignment="Left" Margin="99,0,0,0" Name="txtReinstatereason" MaxLength="255"
+                Height="100" Width="276" AcceptsReturn="True" TabIndex="2" VerticalAlignment="Top" TextWrapping="Wrap">
+            </kendo-gridlayout-item> -->
+            <Border GridLayout [colSpan]='4' [rowSpan]='3'  BorderBrush="#C2E2E3" BorderThickness="5" Height="Auto" Width="290"
+                        HorizontalAlignment="Left"  Margin="100,-28,3,5">
+                        <iTextBox #txtReinstatereasonTempRef Name="txtReinstatereason" MaxLength="255" class="textAreaHeight"
+                        [(Text)]="DataContext.ReinstateReason"
+                        [Tooltip]="GetResourceString('txtReinstatereason_ToolTip')"
+                            Height="80" Width="280" AcceptsReturn="True" TabIndex="2" VerticalAlignment="Top"
+                            TextWrapping="Wrap">
+                        </iTextBox>
+                    </Border>
+
+            <!-- <Border GridLayout [colSpan]='4' [rowSpan]='3' #txtReinstatereasonTempRef BorderBrush="#C2E2E3" BorderThickness="5"
+                Height="Auto" Width="286" HorizontalAlignment="Left" Margin="105,-28,0,5" Height="84px">
+                <iTextBox Name="txtReinstatereason" MaxLength="255" [(Text)]="DataContext.ReinstateReason"
+                    [Tooltip]="GetResourceString('txtReinstatereason_ToolTip')" Height="84px" Width="276" AcceptsReturn="True"
+                    TabIndex="2" VerticalAlignment="Top" TextWrapping="Wrap" style="background: #FFFFFF;">
+                </iTextBox>
+            </Border> -->
+
+        </kendo-gridlayout>
+        <kendo-gridlayout-item [row]='3' [col]='2'>
+            <div containerStyle>
+                <Border [Background]="Styles.InnerBG" Margin="-2,0,0,0" Width="286" Height="5"></Border>
+            </div>
+        </kendo-gridlayout-item>
+        <kendo-gridlayout-item [row]='3' [col]='1' [colSpan]='4'>
+            <div containerStyle>
+                <Border [iStyle]="Styles.whiteBorder" Width="377" Margin="0"></Border>
+            </div>
+        </kendo-gridlayout-item>
+    </div>
+</kendo-gridlayout>
+<!-- </StackPanel> -->

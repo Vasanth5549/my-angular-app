@@ -1,0 +1,59 @@
+.horizontal-class-stretch{
+    display: grid;
+  }
+  .vertical-class-stretch{
+    height: 100%;
+  }
+  .div-bg-whiteborder {
+    border-top: 2px solid white;
+    background-color: #c2e2e3;
+}
+.div-bg {
+    background-color: #c2e2e3;
+}
+.div-whiteborder {
+    border-top: 2px solid white;
+}
+.div-dialog-content {
+    height: 370px;
+    padding: 10px; 
+    margin: -23px;
+}
+
+.labelClass{
+  height:20px;
+}
+
+.gridClass{
+  white-space: normal;
+  word-break: normal;
+}
+
+.labelSize{
+  height: 20px;
+  margin: 5px;
+}
+.stackSize{
+  height: 20px;
+}
+
+::ng-deep .doseInstruction-tooltip * {
+  max-width: 500px;
+  background-color: white;
+  color: black;
+  position: relative;
+}
+::ng-deep .doseInstruction-tooltip .k-callout {
+  display: none
+}
+::ng-deep .doseInstruction-tooltip.k-animation-container {
+  position: absolute;
+}
+
+.visibleOn{
+  visibility: visible;
+}
+
+.visibleOff{
+  visibility: hidden;
+}

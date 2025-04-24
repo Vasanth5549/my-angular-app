@@ -1,0 +1,10 @@
+.div-message {
+  height: 140px !important;
+  width: 393px;
+  border: 1px solid #77b3b4;
+  border-radius: 2px;
+  padding: 5px;
+  margin-left: -14px;
+  align-items: start !important;
+  overflow: auto !important;
+}

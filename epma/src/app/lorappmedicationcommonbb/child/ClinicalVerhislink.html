@@ -1,0 +1,72 @@
+<div class="grid-layout-container">
+    <kendo-gridlayout Name="LayoutRoot" Background="#FFE0EFF1" [rows]="[ { height: 0}, { height:'1fr' }]">
+        <kendo-gridlayout-item [row]='2' [col]="1">
+            <kendo-grid #grdAdminHistoryListTempRef [selectable]="{mode: 'single'}"
+                kendoGridSelectBy 
+                VerticalAlignment="Stretch" Visibility="Visible" [sortable]="false" [resizeable]="false"
+                 [reorderable]="true" [data]="grdAdminHistoryList.ItemsSource.array" [height]="350"  [(selectedKeys)]="grdAdminHistoryList.selectedRowsIndex">
+                <ng-template kendoGridNoRecordsTemplate>{{ NoRecordsText_Text }}
+                </ng-template>
+                <!-- extra column adding -->    
+             
+            <kendo-grid-column UniqueName="column" title=" " field="" [filterable]="false" [width]="25" [editable]="false">
+                <ng-template kendoGridCellTemplate let-dataItem  let-rowIndex="rowIndex">
+                  <Image  *ngIf="grdAdminHistoryList.selectedRowsIndex[0]==rowIndex"
+                    Source="assets/Images/iarrownor5x10.png"
+                    Width="6"
+                    Height="11">
+                </Image>
+                </ng-template>
+              </kendo-grid-column>
+                <kendo-grid-column UniqueName="ActionBy" title="Actioned by" field="Actionby" [filterable]="false" [width]="125" [style]="{'white-space':'pre-line','padding':'2px'}"
+                    [editable]="false">
+					<ng-template kendoGridHeaderTemplate let-column>
+                        <span title="Actioned by">{{ column.title }}</span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem>
+                        <span [title]="dataItem.Actionby ">{{ dataItem.Actionby }}</span>
+                    </ng-template>
+				</kendo-grid-column>
+                <kendo-grid-column UniqueName="ActionOn" title="Actioned on" field="ActionOn" [width]="125" [filterbale]="false" [style]="{'white-space':'pre-line','padding':'2px'}"
+                    [editable]="true">
+					<ng-template kendoGridHeaderTemplate let-column>
+                        <span title="Actioned on">{{ column.title }}</span>
+                    </ng-template>					  
+					<ng-template kendoGridCellTemplate let-dataItem>
+                        <span [title]="dataItem.ActionOn?.ToString('dd-MMM-yyyy HH:mm')">{{ dataItem.ActionOn?.ToString('dd-MMM-yyyy HH:mm') }}</span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex"
+                        let-columnIndex="columnIndex">
+                    <DataTemplate #temp
+                    [dataItem]="dataItem"
+                    [index]="rowIndex"
+                    [colindex] = "columnIndex">
+                            <iLabel #lblActionOnTempRef Name="lblActionOn" VerticalAlignment="Center" IsWordwrap="True"
+                        [DateTimeValue]="dataItem.ActionOn" 
+                            >
+                            </iLabel>
+                        </DataTemplate>
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column UniqueName="Status" title="Status" field="Status" [filterable]="false" [width]="125" [style]="{'white-space':'pre-line','padding':'2px'}"
+                    [editable]="false">
+					<ng-template kendoGridHeaderTemplate let-column>
+                        <span title="Status">{{ column.title }}</span>
+                    </ng-template>					  
+					<ng-template kendoGridCellTemplate let-dataItem>                        
+                        <span [title]="dataItem.Status ">{{ dataItem.Status }}</span>
+                    </ng-template>
+				</kendo-grid-column>
+                <kendo-grid-column UniqueName="Comments" title="Comments" field="Comments" [filterable]="false" [width]="147" [style]="{'white-space':'pre-line','padding':'2px'}"
+                    [editable]="false">
+					<ng-template kendoGridHeaderTemplate let-column>
+                        <span title="Comments">{{ column.title }}</span>
+                    </ng-template>					  
+					<ng-template kendoGridCellTemplate let-dataItem>                       
+                        <span [title]="dataItem.Comments ">{{ dataItem.Comments }}</span>
+                    </ng-template>
+				</kendo-grid-column>
+            </kendo-grid>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+</div>
