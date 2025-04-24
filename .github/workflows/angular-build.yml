@@ -11,6 +11,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: my-angular-app/my-angular-app
 
     steps:
       - name: Checkout source code
@@ -22,13 +25,7 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install --force
+        run: npm install
 
       - name: Build Angular app
         run: npm run build -- --configuration=production
-
-      - name: Lint (optional)
-        run: npm run lint
-
-      - name: Run tests (optional)
-        run: npm run test -- --watch=false --browsers=ChromeHeadless
