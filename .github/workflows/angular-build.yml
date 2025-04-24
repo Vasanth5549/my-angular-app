@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: my-angular-app/my-angular-app/epma
+        working-directory: my-angular-app/epma
 
     steps:
       - name: Checkout source code
