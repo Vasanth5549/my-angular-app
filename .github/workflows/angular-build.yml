@@ -11,24 +11,24 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: epma
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Show and save folder structure
+      - name: List entire repo structure
         run: |
-          ls -R ../ > ../repo-structure.txt
-          cat ../repo-structure.txt
+          ls -R > repo-structure.txt
+          cat repo-structure.txt
 
-      - name: Upload folder structure artifact
+      - name: Upload folder structure as artifact
         uses: actions/upload-artifact@v3
         with:
           name: folder-structure
-          path: ../repo-structure.txt
+          path: repo-structure.txt
+
+      - name: Set working directory to epma
+        run: echo "Switching to 'epma' folder"
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -37,12 +37,14 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: epma
 
       - name: Build Angular app
         run: npm run build -- --configuration=production
+        working-directory: epma
 
-      - name: Upload build output (optional)
+      - name: Upload Angular build output
         uses: actions/upload-artifact@v3
         with:
           name: angular-build-output
-          path: dist/
+          path: epma/dist/
