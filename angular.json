@@ -20,7 +20,7 @@
             "allowedCommonJsDependencies": [
               "xml2js"
             ],
-            "outputPath": "D:/LZO_ORBIS_INT_PROD/Product/IPPMA_P2/Angular/ePMA/output",
+            "outputPath": "C:/GIT/my-angular-app/my-angular-app/epma/output",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
